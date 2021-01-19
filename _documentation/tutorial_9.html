@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Computing Sobol’ (sensitivity) indices &#8212; equadratures</title>
+    <title>Surrogate-based design optimisation on Rosenbrock’s function &#8212; equadratures</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -39,8 +39,8 @@
     <link rel="shortcut icon" href="../_static/eq-logo-favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Active subspaces with polynomial approximations" href="tutorial_11.html" />
-    <link rel="prev" title="Sparse and tensor grid quadrature rules" href="tutorial_8.html" />
+    <link rel="next" title="Modules" href="modules.html" />
+    <link rel="prev" title="Adjoint/ gradient-enhanced surrogate modelling" href="tutorial_8.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
   </head>
@@ -123,73 +123,55 @@
           
             
                 <li class="">
-                    <a href="tutorial_1.html">Foundations I</a>
+                    <a href="tutorial_1.html">Foundations I: A parameter</a>
                 </li>
             
           
             
                 <li class="">
-                    <a href="tutorial_2.html">Generating univariate quadrature rules</a>
+                    <a href="tutorial_2.html">Foundations II: Orthogonal polynomials</a>
                 </li>
             
           
             
                 <li class="">
-                    <a href="tutorial_3.html">Constructing orthogonal polynomials</a>
+                    <a href="tutorial_3.html">Foundations III: Solving linear systems for polynomials</a>
                 </li>
             
           
             
                 <li class="">
-                    <a href="tutorial_4.html">Computing moments</a>
+                    <a href="tutorial_4.html">Uncertainty quantification in computational fluid dynamics</a>
                 </li>
             
           
             
                 <li class="">
-                    <a href="tutorial_5.html">Multi-index sets</a>
+                    <a href="tutorial_5.html">Uncertainty quantification with correlations</a>
                 </li>
             
           
             
                 <li class="">
-                    <a href="tutorial_6.html">Polynomial regression</a>
+                    <a href="tutorial_6.html">Sensitivity analysis for a piston model</a>
                 </li>
             
           
             
                 <li class="">
-                    <a href="tutorial_7.html">Bayesian polynomial regression</a>
+                    <a href="tutorial_7.html">Data-driven dimension reduction in turbomachinery</a>
                 </li>
             
           
             
                 <li class="">
-                    <a href="tutorial_8.html">Sparse and tensor grid quadrature rules</a>
+                    <a href="tutorial_8.html">Adjoint/ gradient-enhanced surrogate modelling</a>
                 </li>
             
           
             
                 <li class="active">
-                    <a href="">Computing Sobol’ (sensitivity) indices</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="tutorial_11.html">Active subspaces with polynomial approximations</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="tutorial_12.html">Polynomial variable projection</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="tutorial_17.html">Surrogate-based optimisation with polynomials</a>
+                    <a href="">Surrogate-based design optimisation on Rosenbrock’s function</a>
                 </li>
             
           
@@ -225,194 +207,178 @@
               
               <div>
                 
-  <div class="section" id="computing-sobol-sensitivity-indices">
-<h1>Computing Sobol’ (sensitivity) indices<a class="headerlink" href="#computing-sobol-sensitivity-indices" title="Permalink to this headline">¶</a></h1>
-<p>In many computational problems there are a few key inputs that actually dictate the state of the output. Computing the Sobol’ indices of the inputs is one approach to determine which inputs are the <em>drivers</em>. Typically computation of the Sobol’ indices involves a large number of samples – significantly more than required to get the variance in the data. However as shown in Blatman et al. [1], using orthogonal polynomials these can be computed with relative ease. In this notebook we demonstrate how we can compute these indices using effective quadratures.</p>
-<p>We consider the well-known piston problem from Kenett et al. [2] that is a non-linear, seven-dimensional problem that outputs the piston cycle time given various piston parameters. These parameters and their bounds are shown in the table below.</p>
-<table class="colwidths-given table" id="id4">
-<caption><span class="caption-text">Model input parameters for the piston problem.</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Variable</p></th>
-<th class="head"><p>Range</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>M</p></td>
-<td><p>[30, 60]</p></td>
-<td><p>Piston weight</p></td>
-</tr>
-<tr class="row-odd"><td><p>S</p></td>
-<td><p>[0.005, 0.0020]</p></td>
-<td><p>Surface area</p></td>
-</tr>
-<tr class="row-even"><td><p>V_0</p></td>
-<td><p>[0.002, 0.010]</p></td>
-<td><p>Initial gas volume</p></td>
-</tr>
-<tr class="row-odd"><td><p>k</p></td>
-<td><p>[1000,5000]</p></td>
-<td><p>Spring coefficient</p></td>
-</tr>
-<tr class="row-even"><td><p>P_0</p></td>
-<td><p>[90000, 110000]</p></td>
-<td><p>Atmospheric pressure</p></td>
-</tr>
-<tr class="row-odd"><td><p>T_a</p></td>
-<td><p>[290, 296]</p></td>
-<td><p>Ambient temperature</p></td>
-</tr>
-<tr class="row-even"><td><p>T_0</p></td>
-<td><p>[340, 360]</p></td>
-<td><p>Filling gas temperature</p></td>
-</tr>
-</tbody>
-</table>
-<p>The cycle time for the piston is given by</p>
+  <div class="section" id="surrogate-based-design-optimisation-on-rosenbrock-s-function">
+<h1>Surrogate-based design optimisation on Rosenbrock’s function<a class="headerlink" href="#surrogate-based-design-optimisation-on-rosenbrock-s-function" title="Permalink to this headline">¶</a></h1>
+<p><strong>Active Subspaces</strong></p>
+<p>The active subspace is defined as follows:</p>
+<p>Let <span class="math notranslate nohighlight">\(f(\mathbf{x})\)</span> be a scalar valued function <span class="math notranslate nohighlight">\(\mathbb{R}^n \rightarrow \mathbb{R}\)</span> with <span class="math notranslate nohighlight">\(\mathbf{x} \in \mathbb{R}^{n}\)</span>. Here <span class="math notranslate nohighlight">\(f(\mathbf{x})\)</span> represents the chosen quantity of interest and <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> represents the design parameters. Consider the approximation</p>
 <div class="math notranslate nohighlight">
-\[C=2\pi\sqrt{\frac{M}{k+S^{2}\frac{P_{0}V_{0}T_{a}}{T_{0}V^{2}}}},\]</div>
-<p>where</p>
+\[\begin{equation}
+f(\mathbf{x}) \approx g( \mathbf{U}^T \mathbf{x}),
+\label{equ_active}
+\end{equation}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathbf{U} \in \mathbb{R}^{k \times n}\)</span>, with <span class="math notranslate nohighlight">\(k &lt;&lt; n\)</span>. Ideally we would like <span class="math notranslate nohighlight">\(k = 1\)</span> or <span class="math notranslate nohighlight">\(2\)</span> for facilitating subsequent visualisation. The matrix <span class="math notranslate nohighlight">\(\mathbf{U}\)</span> represents the <em>active subspace</em> and its null space represents the <em>inactive subspace</em>. Essentially, the function tends to be well approximated via the map <span class="math notranslate nohighlight">\(g\)</span> on the active subspace.</p>
+<p>Numerous ideas for finding active subspaces in computer experiments can be found in the work of Constantine [1]. The idea is to express the kernel matrix as the expectation of the outer product of gradients of <span class="math notranslate nohighlight">\(f\)</span></p>
 <div class="math notranslate nohighlight">
-\[V=\frac{S}{2k}\left(\sqrt{A^{2}+4k\frac{P_{0}V_{0}}{T_{0}}T_{a}}-A\right),\]</div>
-<p>and <span class="math notranslate nohighlight">\(A=P_{0}S+19.62M-\frac{kV_{0}}{S}\)</span>. The estimated <em>unnormalized</em> Sobol’ indices (denoted <span class="math notranslate nohighlight">\(\tau_i^2\)</span>) from Kenett et al. [2] are given to be:</p>
-<table class="colwidths-given table" id="id5">
-<caption><span class="caption-text">Unnormalized Sobol’ indices (see [3] for further details).</span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
-<colgroup>
-<col style="width: 22%" />
-<col style="width: 11%" />
-<col style="width: 11%" />
-<col style="width: 11%" />
-<col style="width: 11%" />
-<col style="width: 11%" />
-<col style="width: 11%" />
-<col style="width: 11%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"></th>
-<th class="head"><p>M</p></th>
-<th class="head"><p>S</p></th>
-<th class="head"><p>V_0</p></th>
-<th class="head"><p>k</p></th>
-<th class="head"><p>P_0</p></th>
-<th class="head"><p>T_a</p></th>
-<th class="head"><p>T_0</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(10^2 \tau^{2} \; \text{indices}\)</span></p></td>
-<td><p>0.073</p></td>
-<td><p>1.088</p></td>
-<td><p>0.626</p></td>
-<td><p>0.040</p></td>
-<td><p>0.001</p></td>
-<td><p>-0.002</p></td>
-<td><p>-0.002</p></td>
-</tr>
-</tbody>
-</table>
-<p>These values measure the effect of varying each of the 7 input parameters on the output, the piston cycle time <span class="math notranslate nohighlight">\(C\)</span>. Dividing these values by the variance of the output gives the normalised Sobol’ indices. For example, the first order normalised Sobol’ index for the <span class="math notranslate nohighlight">\(i^{th}\)</span> input parameter is</p>
+\[\begin{equation}
+\textbf{K}=\int \nabla_{\mathbf{x}} f(\mathbf{x})\nabla_{\mathbf{x}} f(\mathbf{x})^{T} \rho (\mathbf{x}) d \mathbf{x} ,
+\label{equ_as}
+\end{equation}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\rho(\mathbf{x})\)</span> is the density of the inputs <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> over its parameter space. A heuristic for estimating the kernel via finite point samples <span class="math notranslate nohighlight">\(N\)</span> is described below:</p>
+<ol class="arabic simple">
+<li><p>For <span class="math notranslate nohighlight">\(N\)</span> samples drawn randomly from a distribution <span class="math notranslate nohighlight">\(\rho(\mathbf{x})\)</span> calculate the sample kernel matrix:</p></li>
+</ol>
 <div class="math notranslate nohighlight">
-\[S_i = \frac{\tau_i^2}{\sigma^2}\]</div>
-<p>See Section 2.2 in [3] for further details. We wish to use Effective Quadratures to compute these values for the piston problem.</p>
+\[\begin{equation}
+\hat{\textbf{K}}=\frac{1}{N} \sum_{i=1}^{N}(\nabla_{\mathbf{x}} f(\mathbf{x}_i))(\nabla_{\mathbf{x}} f(\mathbf{x}_i)^{T})\,;
+\end{equation}\]</div>
+<ol class="arabic simple" start="2">
+<li><p>Compute the eigendecomposition of <span class="math notranslate nohighlight">\(\hat{\textbf{K}}\)</span> and select the eigenvectors with largest eigenvalues to form a matrix <span class="math notranslate nohighlight">\(\mathbf{U}\)</span> with orthogonal columns.</p></li>
+</ol>
+<p><strong>Polynomial Active Subspaces</strong></p>
+<p>In many cases gradient information is not available. Therefore, assumptions on the model are necessary to overcome this obstacle. A good assumption would be that the model is a polynomial, as the polynomials are easy to calculate and their gradients can be derived analytically. One can express a polynomial as a linear combination of a number of polynomial basis terms</p>
+<div class="math notranslate nohighlight">
+\[\begin{equation}
+f(\mathbf{x}) \approx h(\mathbf{x})=\sum_{j=1}^N a_j \phi_j(\mathbf{x})\,,
+\end{equation}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\phi_j(\mathbf{x})\)</span> is a multivariate polynomial basis term of a certain mixed degree and <span class="math notranslate nohighlight">\(a_j\)</span> is the corresponding coefficient. Then the gradient can be expressed as the sum of the derivatives of the polynomials.</p>
+<div class="math notranslate nohighlight">
+\[\begin{equation}
+\nabla_{\mathbf{x}}f(\mathbf{x}) \approx \nabla_{\mathbf{x}}h(\mathbf{x})=\sum_{j=1}^N a_j \phi_j'(\mathbf{x})\,.
+\end{equation}\]</div>
+<p>To construct the polynomial basis terms <span class="math notranslate nohighlight">\(\phi(\mathbf{x})\)</span> , one only needs to know the number of dimensions and the polynomial degree.</p>
+<p><strong>A 2-degree Polynomial Model for Dimension Reduction</strong></p>
+<p>If the polynomial degree is set as 2, then the polynomial bases would include all linear terms <span class="math notranslate nohighlight">\(\phi(\mathbf{x})=x_i\)</span>, all squared terms <span class="math notranslate nohighlight">\(\phi(\mathbf{x})=x_i^2\)</span> and all cross terms <span class="math notranslate nohighlight">\(\phi(\mathbf{x})=x_i x_j\)</span>.</p>
+<p>One can fit a polynomial to the dataset using least squares with sample input/output pairs. This idea was leveraged in [2] to find <span class="math notranslate nohighlight">\(\mathbf{U}\)</span> and is detailed below. The goal here is to use least squares to fit the dataset to the following form</p>
+<div class="math notranslate nohighlight">
+\[\begin{equation}
+y=f(\mathbf{x})=\frac{1}{2}\mathbf{x} ^{T} \mathbf{A}\mathbf{x} + \textbf{c}^{T}\mathbf{x} +d\,,
+\label{quadraticeqn}
+\end{equation}\]</div>
+<p>therefore the gradient of the function can be expressed as</p>
+<div class="math notranslate nohighlight">
+\[\begin{equation}
+\nabla_{\mathbf{x}}f(\mathbf{x})= \mathbf{A} \mathbf{x}+\textbf{c}\,.
+\end{equation}\]</div>
+<p>Then a set of equations can be formulated using each data point:</p>
+<div class="math notranslate nohighlight">
+\[\begin{equation}
+\frac{1}{2} \sum_{i=1,j=1}^{m,m}a_{ij}x_ix_j+\sum_{j=1}^{m}c_jx_j+d=y\,;
+\end{equation}\]</div>
+<p>All <span class="math notranslate nohighlight">\(a_{ij}\)</span> along with <span class="math notranslate nohighlight">\(\textbf{c}\)</span> and <span class="math notranslate nohighlight">\(d\)</span> are obtained by solving for the least squares solution, where <span class="math notranslate nohighlight">\(a_{ij}\)</span> are the entries of the matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> and <span class="math notranslate nohighlight">\(c_j\)</span> are the entries of the vector <span class="math notranslate nohighlight">\(\textbf{c}\)</span>. Finally, the estimated kernel is given by</p>
+<div class="math notranslate nohighlight">
+\[\begin{equation}
+\hat{\textbf{K}}=\frac{1}{N}\sum_{i=1}^N(A\mathbf{x}_i+\textbf{c})(A\mathbf{x}_i+\textbf{c})^{T}\,.
+\end{equation}\]</div>
+<p>The last step of selecting eigenvectors is done by carrying out an eigendecomposition on the kernel matrix (symmetric).</p>
+<div class="math notranslate nohighlight">
+\[\begin{equation}
+\hat{\mathbf{K}}= \mathbf{W \Lambda W}^{T},
+\end{equation}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathbf{W}\)</span> contains all eigenvectors and <span class="math notranslate nohighlight">\(\Lambda\)</span> is the diagonal matrix of all corresponding eigenvalues, which are assumed to be sorted in descending order. The eigenvectors and eigenvalues can then be partitioned</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{equation}
+\mathbf{W}=\left[\begin{array}{cc}
+\mathbf{U}_{\text{active}} &amp; \mathbf{U}_{\text{inactive}}\end{array}\right] \; \; \; \mathbf{\Lambda}=\left[\begin{array}{cc}
+\mathbf{\Lambda_{\text{active}} }\\
+ &amp; \mathbf{\Lambda_{\text{inactive}} }
+\end{array}\right]
+\end{equation}\end{split}\]</div>
+<p>based on a <em>suitable cut-off criterion</em> —usually the magnitude of the eigenvalues.</p>
+<p>As most of the variation in <span class="math notranslate nohighlight">\(f\)</span> happens with changes in <span class="math notranslate nohighlight">\(\mathbf{U}_{active}^T \mathbf{x}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{equation}
+f \left(\mathbf{x}\right) \approx g\left(\mathbf{U}_\text{active}^T\mathbf{x} \right)\text{ while }f\left( \mathbf{U}_\text{inactive} \mathbf{U}_\text{inactive}^T \mathbf{x} \right) \approx 0,
+\end{equation}\]</div>
+<p>where <span class="math notranslate nohighlight">\(g\)</span> is a lower dimensional function.</p>
+<p><strong>Code Implementation</strong></p>
+<p>We look at a compressor fan design problem. The 25 design variables can be viewed as inputs to the function, where the CFD efficiency of the blade design is seen as the output. Now we attempt to use a 2-degree polynomial active subspace model to reach dimension reduction and find a 2D active subspace.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">equadratures</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.spatial</span> <span class="kn">import</span> <span class="n">ConvexHull</span><span class="p">,</span> <span class="n">convex_hull_plot_2d</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">axes3d</span>
 </pre></div>
 </div>
-<p>As before, we begin by defining each parameter and its range using four points for each variable.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">order_parameters</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="n">mass</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">lower</span><span class="o">=</span><span class="mf">30.0</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mf">60.0</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order_parameters</span><span class="p">)</span>
-<span class="n">area</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">lower</span><span class="o">=</span><span class="mf">0.005</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mf">0.020</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order_parameters</span><span class="p">)</span>
-<span class="n">volume</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">lower</span><span class="o">=</span><span class="mf">0.002</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mf">0.010</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order_parameters</span><span class="p">)</span>
-<span class="n">spring</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">lower</span><span class="o">=</span><span class="mf">1000.</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mf">5000.</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order_parameters</span><span class="p">)</span>
-<span class="n">pressure</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">lower</span><span class="o">=</span><span class="mf">90000.</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mf">110000.</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order_parameters</span><span class="p">)</span>
-<span class="n">ambtemp</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">lower</span><span class="o">=</span><span class="mf">290.</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mf">296.</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order_parameters</span><span class="p">)</span>
-<span class="n">gastemp</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">lower</span><span class="o">=</span><span class="mf">340.</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mf">360.</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order_parameters</span><span class="p">)</span>
-<span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span><span class="n">mass</span><span class="p">,</span> <span class="n">area</span><span class="p">,</span> <span class="n">volume</span><span class="p">,</span> <span class="n">spring</span><span class="p">,</span> <span class="n">pressure</span><span class="p">,</span> <span class="n">ambtemp</span><span class="p">,</span> <span class="n">gastemp</span><span class="p">]</span>
-
-<span class="k">def</span> <span class="nf">piston</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-        <span class="n">mass</span><span class="p">,</span> <span class="n">area</span><span class="p">,</span> <span class="n">volume</span><span class="p">,</span> <span class="n">spring</span><span class="p">,</span> <span class="n">pressure</span><span class="p">,</span> <span class="n">ambtemp</span><span class="p">,</span> <span class="n">gastemp</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span>
-        <span class="n">A</span> <span class="o">=</span> <span class="n">pressure</span> <span class="o">*</span> <span class="n">area</span> <span class="o">+</span> <span class="mf">19.62</span><span class="o">*</span><span class="n">mass</span> <span class="o">-</span> <span class="p">(</span><span class="n">spring</span> <span class="o">*</span> <span class="n">volume</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">*</span> <span class="n">area</span><span class="p">)</span>
-        <span class="n">V</span> <span class="o">=</span> <span class="p">(</span><span class="n">area</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">spring</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">A</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="n">spring</span> <span class="o">*</span> <span class="n">pressure</span> <span class="o">*</span> <span class="n">volume</span> <span class="o">*</span> <span class="n">ambtemp</span><span class="o">/</span><span class="n">gastemp</span><span class="p">)</span> <span class="o">-</span> <span class="n">A</span><span class="p">)</span>
-        <span class="n">C</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mass</span><span class="o">/</span><span class="p">(</span><span class="n">spring</span> <span class="o">+</span> <span class="n">area</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">pressure</span> <span class="o">*</span> <span class="n">volume</span> <span class="o">*</span> <span class="n">ambtemp</span><span class="o">/</span><span class="p">(</span><span class="n">gastemp</span> <span class="o">*</span> <span class="n">V</span><span class="o">**</span><span class="mi">2</span><span class="p">)))</span>
-        <span class="k">return</span> <span class="n">C</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;../data/design_parameters.dat&#39;</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;../data/non_dimensionalized_efficiency.dat&#39;</span><span class="p">)</span>
+<span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Normalised efficiency&#39;</span>
 </pre></div>
 </div>
-<p>We will opt for a total order basis set with qr subsampling!</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mybasis</span> <span class="o">=</span> <span class="n">Basis</span><span class="p">(</span><span class="s1">&#39;total-order&#39;</span><span class="p">)</span>
-<span class="n">mypoly</span>  <span class="o">=</span> <span class="n">Poly</span><span class="p">(</span><span class="n">parameters</span><span class="p">,</span> <span class="n">mybasis</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;least-squares&#39;</span><span class="p">,</span><span class="n">sampling_args</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;mesh&#39;</span><span class="p">:</span><span class="s1">&#39;tensor-grid&#39;</span><span class="p">,</span> <span class="s1">&#39;subsampling-algorithm&#39;</span><span class="p">:</span><span class="s1">&#39;qr&#39;</span><span class="p">,</span> <span class="s1">&#39;sampling-ratio&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">})</span>
+<p>This dataset contains 554 pairs of inputs (designs of blades) and outputs (CFD-evaluataed efficiency). The dimension of inputs is 25 (25D design space). All input vectors are in X , while the outputs are in y.</p>
+<p>The first order of business is to construct a global quadratic model</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">lower</span><span class="o">=-</span><span class="mf">1.</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">myparameters</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">25</span><span class="p">)]</span>
+<span class="n">mybasis</span> <span class="o">=</span> <span class="n">Basis</span><span class="p">(</span><span class="s1">&#39;total-order&#39;</span><span class="p">)</span>
+<span class="n">mypoly</span> <span class="o">=</span> <span class="n">Poly</span><span class="p">(</span><span class="n">parameters</span><span class="o">=</span><span class="n">myparameters</span><span class="p">,</span> <span class="n">basis</span><span class="o">=</span><span class="n">mybasis</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;least-squares&#39;</span><span class="p">,</span> \
+      <span class="n">sampling_args</span><span class="o">=</span> <span class="p">{</span><span class="s1">&#39;mesh&#39;</span><span class="p">:</span> <span class="s1">&#39;user-defined&#39;</span><span class="p">,</span> <span class="s1">&#39;sample-points&#39;</span><span class="p">:</span> <span class="n">X</span><span class="p">,</span> <span class="s1">&#39;sample-outputs&#39;</span><span class="p">:</span> <span class="n">y</span><span class="p">})</span>
+<span class="n">mypoly</span><span class="o">.</span><span class="n">set_model</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Now (and this is the important part), we wish to ascertain how many model evaluations will be required for computing these sensitivities. The objective is for these to be orders of magnitude lower than other methods for computing Sobol’ indices.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">mypoly</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">cardinality</span><span class="p">)</span>
-<span class="o">&gt;&gt;</span> <span class="mi">120</span>
+<p>Next, we compute the active subspace</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mysubspace</span> <span class="o">=</span> <span class="n">Subspaces</span><span class="p">(</span><span class="n">full_space_poly</span><span class="o">=</span><span class="n">mypoly</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;active-subspace&#39;</span><span class="p">)</span>
+<span class="n">W</span> <span class="o">=</span> <span class="n">mysubspace</span><span class="o">.</span><span class="n">get_subspace</span><span class="p">()</span>
+<span class="n">e</span> <span class="o">=</span> <span class="n">mysubspace</span><span class="o">.</span><span class="n">get_eigenvalues</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Excellent! So the number of model evaluations we will require is 120! Now lets compute the coefficients and get the Sobol indices to ascertain which of the variables above are the most important.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mypoly</span><span class="o">.</span><span class="n">set_model</span><span class="p">(</span><span class="n">piston</span><span class="p">)</span>
-<span class="n">mean</span><span class="p">,</span> <span class="n">var</span> <span class="o">=</span> <span class="n">mypoly</span><span class="o">.</span><span class="n">get_mean_and_variance</span><span class="p">()</span>
-<span class="n">sobol</span> <span class="o">=</span> <span class="n">mypoly</span><span class="o">.</span><span class="n">get_sobol_indices</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<p>and plot the eigenvalues to determine how many <em>active</em> variables we require.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Eigenvalues (log-scale)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Design parameters&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>For the <em>unnormalised</em> Sobol’ indices we obtain</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">parameters</span><span class="p">)):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">sobol</span><span class="p">[(</span><span class="n">i</span><span class="p">,)])</span> <span class="o">*</span> <span class="mi">10</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">var</span><span class="p">)</span>
-
-      <span class="o">&gt;&gt;</span> <span class="mf">0.0790729230512</span>
-      <span class="o">&gt;&gt;</span> <span class="mf">1.04006909416</span>
-      <span class="o">&gt;&gt;</span> <span class="mf">0.570479600289</span>
-      <span class="o">&gt;&gt;</span> <span class="mf">0.047655149298</span>
-      <span class="o">&gt;&gt;</span> <span class="mf">0.00307211809197</span>
-      <span class="o">&gt;&gt;</span> <span class="mf">5.74465327578e-05</span>
-      <span class="o">&gt;&gt;</span> <span class="mf">0.00180048511613</span>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../_images/tutorial_11_fig_a.png"><img alt="../_images/tutorial_11_fig_a.png" src="../_images/tutorial_11_fig_a.png" style="width: 393.59999999999997px; height: 232.2px;" /></a>
+</div>
+<p>We can then project all the samples we have within the design space onto the first few dimensions of the active subspace.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">true_dimensions</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">u</span> <span class="o">=</span> <span class="n">X</span> <span class="o">@</span> <span class="n">W</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="n">true_dimensions</span><span class="p">]</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">u</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gold&#39;</span><span class="p">,</span> <span class="n">markeredgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;u&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>which are similar to the values obtained by Owen. Next, we plot the <em>normalized</em> Sobol’ indices with the code below.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">data_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.10</span> <span class="o">+</span> <span class="mi">1</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sobol</span><span class="p">)):</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">sobol</span><span class="p">[(</span><span class="n">i</span><span class="p">,)],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;steelblue&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_axisbelow</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="c1">#adjust_spines(ax, [&#39;left&#39;, &#39;bottom&#39;])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Parameters&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;First order Sobol&#39; indices&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<span class="n">xTickMarks</span> <span class="o">=</span> <span class="p">[</span><span class="sa">r</span><span class="s1">&#39;$M$&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$S$&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$V_0$&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$k$&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$P_0$&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$T_a$&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$T_0$&#39;</span><span class="p">]</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">data_1</span><span class="o">+</span><span class="mf">0.10</span><span class="p">)</span>
-<span class="n">xtickNames</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">xTickMarks</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">xtickNames</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;../Figures/tutorial_9_fig_a.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">,</span><span class="n">pad_inches</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../_images/tutorial_11_fig_b.png"><img alt="../_images/tutorial_11_fig_b.png" src="../_images/tutorial_11_fig_b.png" style="width: 390.9px; height: 232.2px;" /></a>
+</div>
+<p>And for two dimensions</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">true_dimensions</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">u</span> <span class="o">=</span> <span class="n">X</span> <span class="o">@</span> <span class="n">W</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="n">true_dimensions</span><span class="p">]</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">u</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">u</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;u1&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;u2&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure align-default" id="id6">
-<a class="reference internal image-reference" href="../_images/tutorial_9_fig_a.png"><img alt="../_images/tutorial_9_fig_a.png" src="../_images/tutorial_9_fig_a.png" style="width: 738.4000000000001px; height: 546.4px;" /></a>
-<p class="caption"><span class="caption-text">Figure. First order Sobol’ indices for the piston problem.</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../_images/tutorial_11_fig_c.png"><img alt="../_images/tutorial_11_fig_c.png" src="../_images/tutorial_11_fig_c.png" style="width: 476.7px; height: 474.0px;" /></a>
 </div>
-<p>We can also obtain higher order Sobol indices, which tell us about the importance of interaction between input parameters. For example, for the <span class="math notranslate nohighlight">\(2^{nd}\)</span> order indices:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sobol_2nd</span> <span class="o">=</span> <span class="n">mypoly</span><span class="o">.</span><span class="n">get_sobol_indices</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">sobol_2nd</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="s1">&#39;Parameter numbers: &#39;</span><span class="p">)</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">key</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;, Sobol&#39; index value: &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+<p>Finally, we can also compute the zonotope associated with the 2D projection.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">X</span> <span class="o">@</span> <span class="n">W</span><span class="p">[:,</span><span class="mi">0</span><span class="p">:</span><span class="n">true_dimensions</span><span class="p">]</span>
+<span class="n">pts</span> <span class="o">=</span> <span class="n">mysubspace</span><span class="o">.</span><span class="n">get_zonotope_vertices</span><span class="p">()</span>
+<span class="n">hull</span> <span class="o">=</span> <span class="n">ConvexHull</span><span class="p">(</span><span class="n">pts</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">z</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gold&#39;</span><span class="p">,</span> <span class="n">markeredgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">simplex</span> <span class="ow">in</span> <span class="n">hull</span><span class="o">.</span><span class="n">simplices</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pts</span><span class="p">[</span><span class="n">simplex</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">pts</span><span class="p">[</span><span class="n">simplex</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;k-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>This concludes this notebook on the computation of Sobol’ indices. The full source code for this tutorial can be found <a class="reference external" href="https://github.com/Effective-Quadratures/Effective-Quadratures/blob/master/source/_documentation/codes/tutorial_9.py">here</a>.</p>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../_images/tutorial_11_fig_d.png"><img alt="../_images/tutorial_11_fig_d.png" src="../_images/tutorial_11_fig_d.png" style="width: 548.6999999999999px; height: 400.8px;" /></a>
+</div>
+<p>The full source code for this tutorial can be found <a class="reference external" href="https://github.com/Effective-Quadratures/Effective-Quadratures/blob/master/source/_documentation/codes/tutorial_11.py">here.</a></p>
 <p><strong>References</strong></p>
-<dl class="footnote brackets">
-<dt class="label" id="id1"><span class="brackets">1</span></dt>
-<dd><p>Blatman, G., and Bruno S., (2011) Adaptive sparse polynomial chaos expansion based on least angle regression. Journal of Computational Physics 230.6 (2011): 2345-2367.</p>
-</dd>
-<dt class="label" id="id2"><span class="brackets">2</span></dt>
-<dd><p>Kenett, R., Shelemyahu Z., and Daniele A., (2013) Modern Industrial Statistics: with applications in R, MINITAB and JMP. John Wiley &amp; Sons.</p>
-</dd>
-<dt class="label" id="id3"><span class="brackets">3</span></dt>
-<dd><p>Owen, A. B., Dick, J. and Chen, S., (2014) Higher order Sobol’ indices. Information and Inference 3.1 (2014): 59-81.</p>
-</dd>
-</dl>
+<ul class="simple">
+<li><p>Constantine, P. G. (2015) Active subspaces: Emerging ideas for dimension reduction in parameter studies, Volume 2, SIAM, 2015.</p></li>
+<li><p>Seshadri, P., Shahpar, S., Constantine, P., Parks, G., Adams, M. (2018) Turbomachinery active subspace performance maps. Journal of Turbomachinery, 140(4), 041003. <a class="reference external" href="http://turbomachinery.asmedigitalcollection.asme.org/article.aspx?articleid=2668256">Paper</a></p></li>
+</ul>
 </div>
 
 

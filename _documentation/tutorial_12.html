@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Polynomial variable projection &#8212; equadratures</title>
+    <title>Flow-field estimation using vector-valued polynomial ridge approximations &#8212; equadratures</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -39,8 +39,8 @@
     <link rel="shortcut icon" href="../_static/eq-logo-favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Surrogate-based optimisation with polynomials" href="tutorial_17.html" />
-    <link rel="prev" title="Active subspaces with polynomial approximations" href="tutorial_11.html" />
+    <link rel="next" title="Modules" href="modules.html" />
+    <link rel="prev" title="Time-series remaining useful life prediction with spatio-temporal polynomials" href="tutorial_11.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
   </head>
@@ -123,73 +123,73 @@
           
             
                 <li class="">
-                    <a href="tutorial_1.html">Foundations I</a>
+                    <a href="tutorial_1.html">Foundations I: A parameter</a>
                 </li>
             
           
             
                 <li class="">
-                    <a href="tutorial_2.html">Generating univariate quadrature rules</a>
+                    <a href="tutorial_2.html">Foundations II: Orthogonal polynomials</a>
                 </li>
             
           
             
                 <li class="">
-                    <a href="tutorial_3.html">Constructing orthogonal polynomials</a>
+                    <a href="tutorial_3.html">Foundations III: Solving linear systems for polynomials</a>
                 </li>
             
           
             
                 <li class="">
-                    <a href="tutorial_4.html">Computing moments</a>
+                    <a href="tutorial_4.html">Uncertainty quantification in computational fluid dynamics</a>
                 </li>
             
           
             
                 <li class="">
-                    <a href="tutorial_5.html">Multi-index sets</a>
+                    <a href="tutorial_5.html">Uncertainty quantification with correlations</a>
                 </li>
             
           
             
                 <li class="">
-                    <a href="tutorial_6.html">Polynomial regression</a>
+                    <a href="tutorial_6.html">Sensitivity analysis for a piston model</a>
                 </li>
             
           
             
                 <li class="">
-                    <a href="tutorial_7.html">Bayesian polynomial regression</a>
+                    <a href="tutorial_7.html">Data-driven dimension reduction in turbomachinery</a>
                 </li>
             
           
             
                 <li class="">
-                    <a href="tutorial_8.html">Sparse and tensor grid quadrature rules</a>
+                    <a href="tutorial_8.html">Adjoint/gradient-enhanced surrogate modelling</a>
                 </li>
             
           
             
                 <li class="">
-                    <a href="tutorial_9.html">Computing Sobol’ (sensitivity) indices</a>
+                    <a href="tutorial_9.html">Surrogate-based design optimisation on Rosenbrock’s function</a>
                 </li>
             
           
             
                 <li class="">
-                    <a href="tutorial_11.html">Active subspaces with polynomial approximations</a>
+                    <a href="tutorial_10.html">Machine learning California housing with interpretable polynomial trees</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="tutorial_11.html">Time-series remaining useful life prediction with spatio-temporal polynomials</a>
                 </li>
             
           
             
                 <li class="active">
-                    <a href="">Polynomial variable projection</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="tutorial_17.html">Surrogate-based optimisation with polynomials</a>
+                    <a href="">Flow-field estimation using vector-valued polynomial ridge approximations</a>
                 </li>
             
           
@@ -225,133 +225,130 @@
               
               <div>
                 
-  <div class="section" id="polynomial-variable-projection">
-<h1>Polynomial variable projection<a class="headerlink" href="#polynomial-variable-projection" title="Permalink to this headline">¶</a></h1>
-<p>The variable projection method has been used for solving separable non-linear least squares problems for the past few decades [1]. The general idea is to minimise the residual of a non-linear fitting. Given a set of observations, the model is a linear combination of non-linear functions that depends on multiple parameters. In this tutorial the idea of variable projection is applied to ridge approximation for dimension reduction purposes. Here the algorithm is built on the idea proposed by Hokanson et al. [2].</p>
-<p><strong>Theory</strong></p>
-<p>For a function with inputs and outputs, variable projection approximates the outputs <span class="math notranslate nohighlight">\(y_i\)</span> with polynomials</p>
+  <div class="section" id="flow-field-estimation-using-vector-valued-polynomial-ridge-approximations">
+<h1>Flow-field estimation using vector-valued polynomial ridge approximations<a class="headerlink" href="#flow-field-estimation-using-vector-valued-polynomial-ridge-approximations" title="Permalink to this headline">¶</a></h1>
+<p>In some applications, we may be interested in the approximation of vector-valued objectives. This allows us to study the dimension reducing subspaces of multiple scalar objectives, such as the lift and drag of an airfoil simultaneously. Alternatively, we may be interested in the discretized pressure profile over this airfoil. With an approach that extends the technique of <a class="reference external" href="https://effective-quadratures.github.io/Effective-Quadratures/_documentation/tutorial_11.html">active subspaces</a>, and the closely related ridge approximation, we can find subspaces within which the greatest variation of the vector-valued function will be contained. In other words, for a function <span class="math notranslate nohighlight">\(\mathbf{f}(\mathbf{x}): \mathbb{R}^d \rightarrow \mathbb{R}^n\)</span>, we want to find a ridge approximation</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{align*}
-y_i  &amp; = f(\boldsymbol{x}_i) \\
-&amp; \approx g(\mathbf{U}^T\boldsymbol{x}_i) \\
-&amp; =\sum_j a_j\phi_j(\mathbf{U}^T\boldsymbol{x}_i),
-\end{align*}\end{split}\]</div>
-<p><span class="math notranslate nohighlight">\(\phi_j(\mathbf{U}^T\boldsymbol{x}_i)\)</span> are polynomial basis terms;
-<span class="math notranslate nohighlight">\(a_j\)</span> are their coefficients.</p>
-<p>The residual is then given by</p>
+\[\mathbf{f}(\mathbf{x}) \approx \mathbf{g}( \mathbf{U}^T \mathbf{x}),\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathbf{U} \in \mathbb{R}^{k \times d}\)</span> with <span class="math notranslate nohighlight">\(k \ll d\)</span>. In Effective Quadratures, we base our approach on Zahm et al. [1] and study the vector gradient covariance matrix. Let us define the Jacobian matrix as</p>
 <div class="math notranslate nohighlight">
-\[\begin{equation}
-r_i(\mathbf{U})=y_i-\sum_j a_j\phi_j(\mathbf{U}^T\boldsymbol{x}_i).
-\end{equation}\]</div>
-<p>Re-writing this in matrix form,</p>
+\[\mathbf{J}(\mathbf{x}) = \left[\frac{\partial f_1}{\partial \mathbf{x}} , \frac{\partial f_2}{\partial \mathbf{x}} ,..., \frac{\partial f_n}{\partial \mathbf{x}} \right],\]</div>
+<p>where <span class="math notranslate nohighlight">\(f_i\)</span> is the <span class="math notranslate nohighlight">\(i\)</span>-th output component of <span class="math notranslate nohighlight">\(\mathbf{f}\)</span>. This matrix is constructed by stacking together the gradient vectors <span class="math notranslate nohighlight">\(\frac{\partial f_i}{\partial \mathbf{x}}\)</span>.</p>
+<p>So, how are the gradients evaluated? Assuming that automatic differentiation utilities or adjoints are not available, we can adopt an approach similar to that detailed in the <a class="reference external" href="https://effective-quadratures.github.io/Effective-Quadratures/_documentation/tutorial_11.html">active subspaces tutorial</a> , and assume that each <span class="math notranslate nohighlight">\(f_i\)</span> has already been approximated as a polynomial series,</p>
 <div class="math notranslate nohighlight">
-\[\begin{equation}
-\mathbf{r(U)}=\mathbf{y}-\mathbf{V(U)}\mathbf{a},
-\end{equation}\]</div>
-<p><span class="math notranslate nohighlight">\(r_i(\mathbf{U})\)</span> are entries of <span class="math notranslate nohighlight">\(\mathbf{r(U)}\)</span>;
-<span class="math notranslate nohighlight">\(y_i\)</span> are entries of <span class="math notranslate nohighlight">\(\mathbf{y}\)</span>;
-<span class="math notranslate nohighlight">\(\phi_j(\mathbf{U}^T\boldsymbol{x}_i)\)</span> are entries of Vandermonde matrix <span class="math notranslate nohighlight">\(\mathbf{V(U)}\)</span>;
-<span class="math notranslate nohighlight">\(a_j\)</span> are entries of <span class="math notranslate nohighlight">\(\mathbf{a}\)</span>.</p>
-<p>The Vandermonde matrix contains all polynomial terms <span class="math notranslate nohighlight">\(\phi_j\)</span>.</p>
+\[f_i(\mathbf{x}) \approx \sum_{j=1}^P a_j \phi_j(\mathbf{x}),\]</div>
+<p>from which gradients are easily evaluated. Then, we can form the gradient covariance matrix <span class="math notranslate nohighlight">\(\mathbf{H}\)</span> as</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{equation}
-\mathbf{V(U)}=
-\begin{bmatrix}
-    \phi_1(\mathbf{U}^T\boldsymbol{x}_1)       &amp; \phi_2(\mathbf{U}^T\boldsymbol{x}_1) &amp; \dots &amp; \phi_j(\mathbf{U}^T\boldsymbol{x}_1)  &amp; \dots \\
-    \phi_1(\mathbf{U}^T\boldsymbol{x}_2)       &amp; \phi_2(\mathbf{U}^T\boldsymbol{x}_2) &amp; \dots &amp; \phi_j(\mathbf{U}^T\boldsymbol{x}_2)  &amp; \dots \\
-\vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots \\
-    \phi_1(\mathbf{U}^T\boldsymbol{x}_i)       &amp; \phi_2(\mathbf{U}^T\boldsymbol{x}_i) &amp; \dots &amp; \phi_j(\mathbf{U}^T\boldsymbol{x}_i)  &amp; \dots \\
-\vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots
-\end{bmatrix}.
-\end{equation}\end{split}\]</div>
-<p>When the degree of polynomial is 2 and subspace dimension is 2,</p>
+\[\mathbf{H} = \int \mathbf{J}(\mathbf{x}) \mathbf{R} \mathbf{J}(\mathbf{x})^T \rho(\mathbf{x}) d\mathbf{x}.\]</div>
+<p>In this expression, the positive semi-definite matrix <span class="math notranslate nohighlight">\(\mathbf{R}\)</span> represents the weighting of objectives. We can place more weight on some objectives than others, analogous to a weighted objective function derived from multiple objectives in an optimization problem.</p>
+<p>We can then compute the eigendecomposition of <span class="math notranslate nohighlight">\(\mathbf{H}\)</span> as in the scalar output case, and retain the eigenvectors corresponding to the largest eigenvalues as the columns of the dimension reducing matrix <span class="math notranslate nohighlight">\(\mathbf{U}\)</span>. A Monte-Carlo based strategy for vector-valued dimension reduction using EQ is then</p>
+<ol class="arabic simple">
+<li><p>For each component <span class="math notranslate nohighlight">\(f_i(\mathbf{x})\)</span> of the function <span class="math notranslate nohighlight">\(\mathbf{f}\)</span>, we fit a polynomial surrogate, <span class="math notranslate nohighlight">\(f_i(\mathbf{x}) \approx p_i(\mathbf{x}) = \sum_{j=1}^P a_j \phi_j(\mathbf{x})\)</span></p></li>
+<li><p>Sample each polynomial at <span class="math notranslate nohighlight">\(M\)</span> points drawn from the input distribution <span class="math notranslate nohighlight">\(\rho(\mathbf{x})\)</span> and evaluate the gradient at each point.</p></li>
+<li><p>Form the Jacobian matrix using the polynomial surrogates at each input point, <span class="math notranslate nohighlight">\(\mathbf{J}(\mathbf{x}_i) = \left[\frac{\partial p_1}{\partial \mathbf{x}}(\mathbf{x}_i) , \frac{\partial p_2}{\partial \mathbf{x}} (\mathbf{x}_i),..., \frac{\partial p_n}{\partial \mathbf{x}}  (\mathbf{x}_i)\right]\)</span> for <span class="math notranslate nohighlight">\(i = 1,...,M\)</span>.</p></li>
+<li><p>Evaluate the vector gradient covariance matrix with a prescribed <span class="math notranslate nohighlight">\(\mathbf{R}\)</span>,</p></li>
+</ol>
 <div class="math notranslate nohighlight">
-\[\begin{split} \begin{equation}
- \mathbf{V(U)}=
- \begin{bmatrix}
-     1       &amp; \mathbf{U}_1^T\boldsymbol{x}_1 &amp; \mathbf{U}_2^T\boldsymbol{x}_1 &amp; (\mathbf{U}_1^T\boldsymbol{x}_1)
-(\mathbf{U}_2^T\boldsymbol{x}_1)  &amp;  (\mathbf{U}_1^T\boldsymbol{x}_1)^2 &amp; (\mathbf{U}_2^T\boldsymbol{x}_1)^2\\
-         1       &amp; \mathbf{U}_1^T\boldsymbol{x}_2 &amp; \mathbf{U}_2^T\boldsymbol{x}_2 &amp; (\mathbf{U}_1^T\boldsymbol{x}_2)
-(\mathbf{U}_2^T\boldsymbol{x}_2)  &amp;  (\mathbf{U}_1^T\boldsymbol{x}_2)^2 &amp; (\mathbf{U}_2^T\boldsymbol{x}_2)^2\\
- \vdots &amp; \vdots &amp; \vdots &amp;   &amp; \vdots &amp; \vdots \\
-         1       &amp; \mathbf{U}_1^T\boldsymbol{x}_M &amp; \mathbf{U}_2^T\boldsymbol{x}_M &amp; (\mathbf{U}_1^T\boldsymbol{x}_M)
-(\mathbf{U}_2^T\boldsymbol{x}_M)  &amp;  (\mathbf{U}_1^T\boldsymbol{x}_M)^2 &amp; (\mathbf{U}_2^T\boldsymbol{x}_2)^M
- \end{bmatrix}.
- \end{equation}\end{split}\]</div>
-<p>This is a non-linear least squares problem. We can find its solution:</p>
+\[\mathbf{H} = \frac{1}{M}\sum_{i=1}^M \mathbf{J}(\mathbf{x}_i) \mathbf{R} \mathbf{J}(\mathbf{x}_i)^T\]</div>
+<ol class="arabic simple" start="5">
+<li><p>Compute the eigendecomposition of <span class="math notranslate nohighlight">\(\mathbf{H}\)</span> and partition the eigenvectors with large eigenvalues to obtain <span class="math notranslate nohighlight">\(\mathbf{U}\)</span>:</p></li>
+</ol>
 <div class="math notranslate nohighlight">
-\[\begin{equation}
-\mathbf{a}=\mathbf{V(U)}^+\mathbf{y},
-\end{equation}\]</div>
-<p>then the residual can be reformulated:</p>
-<div class="math notranslate nohighlight">
-\[ \begin{align}
- \mathbf{r(U)} &amp;=\mathbf{y}-\mathbf{V(U)}\mathbf{a} =\mathbf{y}-\mathbf{V(U)V(U)^+}\mathbf{y}=(\mathbf{I}-
-\mathbf{V(U)}\mathbf{V(U)})\mathbf{y}.
- \end{align}\]</div>
-<p>Find <span class="math notranslate nohighlight">\(\mathbf{U}\)</span> by optimisation,</p>
-<div class="math notranslate nohighlight">
-\[ \begin{equation}
- \mathbf{U}=\underset{\mathbf{U}\in\mathbb{G}(n,\mathbb{R}^m)}{\text{argmin}} \| \mathbf{r(U)}    \|_2^2\,=\underset{\mathbf{U}}
-{\text{argmin}}\| (\mathbf{I}-\mathbf{V(U)}\mathbf{V(U)}^+)\mathbf{y}\|_2^2\,.
- \end{equation}\]</div>
-<p>Gauss-Newton algorithm is used for optimisation, as it is a non-linear least squares problem.</p>
-<p>The Jacobian tensor is defined as</p>
-<div class="math notranslate nohighlight">
-\[\begin{equation}
-\boldsymbol{\mathcal{J}}_{i,j,k}(\mathbf{U})=\frac{\partial \mathbf{[r(U)]}_i}{\partial [\mathbf{U}]_{j,k}}\, .
-\end{equation}\]</div>
-<p>The iterative update expression is</p>
-<div class="math notranslate nohighlight">
-\[\begin{equation}
-\mathbf{U}^{(s+1)}=\mathbf{U}^{(s)}-(\boldsymbol{\mathcal{J}}_{i,j,k}(\mathbf{U}^{(s)}))^+\mathbf{r}(\mathbf{U}^{(s)}),
-\end{equation}\]</div>
-<p>where  <span class="math notranslate nohighlight">\((\boldsymbol{\mathcal{J}}_{i,j,k}(\mathbf{U}^{(s)}))^+\)</span> is the pseudoinverse of the Jacobian.</p>
+\[\begin{split}\mathbf{H} = [\mathbf{U}\quad \mathbf{V}] \begin{bmatrix} \mathbf{\Lambda}_1 &amp; \\ &amp; \mathbf{\Lambda}_2 \end{bmatrix} [\mathbf{U} \quad \mathbf{V}]^T,\end{split}\]</div>
 <p><strong>Code Implementation</strong></p>
-<p>In turbomachinery design, the fan blade designs are usually parametrised by a few hundred design variables, representing the geometric properties at various positions of the fan blade span. In this notebook, we study one such fan blade, which contains 25 variables per design, while the corresponding efficiency of each design is evaluated by Computational Fluid Dynamics (CFD) simulations.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">equadratures</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">axes3d</span>
+<p>We consider a simple analytical example to demonstrate the use of our vector-valued dimension reduction routines. Consider the function <span class="math notranslate nohighlight">\(\mathbf{f}: [-1,1]^5 \rightarrow \mathbb{R}^2\)</span>, with <span class="math notranslate nohighlight">\(\mathbf{f}(\mathbf{x}) = [f_0(\mathbf{x}), f_1(\mathbf{x})]^T\)</span> where:</p>
+<div class="math notranslate nohighlight">
+\[f_0(\mathbf{x}) = \sin(\pi \mathbf{w}_0^T \mathbf{x})\]</div>
+<div class="math notranslate nohighlight">
+\[f_1(\mathbf{x}) = \exp(\mathbf{w}_1^T \mathbf{x})\]</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">equadratures</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">d</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="k">def</span> <span class="nf">f_0</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">w</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">f_1</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">w</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">w</span><span class="p">))</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;design_parameters.dat&#39;</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;non_dimensionalized_efficiency.dat&#39;</span><span class="p">)</span>
-<span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Normalised efficiency&#39;</span>
+<p>We define <span class="math notranslate nohighlight">\(\mathbf{W} = [\mathbf{w}_0, \mathbf{w}_1]\)</span> as random orthogonal vectors…</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rand_norm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+<span class="n">W</span><span class="p">,</span><span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">qr</span><span class="p">(</span><span class="n">rand_norm</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>This dataset (taken from [3]) contains 554 pairs of inputs (designs of blades) and outputs (CFD-evaluataed efficiency). The dimension of inputs is 25 (25D design space). Using variable projection, we wish to find a surrogate model for this relationship in 2D. All input vectors are put in X.dat, while the outputs are in Y.dat. They are stored as variables X and fX respectively.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">=</span><span class="mi">2</span>
-<span class="n">p</span><span class="o">=</span><span class="mi">2</span>
+<p>and use 1000 samples to construct seventh-degree polynomials for the component functions:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">poly_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">p</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">myBasis</span> <span class="o">=</span> <span class="n">Basis</span><span class="p">(</span><span class="s1">&#39;Total order&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">p</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">d</span><span class="p">)])</span>
+<span class="n">params</span> <span class="o">=</span> <span class="p">[</span><span class="n">Parameter</span><span class="p">(</span><span class="n">order</span><span class="o">=</span><span class="n">p</span><span class="p">,</span> <span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">lower</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">d</span><span class="p">)]</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">d</span><span class="p">))</span>
+<span class="n">Y_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+<span class="n">Y_train</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">apply_along_axis</span><span class="p">(</span><span class="n">f_0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">W</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">Y_train</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">apply_along_axis</span><span class="p">(</span><span class="n">f_1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">W</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="n">poly_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Polyreg</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">myBasis</span><span class="p">,</span> <span class="n">training_inputs</span><span class="o">=</span><span class="n">X_train</span><span class="p">,</span> <span class="n">training_outputs</span><span class="o">=</span><span class="n">Y_train</span><span class="p">[:,</span><span class="n">i</span><span class="p">],</span>
+                        <span class="n">no_of_quad_points</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
 </pre></div>
 </div>
-<p><span class="math notranslate nohighlight">\(n\)</span> stands for the dimensionality of the active subspace, which is also the dimenion of surrogate model. Here it is set to 2. This indicates the active subspace <span class="math notranslate nohighlight">\(\mathbf{U}\)</span> found would be of <span class="math notranslate nohighlight">\(25\times 2\)</span>. <span class="math notranslate nohighlight">\(p\)</span> stands for the degree of polynomial basis terms. <span class="math notranslate nohighlight">\(p=2\)</span> suggests the model can capture both linear and quadratic relationships, but not cubic or above.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mysubspace</span> <span class="o">=</span> <span class="n">Subspaces</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;variable-projection&#39;</span><span class="p">,</span> <span class="n">sample_points</span><span class="o">=</span><span class="n">X</span><span class="p">,</span> <span class="n">sample_outputs</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
-<span class="n">W</span> <span class="o">=</span> <span class="n">mysubspace</span><span class="o">.</span><span class="n">get_subspace</span><span class="p">()</span>
+<p>Now we can call the <code class="code docutils literal notranslate"><span class="pre">vector_AS</span></code> method in the <code class="code docutils literal notranslate"><span class="pre">dr</span></code> class to compute the Jacobian and find the dimension reducing subspace <span class="math notranslate nohighlight">\(\mathbf{U}\)</span>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_dr</span> <span class="o">=</span> <span class="n">dr</span><span class="p">(</span><span class="n">training_input</span><span class="o">=</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="p">[</span><span class="n">eigs</span><span class="p">,</span> <span class="n">U</span><span class="p">]</span> <span class="o">=</span> <span class="n">my_dr</span><span class="o">.</span><span class="n">vector_AS</span><span class="p">(</span><span class="n">poly_list</span><span class="p">,</span> <span class="n">R</span><span class="o">=</span><span class="n">R</span><span class="p">)</span>
+<span class="n">U</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">U</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Now the active subspace is found, we can plot the high dimensional data onto the 2D active subspace. Here it is noted that since the approach finds the active subspace <span class="math notranslate nohighlight">\(\mathbf{U}\)</span> without a kernel matrix, <span class="math notranslate nohighlight">\(\mathbf{U}=[\mathbf{U}_1,\mathbf{U}_2]\)</span>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="n">X</span> <span class="o">@</span> <span class="n">W</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="n">n</span><span class="p">]</span>
+<p>To verify whether our answer is reasonable, we can check the subspace distance between <span class="math notranslate nohighlight">\(\mathbf{U}\)</span> and the space spanned by the true dimension reducing subspace, <span class="math notranslate nohighlight">\(\text{span}(\mathbf{w}_0, \mathbf{w}_1)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\text{dist}(\mathbf{U}, \mathbf{W}) = ||\mathbf{U}\mathbf{U}^T - \mathbf{W}\mathbf{W}^T||_2\]</div>
+<p>where the 2-norm picks out the largest singular value of the argument.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">subspace_dist</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">B</span><span class="o">.</span><span class="n">T</span><span class="p">),</span> <span class="nb">ord</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">subspace_dist</span><span class="p">(</span><span class="n">W</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">U</span><span class="p">[:,:</span><span class="n">n</span><span class="p">])))</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">u</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">u</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;u1&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;u2&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+<p>We can also verify that the variation of both functions outside of <span class="math notranslate nohighlight">\(\mathbf{U}\)</span> is small. Here, for each of 10 sets of active coordinates, we sample 50 points in the inactive subspace (<span class="math notranslate nohighlight">\(\mathbf{V}\)</span>) using the “hit and run” algorithm from Python Active-subspaces Utility Library [2].</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">active_subspaces.domains</span> <span class="kn">import</span> <span class="n">hit_and_run_z</span>
+<span class="k">def</span> <span class="nf">harz</span><span class="p">(</span><span class="n">W1</span><span class="p">,</span><span class="n">W2</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">N</span><span class="p">):</span>
+        <span class="n">U</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">W1</span><span class="p">,</span><span class="n">W2</span><span class="p">])</span>
+        <span class="n">Z</span> <span class="o">=</span> <span class="n">hit_and_run_z</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">W1</span><span class="p">,</span> <span class="n">W2</span><span class="p">)</span>
+        <span class="n">yz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">y</span><span class="p">[:,</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">],</span> <span class="n">N</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">Z</span><span class="o">.</span><span class="n">T</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">yz</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+
+<span class="n">N_inactive</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">plot_coords</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N_inactive</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+        <span class="n">rand_active_coords</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+
+        <span class="n">new_X</span> <span class="o">=</span> <span class="n">harz</span><span class="p">(</span><span class="n">U</span><span class="p">[:,:</span><span class="n">n</span><span class="p">],</span> <span class="n">U</span><span class="p">[:,</span><span class="n">n</span><span class="p">:],</span> <span class="n">rand_active_coords</span><span class="p">,</span> <span class="n">N_inactive</span><span class="p">)</span>
+
+        <span class="n">new_f0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">apply_along_axis</span><span class="p">(</span><span class="n">f_0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">new_X</span><span class="p">,</span> <span class="n">W</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">new_f1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">apply_along_axis</span><span class="p">(</span><span class="n">f_1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">new_X</span><span class="p">,</span> <span class="n">W</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
+
+        <span class="n">plot_coords</span><span class="p">[:,</span><span class="mi">0</span><span class="p">,</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_f0</span>
+        <span class="n">plot_coords</span><span class="p">[:,</span><span class="mi">1</span><span class="p">,</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_f1</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">plot_coords</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">t</span><span class="p">],</span> <span class="n">plot_coords</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">t</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="figure align-default">
-<a class="reference internal image-reference" href="../_images/tutorial_12_fig_a.png"><img alt="../_images/tutorial_12_fig_a.png" src="../_images/tutorial_12_fig_a.png" style="width: 794.5px; height: 790.0px;" /></a>
+<a class="reference internal image-reference" href="../_images/inactive.png"><img alt="../_images/inactive.png" src="../_images/inactive.png" style="width: 640.0px; height: 480.0px;" /></a>
 </div>
-<p>The full source code for this tutorial can be found <a class="reference external" href="https://github.com/Effective-Quadratures/Effective-Quadratures/blob/master/source/_documentation/codes/tutorial_12.py">here.</a></p>
+<p>It can be seen that at each active coordinate, the variation in the inactive subspace is small.</p>
 <p><strong>References</strong></p>
-<ul class="simple">
-<li><p>Golub, G., Pereyra, V., (2003). Separable nonlinear least squares: the variable projection method and its applications. Inverse Problems, 19(2). <a class="reference external" href="http://iopscience.iop.org/article/10.1088/0266-5611/19/2/201/meta">Paper</a></p></li>
-<li><p>Honkason, J. and Constantine, P. (2018). Data-driven polynomial ridge approximation using variable projection. SIAM Journal on Scientific Computing 40.3 (2018): A1566-A1589. <a class="reference external" href="https://epubs.siam.org/doi/abs/10.1137/17M1117690">Paper</a></p></li>
-<li><p>Seshadri, P., Shahpar, S., Constantine, P., Parks, G., Adams, M. (2018) Turbomachinery active subspace performance maps. Journal of Turbomachinery, 140(4), 041003. <a class="reference external" href="http://turbomachinery.asmedigitalcollection.asme.org/article.aspx?articleid=2668256">Paper</a></p></li>
-</ul>
+<dl class="footnote brackets">
+<dt class="label" id="id1"><span class="brackets">1</span></dt>
+<dd><p>Zahm, O.,  Constantine, P., Prieur, C. and Marzouk, Y., (2018). Gradient-based dimension reduction of multi-variate vector-valued functions. <a class="reference external" href="http://arxiv.org/abs/1801.07922">Preprint</a></p>
+</dd>
+<dt class="label" id="id2"><span class="brackets">2</span></dt>
+<dd><p>Constantine, P., Howard, R., Glaws, A., Grey, Z., Diaz, P., &amp; Fletcher, L. (2016). Python Active-subspaces Utility Library. Zenodo. <a class="reference external" href="http://doi.org/10.5281/zenodo.158941">Code</a></p>
+</dd>
+</dl>
 </div>
 
 

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nataf transform for correlated inputs &#8212; equadratures</title>
+    <title>Machine learning California housing with interpretable polynomial trees &#8212; equadratures</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -39,6 +39,8 @@
     <link rel="shortcut icon" href="../_static/eq-logo-favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Time-series remaining useful life prediction with spatio-temporal polynomials" href="tutorial_11.html" />
+    <link rel="prev" title="Surrogate-based design optimisation on Rosenbrock’s function" href="tutorial_9.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
   </head>
@@ -60,7 +62,7 @@
       <ul id="navbar-main-elements" class="navbar-nav mr-auto">
         
         
-        <li class="nav-item ">
+        <li class="nav-item active">
             <a class="nav-link" href="tutorials.html">Tutorials</a>
         </li>
         
@@ -118,6 +120,80 @@
     <ul class="nav bd-sidenav">
         
         
+          
+            
+                <li class="">
+                    <a href="tutorial_1.html">Foundations I: A parameter</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="tutorial_2.html">Foundations II: Orthogonal polynomials</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="tutorial_3.html">Foundations III: Solving linear systems for polynomials</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="tutorial_4.html">Uncertainty quantification in computational fluid dynamics</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="tutorial_5.html">Uncertainty quantification with correlations</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="tutorial_6.html">Sensitivity analysis for a piston model</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="tutorial_7.html">Data-driven dimension reduction in turbomachinery</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="tutorial_8.html">Adjoint/gradient-enhanced surrogate modelling</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="tutorial_9.html">Surrogate-based design optimisation on Rosenbrock’s function</a>
+                </li>
+            
+          
+            
+                <li class="active">
+                    <a href="">Machine learning California housing with interpretable polynomial trees</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="tutorial_11.html">Time-series remaining useful life prediction with spatio-temporal polynomials</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="tutorial_12.html">Flow-field estimation using vector-valued polynomial ridge approximations</a>
+                </li>
+            
+          
+        
         
         
         
@@ -149,147 +225,178 @@
               
               <div>
                 
-  <div class="section" id="nataf-transform-for-correlated-inputs">
-<h1>Nataf transform for correlated inputs<a class="headerlink" href="#nataf-transform-for-correlated-inputs" title="Permalink to this headline">¶</a></h1>
-<p>In most applications of polynomial approximations, one typically assumes that the input parameters are independent. This independence assumption underpins the computation of moments. In a nutshell, the notion of independence permits us to express the joint probability distribution of the inputs as a product of its composite marginals, i.e.,</p>
+  <div class="section" id="machine-learning-california-housing-with-interpretable-polynomial-trees">
+<h1>Machine learning California housing with interpretable polynomial trees<a class="headerlink" href="#machine-learning-california-housing-with-interpretable-polynomial-trees" title="Permalink to this headline">¶</a></h1>
+<p><strong>Active Subspaces</strong></p>
+<p>The active subspace is defined as follows:</p>
+<p>Let <span class="math notranslate nohighlight">\(f(\mathbf{x})\)</span> be a scalar valued function <span class="math notranslate nohighlight">\(\mathbb{R}^n \rightarrow \mathbb{R}\)</span> with <span class="math notranslate nohighlight">\(\mathbf{x} \in \mathbb{R}^{n}\)</span>. Here <span class="math notranslate nohighlight">\(f(\mathbf{x})\)</span> represents the chosen quantity of interest and <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> represents the design parameters. Consider the approximation</p>
 <div class="math notranslate nohighlight">
-\[\boldsymbol{\rho}\left(\boldsymbol{\zeta}\right)=\rho_{1}\left(\zeta_{1}\right)\ldots\rho_{d}\left(\zeta_{d}\right)\]</div>
-<p>where <span class="math notranslate nohighlight">\(\rho_{i}\left(\zeta_{i}\right)\)</span> for <span class="math notranslate nohighlight">\(i=1, \ldots, d\)</span> represents the PDF associated with variable <span class="math notranslate nohighlight">\(\zeta_{i}\)</span>. However, in many application areas, this assumption is not true; the inputs may be correlated with known linear rank correlation values. While one can still use Monte Carlo techniques to generate samples from correlated spaces, it is not straightforward to generate quadrature points from such spaces. This sets the stage for the Nataf transform [1].</p>
-<p>The Nataf transformation transforms a set of correlated random variables to a set of uncorrelated standard normal random variables. To perform a Nataf transformation one requires:</p>
-<ul class="simple">
-<li><p>The definition of the marginals <span class="math notranslate nohighlight">\(\rho_{i}\left(\zeta_{i}\right)\)</span>;</p></li>
-<li><p>The linear correlation matrix between the marginals <span class="math notranslate nohighlight">\(\mathbf{P}\)</span>.</p></li>
-</ul>
-<p>This implies that the polynomials are constructed in the space of uncorrelated standard normal random variables—i.e., Hermite polynomials with Gauss-Hermite quadrature points [2]. However, the function evaluations are carried out in the correlated space of random variables using the Nataf transformation. The transform has two steps:</p>
-<p><strong>Correlated random space to correlated standard space:</strong>
-Let <span class="math notranslate nohighlight">\(\boldsymbol{\zeta}=\left\{ \zeta_{1},\ldots,\zeta_{d}\right\}\)</span> be a set of random variables and let <span class="math notranslate nohighlight">\(\boldsymbol{\theta}=\left\{ \theta_{1},\ldots,\theta_{d}\right\}\)</span> denote random variables form the <em>standard multivariate normal</em> <span class="math notranslate nohighlight">\(\mathcal{N}\left( \boldsymbol{0}, \mathbf{I} \right)\)</span>. One can then express</p>
+\[\begin{equation}
+f(\mathbf{x}) \approx g( \mathbf{U}^T \mathbf{x}),
+\label{equ_active}
+\end{equation}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathbf{U} \in \mathbb{R}^{k \times n}\)</span>, with <span class="math notranslate nohighlight">\(k &lt;&lt; n\)</span>. Ideally we would like <span class="math notranslate nohighlight">\(k = 1\)</span> or <span class="math notranslate nohighlight">\(2\)</span> for facilitating subsequent visualisation. The matrix <span class="math notranslate nohighlight">\(\mathbf{U}\)</span> represents the <em>active subspace</em> and its null space represents the <em>inactive subspace</em>. Essentially, the function tends to be well approximated via the map <span class="math notranslate nohighlight">\(g\)</span> on the active subspace.</p>
+<p>Numerous ideas for finding active subspaces in computer experiments can be found in the work of Constantine [1]. The idea is to express the kernel matrix as the expectation of the outer product of gradients of <span class="math notranslate nohighlight">\(f\)</span></p>
 <div class="math notranslate nohighlight">
-\[\theta_{i}=\Phi^{-1}\left[F_{i}\left(\zeta_{i}\right)\right],\]</div>
-<p>where <span class="math notranslate nohighlight">\(F_{i}\)</span> is marginal cumulative density function of <span class="math notranslate nohighlight">\(\zeta_{i}\)</span> and <span class="math notranslate nohighlight">\(\Phi^{-1}\)</span> is the inverse CDF of a standard normal distribution.</p>
-<p><strong>Correlated standard space to uncorrelated standard space:</strong>
-Here the Cholesky factor <span class="math notranslate nohighlight">\(\mathbf{L}\)</span> of a <em>modified</em> correlation matrix <span class="math notranslate nohighlight">\(\mathbf{P}^{\ast}\)</span> is used to transform the variables <span class="math notranslate nohighlight">\(\boldsymbol{\theta}\)</span> into <span class="math notranslate nohighlight">\(\boldsymbol{u}\)</span></p>
+\[\begin{equation}
+\textbf{K}=\int \nabla_{\mathbf{x}} f(\mathbf{x})\nabla_{\mathbf{x}} f(\mathbf{x})^{T} \rho (\mathbf{x}) d \mathbf{x} ,
+\label{equ_as}
+\end{equation}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\rho(\mathbf{x})\)</span> is the density of the inputs <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> over its parameter space. A heuristic for estimating the kernel via finite point samples <span class="math notranslate nohighlight">\(N\)</span> is described below:</p>
+<ol class="arabic simple">
+<li><p>For <span class="math notranslate nohighlight">\(N\)</span> samples drawn randomly from a distribution <span class="math notranslate nohighlight">\(\rho(\mathbf{x})\)</span> calculate the sample kernel matrix:</p></li>
+</ol>
 <div class="math notranslate nohighlight">
-\[\boldsymbol{\theta} = \mathbf{L} \boldsymbol{u},\]</div>
-<p>where <span class="math notranslate nohighlight">\(\boldsymbol{u}=\left\{ u_{1},\ldots,u_{d}\right\}\)</span> is a set of uncorrelated normal random variables. The key difficulty in the Nataf transformation is the computation of <span class="math notranslate nohighlight">\(\mathbf{P}^{\ast}\)</span> given <span class="math notranslate nohighlight">\(\mathbf{P}\)</span>. It boils down to approximating the integral equation</p>
+\[\begin{equation}
+\hat{\textbf{K}}=\frac{1}{N} \sum_{i=1}^{N}(\nabla_{\mathbf{x}} f(\mathbf{x}_i))(\nabla_{\mathbf{x}} f(\mathbf{x}_i)^{T})\,;
+\end{equation}\]</div>
+<ol class="arabic simple" start="2">
+<li><p>Compute the eigendecomposition of <span class="math notranslate nohighlight">\(\hat{\textbf{K}}\)</span> and select the eigenvectors with largest eigenvalues to form a matrix <span class="math notranslate nohighlight">\(\mathbf{U}\)</span> with orthogonal columns.</p></li>
+</ol>
+<p><strong>Polynomial Active Subspaces</strong></p>
+<p>In many cases gradient information is not available. Therefore, assumptions on the model are necessary to overcome this obstacle. A good assumption would be that the model is a polynomial, as the polynomials are easy to calculate and their gradients can be derived analytically. One can express a polynomial as a linear combination of a number of polynomial basis terms</p>
 <div class="math notranslate nohighlight">
-\[p_{ij}=\frac{1}{\sigma_{\zeta_{i}}\sigma_{\zeta_{j}}}\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}F_{i}^{-1}\left(\Phi\left(\theta_{i}\right)-\mu_{\zeta_{i}}\right)F_{j}^{-1}\left(\Phi\left(\theta_{j}\right)-\mu_{\zeta_{j}}\right)\mathcal{N}\left(0,p_{ij}^{\ast}I\right)d\theta_{i}d\zeta_{j}\]</div>
-<p>where</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(p_{ij}\)</span> is the (i,j)-th entry of <span class="math notranslate nohighlight">\(\mathbf{P}\)</span>;</p></li>
-<li><p><span class="math notranslate nohighlight">\(p_{ij}^{\ast}\)</span> is the (i,j)-th entry of <span class="math notranslate nohighlight">\(\mathbf{P}^{\ast}\)</span>;</p></li>
-<li><p><span class="math notranslate nohighlight">\(\sigma_{\zeta_{i}}\)</span> is the standard deviation of the parameter <span class="math notranslate nohighlight">\(\zeta_{i}\)</span>;</p></li>
-<li><p><span class="math notranslate nohighlight">\(\mu_{\zeta_{i}}\)</span> is the mean of the parameter <span class="math notranslate nohighlight">\(\zeta_{i}\)</span>;</p></li>
-<li><p><span class="math notranslate nohighlight">\(\mathcal{N}\left(0,p_{ij}^{\ast}I\right)\)</span> is a bivariate, zero-mean normal distribution with a variance of 1 and a correlation of <span class="math notranslate nohighlight">\(p_{ij}^{\ast}\)</span>.</p></li>
-</ul>
-<p>In practice this integral equation is difficult to solve analytically for <span class="math notranslate nohighlight">\(p_{ij}^{\ast}\)</span>, thus an iterative root-finding strategy based on Newton’s method is adopted in Effective Quadratures.</p>
-<p>Now, to demonstrate this capability, consider the following problem of estimating statistical moments. Consider a <em>blackbox</em> model of the form</p>
+\[\begin{equation}
+f(\mathbf{x}) \approx h(\mathbf{x})=\sum_{j=1}^N a_j \phi_j(\mathbf{x})\,,
+\end{equation}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\phi_j(\mathbf{x})\)</span> is a multivariate polynomial basis term of a certain mixed degree and <span class="math notranslate nohighlight">\(a_j\)</span> is the corresponding coefficient. Then the gradient can be expressed as the sum of the derivatives of the polynomials.</p>
 <div class="math notranslate nohighlight">
-\[f \left( \boldsymbol{\zeta} \right) = \zeta_{1} + \zeta_{2} + \zeta_{3} - 12,\]</div>
-<p>where the input parameters <span class="math notranslate nohighlight">\(\left( \boldsymbol{\zeta} \right)\)</span> are defined as follows.</p>
+\[\begin{equation}
+\nabla_{\mathbf{x}}f(\mathbf{x}) \approx \nabla_{\mathbf{x}}h(\mathbf{x})=\sum_{j=1}^N a_j \phi_j'(\mathbf{x})\,.
+\end{equation}\]</div>
+<p>To construct the polynomial basis terms <span class="math notranslate nohighlight">\(\phi(\mathbf{x})\)</span> , one only needs to know the number of dimensions and the polynomial degree.</p>
+<p><strong>A 2-degree Polynomial Model for Dimension Reduction</strong></p>
+<p>If the polynomial degree is set as 2, then the polynomial bases would include all linear terms <span class="math notranslate nohighlight">\(\phi(\mathbf{x})=x_i\)</span>, all squared terms <span class="math notranslate nohighlight">\(\phi(\mathbf{x})=x_i^2\)</span> and all cross terms <span class="math notranslate nohighlight">\(\phi(\mathbf{x})=x_i x_j\)</span>.</p>
+<p>One can fit a polynomial to the dataset using least squares with sample input/output pairs. This idea was leveraged in [2] to find <span class="math notranslate nohighlight">\(\mathbf{U}\)</span> and is detailed below. The goal here is to use least squares to fit the dataset to the following form</p>
+<div class="math notranslate nohighlight">
+\[\begin{equation}
+y=f(\mathbf{x})=\frac{1}{2}\mathbf{x} ^{T} \mathbf{A}\mathbf{x} + \textbf{c}^{T}\mathbf{x} +d\,,
+\label{quadraticeqn}
+\end{equation}\]</div>
+<p>therefore the gradient of the function can be expressed as</p>
+<div class="math notranslate nohighlight">
+\[\begin{equation}
+\nabla_{\mathbf{x}}f(\mathbf{x})= \mathbf{A} \mathbf{x}+\textbf{c}\,.
+\end{equation}\]</div>
+<p>Then a set of equations can be formulated using each data point:</p>
+<div class="math notranslate nohighlight">
+\[\begin{equation}
+\frac{1}{2} \sum_{i=1,j=1}^{m,m}a_{ij}x_ix_j+\sum_{j=1}^{m}c_jx_j+d=y\,;
+\end{equation}\]</div>
+<p>All <span class="math notranslate nohighlight">\(a_{ij}\)</span> along with <span class="math notranslate nohighlight">\(\textbf{c}\)</span> and <span class="math notranslate nohighlight">\(d\)</span> are obtained by solving for the least squares solution, where <span class="math notranslate nohighlight">\(a_{ij}\)</span> are the entries of the matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> and <span class="math notranslate nohighlight">\(c_j\)</span> are the entries of the vector <span class="math notranslate nohighlight">\(\textbf{c}\)</span>. Finally, the estimated kernel is given by</p>
+<div class="math notranslate nohighlight">
+\[\begin{equation}
+\hat{\textbf{K}}=\frac{1}{N}\sum_{i=1}^N(A\mathbf{x}_i+\textbf{c})(A\mathbf{x}_i+\textbf{c})^{T}\,.
+\end{equation}\]</div>
+<p>The last step of selecting eigenvectors is done by carrying out an eigendecomposition on the kernel matrix (symmetric).</p>
+<div class="math notranslate nohighlight">
+\[\begin{equation}
+\hat{\mathbf{K}}= \mathbf{W \Lambda W}^{T},
+\end{equation}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathbf{W}\)</span> contains all eigenvectors and <span class="math notranslate nohighlight">\(\Lambda\)</span> is the diagonal matrix of all corresponding eigenvalues, which are assumed to be sorted in descending order. The eigenvectors and eigenvalues can then be partitioned</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{equation}
+\mathbf{W}=\left[\begin{array}{cc}
+\mathbf{U}_{\text{active}} &amp; \mathbf{U}_{\text{inactive}}\end{array}\right] \; \; \; \mathbf{\Lambda}=\left[\begin{array}{cc}
+\mathbf{\Lambda_{\text{active}} }\\
+ &amp; \mathbf{\Lambda_{\text{inactive}} }
+\end{array}\right]
+\end{equation}\end{split}\]</div>
+<p>based on a <em>suitable cut-off criterion</em> —usually the magnitude of the eigenvalues.</p>
+<p>As most of the variation in <span class="math notranslate nohighlight">\(f\)</span> happens with changes in <span class="math notranslate nohighlight">\(\mathbf{U}_{active}^T \mathbf{x}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{equation}
+f \left(\mathbf{x}\right) \approx g\left(\mathbf{U}_\text{active}^T\mathbf{x} \right)\text{ while }f\left( \mathbf{U}_\text{inactive} \mathbf{U}_\text{inactive}^T \mathbf{x} \right) \approx 0,
+\end{equation}\]</div>
+<p>where <span class="math notranslate nohighlight">\(g\)</span> is a lower dimensional function.</p>
+<p><strong>Code Implementation</strong></p>
+<p>We look at a compressor fan design problem. The 25 design variables can be viewed as inputs to the function, where the CFD efficiency of the blade design is seen as the output. Now we attempt to use a 2-degree polynomial active subspace model to reach dimension reduction and find a 2D active subspace.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">equadratures</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">skew</span>
-
-<span class="n">zeta_1</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;truncated-gaussian&#39;</span><span class="p">,</span> <span class="n">shape_parameter_A</span> <span class="o">=</span> <span class="mf">3.0</span><span class="p">,</span> <span class="n">shape_parameter_B</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">lower</span><span class="o">=-</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mf">4.0</span><span class="p">)</span>
-<span class="n">zeta_2</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;truncated-gaussian&#39;</span><span class="p">,</span> <span class="n">shape_parameter_A</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">shape_parameter_B</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">lower</span><span class="o">=-</span><span class="mf">5.0</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mf">5.0</span><span class="p">)</span>
-<span class="n">zeta_3</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;truncated-gaussian&#39;</span><span class="p">,</span> <span class="n">shape_parameter_A</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">,</span> <span class="n">shape_parameter_B</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">lower</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mf">6.0</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-        <span class="k">return</span> <span class="mf">5.0</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mf">3.0</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">**</span><span class="mi">3</span> <span class="o">+</span> <span class="mf">32.0</span>
+<span class="kn">from</span> <span class="nn">scipy.spatial</span> <span class="kn">import</span> <span class="n">ConvexHull</span><span class="p">,</span> <span class="n">convex_hull_plot_2d</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">axes3d</span>
 </pre></div>
 </div>
-<p>Plots of these parameters are shown below. In practice, one can opt for any of the distributions supported by the Parameter class.</p>
-<div class="figure align-default" id="id3">
-<a class="reference internal image-reference" href="../_images/Fig_A.png"><img alt="../_images/Fig_A.png" src="../_images/Fig_A.png" style="width: 364.8px; height: 275.09999999999997px;" /></a>
-<p class="caption"><span class="caption-text">Figure. Parameter <span class="math notranslate nohighlight">\(\zeta_{1}\)</span>.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
-</div>
-<div class="figure align-default" id="id4">
-<a class="reference internal image-reference" href="../_images/Fig_B.png"><img alt="../_images/Fig_B.png" src="../_images/Fig_B.png" style="width: 357.9px; height: 275.09999999999997px;" /></a>
-<p class="caption"><span class="caption-text">Figure. Parameter <span class="math notranslate nohighlight">\(\zeta_{2}\)</span>.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
-</div>
-<div class="figure align-default" id="id5">
-<a class="reference internal image-reference" href="../_images/Fig_C.png"><img alt="../_images/Fig_C.png" src="../_images/Fig_C.png" style="width: 364.8px; height: 275.09999999999997px;" /></a>
-<p class="caption"><span class="caption-text">Figure. Parameter <span class="math notranslate nohighlight">\(\zeta_{3}\)</span>.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
-</div>
-<p>This sorts out the marginals. We now define our linear rank correlation matrix</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\mathbf{P}=\left[\begin{array}{ccc} 1.0 &amp; 0.6 &amp; 0.3\\ 0.6 &amp; 1.0 &amp; 0.2\\ 0.3 &amp; 0.2 &amp; 1.0 \end{array}\right]\end{split}\]</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">R</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.6</span>
-<span class="n">R</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.3</span>
-<span class="n">R</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.2</span>
-<span class="n">R</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">R</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-<span class="n">R</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">R</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-<span class="n">R</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">R</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;../data/design_parameters.dat&#39;</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;../data/non_dimensionalized_efficiency.dat&#39;</span><span class="p">)</span>
+<span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Normalised efficiency&#39;</span>
 </pre></div>
 </div>
-<p>Now, we set up the machinery required computing this transform. We shall compare our result with Monte Carlo.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">u1</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;normal&#39;</span><span class="p">,</span> <span class="n">shape_parameter_A</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">shape_parameter_B</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">myNataf</span> <span class="o">=</span> <span class="n">Nataf</span><span class="p">([</span><span class="n">zeta_1</span><span class="p">,</span> <span class="n">zeta_2</span><span class="p">,</span> <span class="n">zeta_3</span><span class="p">],</span> <span class="n">P</span><span class="p">)</span>
-
-<span class="c1"># For Monte-Carlo!</span>
-<span class="n">samples_mc</span> <span class="o">=</span> <span class="n">myNataf</span><span class="o">.</span><span class="n">getCorrelatedSamples</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
-<span class="n">f_mc</span> <span class="o">=</span> <span class="n">evalfunction</span><span class="p">(</span><span class="n">samples_mc</span><span class="p">,</span> <span class="n">fun</span><span class="p">)</span>
-
-<span class="c1"># For Polynomials!</span>
-<span class="n">myBasis</span> <span class="o">=</span> <span class="n">Basis</span><span class="p">(</span><span class="s1">&#39;Tensor grid&#39;</span><span class="p">)</span>
-<span class="n">myPoly</span> <span class="o">=</span> <span class="n">Polyint</span><span class="p">([</span><span class="n">u1</span><span class="p">,</span> <span class="n">u1</span><span class="p">,</span> <span class="n">u1</span><span class="p">],</span> <span class="n">myBasis</span><span class="p">)</span>
-<span class="n">samples_p</span> <span class="o">=</span>  <span class="n">myPoly</span><span class="o">.</span><span class="n">quadraturePoints</span>
-<span class="n">samples_corr_p</span> <span class="o">=</span> <span class="n">myNataf</span><span class="o">.</span><span class="n">U2C</span><span class="p">(</span><span class="n">samples_p</span><span class="p">)</span>
-<span class="n">f_p</span> <span class="o">=</span> <span class="n">evalfunction</span><span class="p">(</span><span class="n">samples_corr_p</span><span class="p">,</span> <span class="n">fun</span><span class="p">)</span>
+<p>This dataset contains 554 pairs of inputs (designs of blades) and outputs (CFD-evaluataed efficiency). The dimension of inputs is 25 (25D design space). All input vectors are in X , while the outputs are in y.</p>
+<p>The first order of business is to construct a global quadratic model</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">lower</span><span class="o">=-</span><span class="mf">1.</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">myparameters</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">25</span><span class="p">)]</span>
+<span class="n">mybasis</span> <span class="o">=</span> <span class="n">Basis</span><span class="p">(</span><span class="s1">&#39;total-order&#39;</span><span class="p">)</span>
+<span class="n">mypoly</span> <span class="o">=</span> <span class="n">Poly</span><span class="p">(</span><span class="n">parameters</span><span class="o">=</span><span class="n">myparameters</span><span class="p">,</span> <span class="n">basis</span><span class="o">=</span><span class="n">mybasis</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;least-squares&#39;</span><span class="p">,</span> \
+      <span class="n">sampling_args</span><span class="o">=</span> <span class="p">{</span><span class="s1">&#39;mesh&#39;</span><span class="p">:</span> <span class="s1">&#39;user-defined&#39;</span><span class="p">,</span> <span class="s1">&#39;sample-points&#39;</span><span class="p">:</span> <span class="n">X</span><span class="p">,</span> <span class="s1">&#39;sample-outputs&#39;</span><span class="p">:</span> <span class="n">y</span><span class="p">})</span>
+<span class="n">mypoly</span><span class="o">.</span><span class="n">set_model</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>As before, we use the get statistics utility to estimate moments associated with this polynomial approximation:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">myPoly</span><span class="o">.</span><span class="n">computeCoefficients</span><span class="p">(</span><span class="n">f_p</span><span class="p">)</span>
-<span class="n">myStats</span> <span class="o">=</span> <span class="n">myPoly</span><span class="o">.</span><span class="n">getStatistics</span><span class="p">()</span>
+<p>Next, we compute the active subspace</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mysubspace</span> <span class="o">=</span> <span class="n">Subspaces</span><span class="p">(</span><span class="n">full_space_poly</span><span class="o">=</span><span class="n">mypoly</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;active-subspace&#39;</span><span class="p">)</span>
+<span class="n">W</span> <span class="o">=</span> <span class="n">mysubspace</span><span class="o">.</span><span class="n">get_subspace</span><span class="p">()</span>
+<span class="n">e</span> <span class="o">=</span> <span class="n">mysubspace</span><span class="o">.</span><span class="n">get_eigenvalues</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>The plot below shows the quadrature points and the random Monte Carlo samples.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<p>and plot the eigenvalues to determine how many <em>active</em> variables we require.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Eigenvalues (log-scale)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Design parameters&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../_images/tutorial_11_fig_a.png"><img alt="../_images/tutorial_11_fig_a.png" src="../_images/tutorial_11_fig_a.png" style="width: 393.59999999999997px; height: 232.2px;" /></a>
+</div>
+<p>We can then project all the samples we have within the design space onto the first few dimensions of the active subspace.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">true_dimensions</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">u</span> <span class="o">=</span> <span class="n">X</span> <span class="o">@</span> <span class="n">W</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="n">true_dimensions</span><span class="p">]</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">u</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gold&#39;</span><span class="p">,</span> <span class="n">markeredgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;u&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../_images/tutorial_11_fig_b.png"><img alt="../_images/tutorial_11_fig_b.png" src="../_images/tutorial_11_fig_b.png" style="width: 390.9px; height: 232.2px;" /></a>
+</div>
+<p>And for two dimensions</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">true_dimensions</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">u</span> <span class="o">=</span> <span class="n">X</span> <span class="o">@</span> <span class="n">W</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="n">true_dimensions</span><span class="p">]</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">samples_mc</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">samples_mc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">samples_mc</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;dodgerblue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">samples_corr_p</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">samples_corr_p</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">samples_corr_p</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;darkorange&#39;</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$\zeta_</span><span class="si">{1}</span><span class="s1">$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$\zeta_</span><span class="si">{2}</span><span class="s1">$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s1">&#39;$\zeta_</span><span class="si">{3}</span><span class="s1">$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">view_init</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="o">-</span><span class="mi">41</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;Fig_D.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">u</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">u</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;u1&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;u2&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure align-default" id="id6">
-<a class="reference internal image-reference" href="../_images/Fig_D.png"><img alt="../_images/Fig_D.png" src="../_images/Fig_D.png" style="width: 384.0px; height: 288.0px;" /></a>
-<p class="caption"><span class="caption-text">Figure. Random correlated samples (shown in blue) and quadrature points associated with the isotropic tensor grid with 3 points in each direction.</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../_images/tutorial_11_fig_c.png"><img alt="../_images/tutorial_11_fig_c.png" src="../_images/tutorial_11_fig_c.png" style="width: 476.7px; height: 474.0px;" /></a>
 </div>
-<p>Now, lets compare statistics. Note, we’ve set the order of the parameter <code class="code docutils literal notranslate"><span class="pre">u1</span></code> parameter to be 1; this can be increased. Setting the number of Monte Carlo samples <code class="code docutils literal notranslate"><span class="pre">N=50000</span></code>, we obtain:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="s1">&#39;----MONTE CARLO----&#39;</span>
-<span class="nb">print</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">f_mc</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">f_mc</span><span class="p">),</span> <span class="n">skew</span><span class="p">(</span><span class="n">f_mc</span><span class="p">)</span>
-
-<span class="nb">print</span> <span class="s1">&#39;----POLYNOMIALS-----&#39;</span>
-<span class="nb">print</span> <span class="n">myStats</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span> <span class="n">myStats</span><span class="o">.</span><span class="n">variance</span><span class="p">,</span> <span class="n">myStats</span><span class="o">.</span><span class="n">skewness</span>
-
-<span class="o">----</span><span class="n">MONTE</span> <span class="n">CARLO</span><span class="o">----</span>
-<span class="o">-</span><span class="mf">8.35251940491</span> <span class="mf">3.91447723802</span> <span class="o">-</span><span class="mf">0.10088043</span>
-<span class="o">----</span><span class="n">POLYNOMIALS</span><span class="o">-----</span>
-<span class="o">-</span><span class="mf">8.36876731443</span> <span class="mf">4.24868942164</span> <span class="mf">0.0630390307101</span>
+<p>Finally, we can also compute the zonotope associated with the 2D projection.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">X</span> <span class="o">@</span> <span class="n">W</span><span class="p">[:,</span><span class="mi">0</span><span class="p">:</span><span class="n">true_dimensions</span><span class="p">]</span>
+<span class="n">pts</span> <span class="o">=</span> <span class="n">mysubspace</span><span class="o">.</span><span class="n">get_zonotope_vertices</span><span class="p">()</span>
+<span class="n">hull</span> <span class="o">=</span> <span class="n">ConvexHull</span><span class="p">(</span><span class="n">pts</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">z</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gold&#39;</span><span class="p">,</span> <span class="n">markeredgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">simplex</span> <span class="ow">in</span> <span class="n">hull</span><span class="o">.</span><span class="n">simplices</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pts</span><span class="p">[</span><span class="n">simplex</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">pts</span><span class="p">[</span><span class="n">simplex</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;k-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Now, if we increase the order from 1 to 3, we obtain:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">----</span><span class="n">MONTE</span> <span class="n">CARLO</span><span class="o">----</span>
-<span class="o">-</span><span class="mf">8.35251940491</span> <span class="mf">3.91447723802</span> <span class="o">-</span><span class="mf">0.10088043</span>
-<span class="o">----</span><span class="n">EQ</span><span class="o">-----</span>
-<span class="o">-</span><span class="mf">8.36091830994</span> <span class="mf">3.95592725014</span> <span class="o">-</span><span class="mf">0.105047765166</span>
-</pre></div>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../_images/tutorial_11_fig_d.png"><img alt="../_images/tutorial_11_fig_d.png" src="../_images/tutorial_11_fig_d.png" style="width: 548.6999999999999px; height: 400.8px;" /></a>
 </div>
+<p>The full source code for this tutorial can be found <a class="reference external" href="https://github.com/Effective-Quadratures/Effective-Quadratures/blob/master/source/_documentation/codes/tutorial_11.py">here.</a></p>
 <p><strong>References</strong></p>
-<dl class="footnote brackets">
-<dt class="label" id="id1"><span class="brackets">1</span></dt>
-<dd><p>Lebrun, R., Dutfoy, A. An innovating analysis of the Nataf transformation from the copula viewpoint. Probabilistic Engineering Mechanics 24.3 (2009): 312-320. <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0266892008000660">Paper</a></p>
-</dd>
-<dt class="label" id="id2"><span class="brackets">2</span></dt>
-<dd><p>Eldred, M., Webster, C., Constantine, P. Evaluation of non-intrusive approaches for Wiener-Askey generalized polynomial chaos. 49th AIAA/ASME/ASCE/AHS/ASC Structures, Structural Dynamics, and Materials Conference, 16th AIAA/ASME/AHS Adaptive Structures Conference, 10th AIAA Non-Deterministic Approaches Conference, 9th AIAA Gossamer Spacecraft Forum, 4th AIAA Multidisciplinary Design Optimization Specialists Conference, 2008. <a class="reference external" href="https://arc.aiaa.org/doi/abs/10.2514/6.2008-1892">Paper</a></p>
-</dd>
-</dl>
+<ul class="simple">
+<li><p>Constantine, P. G. (2015) Active subspaces: Emerging ideas for dimension reduction in parameter studies, Volume 2, SIAM, 2015.</p></li>
+<li><p>Seshadri, P., Shahpar, S., Constantine, P., Parks, G., Adams, M. (2018) Turbomachinery active subspace performance maps. Journal of Turbomachinery, 140(4), 041003. <a class="reference external" href="http://turbomachinery.asmedigitalcollection.asme.org/article.aspx?articleid=2668256">Paper</a></p></li>
+</ul>
 </div>
 
 

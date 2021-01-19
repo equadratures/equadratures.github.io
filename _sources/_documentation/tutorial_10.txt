@@ -1,179 +1,236 @@
-Nataf transform for correlated inputs
-========================================
-In most applications of polynomial approximations, one typically assumes that the input parameters are independent. This independence assumption underpins the computation of moments. In a nutshell, the notion of independence permits us to express the joint probability distribution of the inputs as a product of its composite marginals, i.e., 
+Machine learning California housing with interpretable polynomial trees
+====================================================================
 
-.. math::
-	\boldsymbol{\rho}\left(\boldsymbol{\zeta}\right)=\rho_{1}\left(\zeta_{1}\right)\ldots\rho_{d}\left(\zeta_{d}\right)
+**Active Subspaces**
 
-where :math:`\rho_{i}\left(\zeta_{i}\right)` for :math:`i=1, \ldots, d` represents the PDF associated with variable :math:`\zeta_{i}`. However, in many application areas, this assumption is not true; the inputs may be correlated with known linear rank correlation values. While one can still use Monte Carlo techniques to generate samples from correlated spaces, it is not straightforward to generate quadrature points from such spaces. This sets the stage for the Nataf transform [1].
+The active subspace is defined as follows: 
 
-The Nataf transformation transforms a set of correlated random variables to a set of uncorrelated standard normal random variables. To perform a Nataf transformation one requires:
-
-- The definition of the marginals :math:`\rho_{i}\left(\zeta_{i}\right)`;
-- The linear correlation matrix between the marginals :math:`\mathbf{P}`.
-
-This implies that the polynomials are constructed in the space of uncorrelated standard normal random variables---i.e., Hermite polynomials with Gauss-Hermite quadrature points [2]. However, the function evaluations are carried out in the correlated space of random variables using the Nataf transformation. The transform has two steps:
-
-**Correlated random space to correlated standard space:**
-Let :math:`\boldsymbol{\zeta}=\left\{ \zeta_{1},\ldots,\zeta_{d}\right\}` be a set of random variables and let :math:`\boldsymbol{\theta}=\left\{ \theta_{1},\ldots,\theta_{d}\right\}` denote random variables form the *standard multivariate normal* :math:`\mathcal{N}\left( \boldsymbol{0}, \mathbf{I} \right)`. One can then express 
+Let :math:`f(\mathbf{x})` be a scalar valued function :math:`\mathbb{R}^n \rightarrow \mathbb{R}` with :math:`\mathbf{x} \in \mathbb{R}^{n}`. Here :math:`f(\mathbf{x})` represents the chosen quantity of interest and :math:`\mathbf{x}` represents the design parameters. Consider the approximation
 
 .. math::
 
-	\theta_{i}=\Phi^{-1}\left[F_{i}\left(\zeta_{i}\right)\right],
+        \begin{equation}
+        f(\mathbf{x}) \approx g( \mathbf{U}^T \mathbf{x}),
+        \label{equ_active}
+        \end{equation}
 
+where :math:`\mathbf{U} \in \mathbb{R}^{k \times n}`, with :math:`k << n`. Ideally we would like :math:`k = 1` or :math:`2` for facilitating subsequent visualisation. The matrix :math:`\mathbf{U}` represents the *active subspace* and its null space represents the *inactive subspace*. Essentially, the function tends to be well approximated via the map :math:`g` on the active subspace.
 
-where :math:`F_{i}` is marginal cumulative density function of :math:`\zeta_{i}` and :math:`\Phi^{-1}` is the inverse CDF of a standard normal distribution.
-
-**Correlated standard space to uncorrelated standard space:**
-Here the Cholesky factor :math:`\mathbf{L}` of a *modified* correlation matrix :math:`\mathbf{P}^{\ast}` is used to transform the variables :math:`\boldsymbol{\theta}` into :math:`\boldsymbol{u}`
-
-.. math::
-	
-	\boldsymbol{\theta} = \mathbf{L} \boldsymbol{u},
-
-where :math:`\boldsymbol{u}=\left\{ u_{1},\ldots,u_{d}\right\}` is a set of uncorrelated normal random variables. The key difficulty in the Nataf transformation is the computation of :math:`\mathbf{P}^{\ast}` given :math:`\mathbf{P}`. It boils down to approximating the integral equation
+Numerous ideas for finding active subspaces in computer experiments can be found in the work of Constantine [1]. The idea is to express the kernel matrix as the expectation of the outer product of gradients of :math:`f`
 
 .. math::
-	
-	p_{ij}=\frac{1}{\sigma_{\zeta_{i}}\sigma_{\zeta_{j}}}\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}F_{i}^{-1}\left(\Phi\left(\theta_{i}\right)-\mu_{\zeta_{i}}\right)F_{j}^{-1}\left(\Phi\left(\theta_{j}\right)-\mu_{\zeta_{j}}\right)\mathcal{N}\left(0,p_{ij}^{\ast}I\right)d\theta_{i}d\zeta_{j}
 
-where 
+        \begin{equation}
+        \textbf{K}=\int \nabla_{\mathbf{x}} f(\mathbf{x})\nabla_{\mathbf{x}} f(\mathbf{x})^{T} \rho (\mathbf{x}) d \mathbf{x} ,
+        \label{equ_as}
+        \end{equation}
 
-- :math:`p_{ij}` is the (i,j)-th entry of :math:`\mathbf{P}`;
-- :math:`p_{ij}^{\ast}` is the (i,j)-th entry of :math:`\mathbf{P}^{\ast}`;
-- :math:`\sigma_{\zeta_{i}}` is the standard deviation of the parameter :math:`\zeta_{i}`;
-- :math:`\mu_{\zeta_{i}}` is the mean of the parameter :math:`\zeta_{i}`;
-- :math:`\mathcal{N}\left(0,p_{ij}^{\ast}I\right)` is a bivariate, zero-mean normal distribution with a variance of 1 and a correlation of :math:`p_{ij}^{\ast}`.
+where :math:`\rho(\mathbf{x})` is the density of the inputs :math:`\mathbf{x}` over its parameter space. A heuristic for estimating the kernel via finite point samples :math:`N` is described below:
 
-In practice this integral equation is difficult to solve analytically for :math:`p_{ij}^{\ast}`, thus an iterative root-finding strategy based on Newton's method is adopted in Effective Quadratures. 
-
-Now, to demonstrate this capability, consider the following problem of estimating statistical moments. Consider a *blackbox* model of the form
+1.  For :math:`N` samples drawn randomly from a distribution :math:`\rho(\mathbf{x})` calculate the sample kernel matrix:
 
 .. math::
-	
-	f \left( \boldsymbol{\zeta} \right) = \zeta_{1} + \zeta_{2} + \zeta_{3} - 12,
 
-where the input parameters :math:`\left( \boldsymbol{\zeta} \right)` are defined as follows. 
+        \begin{equation}
+        \hat{\textbf{K}}=\frac{1}{N} \sum_{i=1}^{N}(\nabla_{\mathbf{x}} f(\mathbf{x}_i))(\nabla_{\mathbf{x}} f(\mathbf{x}_i)^{T})\,;
+        \end{equation}
+
+2. Compute the eigendecomposition of :math:`\hat{\textbf{K}}` and select the eigenvectors with largest eigenvalues to form a matrix :math:`\mathbf{U}` with orthogonal columns.
+
+**Polynomial Active Subspaces**
+
+In many cases gradient information is not available. Therefore, assumptions on the model are necessary to overcome this obstacle. A good assumption would be that the model is a polynomial, as the polynomials are easy to calculate and their gradients can be derived analytically. One can express a polynomial as a linear combination of a number of polynomial basis terms
+
+.. math::
+
+        \begin{equation}
+        f(\mathbf{x}) \approx h(\mathbf{x})=\sum_{j=1}^N a_j \phi_j(\mathbf{x})\,,
+        \end{equation}
+
+where :math:`\phi_j(\mathbf{x})` is a multivariate polynomial basis term of a certain mixed degree and :math:`a_j` is the corresponding coefficient. Then the gradient can be expressed as the sum of the derivatives of the polynomials.
+
+.. math::
+
+        \begin{equation}
+        \nabla_{\mathbf{x}}f(\mathbf{x}) \approx \nabla_{\mathbf{x}}h(\mathbf{x})=\sum_{j=1}^N a_j \phi_j'(\mathbf{x})\,.
+        \end{equation}
+
+To construct the polynomial basis terms :math:`\phi(\mathbf{x})` , one only needs to know the number of dimensions and the polynomial degree. 
+
+**A 2-degree Polynomial Model for Dimension Reduction**
+
+If the polynomial degree is set as 2, then the polynomial bases would include all linear terms :math:`\phi(\mathbf{x})=x_i`, all squared terms :math:`\phi(\mathbf{x})=x_i^2` and all cross terms :math:`\phi(\mathbf{x})=x_i x_j`.
+
+One can fit a polynomial to the dataset using least squares with sample input/output pairs. This idea was leveraged in [2] to find :math:`\mathbf{U}` and is detailed below. The goal here is to use least squares to fit the dataset to the following form
+
+.. math::
+
+        \begin{equation}
+        y=f(\mathbf{x})=\frac{1}{2}\mathbf{x} ^{T} \mathbf{A}\mathbf{x} + \textbf{c}^{T}\mathbf{x} +d\,,
+        \label{quadraticeqn}
+        \end{equation}
+
+therefore the gradient of the function can be expressed as
+
+.. math::
+
+        \begin{equation}
+        \nabla_{\mathbf{x}}f(\mathbf{x})= \mathbf{A} \mathbf{x}+\textbf{c}\,.
+        \end{equation}
+
+Then a set of equations can be formulated using each data point:
+
+.. math::
+
+        \begin{equation}
+        \frac{1}{2} \sum_{i=1,j=1}^{m,m}a_{ij}x_ix_j+\sum_{j=1}^{m}c_jx_j+d=y\,;
+        \end{equation}
+
+All :math:`a_{ij}` along with :math:`\textbf{c}` and :math:`d` are obtained by solving for the least squares solution, where :math:`a_{ij}` are the entries of the matrix :math:`\mathbf{A}` and :math:`c_j` are the entries of the vector :math:`\textbf{c}`. Finally, the estimated kernel is given by
+
+.. math::
+    
+        \begin{equation}
+        \hat{\textbf{K}}=\frac{1}{N}\sum_{i=1}^N(A\mathbf{x}_i+\textbf{c})(A\mathbf{x}_i+\textbf{c})^{T}\,.
+        \end{equation}
+
+The last step of selecting eigenvectors is done by carrying out an eigendecomposition on the kernel matrix (symmetric).
+
+.. math::
+
+        \begin{equation}
+        \hat{\mathbf{K}}= \mathbf{W \Lambda W}^{T},
+        \end{equation}
+
+where :math:`\mathbf{W}` contains all eigenvectors and :math:`\Lambda` is the diagonal matrix of all corresponding eigenvalues, which are assumed to be sorted in descending order. The eigenvectors and eigenvalues can then be partitioned
+
+.. math::
+
+        \begin{equation}
+        \mathbf{W}=\left[\begin{array}{cc}
+        \mathbf{U}_{\text{active}} & \mathbf{U}_{\text{inactive}}\end{array}\right] \; \; \; \mathbf{\Lambda}=\left[\begin{array}{cc}
+        \mathbf{\Lambda_{\text{active}} }\\
+         & \mathbf{\Lambda_{\text{inactive}} }
+        \end{array}\right]
+        \end{equation}
+
+based on a *suitable cut-off criterion* ---usually the magnitude of the eigenvalues.
+
+As most of the variation in :math:`f` happens with changes in :math:`\mathbf{U}_{active}^T \mathbf{x}`, 
+
+.. math::
+
+        \begin{equation}
+        f \left(\mathbf{x}\right) \approx g\left(\mathbf{U}_\text{active}^T\mathbf{x} \right)\text{ while }f\left( \mathbf{U}_\text{inactive} \mathbf{U}_\text{inactive}^T \mathbf{x} \right) \approx 0,
+        \end{equation}
+
+where :math:`g` is a lower dimensional function.
+
+**Code Implementation**
+
+We look at a compressor fan design problem. The 25 design variables can be viewed as inputs to the function, where the CFD efficiency of the blade design is seen as the output. Now we attempt to use a 2-degree polynomial active subspace model to reach dimension reduction and find a 2D active subspace.
 
 .. code::
 
-	from equadratures import *
-	import numpy as np 
+        from equadratures import *
+	import numpy as np
 	import matplotlib.pyplot as plt
-	from scipy.stats import skew 
-
-	zeta_1 = Parameter(distribution='truncated-gaussian', shape_parameter_A = 3.0, shape_parameter_B = 2.0, order=3, lower=-2.0, upper=4.0)
-	zeta_2 = Parameter(distribution='truncated-gaussian', shape_parameter_A = -1.0, shape_parameter_B = 0.1, order=3, lower=-5.0, upper=5.0)
-	zeta_3 = Parameter(distribution='truncated-gaussian', shape_parameter_A = 2.0, shape_parameter_B = 2.0, order=3, lower=0.0, upper=6.0)
-
-	def fun(x):
-    		return 5.0 * x[0]**3 - x[0]*x[1] + 3.0*x[1]*x[2]**3 + 32.0
-
-Plots of these parameters are shown below. In practice, one can opt for any of the distributions supported by the Parameter class.
-
-.. figure:: Figures/Fig_A.png
-   :scale: 30 %
-
-   Figure. Parameter :math:`\zeta_{1}`.
-
-
-.. figure:: Figures/Fig_B.png
-   :scale: 30 %
-
-   Figure. Parameter :math:`\zeta_{2}`.
-
-.. figure:: Figures/Fig_C.png
-   :scale: 30 %
-
-   Figure. Parameter :math:`\zeta_{3}`.
-
-This sorts out the marginals. We now define our linear rank correlation matrix
-
-.. math::
-
-	\mathbf{P}=\left[\begin{array}{ccc} 1.0 & 0.6 & 0.3\\ 0.6 & 1.0 & 0.2\\ 0.3 & 0.2 & 1.0 \end{array}\right]
+	from scipy.spatial import ConvexHull, convex_hull_plot_2d
+	from mpl_toolkits.mplot3d import axes3d
 
 .. code::
 
-	R = np.eye(3)
-	R[0, 1] = 0.6
-	R[0, 2] = 0.3
-	R[2, 1] = 0.2 
-	R[1, 0] = R[0, 1]
-	R[2, 0] = R[0, 2]
-	R[1, 2] = R[2, 1]
+        X = np.loadtxt('../data/design_parameters.dat')
+	y = np.loadtxt('../data/non_dimensionalized_efficiency.dat')
+	title = 'Normalised efficiency'
 
-Now, we set up the machinery required computing this transform. We shall compare our result with Monte Carlo. 
+This dataset contains 554 pairs of inputs (designs of blades) and outputs (CFD-evaluataed efficiency). The dimension of inputs is 25 (25D design space). All input vectors are in X , while the outputs are in y.
+
+The first order of business is to construct a global quadratic model
 
 .. code::
 
-	u1 = Parameter(distribution='normal', shape_parameter_A=0.0, shape_parameter_B=1.0, order=1)
-	myNataf = Nataf([zeta_1, zeta_2, zeta_3], P)
+        s = Parameter(distribution='uniform', lower=-1., upper=1., order=2)
+	myparameters = [s for _ in range(0, 25)]
+	mybasis = Basis('total-order')
+	mypoly = Poly(parameters=myparameters, basis=mybasis, method='least-squares', \
+              sampling_args= {'mesh': 'user-defined', 'sample-points': X, 'sample-outputs': y})
+	mypoly.set_model()
+
+Next, we compute the active subspace
+
+
+.. code::
+
+        mysubspace = Subspaces(full_space_poly=mypoly, method='active-subspace')
+	W = mysubspace.get_subspace()
+	e = mysubspace.get_eigenvalues()
+
+and plot the eigenvalues to determine how many *active* variables we require.
+
+.. code::
+
+        fig = plt.figure(figsize=(7,4))
+	ax = fig.add_subplot(111)
+	plt.semilogy(e, 'o')
+	plt.ylabel('Eigenvalues (log-scale)')
+	plt.xlabel('Design parameters')
+
+.. figure:: Figures/tutorial_11_fig_a.png
+   :scale: 30 %
+
+We can then project all the samples we have within the design space onto the first few dimensions of the active subspace.
+
+.. code::
 	
-	# For Monte-Carlo!
-	samples_mc = myNataf.getCorrelatedSamples(N=10000)
-	f_mc = evalfunction(samples_mc, fun)
+	true_dimensions = 1
+	u = X @ W[:, 0:true_dimensions]
+	fig = plt.figure(figsize=(7,4))
+	ax = fig.add_subplot(111)
+	plt.plot(u[:,0], y, 'o', color='gold', markeredgecolor='k', lw=1, ms=13, alpha=0.8)
+	plt.ylabel(title)
+	plt.xlabel('u')
 
-	# For Polynomials!
-	myBasis = Basis('Tensor grid')
-	myPoly = Polyint([u1, u1, u1], myBasis)
-	samples_p =  myPoly.quadraturePoints
-	samples_corr_p = myNataf.U2C(samples_p)
-	f_p = evalfunction(samples_corr_p, fun)
+.. figure:: Figures/tutorial_11_fig_b.png
+   :scale: 30 %
 
-As before, we use the get statistics utility to estimate moments associated with this polynomial approximation:
-
-.. code::
-
-	myPoly.computeCoefficients(f_p)
-	myStats = myPoly.getStatistics()
-
-The plot below shows the quadrature points and the random Monte Carlo samples.
+And for two dimensions
 
 .. code::
 
-	fig = plt.figure()
+	true_dimensions = 2
+	u = X @ W[:, 0:true_dimensions]
+	fig = plt.figure(figsize=(10,10))
 	ax = fig.add_subplot(111, projection='3d')
-	ax.scatter(samples_mc[:,0], samples_mc[:,1], samples_mc[:,2], marker='o', s=5, c='dodgerblue', alpha=0.6)
-	ax.scatter(samples_corr_p[:,0], samples_corr_p[:,1], samples_corr_p[:,2], marker='o', s=80, c='darkorange', linewidths=1, edgecolors='k')
-	ax.set_xlabel('$\zeta_{1}$', fontsize=12)
-	ax.set_ylabel('$\zeta_{2}$', fontsize=12)
-	ax.set_zlabel('$\zeta_{3}$', fontsize=12)
-	ax.view_init(40, -41)
-	plt.savefig('Fig_D.png', dpi=200)
+	ax.scatter(u[:,0],u[:,1], y, s=50, c=y, marker='o', edgecolor='k', lw=1, alpha=0.8)
+	ax.set_xlabel('u1')
+	ax.set_ylabel('u2')
+	ax.set_zlabel(title)
 
-.. figure:: Figures/Fig_D.png
+.. figure:: Figures/tutorial_11_fig_c.png
    :scale: 30 %
 
-   Figure. Random correlated samples (shown in blue) and quadrature points associated with the isotropic tensor grid with 3 points in each direction.
-
-
-Now, lets compare statistics. Note, we've set the order of the parameter :code:`u1` parameter to be 1; this can be increased. Setting the number of Monte Carlo samples :code:`N=50000`, we obtain:
-
-.. code::
-	
-	print '----MONTE CARLO----'
-	print np.mean(f_mc), np.var(f_mc), skew(f_mc)
-
-	print '----POLYNOMIALS-----'
-	print myStats.mean, myStats.variance, myStats.skewness
-
-	----MONTE CARLO----
-	-8.35251940491 3.91447723802 -0.10088043
-	----POLYNOMIALS-----
-	-8.36876731443 4.24868942164 0.0630390307101
-
-Now, if we increase the order from 1 to 3, we obtain:
+Finally, we can also compute the zonotope associated with the 2D projection.
 
 .. code::
 
-	----MONTE CARLO----
-	-8.35251940491 3.91447723802 -0.10088043
-	----EQ-----
-	-8.36091830994 3.95592725014 -0.105047765166
+	z = X @ W[:,0:true_dimensions]
+	pts = mysubspace.get_zonotope_vertices()
+	hull = ConvexHull(pts)
+	fig = plt.figure(figsize=(11,8))
+	ax = fig.add_subplot(111)
+	plt.plot(z[:,0], z[:,1], 'o', color='gold', markeredgecolor='k', lw=1, ms=13, alpha=0.8)
+	for simplex in hull.simplices:
+    		plt.plot(pts[simplex, 0], pts[simplex, 1], 'k-', lw=2)
+
+.. figure:: Figures/tutorial_11_fig_d.png
+   :scale: 30 %
+
+The full source code for this tutorial can be found `here. <https://github.com/Effective-Quadratures/Effective-Quadratures/blob/master/source/_documentation/codes/tutorial_11.py>`__
 
 **References**
 
-.. [1] Lebrun, R., Dutfoy, A. An innovating analysis of the Nataf transformation from the copula viewpoint. Probabilistic Engineering Mechanics 24.3 (2009): 312-320. `Paper <https://www.sciencedirect.com/science/article/pii/S0266892008000660>`__
+-  Constantine, P. G. (2015) Active subspaces: Emerging ideas for dimension reduction in parameter studies, Volume 2, SIAM, 2015.
 
-.. [2] Eldred, M., Webster, C., Constantine, P. Evaluation of non-intrusive approaches for Wiener-Askey generalized polynomial chaos. 49th AIAA/ASME/ASCE/AHS/ASC Structures, Structural Dynamics, and Materials Conference, 16th AIAA/ASME/AHS Adaptive Structures Conference, 10th AIAA Non-Deterministic Approaches Conference, 9th AIAA Gossamer Spacecraft Forum, 4th AIAA Multidisciplinary Design Optimization Specialists Conference, 2008. `Paper <https://arc.aiaa.org/doi/abs/10.2514/6.2008-1892>`__
+- Seshadri, P., Shahpar, S., Constantine, P., Parks, G., Adams, M. (2018) Turbomachinery active subspace performance maps. Journal of Turbomachinery, 140(4), 041003. `Paper <http://turbomachinery.asmedigitalcollection.asme.org/article.aspx?articleid=2668256>`__
+

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Polynomial regression &#8212; equadratures</title>
+    <title>Sensitivity analysis for a piston model &#8212; equadratures</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -39,7 +39,7 @@
     <link rel="shortcut icon" href="../_static/eq-logo-favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Bayesian polynomial regression" href="tutorial_7.html" />
+    <link rel="next" title="Data-driven dimension reduction in turbomachinery" href="tutorial_7.html" />
     <link rel="prev" title="Multi-index sets" href="tutorial_5.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -123,25 +123,25 @@
           
             
                 <li class="">
-                    <a href="tutorial_1.html">Foundations I</a>
+                    <a href="tutorial_1.html">Foundations I: A parameter</a>
                 </li>
             
           
             
                 <li class="">
-                    <a href="tutorial_2.html">Generating univariate quadrature rules</a>
+                    <a href="tutorial_2.html">Foundations II: Orthogonal polynomials</a>
                 </li>
             
           
             
                 <li class="">
-                    <a href="tutorial_3.html">Constructing orthogonal polynomials</a>
+                    <a href="tutorial_3.html">Foundations III: Solving linear systems for polynomials</a>
                 </li>
             
           
             
                 <li class="">
-                    <a href="tutorial_4.html">Computing moments</a>
+                    <a href="tutorial_4.html">Uncertainty quantification in computational fluid dynamics</a>
                 </li>
             
           
@@ -153,13 +153,13 @@
           
             
                 <li class="active">
-                    <a href="">Polynomial regression</a>
+                    <a href="">Sensitivity analysis for a piston model</a>
                 </li>
             
           
             
                 <li class="">
-                    <a href="tutorial_7.html">Bayesian polynomial regression</a>
+                    <a href="tutorial_7.html">Data-driven dimension reduction in turbomachinery</a>
                 </li>
             
           
@@ -225,8 +225,8 @@
               
               <div>
                 
-  <div class="section" id="polynomial-regression">
-<h1>Polynomial regression<a class="headerlink" href="#polynomial-regression" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="sensitivity-analysis-for-a-piston-model">
+<h1>Sensitivity analysis for a piston model<a class="headerlink" href="#sensitivity-analysis-for-a-piston-model" title="Permalink to this headline">¶</a></h1>
 <p>So you have some data, and you’d like to get a “best-fit” curve through the data. No problem. That’s pretty much what this guide seeks to do. So let’s get started; consider the data set below.</p>
 <table class="colwidths-given table" id="id1">
 <caption><span class="caption-text">Sample data for regression.</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>

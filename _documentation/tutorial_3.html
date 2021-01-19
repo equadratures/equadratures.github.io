@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Constructing orthogonal polynomials &#8212; equadratures</title>
+    <title>Foundations III: Solving linear systems for polynomials &amp; numerical quadrature &#8212; equadratures</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -39,8 +39,8 @@
     <link rel="shortcut icon" href="../_static/eq-logo-favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Computing moments" href="tutorial_4.html" />
-    <link rel="prev" title="Generating univariate quadrature rules" href="tutorial_2.html" />
+    <link rel="next" title="Uncertainty quantification in computational fluid dynamics" href="tutorial_4.html" />
+    <link rel="prev" title="Foundations II: Orthogonal polynomials" href="tutorial_2.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
   </head>
@@ -123,73 +123,79 @@
           
             
                 <li class="">
-                    <a href="tutorial_1.html">Foundations I</a>
+                    <a href="tutorial_1.html">Foundations I: A parameter</a>
                 </li>
             
           
             
                 <li class="">
-                    <a href="tutorial_2.html">Generating univariate quadrature rules</a>
+                    <a href="tutorial_2.html">Foundations II: Orthogonal polynomials</a>
                 </li>
             
           
             
                 <li class="active">
-                    <a href="">Constructing orthogonal polynomials</a>
+                    <a href="">Foundations III: Solving linear systems for polynomials & numerical quadrature</a>
                 </li>
             
           
             
                 <li class="">
-                    <a href="tutorial_4.html">Computing moments</a>
+                    <a href="tutorial_4.html">Uncertainty quantification in computational fluid dynamics</a>
                 </li>
             
           
             
                 <li class="">
-                    <a href="tutorial_5.html">Multi-index sets</a>
+                    <a href="tutorial_5.html">Uncertainty quantification with correlations for a borehole model</a>
                 </li>
             
           
             
                 <li class="">
-                    <a href="tutorial_6.html">Polynomial regression</a>
+                    <a href="tutorial_6.html">Sensitivity analysis for a piston model</a>
                 </li>
             
           
             
                 <li class="">
-                    <a href="tutorial_7.html">Bayesian polynomial regression</a>
+                    <a href="tutorial_7.html">Data-driven dimension reduction in turbomachinery</a>
                 </li>
             
           
             
                 <li class="">
-                    <a href="tutorial_8.html">Sparse and tensor grid quadrature rules</a>
+                    <a href="tutorial_8.html">Adjoint/gradient-enhanced surrogate modelling</a>
                 </li>
             
           
             
                 <li class="">
-                    <a href="tutorial_9.html">Computing Sobol’ (sensitivity) indices</a>
+                    <a href="tutorial_9.html">Surrogate-based design optimisation on Rosenbrock’s function</a>
                 </li>
             
           
             
                 <li class="">
-                    <a href="tutorial_11.html">Active subspaces with polynomial approximations</a>
+                    <a href="tutorial_10.html">Machine learning California housing with interpretable polynomial trees</a>
                 </li>
             
           
             
                 <li class="">
-                    <a href="tutorial_12.html">Polynomial variable projection</a>
+                    <a href="tutorial_11.html">Time-series remaining useful life prediction with spatio-temporal polynomials</a>
                 </li>
             
           
             
                 <li class="">
-                    <a href="tutorial_17.html">Surrogate-based optimisation with polynomials</a>
+                    <a href="tutorial_12.html">Flow-field estimation using vector-valued polynomial ridge approximations</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="tutorial_13.html">Multi-fidelity Bayesian polynomials on turbine cascade experiments</a>
                 </li>
             
           
@@ -225,8 +231,8 @@
               
               <div>
                 
-  <div class="section" id="constructing-orthogonal-polynomials">
-<h1>Constructing orthogonal polynomials<a class="headerlink" href="#constructing-orthogonal-polynomials" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="foundations-iii-solving-linear-systems-for-polynomials-numerical-quadrature">
+<h1>Foundations III: Solving linear systems for polynomials &amp; numerical quadrature<a class="headerlink" href="#foundations-iii-solving-linear-systems-for-polynomials-numerical-quadrature" title="Permalink to this headline">¶</a></h1>
 <p>In this tutorial we describe how one can construct orthogonal polynomials in Effective Quadratures. For starters, we consider Legendre polynomials—orthogonal with respect to the uniform weight function. We define a Parameter <span class="math notranslate nohighlight">\(s\)</span> with <span class="math notranslate nohighlight">\(\rho(s) \sim \mathcal{U}[-1,1]\)</span>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">equadratures</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>

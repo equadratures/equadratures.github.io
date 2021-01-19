@@ -1,236 +1,178 @@
-Active subspaces with polynomial approximations
-=================================================
+Time-series remaining useful life prediction with spatio-temporal polynomials
+==============================================================================
 
-**Active Subspaces**
+The variable projection method has been used for solving separable non-linear least squares problems for the past few decades [1]. The general idea is to minimise the residual of a non-linear fitting. Given a set of observations, the model is a linear combination of non-linear functions that depends on multiple parameters. In this tutorial the idea of variable projection is applied to ridge approximation for dimension reduction purposes. Here the algorithm is built on the idea proposed by Hokanson et al. [2].
 
-The active subspace is defined as follows: 
+**Theory**
 
-Let :math:`f(\mathbf{x})` be a scalar valued function :math:`\mathbb{R}^n \rightarrow \mathbb{R}` with :math:`\mathbf{x} \in \mathbb{R}^{n}`. Here :math:`f(\mathbf{x})` represents the chosen quantity of interest and :math:`\mathbf{x}` represents the design parameters. Consider the approximation
+For a function with inputs and outputs, variable projection approximates the outputs :math:`y_i` with polynomials
+
+.. math::
+
+	\begin{align*}
+        y_i  & = f(\boldsymbol{x}_i) \\
+	& \approx g(\mathbf{U}^T\boldsymbol{x}_i) \\
+	& =\sum_j a_j\phi_j(\mathbf{U}^T\boldsymbol{x}_i),
+	\end{align*}
+
+:math:`\phi_j(\mathbf{U}^T\boldsymbol{x}_i)` are polynomial basis terms;
+:math:`a_j` are their coefficients.
+
+The residual is then given by
+
+.. math::
+
+	\begin{equation}
+	r_i(\mathbf{U})=y_i-\sum_j a_j\phi_j(\mathbf{U}^T\boldsymbol{x}_i).
+	\end{equation}
+
+Re-writing this in matrix form,
+
+.. math::
+
+	\begin{equation}
+	\mathbf{r(U)}=\mathbf{y}-\mathbf{V(U)}\mathbf{a},
+	\end{equation}
+
+:math:`r_i(\mathbf{U})` are entries of :math:`\mathbf{r(U)}`; 
+:math:`y_i` are entries of :math:`\mathbf{y}`; 
+:math:`\phi_j(\mathbf{U}^T\boldsymbol{x}_i)` are entries of Vandermonde matrix :math:`\mathbf{V(U)}`; 
+:math:`a_j` are entries of :math:`\mathbf{a}`.
+
+The Vandermonde matrix contains all polynomial terms :math:`\phi_j`.
 
 .. math::
 
         \begin{equation}
-        f(\mathbf{x}) \approx g( \mathbf{U}^T \mathbf{x}),
-        \label{equ_active}
+        \mathbf{V(U)}=
+        \begin{bmatrix}
+            \phi_1(\mathbf{U}^T\boldsymbol{x}_1)       & \phi_2(\mathbf{U}^T\boldsymbol{x}_1) & \dots & \phi_j(\mathbf{U}^T\boldsymbol{x}_1)  & \dots \\
+            \phi_1(\mathbf{U}^T\boldsymbol{x}_2)       & \phi_2(\mathbf{U}^T\boldsymbol{x}_2) & \dots & \phi_j(\mathbf{U}^T\boldsymbol{x}_2)  & \dots \\
+        \vdots & \vdots & \vdots & \vdots & \vdots \\
+            \phi_1(\mathbf{U}^T\boldsymbol{x}_i)       & \phi_2(\mathbf{U}^T\boldsymbol{x}_i) & \dots & \phi_j(\mathbf{U}^T\boldsymbol{x}_i)  & \dots \\
+        \vdots & \vdots & \vdots & \vdots & \vdots     
+        \end{bmatrix}.
         \end{equation}
 
-where :math:`\mathbf{U} \in \mathbb{R}^{k \times n}`, with :math:`k << n`. Ideally we would like :math:`k = 1` or :math:`2` for facilitating subsequent visualisation. The matrix :math:`\mathbf{U}` represents the *active subspace* and its null space represents the *inactive subspace*. Essentially, the function tends to be well approximated via the map :math:`g` on the active subspace.
-
-Numerous ideas for finding active subspaces in computer experiments can be found in the work of Constantine [1]. The idea is to express the kernel matrix as the expectation of the outer product of gradients of :math:`f`
+When the degree of polynomial is 2 and subspace dimension is 2,
 
 .. math::
 
         \begin{equation}
-        \textbf{K}=\int \nabla_{\mathbf{x}} f(\mathbf{x})\nabla_{\mathbf{x}} f(\mathbf{x})^{T} \rho (\mathbf{x}) d \mathbf{x} ,
-        \label{equ_as}
+        \mathbf{V(U)}=
+        \begin{bmatrix}
+            1       & \mathbf{U}_1^T\boldsymbol{x}_1 & \mathbf{U}_2^T\boldsymbol{x}_1 & (\mathbf{U}_1^T\boldsymbol{x}_1) 
+       (\mathbf{U}_2^T\boldsymbol{x}_1)  &  (\mathbf{U}_1^T\boldsymbol{x}_1)^2 & (\mathbf{U}_2^T\boldsymbol{x}_1)^2\\
+	        1       & \mathbf{U}_1^T\boldsymbol{x}_2 & \mathbf{U}_2^T\boldsymbol{x}_2 & (\mathbf{U}_1^T\boldsymbol{x}_2) 
+       (\mathbf{U}_2^T\boldsymbol{x}_2)  &  (\mathbf{U}_1^T\boldsymbol{x}_2)^2 & (\mathbf{U}_2^T\boldsymbol{x}_2)^2\\
+        \vdots & \vdots & \vdots &   & \vdots & \vdots \\
+	        1       & \mathbf{U}_1^T\boldsymbol{x}_M & \mathbf{U}_2^T\boldsymbol{x}_M & (\mathbf{U}_1^T\boldsymbol{x}_M) 
+       (\mathbf{U}_2^T\boldsymbol{x}_M)  &  (\mathbf{U}_1^T\boldsymbol{x}_M)^2 & (\mathbf{U}_2^T\boldsymbol{x}_2)^M
+        \end{bmatrix}.
         \end{equation}
 
-where :math:`\rho(\mathbf{x})` is the density of the inputs :math:`\mathbf{x}` over its parameter space. A heuristic for estimating the kernel via finite point samples :math:`N` is described below:
-
-1.  For :math:`N` samples drawn randomly from a distribution :math:`\rho(\mathbf{x})` calculate the sample kernel matrix:
+This is a non-linear least squares problem. We can find its solution:
 
 .. math::
 
         \begin{equation}
-        \hat{\textbf{K}}=\frac{1}{N} \sum_{i=1}^{N}(\nabla_{\mathbf{x}} f(\mathbf{x}_i))(\nabla_{\mathbf{x}} f(\mathbf{x}_i)^{T})\,;
+        \mathbf{a}=\mathbf{V(U)}^+\mathbf{y},
         \end{equation}
 
-2. Compute the eigendecomposition of :math:`\hat{\textbf{K}}` and select the eigenvectors with largest eigenvalues to form a matrix :math:`\mathbf{U}` with orthogonal columns.
+then the residual can be reformulated:
 
-**Polynomial Active Subspaces**
+.. math::
 
-In many cases gradient information is not available. Therefore, assumptions on the model are necessary to overcome this obstacle. A good assumption would be that the model is a polynomial, as the polynomials are easy to calculate and their gradients can be derived analytically. One can express a polynomial as a linear combination of a number of polynomial basis terms
+        \begin{align}
+        \mathbf{r(U)} &=\mathbf{y}-\mathbf{V(U)}\mathbf{a} =\mathbf{y}-\mathbf{V(U)V(U)^+}\mathbf{y}=(\mathbf{I}- 
+       \mathbf{V(U)}\mathbf{V(U)})\mathbf{y}.
+        \end{align}
+
+Find :math:`\mathbf{U}` by optimisation,
 
 .. math::
 
         \begin{equation}
-        f(\mathbf{x}) \approx h(\mathbf{x})=\sum_{j=1}^N a_j \phi_j(\mathbf{x})\,,
+        \mathbf{U}=\underset{\mathbf{U}\in\mathbb{G}(n,\mathbb{R}^m)}{\text{argmin}} \| \mathbf{r(U)}    \|_2^2\,=\underset{\mathbf{U}} 
+       {\text{argmin}}\| (\mathbf{I}-\mathbf{V(U)}\mathbf{V(U)}^+)\mathbf{y}\|_2^2\,.
         \end{equation}
 
-where :math:`\phi_j(\mathbf{x})` is a multivariate polynomial basis term of a certain mixed degree and :math:`a_j` is the corresponding coefficient. Then the gradient can be expressed as the sum of the derivatives of the polynomials.
+Gauss-Newton algorithm is used for optimisation, as it is a non-linear least squares problem.
+
+The Jacobian tensor is defined as
 
 .. math::
 
         \begin{equation}
-        \nabla_{\mathbf{x}}f(\mathbf{x}) \approx \nabla_{\mathbf{x}}h(\mathbf{x})=\sum_{j=1}^N a_j \phi_j'(\mathbf{x})\,.
+        \boldsymbol{\mathcal{J}}_{i,j,k}(\mathbf{U})=\frac{\partial \mathbf{[r(U)]}_i}{\partial [\mathbf{U}]_{j,k}}\, .
         \end{equation}
 
-To construct the polynomial basis terms :math:`\phi(\mathbf{x})` , one only needs to know the number of dimensions and the polynomial degree. 
-
-**A 2-degree Polynomial Model for Dimension Reduction**
-
-If the polynomial degree is set as 2, then the polynomial bases would include all linear terms :math:`\phi(\mathbf{x})=x_i`, all squared terms :math:`\phi(\mathbf{x})=x_i^2` and all cross terms :math:`\phi(\mathbf{x})=x_i x_j`.
-
-One can fit a polynomial to the dataset using least squares with sample input/output pairs. This idea was leveraged in [2] to find :math:`\mathbf{U}` and is detailed below. The goal here is to use least squares to fit the dataset to the following form
+The iterative update expression is
 
 .. math::
 
         \begin{equation}
-        y=f(\mathbf{x})=\frac{1}{2}\mathbf{x} ^{T} \mathbf{A}\mathbf{x} + \textbf{c}^{T}\mathbf{x} +d\,,
-        \label{quadraticeqn}
+        \mathbf{U}^{(s+1)}=\mathbf{U}^{(s)}-(\boldsymbol{\mathcal{J}}_{i,j,k}(\mathbf{U}^{(s)}))^+\mathbf{r}(\mathbf{U}^{(s)}),
         \end{equation}
 
-therefore the gradient of the function can be expressed as
-
-.. math::
-
-        \begin{equation}
-        \nabla_{\mathbf{x}}f(\mathbf{x})= \mathbf{A} \mathbf{x}+\textbf{c}\,.
-        \end{equation}
-
-Then a set of equations can be formulated using each data point:
-
-.. math::
-
-        \begin{equation}
-        \frac{1}{2} \sum_{i=1,j=1}^{m,m}a_{ij}x_ix_j+\sum_{j=1}^{m}c_jx_j+d=y\,;
-        \end{equation}
-
-All :math:`a_{ij}` along with :math:`\textbf{c}` and :math:`d` are obtained by solving for the least squares solution, where :math:`a_{ij}` are the entries of the matrix :math:`\mathbf{A}` and :math:`c_j` are the entries of the vector :math:`\textbf{c}`. Finally, the estimated kernel is given by
-
-.. math::
-    
-        \begin{equation}
-        \hat{\textbf{K}}=\frac{1}{N}\sum_{i=1}^N(A\mathbf{x}_i+\textbf{c})(A\mathbf{x}_i+\textbf{c})^{T}\,.
-        \end{equation}
-
-The last step of selecting eigenvectors is done by carrying out an eigendecomposition on the kernel matrix (symmetric).
-
-.. math::
-
-        \begin{equation}
-        \hat{\mathbf{K}}= \mathbf{W \Lambda W}^{T},
-        \end{equation}
-
-where :math:`\mathbf{W}` contains all eigenvectors and :math:`\Lambda` is the diagonal matrix of all corresponding eigenvalues, which are assumed to be sorted in descending order. The eigenvectors and eigenvalues can then be partitioned
-
-.. math::
-
-        \begin{equation}
-        \mathbf{W}=\left[\begin{array}{cc}
-        \mathbf{U}_{\text{active}} & \mathbf{U}_{\text{inactive}}\end{array}\right] \; \; \; \mathbf{\Lambda}=\left[\begin{array}{cc}
-        \mathbf{\Lambda_{\text{active}} }\\
-         & \mathbf{\Lambda_{\text{inactive}} }
-        \end{array}\right]
-        \end{equation}
-
-based on a *suitable cut-off criterion* ---usually the magnitude of the eigenvalues.
-
-As most of the variation in :math:`f` happens with changes in :math:`\mathbf{U}_{active}^T \mathbf{x}`, 
-
-.. math::
-
-        \begin{equation}
-        f \left(\mathbf{x}\right) \approx g\left(\mathbf{U}_\text{active}^T\mathbf{x} \right)\text{ while }f\left( \mathbf{U}_\text{inactive} \mathbf{U}_\text{inactive}^T \mathbf{x} \right) \approx 0,
-        \end{equation}
-
-where :math:`g` is a lower dimensional function.
+where  :math:`(\boldsymbol{\mathcal{J}}_{i,j,k}(\mathbf{U}^{(s)}))^+` is the pseudoinverse of the Jacobian.
 
 **Code Implementation**
 
-We look at a compressor fan design problem. The 25 design variables can be viewed as inputs to the function, where the CFD efficiency of the blade design is seen as the output. Now we attempt to use a 2-degree polynomial active subspace model to reach dimension reduction and find a 2D active subspace.
+In turbomachinery design, the fan blade designs are usually parametrised by a few hundred design variables, representing the geometric properties at various positions of the fan blade span. In this notebook, we study one such fan blade, which contains 25 variables per design, while the corresponding efficiency of each design is evaluated by Computational Fluid Dynamics (CFD) simulations.
 
 .. code::
 
         from equadratures import *
 	import numpy as np
 	import matplotlib.pyplot as plt
-	from scipy.spatial import ConvexHull, convex_hull_plot_2d
 	from mpl_toolkits.mplot3d import axes3d
 
 .. code::
 
-        X = np.loadtxt('../data/design_parameters.dat')
-	y = np.loadtxt('../data/non_dimensionalized_efficiency.dat')
+        X = np.loadtxt('design_parameters.dat')
+	y = np.loadtxt('non_dimensionalized_efficiency.dat')
 	title = 'Normalised efficiency'
 
-This dataset contains 554 pairs of inputs (designs of blades) and outputs (CFD-evaluataed efficiency). The dimension of inputs is 25 (25D design space). All input vectors are in X , while the outputs are in y.
-
-The first order of business is to construct a global quadratic model
+This dataset (taken from [3]) contains 554 pairs of inputs (designs of blades) and outputs (CFD-evaluataed efficiency). The dimension of inputs is 25 (25D design space). Using variable projection, we wish to find a surrogate model for this relationship in 2D. All input vectors are put in X.dat, while the outputs are in Y.dat. They are stored as variables X and fX respectively.
 
 .. code::
 
-        s = Parameter(distribution='uniform', lower=-1., upper=1., order=2)
-	myparameters = [s for _ in range(0, 25)]
-	mybasis = Basis('total-order')
-	mypoly = Poly(parameters=myparameters, basis=mybasis, method='least-squares', \
-              sampling_args= {'mesh': 'user-defined', 'sample-points': X, 'sample-outputs': y})
-	mypoly.set_model()
+        n=2
+        p=2
 
-Next, we compute the active subspace
+:math:`n` stands for the dimensionality of the active subspace, which is also the dimenion of surrogate model. Here it is set to 2. This indicates the active subspace :math:`\mathbf{U}` found would be of :math:`25\times 2`. :math:`p` stands for the degree of polynomial basis terms. :math:`p=2` suggests the model can capture both linear and quadratic relationships, but not cubic or above.
 
+..  code::
 
-.. code::
-
-        mysubspace = Subspaces(full_space_poly=mypoly, method='active-subspace')
+        mysubspace = Subspaces(method='variable-projection', sample_points=X, sample_outputs=y)
 	W = mysubspace.get_subspace()
-	e = mysubspace.get_eigenvalues()
 
-and plot the eigenvalues to determine how many *active* variables we require.
 
-.. code::
-
-        fig = plt.figure(figsize=(7,4))
-	ax = fig.add_subplot(111)
-	plt.semilogy(e, 'o')
-	plt.ylabel('Eigenvalues (log-scale)')
-	plt.xlabel('Design parameters')
-
-.. figure:: Figures/tutorial_11_fig_a.png
-   :scale: 30 %
-
-We can then project all the samples we have within the design space onto the first few dimensions of the active subspace.
-
-.. code::
-	
-	true_dimensions = 1
-	u = X @ W[:, 0:true_dimensions]
-	fig = plt.figure(figsize=(7,4))
-	ax = fig.add_subplot(111)
-	plt.plot(u[:,0], y, 'o', color='gold', markeredgecolor='k', lw=1, ms=13, alpha=0.8)
-	plt.ylabel(title)
-	plt.xlabel('u')
-
-.. figure:: Figures/tutorial_11_fig_b.png
-   :scale: 30 %
-
-And for two dimensions
+Now the active subspace is found, we can plot the high dimensional data onto the 2D active subspace. Here it is noted that since the approach finds the active subspace :math:`\mathbf{U}` without a kernel matrix, :math:`\mathbf{U}=[\mathbf{U}_1,\mathbf{U}_2]`.
 
 .. code::
 
-	true_dimensions = 2
-	u = X @ W[:, 0:true_dimensions]
-	fig = plt.figure(figsize=(10,10))
+        u = X @ W[:, 0:n]
+
+.. code::
+
+        fig = plt.figure(figsize=(10,10))
 	ax = fig.add_subplot(111, projection='3d')
-	ax.scatter(u[:,0],u[:,1], y, s=50, c=y, marker='o', edgecolor='k', lw=1, alpha=0.8)
+	ax.scatter(u[:,0],u[:,1], y, s=50, c=y, marker='o', edgecolor='k', lw=1, alpha=0.8)                                                                               
 	ax.set_xlabel('u1')
 	ax.set_ylabel('u2')
 	ax.set_zlabel(title)
 
-.. figure:: Figures/tutorial_11_fig_c.png
-   :scale: 30 %
+.. figure:: Figures/tutorial_12_fig_a.png
+   :scale: 50 %
 
-Finally, we can also compute the zonotope associated with the 2D projection.
-
-.. code::
-
-	z = X @ W[:,0:true_dimensions]
-	pts = mysubspace.get_zonotope_vertices()
-	hull = ConvexHull(pts)
-	fig = plt.figure(figsize=(11,8))
-	ax = fig.add_subplot(111)
-	plt.plot(z[:,0], z[:,1], 'o', color='gold', markeredgecolor='k', lw=1, ms=13, alpha=0.8)
-	for simplex in hull.simplices:
-    		plt.plot(pts[simplex, 0], pts[simplex, 1], 'k-', lw=2)
-
-.. figure:: Figures/tutorial_11_fig_d.png
-   :scale: 30 %
-
-The full source code for this tutorial can be found `here. <https://github.com/Effective-Quadratures/Effective-Quadratures/blob/master/source/_documentation/codes/tutorial_11.py>`__
+The full source code for this tutorial can be found `here. <https://github.com/Effective-Quadratures/Effective-Quadratures/blob/master/source/_documentation/codes/tutorial_12.py>`__
 
 **References**
 
--  Constantine, P. G. (2015) Active subspaces: Emerging ideas for dimension reduction in parameter studies, Volume 2, SIAM, 2015.
+- Golub, G., Pereyra, V., (2003). Separable nonlinear least squares: the variable projection method and its applications. Inverse Problems, 19(2). `Paper <http://iopscience.iop.org/article/10.1088/0266-5611/19/2/201/meta>`__
+
+- Honkason, J. and Constantine, P. (2018). Data-driven polynomial ridge approximation using variable projection. SIAM Journal on Scientific Computing 40.3 (2018): A1566-A1589. `Paper <https://epubs.siam.org/doi/abs/10.1137/17M1117690>`__
 
 - Seshadri, P., Shahpar, S., Constantine, P., Parks, G., Adams, M. (2018) Turbomachinery active subspace performance maps. Journal of Turbomachinery, 140(4), 041003. `Paper <http://turbomachinery.asmedigitalcollection.asme.org/article.aspx?articleid=2668256>`__
-

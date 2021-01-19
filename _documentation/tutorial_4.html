@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Computing moments &#8212; equadratures</title>
+    <title>Uncertainty quantification in computational fluid dynamics &#8212; equadratures</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -40,7 +40,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Multi-index sets" href="tutorial_5.html" />
-    <link rel="prev" title="Constructing orthogonal polynomials" href="tutorial_3.html" />
+    <link rel="prev" title="Foundations III" href="tutorial_3.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
   </head>
@@ -129,19 +129,19 @@
           
             
                 <li class="">
-                    <a href="tutorial_2.html">Generating univariate quadrature rules</a>
+                    <a href="tutorial_2.html">Foundations II</a>
                 </li>
             
           
             
                 <li class="">
-                    <a href="tutorial_3.html">Constructing orthogonal polynomials</a>
+                    <a href="tutorial_3.html">Foundations III</a>
                 </li>
             
           
             
                 <li class="active">
-                    <a href="">Computing moments</a>
+                    <a href="">Uncertainty quantification in computational fluid dynamics</a>
                 </li>
             
           
@@ -208,9 +208,20 @@
           
           <div class="d-none d-xl-block col-xl-2 bd-toc">
               
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
 
 <nav id="bd-toc-nav">
     <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#polynomial-chaos-and-monte-carlo" class="nav-link">Polynomial chaos and Monte Carlo</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#cfd-with-two-aleatory-uncertainties" class="nav-link">CFD with two aleatory uncertainties</a>
+        </li>
     
     </ul>
 </nav>
@@ -225,8 +236,11 @@
               
               <div>
                 
-  <div class="section" id="computing-moments">
-<h1>Computing moments<a class="headerlink" href="#computing-moments" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="uncertainty-quantification-in-computational-fluid-dynamics">
+<h1>Uncertainty quantification in computational fluid dynamics<a class="headerlink" href="#uncertainty-quantification-in-computational-fluid-dynamics" title="Permalink to this headline">¶</a></h1>
+<p>In this tutorial we will learn</p>
+<div class="section" id="polynomial-chaos-and-monte-carlo">
+<h2>Polynomial chaos and Monte Carlo<a class="headerlink" href="#polynomial-chaos-and-monte-carlo" title="Permalink to this headline">¶</a></h2>
 <p>This tutorial raises a very important question. Why bother using polynomials for estimating moments? What exactly is the advantage? Moreover, are we guaranteed that we will converge to the Monte Carlo solution? The answer is a resounding yes! Infact this is precisely what Dongbin Xiu and George Karniandakis showed in their seminal paper [1]. As always we begin with some definitions: Parameter, Poly and Basis.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">equadratures</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -281,11 +295,15 @@
 <div class="figure align-default">
 <a class="reference internal image-reference" href="../_images/tutorial_4_fig_b.png"><img alt="../_images/tutorial_4_fig_b.png" src="../_images/tutorial_4_fig_b.png" style="width: 362.09999999999997px; height: 306.3px;" /></a>
 </div>
+</div>
+<div class="section" id="cfd-with-two-aleatory-uncertainties">
+<h2>CFD with two aleatory uncertainties<a class="headerlink" href="#cfd-with-two-aleatory-uncertainties" title="Permalink to this headline">¶</a></h2>
 <p>The full source code for this tutorial can be found <a class="reference external" href="https://github.com/Effective-Quadratures/Effective-Quadratures/blob/master/source/_documentation/codes/tutorial_4.py">here.</a></p>
 <p><strong>References</strong></p>
 <ul class="simple">
 <li><p>Xiu, D., Karniandakis, G. E., (2002). The Wiener-Askey Polynomial Chaos for Stochastic Differential Equations. SIAM Journal on Scientific Computing,  24(2), <a class="reference external" href="https://epubs.siam.org/doi/abs/10.1137/S1064827501387826?journalCode=sjoce3">Paper</a></p></li>
 </ul>
+</div>
 </div>
 
 

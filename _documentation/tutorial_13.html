@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vector-valued dimension reduction &#8212; equadratures</title>
+    <title>Multi-fidelity Bayesian polynomials on turbine cascade experiments &#8212; equadratures</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -39,6 +39,8 @@
     <link rel="shortcut icon" href="../_static/eq-logo-favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Modules" href="modules.html" />
+    <link rel="prev" title="Flow-field estimation using vector-valued polynomial ridge approximations" href="tutorial_12.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
   </head>
@@ -60,11 +62,7 @@
       <ul id="navbar-main-elements" class="navbar-nav mr-auto">
         
         
-        <li class="nav-item ">
-            <a class="nav-link" href="../index.html">equadratures</a>
-        </li>
-        
-        <li class="nav-item ">
+        <li class="nav-item active">
             <a class="nav-link" href="tutorials.html">Tutorials</a>
         </li>
         
@@ -122,7 +120,85 @@
     <ul class="nav bd-sidenav">
         
         
-        
+          
+            
+                <li class="">
+                    <a href="tutorial_1.html">Foundations I: A parameter</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="tutorial_2.html">Foundations II: Orthogonal polynomials</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="tutorial_3.html">Foundations III: Solving linear systems for polynomials</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="tutorial_4.html">Uncertainty quantification in computational fluid dynamics</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="tutorial_5.html">Uncertainty quantification with correlations for a borehole model</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="tutorial_6.html">Sensitivity analysis for a piston model</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="tutorial_7.html">Data-driven dimension reduction in turbomachinery</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="tutorial_8.html">Adjoint/gradient-enhanced surrogate modelling</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="tutorial_9.html">Surrogate-based design optimisation on Rosenbrock’s function</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="tutorial_10.html">Machine learning California housing with interpretable polynomial trees</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="tutorial_11.html">Time-series remaining useful life prediction with spatio-temporal polynomials</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="tutorial_12.html">Flow-field estimation using vector-valued polynomial ridge approximations</a>
+                </li>
+            
+          
+            
+                <li class="active">
+                    <a href="">Multi-fidelity Bayesian polynomials on turbine cascade experiments</a>
+                </li>
+            
+          
         
         
         
@@ -155,8 +231,8 @@
               
               <div>
                 
-  <div class="section" id="vector-valued-dimension-reduction">
-<h1>Vector-valued dimension reduction<a class="headerlink" href="#vector-valued-dimension-reduction" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="multi-fidelity-bayesian-polynomials-on-turbine-cascade-experiments">
+<h1>Multi-fidelity Bayesian polynomials on turbine cascade experiments<a class="headerlink" href="#multi-fidelity-bayesian-polynomials-on-turbine-cascade-experiments" title="Permalink to this headline">¶</a></h1>
 <p>In some applications, we may be interested in the approximation of vector-valued objectives. This allows us to study the dimension reducing subspaces of multiple scalar objectives, such as the lift and drag of an airfoil simultaneously. Alternatively, we may be interested in the discretized pressure profile over this airfoil. With an approach that extends the technique of <a class="reference external" href="https://effective-quadratures.github.io/Effective-Quadratures/_documentation/tutorial_11.html">active subspaces</a>, and the closely related ridge approximation, we can find subspaces within which the greatest variation of the vector-valued function will be contained. In other words, for a function <span class="math notranslate nohighlight">\(\mathbf{f}(\mathbf{x}): \mathbb{R}^d \rightarrow \mathbb{R}^n\)</span>, we want to find a ridge approximation</p>
 <div class="math notranslate nohighlight">
 \[\mathbf{f}(\mathbf{x}) \approx \mathbf{g}( \mathbf{U}^T \mathbf{x}),\]</div>

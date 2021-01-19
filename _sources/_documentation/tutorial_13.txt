@@ -1,5 +1,5 @@
-Flow-field estimation using vector-valued polynomial ridge approximations
-==========================================================================
+Multi-fidelity Bayesian polynomials on turbine cascade experiments
+================================================================================================
 In some applications, we may be interested in the approximation of vector-valued objectives. This allows us to study the dimension reducing subspaces of multiple scalar objectives, such as the lift and drag of an airfoil simultaneously. Alternatively, we may be interested in the discretized pressure profile over this airfoil. With an approach that extends the technique of `active subspaces <https://effective-quadratures.github.io/Effective-Quadratures/_documentation/tutorial_11.html>`__, and the closely related ridge approximation, we can find subspaces within which the greatest variation of the vector-valued function will be contained. In other words, for a function :math:`\mathbf{f}(\mathbf{x}): \mathbb{R}^d \rightarrow \mathbb{R}^n`, we want to find a ridge approximation
 
 

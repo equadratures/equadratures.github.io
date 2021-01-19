@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Generating univariate quadrature rules &#8212; equadratures</title>
+    <title>Foundations II: Orthogonal polynomials &#8212; equadratures</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -39,8 +39,8 @@
     <link rel="shortcut icon" href="../_static/eq-logo-favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Constructing orthogonal polynomials" href="tutorial_3.html" />
-    <link rel="prev" title="Foundations I" href="tutorial_1.html" />
+    <link rel="next" title="Foundations III: Solving linear systems for polynomials" href="tutorial_3.html" />
+    <link rel="prev" title="Foundations I: A parameter" href="tutorial_1.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
   </head>
@@ -123,25 +123,25 @@
           
             
                 <li class="">
-                    <a href="tutorial_1.html">Foundations I</a>
+                    <a href="tutorial_1.html">Foundations I: A parameter</a>
                 </li>
             
           
             
                 <li class="active">
-                    <a href="">Generating univariate quadrature rules</a>
+                    <a href="">Foundations II: Orthogonal polynomials</a>
                 </li>
             
           
             
                 <li class="">
-                    <a href="tutorial_3.html">Constructing orthogonal polynomials</a>
+                    <a href="tutorial_3.html">Foundations III: Solving linear systems for polynomials</a>
                 </li>
             
           
             
                 <li class="">
-                    <a href="tutorial_4.html">Computing moments</a>
+                    <a href="tutorial_4.html">Uncertainty quantification in computational fluid dynamics</a>
                 </li>
             
           
@@ -153,13 +153,13 @@
           
             
                 <li class="">
-                    <a href="tutorial_6.html">Polynomial regression</a>
+                    <a href="tutorial_6.html">Sensitivity analysis for a piston model</a>
                 </li>
             
           
             
                 <li class="">
-                    <a href="tutorial_7.html">Bayesian polynomial regression</a>
+                    <a href="tutorial_7.html">Data-driven dimension reduction in turbomachinery</a>
                 </li>
             
           
@@ -225,8 +225,8 @@
               
               <div>
                 
-  <div class="section" id="generating-univariate-quadrature-rules">
-<h1>Generating univariate quadrature rules<a class="headerlink" href="#generating-univariate-quadrature-rules" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="foundations-ii-orthogonal-polynomials">
+<h1>Foundations II: Orthogonal polynomials<a class="headerlink" href="#foundations-ii-orthogonal-polynomials" title="Permalink to this headline">¶</a></h1>
 <p>There is an intimate relationship between orthogonal polynomials and quadrature points. In this tutorial, we demonstrate how one can use Effective Quadratures to compute univariate quadrature rules. For multivariate quadrature points and weights, please check out the tutorials on <em>Sparse and tensor grid quadrature rules</em>.</p>
 <p>Consider the task of integrating the function</p>
 <div class="math notranslate nohighlight">
@@ -283,6 +283,90 @@
 </pre></div>
 </div>
 <p>The full source code for this tutorial can be found <a class="reference external" href="https://github.com/Effective-Quadratures/Effective-Quadratures/blob/master/source/_documentation/codes/tutorial_2.py">here.</a></p>
+<p>This notebook covers multi-indices: a key ingredient in constructing multivariate polynomials. There are five different types of index sets in Effective Quadratures:</p>
+<table class="colwidths-given table" id="id2">
+<caption><span class="caption-text">Multi-index sets in Effective Quadratures.</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 26%" />
+<col style="width: 63%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Option</p></th>
+<th class="head"><p>Index set</p></th>
+<th class="head"><p>Parameters</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Tensor grid</p></td>
+<td><p>List of max. individual orders</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Total order</p></td>
+<td><p>List of max. individual orders</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Sparse grid</p></td>
+<td><p>Growth rule and level parameter</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Hyperbolic basis</p></td>
+<td><p>List of max. individual orders and a truncation parameter</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>Euclidean degree</p></td>
+<td><p>List of max. individual orders</p></td>
+</tr>
+</tbody>
+</table>
+<p>In what follows, we will briefly demonstrate how we construct them and plot them.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">equadratures</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+<p>We begin by defining a tensor grid index set in three dimensions:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tensor</span> <span class="o">=</span> <span class="n">Basis</span><span class="p">(</span><span class="s1">&#39;tensor-grid&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">elements</span> <span class="o">=</span> <span class="n">tensor</span><span class="o">.</span><span class="n">elements</span>
+
+<span class="c1"># Plot!</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">elements</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">elements</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">elements</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span>  <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;crimson&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$i_i$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$i_2$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s1">&#39;$i_3$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;Basis_tensor.png&#39;</span> <span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">,</span> <span class="n">pad_inches</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../_images/tutorial_5_fig_a.png"><img alt="../_images/tutorial_5_fig_a.png" src="../_images/tutorial_5_fig_a.png" style="width: 412.40000000000003px; height: 311.6px;" /></a>
+</div>
+<p>It is readily apparent that the tensor grid index set has virtually every element within the order [4,4,4] cube. Lets suppose that one does not want to afford <span class="math notranslate nohighlight">\(4^3\)</span> computations, necessary to approximate all the coefficients associated with a tensor index set multivariate polynomial. One can then opt for a sparse grid, which are select linear combination of select tensor products. In Effective Quadratures, they can be declared as follows:</p>
+<p>Here <span class="math notranslate nohighlight">\(a\)</span> are the select tensor product grids used, and <span class="math notranslate nohighlight">\(b\)</span> are the linear coefficients used when combining the tensor product grids. While the code can perform integrations and coefficient approximation using sparse grids, we recommend users to stick to the effective subsampling approach that uses least squares. In both theory and practice, the results are identical. We now move on to the three other index sets: Total order, Euclidean and a Hyperbolic basis.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">euclid</span> <span class="o">=</span> <span class="n">Basis</span><span class="p">(</span><span class="s1">&#39;euclidean-degree&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="figure align-default" id="id3">
+<a class="reference internal image-reference" href="../_images/tutorial_5_fig_b.png"><img alt="../_images/tutorial_5_fig_b.png" src="../_images/tutorial_5_fig_b.png" style="width: 412.40000000000003px; height: 311.6px;" /></a>
+<p class="caption"><span class="caption-text">Figure. Euclidean degree multi-index set.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">total</span> <span class="o">=</span> <span class="n">Basis</span><span class="p">(</span><span class="s1">&#39;total-order&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="figure align-default" id="id4">
+<a class="reference internal image-reference" href="../_images/tutorial_5_fig_c.png"><img alt="../_images/tutorial_5_fig_c.png" src="../_images/tutorial_5_fig_c.png" style="width: 412.40000000000003px; height: 311.6px;" /></a>
+<p class="caption"><span class="caption-text">Figure. Total order multi-index set.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+<p>And finally the hyperbolic one:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hyper</span> <span class="o">=</span> <span class="n">Basis</span><span class="p">(</span><span class="s1">&#39;hyperbolic-basis&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="n">q</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-default" id="id5">
+<a class="reference internal image-reference" href="../_images/tutorial_5_fig_d.png"><img alt="../_images/tutorial_5_fig_d.png" src="../_images/tutorial_5_fig_d.png" style="width: 412.40000000000003px; height: 311.6px;" /></a>
+<p class="caption"><span class="caption-text">Figure. Hyperbolic basis multi-index set.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+<p>The hyperbolic basis takes in a q value, which varies between 0.1 and 1.0. Feel free to play around with this parameter and see what the effect on the total number of basis terms are. This is known as the cardinality of the index set. The full source code for this tutorial can be found <a class="reference external" href="https://github.com/Effective-Quadratures/Effective-Quadratures/blob/master/source/_documentation/codes/tutorial_5.py">here.</a></p>
 </div>
 
 

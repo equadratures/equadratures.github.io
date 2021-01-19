@@ -1,187 +1,236 @@
-Computing Sobol' (sensitivity) indices
-========================================
+Surrogate-based design optimisation on Rosenbrock's function
+=============================================================
 
-In many computational problems there are a few key inputs that actually dictate the state of the output. Computing the Sobol' indices of the inputs is one approach to determine which inputs are the *drivers*. Typically computation of the Sobol' indices involves a large number of samples -- significantly more than required to get the variance in the data. However as shown in Blatman et al. [1], using orthogonal polynomials these can be computed with relative ease. In this notebook we demonstrate how we can compute these indices using effective quadratures. 
+**Active Subspaces**
 
-We consider the well-known piston problem from Kenett et al. [2] that is a non-linear, seven-dimensional problem that outputs the piston cycle time given various piston parameters. These parameters and their bounds are shown in the table below.
+The active subspace is defined as follows: 
 
-.. list-table:: Model input parameters for the piston problem.
-   :widths: 25 25 50
-   :header-rows: 1
-
-   * - Variable
-     - Range
-     - Description
-   * - M
-     - [30, 60]
-     - Piston weight 
-   * - S
-     - [0.005, 0.0020]
-     - Surface area 
-   * - V_0
-     - [0.002, 0.010]
-     - Initial gas volume
-   * - k
-     - [1000,5000]
-     - Spring coefficient
-   * - P_0
-     - [90000, 110000]
-     - Atmospheric pressure
-   * - T_a
-     - [290, 296]
-     - Ambient temperature
-   * - T_0
-     - [340, 360]
-     - Filling gas temperature
-
-The cycle time for the piston is given by
+Let :math:`f(\mathbf{x})` be a scalar valued function :math:`\mathbb{R}^n \rightarrow \mathbb{R}` with :math:`\mathbf{x} \in \mathbb{R}^{n}`. Here :math:`f(\mathbf{x})` represents the chosen quantity of interest and :math:`\mathbf{x}` represents the design parameters. Consider the approximation
 
 .. math::
 
-	C=2\pi\sqrt{\frac{M}{k+S^{2}\frac{P_{0}V_{0}T_{a}}{T_{0}V^{2}}}},
+        \begin{equation}
+        f(\mathbf{x}) \approx g( \mathbf{U}^T \mathbf{x}),
+        \label{equ_active}
+        \end{equation}
 
-where
+where :math:`\mathbf{U} \in \mathbb{R}^{k \times n}`, with :math:`k << n`. Ideally we would like :math:`k = 1` or :math:`2` for facilitating subsequent visualisation. The matrix :math:`\mathbf{U}` represents the *active subspace* and its null space represents the *inactive subspace*. Essentially, the function tends to be well approximated via the map :math:`g` on the active subspace.
 
-.. math::
-
-	V=\frac{S}{2k}\left(\sqrt{A^{2}+4k\frac{P_{0}V_{0}}{T_{0}}T_{a}}-A\right),
-
-and :math:`A=P_{0}S+19.62M-\frac{kV_{0}}{S}`. The estimated *unnormalized* Sobol' indices (denoted :math:`\tau_i^2`) from Kenett et al. [2] are given to be:
-
-.. list-table:: Unnormalized Sobol' indices (see [3] for further details).
-   :widths: 30 15 15 15 15 15 15 15
-   :header-rows: 1
-
-   * - 
-     - M
-     - S
-     - V_0
-     - k
-     - P_0
-     - T_a
-     - T_0
-   * - :math:`10^2 \tau^{2} \; \text{indices}`
-     - 0.073
-     - 1.088
-     - 0.626
-     - 0.040
-     - 0.001
-     - -0.002
-     - -0.002
-
-These values measure the effect of varying each of the 7 input parameters on the output, the piston cycle time :math:`C`. Dividing these values by the variance of the output gives the normalised Sobol' indices. For example, the first order normalised Sobol' index for the :math:`i^{th}` input parameter is
+Numerous ideas for finding active subspaces in computer experiments can be found in the work of Constantine [1]. The idea is to express the kernel matrix as the expectation of the outer product of gradients of :math:`f`
 
 .. math::
 
-  S_i = \frac{\tau_i^2}{\sigma^2}
+        \begin{equation}
+        \textbf{K}=\int \nabla_{\mathbf{x}} f(\mathbf{x})\nabla_{\mathbf{x}} f(\mathbf{x})^{T} \rho (\mathbf{x}) d \mathbf{x} ,
+        \label{equ_as}
+        \end{equation}
 
-See Section 2.2 in [3] for further details. We wish to use Effective Quadratures to compute these values for the piston problem. 
+where :math:`\rho(\mathbf{x})` is the density of the inputs :math:`\mathbf{x}` over its parameter space. A heuristic for estimating the kernel via finite point samples :math:`N` is described below:
+
+1.  For :math:`N` samples drawn randomly from a distribution :math:`\rho(\mathbf{x})` calculate the sample kernel matrix:
+
+.. math::
+
+        \begin{equation}
+        \hat{\textbf{K}}=\frac{1}{N} \sum_{i=1}^{N}(\nabla_{\mathbf{x}} f(\mathbf{x}_i))(\nabla_{\mathbf{x}} f(\mathbf{x}_i)^{T})\,;
+        \end{equation}
+
+2. Compute the eigendecomposition of :math:`\hat{\textbf{K}}` and select the eigenvectors with largest eigenvalues to form a matrix :math:`\mathbf{U}` with orthogonal columns.
+
+**Polynomial Active Subspaces**
+
+In many cases gradient information is not available. Therefore, assumptions on the model are necessary to overcome this obstacle. A good assumption would be that the model is a polynomial, as the polynomials are easy to calculate and their gradients can be derived analytically. One can express a polynomial as a linear combination of a number of polynomial basis terms
+
+.. math::
+
+        \begin{equation}
+        f(\mathbf{x}) \approx h(\mathbf{x})=\sum_{j=1}^N a_j \phi_j(\mathbf{x})\,,
+        \end{equation}
+
+where :math:`\phi_j(\mathbf{x})` is a multivariate polynomial basis term of a certain mixed degree and :math:`a_j` is the corresponding coefficient. Then the gradient can be expressed as the sum of the derivatives of the polynomials.
+
+.. math::
+
+        \begin{equation}
+        \nabla_{\mathbf{x}}f(\mathbf{x}) \approx \nabla_{\mathbf{x}}h(\mathbf{x})=\sum_{j=1}^N a_j \phi_j'(\mathbf{x})\,.
+        \end{equation}
+
+To construct the polynomial basis terms :math:`\phi(\mathbf{x})` , one only needs to know the number of dimensions and the polynomial degree. 
+
+**A 2-degree Polynomial Model for Dimension Reduction**
+
+If the polynomial degree is set as 2, then the polynomial bases would include all linear terms :math:`\phi(\mathbf{x})=x_i`, all squared terms :math:`\phi(\mathbf{x})=x_i^2` and all cross terms :math:`\phi(\mathbf{x})=x_i x_j`.
+
+One can fit a polynomial to the dataset using least squares with sample input/output pairs. This idea was leveraged in [2] to find :math:`\mathbf{U}` and is detailed below. The goal here is to use least squares to fit the dataset to the following form
+
+.. math::
+
+        \begin{equation}
+        y=f(\mathbf{x})=\frac{1}{2}\mathbf{x} ^{T} \mathbf{A}\mathbf{x} + \textbf{c}^{T}\mathbf{x} +d\,,
+        \label{quadraticeqn}
+        \end{equation}
+
+therefore the gradient of the function can be expressed as
+
+.. math::
+
+        \begin{equation}
+        \nabla_{\mathbf{x}}f(\mathbf{x})= \mathbf{A} \mathbf{x}+\textbf{c}\,.
+        \end{equation}
+
+Then a set of equations can be formulated using each data point:
+
+.. math::
+
+        \begin{equation}
+        \frac{1}{2} \sum_{i=1,j=1}^{m,m}a_{ij}x_ix_j+\sum_{j=1}^{m}c_jx_j+d=y\,;
+        \end{equation}
+
+All :math:`a_{ij}` along with :math:`\textbf{c}` and :math:`d` are obtained by solving for the least squares solution, where :math:`a_{ij}` are the entries of the matrix :math:`\mathbf{A}` and :math:`c_j` are the entries of the vector :math:`\textbf{c}`. Finally, the estimated kernel is given by
+
+.. math::
+    
+        \begin{equation}
+        \hat{\textbf{K}}=\frac{1}{N}\sum_{i=1}^N(A\mathbf{x}_i+\textbf{c})(A\mathbf{x}_i+\textbf{c})^{T}\,.
+        \end{equation}
+
+The last step of selecting eigenvectors is done by carrying out an eigendecomposition on the kernel matrix (symmetric).
+
+.. math::
+
+        \begin{equation}
+        \hat{\mathbf{K}}= \mathbf{W \Lambda W}^{T},
+        \end{equation}
+
+where :math:`\mathbf{W}` contains all eigenvectors and :math:`\Lambda` is the diagonal matrix of all corresponding eigenvalues, which are assumed to be sorted in descending order. The eigenvectors and eigenvalues can then be partitioned
+
+.. math::
+
+        \begin{equation}
+        \mathbf{W}=\left[\begin{array}{cc}
+        \mathbf{U}_{\text{active}} & \mathbf{U}_{\text{inactive}}\end{array}\right] \; \; \; \mathbf{\Lambda}=\left[\begin{array}{cc}
+        \mathbf{\Lambda_{\text{active}} }\\
+         & \mathbf{\Lambda_{\text{inactive}} }
+        \end{array}\right]
+        \end{equation}
+
+based on a *suitable cut-off criterion* ---usually the magnitude of the eigenvalues.
+
+As most of the variation in :math:`f` happens with changes in :math:`\mathbf{U}_{active}^T \mathbf{x}`, 
+
+.. math::
+
+        \begin{equation}
+        f \left(\mathbf{x}\right) \approx g\left(\mathbf{U}_\text{active}^T\mathbf{x} \right)\text{ while }f\left( \mathbf{U}_\text{inactive} \mathbf{U}_\text{inactive}^T \mathbf{x} \right) \approx 0,
+        \end{equation}
+
+where :math:`g` is a lower dimensional function.
+
+**Code Implementation**
+
+We look at a compressor fan design problem. The 25 design variables can be viewed as inputs to the function, where the CFD efficiency of the blade design is seen as the output. Now we attempt to use a 2-degree polynomial active subspace model to reach dimension reduction and find a 2D active subspace.
+
+.. code::
+
+        from equadratures import *
+	import numpy as np
+	import matplotlib.pyplot as plt
+	from scipy.spatial import ConvexHull, convex_hull_plot_2d
+	from mpl_toolkits.mplot3d import axes3d
+
+.. code::
+
+        X = np.loadtxt('../data/design_parameters.dat')
+	y = np.loadtxt('../data/non_dimensionalized_efficiency.dat')
+	title = 'Normalised efficiency'
+
+This dataset contains 554 pairs of inputs (designs of blades) and outputs (CFD-evaluataed efficiency). The dimension of inputs is 25 (25D design space). All input vectors are in X , while the outputs are in y.
+
+The first order of business is to construct a global quadratic model
+
+.. code::
+
+        s = Parameter(distribution='uniform', lower=-1., upper=1., order=2)
+	myparameters = [s for _ in range(0, 25)]
+	mybasis = Basis('total-order')
+	mypoly = Poly(parameters=myparameters, basis=mybasis, method='least-squares', \
+              sampling_args= {'mesh': 'user-defined', 'sample-points': X, 'sample-outputs': y})
+	mypoly.set_model()
+
+Next, we compute the active subspace
+
+
+.. code::
+
+        mysubspace = Subspaces(full_space_poly=mypoly, method='active-subspace')
+	W = mysubspace.get_subspace()
+	e = mysubspace.get_eigenvalues()
+
+and plot the eigenvalues to determine how many *active* variables we require.
+
+.. code::
+
+        fig = plt.figure(figsize=(7,4))
+	ax = fig.add_subplot(111)
+	plt.semilogy(e, 'o')
+	plt.ylabel('Eigenvalues (log-scale)')
+	plt.xlabel('Design parameters')
+
+.. figure:: Figures/tutorial_11_fig_a.png
+   :scale: 30 %
+
+We can then project all the samples we have within the design space onto the first few dimensions of the active subspace.
 
 .. code::
 	
-	from equadratures import *
-	import numpy as np
-	import matplotlib.pyplot as plt
+	true_dimensions = 1
+	u = X @ W[:, 0:true_dimensions]
+	fig = plt.figure(figsize=(7,4))
+	ax = fig.add_subplot(111)
+	plt.plot(u[:,0], y, 'o', color='gold', markeredgecolor='k', lw=1, ms=13, alpha=0.8)
+	plt.ylabel(title)
+	plt.xlabel('u')
 
-As before, we begin by defining each parameter and its range using four points for each variable.
+.. figure:: Figures/tutorial_11_fig_b.png
+   :scale: 30 %
 
-.. code::
-
-	order_parameters = 3
-        mass = Parameter(distribution='uniform', lower=30.0, upper=60.0, order=order_parameters)
-        area = Parameter(distribution='uniform', lower=0.005, upper=0.020, order=order_parameters)
-        volume = Parameter(distribution='uniform', lower=0.002, upper=0.010, order=order_parameters)
-        spring = Parameter(distribution='uniform', lower=1000., upper=5000., order=order_parameters)
-        pressure = Parameter(distribution='uniform', lower=90000., upper=110000., order=order_parameters)
-        ambtemp = Parameter(distribution='uniform', lower=290., upper=296., order=order_parameters)
-        gastemp = Parameter(distribution='uniform', lower=340., upper=360., order=order_parameters)
-        parameters = [mass, area, volume, spring, pressure, ambtemp, gastemp]
-
-	def piston(x):
-    		mass, area, volume, spring, pressure, ambtemp, gastemp = x[0], x[1], x[2], x[3], x[4], x[5], x[6]
-    		A = pressure * area + 19.62*mass - (spring * volume)/(1.0 * area)
-    		V = (area/(2*spring)) * ( np.sqrt(A**2 + 4*spring * pressure * volume * ambtemp/gastemp) - A)
-    		C = 2 * np.pi * np.sqrt(mass/(spring + area**2 * pressure * volume * ambtemp/(gastemp * V**2)))
-    		return C
-
-We will opt for a total order basis set with qr subsampling!
+And for two dimensions
 
 .. code::
 
-  mybasis = Basis('total-order')
-  mypoly  = Poly(parameters, mybasis, method='least-squares',sampling_args={'mesh':'tensor-grid', 'subsampling-algorithm':'qr', 'sampling-ratio':1.0})
+	true_dimensions = 2
+	u = X @ W[:, 0:true_dimensions]
+	fig = plt.figure(figsize=(10,10))
+	ax = fig.add_subplot(111, projection='3d')
+	ax.scatter(u[:,0],u[:,1], y, s=50, c=y, marker='o', edgecolor='k', lw=1, alpha=0.8)
+	ax.set_xlabel('u1')
+	ax.set_ylabel('u2')
+	ax.set_zlabel(title)
 
-Now (and this is the important part), we wish to ascertain how many model evaluations will be required for computing these sensitivities. The objective is for these to be orders of magnitude lower than other methods for computing Sobol' indices.
+.. figure:: Figures/tutorial_11_fig_c.png
+   :scale: 30 %
 
-.. code::
-
-	print(mypoly.basis.cardinality)
-	>> 120
-
-Excellent! So the number of model evaluations we will require is 120! Now lets compute the coefficients and get the Sobol indices to ascertain which of the variables above are the most important.
-
-.. code::
-
-  mypoly.set_model(piston)
-  mean, var = mypoly.get_mean_and_variance()
-  sobol = mypoly.get_sobol_indices(1)
-
-For the *unnormalised* Sobol' indices we obtain 
+Finally, we can also compute the zonotope associated with the 2D projection.
 
 .. code::
 
-  for i in range(0, len(parameters)):
-      print(float(sobol[(i,)]) * 10**2 * var)
+	z = X @ W[:,0:true_dimensions]
+	pts = mysubspace.get_zonotope_vertices()
+	hull = ConvexHull(pts)
+	fig = plt.figure(figsize=(11,8))
+	ax = fig.add_subplot(111)
+	plt.plot(z[:,0], z[:,1], 'o', color='gold', markeredgecolor='k', lw=1, ms=13, alpha=0.8)
+	for simplex in hull.simplices:
+    		plt.plot(pts[simplex, 0], pts[simplex, 1], 'k-', lw=2)
 
-	>> 0.0790729230512
-	>> 1.04006909416
-	>> 0.570479600289
-	>> 0.047655149298
-	>> 0.00307211809197
-	>> 5.74465327578e-05
-	>> 0.00180048511613
+.. figure:: Figures/tutorial_11_fig_d.png
+   :scale: 30 %
 
-which are similar to the values obtained by Owen. Next, we plot the *normalized* Sobol' indices with the code below.
-
-.. code::
-
-  fig = plt.figure()
-  ax = fig.add_subplot(1,1,1)
-  data_1 = np.arange(7) - 0.10 + 1
-  for i in range(0, len(sobol)):
-      plt.bar(i+1, sobol[(i,)], color='steelblue',linewidth=1.5)
-  ax.set_axisbelow(True)
-  #adjust_spines(ax, ['left', 'bottom'])
-  plt.xlabel(r'Parameters', fontsize=16)
-  plt.ylabel(r"First order Sobol' indices", fontsize=16)
-  xTickMarks = [r'$M$', r'$S$', r'$V_0$', r'$k$', r'$P_0$', r'$T_a$', r'$T_0$']
-  ax.set_xticks(data_1+0.10)
-  xtickNames = ax.set_xticklabels(xTickMarks)
-  plt.setp(xtickNames, rotation=45, fontsize=16)
-  plt.tight_layout()
-  plt.savefig('../Figures/tutorial_9_fig_a.png', dpi=300, bbox_inches='tight',pad_inches=0.1)
-
-.. figure:: Figures/tutorial_9_fig_a.png
-   :scale: 40 %
-
-   Figure. First order Sobol' indices for the piston problem.
-
-
-We can also obtain higher order Sobol indices, which tell us about the importance of interaction between input parameters. For example, for the :math:`2^{nd}` order indices:
-
-.. code::
-
-  sobol_2nd = mypoly.get_sobol_indices(2)
-  for key, value in sobol_2nd.items():
-      print(str('Parameter numbers: ')+str(key)+", Sobol' index value: "+str(value))
-
-This concludes this notebook on the computation of Sobol' indices. The full source code for this tutorial can be found `here <https://github.com/Effective-Quadratures/Effective-Quadratures/blob/master/source/_documentation/codes/tutorial_9.py>`__.
-
+The full source code for this tutorial can be found `here. <https://github.com/Effective-Quadratures/Effective-Quadratures/blob/master/source/_documentation/codes/tutorial_11.py>`__
 
 **References**
 
-.. [1] Blatman, G., and Bruno S., (2011) Adaptive sparse polynomial chaos expansion based on least angle regression. Journal of Computational Physics 230.6 (2011): 2345-2367.
+-  Constantine, P. G. (2015) Active subspaces: Emerging ideas for dimension reduction in parameter studies, Volume 2, SIAM, 2015.
 
-.. [2] Kenett, R., Shelemyahu Z., and Daniele A., (2013) Modern Industrial Statistics: with applications in R, MINITAB and JMP. John Wiley & Sons.
+- Seshadri, P., Shahpar, S., Constantine, P., Parks, G., Adams, M. (2018) Turbomachinery active subspace performance maps. Journal of Turbomachinery, 140(4), 041003. `Paper <http://turbomachinery.asmedigitalcollection.asme.org/article.aspx?articleid=2668256>`__
 
-.. [3] Owen, A. B., Dick, J. and Chen, S., (2014) Higher order Sobol' indices. Information and Inference 3.1 (2014): 59-81.
