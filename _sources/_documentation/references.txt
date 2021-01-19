@@ -6,7 +6,6 @@ Below you will find a list of publications, along with their supporting code, an
 
 Seshadri, P., Parks, G. T., (2017) Effective-Quadratures (EQ): Polynomials for Computational Engineering Studies, *Journal of Open Source Software*, 2(11), 166, `Paper <http://joss.theoj.org/papers/ba651f2b3608a5d2b085af06b1108747>`__.
 
-
 Data-driven dimension reduction
 --------------------------------
 
