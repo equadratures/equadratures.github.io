@@ -1,0 +1,342 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Research &#8212; equadratures</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="../_static/eq-logo-favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Linear system solvers" href="solver.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    <a class="navbar-brand" href="index.html">
+    
+      <img src="../_static/logo_new.png" class="logo" alt="logo" />
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="tutorials.html">Tutorials</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="modules.html">Modules</a>
+        </li>
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="">Research</a>
+        </li>
+        
+        
+      </ul>
+
+
+      <form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search equadratures..." aria-label="Search equadratures..." autocomplete="off" >
+</form>
+      
+
+      <ul class="navbar-nav">
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/pandas-dev/pydata-sphinx-theme" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
+        
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://twitter.com/EQuadratures" target="_blank" rel="noopener">
+              <span><i class="fab fa-twitter-square"></i></span>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar"><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+    <div class="bd-toc-item active">
+    
+  
+    <ul class="nav bd-sidenav">
+        
+        
+        
+        
+        
+        
+          
+        
+        
+      </ul>
+  
+  </nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#data-driven-dimension-reduction" class="nav-link">Data-driven dimension reduction</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#numerical-integration" class="nav-link">Numerical integration</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#sensitivity-analysis" class="nav-link">Sensitivity analysis</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#adjoint-gradient-enhancement" class="nav-link">Adjoint / gradient enhancement</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="research">
+<h1>Research<a class="headerlink" href="#research" title="Permalink to this headline">¶</a></h1>
+<p>Below you will find a list of publications, along with their supporting code, and in some cases a related blog post. Publications are classified by their domain area. When using <code class="docutils literal notranslate"><span class="pre">equadratures</span></code> please do cite the reference below:</p>
+<p>Seshadri, P., Parks, G. T., (2017) Effective-Quadratures (EQ): Polynomials for Computational Engineering Studies, <em>Journal of Open Source Software</em>, 2(11), 166, <a class="reference external" href="http://joss.theoj.org/papers/ba651f2b3608a5d2b085af06b1108747">Paper</a>.</p>
+<div class="section" id="data-driven-dimension-reduction">
+<h2>Data-driven dimension reduction<a class="headerlink" href="#data-driven-dimension-reduction" title="Permalink to this headline">¶</a></h2>
+<dl class="field-list">
+<dt class="field-odd">Title</dt>
+<dd class="field-odd"><p>Embedded ridge approximations</p>
+</dd>
+<dt class="field-even">Authors</dt>
+<dd class="field-even"><p>Chun Yui Wong, Pranay Seshadri, Geoffrey Parks, Mark Girolami</p>
+</dd>
+<dt class="field-odd">Essence</dt>
+<dd class="field-odd"><p>Constructing ridge approximations for vector-valued quantities, and scalar-valued functions that are integrals of vector-valued fields. For example, the lift, drag and pressure coefficients of an airfoil.</p>
+</dd>
+<dt class="field-even">Journal</dt>
+<dd class="field-even"><p>Computer Methods in Applied Mechanics</p>
+</dd>
+<dt class="field-odd">Year</dt>
+<dd class="field-odd"><p>2020</p>
+</dd>
+<dt class="field-even">Resources</dt>
+<dd class="field-even"><p><a class="reference external" href="https://www.sciencedirect.com/science/article/abs/pii/S0045782520305685?dgcid=rss_sd_all">Paper</a> | <a class="reference external" href="https://arxiv.org/abs/1907.07037">Preprint</a> | <a class="reference external" href="https://discourse.effective-quadratures.org/t/embedded-ridge-approximations/73">Blog</a></p>
+<img alt="embedded ridge approximation" src="https://discourse.effective-quadratures.org/uploads/default/original/1X/5bf416fa8a2fa9071cc560d56cd6de4fe5ae45a9.jpeg" />
+</dd>
+</dl>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<dl class="field-list">
+<dt class="field-odd">Title</dt>
+<dd class="field-odd"><p>Blade envelopes I: concept and methodology</p>
+</dd>
+<dt class="field-even">Authors</dt>
+<dd class="field-even"><p>Chun Yui Wong, Pranay Seshadri, Ashley Scillitoe, Andrew Duncan, Geoffrey Parks</p>
+</dd>
+<dt class="field-odd">Essence</dt>
+<dd class="field-odd"><p>Constructing ridge approximations for vector-valued quantities, and scalar-valued functions that are integrals of vector-valued fields. For example, the lift, drag and pressure coefficients of an airfoil.</p>
+</dd>
+<dt class="field-even">Journal</dt>
+<dd class="field-even"><p>ASME Journal of Turbomachinery (under review)</p>
+</dd>
+<dt class="field-odd">Year</dt>
+<dd class="field-odd"><p>2020</p>
+</dd>
+<dt class="field-even">Resources</dt>
+<dd class="field-even"><p><a class="reference external" href="https://arxiv.org/abs/1907.07037">Preprint</a> | <a class="reference external" href="https://discourse.effective-quadratures.org/t/embedded-ridge-approximations/73">Blog</a></p>
+<img alt="blade envelope" src="https://discourse.effective-quadratures.org/uploads/default/optimized/1X/2494009421732aa562674d1c5c23fcd80b630d08_2_282x250.jpeg" />
+</dd>
+</dl>
+</div>
+<div class="section" id="numerical-integration">
+<h2>Numerical integration<a class="headerlink" href="#numerical-integration" title="Permalink to this headline">¶</a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">Title</dt>
+<dd class="field-odd"><p>Effectively subsampled quadratures</p>
+</dd>
+<dt class="field-even">Authors</dt>
+<dd class="field-even"><p>Pranay Seshadri, Akil Narayan, Sankaran Mahadevan</p>
+</dd>
+<dt class="field-odd">Essence</dt>
+<dd class="field-odd"><p>Subsampling quadrature points from a tensorial grid via QR with column pivoting on a weighted Vandermonde-type matrix.</p>
+</dd>
+<dt class="field-even">Journal</dt>
+<dd class="field-even"><p>SIAM/ASA Journal on Uncertainty Quantification</p>
+</dd>
+<dt class="field-odd">Year</dt>
+<dd class="field-odd"><p>2017</p>
+</dd>
+<dt class="field-even">Resources</dt>
+<dd class="field-even"><p><a class="reference external" href="https://epubs.siam.org/doi/abs/10.1137/16M1057668">Paper</a> | <a class="reference external" href="https://arxiv.org/abs/1601.05470">Preprint</a></p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Title</dt>
+<dd class="field-odd"><p>Quadrature strategies for constructing polynomial approximations</p>
+</dd>
+<dt class="field-even">Authors</dt>
+<dd class="field-even"><p>Pranay Seshadri, Gianluca Iaccarino, Tiziano Ghisu</p>
+</dd>
+<dt class="field-odd">Essence</dt>
+<dd class="field-odd"><p>A review of recent approaches for identifying quadrature rules in hypercubes, followed by a template-type characterisation of how one arrive at new quadrature rules.</p>
+</dd>
+<dt class="field-even">Journal</dt>
+<dd class="field-even"><p>Uncertainty Modeling for Engineering Applications, Springer.</p>
+</dd>
+<dt class="field-odd">Year</dt>
+<dd class="field-odd"><p>2018</p>
+</dd>
+<dt class="field-even">Resources</dt>
+<dd class="field-even"><p><a class="reference external" href="https://link.springer.com/chapter/10.1007/978-3-030-04870-9_1">Paper</a> | <a class="reference external" href="https://arxiv.org/abs/1805.07296">Preprint</a></p>
+</dd>
+</dl>
+</div>
+<div class="section" id="sensitivity-analysis">
+<h2>Sensitivity analysis<a class="headerlink" href="#sensitivity-analysis" title="Permalink to this headline">¶</a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">Title</dt>
+<dd class="field-odd"><p>Extremum sensitivity analysis with polynomial Monte Carlo filtering</p>
+</dd>
+<dt class="field-even">Authors</dt>
+<dd class="field-even"><p>Chun Yui Wong, Pranay Seshadri, Geoffrey Parks</p>
+</dd>
+<dt class="field-odd">Essence</dt>
+<dd class="field-odd"><p>Deriving Sobol’ indices for polynomial ridge approximations, and developing methods for extremeum sensitivity analysis using Monte Carlo filtering and correlated polynomial approximations.</p>
+</dd>
+<dt class="field-even">Journal</dt>
+<dd class="field-even"><p>Reliability Engineering and System Safety (under review)</p>
+</dd>
+<dt class="field-odd">Year</dt>
+<dd class="field-odd"><p>2019</p>
+</dd>
+<dt class="field-even">Resources</dt>
+<dd class="field-even"><p><a class="reference external" href="https://arxiv.org/abs/1907.08113">Preprint</a></p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Title</dt>
+<dd class="field-odd"><p>Sensitivity analysis of a coupled hydrodynamic-vegetation model using the effectively subsampled quadratures method</p>
+</dd>
+<dt class="field-even">Authors</dt>
+<dd class="field-even"><p>Chun Yui Wong, Pranay Seshadri, Geoffrey Parks</p>
+</dd>
+<dt class="field-odd">Essence</dt>
+<dd class="field-odd"><p>Deriving Sobol’ indices for polynomial ridge approximations, and developing methods for extremeum sensitivity analysis using Monte Carlo filtering and correlated polynomial approximations.</p>
+</dd>
+<dt class="field-even">Journal</dt>
+<dd class="field-even"><p>Reliability Engineering and System Safety (under review)</p>
+</dd>
+<dt class="field-odd">Year</dt>
+<dd class="field-odd"><p>2019</p>
+</dd>
+<dt class="field-even">Resources</dt>
+<dd class="field-even"><p><a class="reference external" href="https://arxiv.org/abs/1907.08113">Preprint</a></p>
+</dd>
+</dl>
+</div>
+<div class="section" id="adjoint-gradient-enhancement">
+<h2>Adjoint / gradient enhancement<a class="headerlink" href="#adjoint-gradient-enhancement" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+              </div>
+              
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2016-2020 by Effective Quadratures.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

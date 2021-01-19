@@ -1,0 +1,345 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Polynomial regression &#8212; equadratures</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="../_static/eq-logo-favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Bayesian polynomial regression" href="tutorial_7.html" />
+    <link rel="prev" title="Multi-index sets" href="tutorial_5.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    <a class="navbar-brand" href="index.html">
+    
+      <img src="../_static/logo_new.png" class="logo" alt="logo" />
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="tutorials.html">Tutorials</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="modules.html">Modules</a>
+        </li>
+        
+        
+      </ul>
+
+
+      <form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search equadratures..." aria-label="Search equadratures..." autocomplete="off" >
+</form>
+      
+
+      <ul class="navbar-nav">
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/pandas-dev/pydata-sphinx-theme" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
+        
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://twitter.com/EQuadratures" target="_blank" rel="noopener">
+              <span><i class="fab fa-twitter-square"></i></span>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar"><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+    <div class="bd-toc-item active">
+    
+  
+    <ul class="nav bd-sidenav">
+        
+        
+          
+            
+                <li class="">
+                    <a href="tutorial_1.html">Foundations I</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="tutorial_2.html">Generating univariate quadrature rules</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="tutorial_3.html">Constructing orthogonal polynomials</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="tutorial_4.html">Computing moments</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="tutorial_5.html">Multi-index sets</a>
+                </li>
+            
+          
+            
+                <li class="active">
+                    <a href="">Polynomial regression</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="tutorial_7.html">Bayesian polynomial regression</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="tutorial_8.html">Sparse and tensor grid quadrature rules</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="tutorial_9.html">Computing Sobol’ (sensitivity) indices</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="tutorial_11.html">Active subspaces with polynomial approximations</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="tutorial_12.html">Polynomial variable projection</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="tutorial_17.html">Surrogate-based optimisation with polynomials</a>
+                </li>
+            
+          
+        
+        
+        
+        
+      </ul>
+  
+  </nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="polynomial-regression">
+<h1>Polynomial regression<a class="headerlink" href="#polynomial-regression" title="Permalink to this headline">¶</a></h1>
+<p>So you have some data, and you’d like to get a “best-fit” curve through the data. No problem. That’s pretty much what this guide seeks to do. So let’s get started; consider the data set below.</p>
+<table class="colwidths-given table" id="id1">
+<caption><span class="caption-text">Sample data for regression.</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>X</p></th>
+<th class="head"><p>Y</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>6.8053</p></td>
+</tr>
+<tr class="row-odd"><td><p>0.0714</p></td>
+<td><p>-1.5184</p></td>
+</tr>
+<tr class="row-even"><td><p>0.1429</p></td>
+<td><p>1.6416</p></td>
+</tr>
+<tr class="row-odd"><td><p>0.2857</p></td>
+<td><p>6.3543</p></td>
+</tr>
+<tr class="row-even"><td><p>0.3571</p></td>
+<td><p>14.3442</p></td>
+</tr>
+<tr class="row-odd"><td><p>0.4286</p></td>
+<td><p>16.4426</p></td>
+</tr>
+<tr class="row-even"><td><p>0.5714</p></td>
+<td><p>18.1953</p></td>
+</tr>
+<tr class="row-odd"><td><p>0.6429</p></td>
+<td><p>28.9913</p></td>
+</tr>
+<tr class="row-even"><td><p>0.7143</p></td>
+<td><p>27.2246</p></td>
+</tr>
+<tr class="row-odd"><td><p>0.7857</p></td>
+<td><p>40.3759</p></td>
+</tr>
+<tr class="row-even"><td><p>0.9286</p></td>
+<td><p>55.3726</p></td>
+</tr>
+<tr class="row-odd"><td><p>1.0000</p></td>
+<td><p>72.0</p></td>
+</tr>
+</tbody>
+</table>
+<p>Our goal is to compute the best fit a polynomial approximation through this data set. We begin by calling two classes from the code. The first class is the Parameter class, that handles all the information regarding the independent variable, or parameter. The second class is the Polyreg class, which actually generates the “best-fit” curve using the information in the parameter. To begin, lets load the data.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">equadratures</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">dimensions</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">M</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="n">param</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;Uniform&#39;</span><span class="p">,</span> <span class="n">lower</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">myParameters</span> <span class="o">=</span> <span class="p">[</span><span class="n">param</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dimensions</span><span class="p">)]</span> <span class="c1"># one-line for loop for parameters</span>
+<span class="n">x_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mat</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.0714</span><span class="p">,</span><span class="mf">0.1429</span><span class="p">,</span><span class="mf">0.2857</span><span class="p">,</span><span class="mf">0.3571</span><span class="p">,</span><span class="mf">0.4286</span><span class="p">,</span><span class="mf">0.5714</span><span class="p">,</span><span class="mf">0.6429</span><span class="p">,</span><span class="mf">0.7143</span><span class="p">,</span><span class="mf">0.7857</span><span class="p">,</span><span class="mf">0.9286</span><span class="p">,</span><span class="mf">1.0000</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float64&#39;</span><span class="p">)</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mat</span><span class="p">([</span><span class="mf">6.8053</span><span class="p">,</span><span class="o">-</span><span class="mf">1.5184</span><span class="p">,</span><span class="mf">1.6416</span><span class="p">,</span><span class="mf">6.3543</span><span class="p">,</span><span class="mf">14.3442</span><span class="p">,</span><span class="mf">16.4426</span><span class="p">,</span><span class="mf">18.1953</span><span class="p">,</span><span class="mf">28.9913</span><span class="p">,</span><span class="mf">27.2246</span><span class="p">,</span><span class="mf">40.3759</span><span class="p">,</span><span class="mf">55.3726</span><span class="p">,</span><span class="mf">72.0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float64&#39;</span><span class="p">)</span>
+<span class="n">x_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Now we use the univariate basis in the polyreg class.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">myBasis</span> <span class="o">=</span> <span class="n">Basis</span><span class="p">(</span><span class="s1">&#39;Univariate&#39;</span><span class="p">)</span>
+<span class="n">poly</span> <span class="o">=</span> <span class="n">Poly</span><span class="p">(</span><span class="n">myParameters</span><span class="p">,</span> <span class="n">myBasis</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;least-squares&#39;</span><span class="p">,</span> <span class="n">sampling_args</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;sample-points&#39;</span><span class="p">:</span><span class="n">x_train</span><span class="p">,</span> <span class="s1">&#39;sample-outputs&#39;</span><span class="p">:</span><span class="n">y_train</span><span class="p">}</span> <span class="p">)</span>
+<span class="n">poly</span><span class="o">.</span><span class="n">set_model</span><span class="p">()</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">x_test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">),</span> <span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="p">)</span>
+
+      <span class="c1"># Plot the results</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">M</span><span class="p">):</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_train</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y_train</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tomato&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">poly</span><span class="o">.</span><span class="n">get_polyfit</span><span class="p">(</span><span class="n">x_test</span><span class="p">),</span> <span class="s1">&#39;k-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$X$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$Y$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-default" id="id2">
+<a class="reference internal image-reference" href="../_images/tutorial_6_fig_a.png"><img alt="../_images/tutorial_6_fig_a.png" src="../_images/tutorial_6_fig_a.png" style="width: 470.40000000000003px; height: 352.40000000000003px;" /></a>
+<p class="caption"><span class="caption-text">Figure. A linear model fit (-) for the data (o).</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<p>Now, we repeat the same experiment, but increase the order of the polynomial!</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">myBasis</span> <span class="o">=</span> <span class="n">Basis</span><span class="p">(</span><span class="s1">&#39;Univariate&#39;</span><span class="p">)</span>
+<span class="n">param</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;Uniform&#39;</span><span class="p">,</span> <span class="n">lower</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">myParameters</span> <span class="o">=</span> <span class="p">[</span><span class="n">param</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dimensions</span><span class="p">)]</span> <span class="c1"># one-line for loop for parameters</span>
+<span class="n">poly</span> <span class="o">=</span> <span class="n">Poly</span><span class="p">(</span><span class="n">myParameters</span><span class="p">,</span> <span class="n">myBasis</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;least-squares&#39;</span><span class="p">,</span> <span class="n">sampling_args</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;sample-points&#39;</span><span class="p">:</span><span class="n">x_train</span><span class="p">,</span> <span class="s1">&#39;sample-outputs&#39;</span><span class="p">:</span><span class="n">y_train</span><span class="p">}</span> <span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-default" id="id3">
+<a class="reference internal image-reference" href="../_images/tutorial_6_fig_b.png"><img alt="../_images/tutorial_6_fig_b.png" src="../_images/tutorial_6_fig_b.png" style="width: 458.40000000000003px; height: 352.40000000000003px;" /></a>
+<p class="caption"><span class="caption-text">Figure. A quadratic model fit (-) for the data (o).</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<p>The full source code for this tutorial can be found <a class="reference external" href="https://github.com/Effective-Quadratures/Effective-Quadratures/blob/master/source/_documentation/codes/tutorial_6.py">here.</a></p>
+</div>
+
+
+              </div>
+              
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2016-2020 by Effective Quadratures.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

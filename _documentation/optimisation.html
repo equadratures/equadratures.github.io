@@ -1,0 +1,374 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Optimisation with polynomials &#8212; equadratures</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="../_static/eq-logo-favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Correlation mapping for polynomials" href="correlated.html" />
+    <link rel="prev" title="Dimension reduction with polynomials" href="subspaces.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    <a class="navbar-brand" href="index.html">
+    
+      <img src="../_static/logo_new.png" class="logo" alt="logo" />
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="tutorials.html">Tutorials</a>
+        </li>
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="modules.html">Modules</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="references.html">Research</a>
+        </li>
+        
+        
+      </ul>
+
+
+      <form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search equadratures..." aria-label="Search equadratures..." autocomplete="off" >
+</form>
+      
+
+      <ul class="navbar-nav">
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/pandas-dev/pydata-sphinx-theme" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
+        
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://twitter.com/EQuadratures" target="_blank" rel="noopener">
+              <span><i class="fab fa-twitter-square"></i></span>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar"><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+    <div class="bd-toc-item active">
+    
+  
+    <ul class="nav bd-sidenav">
+        
+        
+        
+        
+          
+            
+                <li class="">
+                    <a href="parameter.html">Parameter</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="basis.html">Basis</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="poly.html">Polynomial</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="quadrature.html">Quadrature</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="weight.html">Prescribing probability functions</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="subspaces.html">Dimension reduction with polynomials</a>
+                </li>
+            
+          
+            
+                <li class="active">
+                    <a href="">Optimisation with polynomials</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="correlated.html">Correlation mapping for polynomials</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="polytree.html">Polynomial Regression Tree</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="solver.html">Linear system solvers</a>
+                </li>
+            
+          
+        
+        
+        
+        
+      </ul>
+  
+  </nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="module-equadratures.optimisation">
+<span id="optimisation-with-polynomials"></span><h1>Optimisation with polynomials<a class="headerlink" href="#module-equadratures.optimisation" title="Permalink to this headline">¶</a></h1>
+<p>Perform unconstrained or constrained optimisation.</p>
+<dl class="py class">
+<dt id="equadratures.optimisation.Optimisation">
+<em class="property">class </em><code class="sig-prename descclassname">equadratures.optimisation.</code><code class="sig-name descname">Optimisation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">method</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/optimisation.html#Optimisation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.optimisation.Optimisation" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class performs unconstrained or constrained optimisation of poly objects or custom functions
+using scipy.optimize.minimize or an in-house trust-region method.
+:param string method: A string specifying the method that will be used for optimisation. All of the available choices come from scipy.optimize.minimize (<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html">click here</a> for a list of methods and further information). In the case of general constrained optimisation, the options are <code class="docutils literal notranslate"><span class="pre">COBYLA</span></code>, <code class="docutils literal notranslate"><span class="pre">SLSQP</span></code>, and <code class="docutils literal notranslate"><span class="pre">trust-constr</span></code>. The default is <code class="docutils literal notranslate"><span class="pre">trust-constr</span></code>.</p>
+<dl class="py method">
+<dt id="equadratures.optimisation.Optimisation.add_bounds">
+<code class="sig-name descname">add_bounds</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lb</span></em>, <em class="sig-param"><span class="n">ub</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/optimisation.html#Optimisation.add_bounds"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.optimisation.Optimisation.add_bounds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds bounds <span class="math notranslate nohighlight">\(lb &lt;= x &lt;=ub\)</span> to the optimisation problem. Only <code class="docutils literal notranslate"><span class="pre">L-BFGS-B</span></code>, <code class="docutils literal notranslate"><span class="pre">TNC</span></code>, <code class="docutils literal notranslate"><span class="pre">SLSQP</span></code>, <code class="docutils literal notranslate"><span class="pre">trust-constr</span></code>, <code class="docutils literal notranslate"><span class="pre">trust-region</span></code>, and <code class="docutils literal notranslate"><span class="pre">COBYLA</span></code> methods can handle bounds.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lb</strong> (<em>numpy.ndarray</em>) – 1-by-n matrix that contains lower bounds of x.</p></li>
+<li><p><strong>ub</strong> (<em>numpy.ndarray</em>) – 1-by-n matrix that contains upper bounds of x.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="equadratures.optimisation.Optimisation.add_linear_eq_con">
+<code class="sig-name descname">add_linear_eq_con</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">A</span></em>, <em class="sig-param"><span class="n">b</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/optimisation.html#Optimisation.add_linear_eq_con"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.optimisation.Optimisation.add_linear_eq_con" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds linear equality constraints  <span class="math notranslate nohighlight">\(Ax = b\)</span> to the optimisation routine. Only <code class="docutils literal notranslate"><span class="pre">trust-constr</span></code> and <code class="docutils literal notranslate"><span class="pre">SLSQP</span></code> methods can handle equality constraints.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A</strong> (<em>numpy.ndarray</em>) – A (M, n) matrix that contains coefficients of the linear equality constraints.</p></li>
+<li><p><strong>b</strong> (<em>numpy.ndarray</em>) – A (M, 1) matrix that specifies right hand side of the linear equality constraints.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="equadratures.optimisation.Optimisation.add_linear_ineq_con">
+<code class="sig-name descname">add_linear_ineq_con</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">A</span></em>, <em class="sig-param"><span class="n">b_l</span></em>, <em class="sig-param"><span class="n">b_u</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/optimisation.html#Optimisation.add_linear_ineq_con"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.optimisation.Optimisation.add_linear_ineq_con" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds linear inequality constraints <span class="math notranslate nohighlight">\(b_l &lt;= A x &lt;= b_u\)</span> to the optimisation problem.
+Only <code class="docutils literal notranslate"><span class="pre">trust-constr</span></code>, <code class="docutils literal notranslate"><span class="pre">COBYLA</span></code>, and <code class="docutils literal notranslate"><span class="pre">SLSQP</span></code> methods can handle general constraints.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A</strong> (<em>numpy.ndarray</em>) – An (M,n) matrix that contains coefficients of the linear inequality constraints.</p></li>
+<li><p><strong>b_l</strong> (<em>numpy.ndarray</em>) – An (M,1) matrix that specifies lower bounds of the linear inequality constraints. If there is no lower bound, set <code class="docutils literal notranslate"><span class="pre">b_l</span> <span class="pre">=</span> <span class="pre">-np.inf</span> <span class="pre">*</span> <span class="pre">np.ones(M)</span></code>.</p></li>
+<li><p><strong>b_u</strong> (<em>numpy.ndarray</em>) – A (M,1) matrix that specifies upper bounds of the linear inequality constraints. If there is no upper bound, set <code class="docutils literal notranslate"><span class="pre">b_u</span> <span class="pre">=</span> <span class="pre">np.inf</span> <span class="pre">*</span> <span class="pre">np.ones(M)</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="equadratures.optimisation.Optimisation.add_nonlinear_eq_con">
+<code class="sig-name descname">add_nonlinear_eq_con</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">poly</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">custom</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/optimisation.html#Optimisation.add_nonlinear_eq_con"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.optimisation.Optimisation.add_nonlinear_eq_con" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds nonlinear inequality constraints <span class="math notranslate nohighlight">\(g(x) = value\)</span> (for poly option) or <span class="math notranslate nohighlight">\(g(x) = 0\)</span> (for function option) to the optimisation routine.
+Only <code class="docutils literal notranslate"><span class="pre">trust-constr</span></code> and <code class="docutils literal notranslate"><span class="pre">SLSQP</span></code> methods can handle equality constraints. If poly object is providedin the poly dictionary, gradients and Hessians will be computed automatically.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>poly</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – Arguments for poly dictionary.
+:param Poly poly: An instance of the Poly class.
+:param float value: Value of the nonlinear constraint.</p></li>
+<li><p><strong>custom</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – Additional custom callable arguments.
+:callable function: The constraint function to be called.
+:callable jac_function: The gradient (or derivative) of the constraint.
+:callable hess_function: The Hessian of the constraint function.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="equadratures.optimisation.Optimisation.add_nonlinear_ineq_con">
+<code class="sig-name descname">add_nonlinear_ineq_con</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">poly</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">custom</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/optimisation.html#Optimisation.add_nonlinear_ineq_con"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.optimisation.Optimisation.add_nonlinear_ineq_con" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds nonlinear inequality constraints <span class="math notranslate nohighlight">\(lb &lt;= g(x) &lt;= ub\)</span> (for poly option) with <span class="math notranslate nohighlight">\(lb\)</span>, <span class="math notranslate nohighlight">\(ub = bounds\)</span> or <span class="math notranslate nohighlight">\(g(x) &gt;= 0\)</span> (for function option) to the optimisation problem. Only <code class="docutils literal notranslate"><span class="pre">trust-constr</span></code>, <code class="docutils literal notranslate"><span class="pre">COBYLA</span></code>, and <code class="docutils literal notranslate"><span class="pre">SLSQP</span></code> methods can handle general constraints.
+If Poly object is provided in the poly dictionary, gradients and Hessians will be computed automatically. If a lambda function is provided in the <code class="docutils literal notranslate"><span class="pre">function</span></code> dictionary, the user may also provide <code class="docutils literal notranslate"><span class="pre">jac_function</span></code> for gradients and <code class="docutils literal notranslate"><span class="pre">hess_function</span></code> for Hessians; otherwise, a 2-point differentiation rule
+will be used to approximate the derivative and a BFGS update will be used to approximate the Hessian.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>poly</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – Arguments for poly dictionary.
+:param Poly poly: An instance of the Poly class.
+:param numpy.ndarray bounds: An array with two entries specifying the lower and upper bounds of the inequality. If there is no lower bound, set bounds[0] = -np.inf.If there is no upper bound, set bounds[1] = np.inf.</p></li>
+<li><p><strong>custom</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – Additional custom callable arguments.
+:callable function: The constraint function to be called.
+:callable jac_function: The gradient (or derivative) of the constraint.
+:callable hess_function: The Hessian of the constraint function.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="equadratures.optimisation.Optimisation.add_objective">
+<code class="sig-name descname">add_objective</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">poly</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">custom</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">maximise</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/optimisation.html#Optimisation.add_objective"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.optimisation.Optimisation.add_objective" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds objective function to be optimised.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>poly</strong> (<em>poly</em>) – A Poly object.</p></li>
+<li><p><strong>custom</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – Optional arguments centered around the custom option.
+:callable function: The objective function to be called.
+:callable jac_function: The gradient (or derivative) of the objective.
+:callable hess_function: The Hessian of the objective function.</p></li>
+<li><p><strong>maximise</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – A flag to specify if the user would like to maximise the function instead of minimising it.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="equadratures.optimisation.Optimisation.optimise">
+<code class="sig-name descname">optimise</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x0</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/optimisation.html#Optimisation.optimise"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.optimisation.Optimisation.optimise" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs optimisation on a specified function, provided the objective has been added using ‘add_objective’ method
+and constraints have been added using the relevant method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x0</strong> (<em>numpy.ndarray</em>) – Starting point for optimiser.</p></li>
+<li><p><strong>del_k</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – initial trust-region radius for <code class="docutils literal notranslate"><span class="pre">trust-region</span></code> or <code class="docutils literal notranslate"><span class="pre">omorf</span></code> methods</p></li>
+<li><p><strong>delmin</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – minimum allowable trust-region radius for <code class="docutils literal notranslate"><span class="pre">trust-region</span></code> or <code class="docutils literal notranslate"><span class="pre">omorf</span></code> methods</p></li>
+<li><p><strong>delmax</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – maximum allowable trust-region radius for <code class="docutils literal notranslate"><span class="pre">trust-region</span></code> or <code class="docutils literal notranslate"><span class="pre">omorf</span></code> methods</p></li>
+<li><p><strong>d</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – reduced dimension for <code class="docutils literal notranslate"><span class="pre">omorf</span></code> method</p></li>
+<li><p><strong>subspace_method</strong> (<em>string</em>) – subspace method for <code class="docutils literal notranslate"><span class="pre">omorf</span></code> method with options <code class="docutils literal notranslate"><span class="pre">variable-projection</span></code> or <code class="docutils literal notranslate"><span class="pre">active-subspaces</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>sol</strong>: An object containing the optimisation result. Important attributes are: the solution array <code class="docutils literal notranslate"><span class="pre">x</span></code>, and a Boolean flag <code class="docutils literal notranslate"><span class="pre">success</span></code> indicating
+if the optimiser exited successfully.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+              </div>
+              
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2016-2020 by Effective Quadratures.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

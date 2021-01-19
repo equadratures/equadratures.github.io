@@ -1,0 +1,265 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prescribing probability functions &#8212; equadratures</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="../_static/eq-logo-favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Dimension reduction with polynomials" href="subspaces.html" />
+    <link rel="prev" title="Quadrature" href="quadrature.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    <a class="navbar-brand" href="index.html">
+    
+      <img src="../_static/logo_new.png" class="logo" alt="logo" />
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="tutorials.html">Tutorials</a>
+        </li>
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="modules.html">Modules</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="references.html">Research</a>
+        </li>
+        
+        
+      </ul>
+
+
+      <form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search equadratures..." aria-label="Search equadratures..." autocomplete="off" >
+</form>
+      
+
+      <ul class="navbar-nav">
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/pandas-dev/pydata-sphinx-theme" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
+        
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://twitter.com/EQuadratures" target="_blank" rel="noopener">
+              <span><i class="fab fa-twitter-square"></i></span>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar"><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+    <div class="bd-toc-item active">
+    
+  
+    <ul class="nav bd-sidenav">
+        
+        
+        
+        
+          
+            
+                <li class="">
+                    <a href="parameter.html">Parameter</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="basis.html">Basis</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="poly.html">Polynomial</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="quadrature.html">Quadrature</a>
+                </li>
+            
+          
+            
+                <li class="active">
+                    <a href="">Prescribing probability functions</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="subspaces.html">Dimension reduction with polynomials</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="optimisation.html">Optimisation with polynomials</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="correlated.html">Correlation mapping for polynomials</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="polytree.html">Polynomial Regression Tree</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="solver.html">Linear system solvers</a>
+                </li>
+            
+          
+        
+        
+        
+        
+      </ul>
+  
+  </nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="module-equadratures.weight">
+<span id="prescribing-probability-functions"></span><h1>Prescribing probability functions<a class="headerlink" href="#module-equadratures.weight" title="Permalink to this headline">¶</a></h1>
+<p>Definition of a probability distribution.</p>
+<dl class="py class">
+<dt id="equadratures.weight.Weight">
+<em class="property">class </em><code class="sig-prename descclassname">equadratures.weight.</code><code class="sig-name descname">Weight</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">weight_function</span></em>, <em class="sig-param"><span class="n">support</span></em>, <em class="sig-param"><span class="n">pdf</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">mean</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">variance</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/weight.html#Weight"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.weight.Weight" title="Permalink to this definition">¶</a></dt>
+<dd><p>The class offers a template to input bespoke weight (probability density) functions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>weight_function</strong> (<em>lambda</em>) – A function call.</p></li>
+<li><p><strong>support</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a>) – Lower and upper bounds of the weight respectively.</p></li>
+<li><p><strong>pdf</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – If set to <code class="docutils literal notranslate"><span class="pre">True</span></code>, then the weight_function is assumed to be normalised to integrate to unity. Otherwise,
+the integration constant is computed and used to normalise weight_function.</p></li>
+<li><p><strong>mean</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – User-defined mean for distribution. When provided, the code does not compute the mean of the weight_function over its support.</p></li>
+<li><p><strong>variance</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – User-defined variance for distribution. When provided, the code does not compute the variance of the weight_function over its support.</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Sample constructor initialisations</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">equadratures</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">pdf</span> <span class="o">=</span> <span class="n">Weight</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="p">[</span><span class="mf">0.00001</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">1e-10</span><span class="p">)],</span> <span class="n">pdf</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+              </div>
+              
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2016-2020 by Effective Quadratures.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
