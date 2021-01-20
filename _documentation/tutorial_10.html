@@ -135,7 +135,7 @@
           
             
                 <li class="">
-                    <a href="tutorial_3.html">Foundations III: Solving linear systems for polynomials</a>
+                    <a href="tutorial_3.html">Foundations III: Solving linear systems for polynomials & numerical quadrature</a>
                 </li>
             
           
@@ -147,7 +147,7 @@
           
             
                 <li class="">
-                    <a href="tutorial_5.html">Uncertainty quantification with correlations</a>
+                    <a href="tutorial_5.html">Uncertainty quantification with correlations for a borehole model</a>
                 </li>
             
           
@@ -193,6 +193,12 @@
                 </li>
             
           
+            
+                <li class="">
+                    <a href="tutorial_13.html">Multi-fidelity Bayesian polynomials on turbine cascade experiments</a>
+                </li>
+            
+          
         
         
         
@@ -227,176 +233,7 @@
                 
   <div class="section" id="machine-learning-california-housing-with-interpretable-polynomial-trees">
 <h1>Machine learning California housing with interpretable polynomial trees<a class="headerlink" href="#machine-learning-california-housing-with-interpretable-polynomial-trees" title="Permalink to this headline">¶</a></h1>
-<p><strong>Active Subspaces</strong></p>
-<p>The active subspace is defined as follows:</p>
-<p>Let <span class="math notranslate nohighlight">\(f(\mathbf{x})\)</span> be a scalar valued function <span class="math notranslate nohighlight">\(\mathbb{R}^n \rightarrow \mathbb{R}\)</span> with <span class="math notranslate nohighlight">\(\mathbf{x} \in \mathbb{R}^{n}\)</span>. Here <span class="math notranslate nohighlight">\(f(\mathbf{x})\)</span> represents the chosen quantity of interest and <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> represents the design parameters. Consider the approximation</p>
-<div class="math notranslate nohighlight">
-\[\begin{equation}
-f(\mathbf{x}) \approx g( \mathbf{U}^T \mathbf{x}),
-\label{equ_active}
-\end{equation}\]</div>
-<p>where <span class="math notranslate nohighlight">\(\mathbf{U} \in \mathbb{R}^{k \times n}\)</span>, with <span class="math notranslate nohighlight">\(k &lt;&lt; n\)</span>. Ideally we would like <span class="math notranslate nohighlight">\(k = 1\)</span> or <span class="math notranslate nohighlight">\(2\)</span> for facilitating subsequent visualisation. The matrix <span class="math notranslate nohighlight">\(\mathbf{U}\)</span> represents the <em>active subspace</em> and its null space represents the <em>inactive subspace</em>. Essentially, the function tends to be well approximated via the map <span class="math notranslate nohighlight">\(g\)</span> on the active subspace.</p>
-<p>Numerous ideas for finding active subspaces in computer experiments can be found in the work of Constantine [1]. The idea is to express the kernel matrix as the expectation of the outer product of gradients of <span class="math notranslate nohighlight">\(f\)</span></p>
-<div class="math notranslate nohighlight">
-\[\begin{equation}
-\textbf{K}=\int \nabla_{\mathbf{x}} f(\mathbf{x})\nabla_{\mathbf{x}} f(\mathbf{x})^{T} \rho (\mathbf{x}) d \mathbf{x} ,
-\label{equ_as}
-\end{equation}\]</div>
-<p>where <span class="math notranslate nohighlight">\(\rho(\mathbf{x})\)</span> is the density of the inputs <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> over its parameter space. A heuristic for estimating the kernel via finite point samples <span class="math notranslate nohighlight">\(N\)</span> is described below:</p>
-<ol class="arabic simple">
-<li><p>For <span class="math notranslate nohighlight">\(N\)</span> samples drawn randomly from a distribution <span class="math notranslate nohighlight">\(\rho(\mathbf{x})\)</span> calculate the sample kernel matrix:</p></li>
-</ol>
-<div class="math notranslate nohighlight">
-\[\begin{equation}
-\hat{\textbf{K}}=\frac{1}{N} \sum_{i=1}^{N}(\nabla_{\mathbf{x}} f(\mathbf{x}_i))(\nabla_{\mathbf{x}} f(\mathbf{x}_i)^{T})\,;
-\end{equation}\]</div>
-<ol class="arabic simple" start="2">
-<li><p>Compute the eigendecomposition of <span class="math notranslate nohighlight">\(\hat{\textbf{K}}\)</span> and select the eigenvectors with largest eigenvalues to form a matrix <span class="math notranslate nohighlight">\(\mathbf{U}\)</span> with orthogonal columns.</p></li>
-</ol>
-<p><strong>Polynomial Active Subspaces</strong></p>
-<p>In many cases gradient information is not available. Therefore, assumptions on the model are necessary to overcome this obstacle. A good assumption would be that the model is a polynomial, as the polynomials are easy to calculate and their gradients can be derived analytically. One can express a polynomial as a linear combination of a number of polynomial basis terms</p>
-<div class="math notranslate nohighlight">
-\[\begin{equation}
-f(\mathbf{x}) \approx h(\mathbf{x})=\sum_{j=1}^N a_j \phi_j(\mathbf{x})\,,
-\end{equation}\]</div>
-<p>where <span class="math notranslate nohighlight">\(\phi_j(\mathbf{x})\)</span> is a multivariate polynomial basis term of a certain mixed degree and <span class="math notranslate nohighlight">\(a_j\)</span> is the corresponding coefficient. Then the gradient can be expressed as the sum of the derivatives of the polynomials.</p>
-<div class="math notranslate nohighlight">
-\[\begin{equation}
-\nabla_{\mathbf{x}}f(\mathbf{x}) \approx \nabla_{\mathbf{x}}h(\mathbf{x})=\sum_{j=1}^N a_j \phi_j'(\mathbf{x})\,.
-\end{equation}\]</div>
-<p>To construct the polynomial basis terms <span class="math notranslate nohighlight">\(\phi(\mathbf{x})\)</span> , one only needs to know the number of dimensions and the polynomial degree.</p>
-<p><strong>A 2-degree Polynomial Model for Dimension Reduction</strong></p>
-<p>If the polynomial degree is set as 2, then the polynomial bases would include all linear terms <span class="math notranslate nohighlight">\(\phi(\mathbf{x})=x_i\)</span>, all squared terms <span class="math notranslate nohighlight">\(\phi(\mathbf{x})=x_i^2\)</span> and all cross terms <span class="math notranslate nohighlight">\(\phi(\mathbf{x})=x_i x_j\)</span>.</p>
-<p>One can fit a polynomial to the dataset using least squares with sample input/output pairs. This idea was leveraged in [2] to find <span class="math notranslate nohighlight">\(\mathbf{U}\)</span> and is detailed below. The goal here is to use least squares to fit the dataset to the following form</p>
-<div class="math notranslate nohighlight">
-\[\begin{equation}
-y=f(\mathbf{x})=\frac{1}{2}\mathbf{x} ^{T} \mathbf{A}\mathbf{x} + \textbf{c}^{T}\mathbf{x} +d\,,
-\label{quadraticeqn}
-\end{equation}\]</div>
-<p>therefore the gradient of the function can be expressed as</p>
-<div class="math notranslate nohighlight">
-\[\begin{equation}
-\nabla_{\mathbf{x}}f(\mathbf{x})= \mathbf{A} \mathbf{x}+\textbf{c}\,.
-\end{equation}\]</div>
-<p>Then a set of equations can be formulated using each data point:</p>
-<div class="math notranslate nohighlight">
-\[\begin{equation}
-\frac{1}{2} \sum_{i=1,j=1}^{m,m}a_{ij}x_ix_j+\sum_{j=1}^{m}c_jx_j+d=y\,;
-\end{equation}\]</div>
-<p>All <span class="math notranslate nohighlight">\(a_{ij}\)</span> along with <span class="math notranslate nohighlight">\(\textbf{c}\)</span> and <span class="math notranslate nohighlight">\(d\)</span> are obtained by solving for the least squares solution, where <span class="math notranslate nohighlight">\(a_{ij}\)</span> are the entries of the matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> and <span class="math notranslate nohighlight">\(c_j\)</span> are the entries of the vector <span class="math notranslate nohighlight">\(\textbf{c}\)</span>. Finally, the estimated kernel is given by</p>
-<div class="math notranslate nohighlight">
-\[\begin{equation}
-\hat{\textbf{K}}=\frac{1}{N}\sum_{i=1}^N(A\mathbf{x}_i+\textbf{c})(A\mathbf{x}_i+\textbf{c})^{T}\,.
-\end{equation}\]</div>
-<p>The last step of selecting eigenvectors is done by carrying out an eigendecomposition on the kernel matrix (symmetric).</p>
-<div class="math notranslate nohighlight">
-\[\begin{equation}
-\hat{\mathbf{K}}= \mathbf{W \Lambda W}^{T},
-\end{equation}\]</div>
-<p>where <span class="math notranslate nohighlight">\(\mathbf{W}\)</span> contains all eigenvectors and <span class="math notranslate nohighlight">\(\Lambda\)</span> is the diagonal matrix of all corresponding eigenvalues, which are assumed to be sorted in descending order. The eigenvectors and eigenvalues can then be partitioned</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{equation}
-\mathbf{W}=\left[\begin{array}{cc}
-\mathbf{U}_{\text{active}} &amp; \mathbf{U}_{\text{inactive}}\end{array}\right] \; \; \; \mathbf{\Lambda}=\left[\begin{array}{cc}
-\mathbf{\Lambda_{\text{active}} }\\
- &amp; \mathbf{\Lambda_{\text{inactive}} }
-\end{array}\right]
-\end{equation}\end{split}\]</div>
-<p>based on a <em>suitable cut-off criterion</em> —usually the magnitude of the eigenvalues.</p>
-<p>As most of the variation in <span class="math notranslate nohighlight">\(f\)</span> happens with changes in <span class="math notranslate nohighlight">\(\mathbf{U}_{active}^T \mathbf{x}\)</span>,</p>
-<div class="math notranslate nohighlight">
-\[\begin{equation}
-f \left(\mathbf{x}\right) \approx g\left(\mathbf{U}_\text{active}^T\mathbf{x} \right)\text{ while }f\left( \mathbf{U}_\text{inactive} \mathbf{U}_\text{inactive}^T \mathbf{x} \right) \approx 0,
-\end{equation}\]</div>
-<p>where <span class="math notranslate nohighlight">\(g\)</span> is a lower dimensional function.</p>
-<p><strong>Code Implementation</strong></p>
-<p>We look at a compressor fan design problem. The 25 design variables can be viewed as inputs to the function, where the CFD efficiency of the blade design is seen as the output. Now we attempt to use a 2-degree polynomial active subspace model to reach dimension reduction and find a 2D active subspace.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">equadratures</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">scipy.spatial</span> <span class="kn">import</span> <span class="n">ConvexHull</span><span class="p">,</span> <span class="n">convex_hull_plot_2d</span>
-<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">axes3d</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;../data/design_parameters.dat&#39;</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;../data/non_dimensionalized_efficiency.dat&#39;</span><span class="p">)</span>
-<span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Normalised efficiency&#39;</span>
-</pre></div>
-</div>
-<p>This dataset contains 554 pairs of inputs (designs of blades) and outputs (CFD-evaluataed efficiency). The dimension of inputs is 25 (25D design space). All input vectors are in X , while the outputs are in y.</p>
-<p>The first order of business is to construct a global quadratic model</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">lower</span><span class="o">=-</span><span class="mf">1.</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">myparameters</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">25</span><span class="p">)]</span>
-<span class="n">mybasis</span> <span class="o">=</span> <span class="n">Basis</span><span class="p">(</span><span class="s1">&#39;total-order&#39;</span><span class="p">)</span>
-<span class="n">mypoly</span> <span class="o">=</span> <span class="n">Poly</span><span class="p">(</span><span class="n">parameters</span><span class="o">=</span><span class="n">myparameters</span><span class="p">,</span> <span class="n">basis</span><span class="o">=</span><span class="n">mybasis</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;least-squares&#39;</span><span class="p">,</span> \
-      <span class="n">sampling_args</span><span class="o">=</span> <span class="p">{</span><span class="s1">&#39;mesh&#39;</span><span class="p">:</span> <span class="s1">&#39;user-defined&#39;</span><span class="p">,</span> <span class="s1">&#39;sample-points&#39;</span><span class="p">:</span> <span class="n">X</span><span class="p">,</span> <span class="s1">&#39;sample-outputs&#39;</span><span class="p">:</span> <span class="n">y</span><span class="p">})</span>
-<span class="n">mypoly</span><span class="o">.</span><span class="n">set_model</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>Next, we compute the active subspace</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mysubspace</span> <span class="o">=</span> <span class="n">Subspaces</span><span class="p">(</span><span class="n">full_space_poly</span><span class="o">=</span><span class="n">mypoly</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;active-subspace&#39;</span><span class="p">)</span>
-<span class="n">W</span> <span class="o">=</span> <span class="n">mysubspace</span><span class="o">.</span><span class="n">get_subspace</span><span class="p">()</span>
-<span class="n">e</span> <span class="o">=</span> <span class="n">mysubspace</span><span class="o">.</span><span class="n">get_eigenvalues</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>and plot the eigenvalues to determine how many <em>active</em> variables we require.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Eigenvalues (log-scale)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Design parameters&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="figure align-default">
-<a class="reference internal image-reference" href="../_images/tutorial_11_fig_a.png"><img alt="../_images/tutorial_11_fig_a.png" src="../_images/tutorial_11_fig_a.png" style="width: 393.59999999999997px; height: 232.2px;" /></a>
-</div>
-<p>We can then project all the samples we have within the design space onto the first few dimensions of the active subspace.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">true_dimensions</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">u</span> <span class="o">=</span> <span class="n">X</span> <span class="o">@</span> <span class="n">W</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="n">true_dimensions</span><span class="p">]</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">u</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gold&#39;</span><span class="p">,</span> <span class="n">markeredgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;u&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="figure align-default">
-<a class="reference internal image-reference" href="../_images/tutorial_11_fig_b.png"><img alt="../_images/tutorial_11_fig_b.png" src="../_images/tutorial_11_fig_b.png" style="width: 390.9px; height: 232.2px;" /></a>
-</div>
-<p>And for two dimensions</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">true_dimensions</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="n">u</span> <span class="o">=</span> <span class="n">X</span> <span class="o">@</span> <span class="n">W</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="n">true_dimensions</span><span class="p">]</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">u</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">u</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;u1&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;u2&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="figure align-default">
-<a class="reference internal image-reference" href="../_images/tutorial_11_fig_c.png"><img alt="../_images/tutorial_11_fig_c.png" src="../_images/tutorial_11_fig_c.png" style="width: 476.7px; height: 474.0px;" /></a>
-</div>
-<p>Finally, we can also compute the zonotope associated with the 2D projection.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">X</span> <span class="o">@</span> <span class="n">W</span><span class="p">[:,</span><span class="mi">0</span><span class="p">:</span><span class="n">true_dimensions</span><span class="p">]</span>
-<span class="n">pts</span> <span class="o">=</span> <span class="n">mysubspace</span><span class="o">.</span><span class="n">get_zonotope_vertices</span><span class="p">()</span>
-<span class="n">hull</span> <span class="o">=</span> <span class="n">ConvexHull</span><span class="p">(</span><span class="n">pts</span><span class="p">)</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">z</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gold&#39;</span><span class="p">,</span> <span class="n">markeredgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">simplex</span> <span class="ow">in</span> <span class="n">hull</span><span class="o">.</span><span class="n">simplices</span><span class="p">:</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pts</span><span class="p">[</span><span class="n">simplex</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">pts</span><span class="p">[</span><span class="n">simplex</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;k-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="figure align-default">
-<a class="reference internal image-reference" href="../_images/tutorial_11_fig_d.png"><img alt="../_images/tutorial_11_fig_d.png" src="../_images/tutorial_11_fig_d.png" style="width: 548.6999999999999px; height: 400.8px;" /></a>
-</div>
-<p>The full source code for this tutorial can be found <a class="reference external" href="https://github.com/Effective-Quadratures/Effective-Quadratures/blob/master/source/_documentation/codes/tutorial_11.py">here.</a></p>
-<p><strong>References</strong></p>
-<ul class="simple">
-<li><p>Constantine, P. G. (2015) Active subspaces: Emerging ideas for dimension reduction in parameter studies, Volume 2, SIAM, 2015.</p></li>
-<li><p>Seshadri, P., Shahpar, S., Constantine, P., Parks, G., Adams, M. (2018) Turbomachinery active subspace performance maps. Journal of Turbomachinery, 140(4), 041003. <a class="reference external" href="http://turbomachinery.asmedigitalcollection.asme.org/article.aspx?articleid=2668256">Paper</a></p></li>
-</ul>
+<p>Coming soon!</p>
 </div>
 
 

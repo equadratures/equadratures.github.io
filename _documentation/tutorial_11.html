@@ -39,8 +39,8 @@
     <link rel="shortcut icon" href="../_static/eq-logo-favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Computational fluid dynamics flow-field estimation using vector-valued polynomial ridge approximations" href="tutorial_12.html" />
-    <link rel="prev" title="Surrogate-based design optimisation on Rosenbrock’s function" href="tutorial_10.html" />
+    <link rel="next" title="Flow-field estimation using vector-valued polynomial ridge approximations" href="tutorial_12.html" />
+    <link rel="prev" title="Machine learning California housing with interpretable polynomial trees" href="tutorial_10.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
   </head>
@@ -135,7 +135,7 @@
           
             
                 <li class="">
-                    <a href="tutorial_3.html">Foundations III: Solving linear systems for polynomials</a>
+                    <a href="tutorial_3.html">Foundations III: Solving linear systems for polynomials & numerical quadrature</a>
                 </li>
             
           
@@ -147,7 +147,7 @@
           
             
                 <li class="">
-                    <a href="tutorial_5.html">Uncertainty quantification with correlations</a>
+                    <a href="tutorial_5.html">Uncertainty quantification with correlations for a borehole model</a>
                 </li>
             
           
@@ -177,7 +177,7 @@
           
             
                 <li class="">
-                    <a href="tutorial_10.html">Surrogate-based design optimisation on Rosenbrock’s function</a>
+                    <a href="tutorial_10.html">Machine learning California housing with interpretable polynomial trees</a>
                 </li>
             
           
@@ -189,7 +189,13 @@
           
             
                 <li class="">
-                    <a href="tutorial_12.html">Computational fluid dynamics flow-field estimation using vector-valued polynomial ridge approximations</a>
+                    <a href="tutorial_12.html">Flow-field estimation using vector-valued polynomial ridge approximations</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="tutorial_13.html">Multi-fidelity Bayesian polynomials on turbine cascade experiments</a>
                 </li>
             
           
@@ -227,131 +233,7 @@
                 
   <div class="section" id="time-series-remaining-useful-life-prediction-with-spatio-temporal-polynomials">
 <h1>Time-series remaining useful life prediction with spatio-temporal polynomials<a class="headerlink" href="#time-series-remaining-useful-life-prediction-with-spatio-temporal-polynomials" title="Permalink to this headline">¶</a></h1>
-<p>The variable projection method has been used for solving separable non-linear least squares problems for the past few decades [1]. The general idea is to minimise the residual of a non-linear fitting. Given a set of observations, the model is a linear combination of non-linear functions that depends on multiple parameters. In this tutorial the idea of variable projection is applied to ridge approximation for dimension reduction purposes. Here the algorithm is built on the idea proposed by Hokanson et al. [2].</p>
-<p><strong>Theory</strong></p>
-<p>For a function with inputs and outputs, variable projection approximates the outputs <span class="math notranslate nohighlight">\(y_i\)</span> with polynomials</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{align*}
-y_i  &amp; = f(\boldsymbol{x}_i) \\
-&amp; \approx g(\mathbf{U}^T\boldsymbol{x}_i) \\
-&amp; =\sum_j a_j\phi_j(\mathbf{U}^T\boldsymbol{x}_i),
-\end{align*}\end{split}\]</div>
-<p><span class="math notranslate nohighlight">\(\phi_j(\mathbf{U}^T\boldsymbol{x}_i)\)</span> are polynomial basis terms;
-<span class="math notranslate nohighlight">\(a_j\)</span> are their coefficients.</p>
-<p>The residual is then given by</p>
-<div class="math notranslate nohighlight">
-\[\begin{equation}
-r_i(\mathbf{U})=y_i-\sum_j a_j\phi_j(\mathbf{U}^T\boldsymbol{x}_i).
-\end{equation}\]</div>
-<p>Re-writing this in matrix form,</p>
-<div class="math notranslate nohighlight">
-\[\begin{equation}
-\mathbf{r(U)}=\mathbf{y}-\mathbf{V(U)}\mathbf{a},
-\end{equation}\]</div>
-<p><span class="math notranslate nohighlight">\(r_i(\mathbf{U})\)</span> are entries of <span class="math notranslate nohighlight">\(\mathbf{r(U)}\)</span>;
-<span class="math notranslate nohighlight">\(y_i\)</span> are entries of <span class="math notranslate nohighlight">\(\mathbf{y}\)</span>;
-<span class="math notranslate nohighlight">\(\phi_j(\mathbf{U}^T\boldsymbol{x}_i)\)</span> are entries of Vandermonde matrix <span class="math notranslate nohighlight">\(\mathbf{V(U)}\)</span>;
-<span class="math notranslate nohighlight">\(a_j\)</span> are entries of <span class="math notranslate nohighlight">\(\mathbf{a}\)</span>.</p>
-<p>The Vandermonde matrix contains all polynomial terms <span class="math notranslate nohighlight">\(\phi_j\)</span>.</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{equation}
-\mathbf{V(U)}=
-\begin{bmatrix}
-    \phi_1(\mathbf{U}^T\boldsymbol{x}_1)       &amp; \phi_2(\mathbf{U}^T\boldsymbol{x}_1) &amp; \dots &amp; \phi_j(\mathbf{U}^T\boldsymbol{x}_1)  &amp; \dots \\
-    \phi_1(\mathbf{U}^T\boldsymbol{x}_2)       &amp; \phi_2(\mathbf{U}^T\boldsymbol{x}_2) &amp; \dots &amp; \phi_j(\mathbf{U}^T\boldsymbol{x}_2)  &amp; \dots \\
-\vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots \\
-    \phi_1(\mathbf{U}^T\boldsymbol{x}_i)       &amp; \phi_2(\mathbf{U}^T\boldsymbol{x}_i) &amp; \dots &amp; \phi_j(\mathbf{U}^T\boldsymbol{x}_i)  &amp; \dots \\
-\vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots
-\end{bmatrix}.
-\end{equation}\end{split}\]</div>
-<p>When the degree of polynomial is 2 and subspace dimension is 2,</p>
-<div class="math notranslate nohighlight">
-\[\begin{split} \begin{equation}
- \mathbf{V(U)}=
- \begin{bmatrix}
-     1       &amp; \mathbf{U}_1^T\boldsymbol{x}_1 &amp; \mathbf{U}_2^T\boldsymbol{x}_1 &amp; (\mathbf{U}_1^T\boldsymbol{x}_1)
-(\mathbf{U}_2^T\boldsymbol{x}_1)  &amp;  (\mathbf{U}_1^T\boldsymbol{x}_1)^2 &amp; (\mathbf{U}_2^T\boldsymbol{x}_1)^2\\
-         1       &amp; \mathbf{U}_1^T\boldsymbol{x}_2 &amp; \mathbf{U}_2^T\boldsymbol{x}_2 &amp; (\mathbf{U}_1^T\boldsymbol{x}_2)
-(\mathbf{U}_2^T\boldsymbol{x}_2)  &amp;  (\mathbf{U}_1^T\boldsymbol{x}_2)^2 &amp; (\mathbf{U}_2^T\boldsymbol{x}_2)^2\\
- \vdots &amp; \vdots &amp; \vdots &amp;   &amp; \vdots &amp; \vdots \\
-         1       &amp; \mathbf{U}_1^T\boldsymbol{x}_M &amp; \mathbf{U}_2^T\boldsymbol{x}_M &amp; (\mathbf{U}_1^T\boldsymbol{x}_M)
-(\mathbf{U}_2^T\boldsymbol{x}_M)  &amp;  (\mathbf{U}_1^T\boldsymbol{x}_M)^2 &amp; (\mathbf{U}_2^T\boldsymbol{x}_2)^M
- \end{bmatrix}.
- \end{equation}\end{split}\]</div>
-<p>This is a non-linear least squares problem. We can find its solution:</p>
-<div class="math notranslate nohighlight">
-\[\begin{equation}
-\mathbf{a}=\mathbf{V(U)}^+\mathbf{y},
-\end{equation}\]</div>
-<p>then the residual can be reformulated:</p>
-<div class="math notranslate nohighlight">
-\[ \begin{align}
- \mathbf{r(U)} &amp;=\mathbf{y}-\mathbf{V(U)}\mathbf{a} =\mathbf{y}-\mathbf{V(U)V(U)^+}\mathbf{y}=(\mathbf{I}-
-\mathbf{V(U)}\mathbf{V(U)})\mathbf{y}.
- \end{align}\]</div>
-<p>Find <span class="math notranslate nohighlight">\(\mathbf{U}\)</span> by optimisation,</p>
-<div class="math notranslate nohighlight">
-\[ \begin{equation}
- \mathbf{U}=\underset{\mathbf{U}\in\mathbb{G}(n,\mathbb{R}^m)}{\text{argmin}} \| \mathbf{r(U)}    \|_2^2\,=\underset{\mathbf{U}}
-{\text{argmin}}\| (\mathbf{I}-\mathbf{V(U)}\mathbf{V(U)}^+)\mathbf{y}\|_2^2\,.
- \end{equation}\]</div>
-<p>Gauss-Newton algorithm is used for optimisation, as it is a non-linear least squares problem.</p>
-<p>The Jacobian tensor is defined as</p>
-<div class="math notranslate nohighlight">
-\[\begin{equation}
-\boldsymbol{\mathcal{J}}_{i,j,k}(\mathbf{U})=\frac{\partial \mathbf{[r(U)]}_i}{\partial [\mathbf{U}]_{j,k}}\, .
-\end{equation}\]</div>
-<p>The iterative update expression is</p>
-<div class="math notranslate nohighlight">
-\[\begin{equation}
-\mathbf{U}^{(s+1)}=\mathbf{U}^{(s)}-(\boldsymbol{\mathcal{J}}_{i,j,k}(\mathbf{U}^{(s)}))^+\mathbf{r}(\mathbf{U}^{(s)}),
-\end{equation}\]</div>
-<p>where  <span class="math notranslate nohighlight">\((\boldsymbol{\mathcal{J}}_{i,j,k}(\mathbf{U}^{(s)}))^+\)</span> is the pseudoinverse of the Jacobian.</p>
-<p><strong>Code Implementation</strong></p>
-<p>In turbomachinery design, the fan blade designs are usually parametrised by a few hundred design variables, representing the geometric properties at various positions of the fan blade span. In this notebook, we study one such fan blade, which contains 25 variables per design, while the corresponding efficiency of each design is evaluated by Computational Fluid Dynamics (CFD) simulations.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">equadratures</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">axes3d</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;design_parameters.dat&#39;</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;non_dimensionalized_efficiency.dat&#39;</span><span class="p">)</span>
-<span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Normalised efficiency&#39;</span>
-</pre></div>
-</div>
-<p>This dataset (taken from [3]) contains 554 pairs of inputs (designs of blades) and outputs (CFD-evaluataed efficiency). The dimension of inputs is 25 (25D design space). Using variable projection, we wish to find a surrogate model for this relationship in 2D. All input vectors are put in X.dat, while the outputs are in Y.dat. They are stored as variables X and fX respectively.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">=</span><span class="mi">2</span>
-<span class="n">p</span><span class="o">=</span><span class="mi">2</span>
-</pre></div>
-</div>
-<p><span class="math notranslate nohighlight">\(n\)</span> stands for the dimensionality of the active subspace, which is also the dimenion of surrogate model. Here it is set to 2. This indicates the active subspace <span class="math notranslate nohighlight">\(\mathbf{U}\)</span> found would be of <span class="math notranslate nohighlight">\(25\times 2\)</span>. <span class="math notranslate nohighlight">\(p\)</span> stands for the degree of polynomial basis terms. <span class="math notranslate nohighlight">\(p=2\)</span> suggests the model can capture both linear and quadratic relationships, but not cubic or above.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mysubspace</span> <span class="o">=</span> <span class="n">Subspaces</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;variable-projection&#39;</span><span class="p">,</span> <span class="n">sample_points</span><span class="o">=</span><span class="n">X</span><span class="p">,</span> <span class="n">sample_outputs</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
-<span class="n">W</span> <span class="o">=</span> <span class="n">mysubspace</span><span class="o">.</span><span class="n">get_subspace</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>Now the active subspace is found, we can plot the high dimensional data onto the 2D active subspace. Here it is noted that since the approach finds the active subspace <span class="math notranslate nohighlight">\(\mathbf{U}\)</span> without a kernel matrix, <span class="math notranslate nohighlight">\(\mathbf{U}=[\mathbf{U}_1,\mathbf{U}_2]\)</span>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="n">X</span> <span class="o">@</span> <span class="n">W</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="n">n</span><span class="p">]</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">u</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">u</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;u1&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;u2&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="figure align-default">
-<a class="reference internal image-reference" href="../_images/tutorial_12_fig_a.png"><img alt="../_images/tutorial_12_fig_a.png" src="../_images/tutorial_12_fig_a.png" style="width: 794.5px; height: 790.0px;" /></a>
-</div>
-<p>The full source code for this tutorial can be found <a class="reference external" href="https://github.com/Effective-Quadratures/Effective-Quadratures/blob/master/source/_documentation/codes/tutorial_12.py">here.</a></p>
-<p><strong>References</strong></p>
-<ul class="simple">
-<li><p>Golub, G., Pereyra, V., (2003). Separable nonlinear least squares: the variable projection method and its applications. Inverse Problems, 19(2). <a class="reference external" href="http://iopscience.iop.org/article/10.1088/0266-5611/19/2/201/meta">Paper</a></p></li>
-<li><p>Honkason, J. and Constantine, P. (2018). Data-driven polynomial ridge approximation using variable projection. SIAM Journal on Scientific Computing 40.3 (2018): A1566-A1589. <a class="reference external" href="https://epubs.siam.org/doi/abs/10.1137/17M1117690">Paper</a></p></li>
-<li><p>Seshadri, P., Shahpar, S., Constantine, P., Parks, G., Adams, M. (2018) Turbomachinery active subspace performance maps. Journal of Turbomachinery, 140(4), 041003. <a class="reference external" href="http://turbomachinery.asmedigitalcollection.asme.org/article.aspx?articleid=2668256">Paper</a></p></li>
-</ul>
+<p>Coming soon!</p>
 </div>
 
 

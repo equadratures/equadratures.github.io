@@ -151,11 +151,15 @@
         </li>
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#sensitivity-analysis" class="nav-link">Sensitivity analysis</a>
+            <a href="#uncertainty-quantification-and-sensitivity-analysis" class="nav-link">Uncertainty quantification and sensitivity analysis</a>
         </li>
     
         <li class="nav-item toc-entry toc-h2">
             <a href="#adjoint-gradient-enhancement" class="nav-link">Adjoint / gradient enhancement</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#flow-field-estimation" class="nav-link">Flow-field estimation</a>
         </li>
     
     </ul>
@@ -173,8 +177,7 @@
                 
   <div class="section" id="research">
 <h1>Research<a class="headerlink" href="#research" title="Permalink to this headline">¶</a></h1>
-<p>Below you will find a list of publications, along with their supporting code, and in some cases a related blog post. Publications are classified by their domain area. When using <code class="docutils literal notranslate"><span class="pre">equadratures</span></code> please do cite the reference below:</p>
-<p>Seshadri, P., Parks, G. T., (2017) Effective-Quadratures (EQ): Polynomials for Computational Engineering Studies, <em>Journal of Open Source Software</em>, 2(11), 166, <a class="reference external" href="http://joss.theoj.org/papers/ba651f2b3608a5d2b085af06b1108747">Paper</a>.</p>
+<p>Below you will find a list of publications, along with their supporting code, and in some cases a related blog post. Publications are classified by their domain area.</p>
 <div class="section" id="data-driven-dimension-reduction">
 <h2>Data-driven dimension reduction<a class="headerlink" href="#data-driven-dimension-reduction" title="Permalink to this headline">¶</a></h2>
 <dl class="field-list simple">
@@ -202,13 +205,13 @@
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Title</dt>
-<dd class="field-odd"><p>Blade envelopes I: concept and methodology</p>
+<dd class="field-odd"><p>Blade envelopes part I: concept and methodology</p>
 </dd>
 <dt class="field-even">Authors</dt>
 <dd class="field-even"><p>Chun Yui Wong, Pranay Seshadri, Ashley Scillitoe, Andrew Duncan, Geoffrey Parks</p>
 </dd>
 <dt class="field-odd">Essence</dt>
-<dd class="field-odd"><p>Constructing ridge approximations for vector-valued quantities, and scalar-valued functions that are integrals of vector-valued fields. For example, the lift, drag and pressure coefficients of an airfoil.</p>
+<dd class="field-odd"><p>Interpreting the design of a blade (airfoil) as a Gaussian distribution with known mean (nominal) but unknown covariance. Estimating this covariance matrix by generating samples from the inactive subspace for loss.</p>
 </dd>
 <dt class="field-even">Journal</dt>
 <dd class="field-even"><p>ASME Journal of Turbomachinery (under review)</p>
@@ -217,7 +220,76 @@
 <dd class="field-odd"><p>2020</p>
 </dd>
 <dt class="field-even">Resources</dt>
-<dd class="field-even"><p><a class="reference external" href="https://arxiv.org/abs/1907.07037">Preprint</a> | <a class="reference external" href="https://discourse.effective-quadratures.org/t/embedded-ridge-approximations/73">Blog</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://arxiv.org/abs/2011.11636">Preprint</a> | <a class="reference external" href="https://discourse.equadratures.org/t/blade-envelopes-computational-methods/96">Blog</a></p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Title</dt>
+<dd class="field-odd"><p>Blade envelopes part II: multiple objectives and inverse design</p>
+</dd>
+<dt class="field-even">Authors</dt>
+<dd class="field-even"><p>Chun Yui Wong, Pranay Seshadri, Ashley Scillitoe, Bryn N Ubald, Andrew Duncan, Geoffrey Parks</p>
+</dd>
+<dt class="field-odd">Essence</dt>
+<dd class="field-odd"><p>Extending the approach in part I to multiple objectives (flow capacity, loss and peak Isentropic Mach number) and demonstrating how this approach can be used for inverse design.</p>
+</dd>
+<dt class="field-even">Journal</dt>
+<dd class="field-even"><p>ASME Journal of Turbomachinery (under review)</p>
+</dd>
+<dt class="field-odd">Year</dt>
+<dd class="field-odd"><p>2020</p>
+</dd>
+<dt class="field-even">Resources</dt>
+<dd class="field-even"><p><a class="reference external" href="https://arxiv.org/abs/2012.15579">Preprint</a> | <a class="reference external" href="https://discourse.equadratures.org/t/blade-envelopes-3d-visualisation/100">Blog</a></p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Title</dt>
+<dd class="field-odd"><p>Turbomachinery active subspace performance maps</p>
+</dd>
+<dt class="field-even">Authors</dt>
+<dd class="field-even"><p>Pranay Seshadri, Shahrokh Shahpar, Paul Constantine, Geoffrey Parks, Mike Adams</p>
+</dd>
+<dt class="field-odd">Essence</dt>
+<dd class="field-odd"><p>On generating 2D contour plots of the entire 25D design space of a modern fan blade from a jet-engine.</p>
+</dd>
+<dt class="field-even">Journal</dt>
+<dd class="field-even"><p>ASME Journal of Turbomachinery</p>
+</dd>
+<dt class="field-odd">Year</dt>
+<dd class="field-odd"><p>2018</p>
+</dd>
+<dt class="field-even">Resources</dt>
+<dd class="field-even"><p><a class="reference external" href="https://www.researchgate.net/publication/322146034_Turbomachinery_Active_Subspace_Performance_Maps">Preprint</a> | <a class="reference external" href="https://asmedigitalcollection.asme.org/turbomachinery/article/140/4/041003/378904/Turbomachinery-Active-Subspace-Performance-Maps?casa_token=zybjMJIy6YYAAAAA:AD6vxW8kq_dCOgYdaQ7nNmqaCWFO6bGN4gSPVUOOIUIb3s7UqzNouCcHCOXouvUcBoit">Paper</a></p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Title</dt>
+<dd class="field-odd"><p>Supporting multi-point fan design with dimension reduction</p>
+</dd>
+<dt class="field-even">Authors</dt>
+<dd class="field-even"><p>Pranay Seshadri, Shaowu Yuchi, Shahrokh Shahpar, Geoffrey Parks</p>
+</dd>
+<dt class="field-odd">Essence</dt>
+<dd class="field-odd"><p>Polynomial variable projection applied to three distinct fan blades at different operating conditions.</p>
+</dd>
+<dt class="field-even">Journal</dt>
+<dd class="field-even"><p>The Aeronautical Journal</p>
+</dd>
+<dt class="field-odd">Year</dt>
+<dd class="field-odd"><p>2018</p>
+</dd>
+<dt class="field-even">Resources</dt>
+<dd class="field-even"><p><a class="reference external" href="https://arxiv.org/abs/1910.09030">Preprint</a> | <a class="reference external" href="https://www.cambridge.org/core/journals/aeronautical-journal/article/abs/supporting-multipoint-fan-design-with-dimension-reduction/3614035892B7EAC41DC8C486BA008A03">Paper</a></p>
 </dd>
 </dl>
 </div>
@@ -267,8 +339,8 @@
 </dd>
 </dl>
 </div>
-<div class="section" id="sensitivity-analysis">
-<h2>Sensitivity analysis<a class="headerlink" href="#sensitivity-analysis" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="uncertainty-quantification-and-sensitivity-analysis">
+<h2>Uncertainty quantification and sensitivity analysis<a class="headerlink" href="#uncertainty-quantification-and-sensitivity-analysis" title="Permalink to this headline">¶</a></h2>
 <dl class="field-list simple">
 <dt class="field-odd">Title</dt>
 <dd class="field-odd"><p>Extremum sensitivity analysis with polynomial Monte Carlo filtering</p>
@@ -286,7 +358,7 @@
 <dd class="field-odd"><p>2019</p>
 </dd>
 <dt class="field-even">Resources</dt>
-<dd class="field-even"><p><a class="reference external" href="https://arxiv.org/abs/1907.08113">Preprint</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://arxiv.org/abs/1907.08113">Preprint</a> | <a class="reference external" href="https://discourse.equadratures.org/t/new-methods-for-polynomial-approximations-with-correlated-inputs/64">Blog</a></p>
 </dd>
 </dl>
 <div class="line-block">
@@ -297,24 +369,29 @@
 <dd class="field-odd"><p>Sensitivity analysis of a coupled hydrodynamic-vegetation model using the effectively subsampled quadratures method</p>
 </dd>
 <dt class="field-even">Authors</dt>
-<dd class="field-even"><p>Chun Yui Wong, Pranay Seshadri, Geoffrey Parks</p>
+<dd class="field-even"><p>Tarandeep Kalra,</p>
 </dd>
 <dt class="field-odd">Essence</dt>
-<dd class="field-odd"><p>Deriving Sobol’ indices for polynomial ridge approximations, and developing methods for extremeum sensitivity analysis using Monte Carlo filtering and correlated polynomial approximations.</p>
+<dd class="field-odd"><p>The application of effectively subsampled quadratures for computing Sobol’ indices for a coupled hydrodynamic-vegetation model.</p>
 </dd>
 <dt class="field-even">Journal</dt>
-<dd class="field-even"><p>Reliability Engineering and System Safety (under review)</p>
+<dd class="field-even"><p>Geoscientific Model Development Discussions</p>
 </dd>
 <dt class="field-odd">Year</dt>
 <dd class="field-odd"><p>2019</p>
 </dd>
 <dt class="field-even">Resources</dt>
-<dd class="field-even"><p><a class="reference external" href="https://arxiv.org/abs/1907.08113">Preprint</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://gmd.copernicus.org/articles/10/4511/2017/gmd-10-4511-2017-discussion.html">Paper</a> | <a class="reference external" href="https://discourse.equadratures.org/t/eq-methodology-for-coastal-models/95">Blog</a></p>
 </dd>
 </dl>
 </div>
 <div class="section" id="adjoint-gradient-enhancement">
 <h2>Adjoint / gradient enhancement<a class="headerlink" href="#adjoint-gradient-enhancement" title="Permalink to this headline">¶</a></h2>
+<p>Coming soon!</p>
+</div>
+<div class="section" id="flow-field-estimation">
+<h2>Flow-field estimation<a class="headerlink" href="#flow-field-estimation" title="Permalink to this headline">¶</a></h2>
+<p>Coming soon!</p>
 </div>
 </div>
 
