@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Linear system solvers &#8212; equadratures</title>
+    <title>Documentation &#8212; equadratures</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -39,8 +39,8 @@
     <link rel="shortcut icon" href="../_static/eq-logo-favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Research" href="references.html" />
-    <link rel="prev" title="Polynomial Regression Tree" href="polytree.html" />
+    <link rel="next" title="Parameter" href="parameter.html" />
+    <link rel="prev" title="Multi-fidelity Bayesian polynomials on turbine cascade experiments" href="tutorial_13.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
   </head>
@@ -67,7 +67,7 @@
         </li>
         
         <li class="nav-item active">
-            <a class="nav-link" href="documentation.html">Documentation</a>
+            <a class="nav-link" href="">Documentation</a>
         </li>
         
         <li class="nav-item ">
@@ -178,8 +178,8 @@
             
           
             
-                <li class="active">
-                    <a href="">Linear system solvers</a>
+                <li class="">
+                    <a href="solver.html">Linear system solvers</a>
                 </li>
             
           
@@ -213,56 +213,24 @@
               
               <div>
                 
-  <div class="section" id="module-equadratures.solver">
-<span id="linear-system-solvers"></span><h1>Linear system solvers<a class="headerlink" href="#module-equadratures.solver" title="Permalink to this headline">¶</a></h1>
-<p>Solvers for computing of a linear system.</p>
-<dl class="py class">
-<dt id="equadratures.solver.Solver">
-<em class="property">class </em><code class="sig-prename descclassname">equadratures.solver.</code><code class="sig-name descname">Solver</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">method</span></em>, <em class="sig-param"><span class="n">solver_args</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/solver.html#Solver"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.solver.Solver" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns solver functions for solving Ax=b
-:param string method: The method used for solving the linear system. Options include: <code class="docutils literal notranslate"><span class="pre">compressed-sensing</span></code>, <code class="docutils literal notranslate"><span class="pre">least-squares</span></code>, <code class="docutils literal notranslate"><span class="pre">minimum-norm</span></code>, <code class="docutils literal notranslate"><span class="pre">numerical-integration</span></code>, <code class="docutils literal notranslate"><span class="pre">least-squares-with-gradients</span></code>, <code class="docutils literal notranslate"><span class="pre">least-absolute-residual</span></code>, <code class="docutils literal notranslate"><span class="pre">huber</span></code> and <code class="docutils literal notranslate"><span class="pre">elastic-net</span></code>.
-:param dict solver_args: Optional arguments centered around the specific solver.</p>
-<blockquote>
-<div><dl class="field-list simple">
-<dt class="field-odd">param numpy.ndarray noise-level</dt>
-<dd class="field-odd"><p>The noise-level to be used in the basis pursuit de-noising solver.</p>
-</dd>
-<dt class="field-even">param bool verbose</dt>
-<dd class="field-even"><p>Default value of this input is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>; when <code class="docutils literal notranslate"><span class="pre">True</span></code> a string is printed to the screen detailing the solver convergence and condition number of the matrix.</p>
-</dd>
-</dl>
-</div></blockquote>
-</dd></dl>
-
-<dl class="py function">
-<dt id="equadratures.solver.elastic_net">
-<code class="sig-prename descclassname">equadratures.solver.</code><code class="sig-name descname">elastic_net</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">A</span></em>, <em class="sig-param"><span class="n">b</span></em>, <em class="sig-param"><span class="n">verbose</span></em>, <em class="sig-param"><span class="n">lamda_val</span></em>, <em class="sig-param"><span class="n">alpha_val</span></em>, <em class="sig-param"><span class="n">opt</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/solver.html#elastic_net"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.solver.elastic_net" title="Permalink to this definition">¶</a></dt>
-<dd><p>Solves 0.5*||Ax-b||_2 + lamda*( alpha*||x||_1  + 0.5*(1-alpha)*||x||_2**2).
-Elastic net regression: L2 cost function, with mix of L1 and L2 penalties (scaled by lamda1 and lamda2).
-The penalties shrink the parameter estimates in the hopes of reducing variance, improving prediction accuracy, and aiding interpetation.
-lamda controls amount of penalisation i.e. lamda=0 gives OLS. default is 1. 
-alpha controls L1/L2 penalisation mix. alpha=0 gives ridge regression, alpha=1 gives LASSO. 
-Note, to set lamda1 and lamda 2 directly:
-lamda = lamda1 + lamda2
-alpha = lamda1 / (lamda1 + lamda2)</p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="equadratures.solver.huber">
-<code class="sig-prename descclassname">equadratures.solver.</code><code class="sig-name descname">huber</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">A</span></em>, <em class="sig-param"><span class="n">b</span></em>, <em class="sig-param"><span class="n">verbose</span></em>, <em class="sig-param"><span class="n">M</span></em>, <em class="sig-param"><span class="n">opt</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/solver.html#huber"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.solver.huber" title="Permalink to this definition">¶</a></dt>
-<dd><p>Solves Ax=b by minimising the Huber loss function. 
-Thi
-function is identical to the least squares (L2) penalty for small residuals (i.e. ||Ax-b||**2&lt;=M). 
-But on large residuals (||Ax-b||**2&gt;M), its penalty is lower (L1) and increases linearly rather than quadratically. 
-It is thus more forgiving of outliers.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt id="equadratures.solver.least_absolute_residual">
-<code class="sig-prename descclassname">equadratures.solver.</code><code class="sig-name descname">least_absolute_residual</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">A</span></em>, <em class="sig-param"><span class="n">b</span></em>, <em class="sig-param"><span class="n">verbose</span></em>, <em class="sig-param"><span class="n">opt</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/solver.html#least_absolute_residual"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.solver.least_absolute_residual" title="Permalink to this definition">¶</a></dt>
-<dd><p>Solves Ax=b by minimising the L1 norm (absolute residuals).</p>
-</dd></dl>
-
+  <div class="section" id="documentation">
+<h1>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h1>
+<p>This page covers some of the key modules in Effective Quadratures; they are split into two parts. First we have the <strong>core building blocks</strong> to assist users in creating bespoke polynomial approximations for their data.</p>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">List of modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="parameter.html">Parameter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basis.html">Basis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="poly.html">Polynomial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quadrature.html">Quadrature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weight.html">Prescribing probability functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="subspaces.html">Dimension reduction with polynomials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="optimisation.html">Optimisation with polynomials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="correlated.html">Correlation mapping for polynomials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="polytree.html">Polynomial Regression Tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solver.html">Linear system solvers</a></li>
+</ul>
+</div>
 </div>
 
 

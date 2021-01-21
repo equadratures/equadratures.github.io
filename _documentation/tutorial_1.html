@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Foundations I: A parameter &#8212; equadratures</title>
+    <title>Foundations I: Parameter &#8212; equadratures</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -67,7 +67,7 @@
         </li>
         
         <li class="nav-item ">
-            <a class="nav-link" href="modules.html">Modules</a>
+            <a class="nav-link" href="documentation.html">Documentation</a>
         </li>
         
         <li class="nav-item ">
@@ -123,7 +123,7 @@
           
             
                 <li class="active">
-                    <a href="">Foundations I: A parameter</a>
+                    <a href="">Foundations I: Parameter</a>
                 </li>
             
           
@@ -231,9 +231,9 @@
               
               <div>
                 
-  <div class="section" id="foundations-i-a-parameter">
-<h1>Foundations I: A parameter<a class="headerlink" href="#foundations-i-a-parameter" title="Permalink to this headline">¶</a></h1>
-<p>A <strong>parameter</strong> is one of the main building blocks in Effective Quadratures. Let <span class="math notranslate nohighlight">\(s\)</span> be a parameter defined on a domain <span class="math notranslate nohighlight">\(\mathcal{D} \in \mathbb{R}\)</span>. The support of the domain <span class="math notranslate nohighlight">\(\mathcal{D}\)</span> may be:</p>
+  <div class="section" id="foundations-i-parameter">
+<h1>Foundations I: Parameter<a class="headerlink" href="#foundations-i-parameter" title="Permalink to this headline">¶</a></h1>
+<p>A <strong>parameter</strong> is one of the main building blocks in equadratures. Let <span class="math notranslate nohighlight">\(s\)</span> be a parameter defined on a domain <span class="math notranslate nohighlight">\(\mathcal{D} \in \mathbb{R}\)</span>. The support of the domain <span class="math notranslate nohighlight">\(\mathcal{D}\)</span> may be:</p>
 <ul class="simple">
 <li><p>closed <span class="math notranslate nohighlight">\([a,b]\)</span>;</p></li>
 <li><p>semi-infinite <span class="math notranslate nohighlight">\((-\infty, b)\)</span> or <span class="math notranslate nohighlight">\([a, \infty)\)</span>;</p></li>
@@ -243,11 +243,11 @@
 <div class="math notranslate nohighlight">
 \[\int_{\mathcal{D}}\rho\left(s\right)ds=1.\]</div>
 <p>We now demonstrate some basic functionality of this parameter. First consider the case where <span class="math notranslate nohighlight">\(\rho(s) = \mathcal{N} (0, 1)\)</span> is a standard Gaussian distribution with a mean of 0.0 and a variance of 1.0. We then plot its PDF and cumulative density function (CDF) and demonstrate how we can generate random samples from this distribution.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="kn">from</span> <span class="nn">equadratures</span> <span class="kn">import</span> <span class="o">*</span>
-    <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">equadratures</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-    <span class="n">s</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;normal&#39;</span><span class="p">,</span> <span class="n">shape_parameter_A</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">shape_parameter_B</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;normal&#39;</span><span class="p">,</span> <span class="n">shape_parameter_A</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">shape_parameter_B</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Now for some plots; first let us plot the PDF,</p>
@@ -345,7 +345,7 @@ distribution,</p>
     <footer class="footer mt-5 mt-md-0">
   <div class="container">
     <p>
-          &copy; Copyright 2016-2021 by Effective Quadratures.<br/>
+          &copy; Copyright 2016-2021 by equadratures.org.<br/>
         Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3.<br/>
     </p>
   </div>

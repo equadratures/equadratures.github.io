@@ -65,7 +65,7 @@
         </li>
         
         <li class="nav-item ">
-            <a class="nav-link" href="../../_documentation/modules.html">Modules</a>
+            <a class="nav-link" href="../../_documentation/documentation.html">Documentation</a>
         </li>
         
         <li class="nav-item ">
@@ -168,8 +168,10 @@
 
 <span class="sd">    :param list parameters: A list of parameters, where each element of the list is an instance of the Parameter class.</span>
 <span class="sd">    :param Basis basis: An instance of the Basis class corresponding to the multi-index set used.</span>
-<span class="sd">    :param str method: The method used for computing the coefficients. Should be one of: ``compressive-sensing``, ``numerical-integration``, ``least-squares``, ``least-squares-with-gradients``, ``least-absolute-residual``, ``minimum-norm``, ``huber``, ``elastic-net``, ``lasso-lars``, ``relevance-vector-machine``.</span>
+<span class="sd">    :param str method: The method used for computing the coefficients. Should be one of: ``compressive-sensing``,</span>
+<span class="sd">        ``numerical-integration``, ``least-squares``, ``least-squares-with-gradients``, ``least-absolute-residual``, ``minimum-norm``.</span>
 <span class="sd">    :param dict sampling_args: Optional arguments centered around the specific sampling strategy.</span>
+
 <span class="sd">            :string mesh: Avaliable options are: ``monte-carlo``, ``sparse-grid``, ``tensor-grid``, ``induced``, or ``user-defined``. Note that when the ``sparse-grid`` option is invoked, the sparse pseudospectral approximation method [1] is the adopted. One can think of this as being the correct way to use sparse grids in the context of polynomial chaos [2] techniques.</span>
 <span class="sd">            :string subsampling-algorithm: The ``subsampling-algorithm`` input refers to the optimisation technique for subsampling. In the aforementioned four sampling strategies, we generate a logarithm factor of samples above the required amount and prune down the samples using an optimisation technique (see [1]). Existing optimisation strategies include: ``qr``, ``lu``, ``svd``, ``newton``. These refer to QR with column pivoting [2], LU with row pivoting [3], singular value decomposition with subset selection [2] and a convex relaxation via Newton&#39;s method for determinant maximization [4]. Note that if the ``tensor-grid`` option is selected, then subsampling will depend on whether the Basis argument is a total order index set, hyperbolic basis or a tensor order index set.</span>
 <span class="sd">            :float sampling-ratio: Denotes the extent of undersampling or oversampling required. For values equal to unity (default), the number of rows and columns of the associated Vandermonde-type matrix are equal.</span>
@@ -621,7 +623,7 @@
                 <span class="n">indices</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">counts</span><span class="p">))</span> <span class="k">if</span>  <span class="n">counts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">]</span>
                 <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">W</span> <span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_model_evaluations</span><span class="p">[</span><span class="n">indices</span><span class="p">])</span>
                 <span class="k">del</span> <span class="n">counts</span><span class="p">,</span> <span class="n">indices</span>
-                <span class="n">coefficients_i</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">solver</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">quadrature</span><span class="o">.</span><span class="n">sparse_weights</span><span class="p">[</span><span class="n">counter</span><span class="p">]</span>
+                <span class="n">coefficients_i</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">solver</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>  <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">quadrature</span><span class="o">.</span><span class="n">sparse_weights</span><span class="p">[</span><span class="n">counter</span><span class="p">]</span>
                 <span class="n">multindices_i</span> <span class="o">=</span>  <span class="n">tensor</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">elements</span>
                 <span class="n">coefficients</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">coefficients_i</span><span class="p">,</span> <span class="n">coefficients</span><span class="p">])</span>
                 <span class="n">multindices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">multindices_i</span><span class="p">,</span> <span class="n">multindices</span><span class="p">])</span>
@@ -652,10 +654,9 @@
                 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The number of unknown basis terms is &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
                 <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="n">r</span><span class="p">:</span>
                     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;WARNING: Please increase the number of samples; one way to do this would be to increase the sampling-ratio.&#39;</span><span class="p">)</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span><span class="p">,</span> <span class="n">self_solver_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">solver</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_gradient_evaluations</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">solver</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_gradient_evaluations</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">solver_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">solver</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-
+                <span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">solver</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 <div class="viewcode-block" id="Poly.get_multi_index"><a class="viewcode-back" href="../../_documentation/poly.html#equadratures.poly.Poly.get_multi_index">[docs]</a>    <span class="k">def</span> <span class="nf">get_multi_index</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the multi-index set of the basis.</span>
@@ -1022,6 +1023,7 @@
         <span class="n">Sigma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">data_variance</span><span class="p">)</span>
 
         <span class="c1"># Construct Q, the pseudoinverse of the weighted orthogonal polynomial matrix P</span>
+ 
         <span class="n">P</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_poly</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_quadrature_points</span><span class="p">)</span>
         <span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_quadrature_weights</span><span class="p">))</span>
         <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">P</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
@@ -1035,7 +1037,7 @@
         <span class="c1"># Propagate the uncertainties</span>
         <span class="n">Sigma_X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">Sigma</span><span class="p">),</span> <span class="n">Q</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
         <span class="n">Sigma_F</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Ao</span><span class="p">,</span> <span class="n">Sigma_X</span><span class="p">),</span> <span class="n">Ao</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> 
-        <span class="n">std_F</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">Sigma_F</span><span class="p">)</span> <span class="p">)</span>
+        <span class="n">std_F</span> <span class="o">=</span> <span class="mf">1.96</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">Sigma_F</span><span class="p">)</span> <span class="p">)</span>
         <span class="k">return</span> <span class="n">std_F</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span></div>
 
 <span class="k">def</span> <span class="nf">_inv</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
@@ -1162,7 +1164,7 @@
     <footer class="footer mt-5 mt-md-0">
   <div class="container">
     <p>
-          &copy; Copyright 2016-2021 by Effective Quadratures.<br/>
+          &copy; Copyright 2016-2021 by equadratures.org.<br/>
         Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3.<br/>
     </p>
   </div>
