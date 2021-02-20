@@ -153,7 +153,7 @@
 <span></span><span class="kn">from</span> <span class="nn">equadratures.parameter</span> <span class="kn">import</span> <span class="n">Parameter</span>
 <span class="kn">from</span> <span class="nn">equadratures.poly</span> <span class="kn">import</span> <span class="n">Poly</span>
 <span class="kn">from</span> <span class="nn">equadratures.basis</span> <span class="kn">import</span> <span class="n">Basis</span>
-<span class="kn">from</span> <span class="nn">equadratures.datasets</span> <span class="kn">import</span> <span class="n">standardise</span>
+<span class="kn">from</span> <span class="nn">equadratures.scalers</span> <span class="kn">import</span> <span class="n">Scaler_minmax</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">scipy</span>
 <span class="kn">import</span> <span class="nn">scipy.io</span>
@@ -199,7 +199,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">sample_points</span> <span class="o">=</span> <span class="n">sample_points</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">Y</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># for the zonotope vertices</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sample_points</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">sample_points</span> <span class="o">=</span> <span class="n">standardise</span><span class="p">(</span><span class="n">sample_points</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">scaler</span> <span class="o">=</span> <span class="n">Scaler_minmax</span><span class="p">(</span><span class="n">sample_points</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sample_points</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">scaler</span><span class="p">(</span><span class="n">sample_points</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">sample_outputs</span> <span class="o">=</span> <span class="n">sample_outputs</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="o">=</span> <span class="n">method</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">subspace_dimension</span> <span class="o">=</span> <span class="n">subspace_dimension</span>
@@ -219,7 +220,8 @@
                                                                     <span class="n">solver_args</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">solver_args</span><span class="p">)</span>
                 <span class="n">mypoly</span><span class="o">.</span><span class="n">set_model</span><span class="p">()</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">full_space_poly</span> <span class="o">=</span> <span class="n">mypoly</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">sample_points</span> <span class="o">=</span> <span class="n">standardise</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">full_space_poly</span><span class="o">.</span><span class="n">get_points</span><span class="p">())</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">scaler</span> <span class="o">=</span> <span class="n">Scaler_minmax</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">full_space_poly</span><span class="o">.</span><span class="n">get_points</span><span class="p">())</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sample_points</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">scaler</span><span class="p">(</span><span class="n">sample_points</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">sample_outputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">full_space_poly</span><span class="o">.</span><span class="n">get_model_evaluations</span><span class="p">()</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_get_active_subspace</span><span class="p">()</span>
         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;variable-projection&#39;</span><span class="p">:</span>
@@ -520,7 +522,7 @@
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">Y</span></div>
 <div class="viewcode-block" id="Subspaces.get_linear_inequalities"><a class="viewcode-back" href="../../_documentation/subspaces.html#equadratures.subspaces.Subspaces.get_linear_inequalities">[docs]</a>    <span class="k">def</span> <span class="nf">get_linear_inequalities</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Returns the linear inequalities defining the zontope vertices, i.e., Ax&lt;=b.</span>
+<span class="sd">        Returns the linear inequalities defining the zonotope vertices, i.e., Ax&lt;=b.</span>
 
 <span class="sd">        :param Subspaces self:</span>
 <span class="sd">            An instance of the Subspaces object.</span>

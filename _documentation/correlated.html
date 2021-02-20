@@ -231,7 +231,31 @@
 </ul>
 </dd>
 </dl>
+<dl>
+<dt><strong>Example usage</strong>::</dt><dd><dl class="simple">
+<dt>def func(x):</dt><dd><p>s1 = s[0]
+s2 = s[1]
+return s1**2 - s2**3 - 2. * s1 - 0.5 * s2</p>
+</dd>
+</dl>
+<p>parameters = [Parameter(distribution=’beta’, shape_parameter_A=5.0, shape_parameter_B=2.0, lower=0.0, upper=1.0, order=15) for _ in range(2)]
+basis = Basis(‘total-order’)
+uncorr_poly = Poly(parameters, basis, method=’least-squares’,</p>
+<blockquote>
+<div><dl class="simple">
+<dt>sampling_args={‘mesh’: ‘monte-carlo’,</dt><dd><p>‘subsampling-algorithm’: ‘lu’})</p>
+</dd>
+</dl>
+</div></blockquote>
 <dl class="simple">
+<dt>corr_mat = np.array([[1.0, -0.855],</dt><dd><p>[-0.855, 1.0]])</p>
+</dd>
+</dl>
+<p>corr_gs = Correlations(corr_mat, poly=uncorr_poly, method=’gram-schmidt’)
+corr_gs.set_model(func)
+corrected_poly_gs = corr_gs.get_transformed_poly()
+print(corrected_poly_gs.get_mean_and_variance())</p>
+</dd>
 <dt><strong>References</strong></dt><dd><ol class="arabic simple">
 <li><p>Melchers, R. E., (1945) Structural Reliability Analysis and Predictions. John Wiley and Sons, second edition.</p></li>
 <li><p>Jakeman, J. D. et al., (2019) Polynomial chaos expansions for dependent random variables.</p></li>
@@ -269,13 +293,14 @@
 <dl class="py method">
 <dt id="equadratures.correlations.Correlations.get_points">
 <code class="sig-name descname">get_points</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/correlations.html#Correlations.get_points"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.correlations.Correlations.get_points" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the correlated samples based on the quadrature rules used in poly.</p>
+<dd><p>Returns the quadrature points accounting for correlations. For Nataf transform, returns points in the correlated standard normal space.
+For Gram-Schmidt, returns points according to the GS polynomial basis.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>self</strong> (<a class="reference internal" href="#equadratures.correlations.Correlations" title="equadratures.correlations.Correlations"><em>Correlations</em></a>) – An instance of the Correlations object.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>points</strong>: A numpy.ndarray of sampled quadrature points with shape (number_of_samples, dimension).</p>
+<dd class="field-even"><p><strong>points</strong>: A numpy.ndarray of quadrature points with shape (number_of_samples, dimension).</p>
 </dd>
 </dl>
 </dd></dl>
@@ -297,7 +322,7 @@
 <dl class="py method">
 <dt id="equadratures.correlations.Correlations.set_model">
 <code class="sig-name descname">set_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">model_grads</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/correlations.html#Correlations.set_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.correlations.Correlations.set_model" title="Permalink to this definition">¶</a></dt>
-<dd><p>Computes the coefficients of the polynomial.</p>
+<dd><p>Computes the coefficients of transformed polynomial (equivalent to calling <cite>self.get_transformed_poly().set_model(…)</cite>)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
