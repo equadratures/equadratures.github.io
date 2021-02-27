@@ -157,16 +157,52 @@
 <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">font_scale</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;ticks&quot;</span><span class="p">)</span>
+<div class="viewcode-block" id="plot_Sobol_indices"><a class="viewcode-back" href="../../_documentation/plot.html#equadratures.plot.plot_Sobol_indices">[docs]</a><span class="k">def</span> <span class="nf">plot_Sobol_indices</span><span class="p">(</span><span class="n">Polynomial</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">return_figure</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generates a bar chart of the first order Sobol&#39; indices.</span>
 
+<span class="sd">    :param Poly Polynomial: </span>
+<span class="sd">        An instance of the Poly class.</span>
+<span class="sd">    :param matplotlib.ax ax: </span>
+<span class="sd">        An instance of the ``matplotlib`` axes class.</span>
+<span class="sd">    :param numpy.array data: </span>
+<span class="sd">        Samples from the distribution (or a similar one) that need to be plotted as a histogram.</span>
+<span class="sd">    :param bool save: </span>
+<span class="sd">        Option to save the plot as a .png file.</span>
+<span class="sd">    :param list xlim: </span>
+<span class="sd">        Lower and upper bounds for the horizontal axis, for example ``xlim=[-3, 5]``.</span>
+<span class="sd">    :param list ylim: </span>
+<span class="sd">        Lower and upper bounds for the vertical axis, for example ``ylim=[-1, 1]``.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">sobol</span> <span class="o">=</span> <span class="n">Polynomial</span><span class="o">.</span><span class="n">get_sobol_indices</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">data_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.10</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sobol</span><span class="p">)):</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">sobol</span><span class="p">[(</span><span class="n">i</span><span class="p">,)],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;steelblue&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Parameters&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;First order Sobol&#39; indices&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+    <span class="n">xTickMarks</span> <span class="o">=</span> <span class="p">[</span><span class="n">Polynomial</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">variable</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Polynomial</span><span class="o">.</span><span class="n">dimensions</span><span class="p">)]</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">data_1</span><span class="o">+</span><span class="mf">0.10</span><span class="p">)</span>
+    <span class="n">xtickNames</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">xTickMarks</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">xtickNames</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">(</span><span class="n">offset</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">trim</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">save</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;sobol_plot.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">140</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">show</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">return_figure</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span></div>
 <div class="viewcode-block" id="plot_pdf"><a class="viewcode-back" href="../../_documentation/plot.html#equadratures.plot.plot_pdf">[docs]</a><span class="k">def</span> <span class="nf">plot_pdf</span><span class="p">(</span><span class="n">Parameter</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">return_figure</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Plots the probability density function for a Parameter.</span>
 
 <span class="sd">    :param Parameter Parameter: </span>
 <span class="sd">        An instance of the Parameter class.</span>
-<span class="sd">    :param matplotlib ax: </span>
+<span class="sd">    :param matplotlib.ax ax: </span>
 <span class="sd">        An instance of the ``matplotlib`` axes class.</span>
-<span class="sd">    :param ndarray data: </span>
+<span class="sd">    :param numpy.array data: </span>
 <span class="sd">        Samples from the distribution (or a similar one) that need to be plotted as a histogram.</span>
 <span class="sd">    :param bool save: </span>
 <span class="sd">        Option to save the plot as a .png file.</span>
@@ -195,14 +231,13 @@
         <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">return_figure</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span></div>
-
 <div class="viewcode-block" id="plot_orthogonal_polynomials"><a class="viewcode-back" href="../../_documentation/plot.html#equadratures.plot.plot_orthogonal_polynomials">[docs]</a><span class="k">def</span> <span class="nf">plot_orthogonal_polynomials</span><span class="p">(</span><span class="n">Parameter</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">order_limit</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">number_of_points</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">return_figure</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Plots the first few orthogonal polynomials.</span>
 
 <span class="sd">    :param Parameter Parameter: </span>
 <span class="sd">        An instance of the Parameter class.</span>
-<span class="sd">    :param matplotlib ax: </span>
+<span class="sd">    :param matplotlib.ax ax: </span>
 <span class="sd">        An instance of the ``matplotlib`` axes class.</span>
 <span class="sd">    :param int order_limit:</span>
 <span class="sd">        The maximum number of orthogonal polynomials that need to be plotted.</span>
@@ -253,13 +288,28 @@
         <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">return_figure</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span></div>
-
-<div class="viewcode-block" id="plot_polyfit_1D"><a class="viewcode-back" href="../../_documentation/plot.html#equadratures.plot.plot_polyfit_1D">[docs]</a><span class="k">def</span> <span class="nf">plot_polyfit_1D</span><span class="p">(</span><span class="n">Polynomial</span><span class="p">,</span> <span class="n">uncertainty</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">output_variances</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">number_of_points</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="plot_polyfit_1D"><a class="viewcode-back" href="../../_documentation/plot.html#equadratures.plot.plot_polyfit_1D">[docs]</a><span class="k">def</span> <span class="nf">plot_polyfit_1D</span><span class="p">(</span><span class="n">Polynomial</span><span class="p">,</span> <span class="n">uncertainty</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">output_variances</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">number_of_points</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">return_figure</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Plots a 1D only polynomial fit to the data.</span>
 
 <span class="sd">    :param Poly Polynomial: </span>
 <span class="sd">        An instance of the Polynomial class.</span>
+<span class="sd">    :param matplotlib.ax ax: </span>
+<span class="sd">        An instance of the ``matplotlib`` axes class.</span>
+<span class="sd">    :param bool uncertainty:</span>
+<span class="sd">        Option to show confidence intervals (1 standard deviation).</span>
+<span class="sd">    :param numpy.array output_variances:</span>
+<span class="sd">        User-defined uncertainty associated with each data point; can be either a ``float`` in which case all data points are assumed to have the same variance, or can be an array of length equivalent to the number of data points.</span>
+<span class="sd">    :param bool save: </span>
+<span class="sd">        Option to save the plot as a .png file.</span>
+<span class="sd">    :param list xlim: </span>
+<span class="sd">        Lower and upper bounds for the horizontal axis, for example ``xlim=[-3, 5]``.</span>
+<span class="sd">    :param list ylim: </span>
+<span class="sd">        Lower and upper bounds for the vertical axis, for example ``ylim=[-1, 1]``.</span>
+<span class="sd">    :param bool show: </span>
+<span class="sd">        Option to view the plot.</span>
+<span class="sd">    :param bool return_figure: </span>
+<span class="sd">        Option to return the figure and axes instances of the ``matplotlib`` classes.</span>
 <span class="sd">        </span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">Polynomial</span><span class="o">.</span><span class="n">dimensions</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
@@ -294,15 +344,28 @@
     <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Polynomial fit&#39;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">save</span><span class="p">:</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;polyfit_1D_plot.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">140</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></div>
-
-<div class="viewcode-block" id="plot_model_vs_data"><a class="viewcode-back" href="../../_documentation/plot.html#equadratures.plot.plot_model_vs_data">[docs]</a><span class="k">def</span> <span class="nf">plot_model_vs_data</span><span class="p">(</span><span class="n">Polynomial</span><span class="p">,</span> <span class="n">sample_data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;adjusted_r2&#39;</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">show</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">return_figure</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span></div>
+<div class="viewcode-block" id="plot_model_vs_data"><a class="viewcode-back" href="../../_documentation/plot.html#equadratures.plot.plot_model_vs_data">[docs]</a><span class="k">def</span> <span class="nf">plot_model_vs_data</span><span class="p">(</span><span class="n">Polynomial</span><span class="p">,</span> <span class="n">sample_data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;adjusted_r2&#39;</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">return_figure</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Plots the polynomial approximation against the true data.</span>
 
 <span class="sd">    :param Poly self: </span>
 <span class="sd">        An instance of the Poly class.</span>
+<span class="sd">    :param list sample_data:</span>
+<span class="sd">        A list formed by ``[X, y]`` where ``X`` represents the spatial data input and ``y`` the output.</span>
+<span class="sd">    :param bool save: </span>
+<span class="sd">        Option to save the plot as a .png file.</span>
+<span class="sd">    :param list xlim: </span>
+<span class="sd">        Lower and upper bounds for the horizontal axis, for example ``xlim=[-3, 5]``.</span>
+<span class="sd">    :param list ylim: </span>
+<span class="sd">        Lower and upper bounds for the vertical axis, for example ``ylim=[-1, 1]``.</span>
+<span class="sd">    :param bool show: </span>
+<span class="sd">        Option to view the plot.</span>
+<span class="sd">    :param bool return_figure: </span>
+<span class="sd">        Option to return the figure and axes instances of the ``matplotlib`` classes.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">sample_data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -328,8 +391,10 @@
     <span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">(</span><span class="n">offset</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">trim</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">save</span><span class="p">:</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;model_vs_data_plot.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">140</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></div>
+    <span class="k">if</span> <span class="n">show</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">return_figure</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span></div>
 </pre></div>
 
               </div>

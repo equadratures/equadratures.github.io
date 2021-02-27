@@ -229,7 +229,7 @@
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>parameters</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a>) – A list of parameters, where each element of the list is an instance of the Parameter class.</p></li>
-<li><p><strong>basis</strong> (<em>Basis</em>) – An instance of the Basis class corresponding to the multi-index set used.</p></li>
+<li><p><strong>basis</strong> (<a class="reference internal" href="basis.html#equadratures.basis.Basis" title="equadratures.basis.Basis"><em>Basis</em></a>) – An instance of the Basis class corresponding to the multi-index set used.</p></li>
 <li><p><strong>method</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – The method used for computing the coefficients. Should be one of: <code class="docutils literal notranslate"><span class="pre">compressive-sensing</span></code>, <code class="docutils literal notranslate"><span class="pre">numerical-integration</span></code>, <code class="docutils literal notranslate"><span class="pre">least-squares</span></code>, <code class="docutils literal notranslate"><span class="pre">least-squares-with-gradients</span></code>, <code class="docutils literal notranslate"><span class="pre">least-absolute-residual</span></code>, <code class="docutils literal notranslate"><span class="pre">minimum-norm</span></code>, <code class="docutils literal notranslate"><span class="pre">huber</span></code>, <code class="docutils literal notranslate"><span class="pre">elastic-net</span></code>, <code class="docutils literal notranslate"><span class="pre">lasso-lars</span></code>, <code class="docutils literal notranslate"><span class="pre">relevance-vector-machine</span></code>.</p></li>
 <li><p><strong>sampling_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – Optional arguments centered around the specific sampling strategy.
 :string mesh: Avaliable options are: <code class="docutils literal notranslate"><span class="pre">monte-carlo</span></code>, <code class="docutils literal notranslate"><span class="pre">sparse-grid</span></code>, <code class="docutils literal notranslate"><span class="pre">tensor-grid</span></code>, <code class="docutils literal notranslate"><span class="pre">induced</span></code>, or <code class="docutils literal notranslate"><span class="pre">user-defined</span></code>. Note that when the <code class="docutils literal notranslate"><span class="pre">sparse-grid</span></code> option is invoked, the sparse pseudospectral approximation method [1] is the adopted. One can think of this as being the correct way to use sparse grids in the context of polynomial chaos [2] techniques.
@@ -661,6 +661,12 @@ approximated mean of the polynomial fit; output as a float.</p>
 <dd class="field-even"><p><strong>weights</strong>: A numpy.ndarray of the corresponding quadrature weights with shape (number_of_samples, 1).</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="equadratures.poly.Poly.plot_Sobol_indices">
+<code class="sig-name descname"><span class="pre">plot_Sobol_indices</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.plot_Sobol_indices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.plot_Sobol_indices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the first order Sobol’ indices.</p>
 </dd></dl>
 
 <dl class="py method">
