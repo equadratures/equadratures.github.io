@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>equadratures.polytree &#8212; equadratures</title>
     
-  <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
     
   <link rel="stylesheet"
@@ -29,13 +29,12 @@
     <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
 
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../../_static/eq-logo-favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -159,46 +158,46 @@
 
 <div class="viewcode-block" id="PolyTree"><a class="viewcode-back" href="../../_documentation/polytree.html#equadratures.polytree.PolyTree">[docs]</a><span class="k">class</span> <span class="nc">PolyTree</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Definition of a polynomial tree object.</span>
+<span class="sd">        Definition of a polynomial tree object.</span>
 
-<span class="sd">    :param str splitting_criterion:</span>
+<span class="sd">        :param str splitting_criterion:</span>
 <span class="sd">                The type of splitting_criterion to use in the fit function. Options include ``model_aware`` which fits polynomials for each candidate split, ``model_agnostic`` which uses a standard deviation based model-agnostic split criterion [1], and ``loss_gradient`` which uses a gradient based splitting criterion similar to that in [2].</span>
-<span class="sd">    :param int max_depth:</span>
-<span class="sd">        The maximum depth which the tree will grow to.</span>
-<span class="sd">    :param int min_samples_leaf:</span>
-<span class="sd">        The minimum number of samples per leaf node.</span>
-<span class="sd">    :param int order:</span>
-<span class="sd">        The order of the generated orthogonal polynomials.</span>
-<span class="sd">    :param str basis:</span>
-<span class="sd">        The type of index set used for the basis. Options include: ``univariate``, ``total-order``, ``tensor-grid``, ``sparse-grid`` and ``hyperbolic-basis``</span>
-<span class="sd">    :param str search:</span>
-<span class="sd">        The method of search to be used. Options are ``grid`` or ``exhaustive``.</span>
-<span class="sd">    :param int samples:</span>
-<span class="sd">        The interval between splits if ``grid`` search is chosen.</span>
-<span class="sd">    :param bool verbose:</span>
-<span class="sd">        For debugging</span>
-<span class="sd">    :param bool all_data:</span>
-<span class="sd">        Save data at all nodes (instead of only leaf nodes).</span>
-<span class="sd">    :param list split_dims:</span>
-<span class="sd">        List of dimensions along which to make splits.</span>
+<span class="sd">        :param int max_depth:</span>
+<span class="sd">                The maximum depth which the tree will grow to.</span>
+<span class="sd">        :param int min_samples_leaf:</span>
+<span class="sd">                The minimum number of samples per leaf node.</span>
+<span class="sd">        :param int order:</span>
+<span class="sd">                The order of the generated orthogonal polynomials.</span>
+<span class="sd">        :param str basis:</span>
+<span class="sd">                The type of index set used for the basis. Options include: ``univariate``, ``total-order``, ``tensor-grid``, ``sparse-grid`` and ``hyperbolic-basis``</span>
+<span class="sd">        :param str search:</span>
+<span class="sd">                The method of search to be used. Options are ``grid`` or ``exhaustive``.</span>
+<span class="sd">        :param int samples:</span>
+<span class="sd">                The interval between splits if ``grid`` search is chosen.</span>
+<span class="sd">        :param bool verbose:</span>
+<span class="sd">                For debugging</span>
+<span class="sd">        :param bool all_data:</span>
+<span class="sd">                Save data at all nodes (instead of only leaf nodes).</span>
+<span class="sd">        :param list split_dims:</span>
+<span class="sd">                List of dimensions along which to make splits.</span>
 
-<span class="sd">    **Sample constructor initialisations**::</span>
+<span class="sd">        **Sample constructor initialisations**::</span>
 
-<span class="sd">        import numpy as np</span>
-<span class="sd">        from equadratures import *</span>
+<span class="sd">                import numpy as np</span>
+<span class="sd">                from equadratures import *</span>
 
-<span class="sd">        tree = polytree.PolyTree()</span>
+<span class="sd">                tree = polytree.PolyTree()</span>
 
-<span class="sd">        X = np.loadtxt(&#39;inputs.txt&#39;)</span>
-<span class="sd">        y = np.loadtxt(&#39;outputs.txt&#39;)</span>
+<span class="sd">                X = np.loadtxt(&#39;inputs.txt&#39;)</span>
+<span class="sd">                y = np.loadtxt(&#39;outputs.txt&#39;)</span>
 
-<span class="sd">        tree.fit(X,y)</span>
+<span class="sd">                tree.fit(X,y)</span>
 
-<span class="sd">    **References**</span>
-<span class="sd">        1. Wang, Y., Witten, I. H., (1997) Inducing Model Trees for Continuous Classes. In Proc. of the 9th European Conf. on Machine Learning Poster Papers. 128-137. `Paper &lt;https://researchcommons.waikato.ac.nz/handle/10289/1183&gt;`__</span>
-<span class="sd">        2. Broelemann, K., Kasneci, G., (2019) A Gradient-Based Split Criterion for Highly Accurate and Transparent Model Trees. In Int. Joint Conf. on Artificial Intelligence (IJCAI). 2030-2037. `Paper &lt;https://www.ijcai.org/Proceedings/2019/0281.pdf&gt;`__</span>
-<span class="sd">        3. Chan, T. F., Golub, G. H., LeVeque, R. J., (1983) Algorithms for computing the sample variance: Analysis and recommendations. The American Statistician. 37(3): 242–247. `Paper &lt;https://www.tandfonline.com/doi/abs/10.1080/00031305.1983.10483115&gt;`__</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">        **References**</span>
+<span class="sd">                1. Wang, Y., Witten, I. H., (1997) Inducing Model Trees for Continuous Classes. In Proc. of the 9th European Conf. on Machine Learning Poster Papers. 128-137. `Paper &lt;https://researchcommons.waikato.ac.nz/handle/10289/1183&gt;`__</span>
+<span class="sd">                2. Broelemann, K., Kasneci, G., (2019) A Gradient-Based Split Criterion for Highly Accurate and Transparent Model Trees. In Int. Joint Conf. on Artificial Intelligence (IJCAI). 2030-2037. `Paper &lt;https://www.ijcai.org/Proceedings/2019/0281.pdf&gt;`__</span>
+<span class="sd">                3. Chan, T. F., Golub, G. H., LeVeque, R. J., (1983) Algorithms for computing the sample variance: Analysis and recommendations. The American Statistician. 37(3): 242–247. `Paper &lt;https://www.tandfonline.com/doi/abs/10.1080/00031305.1983.10483115&gt;`__</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">splitting_criterion</span><span class="o">=</span><span class="s1">&#39;model_aware&#39;</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">min_samples_leaf</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">basis</span><span class="o">=</span><span class="s1">&#39;total-order&#39;</span><span class="p">,</span> <span class="n">search</span><span class="o">=</span><span class="s1">&#39;exhaustive&#39;</span><span class="p">,</span> <span class="n">samples</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">poly_method</span><span class="o">=</span><span class="s2">&quot;least-squares&quot;</span><span class="p">,</span> <span class="n">poly_solver_args</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">all_data</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">split_dims</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">splitting_criterion</span> <span class="o">=</span> <span class="n">splitting_criterion</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">max_depth</span> <span class="o">=</span> <span class="n">max_depth</span>
@@ -1077,14 +1076,14 @@
     </div>
 
     
-  <script src="../../_static/js/index.3da636dd464baa7582d2.js"></script>
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
 
 
     <footer class="footer mt-5 mt-md-0">
   <div class="container">
     <p>
           &copy; Copyright 2016-2021 by equadratures.org.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.1.<br/>
     </p>
   </div>
 </footer>

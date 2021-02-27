@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Linear system solvers &#8212; equadratures</title>
     
-  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
     
   <link rel="stylesheet"
@@ -29,13 +29,12 @@
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
 
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../_static/eq-logo-favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -167,7 +166,13 @@
           
             
                 <li class="">
-                    <a href="correlated.html">Correlation mapping for polynomials</a>
+                    <a href="plot.html">Plotting utilities</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="correlated.html">Correlations</a>
                 </li>
             
           
@@ -218,7 +223,7 @@
 <p>Solvers for computing of a linear system.</p>
 <dl class="py class">
 <dt id="equadratures.solver.Solver">
-<em class="property">class </em><code class="sig-prename descclassname">equadratures.solver.</code><code class="sig-name descname">Solver</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">method</span></em>, <em class="sig-param"><span class="n">solver_args</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/solver.html#Solver"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.solver.Solver" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">equadratures.solver.</span></code><code class="sig-name descname"><span class="pre">Solver</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver_args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/solver.html#Solver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.solver.Solver" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns solver functions for solving Ax=b.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -234,7 +239,7 @@
 
 <dl class="py function">
 <dt id="equadratures.solver.elastic_net">
-<code class="sig-prename descclassname">equadratures.solver.</code><code class="sig-name descname">elastic_net</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">A</span></em>, <em class="sig-param"><span class="n">b</span></em>, <em class="sig-param"><span class="n">verbose</span></em>, <em class="sig-param"><span class="n">lamda_val</span></em>, <em class="sig-param"><span class="n">alpha_val</span></em>, <em class="sig-param"><span class="n">opt</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/solver.html#elastic_net"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.solver.elastic_net" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">equadratures.solver.</span></code><code class="sig-name descname"><span class="pre">elastic_net</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lamda_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opt</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/solver.html#elastic_net"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.solver.elastic_net" title="Permalink to this definition">¶</a></dt>
 <dd><p>Solves 0.5*||Ax-b||_2 + lamda*( alpha*||x||_1  + 0.5*(1-alpha)*||x||_2**2).
 Elastic net regression: L2 cost function, with mix of L1 and L2 penalties (scaled by lamda1 and lamda2).
 The penalties shrink the parameter estimates in the hopes of reducing variance, improving prediction accuracy, and aiding interpetation.
@@ -247,7 +252,7 @@ alpha = lamda1 / (lamda1 + lamda2)</p>
 
 <dl class="py function">
 <dt id="equadratures.solver.elastic_path">
-<code class="sig-prename descclassname">equadratures.solver.</code><code class="sig-name descname">elastic_path</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">A</span></em>, <em class="sig-param"><span class="n">b</span></em>, <em class="sig-param"><span class="n">verbose</span></em>, <em class="sig-param"><span class="n">max_iter</span></em>, <em class="sig-param"><span class="n">alpha</span></em>, <em class="sig-param"><span class="n">n_lamdas</span></em>, <em class="sig-param"><span class="n">lamda_eps</span></em>, <em class="sig-param"><span class="n">lamda_max</span></em>, <em class="sig-param"><span class="n">tol</span></em>, <em class="sig-param"><span class="n">crit</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/solver.html#elastic_path"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.solver.elastic_path" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">equadratures.solver.</span></code><code class="sig-name descname"><span class="pre">elastic_path</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_lamdas</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lamda_eps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lamda_max</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crit</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/solver.html#elastic_path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.solver.elastic_path" title="Permalink to this definition">¶</a></dt>
 <dd><p>Performs elastic net regression via coordinate descent. The full regularisation path is computed (for a given l1 vs l2 blending parameter alpha), and the set of coefficients with the lowest model selection criteria is then selected according to [2].
 Choosing alpha=1 gives LASSO regression, whilst alpha=0 gives ridge regression (however alpha&lt;0.01 is unreliable).</p>
 <dl class="simple">
@@ -261,7 +266,7 @@ Choosing alpha=1 gives LASSO regression, whilst alpha=0 gives ridge regression (
 
 <dl class="py function">
 <dt id="equadratures.solver.huber">
-<code class="sig-prename descclassname">equadratures.solver.</code><code class="sig-name descname">huber</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">A</span></em>, <em class="sig-param"><span class="n">b</span></em>, <em class="sig-param"><span class="n">verbose</span></em>, <em class="sig-param"><span class="n">M</span></em>, <em class="sig-param"><span class="n">opt</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/solver.html#huber"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.solver.huber" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">equadratures.solver.</span></code><code class="sig-name descname"><span class="pre">huber</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opt</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/solver.html#huber"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.solver.huber" title="Permalink to this definition">¶</a></dt>
 <dd><p>Solves Ax=b by minimising the Huber loss function.
 Thi
 function is identical to the least squares (L2) penalty for small residuals (i.e. ||Ax-b||**2&lt;=M).
@@ -271,7 +276,7 @@ It is thus more forgiving of outliers.</p>
 
 <dl class="py function">
 <dt id="equadratures.solver.least_absolute_residual">
-<code class="sig-prename descclassname">equadratures.solver.</code><code class="sig-name descname">least_absolute_residual</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">A</span></em>, <em class="sig-param"><span class="n">b</span></em>, <em class="sig-param"><span class="n">verbose</span></em>, <em class="sig-param"><span class="n">opt</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/solver.html#least_absolute_residual"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.solver.least_absolute_residual" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">equadratures.solver.</span></code><code class="sig-name descname"><span class="pre">least_absolute_residual</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opt</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/solver.html#least_absolute_residual"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.solver.least_absolute_residual" title="Permalink to this definition">¶</a></dt>
 <dd><p>Solves Ax=b by minimising the L1 norm (absolute residuals).</p>
 </dd></dl>
 
@@ -288,14 +293,14 @@ It is thus more forgiving of outliers.</p>
     </div>
 
     
-  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
 
 
     <footer class="footer mt-5 mt-md-0">
   <div class="container">
     <p>
           &copy; Copyright 2016-2021 by equadratures.org.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.1.<br/>
     </p>
   </div>
 </footer>

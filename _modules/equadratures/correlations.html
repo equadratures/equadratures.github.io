@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>equadratures.correlations &#8212; equadratures</title>
     
-  <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
     
   <link rel="stylesheet"
@@ -29,13 +29,12 @@
     <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
 
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../../_static/eq-logo-favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -172,6 +171,7 @@
 <span class="sd">    :param bool verbose: Display Cholesky decomposition of the fictive matrix.</span>
 
 <span class="sd">    **Example usage**::</span>
+
 <span class="sd">        def func(x):</span>
 <span class="sd">            s1 = s[0]</span>
 <span class="sd">            s2 = s[1]</span>
@@ -354,8 +354,10 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Method for generating correlated samples.</span>
 
-<span class="sd">        :param int N: Number of correlated samples required.</span>
-<span class="sd">        :param ndarray X: (Optional) Points in the uncorrelated space to map to the correlated space.</span>
+<span class="sd">        :param int N: </span>
+<span class="sd">            Number of correlated samples required.</span>
+<span class="sd">        :param ndarray X: </span>
+<span class="sd">            (Optional) Points in the uncorrelated space to map to the correlated space.</span>
 
 <span class="sd">        :return:</span>
 <span class="sd">            **C**: A numpy.ndarray of shape (N, M), which contains the correlated samples.</span>
@@ -381,11 +383,13 @@
 <div class="viewcode-block" id="Correlations.get_pdf"><a class="viewcode-back" href="../../_documentation/correlated.html#equadratures.correlations.Correlations.get_pdf">[docs]</a>    <span class="k">def</span> <span class="nf">get_pdf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Evaluate PDF at the sample points.</span>
-<span class="sd">        :param numpy.ndarray X: Sample points (Number of points by dimensions)</span>
+
+<span class="sd">        :param numpy.ndarray X: </span>
+<span class="sd">            Sample points (Number of points by dimensions)</span>
+
 <span class="sd">        :return:</span>
 <span class="sd">            **C**: A numpy.ndarray of shape (N,) with evaluations of the PDF.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-
         <span class="n">parameters</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">D</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -410,14 +414,14 @@
     </div>
 
     
-  <script src="../../_static/js/index.3da636dd464baa7582d2.js"></script>
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
 
 
     <footer class="footer mt-5 mt-md-0">
   <div class="container">
     <p>
           &copy; Copyright 2016-2021 by equadratures.org.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.1.<br/>
     </p>
   </div>
 </footer>

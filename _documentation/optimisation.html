@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Optimisation with polynomials &#8212; equadratures</title>
     
-  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
     
   <link rel="stylesheet"
@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
 
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -39,7 +39,7 @@
     <link rel="shortcut icon" href="../_static/eq-logo-favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Correlation mapping for polynomials" href="correlated.html" />
+    <link rel="next" title="Plotting utilities" href="plot.html" />
     <link rel="prev" title="Dimension reduction with polynomials" href="subspaces.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -167,7 +167,13 @@
           
             
                 <li class="">
-                    <a href="correlated.html">Correlation mapping for polynomials</a>
+                    <a href="plot.html">Plotting utilities</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="correlated.html">Correlations</a>
                 </li>
             
           
@@ -218,13 +224,13 @@
 <p>Perform unconstrained or constrained optimisation.</p>
 <dl class="py class">
 <dt id="equadratures.optimisation.Optimisation">
-<em class="property">class </em><code class="sig-prename descclassname">equadratures.optimisation.</code><code class="sig-name descname">Optimisation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">method</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/optimisation.html#Optimisation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.optimisation.Optimisation" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">equadratures.optimisation.</span></code><code class="sig-name descname"><span class="pre">Optimisation</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/optimisation.html#Optimisation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.optimisation.Optimisation" title="Permalink to this definition">¶</a></dt>
 <dd><p>This class performs unconstrained or constrained optimisation of poly objects or custom functions
 using scipy.optimize.minimize or an in-house trust-region method.
 :param string method: A string specifying the method that will be used for optimisation. All of the available choices come from scipy.optimize.minimize (<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html">click here</a> for a list of methods and further information). In the case of general constrained optimisation, the options are <code class="docutils literal notranslate"><span class="pre">COBYLA</span></code>, <code class="docutils literal notranslate"><span class="pre">SLSQP</span></code>, and <code class="docutils literal notranslate"><span class="pre">trust-constr</span></code>. The default is <code class="docutils literal notranslate"><span class="pre">trust-constr</span></code>.</p>
 <dl class="py method">
 <dt id="equadratures.optimisation.Optimisation.add_bounds">
-<code class="sig-name descname">add_bounds</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lb</span></em>, <em class="sig-param"><span class="n">ub</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/optimisation.html#Optimisation.add_bounds"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.optimisation.Optimisation.add_bounds" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">add_bounds</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lb</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ub</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/optimisation.html#Optimisation.add_bounds"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.optimisation.Optimisation.add_bounds" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds bounds <span class="math notranslate nohighlight">\(lb &lt;= x &lt;=ub\)</span> to the optimisation problem. Only <code class="docutils literal notranslate"><span class="pre">L-BFGS-B</span></code>, <code class="docutils literal notranslate"><span class="pre">TNC</span></code>, <code class="docutils literal notranslate"><span class="pre">SLSQP</span></code>, <code class="docutils literal notranslate"><span class="pre">trust-constr</span></code>, <code class="docutils literal notranslate"><span class="pre">trust-region</span></code>, and <code class="docutils literal notranslate"><span class="pre">COBYLA</span></code> methods can handle bounds.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -238,7 +244,7 @@ using scipy.optimize.minimize or an in-house trust-region method.
 
 <dl class="py method">
 <dt id="equadratures.optimisation.Optimisation.add_linear_eq_con">
-<code class="sig-name descname">add_linear_eq_con</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">A</span></em>, <em class="sig-param"><span class="n">b</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/optimisation.html#Optimisation.add_linear_eq_con"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.optimisation.Optimisation.add_linear_eq_con" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">add_linear_eq_con</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/optimisation.html#Optimisation.add_linear_eq_con"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.optimisation.Optimisation.add_linear_eq_con" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds linear equality constraints  <span class="math notranslate nohighlight">\(Ax = b\)</span> to the optimisation routine. Only <code class="docutils literal notranslate"><span class="pre">trust-constr</span></code> and <code class="docutils literal notranslate"><span class="pre">SLSQP</span></code> methods can handle equality constraints.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -252,7 +258,7 @@ using scipy.optimize.minimize or an in-house trust-region method.
 
 <dl class="py method">
 <dt id="equadratures.optimisation.Optimisation.add_linear_ineq_con">
-<code class="sig-name descname">add_linear_ineq_con</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">A</span></em>, <em class="sig-param"><span class="n">b_l</span></em>, <em class="sig-param"><span class="n">b_u</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/optimisation.html#Optimisation.add_linear_ineq_con"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.optimisation.Optimisation.add_linear_ineq_con" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">add_linear_ineq_con</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b_l</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b_u</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/optimisation.html#Optimisation.add_linear_ineq_con"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.optimisation.Optimisation.add_linear_ineq_con" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds linear inequality constraints <span class="math notranslate nohighlight">\(b_l &lt;= A x &lt;= b_u\)</span> to the optimisation problem.
 Only <code class="docutils literal notranslate"><span class="pre">trust-constr</span></code>, <code class="docutils literal notranslate"><span class="pre">COBYLA</span></code>, and <code class="docutils literal notranslate"><span class="pre">SLSQP</span></code> methods can handle general constraints.</p>
 <dl class="field-list simple">
@@ -268,7 +274,7 @@ Only <code class="docutils literal notranslate"><span class="pre">trust-constr</
 
 <dl class="py method">
 <dt id="equadratures.optimisation.Optimisation.add_nonlinear_eq_con">
-<code class="sig-name descname">add_nonlinear_eq_con</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">poly</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">custom</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/optimisation.html#Optimisation.add_nonlinear_eq_con"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.optimisation.Optimisation.add_nonlinear_eq_con" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">add_nonlinear_eq_con</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">poly</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/optimisation.html#Optimisation.add_nonlinear_eq_con"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.optimisation.Optimisation.add_nonlinear_eq_con" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds nonlinear inequality constraints <span class="math notranslate nohighlight">\(g(x) = value\)</span> (for poly option) or <span class="math notranslate nohighlight">\(g(x) = 0\)</span> (for function option) to the optimisation routine.
 Only <code class="docutils literal notranslate"><span class="pre">trust-constr</span></code> and <code class="docutils literal notranslate"><span class="pre">SLSQP</span></code> methods can handle equality constraints. If poly object is providedin the poly dictionary, gradients and Hessians will be computed automatically.</p>
 <dl class="field-list simple">
@@ -288,7 +294,7 @@ Only <code class="docutils literal notranslate"><span class="pre">trust-constr</
 
 <dl class="py method">
 <dt id="equadratures.optimisation.Optimisation.add_nonlinear_ineq_con">
-<code class="sig-name descname">add_nonlinear_ineq_con</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">poly</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">custom</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/optimisation.html#Optimisation.add_nonlinear_ineq_con"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.optimisation.Optimisation.add_nonlinear_ineq_con" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">add_nonlinear_ineq_con</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">poly</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/optimisation.html#Optimisation.add_nonlinear_ineq_con"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.optimisation.Optimisation.add_nonlinear_ineq_con" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds nonlinear inequality constraints <span class="math notranslate nohighlight">\(lb &lt;= g(x) &lt;= ub\)</span> (for poly option) with <span class="math notranslate nohighlight">\(lb\)</span>, <span class="math notranslate nohighlight">\(ub = bounds\)</span> or <span class="math notranslate nohighlight">\(g(x) &gt;= 0\)</span> (for function option) to the optimisation problem. Only <code class="docutils literal notranslate"><span class="pre">trust-constr</span></code>, <code class="docutils literal notranslate"><span class="pre">COBYLA</span></code>, and <code class="docutils literal notranslate"><span class="pre">SLSQP</span></code> methods can handle general constraints.
 If Poly object is provided in the poly dictionary, gradients and Hessians will be computed automatically. If a lambda function is provided in the <code class="docutils literal notranslate"><span class="pre">function</span></code> dictionary, the user may also provide <code class="docutils literal notranslate"><span class="pre">jac_function</span></code> for gradients and <code class="docutils literal notranslate"><span class="pre">hess_function</span></code> for Hessians; otherwise, a 2-point differentiation rule
 will be used to approximate the derivative and a BFGS update will be used to approximate the Hessian.</p>
@@ -309,7 +315,7 @@ will be used to approximate the derivative and a BFGS update will be used to app
 
 <dl class="py method">
 <dt id="equadratures.optimisation.Optimisation.add_objective">
-<code class="sig-name descname">add_objective</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">poly</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">custom</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">maximise</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/optimisation.html#Optimisation.add_objective"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.optimisation.Optimisation.add_objective" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">add_objective</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">poly</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maximise</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/optimisation.html#Optimisation.add_objective"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.optimisation.Optimisation.add_objective" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds objective function to be optimised.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -327,7 +333,7 @@ will be used to approximate the derivative and a BFGS update will be used to app
 
 <dl class="py method">
 <dt id="equadratures.optimisation.Optimisation.optimise">
-<code class="sig-name descname">optimise</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x0</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/optimisation.html#Optimisation.optimise"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.optimisation.Optimisation.optimise" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">optimise</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/optimisation.html#Optimisation.optimise"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.optimisation.Optimisation.optimise" title="Permalink to this definition">¶</a></dt>
 <dd><p>Performs optimisation on a specified function, provided the objective has been added using ‘add_objective’ method
 and constraints have been added using the relevant method.</p>
 <dl class="field-list simple">
@@ -363,14 +369,14 @@ if the optimiser exited successfully.</p>
     </div>
 
     
-  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
 
 
     <footer class="footer mt-5 mt-md-0">
   <div class="container">
     <p>
           &copy; Copyright 2016-2021 by equadratures.org.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.1.<br/>
     </p>
   </div>
 </footer>

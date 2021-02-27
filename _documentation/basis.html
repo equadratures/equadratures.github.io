@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Basis &#8212; equadratures</title>
     
-  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
     
   <link rel="stylesheet"
@@ -29,13 +29,12 @@
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
 
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../_static/eq-logo-favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -167,7 +166,13 @@
           
             
                 <li class="">
-                    <a href="correlated.html">Correlation mapping for polynomials</a>
+                    <a href="plot.html">Plotting utilities</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="correlated.html">Correlations</a>
                 </li>
             
           
@@ -213,126 +218,8 @@
               
               <div>
                 
-  <div class="section" id="module-equadratures.basis">
-<span id="basis"></span><h1>Basis<a class="headerlink" href="#module-equadratures.basis" title="Permalink to this headline">¶</a></h1>
-<p>Rountines for defining the index set associated with multivariate polynomials.</p>
-<dl class="py class">
-<dt id="equadratures.basis.Basis">
-<em class="property">class </em><code class="sig-prename descclassname">equadratures.basis.</code><code class="sig-name descname">Basis</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">basis_type</span></em>, <em class="sig-param"><span class="n">orders</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">level</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">growth_rule</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">q</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/basis.html#Basis"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.basis.Basis" title="Permalink to this definition">¶</a></dt>
-<dd><p>Basis class constructor.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>basis_type</strong> (<em>string</em>) – The type of index set to be used. Options include: <code class="docutils literal notranslate"><span class="pre">univariate</span></code>, <code class="docutils literal notranslate"><span class="pre">total-order</span></code>, <code class="docutils literal notranslate"><span class="pre">tensor-grid</span></code>,
-<code class="docutils literal notranslate"><span class="pre">sparse-grid</span></code>, <code class="docutils literal notranslate"><span class="pre">hyperbolic-basis</span></code> [1] and <code class="docutils literal notranslate"><span class="pre">euclidean-degree</span></code> [2]; all basis are isotropic.</p></li>
-<li><p><strong>orders</strong> (<em>ndarray</em>) – List of integers corresponding to the highest polynomial order in each direction.</p></li>
-<li><p><strong>growth_rule</strong> (<em>string</em>) – The type of growth rule associated with sparse grids.
-Options include: <code class="docutils literal notranslate"><span class="pre">linear</span></code> and <code class="docutils literal notranslate"><span class="pre">exponential</span></code>. This input is only required when using a sparse grid.</p></li>
-<li><p><strong>q</strong> (<em>double</em>) – The <code class="docutils literal notranslate"><span class="pre">q</span></code> parameter is used to control the number of basis terms used in a hyperbolic basis (see [1]).
-It varies between 0.0 to 1.0. A value of 1.0 yields a total order basis.</p></li>
-</ul>
-</dd>
-</dl>
-<p><strong>Sample constructor initialisations</strong>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">equadratures</span> <span class="kn">import</span> <span class="o">*</span>
-
-<span class="c1"># Total order basis</span>
-<span class="n">mybasis</span> <span class="o">=</span> <span class="n">Basis</span><span class="p">(</span><span class="s1">&#39;total-order&#39;</span><span class="p">,</span> <span class="n">orders</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
-<span class="n">mybasis2</span> <span class="o">=</span> <span class="n">Basis</span><span class="p">(</span><span class="s1">&#39;euclidean-degree&#39;</span><span class="p">,</span> <span class="n">orders</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
-<span class="n">mybasis3</span> <span class="o">=</span> <span class="n">Basis</span><span class="p">(</span><span class="s1">&#39;sparse-grid&#39;</span><span class="p">,</span> <span class="n">growth_rule</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-</pre></div>
-</div>
-<dl class="simple">
-<dt><strong>References</strong></dt><dd><ol class="arabic simple">
-<li><p>Blatman, G., Sudret, B., (2011) Adaptive Sparse Polynomial Chaos Expansion Based on Least Angle Regression. Journal of Computational Physics, 230(6), 2345-2367.</p></li>
-<li><p>Trefethen, L., (2017) Multivariate Polynomial Approximation in the Hypercube. Proceedings of the American Mathematical Society, 145(11), 4837-4844. <a class="reference external" href="https://arxiv.org/pdf/1608.02216v1.pdf">Pre-print</a>.</p></li>
-</ol>
-</dd>
-</dl>
-<dl class="py method">
-<dt id="equadratures.basis.Basis.get_basis">
-<code class="sig-name descname">get_basis</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/basis.html#Basis.get_basis"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.basis.Basis.get_basis" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the index set elements for the Basis object.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>object</strong> (<a class="reference internal" href="#equadratures.basis.Basis" title="equadratures.basis.Basis"><em>Basis</em></a>) – An instance of the Basis class.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>basis</strong>: Elements associated with the multi-index set. For <code class="docutils literal notranslate"><span class="pre">total-order</span></code>, <code class="docutils literal notranslate"><span class="pre">tensor-grid</span></code>, <code class="docutils literal notranslate"><span class="pre">hyperbolic-basis</span></code>, <code class="docutils literal notranslate"><span class="pre">hyperbolic-basis</span></code> and <code class="docutils literal notranslate"><span class="pre">euclidean-degree</span></code> these correspond to the multi-index set elements within the set. For a <code class="docutils literal notranslate"><span class="pre">sparse-grid</span></code> the output will comprise of three arguments: (i) list of tensor grid orders (anisotropic), (ii) the positive and negative weights, and (iii) the individual sparse grid multi-index elements.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="equadratures.basis.Basis.get_cardinality">
-<code class="sig-name descname">get_cardinality</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/basis.html#Basis.get_cardinality"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.basis.Basis.get_cardinality" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the number of elements of an index set.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>object</strong> (<a class="reference internal" href="#equadratures.basis.Basis" title="equadratures.basis.Basis"><em>Basis</em></a>) – An instance of the Basis class.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>cardinality</strong>: The number of multi-index elements of the basis.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="equadratures.basis.Basis.get_elements">
-<code class="sig-name descname">get_elements</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/basis.html#Basis.get_elements"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.basis.Basis.get_elements" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the elements of an index set.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>object</strong> (<a class="reference internal" href="#equadratures.basis.Basis" title="equadratures.basis.Basis"><em>Basis</em></a>) – An instance of the Basis class.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>elements</strong>: The multi-index elements of the basis.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="equadratures.basis.Basis.prune">
-<code class="sig-name descname">prune</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">number_of_elements_to_delete</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/basis.html#Basis.prune"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.basis.Basis.prune" title="Permalink to this definition">¶</a></dt>
-<dd><p>Prunes down the number of elements in an index set.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>object</strong> (<a class="reference internal" href="#equadratures.basis.Basis" title="equadratures.basis.Basis"><em>Basis</em></a>) – An instance of the Basis class.</p></li>
-<li><p><strong>number_of_elements_to_delete</strong> (<em>integer</em>) – The number of multi-indices the user would like to delete.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="equadratures.basis.Basis.set_orders">
-<code class="sig-name descname">set_orders</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">orders</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/basis.html#Basis.set_orders"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.basis.Basis.set_orders" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets the highest order in each direction of the basis.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>object</strong> (<a class="reference internal" href="#equadratures.basis.Basis" title="equadratures.basis.Basis"><em>Basis</em></a>) – An instance of the Basis class.</p></li>
-<li><p><strong>orders</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a>) – The highest polynomial order along each dimension.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="equadratures.basis.Basis.sort">
-<code class="sig-name descname">sort</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/basis.html#Basis.sort"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.basis.Basis.sort" title="Permalink to this definition">¶</a></dt>
-<dd><p>Routine that sorts a multi-index in ascending order based on the total orders. The constructor by default calls this function.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>object</strong> (<a class="reference internal" href="#equadratures.basis.Basis" title="equadratures.basis.Basis"><em>Basis</em></a>) – An instance of the Basis class.</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
+  <div class="section" id="basis">
+<h1>Basis<a class="headerlink" href="#basis" title="Permalink to this headline">¶</a></h1>
 </div>
 
 
@@ -346,14 +233,14 @@ It varies between 0.0 to 1.0. A value of 1.0 yields a total order basis.</p></li
     </div>
 
     
-  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
 
 
     <footer class="footer mt-5 mt-md-0">
   <div class="container">
     <p>
           &copy; Copyright 2016-2021 by equadratures.org.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.1.<br/>
     </p>
   </div>
 </footer>

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Polynomial &#8212; equadratures</title>
     
-  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
     
   <link rel="stylesheet"
@@ -29,13 +29,12 @@
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
 
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../_static/eq-logo-favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -167,7 +166,13 @@
           
             
                 <li class="">
-                    <a href="correlated.html">Correlation mapping for polynomials</a>
+                    <a href="plot.html">Plotting utilities</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="correlated.html">Correlations</a>
                 </li>
             
           
@@ -218,13 +223,13 @@
 <p>The polynomial parent class; one of the main building blocks in Effective Quadratures.</p>
 <dl class="py class">
 <dt id="equadratures.poly.Poly">
-<em class="property">class </em><code class="sig-prename descclassname">equadratures.poly.</code><code class="sig-name descname">Poly</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parameters</span></em>, <em class="sig-param"><span class="n">basis</span></em>, <em class="sig-param"><span class="n">method</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">sampling_args</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">solver_args</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.poly.Poly" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">equadratures.poly.</span></code><code class="sig-name descname"><span class="pre">Poly</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">basis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampling_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly" title="Permalink to this definition">¶</a></dt>
 <dd><p>Definition of a polynomial object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>parameters</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a>) – A list of parameters, where each element of the list is an instance of the Parameter class.</p></li>
-<li><p><strong>basis</strong> (<a class="reference internal" href="basis.html#equadratures.basis.Basis" title="equadratures.basis.Basis"><em>Basis</em></a>) – An instance of the Basis class corresponding to the multi-index set used.</p></li>
+<li><p><strong>basis</strong> (<em>Basis</em>) – An instance of the Basis class corresponding to the multi-index set used.</p></li>
 <li><p><strong>method</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – The method used for computing the coefficients. Should be one of: <code class="docutils literal notranslate"><span class="pre">compressive-sensing</span></code>, <code class="docutils literal notranslate"><span class="pre">numerical-integration</span></code>, <code class="docutils literal notranslate"><span class="pre">least-squares</span></code>, <code class="docutils literal notranslate"><span class="pre">least-squares-with-gradients</span></code>, <code class="docutils literal notranslate"><span class="pre">least-absolute-residual</span></code>, <code class="docutils literal notranslate"><span class="pre">minimum-norm</span></code>, <code class="docutils literal notranslate"><span class="pre">huber</span></code>, <code class="docutils literal notranslate"><span class="pre">elastic-net</span></code>, <code class="docutils literal notranslate"><span class="pre">lasso-lars</span></code>, <code class="docutils literal notranslate"><span class="pre">relevance-vector-machine</span></code>.</p></li>
 <li><p><strong>sampling_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – Optional arguments centered around the specific sampling strategy.
 :string mesh: Avaliable options are: <code class="docutils literal notranslate"><span class="pre">monte-carlo</span></code>, <code class="docutils literal notranslate"><span class="pre">sparse-grid</span></code>, <code class="docutils literal notranslate"><span class="pre">tensor-grid</span></code>, <code class="docutils literal notranslate"><span class="pre">induced</span></code>, or <code class="docutils literal notranslate"><span class="pre">user-defined</span></code>. Note that when the <code class="docutils literal notranslate"><span class="pre">sparse-grid</span></code> option is invoked, the sparse pseudospectral approximation method [1] is the adopted. One can think of this as being the correct way to use sparse grids in the context of polynomial chaos [2] techniques.
@@ -282,7 +287,7 @@
 </dl>
 <dl class="py method">
 <dt id="equadratures.poly.Poly.get_coefficients">
-<code class="sig-name descname">get_coefficients</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_coefficients"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.poly.Poly.get_coefficients" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_coefficients</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_coefficients"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_coefficients" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the coefficients of the polynomial approximation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -296,7 +301,7 @@
 
 <dl class="py method">
 <dt id="equadratures.poly.Poly.get_conditional_kurtosis_indices">
-<code class="sig-name descname">get_conditional_kurtosis_indices</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">order</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_conditional_kurtosis_indices"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.poly.Poly.get_conditional_kurtosis_indices" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_conditional_kurtosis_indices</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_conditional_kurtosis_indices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_conditional_kurtosis_indices" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the kurtosis indices.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -313,7 +318,7 @@
 
 <dl class="py method">
 <dt id="equadratures.poly.Poly.get_conditional_skewness_indices">
-<code class="sig-name descname">get_conditional_skewness_indices</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">order</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_conditional_skewness_indices"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.poly.Poly.get_conditional_skewness_indices" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_conditional_skewness_indices</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_conditional_skewness_indices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_conditional_skewness_indices" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the skewness indices.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -330,7 +335,7 @@
 
 <dl class="py method">
 <dt id="equadratures.poly.Poly.get_mean_and_variance">
-<code class="sig-name descname">get_mean_and_variance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_mean_and_variance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.poly.Poly.get_mean_and_variance" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_mean_and_variance</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_mean_and_variance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_mean_and_variance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the mean and variance of the model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -346,7 +351,7 @@
 
 <dl class="py method">
 <dt id="equadratures.poly.Poly.get_model_evaluations">
-<code class="sig-name descname">get_model_evaluations</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_model_evaluations"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.poly.Poly.get_model_evaluations" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_model_evaluations</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_model_evaluations"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_model_evaluations" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the points at which the model was evaluated at.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -357,7 +362,7 @@
 
 <dl class="py method">
 <dt id="equadratures.poly.Poly.get_multi_index">
-<code class="sig-name descname">get_multi_index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_multi_index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.poly.Poly.get_multi_index" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_multi_index</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_multi_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_multi_index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the multi-index set of the basis.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -371,7 +376,7 @@
 
 <dl class="py method">
 <dt id="equadratures.poly.Poly.get_parameters">
-<code class="sig-name descname">get_parameters</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_parameters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.poly.Poly.get_parameters" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_parameters</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_parameters" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the list of parameters</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -382,7 +387,7 @@
 
 <dl class="py method">
 <dt id="equadratures.poly.Poly.get_points">
-<code class="sig-name descname">get_points</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_points"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.poly.Poly.get_points" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_points</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_points"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_points" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the samples based on the sampling strategy.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -396,7 +401,7 @@
 
 <dl class="py method">
 <dt id="equadratures.poly.Poly.get_points_and_weights">
-<code class="sig-name descname">get_points_and_weights</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_points_and_weights"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.poly.Poly.get_points_and_weights" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_points_and_weights</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_points_and_weights"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_points_and_weights" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the samples and weights based on the sampling strategy.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -412,7 +417,7 @@
 
 <dl class="py method">
 <dt id="equadratures.poly.Poly.get_poly">
-<code class="sig-name descname">get_poly</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">stack_of_points</span></em>, <em class="sig-param"><span class="n">custom_multi_index</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_poly"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.poly.Poly.get_poly" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_poly</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stack_of_points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_multi_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_poly"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_poly" title="Permalink to this definition">¶</a></dt>
 <dd><p>Evaluates the value of each polynomial basis function at a set of points.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -430,7 +435,7 @@ at the stack_of_points.</p>
 
 <dl class="py method">
 <dt id="equadratures.poly.Poly.get_poly_grad">
-<code class="sig-name descname">get_poly_grad</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">stack_of_points</span></em>, <em class="sig-param"><span class="n">dim_index</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_poly_grad"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.poly.Poly.get_poly_grad" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_poly_grad</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stack_of_points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_poly_grad"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_poly_grad" title="Permalink to this definition">¶</a></dt>
 <dd><p>Evaluates the gradient for each of the polynomial basis functions at a set of points,
 with respect to each input variable.</p>
 <dl class="field-list simple">
@@ -449,7 +454,7 @@ with respect to each input variable.</p>
 
 <dl class="py method">
 <dt id="equadratures.poly.Poly.get_poly_hess">
-<code class="sig-name descname">get_poly_hess</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">stack_of_points</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_poly_hess"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.poly.Poly.get_poly_hess" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_poly_hess</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stack_of_points</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_poly_hess"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_poly_hess" title="Permalink to this definition">¶</a></dt>
 <dd><p>Evaluates the Hessian for each of the polynomial basis functions at a set of points,
 with respect to each input variable.</p>
 <dl class="field-list simple">
@@ -468,7 +473,7 @@ with respect to each input variable.</p>
 
 <dl class="py method">
 <dt id="equadratures.poly.Poly.get_polyfit">
-<code class="sig-name descname">get_polyfit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">stack_of_points</span></em>, <em class="sig-param"><span class="n">uq</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_polyfit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.poly.Poly.get_polyfit" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_polyfit</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stack_of_points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_polyfit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_polyfit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Evaluates the /polynomial approximation of a function (or model data) at prescribed points.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -486,7 +491,7 @@ with respect to each input variable.</p>
 
 <dl class="py method">
 <dt id="equadratures.poly.Poly.get_polyfit_function">
-<code class="sig-name descname">get_polyfit_function</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_polyfit_function"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.poly.Poly.get_polyfit_function" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_polyfit_function</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_polyfit_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_polyfit_function" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a callable polynomial approximation of a function (or model data).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -500,7 +505,7 @@ with respect to each input variable.</p>
 
 <dl class="py method">
 <dt id="equadratures.poly.Poly.get_polyfit_grad">
-<code class="sig-name descname">get_polyfit_grad</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">stack_of_points</span></em>, <em class="sig-param"><span class="n">dim_index</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_polyfit_grad"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.poly.Poly.get_polyfit_grad" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_polyfit_grad</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stack_of_points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_polyfit_grad"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_polyfit_grad" title="Permalink to this definition">¶</a></dt>
 <dd><p>Evaluates the gradient of the polynomial approximation of a function (or model data) at prescribed points.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -518,7 +523,7 @@ gradient must be evaluated at.</p></li>
 
 <dl class="py method">
 <dt id="equadratures.poly.Poly.get_polyfit_grad_function">
-<code class="sig-name descname">get_polyfit_grad_function</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_polyfit_grad_function"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.poly.Poly.get_polyfit_grad_function" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_polyfit_grad_function</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_polyfit_grad_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_polyfit_grad_function" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a callable for the gradients of the polynomial approximation of a function (or model data).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -532,7 +537,7 @@ gradient must be evaluated at.</p></li>
 
 <dl class="py method">
 <dt id="equadratures.poly.Poly.get_polyfit_hess">
-<code class="sig-name descname">get_polyfit_hess</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">stack_of_points</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_polyfit_hess"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.poly.Poly.get_polyfit_hess" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_polyfit_hess</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stack_of_points</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_polyfit_hess"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_polyfit_hess" title="Permalink to this definition">¶</a></dt>
 <dd><p>Evaluates the hessian of the polynomial approximation of a function (or model data) at prescribed points.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -550,7 +555,7 @@ Hessian must be evaluated at.</p></li>
 
 <dl class="py method">
 <dt id="equadratures.poly.Poly.get_polyfit_hess_function">
-<code class="sig-name descname">get_polyfit_hess_function</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_polyfit_hess_function"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.poly.Poly.get_polyfit_hess_function" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_polyfit_hess_function</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_polyfit_hess_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_polyfit_hess_function" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a callable for the hessian of the polynomial approximation of a function (or model data).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -564,7 +569,7 @@ Hessian must be evaluated at.</p></li>
 
 <dl class="py method">
 <dt id="equadratures.poly.Poly.get_polyscore">
-<code class="sig-name descname">get_polyscore</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X_test</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">y_test</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">metric</span><span class="o">=</span><span class="default_value">'adjusted_r2'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_polyscore"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.poly.Poly.get_polyscore" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_polyscore</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X_test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'adjusted_r2'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_polyscore"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_polyscore" title="Permalink to this definition">¶</a></dt>
 <dd><p>Evaluates the accuracy of the polynomial approximation using the selected accuracy metric. Training accuracy is evaluated on the data used for fitting the polynomial. Testing accuracy is evaluated on new data if it is provided by the <code class="docutils literal notranslate"><span class="pre">X_test</span></code> and <code class="docutils literal notranslate"><span class="pre">y_test</span></code> arguments (both must be provided together).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -584,7 +589,7 @@ approximated mean of the polynomial fit; output as a float.</p>
 
 <dl class="py method">
 <dt id="equadratures.poly.Poly.get_skewness_and_kurtosis">
-<code class="sig-name descname">get_skewness_and_kurtosis</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_skewness_and_kurtosis"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.poly.Poly.get_skewness_and_kurtosis" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_skewness_and_kurtosis</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_skewness_and_kurtosis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_skewness_and_kurtosis" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the skewness and kurtosis of the model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -600,7 +605,7 @@ approximated mean of the polynomial fit; output as a float.</p>
 
 <dl class="py method">
 <dt id="equadratures.poly.Poly.get_sobol_indices">
-<code class="sig-name descname">get_sobol_indices</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">order</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_sobol_indices"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.poly.Poly.get_sobol_indices" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_sobol_indices</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_sobol_indices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_sobol_indices" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the Sobol’ indices.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -617,7 +622,7 @@ approximated mean of the polynomial fit; output as a float.</p>
 
 <dl class="py method">
 <dt id="equadratures.poly.Poly.get_summary">
-<code class="sig-name descname">get_summary</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">tosay</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_summary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.poly.Poly.get_summary" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_summary</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tosay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_summary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_summary" title="Permalink to this definition">¶</a></dt>
 <dd><p>A simple utility that returns file summarising what the polynomial approximation has determined.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -632,7 +637,7 @@ approximated mean of the polynomial fit; output as a float.</p>
 
 <dl class="py method">
 <dt id="equadratures.poly.Poly.get_total_sobol_indices">
-<code class="sig-name descname">get_total_sobol_indices</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_total_sobol_indices"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.poly.Poly.get_total_sobol_indices" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_total_sobol_indices</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_total_sobol_indices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_total_sobol_indices" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the total Sobol’ indices.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -646,7 +651,7 @@ approximated mean of the polynomial fit; output as a float.</p>
 
 <dl class="py method">
 <dt id="equadratures.poly.Poly.get_weights">
-<code class="sig-name descname">get_weights</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_weights"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.poly.Poly.get_weights" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_weights</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_weights"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_weights" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes quadrature weights.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -659,8 +664,20 @@ approximated mean of the polynomial fit; output as a float.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt id="equadratures.poly.Poly.plot_model_vs_data">
+<code class="sig-name descname"><span class="pre">plot_model_vs_data</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.plot_model_vs_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.plot_model_vs_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the polynomial fit vs. the data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="equadratures.poly.Poly.plot_polyfit_1D">
+<code class="sig-name descname"><span class="pre">plot_polyfit_1D</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.plot_polyfit_1D"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.plot_polyfit_1D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the 1D polynomial fit.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="equadratures.poly.Poly.set_model">
-<code class="sig-name descname">set_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">model_grads</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.set_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.poly.Poly.set_model" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">set_model</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_grads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.set_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.set_model" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the coefficients of the polynomial via the method selected.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -677,7 +694,7 @@ approximated mean of the polynomial fit; output as a float.</p>
 
 <dl class="py function">
 <dt id="equadratures.poly.evaluate_model">
-<code class="sig-prename descclassname">equadratures.poly.</code><code class="sig-name descname">evaluate_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">points</span></em>, <em class="sig-param"><span class="n">function</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#evaluate_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.poly.evaluate_model" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">equadratures.poly.</span></code><code class="sig-name descname"><span class="pre">evaluate_model</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#evaluate_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.evaluate_model" title="Permalink to this definition">¶</a></dt>
 <dd><p>Evaluates the model function at given values.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -694,7 +711,7 @@ approximated mean of the polynomial fit; output as a float.</p>
 
 <dl class="py function">
 <dt id="equadratures.poly.evaluate_model_gradients">
-<code class="sig-prename descclassname">equadratures.poly.</code><code class="sig-name descname">evaluate_model_gradients</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">points</span></em>, <em class="sig-param"><span class="n">fungrad</span></em>, <em class="sig-param"><span class="n">format</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#evaluate_model_gradients"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.poly.evaluate_model_gradients" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">equadratures.poly.</span></code><code class="sig-name descname"><span class="pre">evaluate_model_gradients</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fungrad</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#evaluate_model_gradients"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.evaluate_model_gradients" title="Permalink to this definition">¶</a></dt>
 <dd><p>Evaluates the model gradient at given values.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -714,7 +731,7 @@ vectors in this matrix to yield a numpy.ndarray with shape (number_of_observatio
 
 <dl class="py function">
 <dt id="equadratures.poly.vector_to_2D_grid">
-<code class="sig-prename descclassname">equadratures.poly.</code><code class="sig-name descname">vector_to_2D_grid</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">coefficients</span></em>, <em class="sig-param"><span class="n">index_set</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#vector_to_2D_grid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.poly.vector_to_2D_grid" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname"><span class="pre">equadratures.poly.</span></code><code class="sig-name descname"><span class="pre">vector_to_2D_grid</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coefficients</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_set</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#vector_to_2D_grid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.vector_to_2D_grid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Handy function that converts a vector of coefficients into a matrix based on index set values.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -746,14 +763,14 @@ vectors in this matrix to yield a numpy.ndarray with shape (number_of_observatio
     </div>
 
     
-  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
 
 
     <footer class="footer mt-5 mt-md-0">
   <div class="container">
     <p>
           &copy; Copyright 2016-2021 by equadratures.org.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.1.<br/>
     </p>
   </div>
 </footer>

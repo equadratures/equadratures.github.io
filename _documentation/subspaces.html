@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dimension reduction with polynomials &#8212; equadratures</title>
     
-  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
     
   <link rel="stylesheet"
@@ -29,13 +29,12 @@
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
 
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../_static/eq-logo-favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -167,7 +166,13 @@
           
             
                 <li class="">
-                    <a href="correlated.html">Correlation mapping for polynomials</a>
+                    <a href="plot.html">Plotting utilities</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="correlated.html">Correlations</a>
                 </li>
             
           
@@ -217,7 +222,7 @@
 <span id="dimension-reduction-with-polynomials"></span><h1>Dimension reduction with polynomials<a class="headerlink" href="#module-equadratures.subspaces" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
 <dt id="equadratures.subspaces.Subspaces">
-<em class="property">class </em><code class="sig-prename descclassname">equadratures.subspaces.</code><code class="sig-name descname">Subspaces</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">method</span></em>, <em class="sig-param"><span class="n">full_space_poly</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">sample_points</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">sample_outputs</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">polynomial_degree</span><span class="o">=</span><span class="default_value">2</span></em>, <em class="sig-param"><span class="n">subspace_dimension</span><span class="o">=</span><span class="default_value">2</span></em>, <em class="sig-param"><span class="n">bootstrap</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">subspace_init</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">max_iter</span><span class="o">=</span><span class="default_value">1000</span></em>, <em class="sig-param"><span class="n">tol</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">poly_method</span><span class="o">=</span><span class="default_value">'least-squares'</span></em>, <em class="sig-param"><span class="n">solver_args</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/subspaces.html#Subspaces"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.subspaces.Subspaces" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">equadratures.subspaces.</span></code><code class="sig-name descname"><span class="pre">Subspaces</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">full_space_poly</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_outputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">polynomial_degree</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subspace_dimension</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bootstrap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subspace_init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">poly_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'least-squares'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/subspaces.html#Subspaces"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.subspaces.Subspaces" title="Permalink to this definition">¶</a></dt>
 <dd><p>This class defines a subspaces object. It can be used for polynomial-based subspace dimension reduction.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -255,7 +260,7 @@ where a Gauss-Newton optimisation problem is solved to compute both the polynomi
 </dl>
 <dl class="py method">
 <dt id="equadratures.subspaces.Subspaces.get_eigenvalues">
-<code class="sig-name descname">get_eigenvalues</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/subspaces.html#Subspaces.get_eigenvalues"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.subspaces.Subspaces.get_eigenvalues" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_eigenvalues</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/subspaces.html#Subspaces.get_eigenvalues"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.subspaces.Subspaces.get_eigenvalues" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the eigenvalues of the dimension reducing subspace. Note: this option is
 currently only valid for method <code class="docutils literal notranslate"><span class="pre">active-subspace</span></code>.</p>
 <dl class="field-list simple">
@@ -270,7 +275,7 @@ currently only valid for method <code class="docutils literal notranslate"><span
 
 <dl class="py method">
 <dt id="equadratures.subspaces.Subspaces.get_linear_inequalities">
-<code class="sig-name descname">get_linear_inequalities</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/subspaces.html#Subspaces.get_linear_inequalities"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.subspaces.Subspaces.get_linear_inequalities" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_linear_inequalities</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/subspaces.html#Subspaces.get_linear_inequalities"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.subspaces.Subspaces.get_linear_inequalities" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the linear inequalities defining the zonotope vertices, i.e., Ax&lt;=b.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -287,7 +292,7 @@ currently only valid for method <code class="docutils literal notranslate"><span
 
 <dl class="py method">
 <dt id="equadratures.subspaces.Subspaces.get_samples_constraining_active_coordinates">
-<code class="sig-name descname">get_samples_constraining_active_coordinates</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inactive_samples</span></em>, <em class="sig-param"><span class="n">active_coordinates</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/subspaces.html#Subspaces.get_samples_constraining_active_coordinates"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.subspaces.Subspaces.get_samples_constraining_active_coordinates" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_samples_constraining_active_coordinates</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inactive_samples</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">active_coordinates</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/subspaces.html#Subspaces.get_samples_constraining_active_coordinates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.subspaces.Subspaces.get_samples_constraining_active_coordinates" title="Permalink to this definition">¶</a></dt>
 <dd><p>A hit and run type sampling strategy for generating samples at a given coordinate in the active subspace
 by varying its coordinates along the inactive subspace.</p>
 <dl class="field-list simple">
@@ -309,7 +314,7 @@ This routine has been adapted from Paul Constantine’s hit_and_run() function; 
 
 <dl class="py method">
 <dt id="equadratures.subspaces.Subspaces.get_subspace">
-<code class="sig-name descname">get_subspace</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/subspaces.html#Subspaces.get_subspace"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.subspaces.Subspaces.get_subspace" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_subspace</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/subspaces.html#Subspaces.get_subspace"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.subspaces.Subspaces.get_subspace" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the dimension reducing subspace.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -324,7 +329,7 @@ contain the dimension reducing subspace, while the remaining columns contain its
 
 <dl class="py method">
 <dt id="equadratures.subspaces.Subspaces.get_subspace_polynomial">
-<code class="sig-name descname">get_subspace_polynomial</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/subspaces.html#Subspaces.get_subspace_polynomial"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.subspaces.Subspaces.get_subspace_polynomial" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_subspace_polynomial</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/subspaces.html#Subspaces.get_subspace_polynomial"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.subspaces.Subspaces.get_subspace_polynomial" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a polynomial defined over the dimension reducing subspace.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -340,7 +345,7 @@ of the project samples.</p>
 
 <dl class="py method">
 <dt id="equadratures.subspaces.Subspaces.get_zonotope_vertices">
-<code class="sig-name descname">get_zonotope_vertices</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">num_samples</span><span class="o">=</span><span class="default_value">10000</span></em>, <em class="sig-param"><span class="n">max_count</span><span class="o">=</span><span class="default_value">100000</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/subspaces.html#Subspaces.get_zonotope_vertices"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.subspaces.Subspaces.get_zonotope_vertices" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">get_zonotope_vertices</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_samples</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100000</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/subspaces.html#Subspaces.get_zonotope_vertices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.subspaces.Subspaces.get_zonotope_vertices" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the vertices of the zonotope – the projection of the high-dimensional space over the computed
 subspace.</p>
 <dl class="field-list simple">
@@ -371,14 +376,14 @@ This routine has been adapted from Paul Constantine’s zonotope_vertices() func
     </div>
 
     
-  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
 
 
     <footer class="footer mt-5 mt-md-0">
   <div class="container">
     <p>
           &copy; Copyright 2016-2021 by equadratures.org.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.1.<br/>
     </p>
   </div>
 </footer>

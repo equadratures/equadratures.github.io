@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Research &#8212; equadratures</title>
     
-  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
     
   <link rel="stylesheet"
@@ -29,17 +29,16 @@
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
 
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../_static/eq-logo-favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Linear system solvers" href="solver.html" />
+    <link rel="prev" title="Plotting utilities" href="plot.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
   </head>
@@ -181,12 +180,18 @@
                 
   <div class="section" id="research">
 <h1>Research<a class="headerlink" href="#research" title="Permalink to this headline">¶</a></h1>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../_images/equadratures_laptop.jpg"><img alt="../_images/equadratures_laptop.jpg" src="../_images/equadratures_laptop.jpg" style="width: 100%;" /></a>
+</div>
 <p>Below you will find a list of publications, along with their supporting code, and in some cases a related blog post. Publications are classified by their domain area. For an overview do check out the slides below:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://drive.google.com/file/d/1L970YCnN4B-SnbKnXyB9jgbb4qCncDAx/view?usp=sharing">Scope and capability</a></p></li>
 </ul>
 <div class="section" id="data-driven-dimension-reduction">
 <h2>Data-driven dimension reduction<a class="headerlink" href="#data-driven-dimension-reduction" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../_images/embedded.png"><img alt="../_images/embedded.png" src="../_images/embedded.png" style="width: 85%;" /></a>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Title</dt>
 <dd class="field-odd"><p>Embedded ridge approximations</p>
@@ -204,21 +209,24 @@
 <dd class="field-odd"><p>2020</p>
 </dd>
 <dt class="field-even">Resources</dt>
-<dd class="field-even"><p><a class="reference external" href="https://www.sciencedirect.com/science/article/abs/pii/S0045782520305685?dgcid=rss_sd_all">Paper</a> | <a class="reference external" href="https://arxiv.org/abs/1907.07037">Preprint</a> | <a class="reference external" href="https://discourse.effective-quadratures.org/t/embedded-ridge-approximations/73">Blog</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://www.sciencedirect.com/science/article/abs/pii/S0045782520305685?dgcid=rss_sd_all">Paper</a> | <a class="reference external" href="https://arxiv.org/abs/1907.07037">Preprint</a> | <a class="reference external" href="https://discourse.equadratures.org/t/embedded-ridge-approximations/73">Blog</a></p>
 </dd>
 </dl>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../_images/blade_envelopes.jpg"><img alt="../_images/blade_envelopes.jpg" src="../_images/blade_envelopes.jpg" style="width: 768.0px; height: 432.0px;" /></a>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Title</dt>
-<dd class="field-odd"><p>Blade envelopes part I: concept and methodology</p>
+<dd class="field-odd"><p>Blade envelopes parts I &amp; II</p>
 </dd>
 <dt class="field-even">Authors</dt>
 <dd class="field-even"><p>Chun Yui Wong, Pranay Seshadri, Ashley Scillitoe, Andrew Duncan, Geoffrey Parks</p>
 </dd>
 <dt class="field-odd">Essence</dt>
-<dd class="field-odd"><p>Interpreting the design of a blade (airfoil) as a Gaussian distribution with known mean (nominal) but unknown covariance. Estimating this covariance matrix by generating samples from the inactive subspace for loss.</p>
+<dd class="field-odd"><p>Interpreting the design of a blade (airfoil) as a Gaussian distribution with known mean (nominal) but unknown covariance. Estimating this covariance matrix by generating samples from the inactive subspace for loss in part I. In part II we extend the approach in part I to multiple objectives (flow capacity, loss and peak Isentropic Mach number) and demonstrating how this approach can be used for inverse design.</p>
 </dd>
 <dt class="field-even">Journal</dt>
 <dd class="field-even"><p>ASME Journal of Turbomachinery (under review)</p>
@@ -227,33 +235,10 @@
 <dd class="field-odd"><p>2020</p>
 </dd>
 <dt class="field-even">Resources</dt>
-<dd class="field-even"><p><a class="reference external" href="https://arxiv.org/abs/2011.11636">Preprint</a> | <a class="reference external" href="https://discourse.equadratures.org/t/blade-envelopes-computational-methods/96">Blog</a> | <a class="reference external" href="https://drive.google.com/file/d/1iO_CBAdAhIHvTXVPLSFauevcC7luKTED/view?usp=sharing">Slides</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://arxiv.org/abs/2011.11636">Preprint I</a> | <a class="reference external" href="https://discourse.equadratures.org/t/blade-envelopes-computational-methods/96">Blog I</a> | <a class="reference external" href="https://arxiv.org/abs/2012.15579">Preprint II</a> | <a class="reference external" href="https://discourse.equadratures.org/t/blade-envelopes-3d-visualisation/100">Blog II</a> | <a class="reference external" href="https://drive.google.com/file/d/1iO_CBAdAhIHvTXVPLSFauevcC7luKTED/view?usp=sharing">Slides</a></p>
 </dd>
-</dl>
-<div class="youtube_wrapper" style="padding-bottom: 56.250000%; padding-top: 30px; position: relative; width: 100%">
-<iframe allowfullscreen="true" src="https://www.youtube.com/embed/M4N2eBaarpc" style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%">
-</iframe></div><div class="line-block">
-<div class="line"><br /></div>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">Title</dt>
-<dd class="field-odd"><p>Blade envelopes part II: multiple objectives and inverse design</p>
-</dd>
-<dt class="field-even">Authors</dt>
-<dd class="field-even"><p>Chun Yui Wong, Pranay Seshadri, Ashley Scillitoe, Bryn N Ubald, Andrew Duncan, Geoffrey Parks</p>
-</dd>
-<dt class="field-odd">Essence</dt>
-<dd class="field-odd"><p>Extending the approach in part I to multiple objectives (flow capacity, loss and peak Isentropic Mach number) and demonstrating how this approach can be used for inverse design.</p>
-</dd>
-<dt class="field-even">Journal</dt>
-<dd class="field-even"><p>ASME Journal of Turbomachinery (under review)</p>
-</dd>
-<dt class="field-odd">Year</dt>
-<dd class="field-odd"><p>2020</p>
-</dd>
-<dt class="field-even">Resources</dt>
-<dd class="field-even"><p><a class="reference external" href="https://arxiv.org/abs/2012.15579">Preprint</a> | <a class="reference external" href="https://discourse.equadratures.org/t/blade-envelopes-3d-visualisation/100">Blog</a></p>
-</dd>
+<dt class="field-odd">Video</dt>
+<dd class="field-odd"><p></p></dd>
 </dl>
 <div class="line-block">
 <div class="line"><br /></div>
@@ -280,6 +265,9 @@
 </dl>
 <div class="line-block">
 <div class="line"><br /></div>
+</div>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../_images/fan_blades.png"><img alt="../_images/fan_blades.png" src="../_images/fan_blades.png" style="width: 80%;" /></a>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Title</dt>
@@ -362,6 +350,9 @@
 </div>
 <div class="section" id="uncertainty-quantification-and-sensitivity-analysis">
 <h2>Uncertainty quantification and sensitivity analysis<a class="headerlink" href="#uncertainty-quantification-and-sensitivity-analysis" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../_images/pairplots.png"><img alt="../_images/pairplots.png" src="../_images/pairplots.png" style="width: 100%;" /></a>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Title</dt>
 <dd class="field-odd"><p>Extremum sensitivity analysis with polynomial Monte Carlo filtering</p>
@@ -384,6 +375,9 @@
 </dl>
 <div class="line-block">
 <div class="line"><br /></div>
+</div>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../_images/hydro_model.png"><img alt="../_images/hydro_model.png" src="../_images/hydro_model.png" style="width: 80%;" /></a>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Title</dt>
@@ -412,7 +406,9 @@
 </div>
 <div class="section" id="flow-field-estimation">
 <h2>Flow-field estimation<a class="headerlink" href="#flow-field-estimation" title="Permalink to this headline">¶</a></h2>
-<p>Coming soon!</p>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../_images/procvideo.gif"><img alt="../_images/procvideo.gif" src="../_images/procvideo.gif" style="width: 100%;" /></a>
+</div>
 </div>
 </div>
 
@@ -427,14 +423,14 @@
     </div>
 
     
-  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
 
 
     <footer class="footer mt-5 mt-md-0">
   <div class="container">
     <p>
           &copy; Copyright 2016-2021 by equadratures.org.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.1.<br/>
     </p>
   </div>
 </footer>
