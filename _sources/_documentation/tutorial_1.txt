@@ -17,13 +17,13 @@ We now demonstrate some basic functionality of this parameter. First consider th
 
 .. code::
 
-	from equadratures import *
+	import equadratures as eq
 	import numpy as np
 	import matplotlib.pyplot as plt
 	VALUE = 15
 	plt.rcParams.update({'font.size': VALUE})
 
-	s = Parameter(distribution='normal', shape_parameter_A=0.0, shape_parameter_B=1.0, order=3)
+	s = eq.Parameter(distribution='normal', shape_parameter_A=0.0, shape_parameter_B=1.0, order=3)
 
 Now for some plots; first let us plot the PDF,
 
@@ -94,7 +94,7 @@ distribution,
 
 .. code::
 
-	s = Parameter(distribution='truncated-gaussian', lower=-1.0, upper=2., shape_parameter_A=0.0, shape_parameter_B=1.0, order=3)
+	s = eq.Parameter(distribution='truncated-gaussian', lower=-1.0, upper=2., shape_parameter_A=0.0, shape_parameter_B=1.0, order=3)
 
 .. figure:: Figures/tutorial_1_fig_d.png
    :scale: 30 %
@@ -110,7 +110,7 @@ followed by that of a custom distribution---based on user supplied data.
 	param3 = np.random.randn(1300)*0.5 - 0.2
 	param4 = np.random.randn(300)*0.1 + 3
 	data = np.hstack([param1, param2, param3, param4])
-	s = Parameter(distribution='custom', data=data, order=3)
+	s = eq.Parameter(distribution='data', weight_function=input_dist, order=3)
 	s_values, pdf = s.get_pdf()
 	s_values, cdf = s.get_cdf()
 	s_samples = s.get_samples(6000)
@@ -119,5 +119,3 @@ followed by that of a custom distribution---based on user supplied data.
    :scale: 30 %
 
    Figure. PDF of a distribution based on user-provided data.
-
-The full source code for this tutorial can be found `here. <https://github.com/Effective-Quadratures/Effective-Quadratures/blob/master/source/_documentation/codes/tutorial_1.py>`__

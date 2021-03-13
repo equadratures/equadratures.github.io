@@ -1,95 +1,109 @@
-Foundations III: Solving linear systems for polynomials & numerical quadrature
-=================================================================================
-In this tutorial we describe how one can construct orthogonal polynomials in Effective Quadratures. For starters, we consider Legendre polynomials---orthogonal with respect to the uniform weight function. We define a Parameter :math:`s` with :math:`\rho(s) \sim \mathcal{U}[-1,1]`.
+Foundations III: Solving linear systems for model fitting
+========================================
+In this final foundation tutorial, let's apply the tools we introduced in the previous two tutorials. Consider the Rosenbrock's function in 2D
 
+.. math::
+
+	f(x_1, x_2) = (1 - x_1)^2 + 100 (x_2 - x_1^2)^2
+
+with :math:`x_1, x_2` uniformly distributed in :math:`[-1, 1]`. Suppose that we want to fit a polynomial model for this function, e.g. to estimate its output moments. In EQ, models are composed using the `Poly` object, which encapsulates the function
+
+.. math::
+
+    g(\mathbf{x}) = \sum_{i=1}^P c_i \psi_i(\mathbf{x}) \qquad (1)
+
+where :math:`\psi_i(\mathbf{x})` are the orthogonal polynomials defined on a certain basis, as we mentioned in the last tutorial. Fitting the polynomial amounts to solving for the coefficients :math:`c_i`. In practice, this is equivalent to *solving a linear system*
+
+.. math::
+
+    \mathbf{Ac} = \mathbf{b} \qquad (2)
+
+where :math:`\mathbf{A}(i, j) = \psi_j(\mathbf{x}_i)` (similar to the Vandermonde type matrix in the previous tutorial), and :math:`b(i) = f(\mathbf{x_i})` contain function evaluations. In most practical problems, function evaluations are expensive, and we wish to obtain the most accurate model with the fewest amount of function evaluations. How many function evaluations do we need to solve the linear system? Let's explore this question by examining two example solver methods in EQ. Before we dive in, let's define the function and set up the preliminaries:
 
 .. code::
 
-	from equadratures import *
+	import equadratures as eq
 	import numpy as np
-	import matplotlib.pyplot as plt
+
+	def rosenbrock(x):
+		return (1.0 - x[0])**2 + 100.0 * (x[1] - x[0]**2)**2
+	
+	x0 = eq.Parameter(distribution='uniform', order=4, lower=-1.0, upper=1.0)
+	x1 = eq.Parameter(distribution='uniform', order=4, lower=-1.0, upper=1.0)
+	my_param_list = [x0, x1]
 
 
-	order = 5
-	s1 = Parameter(lower=-1, upper=1, order=order, distribution='Uniform')
+Tensor-grid quadrature
+---------
 
-We restrict our attention to the first five orthogonal polynomials, where the parameterized matrix :math:`\mathbf{P}` has the form
+First, coefficients can be solved in EQ using *numerical integration*. Why integration? If we multiply the equation (1) above with :math:`\psi_j(\mathbf{x})` and integrate, we get
 
 .. math::
 
-	\mathbf{P}\left(i,j\right)=\psi_{i}\left(\lambda_{j}\right) \; \; \text{where} \; \; i=1, \ldots, p; \; j = 1, \ldots, N,
+	\int g(\mathbf{x}) \psi_j(\mathbf{x}) dx = \int \sum_{i=1}^P c_i \psi_i(\mathbf{x}) \psi_j(\mathbf{x}) dx = c_j
 
-where :math:`N` is the number of points :math:`\lambda_{j}` discretizing the domain of :math:`s`, and :math:`p` is the maximum polynomial order, set to 5. Plots of the polynomials are shown below.
+Owing to the *orthogonality* of the basis functions we chose, every term vanishes except for the j-th term. Thus, coefficients can be solved effectively by integration, provided that the integral is evaluated accurately. This is handled via various quadrature methods in EQ. For example, if we choose to use tensor grid, Gauss-Legendre quadrature is a proven heuristic that solves the system to a high degree of accuracy. In code, this is handled with the following.
 
 .. code::
 
-	myBasis = Basis('univariate')
-	myPoly = Poly(s1, myBasis, method='numerical-integration')
-	xo = np.linspace(-1., 1, 100)
-	P = myPoly.get_poly(xo)
+	my_basis = eq.Basis('tensor-grid')
+	my_poly = eq.Poly(parameters=my_param_list, basis=my_basis, method='numerical-integration')
+	my_poly.set_model(rosenbrock)
 
-	fig = plt.figure()
-	ax = fig.add_subplot(1,1,1)
-	plt.plot(xo, P[0,:], lw=2, label='Order 0')
-	plt.plot(xo, P[1,:], lw=2, label='Order 1')
-	plt.plot(xo, P[2,:], lw=2, label='Order 2')
-	plt.plot(xo, P[3,:], lw=2, label='Order 3')
-	plt.plot(xo, P[4,:], lw=2, label='Order 4')
-	plt.plot(xo, P[5,:], lw=2, label='Order 5')
-	plt.legend(loc='upper center', bbox_to_anchor=(0.5, 1.30), ncol=3, fancybox=True, shadow=True)
-	plt.xlabel('$s$', fontsize=18)
-	plt.ylabel('Polynomials', fontsize=18)
-	plt.savefig('../Figures/tutorial_3_fig_a.png', dpi=200, bbox_inches='tight')
+The first line declares the suitable basis for us to use, which is fed to the Poly object in the second line. We specify that we want to solve the coefficient via numerical integration. The third line initiates and executes the solver within the Poly object to set the coefficients in Poly. 
 
-
-
-.. figure:: Figures/tutorial_3_fig_a.png
-   :scale: 30 %
-
-   Figure. The first six Legendre polynomials
-
-A few remarks are in order regarding this plot. Standard Legendre polynomials are orthogonal via
-
-.. math::
-
-	\int_{-1}^{1}\psi_{i}\left(s \right)\psi_{j}\left(s \right)ds=\frac{2\delta_{ij}}{2i+1},
-
-where :math:`\delta_{ij}` is the Kronecker delta. In Effective Quadratures, we modify all orthogonal polynomials such that the right hand side of this expression is unity when :math:`i=j`
-
-.. math::
-
-	\frac{1}{2i+1} \int_{-1}^{1}\psi_{i}\left(s\right)\psi_{j}\left(s\right) ds \\
-	=\int_{-1}^{1}\frac{1}{\sqrt{2i+1}}\psi_{j}\left(s\right)\frac{1}{\sqrt{2j+1}}\psi_{j}\left(s\right)ds \\
-	=\delta ij
-
-Introducing these scaling factors, we now can plot the standard Legendre polynomials; these are reported in the Wikipedia `entry <https://en.wikipedia.org/wiki/Legendre_polynomials>`__.
-
+How good is the fit? We can evaluate the goodness of fit on a select number of points to test how well our model does. The following code evaluates :math:`R^2` scores (between 0 and 1) for the goodness of fit on the training points (points used to fit the polynomial model) and some testing points which we set as a uniform grid on the input domain. The latter is a good indication of how well the model performs in the domain of interest and whether the model has overfitted---of course, at the cost of extra model evaluations.
 
 .. code::
 
-	factor_0 = 1.
-	factor_1 = 1.0 / np.sqrt(2.0 * 1.0 + 1.)
-	factor_2 = 1.0 / np.sqrt(2.0 * 2.0 + 1.)
-	factor_3 = 1.0 / np.sqrt(2.0 * 3.0 + 1.)
-	factor_4 = 1.0 / np.sqrt(2.0 * 4.0 + 1.)
-	factor_5 = 1.0 / np.sqrt(2.0 * 5.0 + 1.)
+	test_pts = np.mgrid[0:1.1:0.1, 0:1.1:0.1]
+	test_pts = np.vstack([test_pts[0].flatten(), test_pts[1].flatten()]).T
+	test_evals = eq.evaluate_model(test_pts, rosenbrock)
+	train_r2, test_r2 = my_poly.get_polyscore(X_test=test_pts, y_test=test_evals)
+	print(train_r2, test_r2)
 
-	fig = plt.figure()
-	ax = fig.add_subplot(1,1,1)
-	plt.plot(xo, factor_0 * P[0,:], lw=2, label='Order 0')
-	plt.plot(xo, factor_1 * P[1,:], lw=2, label='Order 1')
-	plt.plot(xo, factor_2 * P[2,:], lw=2, label='Order 2')
-	plt.plot(xo, factor_3 * P[3,:], lw=2, label='Order 3')
-	plt.plot(xo, factor_4 * P[4,:], lw=2, label='Order 4')
-	plt.plot(xo, factor_5 * P[5,:], lw=2, label='Order 5')
-	plt.legend(loc='upper center', bbox_to_anchor=(0.5, 1.30), ncol=3, fancybox=True, shadow=True)
-	plt.xlabel('$s$', fontsize=18)
-	plt.ylabel('Scaled polynomials', fontsize=18)
-	plt.savefig('../Figures/tutorial_3_fig_b.png', dpi=200, bbox_inches='tight')
+We should find that both the train and test scores are very close to 1. This is expected, since the function we are fitting is a polynomial!
 
-.. figure:: Figures/tutorial_3_fig_b.png
-   :scale: 30 %
+Note that this method relies entirely on numerical quadrature methods. An implication of this is that we are restricted to certain types of basis, namely the tensor grid and sparse grid. In addition, one function evaluation is required per basis term we have. In this example, we needed :math:`5^2 = 25` evaluations, but in high dimensions, the number of terms of these grids can be very prohibitive. Suppose that we cannot afford 25 evaluations. Can we solve the coefficients with fewer?
 
-   Figure. The first six (normalized) Legendre polynomials
 
-	 The full source code for this tutorial can be found `here. <https://github.com/Effective-Quadratures/Effective-Quadratures/blob/master/source/_documentation/codes/tutorial_3.py>`__
+Total-order least squares
+---------
+
+The least squares method focuses on the linear system (2) and finds coefficients that minimises the 2-norm error, i.e. the total squared error between prediction (:math:`\mathbf{Ac}`) and true function evaluations (:math:`\mathbf{b}`). An immediate advantage here is that we are not restricted to any type of basis. Instead of using the tensor grid, let's use the total order basis, which only has 15 basis terms. 
+
+.. code::
+
+	my_basis = eq.Basis('total-order')
+	X_train = np.random.uniform(-1.0, 1.0, size=(20, 2))
+	y_train = eq.evaluate_model(X_train, rosenbrock)
+	my_poly = eq.Poly(parameters=my_param_list, basis=my_basis, method='least-squares',
+					sampling_args={'mesh':'user-defined', 'sample-points':X_train,
+									'sample-outputs':y_train})
+	my_poly.set_model()
+
+Note the other salient difference here: we are free to set the points where we evaluate the function. A simple---but often effective---approach is to simply select points randomly according to the input distribution, i.e. the uniform distribution. The selected points and corresponding function evaluations are fed to the Poly object instead of the function itself. 
+
+How many function evaluations do we need? Here, we used 20. For least squares generally, the number of evaluations needs to be at least larger than the number of basis terms. The more function evaluations used, the more stable the solution is going to be against small perturbations. Again, we can see how this model performs by using the :code:`get_polyscore` method.
+
+.. code::
+
+	test_pts = np.mgrid[0:1.1:0.1, 0:1.1:0.1]
+	test_pts = np.vstack([test_pts[0].flatten(), test_pts[1].flatten()]).T
+	test_evals = eq.evaluate_model(test_pts, rosenbrock)
+	train_r2, test_r2 = my_poly.get_polyscore(X_test=test_pts, y_test=test_evals)
+	print(train_r2, test_r2)
+
+which should give us values close to 1 again. 
+
+Conclusions
+--------
+
+This tutorial showcased two solution methods in EQ, but this merely scratches the surface of the many coefficient solving strategies in EQ. To mention a few more examples:
+
+* Compressed sensing allows us to surpass the restriction that we need more function evaluations than basis terms, but we need to assume some special structure in the solution.
+* Elastic net promotes sparsity in the solution, which can improve the model's generalisation capabilities.
+* Subsampling strategies (such as QR column pivoting) allow us to maximise the utility of a limited number of function evaluations.
+* Dimension reduction methods exploit special low-dimensional structures in functions to drastically reduce the number of function evaluations required to fit a model.
+
+In the other tutorials, these methods are explored in further details. 

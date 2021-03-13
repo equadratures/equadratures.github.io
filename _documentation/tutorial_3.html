@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Foundations III: Solving linear systems for polynomials &amp; numerical quadrature &#8212; equadratures</title>
+    <title>Foundations III: Solving linear systems for model fitting &#8212; equadratures</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -135,7 +135,7 @@
           
             
                 <li class="active">
-                    <a href="">Foundations III: Solving linear systems for polynomials & numerical quadrature</a>
+                    <a href="">Foundations III: Solving linear systems for model fitting</a>
                 </li>
             
           
@@ -214,9 +214,24 @@
           
           <div class="d-none d-xl-block col-xl-2 bd-toc">
               
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
 
 <nav id="bd-toc-nav">
     <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#tensor-grid-quadrature" class="nav-link">Tensor-grid quadrature</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#total-order-least-squares" class="nav-link">Total-order least squares</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#conclusions" class="nav-link">Conclusions</a>
+        </li>
     
     </ul>
 </nav>
@@ -231,83 +246,85 @@
               
               <div>
                 
-  <div class="section" id="foundations-iii-solving-linear-systems-for-polynomials-numerical-quadrature">
-<h1>Foundations III: Solving linear systems for polynomials &amp; numerical quadrature<a class="headerlink" href="#foundations-iii-solving-linear-systems-for-polynomials-numerical-quadrature" title="Permalink to this headline">¶</a></h1>
-<p>In this tutorial we describe how one can construct orthogonal polynomials in Effective Quadratures. For starters, we consider Legendre polynomials—orthogonal with respect to the uniform weight function. We define a Parameter <span class="math notranslate nohighlight">\(s\)</span> with <span class="math notranslate nohighlight">\(\rho(s) \sim \mathcal{U}[-1,1]\)</span>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">equadratures</span> <span class="kn">import</span> <span class="o">*</span>
+  <div class="section" id="foundations-iii-solving-linear-systems-for-model-fitting">
+<h1>Foundations III: Solving linear systems for model fitting<a class="headerlink" href="#foundations-iii-solving-linear-systems-for-model-fitting" title="Permalink to this headline">¶</a></h1>
+<p>In this final foundation tutorial, let’s apply the tools we introduced in the previous two tutorials. Consider the Rosenbrock’s function in 2D</p>
+<div class="math notranslate nohighlight">
+\[f(x_1, x_2) = (1 - x_1)^2 + 100 (x_2 - x_1^2)^2\]</div>
+<p>with <span class="math notranslate nohighlight">\(x_1, x_2\)</span> uniformly distributed in <span class="math notranslate nohighlight">\([-1, 1]\)</span>. Suppose that we want to fit a polynomial model for this function, e.g. to estimate its output moments. In EQ, models are composed using the <cite>Poly</cite> object, which encapsulates the function</p>
+<div class="math notranslate nohighlight">
+\[g(\mathbf{x}) = \sum_{i=1}^P c_i \psi_i(\mathbf{x}) \qquad (1)\]</div>
+<p>where <span class="math notranslate nohighlight">\(\psi_i(\mathbf{x})\)</span> are the orthogonal polynomials defined on a certain basis, as we mentioned in the last tutorial. Fitting the polynomial amounts to solving for the coefficients <span class="math notranslate nohighlight">\(c_i\)</span>. In practice, this is equivalent to <em>solving a linear system</em></p>
+<div class="math notranslate nohighlight">
+\[\mathbf{Ac} = \mathbf{b} \qquad (2)\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathbf{A}(i, j) = \psi_j(\mathbf{x}_i)\)</span> (similar to the Vandermonde type matrix in the previous tutorial), and <span class="math notranslate nohighlight">\(b(i) = f(\mathbf{x_i})\)</span> contain function evaluations. In most practical problems, function evaluations are expensive, and we wish to obtain the most accurate model with the fewest amount of function evaluations. How many function evaluations do we need to solve the linear system? Let’s explore this question by examining two example solver methods in EQ. Before we dive in, let’s define the function and set up the preliminaries:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">equadratures</span> <span class="k">as</span> <span class="nn">eq</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
+<span class="k">def</span> <span class="nf">rosenbrock</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">100.0</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
 
-<span class="n">order</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="n">s1</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">lower</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span> <span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;Uniform&#39;</span><span class="p">)</span>
+<span class="n">x0</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">lower</span><span class="o">=-</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="n">x1</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">lower</span><span class="o">=-</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="n">my_param_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>We restrict our attention to the first five orthogonal polynomials, where the parameterized matrix <span class="math notranslate nohighlight">\(\mathbf{P}\)</span> has the form</p>
+<div class="section" id="tensor-grid-quadrature">
+<h2>Tensor-grid quadrature<a class="headerlink" href="#tensor-grid-quadrature" title="Permalink to this headline">¶</a></h2>
+<p>First, coefficients can be solved in EQ using <em>numerical integration</em>. Why integration? If we multiply the equation (1) above with <span class="math notranslate nohighlight">\(\psi_j(\mathbf{x})\)</span> and integrate, we get</p>
 <div class="math notranslate nohighlight">
-\[\mathbf{P}\left(i,j\right)=\psi_{i}\left(\lambda_{j}\right) \; \; \text{where} \; \; i=1, \ldots, p; \; j = 1, \ldots, N,\]</div>
-<p>where <span class="math notranslate nohighlight">\(N\)</span> is the number of points <span class="math notranslate nohighlight">\(\lambda_{j}\)</span> discretizing the domain of <span class="math notranslate nohighlight">\(s\)</span>, and <span class="math notranslate nohighlight">\(p\)</span> is the maximum polynomial order, set to 5. Plots of the polynomials are shown below.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">myBasis</span> <span class="o">=</span> <span class="n">Basis</span><span class="p">(</span><span class="s1">&#39;univariate&#39;</span><span class="p">)</span>
-<span class="n">myPoly</span> <span class="o">=</span> <span class="n">Poly</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">myBasis</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;numerical-integration&#39;</span><span class="p">)</span>
-<span class="n">xo</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">P</span> <span class="o">=</span> <span class="n">myPoly</span><span class="o">.</span><span class="n">get_poly</span><span class="p">(</span><span class="n">xo</span><span class="p">)</span>
-
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xo</span><span class="p">,</span> <span class="n">P</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Order 0&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xo</span><span class="p">,</span> <span class="n">P</span><span class="p">[</span><span class="mi">1</span><span class="p">,:],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Order 1&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xo</span><span class="p">,</span> <span class="n">P</span><span class="p">[</span><span class="mi">2</span><span class="p">,:],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Order 2&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xo</span><span class="p">,</span> <span class="n">P</span><span class="p">[</span><span class="mi">3</span><span class="p">,:],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Order 3&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xo</span><span class="p">,</span> <span class="n">P</span><span class="p">[</span><span class="mi">4</span><span class="p">,:],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Order 4&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xo</span><span class="p">,</span> <span class="n">P</span><span class="p">[</span><span class="mi">5</span><span class="p">,:],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Order 5&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper center&#39;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.30</span><span class="p">),</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">fancybox</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">shadow</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$s$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Polynomials&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;../Figures/tutorial_3_fig_a.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+\[\int g(\mathbf{x}) \psi_j(\mathbf{x}) dx = \int \sum_{i=1}^P c_i \psi_i(\mathbf{x}) \psi_j(\mathbf{x}) dx = c_j\]</div>
+<p>Owing to the <em>orthogonality</em> of the basis functions we chose, every term vanishes except for the j-th term. Thus, coefficients can be solved effectively by integration, provided that the integral is evaluated accurately. This is handled via various quadrature methods in EQ. For example, if we choose to use tensor grid, Gauss-Legendre quadrature is a proven heuristic that solves the system to a high degree of accuracy. In code, this is handled with the following.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_basis</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Basis</span><span class="p">(</span><span class="s1">&#39;tensor-grid&#39;</span><span class="p">)</span>
+<span class="n">my_poly</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Poly</span><span class="p">(</span><span class="n">parameters</span><span class="o">=</span><span class="n">my_param_list</span><span class="p">,</span> <span class="n">basis</span><span class="o">=</span><span class="n">my_basis</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;numerical-integration&#39;</span><span class="p">)</span>
+<span class="n">my_poly</span><span class="o">.</span><span class="n">set_model</span><span class="p">(</span><span class="n">rosenbrock</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure align-default" id="id1">
-<a class="reference internal image-reference" href="../_images/tutorial_3_fig_a.png"><img alt="../_images/tutorial_3_fig_a.png" src="../_images/tutorial_3_fig_a.png" style="width: 356.7px; height: 330.0px;" /></a>
-<p class="caption"><span class="caption-text">Figure. The first six Legendre polynomials</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
-</div>
-<p>A few remarks are in order regarding this plot. Standard Legendre polynomials are orthogonal via</p>
-<div class="math notranslate nohighlight">
-\[\int_{-1}^{1}\psi_{i}\left(s \right)\psi_{j}\left(s \right)ds=\frac{2\delta_{ij}}{2i+1},\]</div>
-<p>where <span class="math notranslate nohighlight">\(\delta_{ij}\)</span> is the Kronecker delta. In Effective Quadratures, we modify all orthogonal polynomials such that the right hand side of this expression is unity when <span class="math notranslate nohighlight">\(i=j\)</span></p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\frac{1}{2i+1} \int_{-1}^{1}\psi_{i}\left(s\right)\psi_{j}\left(s\right) ds \\
-=\int_{-1}^{1}\frac{1}{\sqrt{2i+1}}\psi_{j}\left(s\right)\frac{1}{\sqrt{2j+1}}\psi_{j}\left(s\right)ds \\
-=\delta ij\end{split}\]</div>
-<p>Introducing these scaling factors, we now can plot the standard Legendre polynomials; these are reported in the Wikipedia <a class="reference external" href="https://en.wikipedia.org/wiki/Legendre_polynomials">entry</a>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">factor_0</span> <span class="o">=</span> <span class="mf">1.</span>
-<span class="n">factor_1</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="mf">1.0</span> <span class="o">+</span> <span class="mf">1.</span><span class="p">)</span>
-<span class="n">factor_2</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="mf">2.0</span> <span class="o">+</span> <span class="mf">1.</span><span class="p">)</span>
-<span class="n">factor_3</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="mf">3.0</span> <span class="o">+</span> <span class="mf">1.</span><span class="p">)</span>
-<span class="n">factor_4</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="mf">4.0</span> <span class="o">+</span> <span class="mf">1.</span><span class="p">)</span>
-<span class="n">factor_5</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="mf">5.0</span> <span class="o">+</span> <span class="mf">1.</span><span class="p">)</span>
-
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xo</span><span class="p">,</span> <span class="n">factor_0</span> <span class="o">*</span> <span class="n">P</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Order 0&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xo</span><span class="p">,</span> <span class="n">factor_1</span> <span class="o">*</span> <span class="n">P</span><span class="p">[</span><span class="mi">1</span><span class="p">,:],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Order 1&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xo</span><span class="p">,</span> <span class="n">factor_2</span> <span class="o">*</span> <span class="n">P</span><span class="p">[</span><span class="mi">2</span><span class="p">,:],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Order 2&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xo</span><span class="p">,</span> <span class="n">factor_3</span> <span class="o">*</span> <span class="n">P</span><span class="p">[</span><span class="mi">3</span><span class="p">,:],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Order 3&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xo</span><span class="p">,</span> <span class="n">factor_4</span> <span class="o">*</span> <span class="n">P</span><span class="p">[</span><span class="mi">4</span><span class="p">,:],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Order 4&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xo</span><span class="p">,</span> <span class="n">factor_5</span> <span class="o">*</span> <span class="n">P</span><span class="p">[</span><span class="mi">5</span><span class="p">,:],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Order 5&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper center&#39;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.30</span><span class="p">),</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">fancybox</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">shadow</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$s$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Scaled polynomials&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;../Figures/tutorial_3_fig_b.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+<p>The first line declares the suitable basis for us to use, which is fed to the Poly object in the second line. We specify that we want to solve the coefficient via numerical integration. The third line initiates and executes the solver within the Poly object to set the coefficients in Poly.</p>
+<p>How good is the fit? We can evaluate the goodness of fit on a select number of points to test how well our model does. The following code evaluates <span class="math notranslate nohighlight">\(R^2\)</span> scores (between 0 and 1) for the goodness of fit on the training points (points used to fit the polynomial model) and some testing points which we set as a uniform grid on the input domain. The latter is a good indication of how well the model performs in the domain of interest and whether the model has overfitted—of course, at the cost of extra model evaluations.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">test_pts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mgrid</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mf">1.1</span><span class="p">:</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mf">1.1</span><span class="p">:</span><span class="mf">0.1</span><span class="p">]</span>
+<span class="n">test_pts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">test_pts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">test_pts</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">()])</span><span class="o">.</span><span class="n">T</span>
+<span class="n">test_evals</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">evaluate_model</span><span class="p">(</span><span class="n">test_pts</span><span class="p">,</span> <span class="n">rosenbrock</span><span class="p">)</span>
+<span class="n">train_r2</span><span class="p">,</span> <span class="n">test_r2</span> <span class="o">=</span> <span class="n">my_poly</span><span class="o">.</span><span class="n">get_polyscore</span><span class="p">(</span><span class="n">X_test</span><span class="o">=</span><span class="n">test_pts</span><span class="p">,</span> <span class="n">y_test</span><span class="o">=</span><span class="n">test_evals</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">train_r2</span><span class="p">,</span> <span class="n">test_r2</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="figure align-default" id="id2">
-<a class="reference internal image-reference" href="../_images/tutorial_3_fig_b.png"><img alt="../_images/tutorial_3_fig_b.png" src="../_images/tutorial_3_fig_b.png" style="width: 368.7px; height: 330.0px;" /></a>
-<p class="caption"><span class="caption-text">Figure. The first six (normalized) Legendre polynomials</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-<div class="legend">
-<blockquote>
-<div><p>The full source code for this tutorial can be found <a class="reference external" href="https://github.com/Effective-Quadratures/Effective-Quadratures/blob/master/source/_documentation/codes/tutorial_3.py">here.</a></p>
-</div></blockquote>
+<p>We should find that both the train and test scores are very close to 1. This is expected, since the function we are fitting is a polynomial!</p>
+<p>Note that this method relies entirely on numerical quadrature methods. An implication of this is that we are restricted to certain types of basis, namely the tensor grid and sparse grid. In addition, one function evaluation is required per basis term we have. In this example, we needed <span class="math notranslate nohighlight">\(5^2 = 25\)</span> evaluations, but in high dimensions, the number of terms of these grids can be very prohibitive. Suppose that we cannot afford 25 evaluations. Can we solve the coefficients with fewer?</p>
 </div>
+<div class="section" id="total-order-least-squares">
+<h2>Total-order least squares<a class="headerlink" href="#total-order-least-squares" title="Permalink to this headline">¶</a></h2>
+<p>The least squares method focuses on the linear system (2) and finds coefficients that minimises the 2-norm error, i.e. the total squared error between prediction (<span class="math notranslate nohighlight">\(\mathbf{Ac}\)</span>) and true function evaluations (<span class="math notranslate nohighlight">\(\mathbf{b}\)</span>). An immediate advantage here is that we are not restricted to any type of basis. Instead of using the tensor grid, let’s use the total order basis, which only has 15 basis terms.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_basis</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Basis</span><span class="p">(</span><span class="s1">&#39;total-order&#39;</span><span class="p">)</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">evaluate_model</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">rosenbrock</span><span class="p">)</span>
+<span class="n">my_poly</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Poly</span><span class="p">(</span><span class="n">parameters</span><span class="o">=</span><span class="n">my_param_list</span><span class="p">,</span> <span class="n">basis</span><span class="o">=</span><span class="n">my_basis</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;least-squares&#39;</span><span class="p">,</span>
+                                <span class="n">sampling_args</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;mesh&#39;</span><span class="p">:</span><span class="s1">&#39;user-defined&#39;</span><span class="p">,</span> <span class="s1">&#39;sample-points&#39;</span><span class="p">:</span><span class="n">X_train</span><span class="p">,</span>
+                                                                <span class="s1">&#39;sample-outputs&#39;</span><span class="p">:</span><span class="n">y_train</span><span class="p">})</span>
+<span class="n">my_poly</span><span class="o">.</span><span class="n">set_model</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Note the other salient difference here: we are free to set the points where we evaluate the function. A simple—but often effective—approach is to simply select points randomly according to the input distribution, i.e. the uniform distribution. The selected points and corresponding function evaluations are fed to the Poly object instead of the function itself.</p>
+<p>How many function evaluations do we need? Here, we used 20. For least squares generally, the number of evaluations needs to be at least larger than the number of basis terms. The more function evaluations used, the more stable the solution is going to be against small perturbations. Again, we can see how this model performs by using the <code class="code docutils literal notranslate"><span class="pre">get_polyscore</span></code> method.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">test_pts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mgrid</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mf">1.1</span><span class="p">:</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mf">1.1</span><span class="p">:</span><span class="mf">0.1</span><span class="p">]</span>
+<span class="n">test_pts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">test_pts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">test_pts</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">()])</span><span class="o">.</span><span class="n">T</span>
+<span class="n">test_evals</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">evaluate_model</span><span class="p">(</span><span class="n">test_pts</span><span class="p">,</span> <span class="n">rosenbrock</span><span class="p">)</span>
+<span class="n">train_r2</span><span class="p">,</span> <span class="n">test_r2</span> <span class="o">=</span> <span class="n">my_poly</span><span class="o">.</span><span class="n">get_polyscore</span><span class="p">(</span><span class="n">X_test</span><span class="o">=</span><span class="n">test_pts</span><span class="p">,</span> <span class="n">y_test</span><span class="o">=</span><span class="n">test_evals</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">train_r2</span><span class="p">,</span> <span class="n">test_r2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>which should give us values close to 1 again.</p>
+</div>
+<div class="section" id="conclusions">
+<h2>Conclusions<a class="headerlink" href="#conclusions" title="Permalink to this headline">¶</a></h2>
+<p>This tutorial showcased two solution methods in EQ, but this merely scratches the surface of the many coefficient solving strategies in EQ. To mention a few more examples:</p>
+<ul class="simple">
+<li><p>Compressed sensing allows us to surpass the restriction that we need more function evaluations than basis terms, but we need to assume some special structure in the solution.</p></li>
+<li><p>Elastic net promotes sparsity in the solution, which can improve the model’s generalisation capabilities.</p></li>
+<li><p>Subsampling strategies (such as QR column pivoting) allow us to maximise the utility of a limited number of function evaluations.</p></li>
+<li><p>Dimension reduction methods exploit special low-dimensional structures in functions to drastically reduce the number of function evaluations required to fit a model.</p></li>
+</ul>
+<p>In the other tutorials, these methods are explored in further details.</p>
 </div>
 </div>
 

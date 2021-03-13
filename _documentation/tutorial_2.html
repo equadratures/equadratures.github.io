@@ -39,7 +39,7 @@
     <link rel="shortcut icon" href="../_static/eq-logo-favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Foundations III: Solving linear systems for polynomials &amp; numerical quadrature" href="tutorial_3.html" />
+    <link rel="next" title="Foundations III: Solving linear systems for model fitting" href="tutorial_3.html" />
     <link rel="prev" title="Foundations I: Parameter" href="tutorial_1.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -135,7 +135,7 @@
           
             
                 <li class="">
-                    <a href="tutorial_3.html">Foundations III: Solving linear systems for polynomials & numerical quadrature</a>
+                    <a href="tutorial_3.html">Foundations III: Solving linear systems for model fitting</a>
                 </li>
             
           
@@ -246,23 +246,23 @@
 <h1>Foundations II: Orthogonal polynomials<a class="headerlink" href="#foundations-ii-orthogonal-polynomials" title="Permalink to this headline">¶</a></h1>
 <p>In this tutorial we describe how one can construct orthogonal polynomials in Effective Quadratures. These polynomials have the property of being orthogonal to each other under integration with respect to a specific probability measure. That is, they obey the following:</p>
 <div class="math notranslate nohighlight">
-\[\int_D \psi_{i}\left(s \right)\psi_{j}\left(s \right) \rho(s) ds=delta_{ij},\]</div>
+\[\int_D \psi_{i}\left(s \right)\psi_{j}\left(s \right) \rho(s) ds=\delta_{ij},\]</div>
 <p>In this first part, let’s consider univariate orthogonal polynomials—it turns out that multivariate orthogonal polynomials can be constructed as products of univariate ones. For starters, we consider Legendre polynomials—orthogonal with respect to the uniform weight function. We define a Parameter <span class="math notranslate nohighlight">\(s\)</span> with <span class="math notranslate nohighlight">\(\rho(s) \sim \mathcal{U}[-1,1]\)</span>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">equadratures</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">equadratures</span> <span class="k">as</span> <span class="nn">eq</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 
 <span class="n">order</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="n">s1</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">lower</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span> <span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;Uniform&#39;</span><span class="p">)</span>
+<span class="n">s1</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">lower</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span> <span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;Uniform&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Setting <cite>order=5</cite> implies that we restrict our attention to the first five orthogonal polynomials. The polynomials can be evaluated on a grid of <span class="math notranslate nohighlight">\(N\)</span> points <span class="math notranslate nohighlight">\((\lambda_{j})_{j=1}^N\)</span>, forming the Vandermonde-type matrix  <span class="math notranslate nohighlight">\(\mathbf{P}\)</span> where</p>
+<p>Setting <code class="code docutils literal notranslate"><span class="pre">order=5</span></code> implies that we restrict our attention to the first five orthogonal polynomials. The polynomials can be evaluated on a grid of <span class="math notranslate nohighlight">\(N\)</span> points <span class="math notranslate nohighlight">\((\lambda_{j})_{j=1}^N\)</span>, forming the Vandermonde-type matrix  <span class="math notranslate nohighlight">\(\mathbf{P}\)</span> where</p>
 <div class="math notranslate nohighlight">
 \[\mathbf{P}\left(i,j\right)=\psi_{i}\left(\lambda_{j}\right) \; \; \text{where} \; \; i=1, \ldots, p; \; j = 1, \ldots, N,\]</div>
-<p>Here, <span class="math notranslate nohighlight">\(p\)</span> denotes the maximum polynomial order, 5 in our case. The matrix for 100 evaluations within [-1,1] can be generated as below:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">myBasis</span> <span class="o">=</span> <span class="n">Basis</span><span class="p">(</span><span class="s1">&#39;univariate&#39;</span><span class="p">)</span>
-<span class="n">myPoly</span> <span class="o">=</span> <span class="n">Poly</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">myBasis</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;numerical-integration&#39;</span><span class="p">)</span>
+<p>Here, <span class="math notranslate nohighlight">\(p\)</span> denotes the maximum polynomial order, 5 in our case. The matrix for 100 evaluations within <span class="math notranslate nohighlight">\([-1,1]\)</span> can be generated as below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">myBasis</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Basis</span><span class="p">(</span><span class="s1">&#39;univariate&#39;</span><span class="p">)</span>
+<span class="n">myPoly</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Poly</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">myBasis</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;numerical-integration&#39;</span><span class="p">)</span>
 <span class="n">xo</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 <span class="n">P</span> <span class="o">=</span> <span class="n">myPoly</span><span class="o">.</span><span class="n">get_poly</span><span class="p">(</span><span class="n">xo</span><span class="p">)</span>
 </pre></div>
@@ -284,7 +284,7 @@
 </div>
 <div class="figure align-default" id="id1">
 <a class="reference internal image-reference" href="../_images/tutorial_3_fig_a.png"><img alt="../_images/tutorial_3_fig_a.png" src="../_images/tutorial_3_fig_a.png" style="width: 356.7px; height: 330.0px;" /></a>
-<p class="caption"><span class="caption-text">Figure. The first six Legendre polynomials</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure. The first six normalised Legendre polynomials</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 <p>A few remarks are in order regarding this plot. Standard Legendre polynomials are orthogonal via</p>
 <div class="math notranslate nohighlight">
@@ -308,12 +308,12 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper center&#39;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.30</span><span class="p">),</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">fancybox</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">shadow</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$s$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Scaled polynomials&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;../Figures/tutorial_3_fig_b.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 <div class="figure align-default" id="id2">
 <a class="reference internal image-reference" href="../_images/tutorial_3_fig_b.png"><img alt="../_images/tutorial_3_fig_b.png" src="../_images/tutorial_3_fig_b.png" style="width: 368.7px; height: 330.0px;" /></a>
-<p class="caption"><span class="caption-text">Figure. The first six (normalized) Legendre polynomials</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Figure. The first six standard Legendre polynomials</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 <div class="section" id="quadrature-points">
 <h2>Quadrature Points<a class="headerlink" href="#quadrature-points" title="Permalink to this headline">¶</a></h2>
@@ -324,14 +324,11 @@
 <p>where the measure <span class="math notranslate nohighlight">\(\rho \left( s \right)\)</span> is the uniform distribution over <span class="math notranslate nohighlight">\([-1,1]\)</span>. Our task is to numerically approximate this integral using a quadrature rule, i.e.,</p>
 <div class="math notranslate nohighlight">
 \[I \approx 2 \sum_{i=1}^{N} f\left( \lambda_{i} \right) \omega_i\]</div>
-<p>where the pair <span class="math notranslate nohighlight">\(\left\{ \lambda_{i} , \omega_i  \right\}_{i=1}^{N}\)</span> represents an N-point quadrature rule. The constant <span class="math notranslate nohighlight">\(2\)</span> arises because we are integrating over the range of 2 and our quadrature weights sum up to <span class="math notranslate nohighlight">\(1\)</span>. To obtain such points in Effective Quadratures, one uses the following commands.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">equadratures</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="n">order</span> <span class="o">=</span> <span class="mi">4</span>
-<span class="n">myParameter</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">lower</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span> <span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;Uniform&#39;</span><span class="p">)</span>
-<span class="n">myBasis</span> <span class="o">=</span> <span class="n">Basis</span><span class="p">(</span><span class="s1">&#39;Univariate&#39;</span><span class="p">)</span>
-<span class="n">myPoly</span> <span class="o">=</span> <span class="n">Poly</span><span class="p">(</span><span class="n">myParameter</span><span class="p">,</span> <span class="n">myBasis</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;numerical-integration&#39;</span><span class="p">)</span>
+<p>where the pair <span class="math notranslate nohighlight">\(\left\{ \lambda_{i} , \omega_i  \right\}_{i=1}^{N}\)</span> represents an N-point quadrature rule. The constant <span class="math notranslate nohighlight">\(2\)</span> arises because we are integrating over the range of <span class="math notranslate nohighlight">\([-1,1]\)</span> and our quadrature weights sum up to <span class="math notranslate nohighlight">\(1\)</span>. To obtain such points in Effective Quadratures, one uses the following commands.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">order</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">myParameter</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">lower</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span> <span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;Uniform&#39;</span><span class="p">)</span>
+<span class="n">myBasis</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Basis</span><span class="p">(</span><span class="s1">&#39;univariate&#39;</span><span class="p">)</span>
+<span class="n">myPoly</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Poly</span><span class="p">(</span><span class="n">myParameter</span><span class="p">,</span> <span class="n">myBasis</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;numerical-integration&#39;</span><span class="p">)</span>
 <span class="n">points</span><span class="p">,</span> <span class="n">weights</span> <span class="o">=</span> <span class="n">myPoly</span><span class="o">.</span><span class="n">get_points_and_weights</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -345,9 +342,9 @@
 </div>
 <p>which yields <cite>3.14285714</cite> and is equal to 22/7 up to machine precision. Note that the constant 2 arises because we are integrating over <span class="math notranslate nohighlight">\([-1,1]\)</span> with the uniform measure, which has a density of 1/2.</p>
 <p>Now, in addition to standard Gauss-Christoffel quadrature rules for a wide range of distributions, Effective Quadratures also has Gauss-Christoffel-Lobatto rules, which feature end-points and Gauss-Christoffel-Radau rules, which are variations on the standard Gauss quadrature rules that include either or both of the end points of the integration domain. To use these rules, we can specify the <cite>endpoints</cite> option when defining the <cite>Parameter</cite> object.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">myParameter</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">lower</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span><span class="n">upper</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span><span class="n">endpoints</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
-<span class="n">myBasis</span> <span class="o">=</span> <span class="n">Basis</span><span class="p">(</span><span class="s1">&#39;Univariate&#39;</span><span class="p">)</span>
-<span class="n">myPoly</span> <span class="o">=</span> <span class="n">Poly</span><span class="p">(</span><span class="n">myParameter2</span><span class="p">,</span> <span class="n">myBasis2</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;numerical-integration&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">myParameter</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">lower</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span><span class="n">upper</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span><span class="n">endpoints</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+<span class="n">myBasis</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Basis</span><span class="p">(</span><span class="s1">&#39;Univariate&#39;</span><span class="p">)</span>
+<span class="n">myPoly</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Poly</span><span class="p">(</span><span class="n">myParameter2</span><span class="p">,</span> <span class="n">myBasis2</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;numerical-integration&#39;</span><span class="p">)</span>
 <span class="n">points</span><span class="p">,</span> <span class="n">weights</span> <span class="o">=</span> <span class="n">myPoly</span><span class="o">.</span><span class="n">get_points_and_weights</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -356,13 +353,13 @@
 <p class="caption"><span class="caption-text">Figure. A comparison of order 4 Gauss-Legendre quadrature points (circles) with order 4 Gauss-Legendre-Lobatto points (squares) and Gauss-Legendre-Radau (triangles).</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 <p>In theory, these points should yield the same accuracy as before. To verify the accuracy of these points, we use the same code as above.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s2</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">lower</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span> <span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">endpoints</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
-<span class="n">s3</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">lower</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span> <span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">endpoints</span><span class="o">=</span><span class="s1">&#39;upper&#39;</span><span class="p">)</span>
-<span class="n">s4</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">lower</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span> <span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">endpoints</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s2</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">lower</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span> <span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">endpoints</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">lower</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span> <span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">endpoints</span><span class="o">=</span><span class="s1">&#39;upper&#39;</span><span class="p">)</span>
+<span class="n">s4</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">lower</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span> <span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">endpoints</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
 
-<span class="n">myPoly2</span> <span class="o">=</span> <span class="n">Poly</span><span class="p">(</span><span class="n">s2</span><span class="p">,</span> <span class="n">myBasis</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;numerical-integration&#39;</span><span class="p">)</span>
-<span class="n">myPoly3</span> <span class="o">=</span> <span class="n">Poly</span><span class="p">(</span><span class="n">s3</span><span class="p">,</span> <span class="n">myBasis</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;numerical-integration&#39;</span><span class="p">)</span>
-<span class="n">myPoly4</span> <span class="o">=</span> <span class="n">Poly</span><span class="p">(</span><span class="n">s4</span><span class="p">,</span> <span class="n">myBasis</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;numerical-integration&#39;</span><span class="p">)</span>
+<span class="n">myPoly2</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Poly</span><span class="p">(</span><span class="n">s2</span><span class="p">,</span> <span class="n">myBasis</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;numerical-integration&#39;</span><span class="p">)</span>
+<span class="n">myPoly3</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Poly</span><span class="p">(</span><span class="n">s3</span><span class="p">,</span> <span class="n">myBasis</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;numerical-integration&#39;</span><span class="p">)</span>
+<span class="n">myPoly4</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Poly</span><span class="p">(</span><span class="n">s4</span><span class="p">,</span> <span class="n">myBasis</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;numerical-integration&#39;</span><span class="p">)</span>
 
 <span class="n">points2</span><span class="p">,</span> <span class="n">weights2</span> <span class="o">=</span> <span class="n">myPoly2</span><span class="o">.</span><span class="n">get_points_and_weights</span><span class="p">()</span>
 <span class="n">points3</span><span class="p">,</span> <span class="n">weights3</span> <span class="o">=</span> <span class="n">myPoly2</span><span class="o">.</span><span class="n">get_points_and_weights</span><span class="p">()</span>
@@ -374,11 +371,11 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">integral2</span><span class="p">,</span> <span class="n">integral3</span><span class="p">,</span> <span class="n">integral4</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Again, the outputs should be equal to the analytical value up to machine precision. The full source code for this tutorial can be found <a class="reference external" href="https://github.com/Effective-Quadratures/Effective-Quadratures/blob/master/source/_documentation/codes/tutorial_2.py">here.</a></p>
+<p>Again, the outputs should be equal to the analytical value up to machine precision.</p>
 </div>
 <div class="section" id="index-sets">
 <h2>Index-sets<a class="headerlink" href="#index-sets" title="Permalink to this headline">¶</a></h2>
-<p>In practice, we are often interested in modeling functions of several variables. How can we extend orthogonal polynomials to multiple dimensions? One straightforward observation is that—assuming that all input variables <span class="math notranslate nohighlight">\(\mathbf{s} = \{s_1,s_2,...,s_d\}\)</span> are independent, we can decompose the joint distribution to the product of marginals in each dimension:</p>
+<p>In practice, we are often interested in modeling functions of several variables. How can we extend orthogonal polynomials to multiple dimensions? One straightforward observation is that—assuming that all input variables <span class="math notranslate nohighlight">\(\mathbf{s} = \{s_1,s_2,...,s_d\}\)</span> are independent, we can decompose the joint input distribution as the product of marginals in each dimension:</p>
 <div class="math notranslate nohighlight">
 \[\rho(\mathbf{s}) = \rho_1(s_1)~\rho_2(s_2)~...~\rho_d(s_d)\]</div>
 <p>This implies that multivariate polynomials of the form are orthogonal:</p>
@@ -422,14 +419,8 @@ There are five different types of index sets in Effective Quadratures:</p>
 </tr>
 </tbody>
 </table>
-<p>In what follows, we will briefly demonstrate how we construct them and visualise them in three dimensions.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="kn">from</span> <span class="nn">equadratures</span> <span class="kn">import</span> <span class="o">*</span>
-    <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-</pre></div>
-</div>
-<p>We begin by defining a tensor grid index set in three dimensions:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tensor</span> <span class="o">=</span> <span class="n">Basis</span><span class="p">(</span><span class="s1">&#39;tensor-grid&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<p>In what follows, we will briefly demonstrate how we construct them and visualise them in three dimensions. We begin by defining a tensor grid index set in three dimensions:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tensor</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Basis</span><span class="p">(</span><span class="s1">&#39;tensor-grid&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
 <span class="n">elements</span> <span class="o">=</span> <span class="n">tensor</span><span class="o">.</span><span class="n">elements</span>
 
 <span class="c1"># Plot!</span>
