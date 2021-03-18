@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Parameter &#8212; equadratures</title>
     
-  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.101715efdecc9b59cb6e1ddfa685c31f.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -19,22 +20,19 @@
 
     
       
-  <link rel="stylesheet"
-    href="../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../_static/js/index.d8bbf5861d671d414e1a.js">
 
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../_static/eq-logo-favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -45,34 +43,42 @@
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
-    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
-<div class="container-xl">
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
 
-    <a class="navbar-brand" href="../index.html">
+
     
-      <img src="../_static/logo_new.png" class="logo" alt="logo" />
+      
+      <a class="navbar-brand" href="../index.html">
+        <img src="../_static/logo_new.png" class="logo" alt="logo">
+      </a>
+      
     
-    </a>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
+    
     <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
       <ul id="navbar-main-elements" class="navbar-nav mr-auto">
-        
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="tutorials.html">Tutorials</a>
-        </li>
-        
-        <li class="nav-item active">
-            <a class="nav-link" href="documentation.html">Documentation</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="references.html">Research</a>
-        </li>
-        
+        <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="tutorials.html">
+  Tutorials
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="documentation.html">
+  Documentation
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="references.html">
+  Research
+ </a>
+</li>
+
         
         <li class="nav-item">
             <a class="nav-link nav-external" href="https://discourse.equadratures.org/">Discourse<i class="fas fa-external-link-alt"></i></a>
@@ -80,28 +86,23 @@
         
       </ul>
 
-
       <form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search equadratures..." aria-label="Search equadratures..." autocomplete="off" >
 </form>
-      
-
-      <ul class="navbar-nav">
-        
-          <li class="nav-item">
-            <a class="nav-link" href="https://github.com/Effective-Quadratures/equadratures" target="_blank" rel="noopener">
-              <span><i class="fab fa-github-square"></i></span>
-            </a>
-          </li>
-        
-        
-          <li class="nav-item">
-            <a class="nav-link" href="https://twitter.com/equadratures" target="_blank" rel="noopener">
-              <span><i class="fab fa-twitter-square"></i></span>
-            </a>
-          </li>
-        
+      <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/Effective-Quadratures/equadratures" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/equadratures" rel="noopener" target="_blank" title="Twitter">
+            <span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label>
+          </a>
+        </li>
       </ul>
     </div>
 </div>
@@ -111,91 +112,71 @@
     <div class="container-xl">
       <div class="row">
           
-          <div class="col-12 col-md-3 bd-sidebar"><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-
-    <div class="bd-toc-item active">
-    
-  
-    <ul class="nav bd-sidenav">
-        
-        
-        
-        
-          
             
-                <li class="active">
-                    <a href="">Parameter</a>
-                </li>
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l2 current active">
+  <a class="current reference internal" href="#">
+   Parameter
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="basis.html">
+   Basis
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="poly.html">
+   Polynomial
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="quadrature.html">
+   Quadrature
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="weight.html">
+   Prescribing probability functions
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="subspaces.html">
+   Dimension reduction with polynomials
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="optimisation.html">
+   Optimisation with polynomials
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="plot.html">
+   Plotting utilities
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="correlated.html">
+   Correlations
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="polytree.html">
+   Polynomial Regression Tree
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="solver.html">
+   Linear system solvers
+  </a>
+ </li>
+</ul>
+  </div>
+</nav>
+            </div>
             
-          
-            
-                <li class="">
-                    <a href="basis.html">Basis</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="poly.html">Polynomial</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="quadrature.html">Quadrature</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="weight.html">Prescribing probability functions</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="subspaces.html">Dimension reduction with polynomials</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="optimisation.html">Optimisation with polynomials</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="plot.html">Plotting utilities</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="correlated.html">Correlations</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="polytree.html">Polynomial Regression Tree</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="solver.html">Linear system solvers</a>
-                </li>
-            
-          
-        
-        
-        
-        
-      </ul>
-  
-  </nav>
-          </div>
           
 
           
@@ -203,9 +184,7 @@
               
 
 <nav id="bd-toc-nav">
-    <ul class="nav section-nav flex-column">
     
-    </ul>
 </nav>
 
 
@@ -213,6 +192,9 @@
           </div>
           
 
+          
+          
+            
           
           <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
               
@@ -223,7 +205,7 @@
 <p>Definition of a univariate parameter.</p>
 <dl class="py class">
 <dt id="equadratures.parameter.Parameter">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">equadratures.parameter.</span></code><code class="sig-name descname"><span class="pre">Parameter</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distribution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Uniform'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">endpoints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape_parameter_A</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape_parameter_B</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'parameter'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lower</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upper</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight_function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/parameter.html#Parameter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.parameter.Parameter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">equadratures.parameter.</code><code class="sig-name descname">Parameter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">order</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">distribution</span><span class="o">=</span><span class="default_value">'Uniform'</span></em>, <em class="sig-param"><span class="n">endpoints</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">shape_parameter_A</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">shape_parameter_B</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">variable</span><span class="o">=</span><span class="default_value">'parameter'</span></em>, <em class="sig-param"><span class="n">lower</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">upper</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">weight_function</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/parameter.html#Parameter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.parameter.Parameter" title="Permalink to this definition">¶</a></dt>
 <dd><p>This class defines a univariate parameter. Below are details of its constructor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -268,7 +250,7 @@ polynomials (and quadrature rules) based on the data, they can set this option t
 </dl>
 <dl class="py method">
 <dt id="equadratures.parameter.Parameter.get_cdf">
-<code class="sig-name descname"><span class="pre">get_cdf</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/parameter.html#Parameter.get_cdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.parameter.Parameter.get_cdf" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_cdf</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">points</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/parameter.html#Parameter.get_cdf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.parameter.Parameter.get_cdf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the cumulative density function associated with the Parameter.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -282,7 +264,7 @@ polynomials (and quadrature rules) based on the data, they can set this option t
 
 <dl class="py method">
 <dt id="equadratures.parameter.Parameter.get_description">
-<code class="sig-name descname"><span class="pre">get_description</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/parameter.html#Parameter.get_description"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.parameter.Parameter.get_description" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_description</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/parameter.html#Parameter.get_description"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.parameter.Parameter.get_description" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provides a description of the Parameter.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -293,7 +275,7 @@ polynomials (and quadrature rules) based on the data, they can set this option t
 
 <dl class="py method">
 <dt id="equadratures.parameter.Parameter.get_icdf">
-<code class="sig-name descname"><span class="pre">get_icdf</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cdf_values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/parameter.html#Parameter.get_icdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.parameter.Parameter.get_icdf" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_icdf</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cdf_values</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/parameter.html#Parameter.get_icdf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.parameter.Parameter.get_icdf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the inverse cumulative density function associated with the Parameter.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -307,7 +289,7 @@ polynomials (and quadrature rules) based on the data, they can set this option t
 
 <dl class="py method">
 <dt id="equadratures.parameter.Parameter.get_jacobi_eigenvectors">
-<code class="sig-name descname"><span class="pre">get_jacobi_eigenvectors</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/parameter.html#Parameter.get_jacobi_eigenvectors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.parameter.Parameter.get_jacobi_eigenvectors" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_jacobi_eigenvectors</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">order</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/parameter.html#Parameter.get_jacobi_eigenvectors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.parameter.Parameter.get_jacobi_eigenvectors" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the eigenvectors of the Jacobi matrix.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -321,7 +303,7 @@ polynomials (and quadrature rules) based on the data, they can set this option t
 
 <dl class="py method">
 <dt id="equadratures.parameter.Parameter.get_jacobi_matrix">
-<code class="sig-name descname"><span class="pre">get_jacobi_matrix</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ab</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/parameter.html#Parameter.get_jacobi_matrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.parameter.Parameter.get_jacobi_matrix" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_jacobi_matrix</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">order</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ab</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/parameter.html#Parameter.get_jacobi_matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.parameter.Parameter.get_jacobi_matrix" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the Jacobi matrix—a tridiagonal matrix of the recurrence coefficients.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -335,7 +317,7 @@ polynomials (and quadrature rules) based on the data, they can set this option t
 
 <dl class="py method">
 <dt id="equadratures.parameter.Parameter.get_pdf">
-<code class="sig-name descname"><span class="pre">get_pdf</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/parameter.html#Parameter.get_pdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.parameter.Parameter.get_pdf" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_pdf</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">points</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/parameter.html#Parameter.get_pdf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.parameter.Parameter.get_pdf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the probability density function associated with the Parameter.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -349,7 +331,7 @@ polynomials (and quadrature rules) based on the data, they can set this option t
 
 <dl class="py method">
 <dt id="equadratures.parameter.Parameter.get_recurrence_coefficients">
-<code class="sig-name descname"><span class="pre">get_recurrence_coefficients</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/parameter.html#Parameter.get_recurrence_coefficients"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.parameter.Parameter.get_recurrence_coefficients" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_recurrence_coefficients</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">order</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/parameter.html#Parameter.get_recurrence_coefficients"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.parameter.Parameter.get_recurrence_coefficients" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates the recurrence coefficients.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -363,7 +345,7 @@ polynomials (and quadrature rules) based on the data, they can set this option t
 
 <dl class="py method">
 <dt id="equadratures.parameter.Parameter.get_samples">
-<code class="sig-name descname"><span class="pre">get_samples</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number_of_samples_required</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/parameter.html#Parameter.get_samples"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.parameter.Parameter.get_samples" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_samples</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">number_of_samples_required</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/parameter.html#Parameter.get_samples"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.parameter.Parameter.get_samples" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates samples from the distribution associated with the Parameter.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -377,13 +359,13 @@ polynomials (and quadrature rules) based on the data, they can set this option t
 
 <dl class="py method">
 <dt id="equadratures.parameter.Parameter.plot_orthogonal_polynomials">
-<code class="sig-name descname"><span class="pre">plot_orthogonal_polynomials</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/parameter.html#Parameter.plot_orthogonal_polynomials"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.parameter.Parameter.plot_orthogonal_polynomials" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">plot_orthogonal_polynomials</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/parameter.html#Parameter.plot_orthogonal_polynomials"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.parameter.Parameter.plot_orthogonal_polynomials" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plots the orthogonal polynomials.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="equadratures.parameter.Parameter.plot_pdf">
-<code class="sig-name descname"><span class="pre">plot_pdf</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/parameter.html#Parameter.plot_pdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.parameter.Parameter.plot_pdf" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">plot_pdf</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/parameter.html#Parameter.plot_pdf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.parameter.Parameter.plot_pdf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plots the probability distribution.</p>
 </dd></dl>
 
@@ -402,14 +384,14 @@ polynomials (and quadrature rules) based on the data, they can set this option t
     </div>
 
     
-  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+  <script src="../_static/js/index.d8bbf5861d671d414e1a.js"></script>
 
 
     <footer class="footer mt-5 mt-md-0">
   <div class="container">
     <p>
           &copy; Copyright 2016-2021 by equadratures.org.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.1.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3.<br/>
     </p>
   </div>
 </footer>

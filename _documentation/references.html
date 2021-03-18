@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Research &#8212; equadratures</title>
     
-  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.101715efdecc9b59cb6e1ddfa685c31f.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -19,22 +20,19 @@
 
     
       
-  <link rel="stylesheet"
-    href="../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../_static/js/index.d8bbf5861d671d414e1a.js">
 
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../_static/eq-logo-favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -44,34 +42,42 @@
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
-    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
-<div class="container-xl">
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
 
-    <a class="navbar-brand" href="../index.html">
+
     
-      <img src="../_static/logo_new.png" class="logo" alt="logo" />
+      
+      <a class="navbar-brand" href="../index.html">
+        <img src="../_static/logo_new.png" class="logo" alt="logo">
+      </a>
+      
     
-    </a>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
+    
     <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
       <ul id="navbar-main-elements" class="navbar-nav mr-auto">
-        
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="tutorials.html">Tutorials</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="documentation.html">Documentation</a>
-        </li>
-        
-        <li class="nav-item active">
-            <a class="nav-link" href="">Research</a>
-        </li>
-        
+        <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="tutorials.html">
+  Tutorials
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="documentation.html">
+  Documentation
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="current reference internal nav-link" href="#">
+  Research
+ </a>
+</li>
+
         
         <li class="nav-item">
             <a class="nav-link nav-external" href="https://discourse.equadratures.org/">Discourse<i class="fas fa-external-link-alt"></i></a>
@@ -79,28 +85,23 @@
         
       </ul>
 
-
       <form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search equadratures..." aria-label="Search equadratures..." autocomplete="off" >
 </form>
-      
-
-      <ul class="navbar-nav">
-        
-          <li class="nav-item">
-            <a class="nav-link" href="https://github.com/Effective-Quadratures/equadratures" target="_blank" rel="noopener">
-              <span><i class="fab fa-github-square"></i></span>
-            </a>
-          </li>
-        
-        
-          <li class="nav-item">
-            <a class="nav-link" href="https://twitter.com/equadratures" target="_blank" rel="noopener">
-              <span><i class="fab fa-twitter-square"></i></span>
-            </a>
-          </li>
-        
+      <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/Effective-Quadratures/equadratures" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/equadratures" rel="noopener" target="_blank" title="Twitter">
+            <span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label>
+          </a>
+        </li>
       </ul>
     </div>
 </div>
@@ -110,25 +111,15 @@
     <div class="container-xl">
       <div class="row">
           
-          <div class="col-12 col-md-3 bd-sidebar"><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-
-    <div class="bd-toc-item active">
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
     
-  
-    <ul class="nav bd-sidenav">
-        
-        
-        
-        
-        
-        
-          
-        
-        
-      </ul>
-  
-  </nav>
-          </div>
+  </div>
+</nav>
+            </div>
+            
           
 
           
@@ -139,33 +130,39 @@
 </div>
 
 <nav id="bd-toc-nav">
-    <ul class="nav section-nav flex-column">
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#data-driven-dimension-reduction" class="nav-link">Data-driven dimension reduction</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#numerical-integration" class="nav-link">Numerical integration</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#multi-fidelity-parameter-studies" class="nav-link">Multi-fidelity parameter studies</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#uncertainty-quantification-and-sensitivity-analysis" class="nav-link">Uncertainty quantification and sensitivity analysis</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#adjoint-gradient-enhancement" class="nav-link">Adjoint / gradient enhancement</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#flow-field-estimation" class="nav-link">Flow-field estimation</a>
-        </li>
-    
-    </ul>
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-driven-dimension-reduction">
+   Data-driven dimension reduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#numerical-integration">
+   Numerical integration
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#multi-fidelity-parameter-studies">
+   Multi-fidelity parameter studies
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#uncertainty-quantification-and-sensitivity-analysis">
+   Uncertainty quantification and sensitivity analysis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#adjoint-gradient-enhancement">
+   Adjoint / gradient enhancement
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#flow-field-estimation">
+   Flow-field estimation
+  </a>
+ </li>
+</ul>
+
 </nav>
 
 
@@ -173,6 +170,9 @@
           </div>
           
 
+          
+          
+            
           
           <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
               
@@ -197,7 +197,7 @@
 <dd class="field-odd"><p>Embedded ridge approximations</p>
 </dd>
 <dt class="field-even">Authors</dt>
-<dd class="field-even"><p>Chun Yui Wong, Pranay Seshadri, Geoffrey Parks, Mark Girolami</p>
+<dd class="field-even"><p><a class="reference external" href="https://ncywong.github.io">Chun Yui Wong</a>, <a class="reference external" href="https://www.psesh.com">Pranay Seshadri</a>, <a class="reference external" href="https://www.jesus.cam.ac.uk/people/geoff-parks">Geoffrey Parks</a>, <a class="reference external" href="https://prof-girolami.uk">Mark Girolami</a></p>
 </dd>
 <dt class="field-odd">Essence</dt>
 <dd class="field-odd"><p>Constructing ridge approximations for vector-valued quantities, and scalar-valued functions that are integrals of vector-valued fields. For example, the lift, drag and pressure coefficients of an airfoil.</p>
@@ -223,7 +223,7 @@
 <dd class="field-odd"><p>Blade envelopes parts I &amp; II</p>
 </dd>
 <dt class="field-even">Authors</dt>
-<dd class="field-even"><p>Chun Yui Wong, Pranay Seshadri, Ashley Scillitoe, Andrew Duncan, Geoffrey Parks</p>
+<dd class="field-even"><p><a class="reference external" href="https://ncywong.github.io">Chun Yui Wong</a>, <a class="reference external" href="https://www.psesh.com">Pranay Seshadri</a>, <a class="reference external" href="https://ascillitoe.com">Ashley Scillitoe</a>, <a class="reference external" href="https://wwwf.imperial.ac.uk/~aduncan/">Andrew Duncan</a>, <a class="reference external" href="https://www.jesus.cam.ac.uk/people/geoff-parks">Geoffrey Parks</a></p>
 </dd>
 <dt class="field-odd">Essence</dt>
 <dd class="field-odd"><p>Interpreting the design of a blade (airfoil) as a Gaussian distribution with known mean (nominal) but unknown covariance. Estimating this covariance matrix by generating samples from the inactive subspace for loss in part I. In part II we extend the approach in part I to multiple objectives (flow capacity, loss and peak Isentropic Mach number) and demonstrating how this approach can be used for inverse design.</p>
@@ -243,12 +243,38 @@
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../_images/temperature_probe.png"><img alt="../_images/temperature_probe.png" src="../_images/temperature_probe.png" style="width: 558.5999999999999px; height: 368.2px;" /></a>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Title</dt>
+<dd class="field-odd"><p>Design Space Exploration of Stagnation Temperature Probes via Dimension Reduction</p>
+</dd>
+<dt class="field-even">Authors</dt>
+<dd class="field-even"><p><a class="reference external" href="https://ascillitoe.com">Ashley Scillitoe</a>, <a class="reference external" href="https://scholar.google.com/citations?user=lyOAyewAAAAJ&amp;hl=en">Bryn Noel Ubald</a>, <a class="reference external" href="https://www.psesh.com">Pranay Seshadri</a>, <a class="reference external" href="https://scholar.google.com/citations?user=zaSWpdkAAAAJ&amp;hl=en">Shahrokh Shahpar</a></p>
+</dd>
+<dt class="field-odd">Essence</dt>
+<dd class="field-odd"><p>Using polynomial variable projection to explore the design space of a stagnation temperature probe representative of those used in gas-turbine aero engines. Dimension reducing subspaces are used to find more accurate designs with less sensitivity to manufacturing uncertainties.</p>
+</dd>
+<dt class="field-even">Conference</dt>
+<dd class="field-even"><p>ASME Turbo Expo</p>
+</dd>
+<dt class="field-odd">Year</dt>
+<dd class="field-odd"><p>2021</p>
+</dd>
+<dt class="field-even">Resources</dt>
+<dd class="field-even"><p><a class="reference external" href="http://dx.doi.org/10.1115/GT2020-16277">Paper</a> | <a class="reference external" href="https://discourse.equadratures.org/t/exploring-the-design-of-a-temperature-probe-with-dimension-reduction/80">Blog</a> | <a class="reference external" href="https://github.com/ascillitoe/probe-subspaces">Code</a></p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Title</dt>
 <dd class="field-odd"><p>Turbomachinery active subspace performance maps</p>
 </dd>
 <dt class="field-even">Authors</dt>
-<dd class="field-even"><p>Pranay Seshadri, Shahrokh Shahpar, Paul Constantine, Geoffrey Parks, Mike Adams</p>
+<dd class="field-even"><p><a class="reference external" href="https://www.psesh.com">Pranay Seshadri</a>, <a class="reference external" href="https://scholar.google.com/citations?user=zaSWpdkAAAAJ&amp;hl=en">Shahrokh Shahpar</a>, <a class="reference external" href="http://paulconstantine.net/">Paul Constantine</a>, <a class="reference external" href="https://www.jesus.cam.ac.uk/people/geoff-parks">Geoffrey Parks</a>, Mike Adams</p>
 </dd>
 <dt class="field-odd">Essence</dt>
 <dd class="field-odd"><p>On generating 2D contour plots of the entire 25D design space of a modern fan blade from a jet-engine.</p>
@@ -274,7 +300,7 @@
 <dd class="field-odd"><p>Supporting multi-point fan design with dimension reduction</p>
 </dd>
 <dt class="field-even">Authors</dt>
-<dd class="field-even"><p>Pranay Seshadri, Shaowu Yuchi, Shahrokh Shahpar, Geoffrey Parks</p>
+<dd class="field-even"><p><a class="reference external" href="https://www.psesh.com">Pranay Seshadri</a>, Shaowu Yuchi, <a class="reference external" href="https://scholar.google.com/citations?user=zaSWpdkAAAAJ&amp;hl=en">Shahrokh Shahpar</a>, <a class="reference external" href="https://www.jesus.cam.ac.uk/people/geoff-parks">Geoffrey Parks</a></p>
 </dd>
 <dt class="field-odd">Essence</dt>
 <dd class="field-odd"><p>Polynomial variable projection applied to three distinct fan blades at different operating conditions.</p>
@@ -297,7 +323,7 @@
 <dd class="field-odd"><p>Effectively subsampled quadratures</p>
 </dd>
 <dt class="field-even">Authors</dt>
-<dd class="field-even"><p>Pranay Seshadri, Akil Narayan, Sankaran Mahadevan</p>
+<dd class="field-even"><p><a class="reference external" href="https://www.psesh.com">Pranay Seshadri</a>, <a class="reference external" href="https://scholar.google.com/citations?user=vfRwIZwAAAAJ&amp;hl=en">Akil Narayan</a>, <a class="reference external" href="http://engineering.vanderbilt.edu/cee/faculty-staff/sankaran-mahadevan/index.php">Sankaran Mahadevan</a></p>
 </dd>
 <dt class="field-odd">Essence</dt>
 <dd class="field-odd"><p>Subsampling quadrature points from a tensorial grid via QR with column pivoting on a weighted Vandermonde-type matrix.</p>
@@ -320,7 +346,7 @@
 <dd class="field-odd"><p>Quadrature strategies for constructing polynomial approximations</p>
 </dd>
 <dt class="field-even">Authors</dt>
-<dd class="field-even"><p>Pranay Seshadri, Gianluca Iaccarino, Tiziano Ghisu</p>
+<dd class="field-even"><p><a class="reference external" href="https://www.psesh.com">Pranay Seshadri</a>, <a class="reference external" href="https://me.stanford.edu/person/gianluca-iaccarino">Gianluca Iaccarino</a>, <a class="reference external" href="https://scholar.google.com/citations?user=UycAcw4AAAAJ&amp;hl=en">Tiziano Ghisu</a></p>
 </dd>
 <dt class="field-odd">Essence</dt>
 <dd class="field-odd"><p>A review of recent approaches for identifying quadrature rules in hypercubes, followed by a template-type characterisation of how one arrive at new quadrature rules.</p>
@@ -358,7 +384,7 @@
 <dd class="field-odd"><p>Extremum sensitivity analysis with polynomial Monte Carlo filtering</p>
 </dd>
 <dt class="field-even">Authors</dt>
-<dd class="field-even"><p>Chun Yui Wong, Pranay Seshadri, Geoffrey Parks</p>
+<dd class="field-even"><p><a class="reference external" href="https://ncywong.github.io">Chun Yui Wong</a>, <a class="reference external" href="https://www.psesh.com">Pranay Seshadri</a>, <a class="reference external" href="https://www.jesus.cam.ac.uk/people/geoff-parks">Geoffrey Parks</a></p>
 </dd>
 <dt class="field-odd">Essence</dt>
 <dd class="field-odd"><p>Deriving Sobol’ indices for polynomial ridge approximations, and developing methods for extremeum sensitivity analysis using Monte Carlo filtering and correlated polynomial approximations.</p>
@@ -384,7 +410,7 @@
 <dd class="field-odd"><p>Sensitivity analysis of a coupled hydrodynamic-vegetation model using the effectively subsampled quadratures method</p>
 </dd>
 <dt class="field-even">Authors</dt>
-<dd class="field-even"><p>Tarandeep Kalra,</p>
+<dd class="field-even"><p><a class="reference external" href="https://scholar.google.com/citations?user=4t-6LfUAAAAJ&amp;hl=en">Tarandeep Kalra</a></p>
 </dd>
 <dt class="field-odd">Essence</dt>
 <dd class="field-odd"><p>The application of effectively subsampled quadratures for computing Sobol’ indices for a coupled hydrodynamic-vegetation model.</p>
@@ -423,14 +449,14 @@
     </div>
 
     
-  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+  <script src="../_static/js/index.d8bbf5861d671d414e1a.js"></script>
 
 
     <footer class="footer mt-5 mt-md-0">
   <div class="container">
     <p>
           &copy; Copyright 2016-2021 by equadratures.org.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.1.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3.<br/>
     </p>
   </div>
 </footer>

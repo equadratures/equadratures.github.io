@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>equadratures.polytree &#8212; equadratures</title>
     
-  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.101715efdecc9b59cb6e1ddfa685c31f.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -19,22 +20,19 @@
 
     
       
-  <link rel="stylesheet"
-    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../../_static/js/index.d8bbf5861d671d414e1a.js">
 
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../../_static/eq-logo-favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -43,34 +41,42 @@
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
-    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
-<div class="container-xl">
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
 
-    <a class="navbar-brand" href="../../index.html">
+
     
-      <img src="../../_static/logo_new.png" class="logo" alt="logo" />
+      
+      <a class="navbar-brand" href="../../index.html">
+        <img src="../../_static/logo_new.png" class="logo" alt="logo">
+      </a>
+      
     
-    </a>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
+    
     <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
       <ul id="navbar-main-elements" class="navbar-nav mr-auto">
-        
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../_documentation/tutorials.html">Tutorials</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../_documentation/documentation.html">Documentation</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../_documentation/references.html">Research</a>
-        </li>
-        
+        <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../_documentation/tutorials.html">
+  Tutorials
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../_documentation/documentation.html">
+  Documentation
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../_documentation/references.html">
+  Research
+ </a>
+</li>
+
         
         <li class="nav-item">
             <a class="nav-link nav-external" href="https://discourse.equadratures.org/">Discourse<i class="fas fa-external-link-alt"></i></a>
@@ -78,28 +84,23 @@
         
       </ul>
 
-
       <form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search equadratures..." aria-label="Search equadratures..." autocomplete="off" >
 </form>
-      
-
-      <ul class="navbar-nav">
-        
-          <li class="nav-item">
-            <a class="nav-link" href="https://github.com/Effective-Quadratures/equadratures" target="_blank" rel="noopener">
-              <span><i class="fab fa-github-square"></i></span>
-            </a>
-          </li>
-        
-        
-          <li class="nav-item">
-            <a class="nav-link" href="https://twitter.com/equadratures" target="_blank" rel="noopener">
-              <span><i class="fab fa-twitter-square"></i></span>
-            </a>
-          </li>
-        
+      <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/Effective-Quadratures/equadratures" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/equadratures" rel="noopener" target="_blank" title="Twitter">
+            <span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label>
+          </a>
+        </li>
       </ul>
     </div>
 </div>
@@ -109,23 +110,15 @@
     <div class="container-xl">
       <div class="row">
           
-          <div class="col-12 col-md-3 bd-sidebar"><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-
-    <div class="bd-toc-item active">
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
     
-  
-    <ul class="nav bd-sidenav">
-        
-        
-        
-        
-        
-        
-        
-      </ul>
-  
-  </nav>
-          </div>
+  </div>
+</nav>
+            </div>
+            
           
 
           
@@ -133,9 +126,7 @@
               
 
 <nav id="bd-toc-nav">
-    <ul class="nav section-nav flex-column">
     
-    </ul>
 </nav>
 
 
@@ -143,6 +134,9 @@
           </div>
           
 
+          
+          
+            
           
           <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
               
@@ -198,7 +192,7 @@
 <span class="sd">                2. Broelemann, K., Kasneci, G., (2019) A Gradient-Based Split Criterion for Highly Accurate and Transparent Model Trees. In Int. Joint Conf. on Artificial Intelligence (IJCAI). 2030-2037. `Paper &lt;https://www.ijcai.org/Proceedings/2019/0281.pdf&gt;`__</span>
 <span class="sd">                3. Chan, T. F., Golub, G. H., LeVeque, R. J., (1983) Algorithms for computing the sample variance: Analysis and recommendations. The American Statistician. 37(3): 242–247. `Paper &lt;https://www.tandfonline.com/doi/abs/10.1080/00031305.1983.10483115&gt;`__</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">splitting_criterion</span><span class="o">=</span><span class="s1">&#39;model_aware&#39;</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">min_samples_leaf</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">basis</span><span class="o">=</span><span class="s1">&#39;total-order&#39;</span><span class="p">,</span> <span class="n">search</span><span class="o">=</span><span class="s1">&#39;exhaustive&#39;</span><span class="p">,</span> <span class="n">samples</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">poly_method</span><span class="o">=</span><span class="s2">&quot;least-squares&quot;</span><span class="p">,</span> <span class="n">poly_solver_args</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">all_data</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">split_dims</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
+        <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">splitting_criterion</span><span class="o">=</span><span class="s1">&#39;model_aware&#39;</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">min_samples_leaf</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">basis</span><span class="o">=</span><span class="s1">&#39;total-order&#39;</span><span class="p">,</span> <span class="n">search</span><span class="o">=</span><span class="s1">&#39;exhaustive&#39;</span><span class="p">,</span> <span class="n">samples</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">poly_method</span><span class="o">=</span><span class="s2">&quot;least-squares&quot;</span><span class="p">,</span> <span class="n">poly_solver_args</span><span class="o">=</span><span class="p">{},</span><span class="n">all_data</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">split_dims</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">splitting_criterion</span> <span class="o">=</span> <span class="n">splitting_criterion</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">max_depth</span> <span class="o">=</span> <span class="n">max_depth</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">min_samples_leaf</span> <span class="o">=</span> <span class="n">min_samples_leaf</span>
@@ -219,8 +213,8 @@
                         <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="n">split_dims</span><span class="p">),</span> <span class="s2">&quot;split_dims should be a list if ints&quot;</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">split_dims</span> <span class="o">=</span> <span class="n">split_dims</span>
 
-                <span class="k">assert</span> <span class="n">max_depth</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;max_depth must be a postive integer&quot;</span>
-                <span class="k">assert</span> <span class="n">order</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;order must be a postive integer&quot;</span>
+                <span class="k">assert</span> <span class="n">max_depth</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;max_depth must be &gt;= 0&quot;</span>
+                <span class="k">assert</span> <span class="n">order</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;order must be a postive integer&quot;</span> 
                 <span class="k">assert</span> <span class="n">samples</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;samples must be a postive integer&quot;</span>
                 <span class="k">assert</span> <span class="n">k</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;k must be a positive number&quot;</span>
 
@@ -879,7 +873,7 @@
                                                 <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;Node </span><span class="si">%d</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">node</span><span class="p">[</span><span class="s2">&quot;index&quot;</span><span class="p">],(</span><span class="n">node</span><span class="p">[</span><span class="s2">&quot;Xmax&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">node</span><span class="p">[</span><span class="s2">&quot;Xmax&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">]),</span>
                                                             <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span><span class="n">va</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">,</span><span class="n">textcoords</span><span class="o">=</span><span class="s1">&#39;offset points&#39;</span><span class="p">,</span>
                                                             <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">))</span>
-                                        <span class="k">return</span>
+                                        <span class="c1">#return</span>
                                 <span class="k">else</span><span class="p">:</span>
                                         <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">nodes</span><span class="p">[</span><span class="n">leaf_nodes</span><span class="p">]:</span>
                                                 <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;Node </span><span class="si">%d</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">node</span><span class="p">[</span><span class="s2">&quot;index&quot;</span><span class="p">],(</span><span class="n">node</span><span class="p">[</span><span class="s2">&quot;Xmax&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">node</span><span class="p">[</span><span class="s2">&quot;Xmax&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">]),</span>
@@ -989,9 +983,9 @@
 
                     <span class="c1"># Renorm. gradients to zero mean and unit std</span>
                     <span class="k">if</span> <span class="n">renorm</span><span class="p">:</span>
-                        <span class="n">mu_l</span><span class="p">,</span> <span class="n">mu_r</span><span class="p">,</span> <span class="n">sigma_l</span><span class="p">,</span> <span class="n">sigma_r</span> <span class="o">=</span> <span class="n">_get_mean_and_sigma</span><span class="p">(</span><span class="n">P</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:],</span><span class="n">splits</span><span class="p">,</span><span class="n">N_l</span><span class="p">,</span><span class="n">N_r</span><span class="p">,</span><span class="n">sort</span><span class="p">)</span>
-                        <span class="n">gsum_left</span>  <span class="o">=</span> <span class="n">renormalise</span><span class="p">(</span> <span class="n">gsum_left</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">sigma_l</span><span class="p">,</span> <span class="o">-</span><span class="n">mu_l</span><span class="o">/</span><span class="n">sigma_l</span><span class="p">)</span>
-                        <span class="n">gsum_right</span> <span class="o">=</span> <span class="n">renormalise</span><span class="p">(</span><span class="n">gsum_right</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">sigma_r</span><span class="p">,</span> <span class="o">-</span><span class="n">mu_r</span><span class="o">/</span><span class="n">sigma_r</span><span class="p">)</span>
+                        <span class="n">mu_l</span><span class="p">,</span> <span class="n">mu_r</span><span class="p">,</span> <span class="n">sigma_l</span><span class="p">,</span> <span class="n">sigma_r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_mean_and_sigma</span><span class="p">(</span><span class="n">P</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:],</span><span class="n">splits</span><span class="p">,</span><span class="n">N_l</span><span class="p">,</span><span class="n">N_r</span><span class="p">,</span><span class="n">sort</span><span class="p">)</span>
+                        <span class="n">gsum_left</span>  <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_renormalise</span><span class="p">(</span> <span class="n">gsum_left</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">sigma_l</span><span class="p">,</span> <span class="o">-</span><span class="n">mu_l</span><span class="o">/</span><span class="n">sigma_l</span><span class="p">)</span>
+                        <span class="n">gsum_right</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_renormalise</span><span class="p">(</span><span class="n">gsum_right</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">sigma_r</span><span class="p">,</span> <span class="o">-</span><span class="n">mu_r</span><span class="o">/</span><span class="n">sigma_r</span><span class="p">)</span>
 
                     <span class="c1"># Compute the Gain (see Eq. (6) in [1])</span>
                     <span class="n">gain</span> <span class="o">=</span> <span class="p">(</span><span class="n">gsum_left</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">N_l</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">gsum_right</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">N_r</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
@@ -1009,61 +1003,61 @@
                 <span class="k">if</span> <span class="n">gain_max</span> <span class="o">==</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">:</span>
                     <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
                 <span class="k">else</span><span class="p">:</span>
-                    <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="n">best_split_dim</span><span class="p">,</span> <span class="n">best_split_val</span></div>
+                    <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="n">best_split_dim</span><span class="p">,</span> <span class="n">best_split_val</span>
 
-
-<span class="c1"># Code below is to calculate graident based split criterion. This can probably be integrated more elegantly i.e. as private methods rather than nested local functions etc TODO</span>
-<span class="k">def</span> <span class="nf">_get_mean_and_sigma</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">splits</span><span class="p">,</span><span class="n">N_l</span><span class="p">,</span><span class="n">N_r</span><span class="p">,</span><span class="n">sort</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Computes mean and standard deviation of the data in array X, when it is</span>
-<span class="sd">    split in two by the threshold values in the splits array. The data is offset by</span>
-<span class="sd">    its mean to avoid catastrophic cancellation when computing the variance (see ref. [3]).</span>
-<span class="sd">    X - [N,ndim] array of data.</span>
-<span class="sd">    splits  - [Nsplit] array of split locations.</span>
-<span class="sd">    sort   - [N] array reordering X.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># Min value of sigma (for stability later)</span>
-    <span class="n">epsilon</span> <span class="o">=</span> <span class="mf">0.001</span>
-
-    <span class="c1"># Reorder, and shift X by mean</span>
-    <span class="n">mu</span>     <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
-    <span class="n">Xshift</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">sort</span><span class="p">]</span> <span class="o">-</span> <span class="n">mu</span>
-
-    <span class="c1"># Cumulative sums (and sums of squares) for left and right splits</span>
-    <span class="n">Xsum_l</span>  <span class="o">=</span> <span class="n">Xshift</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">Xsum_r</span>  <span class="o">=</span> <span class="n">Xsum_l</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">:,:]</span> <span class="o">-</span> <span class="n">Xsum_l</span>
-    <span class="n">X2sum_l</span> <span class="o">=</span> <span class="p">(</span><span class="n">Xshift</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">X2sum_r</span> <span class="o">=</span> <span class="n">X2sum_l</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">:,:]</span> <span class="o">-</span> <span class="n">X2sum_l</span>
-
-    <span class="c1"># Compute mean of left and right side for all splits</span>
-    <span class="n">mu_l</span> <span class="o">=</span> <span class="n">Xsum_l</span><span class="p">[</span><span class="n">splits</span><span class="o">-</span><span class="mi">1</span><span class="p">,:]</span> <span class="o">/</span> <span class="n">N_l</span>
-    <span class="n">mu_r</span> <span class="o">=</span> <span class="n">Xsum_r</span><span class="p">[</span><span class="n">splits</span><span class="o">-</span><span class="mi">1</span><span class="p">,:]</span> <span class="o">/</span> <span class="n">N_r</span>
-
-    <span class="c1"># Compute standard deviation of left and right side for all splits</span>
-    <span class="n">sigma_l</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">X2sum_l</span><span class="p">[</span><span class="n">splits</span><span class="o">-</span><span class="mi">1</span><span class="p">,:]</span><span class="o">/</span><span class="p">(</span><span class="n">N_l</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="n">mu_l</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
-    <span class="n">sigma_r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">X2sum_r</span><span class="p">[</span><span class="n">splits</span><span class="o">-</span><span class="mi">1</span><span class="p">,:]</span><span class="o">/</span><span class="p">(</span><span class="n">N_r</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="n">mu_r</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
-
-    <span class="c1"># Correct for previous shift</span>
-    <span class="n">mu_l</span> <span class="o">=</span> <span class="n">mu_l</span> <span class="o">+</span> <span class="n">mu</span>
-    <span class="n">mu_r</span> <span class="o">=</span> <span class="n">mu_r</span> <span class="o">+</span> <span class="n">mu</span>
-
-    <span class="k">return</span> <span class="n">mu_l</span><span class="p">,</span> <span class="n">mu_r</span><span class="p">,</span> <span class="n">sigma_l</span><span class="p">,</span> <span class="n">sigma_r</span>
-
-<div class="viewcode-block" id="renormalise"><a class="viewcode-back" href="../../_documentation/polytree.html#equadratures.polytree.renormalise">[docs]</a><span class="k">def</span> <span class="nf">renormalise</span><span class="p">(</span><span class="n">gradients</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Renormalises gradients according to according to eq. (14) of [1].</span>
-<span class="sd">    Inputs</span>
-<span class="sd">    ------</span>
-<span class="sd">    gradients: array [n_samples, n_params] of gradients</span>
-<span class="sd">    a: array [n_samples, n_params-1]: The normalisation factor</span>
-<span class="sd">    c: array [n_samples, n_params-1]: The normalisation offset</span>
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    gradients: array [n_samples, n_params]: Renormalised gradients</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">c</span> <span class="o">=</span> <span class="n">c</span><span class="o">*</span><span class="n">gradients</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">gradients</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:]</span> <span class="o">=</span> <span class="n">gradients</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:]</span> <span class="o">*</span> <span class="n">a</span> <span class="o">+</span> <span class="n">c</span>
-    <span class="k">return</span> <span class="n">gradients</span></div>
+        <span class="nd">@staticmethod</span>
+        <span class="k">def</span> <span class="nf">_get_mean_and_sigma</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">splits</span><span class="p">,</span><span class="n">N_l</span><span class="p">,</span><span class="n">N_r</span><span class="p">,</span><span class="n">sort</span><span class="p">):</span>
+                <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                Computes mean and standard deviation of the data in array X, when it is</span>
+<span class="sd">                split in two by the threshold values in the splits array. The data is offset by</span>
+<span class="sd">                its mean to avoid catastrophic cancellation when computing the variance (see ref. [3]).</span>
+<span class="sd">                X - [N,ndim] array of data.</span>
+<span class="sd">                splits  - [Nsplit] array of split locations.</span>
+<span class="sd">                sort   - [N] array reordering X.</span>
+<span class="sd">                &quot;&quot;&quot;</span>
+                <span class="c1"># Min value of sigma (for stability later)</span>
+                <span class="n">epsilon</span> <span class="o">=</span> <span class="mf">0.001</span>
+        
+                <span class="c1"># Reorder, and shift X by mean</span>
+                <span class="n">mu</span>     <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+                <span class="n">Xshift</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">sort</span><span class="p">]</span> <span class="o">-</span> <span class="n">mu</span>
+        
+                <span class="c1"># Cumulative sums (and sums of squares) for left and right splits</span>
+                <span class="n">Xsum_l</span>  <span class="o">=</span> <span class="n">Xshift</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+                <span class="n">Xsum_r</span>  <span class="o">=</span> <span class="n">Xsum_l</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">:,:]</span> <span class="o">-</span> <span class="n">Xsum_l</span>
+                <span class="n">X2sum_l</span> <span class="o">=</span> <span class="p">(</span><span class="n">Xshift</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+                <span class="n">X2sum_r</span> <span class="o">=</span> <span class="n">X2sum_l</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">:,:]</span> <span class="o">-</span> <span class="n">X2sum_l</span>
+        
+                <span class="c1"># Compute mean of left and right side for all splits</span>
+                <span class="n">mu_l</span> <span class="o">=</span> <span class="n">Xsum_l</span><span class="p">[</span><span class="n">splits</span><span class="o">-</span><span class="mi">1</span><span class="p">,:]</span> <span class="o">/</span> <span class="n">N_l</span>
+                <span class="n">mu_r</span> <span class="o">=</span> <span class="n">Xsum_r</span><span class="p">[</span><span class="n">splits</span><span class="o">-</span><span class="mi">1</span><span class="p">,:]</span> <span class="o">/</span> <span class="n">N_r</span>
+        
+                <span class="c1"># Compute standard deviation of left and right side for all splits</span>
+                <span class="n">sigma_l</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">X2sum_l</span><span class="p">[</span><span class="n">splits</span><span class="o">-</span><span class="mi">1</span><span class="p">,:]</span><span class="o">/</span><span class="p">(</span><span class="n">N_l</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="n">mu_l</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+                <span class="n">sigma_r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">X2sum_r</span><span class="p">[</span><span class="n">splits</span><span class="o">-</span><span class="mi">1</span><span class="p">,:]</span><span class="o">/</span><span class="p">(</span><span class="n">N_r</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="n">mu_r</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+        
+                <span class="c1"># Correct for previous shift</span>
+                <span class="n">mu_l</span> <span class="o">=</span> <span class="n">mu_l</span> <span class="o">+</span> <span class="n">mu</span>
+                <span class="n">mu_r</span> <span class="o">=</span> <span class="n">mu_r</span> <span class="o">+</span> <span class="n">mu</span>
+        
+                <span class="k">return</span> <span class="n">mu_l</span><span class="p">,</span> <span class="n">mu_r</span><span class="p">,</span> <span class="n">sigma_l</span><span class="p">,</span> <span class="n">sigma_r</span>
+        
+        <span class="nd">@staticmethod</span>
+        <span class="k">def</span> <span class="nf">_renormalise</span><span class="p">(</span><span class="n">gradients</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+                <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                Renormalises gradients according to according to eq. (14) of [1].</span>
+<span class="sd">                Inputs</span>
+<span class="sd">                ------</span>
+<span class="sd">                gradients: array [n_samples, n_params] of gradients</span>
+<span class="sd">                a: array [n_samples, n_params-1]: The normalisation factor</span>
+<span class="sd">                c: array [n_samples, n_params-1]: The normalisation offset</span>
+<span class="sd">                Returns</span>
+<span class="sd">                -------</span>
+<span class="sd">                gradients: array [n_samples, n_params]: Renormalised gradients</span>
+<span class="sd">                &quot;&quot;&quot;</span>
+                <span class="n">c</span> <span class="o">=</span> <span class="n">c</span><span class="o">*</span><span class="n">gradients</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+                <span class="n">gradients</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:]</span> <span class="o">=</span> <span class="n">gradients</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:]</span> <span class="o">*</span> <span class="n">a</span> <span class="o">+</span> <span class="n">c</span>
+                <span class="k">return</span> <span class="n">gradients</span></div>
 </pre></div>
 
               </div>
@@ -1076,14 +1070,14 @@
     </div>
 
     
-  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+  <script src="../../_static/js/index.d8bbf5861d671d414e1a.js"></script>
 
 
     <footer class="footer mt-5 mt-md-0">
   <div class="container">
     <p>
           &copy; Copyright 2016-2021 by equadratures.org.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.1.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3.<br/>
     </p>
   </div>
 </footer>

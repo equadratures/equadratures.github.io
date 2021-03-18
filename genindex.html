@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Index &#8212; equadratures</title>
     
-  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.101715efdecc9b59cb6e1ddfa685c31f.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -19,22 +20,19 @@
 
     
       
-  <link rel="stylesheet"
-    href="_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/styles.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="_static/js/index.d8bbf5861d671d414e1a.js">
 
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="_static/eq-logo-favicon.png"/>
     <link rel="index" title="Index" href="#" />
     <link rel="search" title="Search" href="search.html" />
@@ -43,34 +41,42 @@
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
-    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
-<div class="container-xl">
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
 
-    <a class="navbar-brand" href="index.html">
+
     
-      <img src="_static/logo_new.png" class="logo" alt="logo" />
+      
+      <a class="navbar-brand" href="index.html">
+        <img src="_static/logo_new.png" class="logo" alt="logo">
+      </a>
+      
     
-    </a>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
+    
     <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
       <ul id="navbar-main-elements" class="navbar-nav mr-auto">
-        
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="_documentation/tutorials.html">Tutorials</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="_documentation/documentation.html">Documentation</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="_documentation/references.html">Research</a>
-        </li>
-        
+        <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="_documentation/tutorials.html">
+  Tutorials
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="_documentation/documentation.html">
+  Documentation
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="_documentation/references.html">
+  Research
+ </a>
+</li>
+
         
         <li class="nav-item">
             <a class="nav-link nav-external" href="https://discourse.equadratures.org/">Discourse<i class="fas fa-external-link-alt"></i></a>
@@ -78,28 +84,23 @@
         
       </ul>
 
-
       <form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search equadratures..." aria-label="Search equadratures..." autocomplete="off" >
 </form>
-      
-
-      <ul class="navbar-nav">
-        
-          <li class="nav-item">
-            <a class="nav-link" href="https://github.com/Effective-Quadratures/equadratures" target="_blank" rel="noopener">
-              <span><i class="fab fa-github-square"></i></span>
-            </a>
-          </li>
-        
-        
-          <li class="nav-item">
-            <a class="nav-link" href="https://twitter.com/equadratures" target="_blank" rel="noopener">
-              <span><i class="fab fa-twitter-square"></i></span>
-            </a>
-          </li>
-        
+      <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/Effective-Quadratures/equadratures" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/equadratures" rel="noopener" target="_blank" title="Twitter">
+            <span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label>
+          </a>
+        </li>
       </ul>
     </div>
 </div>
@@ -109,23 +110,15 @@
     <div class="container-xl">
       <div class="row">
           
-          <div class="col-12 col-md-3 bd-sidebar"><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-
-    <div class="bd-toc-item active">
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
     
-  
-    <ul class="nav bd-sidenav">
-        
-        
-        
-        
-        
-        
-        
-      </ul>
-  
-  </nav>
-          </div>
+  </div>
+</nav>
+            </div>
+            
           
 
           
@@ -133,9 +126,7 @@
               
 
 <nav id="bd-toc-nav">
-    <ul class="nav section-nav flex-column">
     
-    </ul>
 </nav>
 
 
@@ -143,6 +134,9 @@
           </div>
           
 
+          
+          
+            
           
           <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
               
@@ -161,6 +155,7 @@
  | <a href="#H"><strong>H</strong></a>
  | <a href="#L"><strong>L</strong></a>
  | <a href="#M"><strong>M</strong></a>
+ | <a href="#N"><strong>N</strong></a>
  | <a href="#O"><strong>O</strong></a>
  | <a href="#P"><strong>P</strong></a>
  | <a href="#Q"><strong>Q</strong></a>
@@ -168,6 +163,7 @@
  | <a href="#S"><strong>S</strong></a>
  | <a href="#V"><strong>V</strong></a>
  | <a href="#W"><strong>W</strong></a>
+ | <a href="#Y"><strong>Y</strong></a>
  
 </div>
 <h2 id="A">A</h2>
@@ -203,7 +199,15 @@
 <h2 id="C">C</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="_documentation/solver.html#equadratures.solver.compressed_sensing">compressed_sensing (class in equadratures.solver)</a>
+</li>
+      <li><a href="_documentation/solver.html#equadratures.solver.constrained_least_squares">constrained_least_squares (class in equadratures.solver)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="_documentation/correlated.html#equadratures.correlations.Correlations">Correlations (class in equadratures.correlations)</a>
+</li>
+      <li><a href="_documentation/solver.html#equadratures.solver.custom_solver">custom_solver (class in equadratures.solver)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -211,9 +215,7 @@
 <h2 id="E">E</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="_documentation/solver.html#equadratures.solver.elastic_net">elastic_net() (in module equadratures.solver)</a>
-</li>
-      <li><a href="_documentation/solver.html#equadratures.solver.elastic_path">elastic_path() (in module equadratures.solver)</a>
+      <li><a href="_documentation/solver.html#equadratures.solver.elastic_net">elastic_net (class in equadratures.solver)</a>
 </li>
       <li>
     equadratures.basis
@@ -257,8 +259,6 @@
         <li><a href="_documentation/poly.html#module-equadratures.poly">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     equadratures.polynet
 
@@ -266,6 +266,8 @@
         <li><a href="_documentation/polynet.html#module-equadratures.polynet">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     equadratures.polytree
 
@@ -332,7 +334,11 @@
       <li><a href="_documentation/parameter.html#equadratures.parameter.Parameter.get_cdf">get_cdf() (equadratures.parameter.Parameter method)</a>
 </li>
       <li><a href="_documentation/poly.html#equadratures.poly.Poly.get_coefficients">get_coefficients() (equadratures.poly.Poly method)</a>
+
+      <ul>
+        <li><a href="_documentation/solver.html#equadratures.solver.Solver.get_coefficients">(equadratures.solver.Solver method)</a>
 </li>
+      </ul></li>
       <li><a href="_documentation/poly.html#equadratures.poly.Poly.get_conditional_kurtosis_indices">get_conditional_kurtosis_indices() (equadratures.poly.Poly method)</a>
 </li>
       <li><a href="_documentation/poly.html#equadratures.poly.Poly.get_conditional_skewness_indices">get_conditional_skewness_indices() (equadratures.poly.Poly method)</a>
@@ -447,7 +453,7 @@
 <h2 id="H">H</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="_documentation/solver.html#equadratures.solver.huber">huber() (in module equadratures.solver)</a>
+      <li><a href="_documentation/solver.html#equadratures.solver.huber">huber (class in equadratures.solver)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -455,7 +461,11 @@
 <h2 id="L">L</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="_documentation/solver.html#equadratures.solver.least_absolute_residual">least_absolute_residual() (in module equadratures.solver)</a>
+      <li><a href="_documentation/solver.html#equadratures.solver.least_absolute_residual">least_absolute_residual (class in equadratures.solver)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="_documentation/solver.html#equadratures.solver.least_squares">least_squares (class in equadratures.solver)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -463,6 +473,8 @@
 <h2 id="M">M</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="_documentation/solver.html#equadratures.solver.minimum_norm">minimum_norm (class in equadratures.solver)</a>
+</li>
       <li>
     module
 
@@ -492,6 +504,14 @@
         <li><a href="_documentation/weight.html#module-equadratures.weight">equadratures.weight</a>
 </li>
       </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="N">N</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="_documentation/solver.html#equadratures.solver.numerical_integration">numerical_integration (class in equadratures.solver)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -576,7 +596,7 @@
 <h2 id="R">R</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="_documentation/polytree.html#equadratures.polytree.renormalise">renormalise() (in module equadratures.polytree)</a>
+      <li><a href="_documentation/solver.html#equadratures.solver.rvm">rvm (class in equadratures.solver)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -584,16 +604,18 @@
 <h2 id="S">S</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="_documentation/solver.html#equadratures.solver.Solver.select_solver">select_solver() (equadratures.solver.Solver static method)</a>
+</li>
       <li><a href="_documentation/correlated.html#equadratures.correlations.Correlations.set_model">set_model() (equadratures.correlations.Correlations method)</a>
 
       <ul>
         <li><a href="_documentation/poly.html#equadratures.poly.Poly.set_model">(equadratures.poly.Poly method)</a>
 </li>
       </ul></li>
-      <li><a href="_documentation/basis.html#equadratures.basis.Basis.set_orders">set_orders() (equadratures.basis.Basis method)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="_documentation/basis.html#equadratures.basis.Basis.set_orders">set_orders() (equadratures.basis.Basis method)</a>
+</li>
       <li><a href="_documentation/solver.html#equadratures.solver.Solver">Solver (class in equadratures.solver)</a>
 </li>
       <li><a href="_documentation/basis.html#equadratures.basis.Basis.sort">sort() (equadratures.basis.Basis method)</a>
@@ -619,6 +641,14 @@
   </ul></td>
 </tr></table>
 
+<h2 id="Y">Y</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="_documentation/subspaces.html#equadratures.subspaces.Subspaces.Y">Y (equadratures.subspaces.Subspaces attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
 
 
               </div>
@@ -631,14 +661,14 @@
     </div>
 
     
-  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
+  <script src="_static/js/index.d8bbf5861d671d414e1a.js"></script>
 
 
     <footer class="footer mt-5 mt-md-0">
   <div class="container">
     <p>
           &copy; Copyright 2016-2021 by equadratures.org.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.1.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3.<br/>
     </p>
   </div>
 </footer>

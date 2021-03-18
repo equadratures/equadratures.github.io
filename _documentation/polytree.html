@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Polynomial Regression Tree &#8212; equadratures</title>
     
-  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.101715efdecc9b59cb6e1ddfa685c31f.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -19,22 +20,19 @@
 
     
       
-  <link rel="stylesheet"
-    href="../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../_static/js/index.d8bbf5861d671d414e1a.js">
 
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../_static/eq-logo-favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -45,34 +43,42 @@
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
-    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
-<div class="container-xl">
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
 
-    <a class="navbar-brand" href="../index.html">
+
     
-      <img src="../_static/logo_new.png" class="logo" alt="logo" />
+      
+      <a class="navbar-brand" href="../index.html">
+        <img src="../_static/logo_new.png" class="logo" alt="logo">
+      </a>
+      
     
-    </a>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
+    
     <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
       <ul id="navbar-main-elements" class="navbar-nav mr-auto">
-        
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="tutorials.html">Tutorials</a>
-        </li>
-        
-        <li class="nav-item active">
-            <a class="nav-link" href="documentation.html">Documentation</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="references.html">Research</a>
-        </li>
-        
+        <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="tutorials.html">
+  Tutorials
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="documentation.html">
+  Documentation
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="references.html">
+  Research
+ </a>
+</li>
+
         
         <li class="nav-item">
             <a class="nav-link nav-external" href="https://discourse.equadratures.org/">Discourse<i class="fas fa-external-link-alt"></i></a>
@@ -80,28 +86,23 @@
         
       </ul>
 
-
       <form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search equadratures..." aria-label="Search equadratures..." autocomplete="off" >
 </form>
-      
-
-      <ul class="navbar-nav">
-        
-          <li class="nav-item">
-            <a class="nav-link" href="https://github.com/Effective-Quadratures/equadratures" target="_blank" rel="noopener">
-              <span><i class="fab fa-github-square"></i></span>
-            </a>
-          </li>
-        
-        
-          <li class="nav-item">
-            <a class="nav-link" href="https://twitter.com/equadratures" target="_blank" rel="noopener">
-              <span><i class="fab fa-twitter-square"></i></span>
-            </a>
-          </li>
-        
+      <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/Effective-Quadratures/equadratures" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/equadratures" rel="noopener" target="_blank" title="Twitter">
+            <span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label>
+          </a>
+        </li>
       </ul>
     </div>
 </div>
@@ -111,91 +112,71 @@
     <div class="container-xl">
       <div class="row">
           
-          <div class="col-12 col-md-3 bd-sidebar"><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-
-    <div class="bd-toc-item active">
-    
-  
-    <ul class="nav bd-sidenav">
-        
-        
-        
-        
-          
             
-                <li class="">
-                    <a href="parameter.html">Parameter</a>
-                </li>
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l2">
+  <a class="reference internal" href="parameter.html">
+   Parameter
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="basis.html">
+   Basis
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="poly.html">
+   Polynomial
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="quadrature.html">
+   Quadrature
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="weight.html">
+   Prescribing probability functions
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="subspaces.html">
+   Dimension reduction with polynomials
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="optimisation.html">
+   Optimisation with polynomials
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="plot.html">
+   Plotting utilities
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="correlated.html">
+   Correlations
+  </a>
+ </li>
+ <li class="toctree-l2 current active">
+  <a class="current reference internal" href="#">
+   Polynomial Regression Tree
+  </a>
+ </li>
+ <li class="toctree-l2">
+  <a class="reference internal" href="solver.html">
+   Linear system solvers
+  </a>
+ </li>
+</ul>
+  </div>
+</nav>
+            </div>
             
-          
-            
-                <li class="">
-                    <a href="basis.html">Basis</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="poly.html">Polynomial</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="quadrature.html">Quadrature</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="weight.html">Prescribing probability functions</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="subspaces.html">Dimension reduction with polynomials</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="optimisation.html">Optimisation with polynomials</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="plot.html">Plotting utilities</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="correlated.html">Correlations</a>
-                </li>
-            
-          
-            
-                <li class="active">
-                    <a href="">Polynomial Regression Tree</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="solver.html">Linear system solvers</a>
-                </li>
-            
-          
-        
-        
-        
-        
-      </ul>
-  
-  </nav>
-          </div>
           
 
           
@@ -203,9 +184,7 @@
               
 
 <nav id="bd-toc-nav">
-    <ul class="nav section-nav flex-column">
     
-    </ul>
 </nav>
 
 
@@ -213,6 +192,9 @@
           </div>
           
 
+          
+          
+            
           
           <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
               
@@ -222,7 +204,7 @@
 <span id="polynomial-regression-tree"></span><h1>Polynomial Regression Tree<a class="headerlink" href="#module-equadratures.polytree" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
 <dt id="equadratures.polytree.PolyTree">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">equadratures.polytree.</span></code><code class="sig-name descname"><span class="pre">PolyTree</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">splitting_criterion</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'model_aware'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_depth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_samples_leaf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'total-order'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'exhaustive'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">samples</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">poly_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'least-squares'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">poly_solver_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">all_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split_dims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/polytree.html#PolyTree"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.polytree.PolyTree" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">equadratures.polytree.</code><code class="sig-name descname">PolyTree</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">splitting_criterion</span><span class="o">=</span><span class="default_value">'model_aware'</span></em>, <em class="sig-param"><span class="n">max_depth</span><span class="o">=</span><span class="default_value">5</span></em>, <em class="sig-param"><span class="n">min_samples_leaf</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">order</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">basis</span><span class="o">=</span><span class="default_value">'total-order'</span></em>, <em class="sig-param"><span class="n">search</span><span class="o">=</span><span class="default_value">'exhaustive'</span></em>, <em class="sig-param"><span class="n">samples</span><span class="o">=</span><span class="default_value">50</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">poly_method</span><span class="o">=</span><span class="default_value">'least-squares'</span></em>, <em class="sig-param"><span class="n">poly_solver_args</span><span class="o">=</span><span class="default_value">{}</span></em>, <em class="sig-param"><span class="n">all_data</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">split_dims</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">k</span><span class="o">=</span><span class="default_value">0.05</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/polytree.html#PolyTree"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.polytree.PolyTree" title="Permalink to this definition">¶</a></dt>
 <dd><p>Definition of a polynomial tree object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -262,7 +244,7 @@
 </dl>
 <dl class="py method">
 <dt id="equadratures.polytree.PolyTree.apply">
-<code class="sig-name descname"><span class="pre">apply</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/polytree.html#PolyTree.apply"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.polytree.PolyTree.apply" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">apply</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/polytree.html#PolyTree.apply"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.polytree.PolyTree.apply" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the node index for each observation in the data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -280,7 +262,7 @@
 
 <dl class="py method">
 <dt id="equadratures.polytree.PolyTree.fit">
-<code class="sig-name descname"><span class="pre">fit</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/polytree.html#PolyTree.fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.polytree.PolyTree.fit" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/polytree.html#PolyTree.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.polytree.PolyTree.fit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fits the tree to the provided data</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -295,7 +277,7 @@
 
 <dl class="py method">
 <dt id="equadratures.polytree.PolyTree.get_graphviz">
-<code class="sig-name descname"><span class="pre">get_graphviz</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/polytree.html#PolyTree.get_graphviz"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.polytree.PolyTree.get_graphviz" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_graphviz</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">feature_names</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">file_name</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/polytree.html#PolyTree.get_graphviz"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.polytree.PolyTree.get_graphviz" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a url to the rendered graphviz representation of the tree.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -311,7 +293,7 @@
 
 <dl class="py method">
 <dt id="equadratures.polytree.PolyTree.get_node">
-<code class="sig-name descname"><span class="pre">get_node</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/polytree.html#PolyTree.get_node"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.polytree.PolyTree.get_node" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_node</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/polytree.html#PolyTree.get_node"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.polytree.PolyTree.get_node" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the node corresponding to a given input vector X (1D float), or node number X (int).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -329,7 +311,7 @@
 
 <dl class="py method">
 <dt id="equadratures.polytree.PolyTree.get_paths">
-<code class="sig-name descname"><span class="pre">get_paths</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/polytree.html#PolyTree.get_paths"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.polytree.PolyTree.get_paths" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_paths</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/polytree.html#PolyTree.get_paths"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.polytree.PolyTree.get_paths" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the tree paths for the leaf nodes in the tree.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -347,7 +329,7 @@
 
 <dl class="py method">
 <dt id="equadratures.polytree.PolyTree.get_polys">
-<code class="sig-name descname"><span class="pre">get_polys</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/polytree.html#PolyTree.get_polys"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.polytree.PolyTree.get_polys" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_polys</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/polytree.html#PolyTree.get_polys"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.polytree.PolyTree.get_polys" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the list of polynomials used in the tree</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -361,7 +343,7 @@
 
 <dl class="py method">
 <dt id="equadratures.polytree.PolyTree.get_splits">
-<code class="sig-name descname"><span class="pre">get_splits</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/polytree.html#PolyTree.get_splits"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.polytree.PolyTree.get_splits" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_splits</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/polytree.html#PolyTree.get_splits"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.polytree.PolyTree.get_splits" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the list of splits made</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -375,7 +357,7 @@
 
 <dl class="py method">
 <dt id="equadratures.polytree.PolyTree.predict">
-<code class="sig-name descname"><span class="pre">predict</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/polytree.html#PolyTree.predict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.polytree.PolyTree.predict" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/polytree.html#PolyTree.predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.polytree.PolyTree.predict" title="Permalink to this definition">¶</a></dt>
 <dd><p>Evaluates the the polynomial tree approximation of the data.
 :param numpy.ndarray X:</p>
 <blockquote>
@@ -391,7 +373,7 @@ A numpy.ndarray of shape (1, number_of_observations) corresponding to the polyno
 
 <dl class="py method">
 <dt id="equadratures.polytree.PolyTree.prune">
-<code class="sig-name descname"><span class="pre">prune</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/polytree.html#PolyTree.prune"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.polytree.PolyTree.prune" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">prune</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">y</span></em>, <em class="sig-param"><span class="n">tol</span><span class="o">=</span><span class="default_value">0.0</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/polytree.html#PolyTree.prune"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.polytree.PolyTree.prune" title="Permalink to this definition">¶</a></dt>
 <dd><p>Prunes the tree that you have fitted.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -407,20 +389,6 @@ A numpy.ndarray of shape (1, number_of_observations) corresponding to the polyno
 
 </dd></dl>
 
-<dl class="py function">
-<dt id="equadratures.polytree.renormalise">
-<code class="sig-prename descclassname"><span class="pre">equadratures.polytree.</span></code><code class="sig-name descname"><span class="pre">renormalise</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gradients</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/polytree.html#renormalise"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.polytree.renormalise" title="Permalink to this definition">¶</a></dt>
-<dd><p>Renormalises gradients according to according to eq. (14) of [1].
-Inputs
-——
-gradients: array [n_samples, n_params] of gradients
-a: array [n_samples, n_params-1]: The normalisation factor
-c: array [n_samples, n_params-1]: The normalisation offset
-Returns
-——-
-gradients: array [n_samples, n_params]: Renormalised gradients</p>
-</dd></dl>
-
 </div>
 
 
@@ -434,14 +402,14 @@ gradients: array [n_samples, n_params]: Renormalised gradients</p>
     </div>
 
     
-  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+  <script src="../_static/js/index.d8bbf5861d671d414e1a.js"></script>
 
 
     <footer class="footer mt-5 mt-md-0">
   <div class="container">
     <p>
           &copy; Copyright 2016-2021 by equadratures.org.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.1.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3.<br/>
     </p>
   </div>
 </footer>

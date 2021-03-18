@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>equadratures.poly &#8212; equadratures</title>
     
-  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.101715efdecc9b59cb6e1ddfa685c31f.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -19,22 +20,19 @@
 
     
       
-  <link rel="stylesheet"
-    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../../_static/js/index.d8bbf5861d671d414e1a.js">
 
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../../_static/eq-logo-favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -43,34 +41,42 @@
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
-    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
-<div class="container-xl">
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
 
-    <a class="navbar-brand" href="../../index.html">
+
     
-      <img src="../../_static/logo_new.png" class="logo" alt="logo" />
+      
+      <a class="navbar-brand" href="../../index.html">
+        <img src="../../_static/logo_new.png" class="logo" alt="logo">
+      </a>
+      
     
-    </a>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
+    
     <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
       <ul id="navbar-main-elements" class="navbar-nav mr-auto">
-        
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../_documentation/tutorials.html">Tutorials</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../_documentation/documentation.html">Documentation</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../_documentation/references.html">Research</a>
-        </li>
-        
+        <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../_documentation/tutorials.html">
+  Tutorials
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../_documentation/documentation.html">
+  Documentation
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../_documentation/references.html">
+  Research
+ </a>
+</li>
+
         
         <li class="nav-item">
             <a class="nav-link nav-external" href="https://discourse.equadratures.org/">Discourse<i class="fas fa-external-link-alt"></i></a>
@@ -78,28 +84,23 @@
         
       </ul>
 
-
       <form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search equadratures..." aria-label="Search equadratures..." autocomplete="off" >
 </form>
-      
-
-      <ul class="navbar-nav">
-        
-          <li class="nav-item">
-            <a class="nav-link" href="https://github.com/Effective-Quadratures/equadratures" target="_blank" rel="noopener">
-              <span><i class="fab fa-github-square"></i></span>
-            </a>
-          </li>
-        
-        
-          <li class="nav-item">
-            <a class="nav-link" href="https://twitter.com/equadratures" target="_blank" rel="noopener">
-              <span><i class="fab fa-twitter-square"></i></span>
-            </a>
-          </li>
-        
+      <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/Effective-Quadratures/equadratures" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/equadratures" rel="noopener" target="_blank" title="Twitter">
+            <span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label>
+          </a>
+        </li>
       </ul>
     </div>
 </div>
@@ -109,23 +110,15 @@
     <div class="container-xl">
       <div class="row">
           
-          <div class="col-12 col-md-3 bd-sidebar"><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-
-    <div class="bd-toc-item active">
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
     
-  
-    <ul class="nav bd-sidenav">
-        
-        
-        
-        
-        
-        
-        
-      </ul>
-  
-  </nav>
-          </div>
+  </div>
+</nav>
+            </div>
+            
           
 
           
@@ -133,9 +126,7 @@
               
 
 <nav id="bd-toc-nav">
-    <ul class="nav section-nav flex-column">
     
-    </ul>
 </nav>
 
 
@@ -143,6 +134,9 @@
           </div>
           
 
+          
+          
+            
           
           <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
               
@@ -169,7 +163,7 @@
 
 <span class="sd">    :param list parameters: A list of parameters, where each element of the list is an instance of the Parameter class.</span>
 <span class="sd">    :param Basis basis: An instance of the Basis class corresponding to the multi-index set used.</span>
-<span class="sd">    :param str method: The method used for computing the coefficients. Should be one of: ``compressive-sensing``, ``numerical-integration``, ``least-squares``, ``least-squares-with-gradients``, ``least-absolute-residual``, ``minimum-norm``, ``huber``, ``elastic-net``, ``lasso-lars``, ``relevance-vector-machine``.</span>
+<span class="sd">    :param str method: The method used for computing the coefficients. Should be one of: ``compressed-sensing``, ``least-squares``, ``minimum-norm``, ``numerical-integration``, ``least-squares-with-gradients``, ``least-absolute-residual``, ``huber``, ``elastic-net``, ``elastic-path`` or ``relevance-vector-machine``. </span>
 <span class="sd">    :param dict sampling_args: Optional arguments centered around the specific sampling strategy.</span>
 <span class="sd">            :string mesh: Avaliable options are: ``monte-carlo``, ``sparse-grid``, ``tensor-grid``, ``induced``, or ``user-defined``. Note that when the ``sparse-grid`` option is invoked, the sparse pseudospectral approximation method [1] is the adopted. One can think of this as being the correct way to use sparse grids in the context of polynomial chaos [2] techniques.</span>
 <span class="sd">            :string subsampling-algorithm: The ``subsampling-algorithm`` input refers to the optimisation technique for subsampling. In the aforementioned four sampling strategies, we generate a logarithm factor of samples above the required amount and prune down the samples using an optimisation technique (see [1]). Existing optimisation strategies include: ``qr``, ``lu``, ``svd``, ``newton``. These refer to QR with column pivoting [2], LU with row pivoting [3], singular value decomposition with subset selection [2] and a convex relaxation via Newton&#39;s method for determinant maximization [4]. Note that if the ``tensor-grid`` option is selected, then subsampling will depend on whether the Basis argument is a total order index set, hyperbolic basis or a tensor order index set.</span>
@@ -178,9 +172,6 @@
 <span class="sd">            :numpy.ndarray sample-outputs: A numpy ndarray with shape (number_of_observations, 1) that corresponds to model evaluations at the sample points. Note that if ``sample-points`` is provided as an input, then the code expects ``sample-outputs`` too.</span>
 <span class="sd">            :numpy.ndarray sample-gradients: A numpy ndarray with shape (number_of_observations, dimensions) that corresponds to a set of sample gradient values over the parameter space.</span>
 <span class="sd">    :param dict solver_args: Optional arguments centered around the specific solver used for computing the coefficients.</span>
-
-<span class="sd">            :numpy.ndarray noise-level: The noise level to be used. Can take in both scalar- and vector-valued inputs.</span>
-<span class="sd">            :bool verbose: The default value is set to ``False``; when set to ``True`` details on the convergence of the solution will be provided. Note for direct methods, this will simply output the condition number of the matrix.</span>
 
 <span class="sd">    **Sample constructor initialisations**::</span>
 
@@ -215,7 +206,7 @@
 <span class="sd">        7. Rogers, S., Girolami, M., (2016) Variability in predictions. In: A First Course in Machine Learning, Second Edition (2nd. ed.). Chapman &amp; Hall/CRC. `Book &lt;https://github.com/wwkenwong/book/blob/master/Simon%20Rogers%2C%20Mark%20Girolami%20A%20First%20Course%20in%20Machine%20Learning.pdf&gt;`__</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span> <span class="n">basis</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sampling_args</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">solver_args</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span> <span class="n">basis</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sampling_args</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">solver_args</span><span class="o">=</span><span class="p">{}):</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="nb">len</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
@@ -227,7 +218,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">solver_args</span> <span class="o">=</span> <span class="n">solver_args</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">dimensions</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">orders</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">gradient_flag</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gradient_flag</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dimensions</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">orders</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">order</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">orders</span> <span class="p">:</span>
@@ -244,10 +235,12 @@
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;numerical-integration&#39;</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;integration&#39;</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">mesh</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">basis_type</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">basis_type</span> <span class="o">!=</span> <span class="s1">&#39;tensor-grid&#39;</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">basis_type</span> <span class="o">!=</span> <span class="s1">&#39;sparse-grid&#39;</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">basis_type</span> <span class="o">!=</span> <span class="s1">&#39;univariate&#39;</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;tensor-grid or sparse-grid basis must be used with the numerical-integration Poly method&#39;</span><span class="p">)</span> 
             <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;least-squares&#39;</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;least-absolute-residual&#39;</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">method</span><span class="o">==</span><span class="s1">&#39;huber&#39;</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">method</span><span class="o">==</span><span class="s1">&#39;elastic-net&#39;</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">mesh</span> <span class="o">=</span> <span class="s1">&#39;tensor-grid&#39;</span>
             <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;least-squares-with-gradients&#39;</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">gradient_flag</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">gradient_flag</span> <span class="o">=</span> <span class="kc">True</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">mesh</span> <span class="o">=</span> <span class="s1">&#39;tensor-grid&#39;</span>
             <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;compressed-sensing&#39;</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;compressive-sensing&#39;</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">mesh</span> <span class="o">=</span> <span class="s1">&#39;monte-carlo&#39;</span>
@@ -390,8 +383,7 @@
 <span class="sd">        :param Poly self:</span>
 <span class="sd">            An instance of the Poly object.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">polysolver</span> <span class="o">=</span> <span class="n">Solver</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">method</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">solver_args</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">solver</span> <span class="o">=</span> <span class="n">polysolver</span><span class="o">.</span><span class="n">get_solver</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">solver</span> <span class="o">=</span> <span class="n">Solver</span><span class="o">.</span><span class="n">select_solver</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">method</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">solver_args</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">_set_points_and_weights</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Private function that sets the quadrature points.</span>
@@ -482,7 +474,7 @@
                 <span class="n">poly_vandermonde_matrix</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_poly</span><span class="p">(</span><span class="n">quad_pts</span><span class="p">)</span>
             <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">mesh</span> <span class="o">==</span> <span class="s1">&#39;monte-carlo&#39;</span><span class="p">:</span>
                 <span class="n">quad</span> <span class="o">=</span> <span class="n">Quadrature</span><span class="p">(</span><span class="n">parameters</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">,</span>
-                                  <span class="n">basis</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">basis</span><span class="p">,</span> <span class="n">mesh</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">mesh</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">oversampling</span><span class="o">=</span><span class="mf">10.0</span><span class="p">)</span>
+                                  <span class="n">basis</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">basis</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mesh</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">mesh</span><span class="p">,</span> <span class="n">oversampling</span><span class="o">=</span><span class="mf">10.0</span><span class="p">)</span>
                 <span class="n">quad_pts</span><span class="p">,</span> <span class="n">quad_wts</span> <span class="o">=</span> <span class="n">quad</span><span class="o">.</span><span class="n">get_points_and_weights</span><span class="p">()</span>
                 <span class="n">N_quad</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">quad_wts</span><span class="p">)</span>
                 <span class="n">quad_wts</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">N_quad</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">N_quad</span><span class="p">)</span>
@@ -575,7 +567,7 @@
             <span class="k">if</span> <span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;model values should be a column vector.&#39;</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_model_evaluations</span> <span class="o">=</span> <span class="n">y</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">gradient_flag</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">gradient_flag</span><span class="p">:</span>
                 <span class="k">if</span> <span class="p">(</span><span class="n">model_grads</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gradients</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
                     <span class="n">grad_values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gradients</span>
                 <span class="k">else</span><span class="p">:</span>
@@ -610,7 +602,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span> <span class="o">=</span> <span class="n">user_defined_coefficients</span>
             <span class="k">return</span>
         <span class="n">indices_with_nans</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_model_evaluations</span><span class="p">))[:,</span><span class="mi">0</span><span class="p">]</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">indices_with_nans</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">indices_with_nans</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;WARNING: One or more of your model evaluations have resulted in an NaN. We found &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">indices_with_nans</span><span class="p">))</span><span class="o">+</span><span class="s1">&#39; NaNs out of &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_model_evaluations</span><span class="p">))</span><span class="o">+</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
             <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The code will now use a least-squares technique that will ignore input-output pairs of your model that have NaNs. This will likely compromise computed statistics.&#39;</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">inputs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_quadrature_points</span><span class="p">,</span> <span class="n">indices_with_nans</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -637,7 +629,7 @@
                 <span class="n">indices</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">counts</span><span class="p">))</span> <span class="k">if</span>  <span class="n">counts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">]</span>
                 <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">W</span> <span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_model_evaluations</span><span class="p">[</span><span class="n">indices</span><span class="p">])</span>
                 <span class="k">del</span> <span class="n">counts</span><span class="p">,</span> <span class="n">indices</span>
-                <span class="n">coefficients_i</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">solver</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">quadrature</span><span class="o">.</span><span class="n">sparse_weights</span><span class="p">[</span><span class="n">counter</span><span class="p">]</span>
+                <span class="n">coefficients_i</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">solver</span><span class="o">.</span><span class="n">get_coefficients</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>  <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">quadrature</span><span class="o">.</span><span class="n">sparse_weights</span><span class="p">[</span><span class="n">counter</span><span class="p">]</span>
                 <span class="n">multindices_i</span> <span class="o">=</span>  <span class="n">tensor</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">elements</span>
                 <span class="n">coefficients</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">coefficients_i</span><span class="p">,</span> <span class="n">coefficients</span><span class="p">])</span>
                 <span class="n">multindices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">multindices_i</span><span class="p">,</span> <span class="n">multindices</span><span class="p">])</span>
@@ -657,7 +649,7 @@
             <span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_quadrature_weights</span><span class="p">))</span>
             <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">W</span> <span class="p">,</span> <span class="n">P</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
             <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">W</span> <span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_model_evaluations</span><span class="p">)</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">gradient_flag</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">gradient_flag</span><span class="p">:</span>
                 <span class="c1"># Now, we can reduce the number of rows!</span>
                 <span class="n">dP</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_poly_grad</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_quadrature_points</span><span class="p">)</span>
                 <span class="n">C</span> <span class="o">=</span> <span class="n">cell2matrix</span><span class="p">(</span><span class="n">dP</span><span class="p">,</span> <span class="n">W</span><span class="p">)</span>
@@ -668,10 +660,9 @@
                 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The number of unknown basis terms is &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
                 <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="n">r</span><span class="p">:</span>
                     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;WARNING: Please increase the number of samples; one way to do this would be to increase the sampling-ratio.&#39;</span><span class="p">)</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span><span class="p">,</span> <span class="n">self_solver_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">solver</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_gradient_evaluations</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">solver</span><span class="o">.</span><span class="n">get_coefficients</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_gradient_evaluations</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">solver_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">solver</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-
+                <span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">solver</span><span class="o">.</span><span class="n">get_coefficients</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 <div class="viewcode-block" id="Poly.get_multi_index"><a class="viewcode-back" href="../../_documentation/poly.html#equadratures.poly.Poly.get_multi_index">[docs]</a>    <span class="k">def</span> <span class="nf">get_multi_index</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the multi-index set of the basis.</span>
@@ -1001,7 +992,7 @@
 
         <span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_points</span><span class="p">()</span>
         <span class="n">y_pred</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_polyfit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-        <span class="n">train_score</span> <span class="o">=</span> <span class="n">score</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">outputs</span><span class="p">,</span><span class="n">y_pred</span><span class="p">,</span><span class="n">metric</span><span class="p">,</span><span class="n">X</span><span class="o">=</span><span class="n">X</span><span class="p">)</span>
+        <span class="n">train_score</span> <span class="o">=</span> <span class="n">score</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_model_evaluations</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span><span class="n">metric</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="n">X</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">X_test</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">y_test</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">y_pred_test</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_polyfit</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
             <span class="n">test_score</span> <span class="o">=</span> <span class="n">score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">y_pred_test</span><span class="p">,</span><span class="n">metric</span><span class="p">,</span><span class="n">X</span><span class="o">=</span><span class="n">X_test</span><span class="p">)</span>
@@ -1082,7 +1073,7 @@
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">dimensions</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">[</span><span class="mi">0</span><span class="p">,:])</span>
-    <span class="k">if</span> <span class="nb">format</span> <span class="ow">is</span> <span class="s1">&#39;matrix&#39;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">format</span> <span class="o">==</span> <span class="s1">&#39;matrix&#39;</span><span class="p">:</span>
         <span class="n">grad_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">),</span> <span class="n">dimensions</span><span class="p">))</span>
         <span class="c1"># For loop through all the points</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">)):</span>
@@ -1090,7 +1081,7 @@
             <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">dimensions</span><span class="p">):</span>
                 <span class="n">grad_values</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">output_from_gradient_call</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">grad_values</span>
-    <span class="k">elif</span> <span class="nb">format</span> <span class="ow">is</span> <span class="s1">&#39;vector&#39;</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="nb">format</span> <span class="o">==</span> <span class="s1">&#39;vector&#39;</span><span class="p">:</span>
         <span class="n">grad_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">)</span> <span class="o">*</span> <span class="n">dimensions</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
         <span class="c1"># For loop through all the points</span>
         <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
@@ -1171,14 +1162,14 @@
     </div>
 
     
-  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+  <script src="../../_static/js/index.d8bbf5861d671d414e1a.js"></script>
 
 
     <footer class="footer mt-5 mt-md-0">
   <div class="container">
     <p>
           &copy; Copyright 2016-2021 by equadratures.org.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.1.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3.<br/>
     </p>
   </div>
 </footer>
