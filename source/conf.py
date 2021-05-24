@@ -17,7 +17,8 @@ extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.ifconfig',
     'sphinx.ext.viewcode',
-    'sphinx.ext.githubpages'
+    'sphinx.ext.githubpages',
+    'sphinxcontrib.napoleon'
 ]
 templates_path = ['_docstemplates']
 source_suffix = '.txt'
@@ -45,7 +46,14 @@ texinfo_documents = [
      author, 'equadratures', 'equadratures is an open-source python code developed by Effective Quadratures. It is tailored for tackling problems in uncertainty quantification, surrogate-based optimisation, numerical integration, and data-driven dimension reduction. ',
      'Miscellaneous'),
 ]
-intersphinx_mapping = {'https://docs.python.org/': None}
+intersphinx_mapping = {
+        'https://docs.python.org/': None,
+        'numpy': ('https://numpy.org/doc/stable/', None),
+        'matplotlib': ('https://matplotlib.org/stable/', None),
+        'scipy': ('https://docs.scipy.org/doc/scipy/reference/',None),
+        'sklearn': ('http://scikit-learn.org/stable',
+            (None, './_intersphinx/sklearn-objects.inv'))
+        }
 html_theme_options = {
     "external_links": [
       {"url": "https://discourse.equadratures.org/", "name": "Discourse"}

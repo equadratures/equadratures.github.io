@@ -6,17 +6,25 @@ This page covers some of the key modules in Effective Quadratures; they are spli
 
 .. toctree::
    :maxdepth: 1
-   :caption: List of modules
+   :caption: Core modules
 
    parameter
    basis
    poly
-   quadrature
-   weight
+
+Next, we have a range of modules which extend the functionality of :code:`equadratures` for various applications.
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Additional modules
+
    subspaces
    optimisation
-   plot
-   correlated
    polytree
    solver
-  
+   quadrature
+   weight
+   plot
+   correlated
+   datasets
+   scalers

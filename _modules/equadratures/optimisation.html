@@ -8,7 +8,7 @@
     <title>equadratures.optimisation &#8212; equadratures</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../_static/css/index.101715efdecc9b59cb6e1ddfa685c31f.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -22,44 +22,53 @@
       
 
     
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.d8bbf5861d671d414e1a.js">
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../../_static/eq-logo-favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
+    <div class="container-fluid" id="banner"></div>
+
+    
     <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
 
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="../../index.html">
+  <img src="../../_static/logo_new.png" class="logo" alt="logo">
+</a>
+
 
     
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
       
-      <a class="navbar-brand" href="../../index.html">
-        <img src="../../_static/logo_new.png" class="logo" alt="logo">
-      </a>
-      
-    
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    
-    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
-      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
-        <li class="toctree-l1 nav-item">
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../../_documentation/tutorials.html">
   Tutorials
  </a>
@@ -77,18 +86,20 @@
  </a>
 </li>
 
-        
-        <li class="nav-item">
-            <a class="nav-link nav-external" href="https://discourse.equadratures.org/">Discourse<i class="fas fa-external-link-alt"></i></a>
-        </li>
-        
-      </ul>
+    
+    <li class="nav-item">
+        <a class="nav-link nav-external" href="https://discourse.equadratures.org/">Discourse<i class="fas fa-external-link-alt"></i></a>
+    </li>
+    
+</ul>
+      </div>
+      
+    </div>
 
-      <form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search equadratures..." aria-label="Search equadratures..." autocomplete="off" >
-</form>
-      <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
         <li class="nav-item">
           <a class="nav-link" href="https://github.com/Effective-Quadratures/equadratures" rel="noopener" target="_blank" title="GitHub">
             <span><i class="fab fa-github-square"></i></span>
@@ -102,7 +113,10 @@
           </a>
         </li>
       </ul>
+      </div>
+      
     </div>
+  </div>
 </div>
     </nav>
     
@@ -112,7 +126,10 @@
           
             
             <!-- Only show if we have sidebars configured, else just a small margin  -->
-            <div class="col-12 col-md-3 bd-sidebar"><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search equadratures..." aria-label="Search equadratures..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <div class="bd-toc-item active">
     
   </div>
@@ -123,14 +140,7 @@
 
           
           <div class="d-none d-xl-block col-xl-2 bd-toc">
-              
-
-<nav id="bd-toc-nav">
-    
-</nav>
-
-
-              
+            
           </div>
           
 
@@ -149,17 +159,18 @@
 <span class="kn">from</span> <span class="nn">equadratures.subspaces</span> <span class="kn">import</span> <span class="n">Subspaces</span>
 <span class="kn">from</span> <span class="nn">equadratures.parameter</span> <span class="kn">import</span> <span class="n">Parameter</span>
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">optimize</span>
-<span class="kn">from</span> <span class="nn">scipy.linalg</span> <span class="kn">import</span> <span class="n">null_space</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">factorial</span>
 <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">linregress</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 <div class="viewcode-block" id="Optimisation"><a class="viewcode-back" href="../../_documentation/optimisation.html#equadratures.optimisation.Optimisation">[docs]</a><span class="k">class</span> <span class="nc">Optimisation</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    This class performs unconstrained or constrained optimisation of poly objects or custom functions</span>
-<span class="sd">    using scipy.optimize.minimize or an in-house trust-region method.</span>
-<span class="sd">    :param string method: A string specifying the method that will be used for optimisation. All of the available choices come from scipy.optimize.minimize (`click here &lt;https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html&gt;`__ for a list of methods and further information). In the case of general constrained optimisation, the options are ``COBYLA``, ``SLSQP``, and ``trust-constr``. The default is ``trust-constr``.</span>
+    <span class="sd">&quot;&quot;&quot; This class performs unconstrained or constrained optimisation of poly objects or custom functions using scipy.optimize.minimize or an in-house trust-region method.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    method : str </span>
+<span class="sd">        A string specifying the method that will be used for optimisation. Any of the methods available from :obj:`scipy.optimize.minimize` can be chosen. In the case of general constrained optimisation, the options are ``COBYLA``, ``SLSQP``, and ``trust-constr``. The in-house options ``trust-region`` and ``omorf`` are also available. </span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="o">=</span> <span class="n">method</span>
@@ -174,17 +185,22 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">g</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
-<div class="viewcode-block" id="Optimisation.add_objective"><a class="viewcode-back" href="../../_documentation/optimisation.html#equadratures.optimisation.Optimisation.add_objective">[docs]</a>    <span class="k">def</span> <span class="nf">add_objective</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">poly</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">custom</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">maximise</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Adds objective function to be optimised.</span>
 
-<span class="sd">        :param poly poly:</span>
+<div class="viewcode-block" id="Optimisation.add_objective"><a class="viewcode-back" href="../../_documentation/optimisation.html#equadratures.optimisation.Optimisation.add_objective">[docs]</a>    <span class="k">def</span> <span class="nf">add_objective</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">poly</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">custom</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">maximise</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Adds objective function to be optimised.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        poly : Poly</span>
 <span class="sd">            A Poly object.</span>
-<span class="sd">        :param dict custom: Optional arguments centered around the custom option.</span>
-<span class="sd">            :callable function: The objective function to be called.</span>
-<span class="sd">            :callable jac_function: The gradient (or derivative) of the objective.</span>
-<span class="sd">            :callable hess_function: The Hessian of the objective function.</span>
-<span class="sd">        :param bool maximise: A flag to specify if the user would like to maximise the function instead of minimising it.</span>
+<span class="sd">        custom : dict, optional</span>
+<span class="sd">            Dictionary containing optional arguments:</span>
+
+<span class="sd">            - **function** (Callable): The objective function to be called.</span>
+<span class="sd">            - **jac_function** (Callable, *optional*): The gradient (or derivative) of the objective.</span>
+<span class="sd">            - **hess_function** (Callable, *optional*): The Hessian of the objective function.</span>
+<span class="sd">        maximise : bool, optional</span>
+<span class="sd">            A flag to specify if the user would like to maximise the function instead of minimising it.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">assert</span> <span class="n">poly</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">custom</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;trust-region&#39;</span><span class="p">:</span>
@@ -213,12 +229,16 @@
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">objective_hess</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">BFGS</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">objective</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;function&#39;</span><span class="p">:</span> <span class="n">objective</span><span class="p">,</span> <span class="s1">&#39;gradient&#39;</span><span class="p">:</span> <span class="n">objective_deriv</span><span class="p">,</span> <span class="s1">&#39;hessian&#39;</span><span class="p">:</span> <span class="n">objective_hess</span><span class="p">}</span></div>
-<div class="viewcode-block" id="Optimisation.add_bounds"><a class="viewcode-back" href="../../_documentation/optimisation.html#equadratures.optimisation.Optimisation.add_bounds">[docs]</a>    <span class="k">def</span> <span class="nf">add_bounds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lb</span><span class="p">,</span> <span class="n">ub</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Adds bounds :math:`lb &lt;= x &lt;=ub` to the optimisation problem. Only ``L-BFGS-B``, ``TNC``, ``SLSQP``, ``trust-constr``, ``trust-region``, and ``COBYLA`` methods can handle bounds.</span>
 
-<span class="sd">        :param numpy.ndarray lb: 1-by-n matrix that contains lower bounds of x.</span>
-<span class="sd">        :param numpy.ndarray ub: 1-by-n matrix that contains upper bounds of x.</span>
+<div class="viewcode-block" id="Optimisation.add_bounds"><a class="viewcode-back" href="../../_documentation/optimisation.html#equadratures.optimisation.Optimisation.add_bounds">[docs]</a>    <span class="k">def</span> <span class="nf">add_bounds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lb</span><span class="p">,</span> <span class="n">ub</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Adds bounds :math:`lb &lt;= x &lt;=ub` to the optimisation problem. Only ``L-BFGS-B``, ``TNC``, ``SLSQP``, ``trust-constr``, ``trust-region``, and ``COBYLA`` methods can handle bounds.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        lb : numpy.ndarray </span>
+<span class="sd">            1-by-n matrix that contains lower bounds of x.</span>
+<span class="sd">        ub : numpy.ndarray </span>
+<span class="sd">            1-by-n matrix that contains upper bounds of x.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">assert</span> <span class="n">lb</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="n">ub</span><span class="o">.</span><span class="n">size</span>
         <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;L-BFGS-B&#39;</span><span class="p">,</span> <span class="s1">&#39;TNC&#39;</span><span class="p">,</span> <span class="s1">&#39;SLSQP&#39;</span><span class="p">,</span> <span class="s1">&#39;trust-constr&#39;</span><span class="p">,</span> <span class="s1">&#39;COBYLA&#39;</span><span class="p">,</span> <span class="s1">&#39;trust-region&#39;</span><span class="p">,</span> <span class="s1">&#39;omorf&#39;</span><span class="p">]</span>
@@ -239,14 +259,19 @@
                     <span class="n">u</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;ineq&#39;</span><span class="p">,</span>
                          <span class="s1">&#39;fun&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">i</span><span class="o">=</span><span class="n">factor</span><span class="p">:</span> <span class="n">ub</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]}</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">constraints</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">u</span><span class="p">)</span></div>
-<div class="viewcode-block" id="Optimisation.add_linear_ineq_con"><a class="viewcode-back" href="../../_documentation/optimisation.html#equadratures.optimisation.Optimisation.add_linear_ineq_con">[docs]</a>    <span class="k">def</span> <span class="nf">add_linear_ineq_con</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">b_l</span><span class="p">,</span> <span class="n">b_u</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Adds linear inequality constraints :math:`b_l &lt;= A x &lt;= b_u` to the optimisation problem.</span>
-<span class="sd">        Only ``trust-constr``, ``COBYLA``, and ``SLSQP`` methods can handle general constraints.</span>
 
-<span class="sd">        :param numpy.ndarray A: An (M,n) matrix that contains coefficients of the linear inequality constraints.</span>
-<span class="sd">        :param numpy.ndarray b_l: An (M,1) matrix that specifies lower bounds of the linear inequality constraints. If there is no lower bound, set ``b_l = -np.inf * np.ones(M)``.</span>
-<span class="sd">        :param numpy.ndarray b_u: A (M,1) matrix that specifies upper bounds of the linear inequality constraints. If there is no upper bound, set ``b_u = np.inf * np.ones(M)``.</span>
+<div class="viewcode-block" id="Optimisation.add_linear_ineq_con"><a class="viewcode-back" href="../../_documentation/optimisation.html#equadratures.optimisation.Optimisation.add_linear_ineq_con">[docs]</a>    <span class="k">def</span> <span class="nf">add_linear_ineq_con</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">b_l</span><span class="p">,</span> <span class="n">b_u</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Adds linear inequality constraints :math:`b_l &lt;= A x &lt;= b_u` to the optimisation problem.</span>
+<span class="sd">        Only ``trust-constr``, ``COBYLA``, and ``SLSQP`` methods can handle general constraints.</span>
+<span class="sd">    </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        A : numpy.ndarray</span>
+<span class="sd">            An (M,n) matrix that contains coefficients of the linear inequality constraints.</span>
+<span class="sd">        b_l : numpy.ndarray </span>
+<span class="sd">            An (M,1) matrix that specifies lower bounds of the linear inequality constraints. If there is no lower bound, set ``b_l = -np.inf * np.ones(M)``.</span>
+<span class="sd">        b_u : numpy.ndarray </span>
+<span class="sd">            An (M,1) matrix that specifies upper bounds of the linear inequality constraints. If there is no upper bound, set ``b_u = np.inf * np.ones(M)``.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># trust-constr method has its own linear constraint handler</span>
         <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;SLSQP&#39;</span><span class="p">,</span> <span class="s1">&#39;trust-constr&#39;</span><span class="p">,</span> <span class="s1">&#39;COBYLA&#39;</span><span class="p">]</span>
@@ -258,19 +283,28 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">constraints</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;type&#39;</span><span class="p">:</span><span class="s1">&#39;ineq&#39;</span><span class="p">,</span> <span class="s1">&#39;fun&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">b_l</span><span class="p">,</span> <span class="s1">&#39;jac&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">A</span><span class="p">})</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isinf</span><span class="p">(</span><span class="n">b_u</span><span class="p">)):</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">constraints</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;type&#39;</span><span class="p">:</span><span class="s1">&#39;ineq&#39;</span><span class="p">,</span> <span class="s1">&#39;fun&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">b_u</span><span class="p">,</span> <span class="s1">&#39;jac&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="o">-</span><span class="n">A</span><span class="p">})</span></div>
+
 <div class="viewcode-block" id="Optimisation.add_nonlinear_ineq_con"><a class="viewcode-back" href="../../_documentation/optimisation.html#equadratures.optimisation.Optimisation.add_nonlinear_ineq_con">[docs]</a>    <span class="k">def</span> <span class="nf">add_nonlinear_ineq_con</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">poly</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">custom</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Adds nonlinear inequality constraints :math:`lb &lt;= g(x) &lt;= ub` (for poly option) with :math:`lb`, :math:`ub = bounds` or :math:`g(x) &gt;= 0` (for function option) to the optimisation problem. Only ``trust-constr``, ``COBYLA``, and ``SLSQP`` methods can handle general constraints.</span>
-<span class="sd">        If Poly object is provided in the poly dictionary, gradients and Hessians will be computed automatically. If a lambda function is provided in the ``function`` dictionary, the user may also provide ``jac_function`` for gradients and ``hess_function`` for Hessians; otherwise, a 2-point differentiation rule</span>
+        <span class="sd">&quot;&quot;&quot; Adds nonlinear inequality constraints :math:`lb &lt;= g(x) &lt;= ub` (for poly option) with :math:`lb`, :math:`ub = bounds` or :math:`g(x) &gt;= 0` (for function option) to the optimisation problem. </span>
+
+<span class="sd">        Only ``trust-constr``, ``COBYLA``, and ``SLSQP`` methods can handle general constraints.</span>
+<span class="sd">        If Poly object is provided in the poly dictionary, gradients and Hessians will be computed automatically. If a lambda function is provided via ``function`` dictionary, the user may also provide ``jac_function`` for gradients and ``hess_function`` for Hessians; otherwise, a 2-point differentiation rule</span>
 <span class="sd">        will be used to approximate the derivative and a BFGS update will be used to approximate the Hessian.</span>
 
-<span class="sd">        :param dict poly: Arguments for poly dictionary.</span>
-<span class="sd">            :param Poly poly: An instance of the Poly class.</span>
-<span class="sd">            :param numpy.ndarray bounds: An array with two entries specifying the lower and upper bounds of the inequality. If there is no lower bound, set bounds[0] = -np.inf.If there is no upper bound, set bounds[1] = np.inf.</span>
-<span class="sd">        :param dict custom: Additional custom callable arguments.</span>
-<span class="sd">            :callable function: The constraint function to be called.</span>
-<span class="sd">            :callable jac_function: The gradient (or derivative) of the constraint.</span>
-<span class="sd">            :callable hess_function: The Hessian of the constraint function.</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        poly : dict, optional</span>
+<span class="sd">            Dictionary containing a Poly and bounds for constraints:</span>
+
+<span class="sd">                - **poly** (Poly): An instance of the Poly class.</span>
+<span class="sd">                - **bounds** (numpy.ndarray): An array with two entries specifying the lower and upper bounds of the inequality. If there is no lower bound, set ``bounds[0] = -np.inf``. If there is no upper bound, set ``bounds[1] = np.inf``.</span>
+
+<span class="sd">        custom : dict, optional</span>
+<span class="sd">            Dictionary containing additional custom callable arguments:</span>
+
+<span class="sd">                - **function** (Callable): The constraint function to be called.</span>
+<span class="sd">                - **jac_function** (Callable, *optional*): The gradient (or derivative) of the constraint.</span>
+<span class="sd">                - **hess_function** (Callable, *optional*): The Hessian of the constraint function.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;SLSQP&#39;</span><span class="p">,</span> <span class="s1">&#39;trust-constr&#39;</span><span class="p">,</span> <span class="s1">&#39;COBYLA&#39;</span><span class="p">]</span>
         <span class="k">assert</span> <span class="n">poly</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">custom</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
@@ -325,29 +359,40 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">constraints</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;ineq&#39;</span><span class="p">,</span> <span class="s1">&#39;fun&#39;</span><span class="p">:</span> <span class="n">constraint</span><span class="p">})</span></div>
 
 <div class="viewcode-block" id="Optimisation.add_linear_eq_con"><a class="viewcode-back" href="../../_documentation/optimisation.html#equadratures.optimisation.Optimisation.add_linear_eq_con">[docs]</a>    <span class="k">def</span> <span class="nf">add_linear_eq_con</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Adds linear equality constraints  :math:`Ax = b` to the optimisation routine. Only ``trust-constr`` and ``SLSQP`` methods can handle equality constraints.</span>
+        <span class="sd">&quot;&quot;&quot; Adds linear equality constraints  :math:`Ax = b` to the optimisation routine. Only ``trust-constr`` and ``SLSQP`` methods can handle equality constraints.</span>
 
-<span class="sd">        :param numpy.ndarray A: A (M, n) matrix that contains coefficients of the linear equality constraints.</span>
-<span class="sd">        :param numpy.ndarray b: A (M, 1) matrix that specifies right hand side of the linear equality constraints.</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        A : numpy.ndarray </span>
+<span class="sd">            An (M, n) matrix that contains coefficients of the linear equality constraints.</span>
+<span class="sd">        b : numpy.ndarray </span>
+<span class="sd">            An (M, 1) matrix that specifies right hand side of the linear equality constraints.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;trust-constr&#39;</span> <span class="ow">or</span> <span class="s1">&#39;SLSQP&#39;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;trust-constr&#39;</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">constraints</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">optimize</span><span class="o">.</span><span class="n">LinearConstraint</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">b</span><span class="p">))</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">constraints</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;type&#39;</span><span class="p">:</span><span class="s1">&#39;eq&#39;</span><span class="p">,</span> <span class="s1">&#39;fun&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">A</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">b</span><span class="p">,</span> <span class="s1">&#39;jac&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">A</span><span class="p">})</span></div>
-<div class="viewcode-block" id="Optimisation.add_nonlinear_eq_con"><a class="viewcode-back" href="../../_documentation/optimisation.html#equadratures.optimisation.Optimisation.add_nonlinear_eq_con">[docs]</a>    <span class="k">def</span> <span class="nf">add_nonlinear_eq_con</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">poly</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">custom</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Adds nonlinear inequality constraints :math:`g(x) = value` (for poly option) or :math:`g(x) = 0` (for function option) to the optimisation routine.</span>
-<span class="sd">        Only ``trust-constr`` and ``SLSQP`` methods can handle equality constraints. If poly object is providedin the poly dictionary, gradients and Hessians will be computed automatically.</span>
 
-<span class="sd">        :param dict poly: Arguments for poly dictionary.</span>
-<span class="sd">            :param Poly poly: An instance of the Poly class.</span>
-<span class="sd">            :param float value: Value of the nonlinear constraint.</span>
-<span class="sd">        :param dict custom: Additional custom callable arguments.</span>
-<span class="sd">            :callable function: The constraint function to be called.</span>
-<span class="sd">            :callable jac_function: The gradient (or derivative) of the constraint.</span>
-<span class="sd">            :callable hess_function: The Hessian of the constraint function.</span>
+<div class="viewcode-block" id="Optimisation.add_nonlinear_eq_con"><a class="viewcode-back" href="../../_documentation/optimisation.html#equadratures.optimisation.Optimisation.add_nonlinear_eq_con">[docs]</a>    <span class="k">def</span> <span class="nf">add_nonlinear_eq_con</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">poly</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">custom</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Adds nonlinear inequality constraints :math:`g(x) = value` (for poly option) or :math:`g(x) = 0` (for function option) to the optimisation routine.</span>
+<span class="sd">        </span>
+<span class="sd">        Only ``trust-constr`` and ``SLSQP`` methods can handle equality constraints. If poly object is provided in the poly dictionary, gradients and Hessians will be computed automatically.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        poly : dict, optional</span>
+<span class="sd">            Dictionary containing a Poly and value for constraints:</span>
+
+<span class="sd">                - **poly** (Poly): An instance of the Poly class.</span>
+<span class="sd">                - **value** (float): Value of the nonlinear constraint. </span>
+
+<span class="sd">        custom : dict, optional</span>
+<span class="sd">            Dictionary containing additional custom callable arguments:</span>
+
+<span class="sd">                - **function** (Callable): The constraint function to be called.</span>
+<span class="sd">                - **jac_function** (Callable, *optional*): The gradient (or derivative) of the constraint.</span>
+<span class="sd">                - **hess_function** (Callable, *optional*): The Hessian of the constraint function.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;trust-constr&#39;</span> <span class="ow">or</span> <span class="s1">&#39;SLSQP&#39;</span>
         <span class="k">assert</span> <span class="n">poly</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">custom</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
@@ -387,19 +432,28 @@
                     <span class="bp">self</span><span class="o">.</span><span class="n">constraints</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;type&#39;</span><span class="p">:</span><span class="s1">&#39;eq&#39;</span><span class="p">,</span> <span class="s1">&#39;fun&#39;</span><span class="p">:</span> <span class="n">constraint</span><span class="p">})</span></div>
 
 <div class="viewcode-block" id="Optimisation.optimise"><a class="viewcode-back" href="../../_documentation/optimisation.html#equadratures.optimisation.Optimisation.optimise">[docs]</a>    <span class="k">def</span> <span class="nf">optimise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Performs optimisation on a specified function, provided the objective has been added using &#39;add_objective&#39; method</span>
+        <span class="sd">&quot;&quot;&quot; Performs optimisation on a specified function, provided the objective has been added using :meth:&#39;~equadratures.optimisation.add_objective&#39;</span>
 <span class="sd">        and constraints have been added using the relevant method.</span>
 
-<span class="sd">        :param numpy.ndarray x0: Starting point for optimiser.</span>
-<span class="sd">        :param float del_k: initial trust-region radius for ``trust-region`` or ``omorf`` methods</span>
-<span class="sd">        :param float delmin: minimum allowable trust-region radius for ``trust-region`` or ``omorf`` methods</span>
-<span class="sd">        :param float delmax: maximum allowable trust-region radius for ``trust-region`` or ``omorf`` methods</span>
-<span class="sd">        :param int d: reduced dimension for ``omorf`` method</span>
-<span class="sd">        :param string subspace_method: subspace method for ``omorf`` method with options ``variable-projection`` or ``active-subspaces``</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        x0 : numpy.ndarray </span>
+<span class="sd">            Starting point for optimiser.</span>
+<span class="sd">        del_k : float </span>
+<span class="sd">            Initial trust-region radius for ``trust-region`` or ``omorf`` methods</span>
+<span class="sd">        delmin : float </span>
+<span class="sd">            Minimum allowable trust-region radius for ``trust-region`` or ``omorf`` methods</span>
+<span class="sd">        delmax : float </span>
+<span class="sd">            Maximum allowable trust-region radius for ``trust-region`` or ``omorf`` methods</span>
+<span class="sd">        d : int </span>
+<span class="sd">            Reduced dimension for ``omorf`` method</span>
+<span class="sd">        subspace_method : str </span>
+<span class="sd">            Subspace method for ``omorf`` method with options ``variable-projection`` or ``active-subspaces``</span>
 
-<span class="sd">        :return:</span>
-<span class="sd">            **sol**: An object containing the optimisation result. Important attributes are: the solution array ``x``, and a Boolean flag ``success`` indicating</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        dict</span>
+<span class="sd">            A dictionary containing the optimisation result. Important attributes are: the solution array ``x``, and a Boolean flag ``success`` indicating</span>
 <span class="sd">            if the optimiser exited successfully.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">objective</span><span class="p">[</span><span class="s1">&#39;function&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
@@ -1125,17 +1179,24 @@
 
       </div>
     </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    
-  <script src="../../_static/js/index.d8bbf5861d671d414e1a.js"></script>
-
-
-    <footer class="footer mt-5 mt-md-0">
+  <footer class="footer mt-5 mt-md-0">
   <div class="container">
-    <p>
-          &copy; Copyright 2016-2021 by equadratures.org.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3.<br/>
-    </p>
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2016-2021 by equadratures.org.<br/>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.0.2.<br/>
+</p>
+    </div>
+    
   </div>
 </footer>
   </body>

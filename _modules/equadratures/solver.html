@@ -8,7 +8,7 @@
     <title>equadratures.solver &#8212; equadratures</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../_static/css/index.101715efdecc9b59cb6e1ddfa685c31f.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -22,44 +22,53 @@
       
 
     
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.d8bbf5861d671d414e1a.js">
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../../_static/eq-logo-favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
+    <div class="container-fluid" id="banner"></div>
+
+    
     <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
 
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="../../index.html">
+  <img src="../../_static/logo_new.png" class="logo" alt="logo">
+</a>
+
 
     
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
       
-      <a class="navbar-brand" href="../../index.html">
-        <img src="../../_static/logo_new.png" class="logo" alt="logo">
-      </a>
-      
-    
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    
-    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
-      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
-        <li class="toctree-l1 nav-item">
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../../_documentation/tutorials.html">
   Tutorials
  </a>
@@ -77,18 +86,20 @@
  </a>
 </li>
 
-        
-        <li class="nav-item">
-            <a class="nav-link nav-external" href="https://discourse.equadratures.org/">Discourse<i class="fas fa-external-link-alt"></i></a>
-        </li>
-        
-      </ul>
+    
+    <li class="nav-item">
+        <a class="nav-link nav-external" href="https://discourse.equadratures.org/">Discourse<i class="fas fa-external-link-alt"></i></a>
+    </li>
+    
+</ul>
+      </div>
+      
+    </div>
 
-      <form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search equadratures..." aria-label="Search equadratures..." autocomplete="off" >
-</form>
-      <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
         <li class="nav-item">
           <a class="nav-link" href="https://github.com/Effective-Quadratures/equadratures" rel="noopener" target="_blank" title="GitHub">
             <span><i class="fab fa-github-square"></i></span>
@@ -102,7 +113,10 @@
           </a>
         </li>
       </ul>
+      </div>
+      
     </div>
+  </div>
 </div>
     </nav>
     
@@ -112,7 +126,10 @@
           
             
             <!-- Only show if we have sidebars configured, else just a small margin  -->
-            <div class="col-12 col-md-3 bd-sidebar"><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search equadratures..." aria-label="Search equadratures..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <div class="bd-toc-item active">
     
   </div>
@@ -123,14 +140,7 @@
 
           
           <div class="d-none d-xl-block col-xl-2 bd-toc">
-              
-
-<nav id="bd-toc-nav">
-    
-</nav>
-
-
-              
+            
           </div>
           
 
@@ -143,12 +153,18 @@
               <div>
                 
   <h1>Source code for equadratures.solver</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;Solvers for computing of a linear system.&quot;&quot;&quot;</span>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Solvers for computation of linear systems of the form :math:`\mathbf{A}\mathbf{x}=\mathbf{b}`.</span>
+
+<span class="sd">These solvers are used *under-the-hood* by :class:`~equadratures.poly.Poly` when :meth:`~equadratures.poly.Poly.set_model()` is called, with the solver specified by the ``method`` argument. </span>
+<span class="sd">The solvers can also be used independently (see examples) for debugging and experimentation purposes.</span>
+<span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">scipy.linalg</span> <span class="kn">import</span> <span class="n">qr</span>
 <span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">linprog</span><span class="p">,</span> <span class="n">minimize</span>
 <span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">huber</span> <span class="k">as</span> <span class="n">huber_loss</span>
 <span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+<span class="kn">import</span> <span class="nn">equadratures.plot</span> <span class="k">as</span> <span class="nn">plot</span>
 <span class="k">try</span><span class="p">:</span>
     <span class="kn">import</span> <span class="nn">cvxpy</span> <span class="k">as</span> <span class="nn">cv</span>
     <span class="n">cvxpy</span> <span class="o">=</span> <span class="kc">True</span>
@@ -159,17 +175,61 @@
 <span class="c1">###################</span>
 <div class="viewcode-block" id="Solver"><a class="viewcode-back" href="../../_documentation/solver.html#equadratures.solver.Solver">[docs]</a><span class="k">class</span> <span class="nc">Solver</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Returns solver functions for solving Ax=b</span>
-<span class="sd">    :param string method: The method used for solving the linear system. Options include: ``compressed-sensing``, ``least-squares``, ``minimum-norm``, ``numerical-integration``, ``least-squares-with-gradients``, ``least-absolute-residual``, ``huber``, ``elastic-net``, ``elastic-path`` and ``relevance-vector-machine``. </span>
-<span class="sd">    :param dict solver_args: Optional arguments centered around the specific solver.</span>
-<span class="sd">        :param bool verbose: Default value of this input is set to ``False``; when ``True``, the solver prints information to screen.</span>
-<span class="sd">        :param string opt: Specifies the underlying optimisation method to use. ``scipy`` for scipy, and `osqp` to use the OSQP optimiser (requires ``cvxpy`` to be installed). </span>
+<span class="sd">    The parent solver class. All other solver subclasses inherit attributes and methods from this parent class. </span>
+
+<span class="sd">    Note</span>
+<span class="sd">    ----</span>
+<span class="sd">    This parent class should not be used directly, but can be used to select the desired solver subclass (see examples).</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    method : string</span>
+<span class="sd">        The method used for solving the linear system. Options include: ``compressed-sensing``, ``least-squares``, ``minimum-norm``, ``numerical-integration``, ``least-squares-with-gradients``, ``least-absolute-residual``, ``huber``, ``elastic-net``, and ``relevance-vector-machine``. </span>
+<span class="sd">    solver_args : dict, optional</span>
+<span class="sd">        Dictionary containing optional arguments centered around the specific solver. Arguments are specific to the requested solver, except for the following generic arguments:</span>
+
+<span class="sd">        - **verbose** (bool): Default value of this input is set to ``False``; when ``True``, the solver prints information to screen.</span>
+<span class="sd">        - **opt** (str): Specifies the underlying optimisation method to use. ``scipy`` for scipy, and `osqp` to use the OSQP optimiser (requires ``cvxpy`` to be installed). </span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Accessing the underlying solver used by a Poly instance</span>
+<span class="sd">        &gt;&gt;&gt; # Fit a 2D polynomial using the elastic-net solver (with some specific solver_args passed)</span>
+<span class="sd">        &gt;&gt;&gt; x = np.linspace(-1,1,80)</span>
+<span class="sd">        &gt;&gt;&gt; xx = np.vstack([x,x]).T</span>
+<span class="sd">        &gt;&gt;&gt; y = xx[:,0]**3 + xx[0,1]**2 + np.random.normal(0,0.1,80)</span>
+<span class="sd">        &gt;&gt;&gt; myparam = eq.Parameter(distribution=&#39;uniform&#39;,order=3)</span>
+<span class="sd">        &gt;&gt;&gt; mybasis = eq.Basis(&#39;total-order&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; mypoly = eq.Poly([myparam,myparam],mybasis,method=&#39;elastic-net&#39;,</span>
+<span class="sd">        &gt;&gt;&gt;                 sampling_args={&#39;mesh&#39;: &#39;user-defined&#39;,&#39;sample-points&#39;:xx,&#39;sample-outputs&#39;:y},</span>
+<span class="sd">        &gt;&gt;&gt;                 solver_args={&#39;verbose&#39;:True,&#39;crit&#39;:&#39;AIC&#39;})</span>
+<span class="sd">        &gt;&gt;&gt; mypoly.set_model()</span>
+<span class="sd">        &gt;&gt;&gt; # Plot the regularisation path using the solver&#39;s method</span>
+<span class="sd">        &gt;&gt;&gt; mypoly.solver.plot_regpath()</span>
+
+<span class="sd">    Using solver subclasses independently</span>
+<span class="sd">        &gt;&gt;&gt; # Example data</span>
+<span class="sd">        &gt;&gt;&gt; A = np.array([[1,2,3],[1,1,1],[2,1,1]])</span>
+<span class="sd">        &gt;&gt;&gt; b = np.array([1,0,1])</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; # # select_solver will return the requested solver subclass</span>
+<span class="sd">        &gt;&gt;&gt; mysolver = eq.Solver.select_solver(&#39;least-squares&#39;,solver_args={&#39;verbose&#39;:False})</span>
+<span class="sd">        &gt;&gt;&gt; </span>
+<span class="sd">        &gt;&gt;&gt; # Or you can select the solversubclass directly</span>
+<span class="sd">        &gt;&gt;&gt; mysolver = solver.least_squares(solver_args={&#39;verbose&#39;:True})</span>
+<span class="sd">        &gt;&gt;&gt; </span>
+<span class="sd">        &gt;&gt;&gt; # You can manually run solve and then get_coefficients</span>
+<span class="sd">        &gt;&gt;&gt; mysolver.solve(A,b)</span>
+<span class="sd">        &gt;&gt;&gt; x = mysolver.get_coefficients()</span>
+<span class="sd">        &gt;&gt;&gt; </span>
+<span class="sd">        &gt;&gt;&gt; # Or providing get_coefficients() with A and b will automatically run solve()</span>
+<span class="sd">        &gt;&gt;&gt; x = mysolver.get_coefficients(A,b)</span>
+<span class="sd">        The condition number of the matrix is 29.82452477932781.</span>
+<span class="sd">        The condition number of the matrix is 29.82452477932781.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">solver_args</span><span class="o">=</span><span class="p">{}):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="o">=</span> <span class="n">method</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">solver_args</span> <span class="o">=</span> <span class="n">solver_args</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">gradient_flag</span> <span class="o">=</span> <span class="kc">False</span>
-
         <span class="c1"># Parse generic solver args here (solver specific ones done in subclass)</span>
         <span class="c1"># Defaults</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="kc">False</span>
@@ -183,9 +243,22 @@
 
 <div class="viewcode-block" id="Solver.select_solver"><a class="viewcode-back" href="../../_documentation/solver.html#equadratures.solver.Solver.select_solver">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">select_solver</span><span class="p">(</span><span class="n">method</span><span class="p">,</span><span class="n">solver_args</span><span class="o">=</span><span class="p">{}):</span>
-        <span class="sd">&quot;&quot;&quot; </span>
-<span class="sd">        Method to return a solver subclass.</span>
-<span class="sd">        :param string method: The name of the solver to return.</span>
+        <span class="sd">&quot;&quot;&quot; Method to return a solver subclass.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        method : str</span>
+<span class="sd">            The name of the solver to return.</span>
+<span class="sd">        solver_args : dict, optional</span>
+<span class="sd">            Dictionary containing optional arguments centered around the specific solver. Arguments are specific to the requested solver, except for the following generic arguments:</span>
+<span class="sd">    </span>
+<span class="sd">            - **verbose** (bool): Default value of this input is set to ``False``; when ``True``, the solver prints information to screen.</span>
+<span class="sd">            - **opt** (str): Specifies the underlying optimisation method to use. ``scipy`` for scipy, and `osqp` to use the OSQP optimiser (requires ``cvxpy`` to be installed). </span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Solver</span>
+<span class="sd">            The Solver subclass specified in ``method``.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">method</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">==</span><span class="s1">&#39;least-squares&#39;</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">least_squares</span><span class="p">(</span><span class="n">solver_args</span><span class="p">)</span>
@@ -211,12 +284,23 @@
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;You have not selected a valid method for solving the coefficients of the polynomial. Choose from compressed-sensing, least-squares, least-squares-with-gradients, least-absolute-residual, minimum-norm, numerical-integration, huber, elastic-net or custom_solver.&#39;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Solver.get_coefficients"><a class="viewcode-back" href="../../_documentation/solver.html#equadratures.solver.Solver.get_coefficients">[docs]</a>    <span class="k">def</span> <span class="nf">get_coefficients</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Get the coefficients the solver has calculated. If the A and b matrices are provied Solver.solve() will be run first. If the solver uses gradients, C and d can also be given.</span>
-<span class="sd">        :param :numpy.ndarray A: ``numpy.ndarray`` with shape (number_of_observations, cardinality). Optional.</span>
-<span class="sd">        :param :numpy.ndarray b: ``numpy.ndarray`` with shape (number_of_observations, 1) or (number_of_observations). Optional.</span>
-<span class="sd">        :param :numpy.ndarray C: ``numpy.ndarray`` with shape (number_of_observations, cardinality). Optional.</span>
-<span class="sd">        :param :numpy.ndarray d: ``numpy.ndarray`` with shape (number_of_observations, 1) or (number_of_observations). Optional.</span>
+        <span class="sd">&quot;&quot;&quot; Get the coefficients the solver has calculated. If the A and b matrices are provied Solver.solve() will be run first. If the solver uses gradients, C and d can also be given.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        A : numpy.ndarray, optional</span>
+<span class="sd">            Array with shape (number_of_observations, cardinality).</span>
+<span class="sd">        b : numpy.ndarray, optional</span>
+<span class="sd">            Array with shape (number_of_observations, 1) or (number_of_observations).</span>
+<span class="sd">        C : numpy.ndarray, optional</span>
+<span class="sd">            Array with shape (number_of_observations, cardinality).</span>
+<span class="sd">        d : numpy.ndarray, optional</span>
+<span class="sd">            Array with shape (number_of_observations, 1) or (number_of_observations).</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        numpy.ndarray</span>
+<span class="sd">            Array containing the coefficients x computed by the solver.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1">#TODO - amend descriptions of A,b,C and d above</span>
         <span class="c1"># If A and b are given then run the solver</span>
@@ -247,10 +331,14 @@
 <span class="c1"># Least squares solver subclass.</span>
 <span class="c1">################################</span>
 <div class="viewcode-block" id="least_squares"><a class="viewcode-back" href="../../_documentation/solver.html#equadratures.solver.least_squares">[docs]</a><span class="k">class</span> <span class="nc">least_squares</span><span class="p">(</span><span class="n">Solver</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Ordinary least squares solver.</span>
-<span class="sd">    :param dict solver_args: Optional arguments for the solver.</span>
-<span class="sd">        :param bool verbose: Default value of this input is set to ``False``; when ``True``, the solver prints information to screen.</span>
+    <span class="sd">&quot;&quot;&quot; Ordinary least squares solver.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    solver_args : dict </span>
+<span class="sd">        Optional arguments for the solver:</span>
+
+<span class="sd">        - **verbose** (bool): Default value of this input is set to ``False``; when ``True``, the solver prints information to screen.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">solver_args</span><span class="o">=</span><span class="p">{}):</span>
         <span class="c1"># Init base class</span>
@@ -268,10 +356,14 @@
 <span class="c1"># Minimum-norm solver subclass.</span>
 <span class="c1">###############################</span>
 <div class="viewcode-block" id="minimum_norm"><a class="viewcode-back" href="../../_documentation/solver.html#equadratures.solver.minimum_norm">[docs]</a><span class="k">class</span> <span class="nc">minimum_norm</span><span class="p">(</span><span class="n">Solver</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Minimum norm solver, used for uniquely or overdetermined systems (i.e. m&gt;=n).</span>
-<span class="sd">    :param dict solver_args: Optional arguments for the solver.</span>
-<span class="sd">        :param bool verbose: Default value of this input is set to ``False``; when ``True``, the solver prints information to screen.</span>
+    <span class="sd">&quot;&quot;&quot; Minimum norm solver, used for uniquely or overdetermined systems (i.e. m&gt;=n).</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    solver_args : dict </span>
+<span class="sd">        Optional arguments for the solver:</span>
+
+<span class="sd">        - **verbose** (bool): Default value of this input is set to ``False``; when ``True``, the solver prints information to screen.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">solver_args</span><span class="o">=</span><span class="p">{}):</span>
         <span class="c1"># Init base class</span>
@@ -294,12 +386,15 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span> <span class="o">=</span> <span class="n">x</span></div>
 
 <div class="viewcode-block" id="compressed_sensing"><a class="viewcode-back" href="../../_documentation/solver.html#equadratures.solver.compressed_sensing">[docs]</a><span class="k">class</span> <span class="nc">compressed_sensing</span><span class="p">(</span><span class="n">Solver</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Compressed sensing solver.</span>
-<span class="sd">    :param dict solver_args: Optional arguments for the solver.</span>
-<span class="sd">        :param bool verbose: Default value of this input is set to ``False``; when ``True``, the solver prints information to screen.</span>
-<span class="sd">        :param float noise-level:  </span>
-<span class="sd">        :param string opt: Specifies the underlying optimisation method to use. ``scipy`` for scipy, and `osqp` to use the OSQP optimiser (requires ``cvxpy`` to be installed). </span>
+    <span class="sd">&quot;&quot;&quot; Compressed sensing solver.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    solver_args : dict </span>
+<span class="sd">        Optional arguments for the solver:</span>
+
+<span class="sd">        - **verbose** (bool): Default value of this input is set to ``False``; when ``True``, the solver prints information to screen.</span>
+<span class="sd">        - **noise-level** (float)  </span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">solver_args</span><span class="o">=</span><span class="p">{}):</span>
         <span class="c1"># Init base class</span>
@@ -368,15 +463,17 @@
 
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">_CG_solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">max_iters</span><span class="p">,</span> <span class="n">tol</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Solves Ax = b iteratively using conjugate gradient, assuming A is a symmetric positive definite matrix.</span>
-<span class="sd">        :param numpy-matrix A:</span>
+        <span class="sd">&quot;&quot;&quot; Solves Ax = b iteratively using conjugate gradient, assuming A is a symmetric positive definite matrix.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        A : numpy-matrix</span>
 <span class="sd">            The matrix.</span>
-<span class="sd">        :param numpy-array b:</span>
+<span class="sd">        b : numpy.ndarray</span>
 <span class="sd">            The right hand side column vector.</span>
-<span class="sd">        :param int max_iters:</span>
+<span class="sd">        max_iters : int</span>
 <span class="sd">            Maximum number of iterations for the conjugate gradient algorithm.</span>
-<span class="sd">        :param double tol:</span>
+<span class="sd">        tol : float</span>
 <span class="sd">            Tolerance for cut-off.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigvals</span><span class="p">(</span><span class="n">A</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)):</span>
@@ -420,18 +517,19 @@
     
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">_bp_denoise</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">epsilon</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Solving the basis pursuit de-noising problem.</span>
-<span class="sd">        :param numpy-matrix A:</span>
+        <span class="sd">&quot;&quot;&quot; Solving the basis pursuit de-noising problem.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        A : numpy-matrix</span>
 <span class="sd">            The matrix.</span>
-<span class="sd">        :param numpy-array b:</span>
+<span class="sd">        b : numpy.ndarray</span>
 <span class="sd">            The right hand side column vector.</span>
-<span class="sd">        :param double epsilon:</span>
+<span class="sd">        epsilon : float</span>
 <span class="sd">            The noise.</span>
-<span class="sd">        :param numpy-array x0:</span>
-<span class="sd">            Initial solution  if not provided the least norm solution is used.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-    
+<span class="sd">        x0 : numpy.ndarray</span>
+<span class="sd">            Initial solution, if not provided the least norm solution is used.</span>
+<span class="sd">        &quot;&quot;&quot;</span> 
         <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">kwargs</span><span class="p">,</span> <span class="s1">&#39;x0&#39;</span><span class="p">):</span>
             <span class="n">x0</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;x0&#39;</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
@@ -468,7 +566,7 @@
                     <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">),</span><span class="n">b</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
                     <span class="n">cgres</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">),</span> <span class="n">w</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span> <span class="o">-</span> <span class="n">b</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
                     <span class="n">cgiter</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-                <span class="k">if</span> <span class="n">cgres</span> <span class="o">&gt;</span> <span class="o">.</span><span class="mi">5</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">cgres</span> <span class="o">&gt;</span> <span class="mf">.5</span><span class="p">:</span>
                   <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
                         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;cgres = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">cgres</span><span class="p">)</span> <span class="p">)</span>
                         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A*At is ill-conditioned: cannot find starting point&#39;</span> <span class="p">)</span>
@@ -484,13 +582,13 @@
                 <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">),</span><span class="n">b</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
                 <span class="n">cgres</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">),</span> <span class="n">w</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span> <span class="o">-</span> <span class="n">b</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
                 <span class="n">cgiter</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-            <span class="k">if</span> <span class="n">cgres</span> <span class="o">&gt;</span> <span class="o">.</span><span class="mi">5</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">cgres</span> <span class="o">&gt;</span> <span class="mf">.5</span><span class="p">:</span>
                   <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
                         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;cgres = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">cgres</span><span class="p">)</span> <span class="p">)</span>
                         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A*At is ill-conditioned: cannot find starting point&#39;</span> <span class="p">)</span>
             <span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
     
-        <span class="k">if</span> <span class="n">cvxpy</span><span class="p">:</span>
+        <span class="c1">#if cvxpy:</span>
             <span class="c1"># Turns out this is much slower than l1 magic implementation, at least on the test case!</span>
     
             <span class="c1"># d = A.shape[1]</span>
@@ -507,7 +605,6 @@
             <span class="c1"># prob.solve(warm_start=False, verbose=verbose)</span>
             <span class="c1">#</span>
             <span class="c1"># return xu.value[:d]</span>
-            <span class="k">pass</span>
     
         <span class="n">newtontol</span> <span class="o">=</span> <span class="n">lbtol</span>
         <span class="n">newtonmaxiter</span> <span class="o">=</span> <span class="mi">50</span>
@@ -643,10 +740,14 @@
 <span class="c1"># Numerical integration solver subclass.</span>
 <span class="c1">########################################</span>
 <div class="viewcode-block" id="numerical_integration"><a class="viewcode-back" href="../../_documentation/solver.html#equadratures.solver.numerical_integration">[docs]</a><span class="k">class</span> <span class="nc">numerical_integration</span><span class="p">(</span><span class="n">Solver</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Numerical integration solver. This solves an orthogonal linear system i.e. simply c=A^T.b.</span>
-<span class="sd">    :param dict solver_args: Optional arguments for the solver.</span>
-<span class="sd">        :param bool verbose: Default value of this input is set to ``False``; when ``True``, the solver prints information to screen.</span>
+    <span class="sd">&quot;&quot;&quot; Numerical integration solver. This solves an orthogonal linear system i.e. simply :math:`\mathbf{x}=\mathbf{A}^T\mathbf{b}`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    solver_args : dict </span>
+<span class="sd">        Optional arguments for the solver:</span>
+
+<span class="sd">        - **verbose** (bool): Default value of this input is set to ``False``; when ``True``, the solver prints information to screen.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">solver_args</span><span class="o">=</span><span class="p">{}):</span>
         <span class="c1"># Init base class</span>
@@ -658,11 +759,15 @@
 <span class="c1"># Least absolute residual solver.</span>
 <span class="c1">#################################</span>
 <div class="viewcode-block" id="least_absolute_residual"><a class="viewcode-back" href="../../_documentation/solver.html#equadratures.solver.least_absolute_residual">[docs]</a><span class="k">class</span> <span class="nc">least_absolute_residual</span><span class="p">(</span><span class="n">Solver</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Least absolute residual solver. Solves Ax=b by minimising the L1 norm (absolute residuals).</span>
-<span class="sd">    :param dict solver_args: Optional arguments for the solver.</span>
-<span class="sd">        :param bool verbose: Default value of this input is set to ``False``; when ``True``, the solver prints information to screen.</span>
-<span class="sd">        :param string opt: Specifies the underlying optimisation method to use. ``scipy`` for scipy, and `osqp` to use the OSQP optimiser (requires ``cvxpy`` to be installed). </span>
+    <span class="sd">&quot;&quot;&quot; Least absolute residual solver. Minimises the L1 norm (absolute residuals).</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    solver_args : dict </span>
+<span class="sd">        Optional arguments for the solver:</span>
+
+<span class="sd">        - **verbose** (bool): Default value of this input is set to ``False``; when ``True``, the solver prints information to screen.</span>
+<span class="sd">        - **opt** (str): Specifies the underlying optimisation method to use. ``scipy`` for scipy, and `osqp` to use the OSQP optimiser (requires ``cvxpy`` to be installed). </span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">solver_args</span><span class="o">=</span><span class="p">{}):</span>
         <span class="c1"># Init base class</span>
@@ -698,14 +803,19 @@
 <span class="c1"># Huber solver subclass.</span>
 <span class="c1">########################</span>
 <div class="viewcode-block" id="huber"><a class="viewcode-back" href="../../_documentation/solver.html#equadratures.solver.huber">[docs]</a><span class="k">class</span> <span class="nc">huber</span><span class="p">(</span><span class="n">Solver</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Huber regression solver. Solves Ax=b by minimising the Huber loss function. </span>
-<span class="sd">    This function is identical to the least squares (L2) penalty for small residuals (i.e. ||Ax-b||**2&lt;=M). </span>
-<span class="sd">    But on large residuals (||Ax-b||**2&gt;M), its penalty is lower (L1) and increases linearly rather than quadratically. </span>
+    <span class="sd">&quot;&quot;&quot; Huber regression solver. Minimises the Huber loss function. </span>
+
+<span class="sd">    This function is identical to the least squares (L2) penalty for small residuals (i.e. :math:`||\mathbf{A}\mathbf{x}-\mathbf{b}||^2\le M`).</span>
+<span class="sd">    But on large residuals (:math:`||\mathbf{A}\mathbf{x}-\mathbf{b}||^2 &gt; M`), its penalty is lower (L1) and increases linearly rather than quadratically. </span>
 <span class="sd">    It is thus more forgiving of outliers.</span>
-<span class="sd">    :param dict solver_args: Optional arguments for the solver.</span>
-<span class="sd">        :param bool verbose: Default value of this input is set to ``False``; when ``True``, the solver prints information to screen.</span>
-<span class="sd">        :param float M: The huber threshold. Default ``M=1``.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    solver_args : dict, optional</span>
+<span class="sd">        Optional arguments for the solver:</span>
+
+<span class="sd">        - **verbose** (bool): Default value of this input is set to ``False``; when ``True``, the solver prints information to screen.</span>
+<span class="sd">        - **M** (float): The huber threshold. Default ``M=1``.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">solver_args</span><span class="o">=</span><span class="p">{}):</span>
         <span class="c1"># Init base class</span>
@@ -734,7 +844,7 @@
             <span class="n">z</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
             <span class="n">r</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
             <span class="n">s</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
-            <span class="n">objective</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">Minimize</span><span class="p">(</span><span class="o">.</span><span class="mi">5</span> <span class="o">*</span> <span class="n">cv</span><span class="o">.</span><span class="n">sum_squares</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">M</span><span class="o">*</span><span class="n">cv</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">r</span> <span class="o">+</span> <span class="n">s</span><span class="p">))</span>
+            <span class="n">objective</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">Minimize</span><span class="p">(</span><span class="mf">.5</span> <span class="o">*</span> <span class="n">cv</span><span class="o">.</span><span class="n">sum_squares</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">M</span><span class="o">*</span><span class="n">cv</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">r</span> <span class="o">+</span> <span class="n">s</span><span class="p">))</span>
             <span class="n">constraints</span> <span class="o">=</span> <span class="p">[</span><span class="n">A</span><span class="nd">@x</span> <span class="o">-</span> <span class="n">b</span> <span class="o">-</span> <span class="n">z</span> <span class="o">==</span> <span class="n">r</span> <span class="o">-</span> <span class="n">s</span><span class="p">,</span>
                            <span class="n">r</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">s</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">]</span>
             <span class="n">prob</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">Problem</span><span class="p">(</span><span class="n">objective</span><span class="p">,</span> <span class="n">constraints</span><span class="p">)</span>
@@ -748,11 +858,15 @@
 <span class="c1"># Relevence vector machine solver.</span>
 <span class="c1">##################################</span>
 <div class="viewcode-block" id="rvm"><a class="viewcode-back" href="../../_documentation/solver.html#equadratures.solver.rvm">[docs]</a><span class="k">class</span> <span class="nc">rvm</span><span class="p">(</span><span class="n">Solver</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Relevence vector machine solver.</span>
-<span class="sd">    :param dict solver_args: Optional arguments for the solver.</span>
-<span class="sd">        :param bool verbose: Default value of this input is set to ``False``; when ``True``, the solver prints information to screen.</span>
-<span class="sd">        :param int max_iter: Maximum number of iterations. Default is 1000.</span>
+    <span class="sd">&quot;&quot;&quot; Relevence vector machine solver.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    solver_args : dict </span>
+<span class="sd">        Optional arguments for the solver:</span>
+
+<span class="sd">        - **verbose** (bool): Default value of this input is set to ``False``; when ``True``, the solver prints information to screen.</span>
+<span class="sd">        - **max_iter** (int): Maximum number of iterations. Default is 1000.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">solver_args</span><span class="o">=</span><span class="p">{}):</span>
         <span class="c1"># Init base class</span>
@@ -820,11 +934,16 @@
 <span class="c1"># Numerical integration solver subclass.</span>
 <span class="c1">########################################</span>
 <div class="viewcode-block" id="constrained_least_squares"><a class="viewcode-back" href="../../_documentation/solver.html#equadratures.solver.constrained_least_squares">[docs]</a><span class="k">class</span> <span class="nc">constrained_least_squares</span><span class="p">(</span><span class="n">Solver</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Constrained least squares regression. </span>
+    <span class="sd">&quot;&quot;&quot; Constrained least squares regression. </span>
+
 <span class="sd">    This solves an orthogonal linear system i.e. simply c=A^T.b.</span>
-<span class="sd">    :param dict solver_args: Optional arguments for the solver.</span>
-<span class="sd">        :param bool verbose: Default value of this input is set to ``False``; when ``True``, the solver prints information to screen.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    solver_args : dict </span>
+<span class="sd">        Optional arguments for the solver:</span>
+
+<span class="sd">        - **verbose** (bool): Default value of this input is set to ``False``; when ``True``, the solver prints information to screen.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">solver_args</span><span class="o">=</span><span class="p">{}):</span>
         <span class="c1"># Init base class</span>
@@ -875,34 +994,36 @@
 <span class="c1"># Elastic net solver subclass.</span>
 <span class="c1">##############################</span>
 <div class="viewcode-block" id="elastic_net"><a class="viewcode-back" href="../../_documentation/solver.html#equadratures.solver.elastic_net">[docs]</a><span class="k">class</span> <span class="nc">elastic_net</span><span class="p">(</span><span class="n">Solver</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Elastic net solver. Solves 0.5*||Ax-b||_2 + lamda*( alpha*||x||_1  + 0.5*(1-alpha)*||x||_2**2).</span>
-<span class="sd">    The elastic net consists of an L2 cost function, with mix of L1 and L2 penalties (scaled by lamda1 and lamda2).</span>
-<span class="sd">    The penalties shrink the parameter estimates in the hopes of reducing variance, improving prediction accuracy, and aiding interpetation.</span>
-<span class="sd">    lamda controls amount of penalisation i.e. lamda=0 gives OLS. </span>
-<span class="sd">    alpha controls L1/L2 penalisation mix. alpha=1 gives LASSO, and alpha=0 gives ridge regression (however alpha&lt;0.01 is unreliable). </span>
+    <span class="sd">&quot;&quot;&quot; Elastic net solver. </span>
 
-<span class="sd">    Note, to set lamda1 and lamda2 directly:</span>
-<span class="sd">    lamda = lamda1 + lamda2</span>
-<span class="sd">    alpha = lamda1 / (lamda1 + lamda2)</span>
+<span class="sd">    The elastic net solver minimises</span>
 
-<span class="sd">    If ``path=True``, the elastic net is solved via coordinate descent [1]. The full regularisation path is computed (for a given l1 vs l2 blending parameter alpha), and the set of coefficients with the lowest model selection criteria is then selected according to [2]. Otherwise, the elastic net is solved for a given alpha and lambda value using the OSQP optimiser (if ``cvxpy`` is installed).</span>
+<span class="sd">    :math:`\\frac{1}{2}||\mathbf{A}\mathbf{x}-\mathbf{b}||_2 + \lambda (\\alpha||\mathbf{x}||_1 + \\frac{1}{2}(1-\\alpha)||\mathbf{x}||_2^2)`.</span>
 
-<span class="sd">    :param dict solver_args: Optional arguments for the solver.</span>
-<span class="sd">        :param bool verbose: Default value of this input is set to ``False``; when ``True``, the solver prints information to screen.</span>
-<span class="sd">        :param float alpha: The L1/L2 pentalty blending parameter. Default: ``alpha=1.0``.</span>
-<span class="sd">        :param bool path: Computes the full regularisation path if True, otherwise solves for a single lambda value. Default: ``path=True``.</span>
-<span class="sd">        :param int max_iter: Max number of iterations for the coordinate descent solver (if ``path=True``). Default: ``max_iter=100``.</span>
-<span class="sd">        :param int n_lambdas: Number of lambda values along the regularisation path (if ``path=True``). Default: ``n_lambdas=100``.</span>
-<span class="sd">        :param float lambda_eps: Minimum lambda value, as a fraction of ``lambda_max`` (if ``path=True``). Default: ``lambda_eps=1e-3``.</span>
-<span class="sd">        :param float lambda_max: Maximum lambda value (if ``path=True``). If not ``None`` this overrides the automatically calculated value. Default: ``lambda_max=None``.</span>
-<span class="sd">        :param float tol: Convergence tolerance criterion for coordinate descent solver (if ``path=True``). ``tol=1e-6``.</span>
-<span class="sd">        :param string crit: Information criterion to select optimal lambda from regularisation path. ``&#39;AIC&#39;`` is Akaike information criterion, ``&#39;BIC&#39;`` is Bayesian information criterion, ``&#39;CV&#39;`` is 5-fold cross-validated RSS error (if ``path=True``). ``crit=&#39;CV&#39;``.</span>
-<span class="sd">        :param float lambda: The penalty scaling parameter (if ``path=False``). Default: ``lambda=0.01`.</span>
+<span class="sd">    where :math:`\lambda` controls the strength of the regularisation (with OLS returned when :math:`\lambda=0`), and :math:`\\alpha` controlling the blending between the L1 and L2 penalty terms.</span>
 
-<span class="sd">    **References**</span>
-<span class="sd">        1. Friedman J., Hastie T., Tibshirani R., (2010) Regularization Paths for Generalized Linear Models via Coordinate Descent. Journal of Statistical Software, 33(1), 1-22. `Paper &lt;https://www.jstatsoft.org/article/view/v033i01&gt;`__</span>
-<span class="sd">        2. Zou, H., Hastie, T., Tibshirani, R., (2007) On the “degrees of freedom” of the lasso. The Annals of Statistics, 35(5), 2173–2192. `Paper &lt;https://projecteuclid.org/download/pdfview_1/euclid.aos/1194461726&gt;`__</span>
+<span class="sd">    If ``path=True``, the elastic net is solved via coordinate descent [1]. The full regularisation path (:math:`\lambda` path) is computed (for a given :math:`\\alpha`), and the set of coefficients with the lowest model selection criteria is then selected according to [2]. Otherwise, the elastic net is solved for a given :math:`\\alpha` and :math:`\lambda` using the OSQP quadratic program optimiser (if ``cvxpy`` is installed).</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    solver_args : dict </span>
+<span class="sd">        Optional arguments for the solver:</span>
+
+<span class="sd">        - **verbose** (bool): Default value of this input is set to ``False``; when ``True``, the solver prints information to screen.</span>
+<span class="sd">        - **alpha** (float): The L1/L2 pentalty blending parameter :math:`\\alpha`. Default: ``alpha=1.0``. If ``alpha=0`` is desired, use :class:`~equadratures.solver.least_squares`.</span>
+<span class="sd">        - **path** (bool): Computes the full regularisation path if True, otherwise solves for a single :math:`\lambda` value. Default: ``path=True``.</span>
+<span class="sd">        - **max_iter** (int): Max number of iterations for the coordinate descent solver (if ``path=True``). Default: ``max_iter=100``.</span>
+<span class="sd">        - **n_lambdas** (int): Number of lambda values along the regularisation path (if ``path=True``). Default: ``n_lambdas=100``.</span>
+<span class="sd">        - **lambda_eps** (float): Minimum lambda value, as a fraction of ``lambda_max`` (if ``path=True``). Default: ``lambda_eps=1e-3``.</span>
+<span class="sd">        - **lambda_max** (float): Maximum lambda value (if ``path=True``). If not ``None`` this overrides the automatically calculated value. Default: ``lambda_max=None``.</span>
+<span class="sd">        - **tol** (float): Convergence tolerance criterion for coordinate descent solver (if ``path=True``). Default: ``tol=1e-6``.</span>
+<span class="sd">        - **crit** (str): Information criterion to select optimal lambda from regularisation path. ``&#39;AIC&#39;`` is Akaike information criterion, ``&#39;BIC&#39;`` is Bayesian information criterion, ``&#39;CV&#39;`` is 5-fold cross-validated RSS error (if ``path=True``). Default: ``crit=&#39;CV&#39;``.</span>
+<span class="sd">        - **lambda** (float): The penalty scaling parameter (if ``path=False``). Default: ``lambda=0.01`.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    1. Friedman J., Hastie T., Tibshirani R., (2010) Regularization Paths for Generalized Linear Models via Coordinate Descent. Journal of Statistical Software, 33(1), 1-22. `Paper &lt;https://www.jstatsoft.org/article/view/v033i01&gt;`__</span>
+<span class="sd">    2. Zou, H., Hastie, T., Tibshirani, R., (2007) On the “degrees of freedom” of the lasso. The Annals of Statistics, 35(5), 2173–2192. `Paper &lt;https://projecteuclid.org/download/pdfview_1/euclid.aos/1194461726&gt;`__</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">solver_args</span><span class="o">=</span><span class="p">{}):</span>
         <span class="c1"># Init base class</span>
@@ -943,9 +1064,7 @@
 
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">_elastic_net_single</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">verbose</span><span class="p">,</span> <span class="n">lamda_val</span><span class="p">,</span> <span class="n">alpha_val</span><span class="p">,</span> <span class="n">opt</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">        Performs elastic net regression for single lambda value using OSQP optimiser. </span>
-<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="sd">&quot;&quot;&quot; Private method, performs elastic net regression for single lambda value using OSQP optimiser. &quot;&quot;&quot;</span>
         <span class="n">N</span><span class="p">,</span><span class="n">d</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span>
         <span class="k">if</span> <span class="n">lamda_val</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span> <span class="n">lamda_val</span> <span class="o">=</span> <span class="mf">0.1</span>
         <span class="k">if</span> <span class="n">alpha_val</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span> <span class="n">alpha_val</span> <span class="o">=</span> <span class="mf">1.0</span> 
@@ -975,12 +1094,10 @@
 
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">_elastic_path</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">verbose</span><span class="p">,</span> <span class="n">max_iter</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">n_lamdas</span><span class="p">,</span> <span class="n">lamda_eps</span><span class="p">,</span> <span class="n">lamda_max</span><span class="p">,</span> <span class="n">tol</span><span class="p">,</span> <span class="n">crit</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Performs elastic net regression via coordinate descent. </span>
-<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="sd">&quot;&quot;&quot; Private method to perform elastic net regression via coordinate descent. &quot;&quot;&quot;</span>
         <span class="n">n</span><span class="p">,</span><span class="n">p</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span>
         <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-        <span class="k">assert</span> <span class="n">alpha</span> <span class="o">&gt;=</span> <span class="mf">0.01</span><span class="p">,</span> <span class="s1">&#39;elastic-path does not work reliably for alpha&lt;0.01, choose 0&gt;alpha&lt;=1.&#39;</span>
+        <span class="k">assert</span> <span class="n">alpha</span> <span class="o">&gt;=</span> <span class="mf">0.01</span><span class="p">,</span> <span class="s1">&#39;elastic-net does not work reliably for alpha&lt;0.01, choose 0.01&gt;=alpha&lt;=1.&#39;</span>
     
         <span class="k">if</span> <span class="n">crit</span><span class="o">==</span><span class="s1">&#39;CV&#39;</span><span class="p">:</span>
             <span class="n">nfold</span> <span class="o">=</span> <span class="mi">5</span>
@@ -1038,8 +1155,8 @@
 
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">_elastic_net_cd</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">lamda</span><span class="p">,</span><span class="n">alpha</span><span class="p">,</span> <span class="n">max_iter</span><span class="p">,</span><span class="n">tol</span><span class="p">,</span><span class="n">verbose</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Private method to perform coordinate descent (with elastic net soft  thresholding) for a given lambda and alpha value.</span>
+        <span class="sd">&quot;&quot;&quot; Private method to perform coordinate descent (with elastic net soft thresholding) for a given lambda and alpha value.</span>
+
 <span class="sd">        Following section 2.6 of [1], the algo does one complete pass over the features, and then for following iterations it only loops over the active set (non-zero coefficients). See commit 2b0af9f58fa5ff1876f76f7aedeaf2a0d7d252c8 for a more simple (but considerably slower for large p) algo. </span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># TODO - covariance updates (see 2.2 of [1]) could provide further speed up...</span>
@@ -1138,23 +1255,57 @@
 
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">_soft_threshold</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span><span class="n">lamda</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39;Soft thresholding operator for 1D LASSO in elastic net coordinate descent algoritm&#39;&#39;&#39;</span>
+        <span class="sd">&quot;&quot;&quot;Soft thresholding operator for 1D LASSO in elastic net coordinate descent algoritm&quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">rho</span> <span class="o">&lt;</span> <span class="o">-</span><span class="n">lamda</span><span class="p">:</span>
             <span class="k">return</span> <span class="p">(</span><span class="n">rho</span> <span class="o">+</span> <span class="n">lamda</span><span class="p">)</span>
         <span class="k">elif</span> <span class="n">rho</span> <span class="o">&gt;</span> <span class="n">lamda</span><span class="p">:</span>
             <span class="k">return</span> <span class="p">(</span><span class="n">rho</span> <span class="o">-</span> <span class="n">lamda</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="mf">0.0</span></div>
+            <span class="k">return</span> <span class="mf">0.0</span>
 
+<div class="viewcode-block" id="elastic_net.plot_regpath"><a class="viewcode-back" href="../../_documentation/solver.html#equadratures.solver.elastic_net.plot_regpath">[docs]</a>    <span class="k">def</span> <span class="nf">plot_regpath</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">nplot</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Plots the regularisation path. See :func:`plot.plot_regpath&lt;equadratures.plot.plot_regpath&gt;` for full description.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;elements&#39;</span><span class="p">):</span>    
+            <span class="n">elements</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">elements</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">elements</span><span class="o">=</span><span class="kc">None</span>
+        <span class="k">return</span> <span class="n">plot</span><span class="o">.</span><span class="n">plot_regpath</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">elements</span><span class="p">,</span><span class="n">nplot</span><span class="p">,</span><span class="n">show</span><span class="p">)</span></div></div>
+        
 <span class="c1"># Custom solver subclass.</span>
 <span class="c1">#########################</span>
 <div class="viewcode-block" id="custom_solver"><a class="viewcode-back" href="../../_documentation/solver.html#equadratures.solver.custom_solver">[docs]</a><span class="k">class</span> <span class="nc">custom_solver</span><span class="p">(</span><span class="n">Solver</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Custom solver class. This class allows you to enter a custom ``solve()`` function to solve Ax=b.</span>
-<span class="sd">    The ``solve()`` is provided via ``solver_args``, and should accept the ``numpy.ndarrays`` A and b, and return the coefficients x.   </span>
+    <span class="sd">&quot;&quot;&quot; Custom solver class. </span>
 
-<span class="sd">    :param dict solver_args: Optional arguments for the solver. Additional arguments are passed through to the custom ``solve()`` function as kwargs.</span>
-<span class="sd">        :param function solve: The custom ``solve()`` solve function. This must accept A and b, and return x. </span>
+<span class="sd">    This class allows you to enter a custom ``solve()`` function to solve :math:`\mathbf{A}\mathbf{x}=\mathbf{b}`. The ``solve()`` is provided via ``solver_args``, and should accept the numpy.ndarray&#39;s :math:`\mathbf{A}` and :math:`\mathbf{b}`, and return a numpy.ndarray containing the coefficients :math:`\mathbf{x}`.   </span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    solver_args : dict </span>
+<span class="sd">        Optional arguments for the solver. Optional arguments for the solver. Additional arguments are passed through to the custom ``solve()`` function as kwargs.</span>
+
+<span class="sd">        - **verbose** (bool): Default value of this input is set to ``False``; when ``True``, the solver prints information to screen.</span>
+<span class="sd">        - **solve** (Callable): The custom ``solve()`` solve function. This must accept A and b, and return x. </span>
+
+<span class="sd">    Example</span>
+<span class="sd">    -------</span>
+<span class="sd">    &gt;&gt;&gt; # Create a new solve method - the Kaczmarz iterative solver</span>
+<span class="sd">    &gt;&gt;&gt; def kaczmarz(A, b, verbose=False):</span>
+<span class="sd">    &gt;&gt;&gt;     m, n = A.shape</span>
+<span class="sd">    &gt;&gt;&gt;     x = np.random.rand(n, 1) # initial guess</span>
+<span class="sd">    &gt;&gt;&gt;     MAXITER = 50</span>
+<span class="sd">    &gt;&gt;&gt;     for iters in range(0, MAXITER):</span>
+<span class="sd">    &gt;&gt;&gt;         if verbose: print(&#39;Iteration %d/%d&#39; %(iters,MAXITER))</span>
+<span class="sd">    &gt;&gt;&gt;         for i in range(0, m):</span>
+<span class="sd">    &gt;&gt;&gt;             a_row = A[i, :].reshape(1, n)</span>
+<span class="sd">    &gt;&gt;&gt;             term_3 = float(1.0/(np.dot(a_row , a_row.T)))</span>
+<span class="sd">    &gt;&gt;&gt;             term_1 = float(b[i] - float(np.dot(a_row , x)))</span>
+<span class="sd">    &gt;&gt;&gt;             x = x + (term_1 * term_3 * a_row.T)</span>
+<span class="sd">    &gt;&gt;&gt;     return x</span>
+<span class="sd">    &gt;&gt;&gt;</span>
+<span class="sd">    &gt;&gt;&gt; # Wrap this function in the custom_solver subclass and use it to fit a polynomial</span>
+<span class="sd">    &gt;&gt;&gt; mypoly = eq.Poly(myparam, mybasis, method=&#39;custom-solver&#39;,</span>
+<span class="sd">    &gt;&gt;&gt;             sampling_args={&#39;mesh&#39;:&#39;user-defined&#39;, &#39;sample-points&#39;:X, &#39;sample-outputs&#39;:y},</span>
+<span class="sd">    &gt;&gt;&gt;               solver_args={&#39;solve&#39;:lsq,&#39;verbose&#39;:True})</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">solver_args</span><span class="o">=</span><span class="p">{}):</span>
         <span class="c1"># Init base class</span>
@@ -1178,17 +1329,24 @@
 
       </div>
     </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    
-  <script src="../../_static/js/index.d8bbf5861d671d414e1a.js"></script>
-
-
-    <footer class="footer mt-5 mt-md-0">
+  <footer class="footer mt-5 mt-md-0">
   <div class="container">
-    <p>
-          &copy; Copyright 2016-2021 by equadratures.org.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3.<br/>
-    </p>
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2016-2021 by equadratures.org.<br/>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.0.2.<br/>
+</p>
+    </div>
+    
   </div>
 </footer>
   </body>

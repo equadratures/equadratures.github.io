@@ -8,7 +8,7 @@
     <title>Parameter &#8212; equadratures</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
-  <link href="../_static/css/index.101715efdecc9b59cb6e1ddfa685c31f.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -22,17 +22,16 @@
       
 
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.d8bbf5861d671d414e1a.js">
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../_static/eq-logo-favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -40,28 +39,38 @@
     <link rel="prev" title="Documentation" href="documentation.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
+    <div class="container-fluid" id="banner"></div>
+
+    
     <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
 
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="../index.html">
+  <img src="../_static/logo_new.png" class="logo" alt="logo">
+</a>
+
 
     
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
       
-      <a class="navbar-brand" href="../index.html">
-        <img src="../_static/logo_new.png" class="logo" alt="logo">
-      </a>
-      
-    
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    
-    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
-      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
-        <li class="toctree-l1 nav-item">
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="tutorials.html">
   Tutorials
  </a>
@@ -79,18 +88,20 @@
  </a>
 </li>
 
-        
-        <li class="nav-item">
-            <a class="nav-link nav-external" href="https://discourse.equadratures.org/">Discourse<i class="fas fa-external-link-alt"></i></a>
-        </li>
-        
-      </ul>
+    
+    <li class="nav-item">
+        <a class="nav-link nav-external" href="https://discourse.equadratures.org/">Discourse<i class="fas fa-external-link-alt"></i></a>
+    </li>
+    
+</ul>
+      </div>
+      
+    </div>
 
-      <form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search equadratures..." aria-label="Search equadratures..." autocomplete="off" >
-</form>
-      <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
         <li class="nav-item">
           <a class="nav-link" href="https://github.com/Effective-Quadratures/equadratures" rel="noopener" target="_blank" title="GitHub">
             <span><i class="fab fa-github-square"></i></span>
@@ -104,7 +115,10 @@
           </a>
         </li>
       </ul>
+      </div>
+      
     </div>
+  </div>
 </div>
     </nav>
     
@@ -114,65 +128,91 @@
           
             
             <!-- Only show if we have sidebars configured, else just a small margin  -->
-            <div class="col-12 col-md-3 bd-sidebar"><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search equadratures..." aria-label="Search equadratures..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <div class="bd-toc-item active">
-    <ul class="current nav bd-sidenav">
- <li class="toctree-l2 current active">
+    <p class="caption">
+ <span class="caption-text">
+  Core modules
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Parameter
   </a>
  </li>
- <li class="toctree-l2">
+ <li class="toctree-l1">
   <a class="reference internal" href="basis.html">
    Basis
   </a>
  </li>
- <li class="toctree-l2">
+ <li class="toctree-l1">
   <a class="reference internal" href="poly.html">
    Polynomial
   </a>
  </li>
- <li class="toctree-l2">
-  <a class="reference internal" href="quadrature.html">
-   Quadrature
-  </a>
- </li>
- <li class="toctree-l2">
-  <a class="reference internal" href="weight.html">
-   Prescribing probability functions
-  </a>
- </li>
- <li class="toctree-l2">
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Additional modules
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
   <a class="reference internal" href="subspaces.html">
    Dimension reduction with polynomials
   </a>
  </li>
- <li class="toctree-l2">
+ <li class="toctree-l1">
   <a class="reference internal" href="optimisation.html">
    Optimisation with polynomials
   </a>
  </li>
- <li class="toctree-l2">
-  <a class="reference internal" href="plot.html">
-   Plotting utilities
-  </a>
- </li>
- <li class="toctree-l2">
-  <a class="reference internal" href="correlated.html">
-   Correlations
-  </a>
- </li>
- <li class="toctree-l2">
+ <li class="toctree-l1">
   <a class="reference internal" href="polytree.html">
-   Polynomial Regression Tree
+   Polynomial Regression Trees
   </a>
  </li>
- <li class="toctree-l2">
+ <li class="toctree-l1">
   <a class="reference internal" href="solver.html">
    Linear system solvers
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="quadrature.html">
+   Quadrature
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="weight.html">
+   Prescribing probability functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="plot.html">
+   Plotting utilities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="correlated.html">
+   Correlations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="datasets.html">
+   Datasets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="scalers.html">
+   Scalers
+  </a>
+ </li>
 </ul>
+
   </div>
 </nav>
             </div>
@@ -181,14 +221,21 @@
 
           
           <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
               
+              <div class="toc-item">
+                
 
 <nav id="bd-toc-nav">
     
 </nav>
-
-
+              </div>
               
+              <div class="toc-item">
+                
+              </div>
+              
+            
           </div>
           
 
@@ -204,169 +251,191 @@
 <span id="parameter"></span><h1>Parameter<a class="headerlink" href="#module-equadratures.parameter" title="Permalink to this headline">¶</a></h1>
 <p>Definition of a univariate parameter.</p>
 <dl class="py class">
-<dt id="equadratures.parameter.Parameter">
-<em class="property">class </em><code class="sig-prename descclassname">equadratures.parameter.</code><code class="sig-name descname">Parameter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">order</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">distribution</span><span class="o">=</span><span class="default_value">'Uniform'</span></em>, <em class="sig-param"><span class="n">endpoints</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">shape_parameter_A</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">shape_parameter_B</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">variable</span><span class="o">=</span><span class="default_value">'parameter'</span></em>, <em class="sig-param"><span class="n">lower</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">upper</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">weight_function</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/parameter.html#Parameter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.parameter.Parameter" title="Permalink to this definition">¶</a></dt>
-<dd><p>This class defines a univariate parameter. Below are details of its constructor.</p>
+<dt class="sig sig-object py" id="equadratures.parameter.Parameter">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">equadratures.parameter.</span></span><span class="sig-name descname"><span class="pre">Parameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distribution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Uniform'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">endpoints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape_parameter_A</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape_parameter_B</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'parameter'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lower</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upper</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight_function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/parameter.html#Parameter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.parameter.Parameter" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class defines a univariate parameter.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>lower</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – Lower bound for the parameter.</p></li>
-<li><p><strong>upper</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – Upper bound for the parameter.</p></li>
-<li><p><strong>order</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Order of the parameter.</p></li>
-<li><p><strong>param_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – The type of distribution that characterizes the parameter. Options include <a class="reference external" href="https://en.wikipedia.org/wiki/Arcsine_distribution">chebyshev (arcsine)</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Normal_distribution">gaussian</a>,
+<li><p><strong>lower</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a><em>, </em><em>optional</em>) – Lower bound for the parameter.</p></li>
+<li><p><strong>upper</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a><em>, </em><em>optional</em>) – Upper bound for the parameter.</p></li>
+<li><p><strong>order</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) – Order of the parameter.</p></li>
+<li><p><strong>param_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>optional</em>) – The type of distribution that characterizes the parameter. Options include <a class="reference external" href="https://en.wikipedia.org/wiki/Arcsine_distribution">chebyshev (arcsine)</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Normal_distribution">gaussian</a>,
 <a class="reference external" href="https://en.wikipedia.org/wiki/Truncated_normal_distribution">truncated-gaussian</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Beta_distribution">beta</a>,
 <a class="reference external" href="https://en.wikipedia.org/wiki/Cauchy_distribution">cauchy</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Exponential_distribution">exponential</a>,
-<a class="reference external" href="https://en.wikipedia.org/wiki/Uniform_distribution_(continuous)">uniform</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Gamma_distribution">gamma</a>,
+<a class="reference external" href="https://en.wikipedia.org/wiki/Uniform_distribution_(continuous)">uniform</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Triangular_distribution">triangular</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Gamma_distribution">gamma</a>,
 <a class="reference external" href="https://en.wikipedia.org/wiki/Weibull_distribution">weibull</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Rayleigh_distribution">rayleigh</a>,
 <a class="reference external" href="https://en.wikipedia.org/wiki/Pareto_distribution">pareto</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Log-normal_distribution">lognormal</a>,
 <a class="reference external" href="https://en.wikipedia.org/wiki/Student%27s_t-distribution">students-t</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Log-normal_distribution">logistic</a>,
 <a class="reference external" href="https://en.wikipedia.org/wiki/Gumbel_distribution">gumbel</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Chi_distribution">chi</a>  and <a class="reference external" href="https://en.wikipedia.org/wiki/Chi-squared_distribution">chi-squared</a>.
 If no string is provided, a <code class="docutils literal notranslate"><span class="pre">uniform</span></code> distribution is assumed. If the user provides data, and would like to generate orthogonal
 polynomials (and quadrature rules) based on the data, they can set this option to be <code class="docutils literal notranslate"><span class="pre">Analytical</span></code> (see [1, 2]).</p></li>
-<li><p><strong>shape_parameter_A</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – Most of the aforementioned distributions are characterized by two shape parameters. For instance, in the case of a <code class="docutils literal notranslate"><span class="pre">gaussian</span></code> (or <code class="docutils literal notranslate"><span class="pre">truncated-gaussian</span></code>), this represents the mean. In the case of a beta distribution this represents the alpha value. For a <code class="docutils literal notranslate"><span class="pre">uniform</span></code> distribution this input is not required.</p></li>
-<li><p><strong>shape_parameter_B</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – This is the second shape parameter that characterizes the distribution selected. In the case of a <code class="docutils literal notranslate"><span class="pre">gaussian</span></code> or <code class="docutils literal notranslate"><span class="pre">truncated-gaussian</span></code>, this is the variance.</p></li>
-<li><p><strong>data</strong> (<em>numpy.ndarray</em>) – A data-set with shape (number_of_data_points, 2), where the first column comprises of parameter values, while the second column corresponds to the data observations. This input should only be used with the <code class="docutils literal notranslate"><span class="pre">Analytical</span></code> distribution.</p></li>
-<li><p><strong>endpoints</strong> (<em>string</em>) – If set to <code class="docutils literal notranslate"><span class="pre">both</span></code>, then the quadrature points and weights will have end-points, based on Gauss-Lobatto quadrature rules. If set to <code class="docutils literal notranslate"><span class="pre">upper</span></code> or <code class="docutils literal notranslate"><span class="pre">lower</span></code> a Gauss-Radau rule is used to compute one end-point at either the upper or lower bound.</p></li>
+<li><p><strong>shape_parameter_A</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a><em>, </em><em>optional</em>) – Most of the aforementioned distributions are characterized by two shape parameters. For instance, in the case of a <code class="docutils literal notranslate"><span class="pre">gaussian</span></code> (or <code class="docutils literal notranslate"><span class="pre">truncated-gaussian</span></code>), this represents the mean. In the case of a beta distribution this represents the alpha value. For a <code class="docutils literal notranslate"><span class="pre">uniform</span></code> distribution this input is not required.</p></li>
+<li><p><strong>shape_parameter_B</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a><em>, </em><em>optional</em>) – This is the second shape parameter that characterizes the distribution selected. In the case of a <code class="docutils literal notranslate"><span class="pre">gaussian</span></code> or <code class="docutils literal notranslate"><span class="pre">truncated-gaussian</span></code>, this is the variance.</p></li>
+<li><p><strong>data</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – A data-set with shape (number_of_data_points, 2), where the first column comprises of parameter values, while the second column corresponds to the data observations. This input should only be used with the <code class="docutils literal notranslate"><span class="pre">Analytical</span></code> distribution.</p></li>
+<li><p><strong>endpoints</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>optional</em>) – If set to <code class="docutils literal notranslate"><span class="pre">both</span></code>, then the quadrature points and weights will have end-points, based on Gauss-Lobatto quadrature rules. If set to <code class="docutils literal notranslate"><span class="pre">upper</span></code> or <code class="docutils literal notranslate"><span class="pre">lower</span></code> a Gauss-Radau rule is used to compute one end-point at either the upper or lower bound.</p></li>
 </ul>
 </dd>
 </dl>
-<p><strong>Sample constructor initialisations</strong>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">equadratures</span> <span class="kn">import</span> <span class="o">*</span>
-
-<span class="c1"># uniform parameter.</span>
-<span class="n">param</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">lower</span><span class="o">=-</span><span class="mi">2</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mf">2.</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-
-<span class="c1"># beta parameter</span>
-<span class="n">param</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;beta&#39;</span><span class="p">,</span> <span class="n">lower</span><span class="o">=-</span><span class="mf">2.</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mf">15.</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">shape_parameter_A</span><span class="o">=</span><span class="mf">3.2</span><span class="p">,</span> <span class="n">shape_parameter_B</span><span class="o">=</span><span class="mf">1.7</span><span class="p">)</span>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># uniform parameter.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">param</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">lower</span><span class="o">=-</span><span class="mi">2</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mf">2.</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
-<dl class="simple">
-<dt><strong>References</strong></dt><dd><ol class="arabic simple">
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># beta parameter.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">param</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;beta&#39;</span><span class="p">,</span> <span class="n">lower</span><span class="o">=-</span><span class="mf">2.</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mf">15.</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">shape_parameter_A</span><span class="o">=</span><span class="mf">3.2</span><span class="p">,</span> <span class="n">shape_parameter_B</span><span class="o">=</span><span class="mf">1.7</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="rubric">References</p>
+<ol class="arabic simple">
 <li><p>Xiu, D., Karniadakis, G. E., (2002) The Wiener-Askey Polynomial Chaos for Stochastic Differential Equations. SIAM Journal on Scientific Computing,  24(2), <a class="reference external" href="https://epubs.siam.org/doi/abs/10.1137/S1064827501387826?journalCode=sjoce3">Paper</a></p></li>
 <li><p>Gautschi, W., (1985) Orthogonal Polynomials-Constructive Theory and Applications. Journal of Computational and Applied Mathematics 12 (1985), pp. 61-76. <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/037704278590007X">Paper</a></p></li>
 </ol>
-</dd>
-</dl>
 <dl class="py method">
-<dt id="equadratures.parameter.Parameter.get_cdf">
-<code class="sig-name descname">get_cdf</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">points</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/parameter.html#Parameter.get_cdf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.parameter.Parameter.get_cdf" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="equadratures.parameter.Parameter.get_cdf">
+<span class="sig-name descname"><span class="pre">get_cdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/parameter.html#Parameter.get_cdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.parameter.Parameter.get_cdf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the cumulative density function associated with the Parameter.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>self</strong> (<a class="reference internal" href="#equadratures.parameter.Parameter" title="equadratures.parameter.Parameter"><em>Parameter</em></a>) – An instance of the Parameter object.</p></li>
-<li><p><strong>points</strong> (<em>numpy.ndarray</em>) – Values of the parameter at which the PDF must be evaluated.</p></li>
+<dd class="field-odd"><p><strong>points</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – Values of the parameter at which the CDF must be evaluated.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>numpy.ndarray</em> – If <code class="docutils literal notranslate"><span class="pre">points!=None</span></code>. ndarray containing the cumulative density function evaluated at the points in <code class="docutils literal notranslate"><span class="pre">points</span></code>.</p></li>
+<li><p><em>tuple</em> – If <code class="docutils literal notranslate"><span class="pre">points=None</span></code>. A tuple (<cite>x</cite>, <cite>cdf</cite>), where <cite>cdf</cite> is the cumulative density function evaluated at the points in <cite>x</cite>.</p></li>
 </ul>
+</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="equadratures.parameter.Parameter.get_description">
-<code class="sig-name descname">get_description</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/parameter.html#Parameter.get_description"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.parameter.Parameter.get_description" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="equadratures.parameter.Parameter.get_description">
+<span class="sig-name descname"><span class="pre">get_description</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/parameter.html#Parameter.get_description"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.parameter.Parameter.get_description" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provides a description of the Parameter.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>self</strong> (<a class="reference internal" href="#equadratures.parameter.Parameter" title="equadratures.parameter.Parameter"><em>Parameter</em></a>) – An instance of the Parameter object.</p>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A description of the parameter.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="equadratures.parameter.Parameter.get_icdf">
-<code class="sig-name descname">get_icdf</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cdf_values</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/parameter.html#Parameter.get_icdf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.parameter.Parameter.get_icdf" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="equadratures.parameter.Parameter.get_icdf">
+<span class="sig-name descname"><span class="pre">get_icdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cdf_values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/parameter.html#Parameter.get_icdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.parameter.Parameter.get_icdf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the inverse cumulative density function associated with the Parameter.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>self</strong> (<a class="reference internal" href="#equadratures.parameter.Parameter" title="equadratures.parameter.Parameter"><em>Parameter</em></a>) – An instance of the Parameter object.</p></li>
-<li><p><strong>cdf_values</strong> (<em>numpy.ndarray</em>) – Values of the cumulative density function for which its inverse needs to be computed.</p></li>
-</ul>
+<dd class="field-odd"><p><strong>cdf_values</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) – Values of the cumulative density function for which its inverse needs to be computed.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The inverse cumulative density function.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)">numpy.ndarray</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="equadratures.parameter.Parameter.get_jacobi_eigenvectors">
-<code class="sig-name descname">get_jacobi_eigenvectors</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">order</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/parameter.html#Parameter.get_jacobi_eigenvectors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.parameter.Parameter.get_jacobi_eigenvectors" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="equadratures.parameter.Parameter.get_jacobi_eigenvectors">
+<span class="sig-name descname"><span class="pre">get_jacobi_eigenvectors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/parameter.html#Parameter.get_jacobi_eigenvectors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.parameter.Parameter.get_jacobi_eigenvectors" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the eigenvectors of the Jacobi matrix.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>self</strong> (<a class="reference internal" href="#equadratures.parameter.Parameter" title="equadratures.parameter.Parameter"><em>Parameter</em></a>) – An instance of the Parameter object.</p></li>
-<li><p><strong>order</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Order of the recurrence coefficients.</p></li>
-</ul>
+<dd class="field-odd"><p><strong>order</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Order of the recurrence coefficients.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Array of eigenvectors.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)">numpy.ndarray</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="equadratures.parameter.Parameter.get_jacobi_matrix">
-<code class="sig-name descname">get_jacobi_matrix</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">order</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ab</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/parameter.html#Parameter.get_jacobi_matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.parameter.Parameter.get_jacobi_matrix" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="equadratures.parameter.Parameter.get_jacobi_matrix">
+<span class="sig-name descname"><span class="pre">get_jacobi_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ab</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/parameter.html#Parameter.get_jacobi_matrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.parameter.Parameter.get_jacobi_matrix" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the Jacobi matrix—a tridiagonal matrix of the recurrence coefficients.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>self</strong> (<a class="reference internal" href="#equadratures.parameter.Parameter" title="equadratures.parameter.Parameter"><em>Parameter</em></a>) – An instance of the Parameter object.</p></li>
-<li><p><strong>order</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Order of the recurrence coefficients.</p></li>
-</ul>
+<dd class="field-odd"><p><strong>order</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Order of the recurrence coefficients.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>2D array containing the Jacobi matrix.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)">numpy.ndarray</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="equadratures.parameter.Parameter.get_pdf">
-<code class="sig-name descname">get_pdf</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">points</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/parameter.html#Parameter.get_pdf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.parameter.Parameter.get_pdf" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="equadratures.parameter.Parameter.get_pdf">
+<span class="sig-name descname"><span class="pre">get_pdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/parameter.html#Parameter.get_pdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.parameter.Parameter.get_pdf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the probability density function associated with the Parameter.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>self</strong> (<a class="reference internal" href="#equadratures.parameter.Parameter" title="equadratures.parameter.Parameter"><em>Parameter</em></a>) – An instance of the Parameter object.</p></li>
-<li><p><strong>points</strong> (<em>numpy.ndarray</em>) – Values of the parameter at which the PDF must be evaluated.</p></li>
+<dd class="field-odd"><p><strong>points</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – Values of the parameter at which the PDF must be evaluated.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>numpy.ndarray</em> – If <code class="docutils literal notranslate"><span class="pre">points!=None</span></code>. ndarray containing the probability density function evaluated at the points in <code class="docutils literal notranslate"><span class="pre">points</span></code>.</p></li>
+<li><p><em>tuple</em> – If <code class="docutils literal notranslate"><span class="pre">points=None</span></code>. A tuple (<cite>x</cite>, <cite>pdf</cite>), where <cite>pdf</cite> is the probability density function evaluated at the points in <cite>x</cite>.</p></li>
 </ul>
+</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="equadratures.parameter.Parameter.get_recurrence_coefficients">
-<code class="sig-name descname">get_recurrence_coefficients</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">order</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/parameter.html#Parameter.get_recurrence_coefficients"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.parameter.Parameter.get_recurrence_coefficients" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="equadratures.parameter.Parameter.get_recurrence_coefficients">
+<span class="sig-name descname"><span class="pre">get_recurrence_coefficients</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/parameter.html#Parameter.get_recurrence_coefficients"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.parameter.Parameter.get_recurrence_coefficients" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates the recurrence coefficients.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>self</strong> (<a class="reference internal" href="#equadratures.parameter.Parameter" title="equadratures.parameter.Parameter"><em>Parameter</em></a>) – An instance of the Parameter object.</p></li>
-<li><p><strong>order</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Order of the recurrence coefficients.</p></li>
-</ul>
+<dd class="field-odd"><p><strong>order</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) – Order of the recurrence coefficients.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Array of recurrence coefficients.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)">numpy.ndarray</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="equadratures.parameter.Parameter.get_samples">
-<code class="sig-name descname">get_samples</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">number_of_samples_required</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/parameter.html#Parameter.get_samples"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.parameter.Parameter.get_samples" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="equadratures.parameter.Parameter.get_samples">
+<span class="sig-name descname"><span class="pre">get_samples</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number_of_samples_required</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/parameter.html#Parameter.get_samples"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.parameter.Parameter.get_samples" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates samples from the distribution associated with the Parameter.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>self</strong> (<a class="reference internal" href="#equadratures.parameter.Parameter" title="equadratures.parameter.Parameter"><em>Parameter</em></a>) – An instance of the Parameter object.</p></li>
-<li><p><strong>number_of_samples_required</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Number of samples that are required.</p></li>
-</ul>
+<dd class="field-odd"><p><strong>number_of_samples_required</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Number of samples that are required.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The generated samples.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)">numpy.ndarray</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="equadratures.parameter.Parameter.plot_orthogonal_polynomials">
-<code class="sig-name descname">plot_orthogonal_polynomials</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/parameter.html#Parameter.plot_orthogonal_polynomials"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.parameter.Parameter.plot_orthogonal_polynomials" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plots the orthogonal polynomials.</p>
+<dt class="sig sig-object py" id="equadratures.parameter.Parameter.plot_orthogonal_polynomials">
+<span class="sig-name descname"><span class="pre">plot_orthogonal_polynomials</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order_limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number_of_points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/parameter.html#Parameter.plot_orthogonal_polynomials"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.parameter.Parameter.plot_orthogonal_polynomials" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the first few orthogonal polynomials. See <a class="reference internal" href="plot.html#equadratures.plot.plot_orthogonal_polynomials" title="equadratures.plot.plot_orthogonal_polynomials"><code class="xref py py-meth docutils literal notranslate"><span class="pre">plot_orthogonal_polynomials()</span></code></a> for full description.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="equadratures.parameter.Parameter.plot_pdf">
-<code class="sig-name descname">plot_pdf</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/parameter.html#Parameter.plot_pdf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.parameter.Parameter.plot_pdf" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plots the probability distribution.</p>
+<dt class="sig sig-object py" id="equadratures.parameter.Parameter.plot_pdf">
+<span class="sig-name descname"><span class="pre">plot_pdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/parameter.html#Parameter.plot_pdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.parameter.Parameter.plot_pdf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the probability density function for a Parameter. See <a class="reference internal" href="plot.html#equadratures.plot.plot_pdf" title="equadratures.plot.plot_pdf"><code class="xref py py-meth docutils literal notranslate"><span class="pre">plot_pdf()</span></code></a> for full description.</p>
 </dd></dl>
 
 </dd></dl>
@@ -382,17 +451,24 @@ polynomials (and quadrature rules) based on the data, they can set this option t
 
       </div>
     </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    
-  <script src="../_static/js/index.d8bbf5861d671d414e1a.js"></script>
-
-
-    <footer class="footer mt-5 mt-md-0">
+  <footer class="footer mt-5 mt-md-0">
   <div class="container">
-    <p>
-          &copy; Copyright 2016-2021 by equadratures.org.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3.<br/>
-    </p>
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2016-2021 by equadratures.org.<br/>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.0.2.<br/>
+</p>
+    </div>
+    
   </div>
 </footer>
   </body>

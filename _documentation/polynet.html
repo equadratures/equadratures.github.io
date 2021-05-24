@@ -8,7 +8,7 @@
     <title>Deep learning with polynomials &#8212; equadratures</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
-  <link href="../_static/css/index.101715efdecc9b59cb6e1ddfa685c31f.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -22,44 +22,53 @@
       
 
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.d8bbf5861d671d414e1a.js">
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../_static/eq-logo-favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
+    <div class="container-fluid" id="banner"></div>
+
+    
     <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
 
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="../index.html">
+  <img src="../_static/logo_new.png" class="logo" alt="logo">
+</a>
+
 
     
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
       
-      <a class="navbar-brand" href="../index.html">
-        <img src="../_static/logo_new.png" class="logo" alt="logo">
-      </a>
-      
-    
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    
-    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
-      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
-        <li class="toctree-l1 nav-item">
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="tutorials.html">
   Tutorials
  </a>
@@ -77,18 +86,20 @@
  </a>
 </li>
 
-        
-        <li class="nav-item">
-            <a class="nav-link nav-external" href="https://discourse.equadratures.org/">Discourse<i class="fas fa-external-link-alt"></i></a>
-        </li>
-        
-      </ul>
+    
+    <li class="nav-item">
+        <a class="nav-link nav-external" href="https://discourse.equadratures.org/">Discourse<i class="fas fa-external-link-alt"></i></a>
+    </li>
+    
+</ul>
+      </div>
+      
+    </div>
 
-      <form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search equadratures..." aria-label="Search equadratures..." autocomplete="off" >
-</form>
-      <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
         <li class="nav-item">
           <a class="nav-link" href="https://github.com/Effective-Quadratures/equadratures" rel="noopener" target="_blank" title="GitHub">
             <span><i class="fab fa-github-square"></i></span>
@@ -102,7 +113,10 @@
           </a>
         </li>
       </ul>
+      </div>
+      
     </div>
+  </div>
 </div>
     </nav>
     
@@ -112,7 +126,10 @@
           
             
             <!-- Only show if we have sidebars configured, else just a small margin  -->
-            <div class="col-12 col-md-3 bd-sidebar"><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search equadratures..." aria-label="Search equadratures..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <div class="bd-toc-item active">
     
   </div>
@@ -123,14 +140,21 @@
 
           
           <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
               
+              <div class="toc-item">
+                
 
 <nav id="bd-toc-nav">
     
 </nav>
-
-
+              </div>
               
+              <div class="toc-item">
+                
+              </div>
+              
+            
           </div>
           
 
@@ -146,19 +170,19 @@
 <span id="deep-learning-with-polynomials"></span><h1>Deep learning with polynomials<a class="headerlink" href="#module-equadratures.polynet" title="Permalink to this headline">¶</a></h1>
 <p>Deep learning with polynomials using polynomial activation functions.</p>
 <dl class="py class">
-<dt id="equadratures.polynet.Polynet">
-<em class="property">class </em><code class="sig-prename descclassname">equadratures.polynet.</code><code class="sig-name descname">Polynet</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sample_points</span></em>, <em class="sig-param"><span class="n">sample_outputs</span></em>, <em class="sig-param"><span class="n">num_ridges</span></em>, <em class="sig-param"><span class="n">max_iters</span><span class="o">=</span><span class="default_value">1</span></em>, <em class="sig-param"><span class="n">learning_rate</span><span class="o">=</span><span class="default_value">0.001</span></em>, <em class="sig-param"><span class="n">W</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">coeffs</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">momentum_rate</span><span class="o">=</span><span class="default_value">0.001</span></em>, <em class="sig-param"><span class="n">opt</span><span class="o">=</span><span class="default_value">'sd'</span></em>, <em class="sig-param"><span class="n">poly_deg</span><span class="o">=</span><span class="default_value">2</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/polynet.html#Polynet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.polynet.Polynet" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="equadratures.polynet.Polynet">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">equadratures.polynet.</span></span><span class="sig-name descname"><span class="pre">Polynet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample_points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_outputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_ridges</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learning_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">W</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coeffs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">momentum_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sd'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">poly_deg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/polynet.html#Polynet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.polynet.Polynet" title="Permalink to this definition">¶</a></dt>
 <dd><p>Definition of a polynomial neural network framework.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>sample_points</strong> (<em>numpy.ndarray</em>) – Sample training data inputs.</p></li>
-<li><p><strong>sample_outputs</strong> (<em>numpy.ndarray</em>) – Sample training data outputs.</p></li>
+<li><p><strong>sample_points</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) – Sample training data inputs.</p></li>
+<li><p><strong>sample_outputs</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) – Sample training data outputs.</p></li>
 <li><p><strong>num_ridges</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The number of ridges used in the neural network/</p></li>
 <li><p><strong>max_iters</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The maximum number of iterations for the gradient descent optimisation algorithm.</p></li>
 <li><p><strong>learning_rate</strong> (<em>double</em>) – The learning rate used in the optimisation.</p></li>
-<li><p><strong>W</strong> (<em>numpy.ndarray</em>) – An initial ridge for the optimisation algorithm.</p></li>
-<li><p><strong>coeffs</strong> (<em>numpy.ndarray</em>) – Coefficients for the polynomial 1D-ridge functions.</p></li>
+<li><p><strong>W</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) – An initial ridge for the optimisation algorithm.</p></li>
+<li><p><strong>coeffs</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) – Coefficients for the polynomial 1D-ridge functions.</p></li>
 <li><p><strong>opt</strong> (<em>string</em>) – The optimisation strategy used. Options include: <code class="docutils literal notranslate"><span class="pre">sd</span></code> for steepest descent, <code class="docutils literal notranslate"><span class="pre">mom</span></code> for a momentum-rate-based approach or <code class="docutils literal notranslate"><span class="pre">adapt</span></code> for an adaptive learning rate based approach.</p></li>
 <li><p><strong>momentum_rate</strong> (<em>double</em>) – The momentum rate used.</p></li>
 <li><p><strong>poly_deg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The degree of the polynomials used throughout the neural network.</p></li>
@@ -167,27 +191,27 @@
 </dd>
 </dl>
 <p><strong>Sample constructor initialisations</strong>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">net</span> <span class="o">=</span> <span class="n">Polynet</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">num_ridges</span><span class="p">,</span><span class="n">max_iters</span><span class="o">=</span><span class="mi">20000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span> <span class="n">momentum_rate</span><span class="o">=.</span><span class="mi">001</span><span class="p">,</span> <span class="n">opt</span><span class="o">=</span><span class="s1">&#39;adapt&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">net</span> <span class="o">=</span> <span class="n">Polynet</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">num_ridges</span><span class="p">,</span><span class="n">max_iters</span><span class="o">=</span><span class="mi">20000</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span> <span class="n">momentum_rate</span><span class="o">=</span><span class="mf">.001</span><span class="p">,</span> <span class="n">opt</span><span class="o">=</span><span class="s1">&#39;adapt&#39;</span><span class="p">)</span>
 <span class="n">net</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 </pre></div>
 </div>
 <dl class="py method">
-<dt id="equadratures.polynet.Polynet.evaluate_fit">
-<code class="sig-name descname">evaluate_fit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">train</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/polynet.html#Polynet.evaluate_fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.polynet.Polynet.evaluate_fit" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="equadratures.polynet.Polynet.evaluate_fit">
+<span class="sig-name descname"><span class="pre">evaluate_fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/polynet.html#Polynet.evaluate_fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.polynet.Polynet.evaluate_fit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Evaluates the trained network on provided data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>self</strong> (<a class="reference internal" href="#equadratures.polynet.Polynet" title="equadratures.polynet.Polynet"><em>Polynet</em></a>) – An instance of the Polynet object.</p></li>
-<li><p><strong>x</strong> (<em>numpy.ndarray</em>) – A set of testing inputs of shape (M, d), where M represents the number of testing points and d the dimensionality of the input data.</p></li>
+<li><p><strong>x</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) – A set of testing inputs of shape (M, d), where M represents the number of testing points and d the dimensionality of the input data.</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="equadratures.polynet.Polynet.fit">
-<code class="sig-name descname">fit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/polynet.html#Polynet.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.polynet.Polynet.fit" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="equadratures.polynet.Polynet.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/polynet.html#Polynet.fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.polynet.Polynet.fit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Trains the neural network on the data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -209,17 +233,24 @@
 
       </div>
     </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    
-  <script src="../_static/js/index.d8bbf5861d671d414e1a.js"></script>
-
-
-    <footer class="footer mt-5 mt-md-0">
+  <footer class="footer mt-5 mt-md-0">
   <div class="container">
-    <p>
-          &copy; Copyright 2016-2021 by equadratures.org.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3.<br/>
-    </p>
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2016-2021 by equadratures.org.<br/>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.0.2.<br/>
+</p>
+    </div>
+    
   </div>
 </footer>
   </body>

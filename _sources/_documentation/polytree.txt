@@ -1,4 +1,4 @@
-Polynomial Regression Tree
+Polynomial Regression Trees
 =============================
 
 .. automodule:: equadratures.polytree

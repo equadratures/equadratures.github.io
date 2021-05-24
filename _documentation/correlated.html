@@ -8,7 +8,7 @@
     <title>Correlations &#8212; equadratures</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
-  <link href="../_static/css/index.101715efdecc9b59cb6e1ddfa685c31f.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -22,46 +22,55 @@
       
 
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.d8bbf5861d671d414e1a.js">
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../_static/eq-logo-favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Polynomial Regression Tree" href="polytree.html" />
+    <link rel="next" title="Datasets" href="datasets.html" />
     <link rel="prev" title="Plotting utilities" href="plot.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
+    <div class="container-fluid" id="banner"></div>
+
+    
     <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
 
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="../index.html">
+  <img src="../_static/logo_new.png" class="logo" alt="logo">
+</a>
+
 
     
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
       
-      <a class="navbar-brand" href="../index.html">
-        <img src="../_static/logo_new.png" class="logo" alt="logo">
-      </a>
-      
-    
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    
-    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
-      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
-        <li class="toctree-l1 nav-item">
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="tutorials.html">
   Tutorials
  </a>
@@ -79,18 +88,20 @@
  </a>
 </li>
 
-        
-        <li class="nav-item">
-            <a class="nav-link nav-external" href="https://discourse.equadratures.org/">Discourse<i class="fas fa-external-link-alt"></i></a>
-        </li>
-        
-      </ul>
+    
+    <li class="nav-item">
+        <a class="nav-link nav-external" href="https://discourse.equadratures.org/">Discourse<i class="fas fa-external-link-alt"></i></a>
+    </li>
+    
+</ul>
+      </div>
+      
+    </div>
 
-      <form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search equadratures..." aria-label="Search equadratures..." autocomplete="off" >
-</form>
-      <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
         <li class="nav-item">
           <a class="nav-link" href="https://github.com/Effective-Quadratures/equadratures" rel="noopener" target="_blank" title="GitHub">
             <span><i class="fab fa-github-square"></i></span>
@@ -104,7 +115,10 @@
           </a>
         </li>
       </ul>
+      </div>
+      
     </div>
+  </div>
 </div>
     </nav>
     
@@ -114,65 +128,91 @@
           
             
             <!-- Only show if we have sidebars configured, else just a small margin  -->
-            <div class="col-12 col-md-3 bd-sidebar"><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search equadratures..." aria-label="Search equadratures..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <div class="bd-toc-item active">
-    <ul class="current nav bd-sidenav">
- <li class="toctree-l2">
+    <p class="caption">
+ <span class="caption-text">
+  Core modules
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
   <a class="reference internal" href="parameter.html">
    Parameter
   </a>
  </li>
- <li class="toctree-l2">
+ <li class="toctree-l1">
   <a class="reference internal" href="basis.html">
    Basis
   </a>
  </li>
- <li class="toctree-l2">
+ <li class="toctree-l1">
   <a class="reference internal" href="poly.html">
    Polynomial
   </a>
  </li>
- <li class="toctree-l2">
-  <a class="reference internal" href="quadrature.html">
-   Quadrature
-  </a>
- </li>
- <li class="toctree-l2">
-  <a class="reference internal" href="weight.html">
-   Prescribing probability functions
-  </a>
- </li>
- <li class="toctree-l2">
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Additional modules
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
   <a class="reference internal" href="subspaces.html">
    Dimension reduction with polynomials
   </a>
  </li>
- <li class="toctree-l2">
+ <li class="toctree-l1">
   <a class="reference internal" href="optimisation.html">
    Optimisation with polynomials
   </a>
  </li>
- <li class="toctree-l2">
-  <a class="reference internal" href="plot.html">
-   Plotting utilities
-  </a>
- </li>
- <li class="toctree-l2 current active">
-  <a class="current reference internal" href="#">
-   Correlations
-  </a>
- </li>
- <li class="toctree-l2">
+ <li class="toctree-l1">
   <a class="reference internal" href="polytree.html">
-   Polynomial Regression Tree
+   Polynomial Regression Trees
   </a>
  </li>
- <li class="toctree-l2">
+ <li class="toctree-l1">
   <a class="reference internal" href="solver.html">
    Linear system solvers
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="quadrature.html">
+   Quadrature
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="weight.html">
+   Prescribing probability functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="plot.html">
+   Plotting utilities
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Correlations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="datasets.html">
+   Datasets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="scalers.html">
+   Scalers
+  </a>
+ </li>
 </ul>
+
   </div>
 </nav>
             </div>
@@ -181,14 +221,21 @@
 
           
           <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
               
+              <div class="toc-item">
+                
 
 <nav id="bd-toc-nav">
     
 </nav>
-
-
+              </div>
               
+              <div class="toc-item">
+                
+              </div>
+              
+            
           </div>
           
 
@@ -204,118 +251,122 @@
 <span id="correlations"></span><h1>Correlations<a class="headerlink" href="#module-equadratures.correlations" title="Permalink to this headline">¶</a></h1>
 <p>Utilities for dealing with correlated inputs.</p>
 <dl class="py class">
-<dt id="equadratures.correlations.Correlations">
-<em class="property">class </em><code class="sig-prename descclassname">equadratures.correlations.</code><code class="sig-name descname">Correlations</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">correlation_matrix</span></em>, <em class="sig-param"><span class="n">poly</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">parameters</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">method</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/correlations.html#Correlations"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.correlations.Correlations" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="equadratures.correlations.Correlations">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">equadratures.correlations.</span></span><span class="sig-name descname"><span class="pre">Correlations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">correlation_matrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">poly</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/correlations.html#Correlations"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.correlations.Correlations" title="Permalink to this definition">¶</a></dt>
 <dd><p>The class defines methods for polynomial approximations with correlated inputs, including the Nataf transform and Gram-Schmidt process.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>correlation_matrix</strong> (<em>numpy.ndarray</em>) – The correlation matrix associated with the joint distribution.</p></li>
-<li><p><strong>poly</strong> (<a class="reference internal" href="poly.html#equadratures.poly.Poly" title="equadratures.poly.Poly"><em>Poly</em></a>) – Polynomial defined with parameters with marginal distributions in uncorrelated space.</p></li>
-<li><p><strong>parameters</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a>) – List of parameters with marginal distributions.</p></li>
-<li><p><strong>method</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – <cite>nataf-transform</cite> or <cite>gram-schmidt</cite>.</p></li>
-<li><p><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – Display Cholesky decomposition of the fictive matrix.</p></li>
+<li><p><strong>correlation_matrix</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) – The correlation matrix associated with the joint distribution.</p></li>
+<li><p><strong>poly</strong> (<a class="reference internal" href="poly.html#equadratures.poly.Poly" title="equadratures.poly.Poly"><em>Poly</em></a><em>, </em><em>optional</em>) – Polynomial defined with parameters with marginal distributions in uncorrelated space.</p></li>
+<li><p><strong>parameters</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em>, </em><em>optional</em>) – List of parameters with marginal distributions.</p></li>
+<li><p><strong>method</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>optional</em>) – <cite>nataf-transform</cite> or <cite>gram-schmidt</cite>.</p></li>
+<li><p><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – Display Cholesky decomposition of the fictive matrix.</p></li>
 </ul>
 </dd>
 </dl>
-<p><strong>Example usage</strong>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="n">s1</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">s2</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-    <span class="k">return</span> <span class="n">s1</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">s2</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="mf">2.</span> <span class="o">*</span> <span class="n">s1</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">s2</span>
-
-<span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span><span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;beta&#39;</span><span class="p">,</span> <span class="n">shape_parameter_A</span><span class="o">=</span><span class="mf">5.0</span><span class="p">,</span> <span class="n">shape_parameter_B</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">lower</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">)]</span>
-<span class="n">basis</span> <span class="o">=</span> <span class="n">Basis</span><span class="p">(</span><span class="s1">&#39;total-order&#39;</span><span class="p">)</span>
-<span class="n">uncorr_poly</span> <span class="o">=</span> <span class="n">Poly</span><span class="p">(</span><span class="n">parameters</span><span class="p">,</span> <span class="n">basis</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;least-squares&#39;</span><span class="p">,</span>
-                    <span class="n">sampling_args</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;mesh&#39;</span><span class="p">:</span> <span class="s1">&#39;monte-carlo&#39;</span><span class="p">,</span>
-                                    <span class="s1">&#39;subsampling-algorithm&#39;</span><span class="p">:</span> <span class="s1">&#39;lu&#39;</span><span class="p">})</span>
-
-<span class="n">corr_mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.855</span><span class="p">],</span>
-                    <span class="p">[</span><span class="o">-</span><span class="mf">0.855</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]])</span>
-
-<span class="n">corr_gs</span> <span class="o">=</span> <span class="n">Correlations</span><span class="p">(</span><span class="n">corr_mat</span><span class="p">,</span> <span class="n">poly</span><span class="o">=</span><span class="n">uncorr_poly</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;gram-schmidt&#39;</span><span class="p">)</span>
-<span class="n">corr_gs</span><span class="o">.</span><span class="n">set_model</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
-<span class="n">corrected_poly_gs</span> <span class="o">=</span> <span class="n">corr_gs</span><span class="o">.</span><span class="n">get_transformed_poly</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">corrected_poly_gs</span><span class="o">.</span><span class="n">get_mean_and_variance</span><span class="p">())</span>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">s1</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">s2</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">return</span> <span class="n">s1</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">s2</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="mf">2.</span> <span class="o">*</span> <span class="n">s1</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">s2</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span><span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;beta&#39;</span><span class="p">,</span> <span class="n">shape_parameter_A</span><span class="o">=</span><span class="mf">5.0</span><span class="p">,</span> <span class="n">shape_parameter_B</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">lower</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">basis</span> <span class="o">=</span> <span class="n">Basis</span><span class="p">(</span><span class="s1">&#39;total-order&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">uncorr_poly</span> <span class="o">=</span> <span class="n">Poly</span><span class="p">(</span><span class="n">parameters</span><span class="p">,</span> <span class="n">basis</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;least-squares&#39;</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>                    <span class="n">sampling_args</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;mesh&#39;</span><span class="p">:</span> <span class="s1">&#39;monte-carlo&#39;</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>                                    <span class="s1">&#39;subsampling-algorithm&#39;</span><span class="p">:</span> <span class="s1">&#39;lu&#39;</span><span class="p">})</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">corr_mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.855</span><span class="p">],</span>
+<span class="gp">&gt;&gt;&gt; </span>                    <span class="p">[</span><span class="o">-</span><span class="mf">0.855</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]])</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">corr_gs</span> <span class="o">=</span> <span class="n">Correlations</span><span class="p">(</span><span class="n">corr_mat</span><span class="p">,</span> <span class="n">poly</span><span class="o">=</span><span class="n">uncorr_poly</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;gram-schmidt&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">corr_gs</span><span class="o">.</span><span class="n">set_model</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">corrected_poly_gs</span> <span class="o">=</span> <span class="n">corr_gs</span><span class="o">.</span><span class="n">get_transformed_poly</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">corrected_poly_gs</span><span class="o">.</span><span class="n">get_mean_and_variance</span><span class="p">())</span>
 </pre></div>
 </div>
-<dl class="simple">
-<dt><strong>References</strong></dt><dd><ol class="arabic simple">
+<p class="rubric">References</p>
+<ol class="arabic simple">
 <li><p>Melchers, R. E., (1945) Structural Reliability Analysis and Predictions. John Wiley and Sons, second edition.</p></li>
 <li><p>Jakeman, J. D. et al., (2019) Polynomial chaos expansions for dependent random variables.</p></li>
 </ol>
-</dd>
-</dl>
 <dl class="py method">
-<dt id="equadratures.correlations.Correlations.get_correlated_samples">
-<code class="sig-name descname">get_correlated_samples</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">N</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">X</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/correlations.html#Correlations.get_correlated_samples"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.correlations.Correlations.get_correlated_samples" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="equadratures.correlations.Correlations.get_correlated_samples">
+<span class="sig-name descname"><span class="pre">get_correlated_samples</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/correlations.html#Correlations.get_correlated_samples"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.correlations.Correlations.get_correlated_samples" title="Permalink to this definition">¶</a></dt>
 <dd><p>Method for generating correlated samples.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>N</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Number of correlated samples required.</p></li>
-<li><p><strong>X</strong> (<em>ndarray</em>) – (Optional) Points in the uncorrelated space to map to the correlated space.</p></li>
+<li><p><strong>X</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – Points in the uncorrelated space to map to the correlated space.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>C</strong>: A numpy.ndarray of shape (N, M), which contains the correlated samples.</p>
+<dd class="field-even"><p>Array with shape (N, M), which contains the correlated samples.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)">numpy.ndarray</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="equadratures.correlations.Correlations.get_pdf">
-<code class="sig-name descname">get_pdf</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/correlations.html#Correlations.get_pdf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.correlations.Correlations.get_pdf" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="equadratures.correlations.Correlations.get_pdf">
+<span class="sig-name descname"><span class="pre">get_pdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/correlations.html#Correlations.get_pdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.correlations.Correlations.get_pdf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Evaluate PDF at the sample points.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>X</strong> (<em>numpy.ndarray</em>) – Sample points (Number of points by dimensions)</p>
+<dd class="field-odd"><p><strong>X</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) – Array of sample points with shape (number_of_points, dimensions).</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>C</strong>: A numpy.ndarray of shape (N,) with evaluations of the PDF.</p>
+<dd class="field-even"><p>Array with shape (N,) containing evaluations of the PDF.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)">numpy.ndarray</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="equadratures.correlations.Correlations.get_points">
-<code class="sig-name descname">get_points</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/correlations.html#Correlations.get_points"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.correlations.Correlations.get_points" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the quadrature points accounting for correlations. For Nataf transform, returns points in the correlated standard normal space.
+<dt class="sig sig-object py" id="equadratures.correlations.Correlations.get_points">
+<span class="sig-name descname"><span class="pre">get_points</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/correlations.html#Correlations.get_points"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.correlations.Correlations.get_points" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the quadrature points accounting for correlations.</p>
+<p>For Nataf transform, returns points in the correlated standard normal space.
 For Gram-Schmidt, returns points according to the GS polynomial basis.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>self</strong> (<a class="reference internal" href="#equadratures.correlations.Correlations" title="equadratures.correlations.Correlations"><em>Correlations</em></a>) – An instance of the Correlations object.</p>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Array of quadrature points with shape (number_of_samples, dimension).</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>points</strong>: A numpy.ndarray of quadrature points with shape (number_of_samples, dimension).</p>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)">numpy.ndarray</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="equadratures.correlations.Correlations.get_transformed_poly">
-<code class="sig-name descname">get_transformed_poly</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/correlations.html#Correlations.get_transformed_poly"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.correlations.Correlations.get_transformed_poly" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="equadratures.correlations.Correlations.get_transformed_poly">
+<span class="sig-name descname"><span class="pre">get_transformed_poly</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/correlations.html#Correlations.get_transformed_poly"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.correlations.Correlations.get_transformed_poly" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the transformed polynomial.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>self</strong> (<a class="reference internal" href="#equadratures.correlations.Correlations" title="equadratures.correlations.Correlations"><em>Correlations</em></a>) – An instance of the Correlations class.</p>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The transformed polynomial.</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>poly</strong>: An instance of the Poly class.</p>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="poly.html#equadratures.poly.Poly" title="equadratures.poly.Poly">Poly</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="equadratures.correlations.Correlations.set_model">
-<code class="sig-name descname">set_model</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">model</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">model_grads</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/correlations.html#Correlations.set_model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#equadratures.correlations.Correlations.set_model" title="Permalink to this definition">¶</a></dt>
-<dd><p>Computes the coefficients of transformed polynomial (equivalent to calling <cite>self.get_transformed_poly().set_model(…)</cite>)</p>
+<dt class="sig sig-object py" id="equadratures.correlations.Correlations.set_model">
+<span class="sig-name descname"><span class="pre">set_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_grads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/correlations.html#Correlations.set_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.correlations.Correlations.set_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the coefficients of transformed polynomial (equivalent to calling <code class="docutils literal notranslate"><span class="pre">self.get_transformed_poly().set_model(...)</span></code>)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>self</strong> (<a class="reference internal" href="#equadratures.correlations.Correlations" title="equadratures.correlations.Correlations"><em>Correlations</em></a>) – An instance of the Correlations class.</p></li>
-<li><p><strong>model</strong> (<em>callable</em>) – The function that needs to be approximated. In the absence of a callable function, the input can be the function evaluated at the quadrature points.</p></li>
-<li><p><strong>model_grads</strong> (<em>callable</em>) – The gradient of the function that needs to be approximated. In the absence of a callable gradient function, the input can be a matrix of gradient evaluations at the quadrature points.</p></li>
+<li><p><strong>model</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable" title="(in Python v3.9)"><em>Callable</em></a><em>,</em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – The function that needs to be approximated. In the absence of a callable function, the input can be the function evaluated at the quadrature points.</p></li>
+<li><p><strong>model_grads</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable" title="(in Python v3.9)"><em>Callable</em></a><em>,</em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – The gradient of the function that needs to be approximated. In the absence of a callable gradient function, the input can be a matrix of gradient evaluations at the quadrature points.</p></li>
 </ul>
 </dd>
 </dl>
@@ -334,17 +385,24 @@ For Gram-Schmidt, returns points according to the GS polynomial basis.</p>
 
       </div>
     </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    
-  <script src="../_static/js/index.d8bbf5861d671d414e1a.js"></script>
-
-
-    <footer class="footer mt-5 mt-md-0">
+  <footer class="footer mt-5 mt-md-0">
   <div class="container">
-    <p>
-          &copy; Copyright 2016-2021 by equadratures.org.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3.<br/>
-    </p>
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2016-2021 by equadratures.org.<br/>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.0.2.<br/>
+</p>
+    </div>
+    
   </div>
 </footer>
   </body>

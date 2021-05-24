@@ -8,7 +8,7 @@
     <title>equadratures.parameter &#8212; equadratures</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../_static/css/index.101715efdecc9b59cb6e1ddfa685c31f.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -22,44 +22,53 @@
       
 
     
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.d8bbf5861d671d414e1a.js">
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../../_static/eq-logo-favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
+    <div class="container-fluid" id="banner"></div>
+
+    
     <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
 
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="../../index.html">
+  <img src="../../_static/logo_new.png" class="logo" alt="logo">
+</a>
+
 
     
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
       
-      <a class="navbar-brand" href="../../index.html">
-        <img src="../../_static/logo_new.png" class="logo" alt="logo">
-      </a>
-      
-    
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    
-    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
-      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
-        <li class="toctree-l1 nav-item">
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../../_documentation/tutorials.html">
   Tutorials
  </a>
@@ -77,18 +86,20 @@
  </a>
 </li>
 
-        
-        <li class="nav-item">
-            <a class="nav-link nav-external" href="https://discourse.equadratures.org/">Discourse<i class="fas fa-external-link-alt"></i></a>
-        </li>
-        
-      </ul>
+    
+    <li class="nav-item">
+        <a class="nav-link nav-external" href="https://discourse.equadratures.org/">Discourse<i class="fas fa-external-link-alt"></i></a>
+    </li>
+    
+</ul>
+      </div>
+      
+    </div>
 
-      <form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search equadratures..." aria-label="Search equadratures..." autocomplete="off" >
-</form>
-      <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
         <li class="nav-item">
           <a class="nav-link" href="https://github.com/Effective-Quadratures/equadratures" rel="noopener" target="_blank" title="GitHub">
             <span><i class="fab fa-github-square"></i></span>
@@ -102,7 +113,10 @@
           </a>
         </li>
       </ul>
+      </div>
+      
     </div>
+  </div>
 </div>
     </nav>
     
@@ -112,7 +126,10 @@
           
             
             <!-- Only show if we have sidebars configured, else just a small margin  -->
-            <div class="col-12 col-md-3 bd-sidebar"><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search equadratures..." aria-label="Search equadratures..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <div class="bd-toc-item active">
     
   </div>
@@ -123,14 +140,7 @@
 
           
           <div class="d-none d-xl-block col-xl-2 bd-toc">
-              
-
-<nav id="bd-toc-nav">
-    
-</nav>
-
-
-              
+            
           </div>
           
 
@@ -146,6 +156,7 @@
 <span></span><span class="s2">&quot;Definition of a univariate parameter.&quot;</span>
 <span class="kn">from</span> <span class="nn">equadratures.distributions.gaussian</span> <span class="kn">import</span> <span class="n">Gaussian</span>
 <span class="kn">from</span> <span class="nn">equadratures.distributions.uniform</span> <span class="kn">import</span> <span class="n">Uniform</span>
+<span class="kn">from</span> <span class="nn">equadratures.distributions.triangular</span> <span class="kn">import</span> <span class="n">Triangular</span>
 <span class="kn">from</span> <span class="nn">equadratures.distributions.chebyshev</span> <span class="kn">import</span> <span class="n">Chebyshev</span>
 <span class="kn">from</span> <span class="nn">equadratures.distributions.beta</span> <span class="kn">import</span> <span class="n">Beta</span>
 <span class="kn">from</span> <span class="nn">equadratures.distributions.cauchy</span> <span class="kn">import</span> <span class="n">Cauchy</span>
@@ -167,44 +178,46 @@
 <span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">sc</span>
 
 <div class="viewcode-block" id="Parameter"><a class="viewcode-back" href="../../_documentation/parameter.html#equadratures.parameter.Parameter">[docs]</a><span class="k">class</span> <span class="nc">Parameter</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    This class defines a univariate parameter. Below are details of its constructor.</span>
+    <span class="sd">&quot;&quot;&quot; This class defines a univariate parameter. </span>
 
-<span class="sd">    :param float lower: Lower bound for the parameter.</span>
-<span class="sd">    :param float upper: Upper bound for the parameter.</span>
-<span class="sd">    :param int order: Order of the parameter.</span>
-<span class="sd">    :param str param_type:</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    lower : float, optional</span>
+<span class="sd">        Lower bound for the parameter.</span>
+<span class="sd">    upper : float, optional</span>
+<span class="sd">        Upper bound for the parameter.</span>
+<span class="sd">    order : int, optional</span>
+<span class="sd">        Order of the parameter.</span>
+<span class="sd">    param_type : str, optional</span>
 <span class="sd">        The type of distribution that characterizes the parameter. Options include `chebyshev (arcsine) &lt;https://en.wikipedia.org/wiki/Arcsine_distribution&gt;`_, `gaussian &lt;https://en.wikipedia.org/wiki/Normal_distribution&gt;`_,</span>
 <span class="sd">        `truncated-gaussian &lt;https://en.wikipedia.org/wiki/Truncated_normal_distribution&gt;`_, `beta &lt;https://en.wikipedia.org/wiki/Beta_distribution&gt;`_,</span>
 <span class="sd">        `cauchy &lt;https://en.wikipedia.org/wiki/Cauchy_distribution&gt;`_, `exponential &lt;https://en.wikipedia.org/wiki/Exponential_distribution&gt;`_,</span>
-<span class="sd">        `uniform &lt;https://en.wikipedia.org/wiki/Uniform_distribution_(continuous)&gt;`_, `gamma &lt;https://en.wikipedia.org/wiki/Gamma_distribution&gt;`_,</span>
+<span class="sd">        `uniform &lt;https://en.wikipedia.org/wiki/Uniform_distribution_(continuous)&gt;`_, `triangular &lt;https://en.wikipedia.org/wiki/Triangular_distribution&gt;`_, `gamma &lt;https://en.wikipedia.org/wiki/Gamma_distribution&gt;`_,</span>
 <span class="sd">        `weibull &lt;https://en.wikipedia.org/wiki/Weibull_distribution&gt;`_, `rayleigh  &lt;https://en.wikipedia.org/wiki/Rayleigh_distribution&gt;`_,</span>
 <span class="sd">        `pareto &lt;https://en.wikipedia.org/wiki/Pareto_distribution&gt;`_, `lognormal &lt;https://en.wikipedia.org/wiki/Log-normal_distribution&gt;`_,</span>
 <span class="sd">        `students-t &lt;https://en.wikipedia.org/wiki/Student%27s_t-distribution&gt;`_, `logistic &lt;https://en.wikipedia.org/wiki/Log-normal_distribution&gt;`_,</span>
 <span class="sd">        `gumbel &lt;https://en.wikipedia.org/wiki/Gumbel_distribution&gt;`_, `chi &lt;https://en.wikipedia.org/wiki/Chi_distribution&gt;`_  and `chi-squared &lt;https://en.wikipedia.org/wiki/Chi-squared_distribution&gt;`_.</span>
 <span class="sd">        If no string is provided, a ``uniform`` distribution is assumed. If the user provides data, and would like to generate orthogonal</span>
 <span class="sd">        polynomials (and quadrature rules) based on the data, they can set this option to be ``Analytical`` (see [1, 2]).</span>
-<span class="sd">    :param float shape_parameter_A:</span>
+<span class="sd">    shape_parameter_A : float, optional</span>
 <span class="sd">        Most of the aforementioned distributions are characterized by two shape parameters. For instance, in the case of a ``gaussian`` (or ``truncated-gaussian``), this represents the mean. In the case of a beta distribution this represents the alpha value. For a ``uniform`` distribution this input is not required.</span>
-<span class="sd">    :param float shape_parameter_B:</span>
+<span class="sd">    shape_parameter_B : float, optional</span>
 <span class="sd">        This is the second shape parameter that characterizes the distribution selected. In the case of a ``gaussian`` or ``truncated-gaussian``, this is the variance.</span>
-<span class="sd">    :param numpy.ndarray data:</span>
+<span class="sd">    data : numpy.ndarray, optional</span>
 <span class="sd">        A data-set with shape (number_of_data_points, 2), where the first column comprises of parameter values, while the second column corresponds to the data observations. This input should only be used with the ``Analytical`` distribution.</span>
-<span class="sd">    :param string endpoints:</span>
+<span class="sd">    endpoints : str, optional</span>
 <span class="sd">        If set to ``both``, then the quadrature points and weights will have end-points, based on Gauss-Lobatto quadrature rules. If set to ``upper`` or ``lower`` a Gauss-Radau rule is used to compute one end-point at either the upper or lower bound.</span>
 
-<span class="sd">    **Sample constructor initialisations**::</span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; # uniform parameter.</span>
+<span class="sd">    &gt;&gt;&gt; param = eq.Parameter(distribution=&#39;uniform&#39;, lower=-2, upper=2., order=3)</span>
 
-<span class="sd">        import numpy as np</span>
-<span class="sd">        from equadratures import *</span>
+<span class="sd">    &gt;&gt;&gt; # beta parameter.</span>
+<span class="sd">    &gt;&gt;&gt; param = eq.Parameter(distribution=&#39;beta&#39;, lower=-2., upper=15., order=4, shape_parameter_A=3.2, shape_parameter_B=1.7)</span>
 
-<span class="sd">        # uniform parameter.</span>
-<span class="sd">        param = Parameter(distribution=&#39;uniform&#39;, lower=-2, upper=2., order=3)</span>
-
-<span class="sd">        # beta parameter</span>
-<span class="sd">        param = Parameter(distribution=&#39;beta&#39;, lower=-2., upper=15., order=4, shape_parameter_A=3.2, shape_parameter_B=1.7)</span>
-
-<span class="sd">    **References**</span>
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
 <span class="sd">        1. Xiu, D., Karniadakis, G. E., (2002) The Wiener-Askey Polynomial Chaos for Stochastic Differential Equations. SIAM Journal on Scientific Computing,  24(2), `Paper &lt;https://epubs.siam.org/doi/abs/10.1137/S1064827501387826?journalCode=sjoce3&gt;`__</span>
 <span class="sd">        2. Gautschi, W., (1985) Orthogonal Polynomials-Constructive Theory and Applications. Journal of Computational and Applied Mathematics 12 (1985), pp. 61-76. `Paper &lt;https://www.sciencedirect.com/science/article/pii/037704278590007X&gt;`__</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -229,17 +242,16 @@
             <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">distribution</span><span class="o">.</span><span class="n">bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">endpoints</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;upper&#39;</span><span class="p">):</span>
                 <span class="k">raise</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="s1">&#39;Parameter: The upper bound for your distribution is infinity and you have selected the upper bound option in the endpoints. These options are incompatible!&#39;</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">_set_distribution</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Private function that sets the distribution.</span>
-
-<span class="sd">        :param Parameter self:</span>
-<span class="sd">            An instance of the Parameter object.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="sd">&quot;&quot;&quot; Private function that sets the distribution. &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;gaussian&#39;</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;normal&#39;</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">distribution</span> <span class="o">=</span> <span class="n">Gaussian</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape_parameter_A</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape_parameter_B</span><span class="p">)</span>
         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;uniform&#39;</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">distribution</span> <span class="o">=</span> <span class="n">Uniform</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lower</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">upper</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;triangular&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">distribution</span> <span class="o">=</span> <span class="n">Triangular</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lower</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">upper</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape_parameter_A</span><span class="p">)</span>
         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;analytical&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">distribution</span> <span class="o">=</span> <span class="n">Analytical</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">weight_function</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;data&#39;</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">distribution</span> <span class="o">=</span> <span class="n">Analytical</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">weight_function</span><span class="p">)</span>
         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;beta&#39;</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">distribution</span> <span class="o">=</span> <span class="n">Beta</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lower</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">upper</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape_parameter_A</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape_parameter_B</span><span class="p">)</span>
@@ -275,107 +287,133 @@
             <span class="n">distribution_error</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mean</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">distribution</span><span class="o">.</span><span class="n">mean</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">variance</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">distribution</span><span class="o">.</span><span class="n">variance</span>
-<div class="viewcode-block" id="Parameter.plot_orthogonal_polynomials"><a class="viewcode-back" href="../../_documentation/parameter.html#equadratures.parameter.Parameter.plot_orthogonal_polynomials">[docs]</a>    <span class="k">def</span> <span class="nf">plot_orthogonal_polynomials</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Plots the orthogonal polynomials.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">plot</span><span class="o">.</span><span class="n">plot_orthogonal_polynomials</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
-<div class="viewcode-block" id="Parameter.plot_pdf"><a class="viewcode-back" href="../../_documentation/parameter.html#equadratures.parameter.Parameter.plot_pdf">[docs]</a>    <span class="k">def</span> <span class="nf">plot_pdf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Plots the probability distribution.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">plot</span><span class="o">.</span><span class="n">plot_pdf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
-    <span class="k">def</span> <span class="nf">_set_moments</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Private function that sets the mean and the variance of the distribution.</span>
 
-<span class="sd">        :param Parameter self:</span>
-<span class="sd">            An instance of the Parameter object.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="Parameter.plot_orthogonal_polynomials"><a class="viewcode-back" href="../../_documentation/parameter.html#equadratures.parameter.Parameter.plot_orthogonal_polynomials">[docs]</a>    <span class="k">def</span> <span class="nf">plot_orthogonal_polynomials</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">order_limit</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">number_of_points</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Plots the first few orthogonal polynomials. See :meth:`~equadratures.plot.plot_orthogonal_polynomials` for full description. &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">plot</span><span class="o">.</span><span class="n">plot_orthogonal_polynomials</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">ax</span><span class="p">,</span><span class="n">order_limit</span><span class="p">,</span><span class="n">number_of_points</span><span class="p">,</span><span class="n">show</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Parameter.plot_pdf"><a class="viewcode-back" href="../../_documentation/parameter.html#equadratures.parameter.Parameter.plot_pdf">[docs]</a>    <span class="k">def</span> <span class="nf">plot_pdf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Plots the probability density function for a Parameter. See :meth:`~equadratures.plot.plot_pdf` for full description. &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">plot</span><span class="o">.</span><span class="n">plot_pdf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">ax</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">show</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">_set_moments</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Private function that sets the mean and the variance of the distribution. &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mean</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">distribution</span><span class="o">.</span><span class="n">mean</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">variance</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">distribution</span><span class="o">.</span><span class="n">variance</span>
+
     <span class="k">def</span> <span class="nf">_set_bounds</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Private function that sets the bounds of the distribution.</span>
-
-<span class="sd">        :param Parameter self:</span>
-<span class="sd">            An instance of the Parameter object.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="sd">&quot;&quot;&quot; Private function that sets the bounds of the distribution. &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">bounds</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">distribution</span><span class="o">.</span><span class="n">bounds</span>
-<div class="viewcode-block" id="Parameter.get_pdf"><a class="viewcode-back" href="../../_documentation/parameter.html#equadratures.parameter.Parameter.get_pdf">[docs]</a>    <span class="k">def</span> <span class="nf">get_pdf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Computes the probability density function associated with the Parameter.</span>
 
-<span class="sd">        :param Parameter self:</span>
-<span class="sd">            An instance of the Parameter object.</span>
-<span class="sd">        :param numpy.ndarray points:</span>
+<div class="viewcode-block" id="Parameter.get_pdf"><a class="viewcode-back" href="../../_documentation/parameter.html#equadratures.parameter.Parameter.get_pdf">[docs]</a>    <span class="k">def</span> <span class="nf">get_pdf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Computes the probability density function associated with the Parameter.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        points : numpy.ndarray, optional</span>
 <span class="sd">            Values of the parameter at which the PDF must be evaluated.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        numpy.ndarray</span>
+<span class="sd">            If ``points!=None``. ndarray containing the probability density function evaluated at the points in ``points``.</span>
+<span class="sd">        tuple</span>
+<span class="sd">            If ``points=None``. A tuple (`x`, `pdf`), where `pdf` is the probability density function evaluated at the points in `x`.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">points</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">distribution</span><span class="o">.</span><span class="n">x_range_for_pdf</span>
             <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">distribution</span><span class="o">.</span><span class="n">get_pdf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">distribution</span><span class="o">.</span><span class="n">get_pdf</span><span class="p">(</span><span class="n">points</span><span class="p">)</span></div>
-<div class="viewcode-block" id="Parameter.get_cdf"><a class="viewcode-back" href="../../_documentation/parameter.html#equadratures.parameter.Parameter.get_cdf">[docs]</a>    <span class="k">def</span> <span class="nf">get_cdf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Computes the cumulative density function associated with the Parameter.</span>
 
-<span class="sd">        :param Parameter self:</span>
-<span class="sd">            An instance of the Parameter object.</span>
-<span class="sd">        :param numpy.ndarray points:</span>
-<span class="sd">            Values of the parameter at which the PDF must be evaluated.</span>
+<div class="viewcode-block" id="Parameter.get_cdf"><a class="viewcode-back" href="../../_documentation/parameter.html#equadratures.parameter.Parameter.get_cdf">[docs]</a>    <span class="k">def</span> <span class="nf">get_cdf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Computes the cumulative density function associated with the Parameter.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        points : numpy.ndarray, optional</span>
+<span class="sd">            Values of the parameter at which the CDF must be evaluated.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        numpy.ndarray</span>
+<span class="sd">            If ``points!=None``. ndarray containing the cumulative density function evaluated at the points in ``points``.</span>
+<span class="sd">        tuple</span>
+<span class="sd">            If ``points=None``. A tuple (`x`, `cdf`), where `cdf` is the cumulative density function evaluated at the points in `x`.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">points</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">distribution</span><span class="o">.</span><span class="n">x_range_for_pdf</span>
             <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">distribution</span><span class="o">.</span><span class="n">get_cdf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">distribution</span><span class="o">.</span><span class="n">get_cdf</span><span class="p">(</span><span class="n">points</span><span class="p">)</span></div>
-<div class="viewcode-block" id="Parameter.get_icdf"><a class="viewcode-back" href="../../_documentation/parameter.html#equadratures.parameter.Parameter.get_icdf">[docs]</a>    <span class="k">def</span> <span class="nf">get_icdf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cdf_values</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Computes the inverse cumulative density function associated with the Parameter.</span>
 
-<span class="sd">        :param Parameter self:</span>
-<span class="sd">            An instance of the Parameter object.</span>
-<span class="sd">        :param numpy.ndarray cdf_values:</span>
+<div class="viewcode-block" id="Parameter.get_icdf"><a class="viewcode-back" href="../../_documentation/parameter.html#equadratures.parameter.Parameter.get_icdf">[docs]</a>    <span class="k">def</span> <span class="nf">get_icdf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cdf_values</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Computes the inverse cumulative density function associated with the Parameter.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        cdf_values : numpy.ndarray</span>
 <span class="sd">            Values of the cumulative density function for which its inverse needs to be computed.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        numpy.ndarray</span>
+<span class="sd">            The inverse cumulative density function.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">distribution</span><span class="o">.</span><span class="n">get_icdf</span><span class="p">(</span><span class="n">cdf_values</span><span class="p">)</span></div>
-<div class="viewcode-block" id="Parameter.get_samples"><a class="viewcode-back" href="../../_documentation/parameter.html#equadratures.parameter.Parameter.get_samples">[docs]</a>    <span class="k">def</span> <span class="nf">get_samples</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">number_of_samples_required</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Generates samples from the distribution associated with the Parameter.</span>
 
-<span class="sd">        :param Parameter self:</span>
-<span class="sd">            An instance of the Parameter object.</span>
-<span class="sd">        :param int number_of_samples_required:</span>
+<div class="viewcode-block" id="Parameter.get_samples"><a class="viewcode-back" href="../../_documentation/parameter.html#equadratures.parameter.Parameter.get_samples">[docs]</a>    <span class="k">def</span> <span class="nf">get_samples</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">number_of_samples_required</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Generates samples from the distribution associated with the Parameter.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        number_of_samples_required : int</span>
 <span class="sd">            Number of samples that are required.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        numpy.ndarray</span>
+<span class="sd">            The generated samples.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">distribution</span><span class="o">.</span><span class="n">get_samples</span><span class="p">(</span><span class="n">number_of_samples_required</span><span class="p">)</span></div>
-<div class="viewcode-block" id="Parameter.get_description"><a class="viewcode-back" href="../../_documentation/parameter.html#equadratures.parameter.Parameter.get_description">[docs]</a>    <span class="k">def</span> <span class="nf">get_description</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Provides a description of the Parameter.</span>
 
-<span class="sd">        :param Parameter self:</span>
-<span class="sd">            An instance of the Parameter object.</span>
+<div class="viewcode-block" id="Parameter.get_description"><a class="viewcode-back" href="../../_documentation/parameter.html#equadratures.parameter.Parameter.get_description">[docs]</a>    <span class="k">def</span> <span class="nf">get_description</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Provides a description of the Parameter.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        str</span>
+<span class="sd">            A description of the parameter.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">distribution</span><span class="o">.</span><span class="n">get_description</span><span class="p">()</span></div>
-<div class="viewcode-block" id="Parameter.get_recurrence_coefficients"><a class="viewcode-back" href="../../_documentation/parameter.html#equadratures.parameter.Parameter.get_recurrence_coefficients">[docs]</a>    <span class="k">def</span> <span class="nf">get_recurrence_coefficients</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Generates the recurrence coefficients.</span>
 
-<span class="sd">        :param Parameter self:</span>
-<span class="sd">            An instance of the Parameter object.</span>
-<span class="sd">        :param int order:</span>
+<div class="viewcode-block" id="Parameter.get_recurrence_coefficients"><a class="viewcode-back" href="../../_documentation/parameter.html#equadratures.parameter.Parameter.get_recurrence_coefficients">[docs]</a>    <span class="k">def</span> <span class="nf">get_recurrence_coefficients</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Generates the recurrence coefficients.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        order : int, optional</span>
 <span class="sd">            Order of the recurrence coefficients.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        numpy.ndarray</span>
+<span class="sd">            Array of recurrence coefficients.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">distribution</span><span class="o">.</span><span class="n">get_recurrence_coefficients</span><span class="p">(</span><span class="n">order</span><span class="p">)</span></div>
-<div class="viewcode-block" id="Parameter.get_jacobi_eigenvectors"><a class="viewcode-back" href="../../_documentation/parameter.html#equadratures.parameter.Parameter.get_jacobi_eigenvectors">[docs]</a>    <span class="k">def</span> <span class="nf">get_jacobi_eigenvectors</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Computes the eigenvectors of the Jacobi matrix.</span>
 
-<span class="sd">        :param Parameter self:</span>
-<span class="sd">            An instance of the Parameter object.</span>
-<span class="sd">        :param int order:</span>
+<div class="viewcode-block" id="Parameter.get_jacobi_eigenvectors"><a class="viewcode-back" href="../../_documentation/parameter.html#equadratures.parameter.Parameter.get_jacobi_eigenvectors">[docs]</a>    <span class="k">def</span> <span class="nf">get_jacobi_eigenvectors</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Computes the eigenvectors of the Jacobi matrix.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        order : int</span>
 <span class="sd">            Order of the recurrence coefficients.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        numpy.ndarray</span>
+<span class="sd">            Array of eigenvectors.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">order</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">order</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">order</span> <span class="o">+</span> <span class="mi">1</span>
@@ -393,14 +431,19 @@
             <span class="c1">#i = np.array(i) # convert to array</span>
             <span class="c1">#V = V[:,i]</span>
         <span class="k">return</span> <span class="n">eigVecs</span></div>
-<div class="viewcode-block" id="Parameter.get_jacobi_matrix"><a class="viewcode-back" href="../../_documentation/parameter.html#equadratures.parameter.Parameter.get_jacobi_matrix">[docs]</a>    <span class="k">def</span> <span class="nf">get_jacobi_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ab</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Computes the Jacobi matrix---a tridiagonal matrix of the recurrence coefficients.</span>
 
-<span class="sd">        :param Parameter self:</span>
-<span class="sd">            An instance of the Parameter object.</span>
-<span class="sd">        :param int order:</span>
+<div class="viewcode-block" id="Parameter.get_jacobi_matrix"><a class="viewcode-back" href="../../_documentation/parameter.html#equadratures.parameter.Parameter.get_jacobi_matrix">[docs]</a>    <span class="k">def</span> <span class="nf">get_jacobi_matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ab</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Computes the Jacobi matrix---a tridiagonal matrix of the recurrence coefficients.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        order : int</span>
 <span class="sd">            Order of the recurrence coefficients.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        numpy.ndarray</span>
+<span class="sd">            2D array containing the Jacobi matrix.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">order</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">ab</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">ab</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_recurrence_coefficients</span><span class="p">()</span>
@@ -614,17 +657,24 @@
 
       </div>
     </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    
-  <script src="../../_static/js/index.d8bbf5861d671d414e1a.js"></script>
-
-
-    <footer class="footer mt-5 mt-md-0">
+  <footer class="footer mt-5 mt-md-0">
   <div class="container">
-    <p>
-          &copy; Copyright 2016-2021 by equadratures.org.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3.<br/>
-    </p>
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2016-2021 by equadratures.org.<br/>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.0.2.<br/>
+</p>
+    </div>
+    
   </div>
 </footer>
   </body>
