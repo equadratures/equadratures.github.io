@@ -166,6 +166,7 @@
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
 <span class="n">MAXIMUM_ORDER_FOR_STATS</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">CARD_LIMIT_SOFT</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">50e3</span><span class="p">)</span>
 
 <div class="viewcode-block" id="Poly"><a class="viewcode-back" href="../../_documentation/poly.html#equadratures.poly.Poly">[docs]</a><span class="k">class</span> <span class="nc">Poly</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Definition of a polynomial object.</span>
@@ -189,6 +190,8 @@
 <span class="sd">            - **sample-gradients** (numpy.ndarray): A numpy ndarray with shape (number_of_observations, dimensions) that corresponds to a set of sample gradient values over the parameter space.</span>
 <span class="sd">    solver_args : dict, optional</span>
 <span class="sd">        Optional arguments centered around the specific solver used for computing the coefficients. See :class:`Solver&lt;equadratures.solver.Solver&gt;`.</span>
+<span class="sd">    override_cardinality: bool, optional</span>
+<span class="sd">        Option to override the soft cardinality limit of 50E3. By default the limit is enforced in order to avoid excessively long run times when the polynomial coefficients are computed.</span>
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
@@ -217,7 +220,7 @@
 <span class="sd">    4. Seshadri, P., Narayan, A., Sankaran M., (2017) Effectively Subsampled Quadratures for Least Squares Polynomial Approximations. SIAM/ASA Journal on Uncertainty Quantification, 5(1). `Paper &lt;https://epubs.siam.org/doi/abs/10.1137/16M1057668&gt;`__</span>
 <span class="sd">    5. Rogers, S., Girolami, M., (2016) Variability in predictions. In: A First Course in Machine Learning, Second Edition (2nd. ed.). Chapman &amp; Hall/CRC. `Book &lt;https://github.com/wwkenwong/book/blob/master/Simon%20Rogers%2C%20Mark%20Girolami%20A%20First%20Course%20in%20Machine%20Learning.pdf&gt;`__</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span> <span class="n">basis</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sampling_args</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">solver_args</span><span class="o">=</span><span class="p">{},</span> <span class="n">variable</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span> <span class="n">basis</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sampling_args</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">solver_args</span><span class="o">=</span><span class="p">{},</span> <span class="n">variable</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">override_cardinality</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="nb">len</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
@@ -227,6 +230,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="o">=</span> <span class="n">method</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">sampling_args</span> <span class="o">=</span> <span class="n">sampling_args</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">solver_args</span> <span class="o">=</span> <span class="n">solver_args</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">override</span> <span class="o">=</span> <span class="n">override_cardinality</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">dimensions</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">orders</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">gradient_flag</span> <span class="o">=</span> <span class="kc">False</span>
@@ -295,6 +299,14 @@
                 <span class="k">if</span> <span class="s1">&#39;sample-outputs&#39;</span> <span class="ow">in</span> <span class="n">sampling_args</span><span class="p">:</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">output_variances</span> <span class="o">=</span> <span class="n">sampling_args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;sample-output-variances&#39;</span><span class="p">)</span>
 
+            <span class="c1"># Check cardinality before setting points and weights etc (unless override_cardinality=True)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">override</span><span class="p">:</span>
+                <span class="n">cardinality</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">get_cardinality</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">cardinality</span> <span class="o">&gt;=</span> <span class="n">CARD_LIMIT_SOFT</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Cardinality </span><span class="si">%.1e</span><span class="s1"> &gt;= soft cardinality limit </span><span class="si">%.1e</span><span class="s1">. Computing polynomial coefficients may take a long time. To override this, set override_cardinality=True.&#39;</span>
+                        <span class="o">%</span><span class="p">(</span><span class="n">cardinality</span><span class="p">,</span><span class="n">CARD_LIMIT_SOFT</span><span class="p">))</span> 
+
+            <span class="c1"># Set solver, points and weight etc </span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_set_solver</span><span class="p">()</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_set_subsampling_algorithm</span><span class="p">()</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_set_points_and_weights</span><span class="p">()</span>

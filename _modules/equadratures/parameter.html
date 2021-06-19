@@ -189,7 +189,7 @@
 <span class="sd">    order : int, optional</span>
 <span class="sd">        Order of the parameter.</span>
 <span class="sd">    param_type : str, optional</span>
-<span class="sd">        The type of distribution that characterizes the parameter. Options include `chebyshev (arcsine) &lt;https://en.wikipedia.org/wiki/Arcsine_distribution&gt;`_, `gaussian &lt;https://en.wikipedia.org/wiki/Normal_distribution&gt;`_,</span>
+<span class="sd">        The type of distribution that characterizes the parameter (see [1, 2]). Options include `chebyshev (arcsine) &lt;https://en.wikipedia.org/wiki/Arcsine_distribution&gt;`_, `gaussian &lt;https://en.wikipedia.org/wiki/Normal_distribution&gt;`_,</span>
 <span class="sd">        `truncated-gaussian &lt;https://en.wikipedia.org/wiki/Truncated_normal_distribution&gt;`_, `beta &lt;https://en.wikipedia.org/wiki/Beta_distribution&gt;`_,</span>
 <span class="sd">        `cauchy &lt;https://en.wikipedia.org/wiki/Cauchy_distribution&gt;`_, `exponential &lt;https://en.wikipedia.org/wiki/Exponential_distribution&gt;`_,</span>
 <span class="sd">        `uniform &lt;https://en.wikipedia.org/wiki/Uniform_distribution_(continuous)&gt;`_, `triangular &lt;https://en.wikipedia.org/wiki/Triangular_distribution&gt;`_, `gamma &lt;https://en.wikipedia.org/wiki/Gamma_distribution&gt;`_,</span>
@@ -197,8 +197,7 @@
 <span class="sd">        `pareto &lt;https://en.wikipedia.org/wiki/Pareto_distribution&gt;`_, `lognormal &lt;https://en.wikipedia.org/wiki/Log-normal_distribution&gt;`_,</span>
 <span class="sd">        `students-t &lt;https://en.wikipedia.org/wiki/Student%27s_t-distribution&gt;`_, `logistic &lt;https://en.wikipedia.org/wiki/Log-normal_distribution&gt;`_,</span>
 <span class="sd">        `gumbel &lt;https://en.wikipedia.org/wiki/Gumbel_distribution&gt;`_, `chi &lt;https://en.wikipedia.org/wiki/Chi_distribution&gt;`_  and `chi-squared &lt;https://en.wikipedia.org/wiki/Chi-squared_distribution&gt;`_.</span>
-<span class="sd">        If no string is provided, a ``uniform`` distribution is assumed. If the user provides data, and would like to generate orthogonal</span>
-<span class="sd">        polynomials (and quadrature rules) based on the data, they can set this option to be ``Analytical`` (see [1, 2]).</span>
+<span class="sd">        If no string is provided, a ``uniform`` distribution is assumed. Data-driven and custom analytical parameters can also be constructed by setting this option to ``data`` and ``analytical`` and providing a **weight_function** (see examples).</span>
 <span class="sd">    shape_parameter_A : float, optional</span>
 <span class="sd">        Most of the aforementioned distributions are characterized by two shape parameters. For instance, in the case of a ``gaussian`` (or ``truncated-gaussian``), this represents the mean. In the case of a beta distribution this represents the alpha value. For a ``uniform`` distribution this input is not required.</span>
 <span class="sd">    shape_parameter_B : float, optional</span>
@@ -207,14 +206,23 @@
 <span class="sd">        A data-set with shape (number_of_data_points, 2), where the first column comprises of parameter values, while the second column corresponds to the data observations. This input should only be used with the ``Analytical`` distribution.</span>
 <span class="sd">    endpoints : str, optional</span>
 <span class="sd">        If set to ``both``, then the quadrature points and weights will have end-points, based on Gauss-Lobatto quadrature rules. If set to ``upper`` or ``lower`` a Gauss-Radau rule is used to compute one end-point at either the upper or lower bound.</span>
+<span class="sd">    weight_function: Weight, optional</span>
+<span class="sd">        An instance of Weight, which contains a bespoke analytical or data-driven weight (probability density) function. </span>
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
-<span class="sd">    &gt;&gt;&gt; # uniform parameter.</span>
-<span class="sd">    &gt;&gt;&gt; param = eq.Parameter(distribution=&#39;uniform&#39;, lower=-2, upper=2., order=3)</span>
+<span class="sd">    A uniform parameter</span>
+<span class="sd">        &gt;&gt;&gt; param = eq.Parameter(distribution=&#39;uniform&#39;, lower=-2, upper=2., order=3)</span>
 
-<span class="sd">    &gt;&gt;&gt; # beta parameter.</span>
-<span class="sd">    &gt;&gt;&gt; param = eq.Parameter(distribution=&#39;beta&#39;, lower=-2., upper=15., order=4, shape_parameter_A=3.2, shape_parameter_B=1.7)</span>
+<span class="sd">    A beta parameter</span>
+<span class="sd">        &gt;&gt;&gt; param = eq.Parameter(distribution=&#39;beta&#39;, lower=-2., upper=15., order=4, </span>
+<span class="sd">        &gt;&gt;&gt;        shape_parameter_A=3.2, shape_parameter_B=1.7)</span>
+
+<span class="sd">    A data-driven parameter</span>
+<span class="sd">        &gt;&gt;&gt; pdf = eq.Weight( stats.gaussian_kde(data, bw_method=&#39;silverman&#39;), </span>
+<span class="sd">        &gt;&gt;&gt;        support=[-3, 3.2])</span>
+<span class="sd">        &gt;&gt;&gt; param = eq.Parameter(distribution=&#39;analytical&#39;, </span>
+<span class="sd">        &gt;&gt;&gt;        weight_function=pdf, order=2)</span>
 
 <span class="sd">    References</span>
 <span class="sd">    ----------</span>
@@ -249,9 +257,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">distribution</span> <span class="o">=</span> <span class="n">Uniform</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lower</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">upper</span><span class="p">)</span>
         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;triangular&#39;</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">distribution</span> <span class="o">=</span> <span class="n">Triangular</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lower</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">upper</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape_parameter_A</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;analytical&#39;</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">distribution</span> <span class="o">=</span> <span class="n">Analytical</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">weight_function</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;data&#39;</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;analytical&#39;</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;data&#39;</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">distribution</span> <span class="o">=</span> <span class="n">Analytical</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">weight_function</span><span class="p">)</span>
         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;beta&#39;</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">distribution</span> <span class="o">=</span> <span class="n">Beta</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lower</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">upper</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape_parameter_A</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape_parameter_B</span><span class="p">)</span>

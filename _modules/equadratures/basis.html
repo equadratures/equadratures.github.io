@@ -157,6 +157,8 @@
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">math</span> <span class="k">as</span> <span class="nn">mt</span>
 
+<span class="n">CARD_LIMIT_HARD</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">1e6</span><span class="p">)</span>
+
 <div class="viewcode-block" id="Basis"><a class="viewcode-back" href="../../_documentation/basis.html#equadratures.basis.Basis">[docs]</a><span class="k">class</span> <span class="nc">Basis</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Basis class constructor.</span>
 
@@ -259,7 +261,10 @@
 <span class="sd">        int</span>
 <span class="sd">            The number of multi-index elements of the basis.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="o">.</span><span class="n">shape</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span><span class="o">.</span><span class="n">shape</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">)(</span><span class="s1">&#39;The basis elements have not yet been set. get_cardinality() can only be called if a list of orders is provided during the definition of Basis. Otherwise, call Poly.basis.get_cardinality() once the Poly has been defined.&#39;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">e</span>
         <span class="k">return</span> <span class="n">a</span></div>
 
 <div class="viewcode-block" id="Basis.prune"><a class="viewcode-back" href="../../_documentation/basis.html#equadratures.basis.Basis.prune">[docs]</a>    <span class="k">def</span> <span class="nf">prune</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">number_of_elements_to_delete</span><span class="p">):</span>
@@ -434,13 +439,21 @@
    <span class="k">return</span> <span class="n">I</span>
 
 <span class="k">def</span> <span class="nf">total_order_basis</span><span class="p">(</span><span class="n">orders</span><span class="p">):</span>
+    <span class="c1"># init</span>
     <span class="n">dimensions</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">orders</span><span class="p">)</span>
     <span class="n">highest_order</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">orders</span><span class="p">)</span>
+    <span class="c1"># Check what the cardinality will be, stop if too large!</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">factorial</span><span class="p">(</span><span class="n">highest_order</span><span class="o">+</span><span class="n">dimensions</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">factorial</span><span class="p">(</span><span class="n">highest_order</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">factorial</span><span class="p">(</span><span class="n">dimensions</span><span class="p">)))</span>
+    <span class="c1"># Check cardinality</span>
+    <span class="k">if</span> <span class="n">L</span> <span class="o">&gt;=</span> <span class="n">CARD_LIMIT_HARD</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Cardinality </span><span class="si">%.1e</span><span class="s1"> is &gt;= hard cardinality limit </span><span class="si">%.1e</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">CARD_LIMIT_HARD</span><span class="p">))</span>
+    <span class="c1"># Generate basis</span>
     <span class="n">total_order</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="n">dimensions</span><span class="p">))</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">highest_order</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
         <span class="n">R</span> <span class="o">=</span> <span class="n">getTotalOrderBasisRecursion</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">dimensions</span><span class="p">)</span>
         <span class="n">total_order</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">total_order</span><span class="p">,</span> <span class="n">R</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">total_order</span>
+
 <span class="k">def</span> <span class="nf">sparse_grid_basis</span><span class="p">(</span><span class="n">level</span><span class="p">,</span> <span class="n">growth_rule</span><span class="p">,</span> <span class="n">dimensions</span><span class="p">):</span>
 
     <span class="c1"># Initialize a few parameters for the setup</span>
@@ -508,6 +521,14 @@
 
     <span class="n">dimensions</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">orders</span><span class="p">)</span> <span class="c1"># number of dimensions</span>
     <span class="n">I</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">]</span> <span class="c1"># initialize!</span>
+
+    <span class="c1"># Check what the cardinality will be, stop if too large!</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">orders</span><span class="p">:</span>
+        <span class="n">L</span> <span class="o">*=</span> <span class="n">p</span><span class="o">+</span><span class="mi">1</span>
+        <span class="c1"># Check cardinality so far</span>
+        <span class="k">if</span> <span class="n">L</span> <span class="o">&gt;=</span> <span class="n">CARD_LIMIT_HARD</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Cardinality (so far) is </span><span class="si">%.1e</span><span class="s1">, which is &gt;= hard cardinality limit </span><span class="si">%.1e</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">CARD_LIMIT_HARD</span><span class="p">))</span>
 
     <span class="c1"># For loop across each dimension</span>
     <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">dimensions</span><span class="p">):</span>

@@ -253,28 +253,6 @@
 <dt class="sig sig-object py" id="equadratures.subspaces.Subspaces">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">equadratures.subspaces.</span></span><span class="sig-name descname"><span class="pre">Subspaces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">full_space_poly</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_outputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subspace_dimension</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">polynomial_degree</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">poly_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dr_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/subspaces.html#Subspaces"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.subspaces.Subspaces" title="Permalink to this definition">¶</a></dt>
 <dd><p>This class defines a subspaces object. It can be used for polynomial-based subspace dimension reduction.</p>
-<p>TODO: - incorperate below in examples?
-How to standardise?
-If just a dataset, no poly, then use minmax scaling
-If poly, no datapoints, then data should be contained in poly</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>extract points from poly using .get_points() and .get_model_evaluations</p></li>
-<li><p>standaridise according to distributions extracted from the poly’s params</p></li>
-</ul>
-</div></blockquote>
-<dl class="simple">
-<dt>If poly, but with new points? We should assume points are drawn from same distr according to poly’s params</dt><dd><ul class="simple">
-<li><p>standaridise according to distributions extracted from the poly’s params</p></li>
-</ul>
-</dd>
-<dt>We need information on whether marginals are bounded, semi-bounded or unbounded?</dt><dd><ul class="simple">
-<li><p>bounded, minmax scaling: analytical, beta, chebyshev, truncated gaussian, uniform</p></li>
-<li><p>unbounded, meanvar scaling: cauchy (although stddev undefined!), gaussian, gumbel, logistic, studentst,</p></li>
-<li><p>semi-bounded, ???: chi, chi squared, exponential, gamma, lognormal, pareto (x geq 1), rayleigh, weibull</p></li>
-</ul>
-</dd>
-</dl>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -296,15 +274,26 @@ If poly, no datapoints, then data should be contained in poly</p>
 </dl>
 <p class="rubric">Examples</p>
 <dl>
-<dt>Obtaining a 1D subspace via variable projection</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mysubspace</span> <span class="o">=</span> <span class="n">Subspaces</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;active-subspace&#39;</span><span class="p">,</span> <span class="n">sample_points</span><span class="o">=</span><span class="n">X</span><span class="p">,</span> <span class="n">sample_outputs</span><span class="o">=</span><span class="n">Y</span><span class="p">)</span>
+<dt>Obtaining a 2D subspace via active subspaces on user data</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mysubspace</span> <span class="o">=</span> <span class="n">Subspaces</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;active-subspace&#39;</span><span class="p">,</span> <span class="n">sample_points</span><span class="o">=</span><span class="n">X</span><span class="p">,</span> <span class="n">sample_outputs</span><span class="o">=</span><span class="n">Y</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">eigs</span> <span class="o">=</span> <span class="n">mysubspace</span><span class="o">.</span><span class="n">get_eigenvalues</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">W</span> <span class="o">=</span> <span class="n">mysubspace</span><span class="o">.</span><span class="n">get_subspace</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">W</span> <span class="o">=</span> <span class="n">mysubspace</span><span class="o">.</span><span class="n">get_subspace</span><span class="p">()[:,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">e</span> <span class="o">=</span> <span class="n">mysubspace</span><span class="o">.</span><span class="n">get_eigenvalues</span><span class="p">()</span>
 </pre></div>
 </div>
 </dd>
+<dt>Obtaining a 2D subspace via active subspaces with a Poly object (remember to call set_model() on Poly first)</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mysubspace</span> <span class="o">=</span> <span class="n">Subspaces</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;active-subspace&#39;</span><span class="p">,</span> <span class="n">full_space_poly</span><span class="o">=</span><span class="n">my_poly</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">eigs</span> <span class="o">=</span> <span class="n">mysubspace</span><span class="o">.</span><span class="n">get_eigenvalues</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">W</span> <span class="o">=</span> <span class="n">mysubspace</span><span class="o">.</span><span class="n">get_subspace</span><span class="p">()[:,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">e</span> <span class="o">=</span> <span class="n">mysubspace</span><span class="o">.</span><span class="n">get_eigenvalues</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+<dt>Obtaining a 2D subspace via variable projection on user data</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mysubspace</span> <span class="o">=</span> <span class="n">Subspaces</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;variable-projection&#39;</span><span class="p">,</span> <span class="n">sample_points</span><span class="o">=</span><span class="n">X</span><span class="p">,</span> <span class="n">sample_outputs</span><span class="o">=</span><span class="n">Y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">W</span> <span class="o">=</span> <span class="n">mysubspace</span><span class="o">.</span><span class="n">get_subspace</span><span class="p">()[:,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd>
 </dl>
-<p>Obtaining a second order polynomial fitted over a two dimensional subspace, via variable</p>
 <p class="rubric">References</p>
 <ol class="arabic simple">
 <li><p>Constantine, P., (2015) Active Subspaces: Emerging Ideas for Dimension Reduction in Parameter Studies. SIAM Spotlights.</p></li>
@@ -406,8 +395,8 @@ subspace.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>num_samples</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) – </p></li>
-<li><p><strong>max_count</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) – </p></li>
+<li><p><strong>num_samples</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) – Number of samples per iteration to check.</p></li>
+<li><p><strong>max_count</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) – Maximum number of iteration.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>

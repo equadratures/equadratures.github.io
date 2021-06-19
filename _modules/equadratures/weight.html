@@ -153,8 +153,7 @@
               <div>
                 
   <h1>Source code for equadratures.weight</h1><div class="highlight"><pre>
-<span></span><span class="s2">&quot;Definition of a probability distribution.&quot;</span>
-<span class="kn">from</span> <span class="nn">equadratures.parameter</span> <span class="kn">import</span> <span class="n">Parameter</span>
+<span></span><span class="kn">from</span> <span class="nn">equadratures.parameter</span> <span class="kn">import</span> <span class="n">Parameter</span>
 <span class="kn">from</span> <span class="nn">equadratures.basis</span> <span class="kn">import</span> <span class="n">Basis</span>
 <span class="kn">from</span> <span class="nn">equadratures.poly</span> <span class="kn">import</span> <span class="n">Poly</span><span class="p">,</span> <span class="n">evaluate_model</span>
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
@@ -163,7 +162,7 @@
 <span class="n">RECURRENCE_PDF_SAMPLES</span> <span class="o">=</span> <span class="mi">50000</span>
 <span class="n">QUADRATURE_ORDER_INCREMENT</span> <span class="o">=</span> <span class="mi">80</span>
 <div class="viewcode-block" id="Weight"><a class="viewcode-back" href="../../_documentation/weight.html#equadratures.weight.Weight">[docs]</a><span class="k">class</span> <span class="nc">Weight</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; The class offers a template to input bespoke weight (probability density) functions.</span>
+    <span class="sd">&quot;&quot;&quot; The class offers a template to input bespoke weight (probability density) functions. The resulting weight function can be given to :class:`~equadratures.parameter.Parameter` to create a bespoke analytical or data-driven parameter.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -181,8 +180,33 @@
 
 <span class="sd">    Example</span>
 <span class="sd">    -------</span>
-<span class="sd">    &gt;&gt;&gt; pdf_1 = Weight(lambda x: np.exp(-x)/ np.sqrt(x), [0.00001, -np.log(1e-10)], pdf=False)</span>
-<span class="sd">    &gt;&gt;&gt; pdf_2 = Weight(np.random(100,)*3, [-15, 15], pdf=False)</span>
+<span class="sd">    Analytical weight functions</span>
+<span class="sd">        &gt;&gt;&gt; # exp(-x)/sqrt(x)</span>
+<span class="sd">        &gt;&gt;&gt; pdf_1 = Weight(lambda x: np.exp(-x)/ np.sqrt(x), [0.00001, -np.log(1e-10)], </span>
+<span class="sd">        &gt;&gt;&gt;        pdf=False)</span>
+<span class="sd">        &gt;&gt;&gt; </span>
+<span class="sd">        &gt;&gt;&gt; # A triangular distribution</span>
+<span class="sd">        &gt;&gt;&gt; a = 3.</span>
+<span class="sd">        &gt;&gt;&gt; b = 6.</span>
+<span class="sd">        &gt;&gt;&gt; c = 4.</span>
+<span class="sd">        &gt;&gt;&gt; mean = (a + b + c)/3.</span>
+<span class="sd">        &gt;&gt;&gt; var = (a**2 + b**2 + c**2 - a*b - a*c - b*c)/18.</span>
+<span class="sd">        &gt;&gt;&gt; pdf_2 = Weight(lambda x : 2*(x-a)/((b-a)*(c-a)) if (a &lt;= x &lt; c) </span>
+<span class="sd">        &gt;&gt;&gt;                         else( 2/(b-a) if (x == c) </span>
+<span class="sd">        &gt;&gt;&gt;                         else( 2*(b-x)/((b-a)*(b-c)))), </span>
+<span class="sd">        &gt;&gt;&gt;             support=[a, b], pdf=True)</span>
+<span class="sd">        &gt;&gt;&gt; </span>
+<span class="sd">        &gt;&gt;&gt; # Passing to Parameter</span>
+<span class="sd">        &gt;&gt;&gt; param = Parameter(distribution=&#39;analytical&#39;, weight_function=pdf_2, order=2)</span>
+
+<span class="sd">    Data driven weight functions</span>
+<span class="sd">        &gt;&gt;&gt; # Constructing a kde based on given data, using Rilverman&#39;s rule for bandwidth selection</span>
+<span class="sd">        &gt;&gt;&gt; pdf_2 = Weight( stats.gaussian_kde(data, bw_method=&#39;silverman&#39;), </span>
+<span class="sd">        &gt;&gt;&gt;        support=[-3, 3.2])</span>
+<span class="sd">        &gt;&gt;&gt; </span>
+<span class="sd">        &gt;&gt;&gt; # Passing to Parameter</span>
+<span class="sd">        &gt;&gt;&gt; param = Parameter(distribution=&#39;analytical&#39;, weight_function=pdf, order=2)</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">weight_function</span><span class="p">,</span> <span class="n">support</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">pdf</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">mean</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">variance</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">weight_function</span> <span class="o">=</span> <span class="n">weight_function</span>
