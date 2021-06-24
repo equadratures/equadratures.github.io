@@ -1,0 +1,96 @@
+=============
+Developers
+=============
+
+*equadratures* wouldn't be possible without our community of contributers, past and present. 
+
+We welcome all contributions. If you'd like to get involved, please get in touch on our `discourse <https://discourse.equadratures.org/>`__!
+
+
+Primary Developers
+--------------------
+
+.. panels::
+    :card: people-card shadow text-center
+    :column: col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6 d-flex my-3 px-2
+    :header: font-weight-bold px-1
+    :img-top-cls: p-0
+    :body: text-left
+
+    ---
+    :img-top: ../_static/people/pranay.jpeg
+
+    Pranay Seshadri
+    ^^^^^^^^^^^^^^^
+
+    * Founder
+    * Lead developer
+    * All things polynomial
+
+    .. link-button:: https://www.psesh.com/
+        :text:
+        :classes: stretched-link
+
+    ---
+    :img-top: ../_static/people/ashley.jpeg
+
+    Ashley Scillitoe
+    ^^^^^^^^^^^^^^^^
+
+    * Machine learning
+    * Web dev, testing & CI 
+    * Cloud computing
+
+    .. link-button:: https://www.ascillitoe.com/
+        :text:
+        :classes: stretched-link
+
+    ---
+    :img-top: ../_static/people/nick.jpeg
+
+    Chun Yui (Nicholas) Wong
+    ^^^^^^^^^^^^^^^^^^^^^^^^
+
+    * Sparse regression
+    * Dimension reduction
+    * Bayesian inference
+    
+    .. link-button:: https://ncywong.github.io/
+        :text:
+        :classes: stretched-link
+
+    ---
+    :img-top: ../_static/people/bryn.jpeg
+
+    Bryn Noel Ubald
+    ^^^^^^^^^^^^^^^
+
+    * Code refactoring
+    * Virtual reality
+
+    .. link-button:: https://www.linkedin.com/in/bryn-noel-ubald
+        :text:
+        :classes: stretched-link
+
+
+Current Contributors
+--------------------
+
+.. hlist::
+    :columns: 3
+
+    * `Michael Donnelly <https://github.com/mdonnelly1>`__ 
+    * `Simardeep Singh Sethi <https://github.com/Simardeep27>`__ 
+
+Past Contributors
+-----------------
+
+.. hlist::
+    :columns: 3
+
+    * `Irene Virdis <https://github.com/irevirdis>`__
+    * `James Gross <https://github.com/computers-n-wings>`__ 
+    * `He (Joe) Zhou <https://github.com/hz324>`__
+    * `Barney Hill <https://github.com/barneyhill>`__ 
+    * `Tarandeep Singh Kalra <https://github.com/tarankalra-usgs>`__
+    * `Henry Shaowu Yuchi <https://github.com/yuchi973>`__

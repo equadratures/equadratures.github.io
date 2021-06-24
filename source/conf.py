@@ -6,8 +6,8 @@ author = u'equadratures'
 # -- Bryn: Main Vuepress website location ------------------------------------
 land_page = "equadratures.org"
 outdir = sys.argv[-1]   #Bryn: Assuming last system argument is output directory
-version = u'9.0'
-release = u'v9.0.1'
+version = u'9.1'
+release = u'v9.1.0'
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.doctest',
@@ -18,20 +18,25 @@ extensions = [
     'sphinx.ext.ifconfig',
     'sphinx.ext.viewcode',
     'sphinx.ext.githubpages',
-    'sphinxcontrib.napoleon'
+    'sphinxcontrib.napoleon',
+    'sphinx_panels',
 ]
-templates_path = ['_docstemplates']
+templates_path = ['_templates']
 source_suffix = '.txt'
 master_doc = 'index'
 html_title = 'equadratures'
 html_theme = 'pydata_sphinx_theme'
 html_logo = 'logo_new.png'
 html_favicon = 'eq-logo-favicon.png'
-def setup(app):
-    app.add_css_file('styles.css')
 language = None
 exclude_patterns = [u'_docsbuild', 'Thumbs.db', '.DS_Store']
 html_static_path = ['_static']
+html_css_files = [
+        'css/styles.css',
+        'css/footer.css',
+        'css/cards.css'
+        ]
+panels_add_bootstrap_css = False # sphinx-panels shouldn't add bootstrap css since the pydata-sphinx-theme already loads it
 htmlhelp_basename = 'EffectiveQuadraturesdoc'
 latex_elements = {
     'papersize': 'a4paper',
@@ -55,21 +60,15 @@ intersphinx_mapping = {
             (None, './_intersphinx/sklearn-objects.inv'))
         }
 html_theme_options = {
-    "external_links": [
-      {"url": "https://discourse.equadratures.org/", "name": "Discourse"}
-     ],
-    'nosidebar': True,
+    "external_links": [{"url": "https://discourse.equadratures.org/", "name": "Discourse"}],
     "github_url": "https://github.com/Effective-Quadratures/equadratures",
     "twitter_url": "https://twitter.com/equadratures",
-    'globaltoc_includehidden': "true",
-    "search_bar_position": "navbar",
-     "show_prev_next": False,
-     "search_bar_text": "Search equadratures..."
+    "show_prev_next": False,
+    "search_bar_text": "Search equadratures...",
+    "footer_items": ["footer"],
 }
 html_sidebars = {
-  " /_documentation/tutorials": [],
-  "tutorials": [],
   "index": [],
-  " /_documentation/modules":[],
-  "modules":[]
+  "_documentation/apps": [],
+  "_documentation/developers": []
 }

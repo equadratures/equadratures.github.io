@@ -24,7 +24,11 @@
     
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/footer.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/cards.css" />
     
   <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
@@ -84,8 +88,20 @@
 </li>
 
 <li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="references.html">
+ <a class="reference internal nav-link" href="research.html">
   Research
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="apps.html">
+  Apps
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="developers.html">
+  Developers
  </a>
 </li>
 
@@ -289,8 +305,8 @@
 <li><p><strong>PolyTree</strong> (<a class="reference internal" href="polytree.html#equadratures.polytree.PolyTree" title="equadratures.polytree.PolyTree"><em>PolyTree</em></a>) – An instance of the PolyTree class.</p></li>
 <li><p><strong>ij</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em>, </em><em>optional</em>) – A list containing the two dimensions to plot over. For example, <code class="docutils literal notranslate"><span class="pre">ij=[6,7]</span></code> with plot over the 6th and 7th dimensions in <code class="docutils literal notranslate"><span class="pre">X</span></code>.</p></li>
 <li><p><strong>ax</strong> (<a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.4.2)"><em>matplotlib.axes.Axes</em></a><em>, </em><em>optional</em>) – An instance of the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> axes class to plot onto. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, a new figure and axes are created (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>).</p></li>
-<li><p><strong>X</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – A numpy ndarray containing the input data to plot.</p></li>
-<li><p><strong>y</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – A numpy ndarray containing the output data to plot.</p></li>
+<li><p><strong>X</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – A numpy ndarray containing the input data to plot.</p></li>
+<li><p><strong>y</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – A numpy ndarray containing the output data to plot.</p></li>
 <li><p><strong>max_depth</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) – The maximum tree depth to plot decision boundaries for.</p></li>
 <li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code> then the subdomains are labelled by their node number.</p></li>
 <li><p><strong>color</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>optional</em>) – What to color the scatter points by. <code class="docutils literal notranslate"><span class="pre">'data'</span></code> to color by the <strong>X</strong>, <strong>y</strong> data. <code class="docutils literal notranslate"><span class="pre">'predict'</span></code> to color by the PolyTree predictions, and <code class="docutils literal notranslate"><span class="pre">'error'</span></code> to color by the predictive error. (default: <code class="docutils literal notranslate"><span class="pre">'data'</span></code>).</p></li>
@@ -390,7 +406,7 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Parameter</strong> (<a class="reference internal" href="parameter.html#equadratures.parameter.Parameter" title="equadratures.parameter.Parameter"><em>Parameter</em></a>) – An instance of the Parameter class.</p></li>
 <li><p><strong>ax</strong> (<a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.4.2)"><em>matplotlib.axes.Axes</em></a><em>, </em><em>optional</em>) – An instance of the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> axes class to plot onto. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, a new figure and axes are created (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>).</p></li>
-<li><p><strong>data</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – Samples from the distribution (or a similar one) that need to be plotted as a histogram.</p></li>
+<li><p><strong>data</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – Samples from the distribution (or a similar one) that need to be plotted as a histogram.</p></li>
 <li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to show the graph.</p></li>
 </ul>
 </dd>
@@ -413,7 +429,7 @@
 <li><p><strong>Polynomial</strong> (<a class="reference internal" href="poly.html#equadratures.poly.Poly" title="equadratures.poly.Poly"><em>Poly</em></a>) – An instance of the Poly class.</p></li>
 <li><p><strong>ax</strong> (<a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.4.2)"><em>matplotlib.axes.Axes</em></a><em>, </em><em>optional</em>) – An instance of the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> axes class to plot onto. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, a new figure and axes are created (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>).</p></li>
 <li><p><strong>uncertainty</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to show confidence intervals (1 standard deviation).</p></li>
-<li><p><strong>output_variances</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – User-defined uncertainty associated with each data point; can be either a <code class="docutils literal notranslate"><span class="pre">float</span></code> in which case all data points are assumed to have the same variance, or can be an array of length equivalent to the number of data points.</p></li>
+<li><p><strong>output_variances</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – User-defined uncertainty associated with each data point; can be either a <code class="docutils literal notranslate"><span class="pre">float</span></code> in which case all data points are assumed to have the same variance, or can be an array of length equivalent to the number of data points.</p></li>
 <li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to view the plot.</p></li>
 </ul>
 </dd>
@@ -434,7 +450,7 @@
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>solver</strong> (<a class="reference internal" href="solver.html#equadratures.solver.Solver" title="equadratures.solver.Solver"><em>Solver</em></a>) – An instance of the Solver class.</p></li>
-<li><p><strong>elements</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – Elements of the index set to label the coefficients with. Typically set internally when this function is called by <a class="reference internal" href="solver.html#equadratures.solver.elastic_net.plot_regpath" title="equadratures.solver.elastic_net.plot_regpath"><code class="xref py py-meth docutils literal notranslate"><span class="pre">plot_regpath()</span></code></a>.</p></li>
+<li><p><strong>elements</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – Elements of the index set to label the coefficients with. Typically set internally when this function is called by <a class="reference internal" href="solver.html#equadratures.solver.elastic_net.plot_regpath" title="equadratures.solver.elastic_net.plot_regpath"><code class="xref py py-meth docutils literal notranslate"><span class="pre">plot_regpath()</span></code></a>.</p></li>
 <li><p><strong>nplot</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) – Number of coefficients for the plot.</p></li>
 <li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to show the graph.</p></li>
 </ul>
@@ -535,8 +551,8 @@ over the first.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mysubspace</strong> (<a class="reference internal" href="subspaces.html#equadratures.subspaces.Subspaces" title="equadratures.subspaces.Subspaces"><em>Subspaces</em></a>) – An instance of the Subspaces class.</p></li>
 <li><p><strong>ax</strong> (<a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.4.2)"><em>matplotlib.axes.Axes</em></a><em>, </em><em>optional</em>) – An instance of the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> axes class to plot onto. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, a new figure and axes are created (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>).</p></li>
-<li><p><strong>X_test</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – A numpy ndarray containing input test data to plot (in addition to the training data). Must have same number of dimensions as the training data.</p></li>
-<li><p><strong>y_test</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – A numpy ndarray containing output test data to plot (in addition to the training data).</p></li>
+<li><p><strong>X_test</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – A numpy ndarray containing input test data to plot (in addition to the training data). Must have same number of dimensions as the training data.</p></li>
+<li><p><strong>y_test</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – A numpy ndarray containing output test data to plot (in addition to the training data).</p></li>
 <li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to view the plot.</p></li>
 <li><p><strong>poly</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to plot the subspace polynomial.</p></li>
 <li><p><strong>uncertainty</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to show confidence intervals (1 standard deviation) of the subspace polynomial.</p></li>
@@ -596,22 +612,21 @@ over the first.</p>
   
   <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-  <footer class="footer mt-5 mt-md-0">
-  <div class="container">
-    
-    <div class="footer-item">
-      <p class="copyright">
-    &copy; Copyright 2016-2021 by equadratures.org.<br/>
-</p>
-    </div>
-    
-    <div class="footer-item">
-      <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.0.2.<br/>
-</p>
-    </div>
-    
-  </div>
+  <footer>
+<div align="center"> 
+<div class="logos">
+<a href="https://github.com/Effective-Quadratures/Effective-Quadratures"><i class="fab fa-github"></i></a>   
+<a href="https://effectivequadratures.slack.com/"><i class="fab fa-slack"></i></a>   
+<a href="https://twitter.com/EQuadratures"><i class="fab fa-twitter"></i></a>   
+<a href="https://discourse.equadratures.org"><i class="fab fa-discourse"></i></a>   
+<a href="https://www.linkedin.com/company/effective-quadratures/about/"><i class="fab fa-linkedin"></i></a>   
+<a href="https://www.youtube.com/channel/UCpjwFDSZuFbzW-2lj6d96dA"><i class="fab fa-youtube"></i></a>   
+</div>
+
+<span>Made by the Effective Quadratures Team, with ❤️</span>    
+<span>Copyright © 2016-2021 by equadratures.org</span>    
+<span> <a href="mailto:contact@equadratures.org">contact@equadratures.org</a> </span>   
+</div>
 </footer>
   </body>
 </html>

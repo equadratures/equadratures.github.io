@@ -24,7 +24,11 @@
     
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/footer.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/cards.css" />
     
   <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
@@ -81,8 +85,20 @@
 </li>
 
 <li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="references.html">
+ <a class="reference internal nav-link" href="research.html">
   Research
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="apps.html">
+  Apps
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="developers.html">
+  Developers
  </a>
 </li>
 
@@ -176,13 +192,13 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>sample_points</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) – Sample training data inputs.</p></li>
-<li><p><strong>sample_outputs</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) – Sample training data outputs.</p></li>
+<li><p><strong>sample_points</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – Sample training data inputs.</p></li>
+<li><p><strong>sample_outputs</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – Sample training data outputs.</p></li>
 <li><p><strong>num_ridges</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The number of ridges used in the neural network/</p></li>
 <li><p><strong>max_iters</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The maximum number of iterations for the gradient descent optimisation algorithm.</p></li>
 <li><p><strong>learning_rate</strong> (<em>double</em>) – The learning rate used in the optimisation.</p></li>
-<li><p><strong>W</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) – An initial ridge for the optimisation algorithm.</p></li>
-<li><p><strong>coeffs</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) – Coefficients for the polynomial 1D-ridge functions.</p></li>
+<li><p><strong>W</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – An initial ridge for the optimisation algorithm.</p></li>
+<li><p><strong>coeffs</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – Coefficients for the polynomial 1D-ridge functions.</p></li>
 <li><p><strong>opt</strong> (<em>string</em>) – The optimisation strategy used. Options include: <code class="docutils literal notranslate"><span class="pre">sd</span></code> for steepest descent, <code class="docutils literal notranslate"><span class="pre">mom</span></code> for a momentum-rate-based approach or <code class="docutils literal notranslate"><span class="pre">adapt</span></code> for an adaptive learning rate based approach.</p></li>
 <li><p><strong>momentum_rate</strong> (<em>double</em>) – The momentum rate used.</p></li>
 <li><p><strong>poly_deg</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The degree of the polynomials used throughout the neural network.</p></li>
@@ -203,7 +219,7 @@
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>self</strong> (<a class="reference internal" href="#equadratures.polynet.Polynet" title="equadratures.polynet.Polynet"><em>Polynet</em></a>) – An instance of the Polynet object.</p></li>
-<li><p><strong>x</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><em>numpy.ndarray</em></a>) – A set of testing inputs of shape (M, d), where M represents the number of testing points and d the dimensionality of the input data.</p></li>
+<li><p><strong>x</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – A set of testing inputs of shape (M, d), where M represents the number of testing points and d the dimensionality of the input data.</p></li>
 </ul>
 </dd>
 </dl>
@@ -236,22 +252,21 @@
   
   <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-  <footer class="footer mt-5 mt-md-0">
-  <div class="container">
-    
-    <div class="footer-item">
-      <p class="copyright">
-    &copy; Copyright 2016-2021 by equadratures.org.<br/>
-</p>
-    </div>
-    
-    <div class="footer-item">
-      <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.0.2.<br/>
-</p>
-    </div>
-    
-  </div>
+  <footer>
+<div align="center"> 
+<div class="logos">
+<a href="https://github.com/Effective-Quadratures/Effective-Quadratures"><i class="fab fa-github"></i></a>   
+<a href="https://effectivequadratures.slack.com/"><i class="fab fa-slack"></i></a>   
+<a href="https://twitter.com/EQuadratures"><i class="fab fa-twitter"></i></a>   
+<a href="https://discourse.equadratures.org"><i class="fab fa-discourse"></i></a>   
+<a href="https://www.linkedin.com/company/effective-quadratures/about/"><i class="fab fa-linkedin"></i></a>   
+<a href="https://www.youtube.com/channel/UCpjwFDSZuFbzW-2lj6d96dA"><i class="fab fa-youtube"></i></a>   
+</div>
+
+<span>Made by the Effective Quadratures Team, with ❤️</span>    
+<span>Copyright © 2016-2021 by equadratures.org</span>    
+<span> <a href="mailto:contact@equadratures.org">contact@equadratures.org</a> </span>   
+</div>
 </footer>
   </body>
 </html>

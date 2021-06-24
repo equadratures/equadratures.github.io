@@ -27,5 +27,6 @@ To learn more about the code's capabilities, do check out the documentation link
 
    /_documentation/tutorials
    /_documentation/documentation
-   /_documentation/references
-
+   /_documentation/research
+   /_documentation/apps
+   /_documentation/developers

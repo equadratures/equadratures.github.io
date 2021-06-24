@@ -1,0 +1,22 @@
+.people-card {
+}
+
+.people-card ul {
+    padding-inline-start: 10px;
+    margin-bottom: 0;
+}
+
+.people-card a {
+    padding: 0 0;
+    border: 0;
+}
+
+.people-card p.card-text {
+}
+
+.people-card .text-left {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-right: 0.5rem;
+    margin-bottom: -1.5rem;
+}
