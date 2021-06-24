@@ -16,4 +16,9 @@ footer div.logos{
 footer i {
     padding: 0px 10px;
     font-size: 35px;
+    color: rgb(65, 99, 118);
+}
+
+footer i:hover {
+    color: rgb(191,60,60);
 }

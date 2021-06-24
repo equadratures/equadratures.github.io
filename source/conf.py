@@ -61,8 +61,9 @@ intersphinx_mapping = {
         }
 html_theme_options = {
     "external_links": [{"url": "https://discourse.equadratures.org/", "name": "Discourse"}],
-    "github_url": "https://github.com/Effective-Quadratures/equadratures",
-    "twitter_url": "https://twitter.com/equadratures",
+#    "github_url": "https://github.com/Effective-Quadratures/equadratures",
+#    "twitter_url": "https://twitter.com/equadratures",
+    "navbar_align": "right",
     "show_prev_next": False,
     "search_bar_text": "Search equadratures...",
     "footer_items": ["footer"],
