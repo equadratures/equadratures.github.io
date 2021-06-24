@@ -30,3 +30,9 @@ To learn more about the code's capabilities, do check out the documentation link
    /_documentation/research
    /_documentation/apps
    /_documentation/developers
+
+
+.. rubric:: Acknowledgments
+``equadratures`` has been supported by numerous grants; it was founded through an `Engineering and Physical Sciences Research Council (EPSRC) <https://epsrc.ukri.org/>`_ Knowledge Transfer Fellowship (KTF) from the Department of Engineering at the `University of Cambridge <https://www.cam.ac.uk/>`_ in 2016. Since 2018, the project has been supported by Wave 1 of The UKRI Strategic Priorities Fund under the EPSRC Grant EP/T001569/1, particularly the Digital twins for aeronautics theme within that grant, and by the `Lloyd’s Register Foundation-Alan Turing Institute programme on Data-Centric Engineering <https://www.turing.ac.uk/research/research-programmes/data-centric-engineering>`_ under the LRF grant G0095. The project has also benefitted from industrial funding through various workshops including for `Rolls-Royce plc <https://www.rolls-royce.com>`__ and `United Kingdom Atomic Energy Authority <https://www.gov.uk/government/organisations/uk-atomic-energy-authority>`__. The project is also grateful to the financial support of `Jesus College Cambridge <https://www.jesus.cam.ac.uk/>`__ and the `Cambridge Trusts <https://www.cambridgetrust.org/>`__.
+
+``equadratures`` is proudly a `NumFocus <https://numfocus.org/>`__ affiliate organisation and has benefitted from their support. 
