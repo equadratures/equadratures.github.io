@@ -10,7 +10,7 @@ Below we provide some introductory tutorials to give you an idea of what Effecti
    :maxdepth: 1
    :caption: List of tutorials
 
-   tutorial_1 
+   tutorials/1_Defining_a_Parameter
    tutorial_2
    tutorial_3
    tutorial_4

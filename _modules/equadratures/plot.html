@@ -24,7 +24,12 @@
     
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/basic.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/footer.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/cards.css" />
     
   <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
 
@@ -32,6 +37,8 @@
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
     <link rel="shortcut icon" href="../../_static/eq-logo-favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -63,8 +70,8 @@
   </button>
 
   
-  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
-    <div id="navbar-center" class="mr-auto">
+  <div id="navbar-collapsible" class=" collapse navbar-collapse">
+    <div id="navbar-center" class="ml-auto">
       
       <div class="navbar-center-item">
         <ul id="navbar-main-elements" class="navbar-nav">
@@ -81,8 +88,20 @@
 </li>
 
 <li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../_documentation/references.html">
+ <a class="reference internal nav-link" href="../../_documentation/research.html">
   Research
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../_documentation/apps.html">
+  Apps
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../_documentation/developers.html">
+  Developers
  </a>
 </li>
 
@@ -100,18 +119,6 @@
       
       <div class="navbar-end-item">
         <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
-        <li class="nav-item">
-          <a class="nav-link" href="https://github.com/Effective-Quadratures/equadratures" rel="noopener" target="_blank" title="GitHub">
-            <span><i class="fab fa-github-square"></i></span>
-            <label class="sr-only">GitHub</label>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="https://twitter.com/equadratures" rel="noopener" target="_blank" title="Twitter">
-            <span><i class="fab fa-twitter-square"></i></span>
-            <label class="sr-only">Twitter</label>
-          </a>
-        </li>
       </ul>
       </div>
       
@@ -697,7 +704,7 @@
             <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">fig</span><span class="p">,</span><span class="n">ax1</span><span class="p">,</span><span class="n">ax2</span></div>
 
-<div class="viewcode-block" id="plot_pdf"><a class="viewcode-back" href="../../_documentation/plot.html#equadratures.plot.plot_pdf">[docs]</a><span class="k">def</span> <span class="nf">plot_pdf</span><span class="p">(</span><span class="n">Parameter</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="viewcode-block" id="plot_pdf"><a class="viewcode-back" href="../../_documentation/plot.html#equadratures.plot.plot_pdf">[docs]</a><span class="k">def</span> <span class="nf">plot_pdf</span><span class="p">(</span><span class="n">Parameter</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">lim_range</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Plots the probability density function for a Parameter.</span>
 
 <span class="sd">    Parameters</span>
@@ -710,6 +717,8 @@
 <span class="sd">        Samples from the distribution (or a similar one) that need to be plotted as a histogram.</span>
 <span class="sd">    show : bool, optional</span>
 <span class="sd">        Option to show the graph.</span>
+<span class="sd">    lim_range : bool, optional</span>
+<span class="sd">        Option to limit the range of the x-axis to just the immediate region of the pdf (rather than the full parameter support).</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -726,7 +735,47 @@
     <span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">s_values</span><span class="p">,</span>  <span class="n">pdf</span><span class="o">*</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">pdf</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gold&quot;</span> <span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Density&#39;</span><span class="p">,</span> <span class="n">interpolate</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">hatch</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\\\\\\\\</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;grey&quot;</span><span class="p">,</span>  <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;dodgerblue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Data&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+    <span class="c1"># Adjust xrange</span>
+    <span class="k">if</span> <span class="n">lim_range</span><span class="p">:</span>
+        <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="n">pdf</span><span class="o">/</span><span class="n">pdf</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="mf">1e-5</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="n">s_values</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span><span class="n">s_values</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()])</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">trim</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">show</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span></div>
+
+<div class="viewcode-block" id="plot_cdf"><a class="viewcode-back" href="../../_documentation/plot.html#equadratures.plot.plot_cdf">[docs]</a><span class="k">def</span> <span class="nf">plot_cdf</span><span class="p">(</span><span class="n">Parameter</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">lim_range</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Plots the cumulative density function for a Parameter.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Parameter : Parameter</span>
+<span class="sd">        An instance of the Parameter class.</span>
+<span class="sd">    ax : matplotlib.axes.Axes, optional</span>
+<span class="sd">        An instance of the ``matplotlib`` axes class to plot onto. If ``None``, a new figure and axes are created (default: ``None``).</span>
+<span class="sd">    show : bool, optional</span>
+<span class="sd">        Option to show the graph.</span>
+<span class="sd">    lim_range : bool, optional</span>
+<span class="sd">        Option to limit the range of the x-axis to just the immediate region of the pdf (rather than the full parameter support).</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    tuple</span>
+<span class="sd">        Tuple (:obj:`~matplotlib.figure.Figure`, :obj:`~matplotlib.axes.Axes`) containing the generated figure and axes.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span><span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">Parameter</span><span class="o">.</span><span class="n">variable</span><span class="o">.</span><span class="n">capitalize</span><span class="p">())</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;CDF&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">fig</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">figure</span>
+    <span class="n">s_values</span><span class="p">,</span> <span class="n">cdf</span> <span class="o">=</span> <span class="n">Parameter</span><span class="o">.</span><span class="n">get_cdf</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">s_values</span><span class="p">,</span><span class="n">cdf</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;navy&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+    <span class="c1"># Adjust xrange</span>
+    <span class="k">if</span> <span class="n">lim_range</span><span class="p">:</span>
+        <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">((</span><span class="n">cdf</span> <span class="o">&gt;=</span> <span class="mf">1e-5</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">cdf</span><span class="o">&lt;=</span><span class="mi">1</span><span class="o">-</span><span class="mf">1e-5</span><span class="p">))</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="n">s_values</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span><span class="n">s_values</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()])</span>
     <span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">trim</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">show</span><span class="p">:</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -1080,22 +1129,21 @@
   
   <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-  <footer class="footer mt-5 mt-md-0">
-  <div class="container">
-    
-    <div class="footer-item">
-      <p class="copyright">
-    &copy; Copyright 2016-2021 by equadratures.org.<br/>
-</p>
-    </div>
-    
-    <div class="footer-item">
-      <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.0.2.<br/>
-</p>
-    </div>
-    
-  </div>
+  <footer>
+<div align="center"> 
+<div class="logos">
+<a href="https://github.com/Effective-Quadratures/Effective-Quadratures"><i class="fab fa-github"></i></a>   
+<a href="https://effectivequadratures.slack.com/"><i class="fab fa-slack"></i></a>   
+<a href="https://twitter.com/EQuadratures"><i class="fab fa-twitter"></i></a>   
+<a href="https://discourse.equadratures.org"><i class="fab fa-discourse"></i></a>   
+<a href="https://www.linkedin.com/company/effective-quadratures/about/"><i class="fab fa-linkedin"></i></a>   
+<a href="https://www.youtube.com/channel/UCpjwFDSZuFbzW-2lj6d96dA"><i class="fab fa-youtube"></i></a>   
+</div>
+
+<span>Made by the Effective Quadratures Team, with ❤️</span>    
+<span>Copyright © 2016-2021 by equadratures.org</span>    
+<span> <a href="mailto:contact@equadratures.org">contact@equadratures.org</a> </span>   
+</div>
 </footer>
   </body>
 </html>

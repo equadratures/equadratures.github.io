@@ -24,6 +24,7 @@
     
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/styles.css" />
@@ -36,6 +37,9 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="shortcut icon" href="../_static/eq-logo-favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -441,6 +445,12 @@ If no string is provided, a <code class="docutils literal notranslate"><span cla
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="equadratures.parameter.Parameter.plot_cdf">
+<span class="sig-name descname"><span class="pre">plot_cdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lim_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/parameter.html#Parameter.plot_cdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.parameter.Parameter.plot_cdf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the cumulative density function for a Parameter. See <a class="reference internal" href="plot.html#equadratures.plot.plot_cdf" title="equadratures.plot.plot_cdf"><code class="xref py py-meth docutils literal notranslate"><span class="pre">plot_cdf()</span></code></a> for full description.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="equadratures.parameter.Parameter.plot_orthogonal_polynomials">
 <span class="sig-name descname"><span class="pre">plot_orthogonal_polynomials</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order_limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number_of_points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/parameter.html#Parameter.plot_orthogonal_polynomials"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.parameter.Parameter.plot_orthogonal_polynomials" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plots the first few orthogonal polynomials. See <a class="reference internal" href="plot.html#equadratures.plot.plot_orthogonal_polynomials" title="equadratures.plot.plot_orthogonal_polynomials"><code class="xref py py-meth docutils literal notranslate"><span class="pre">plot_orthogonal_polynomials()</span></code></a> for full description.</p>
@@ -448,7 +458,7 @@ If no string is provided, a <code class="docutils literal notranslate"><span cla
 
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.parameter.Parameter.plot_pdf">
-<span class="sig-name descname"><span class="pre">plot_pdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/parameter.html#Parameter.plot_pdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.parameter.Parameter.plot_pdf" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">plot_pdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lim_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/parameter.html#Parameter.plot_pdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.parameter.Parameter.plot_pdf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plots the probability density function for a Parameter. See <a class="reference internal" href="plot.html#equadratures.plot.plot_pdf" title="equadratures.plot.plot_pdf"><code class="xref py py-meth docutils literal notranslate"><span class="pre">plot_pdf()</span></code></a> for full description.</p>
 </dd></dl>
 
