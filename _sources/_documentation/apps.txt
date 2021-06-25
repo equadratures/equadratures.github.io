@@ -8,7 +8,7 @@ Before downloading the code, feel free to have a go with our web apps!
     :card: shadow text-center
     :column: col-xl-4 col-lg-6 col-md-6 col-sm-6 col-xs-12 d-flex my-3
     :header: font-weight-bold
-    :img-top-cls: p-2
+    :img-top-cls: p-0
 
     ---
     :img-top: ../_static/flowfield_app.png

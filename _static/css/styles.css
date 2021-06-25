@@ -1,22 +1,63 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,700&display=swap');
 
+:root {
+/* Override default colors */
+--pst-color-primary: 58, 81, 105 !important;
+--pst-color-secondary: 65,99,118  !important;
+--pst-color-tertiary: 134, 189, 219 !important;
+--pst-color-success: 40, 167, 69;
+--pst-color-info: 0, 123, 255;  /*23, 162, 184;*/
+--pst-color-warning: 255, 193, 7;
+--pst-color-danger: 220, 53, 69;
+--pst-color-text-base: 51, 51, 51;
+
+  --pst-color-h1: var(--pst-color-primary);
+  --pst-color-h2: var(--pst-color-primary);
+  --pst-color-h3: var(--pst-color-text-base);
+  --pst-color-h4: var(--pst-color-text-base);
+  --pst-color-h5: var(--pst-color-text-base);
+  --pst-color-h6: var(--pst-color-text-base);
+  --pst-color-paragraph: var(--pst-color-text-base);
+  --pst-color-link: 0, 91, 129;
+  --pst-color-link-hover: 227, 46, 0;
+  --pst-color-headerlink: 198, 15, 15;
+  --pst-color-headerlink-hover: 255, 255, 255;
+  --pst-color-preformatted-text: 34, 34, 34;
+  --pst-color-preformatted-background: 250, 250, 250;
+  --pst-color-inline-code: 232, 62, 140;
+
+  --pst-color-active-navigation: var(--pst-color-tertiary);
+  --pst-color-navbar-link: 77, 77, 77;
+  --pst-color-navbar-link-hover: var(--pst-color-active-navigation);
+  --pst-color-navbar-link-active: var(--pst-color-active-navigation);
+  --pst-color-sidebar-link: 77, 77, 77;
+  --pst-color-sidebar-link-hover: var(--pst-color-active-navigation);
+  --pst-color-sidebar-link-active: var(--pst-color-active-navigation);
+  --pst-color-sidebar-expander-background-hover: 244, 244, 244;
+  --pst-color-sidebar-caption: var(--pst-color-primary);
+  --pst-color-toc-link: 119, 117, 122;
+  --pst-color-toc-link-hover: var(--pst-color-active-navigation);
+  --pst-color-toc-link-active: var(--pst-color-active-navigation);
+}
+
+/* Default fonts */
 body {
   font-family: "Raleway";
 }
 
 h1 {
   font-family: "Raleway";
-  color: #3A5169
+  color: rgba(var(--pst-color-primary));
 }
 
 h2 {
   font-family: "Raleway";
-  color: #3A5169
+  color: rgba(var(--pst-color-primary));
 }
 
 h3 {
   font-family: "Raleway";
-  color: #3A5169
+  color: rgba(var(--pst-color-primary));
 }
 
 
@@ -24,7 +65,7 @@ h3 {
 /* Code will be displayed as Roboto, or Inconsolata if screen is small */
 code, pre {
     font-family: 'Menlo';
-    color:#3A5169;
+    color: rgba(var(--pst-color-primary));
     padding:.25rem .5rem;
     margin:0;
     font-size:.95em;
@@ -36,7 +77,7 @@ code, pre {
 @media (max-width: 1200px) {
     code, pre {
         font-family: 'Menlo';
-        color:#3A5169;
+        color: rgba(var(--pst-color-primary));
         padding:.25rem .5rem;
         margin:0;
         font-size:.85em;

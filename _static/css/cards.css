@@ -1,4 +1,9 @@
+/* People card on the developers page */
 .people-card {
+}
+
+.people-card:hover {
+    box-shadow: 0 .5rem 1rem rgba(var(--pst-color-secondary),1.0) !important;
 }
 
 .people-card ul {
@@ -20,3 +25,20 @@
     padding-right: 0.5rem;
     margin-bottom: -1.5rem;
 }
+
+/* Buttons */
+.card .btn-primary, .btn-primary:active, .btn-primary:visited, .btn-primary:focus {
+    color: white;
+    background-color: rgb(var(--pst-color-primary));
+    border-color: rgb(var(--pst-color-primary));
+    box-shadow: none;
+}
+
+.card .btn-primary:hover {
+    color: white;
+    background-color: rgb(var(--pst-color-tertiary));
+    border-color: rgb(var(--pst-color-primary));
+}
+
+
+
