@@ -8,17 +8,42 @@ Below we provide some introductory tutorials to give you an idea of what Effecti
 
 .. toctree::
    :maxdepth: 1
-   :caption: List of tutorials
+   :caption: Foundations
 
    tutorials/1_Defining_a_Parameter
-   tutorial_2
-   tutorial_3
-   tutorial_4
+   tutorials/2_Orthogonal_Polynomials
+   tutorials/3_Model_Fitting
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Uncertainty quantification and sensitivity analysis
+
+   tutorials/Computing_Moments_for_CFD
    tutorial_5
    tutorial_6
-   tutorial_7
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Dimension reduction
+
+   tutorials/Dimension_Reduction
+   tutorials/Dimension_Reduction_Turbomachinery
    tutorial_8
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Optimisation
+
    tutorial_9
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Advanced applications
+
    tutorial_10
    tutorial_11
    tutorial_12

@@ -24,7 +24,12 @@
     
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/basic.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/footer.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/cards.css" />
     
   <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
 
@@ -32,6 +37,9 @@
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="shortcut icon" href="../../_static/eq-logo-favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -63,8 +71,8 @@
   </button>
 
   
-  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
-    <div id="navbar-center" class="mr-auto">
+  <div id="navbar-collapsible" class=" collapse navbar-collapse">
+    <div id="navbar-center" class="ml-auto">
       
       <div class="navbar-center-item">
         <ul id="navbar-main-elements" class="navbar-nav">
@@ -81,8 +89,20 @@
 </li>
 
 <li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../../_documentation/references.html">
+ <a class="reference internal nav-link" href="../../_documentation/research.html">
   Research
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../_documentation/apps.html">
+  Apps
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../_documentation/developers.html">
+  Developers
  </a>
 </li>
 
@@ -100,18 +120,6 @@
       
       <div class="navbar-end-item">
         <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
-        <li class="nav-item">
-          <a class="nav-link" href="https://github.com/Effective-Quadratures/equadratures" rel="noopener" target="_blank" title="GitHub">
-            <span><i class="fab fa-github-square"></i></span>
-            <label class="sr-only">GitHub</label>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="https://twitter.com/equadratures" rel="noopener" target="_blank" title="Twitter">
-            <span><i class="fab fa-twitter-square"></i></span>
-            <label class="sr-only">Twitter</label>
-          </a>
-        </li>
       </ul>
       </div>
       
@@ -156,6 +164,7 @@
 <span></span><span class="s2">&quot;Rountines for defining the index set associated with multivariate polynomials.&quot;</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">math</span> <span class="k">as</span> <span class="nn">mt</span>
+<span class="kn">import</span> <span class="nn">equadratures.plot</span> <span class="k">as</span> <span class="nn">plot</span>
 
 <span class="n">CARD_LIMIT_HARD</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">1e6</span><span class="p">)</span>
 
@@ -349,7 +358,11 @@
 <span class="sd">        numpy.ndarray</span>
 <span class="sd">            The multi-index elements of the basis.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span></div></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">elements</span></div>
+
+<div class="viewcode-block" id="Basis.plot_index_set"><a class="viewcode-back" href="../../_documentation/basis.html#equadratures.basis.Basis.plot_index_set">[docs]</a>    <span class="k">def</span> <span class="nf">plot_index_set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">uncertainty</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">output_variances</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">number_of_points</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Plot the index set. See :meth:`~equadratures.plot.plot_index_set` for full description. &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">plot</span><span class="o">.</span><span class="n">plot_index_set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">ax</span><span class="p">,</span><span class="n">show</span><span class="p">)</span></div></div>
 
 <span class="c1">#---------------------------------------------------------------------------------------------------</span>
 <span class="c1"># PRIVATE FUNCTIONS</span>
@@ -561,22 +574,21 @@
   
   <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-  <footer class="footer mt-5 mt-md-0">
-  <div class="container">
-    
-    <div class="footer-item">
-      <p class="copyright">
-    &copy; Copyright 2016-2021 by equadratures.org.<br/>
-</p>
-    </div>
-    
-    <div class="footer-item">
-      <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.0.2.<br/>
-</p>
-    </div>
-    
-  </div>
+  <footer>
+<div align="center"> 
+<div class="logos">
+<a href="https://github.com/Effective-Quadratures/Effective-Quadratures"><i class="fab fa-github"></i></a>   
+<a href="https://effectivequadratures.slack.com/"><i class="fab fa-slack"></i></a>   
+<a href="https://twitter.com/EQuadratures"><i class="fab fa-twitter"></i></a>   
+<a href="https://discourse.equadratures.org"><i class="fab fa-discourse"></i></a>   
+<a href="https://www.linkedin.com/company/effective-quadratures/about/"><i class="fab fa-linkedin"></i></a>   
+<a href="https://www.youtube.com/channel/UCpjwFDSZuFbzW-2lj6d96dA"><i class="fab fa-youtube"></i></a>   
+</div>
+
+<span>Made by the Effective Quadratures Team, with ❤️</span>    
+<span>Copyright © 2016-2021 by equadratures.org</span>    
+<span> <a href="mailto:contact@equadratures.org">contact@equadratures.org</a> </span>   
+</div>
 </footer>
   </body>
 </html>
