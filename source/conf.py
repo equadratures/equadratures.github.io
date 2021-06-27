@@ -24,6 +24,7 @@ extensions = [
     'sphinx_panels',
     'sphinx_copybutton',
     'nbsphinx',
+    'sphinx_gallery.load_style',
 ] #TODO - prune unused extensions
 master_doc = 'index'
 html_title = 'equadratures'
@@ -58,8 +59,10 @@ html_static_path = ['_static']
 html_css_files = [
         'css/styles.css',
         'css/footer.css',
-        'css/cards.css'
-        ]
+        'css/cards.css',
+        'css/gallery.css',
+        'css/fonts.css'
+]
 
 # Sphinx panels
 #########################
@@ -99,6 +102,10 @@ nbsphinx_epilog = r"""
     \textcolor{gray}{The following section was generated from
     \sphinxcode{\sphinxupquote{\strut {{ docname | escape_latex }}}} \dotfill}}
 """
+
+nbsphinx_thumbnails = {
+    '_documentation/tutorials/Dimension_Reduction_Turbomachinery':'_documentation/tutorials/images/probe.jpeg',
+}
 
 # Intersphinx mapping
 intersphinx_mapping = {

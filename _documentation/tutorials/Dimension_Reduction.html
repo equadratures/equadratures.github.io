@@ -25,11 +25,14 @@
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/basic.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/styles.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/footer.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/cards.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/fonts.css" />
     
   <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
 
@@ -40,14 +43,13 @@
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "document", "processHtmlClass": "math|output_area"}}</script>
     <link rel="shortcut icon" href="../../_static/eq-logo-favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Data-driven dimension reduction in turbomachinery" href="Dimension_Reduction_Turbomachinery.html" />
-    <link rel="prev" title="Sensitivity analysis for a piston model" href="../tutorial_6.html" />
+    <link rel="prev" title="Sensitivity analysis for a piston model" href="Sensitivity_Analysis_Probe.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -183,7 +185,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../tutorial_6.html">
+  <a class="reference internal" href="Sensitivity_Analysis_Probe.html">
    Sensitivity analysis for a piston model
   </a>
  </li>
@@ -557,11 +559,11 @@ a suitable <span class="math notranslate nohighlight">\(\mathbf{W}\)</span> matr
 <p>To provide a brief demononstration, we take a dataset from this <a class="reference external" href="https://doi.org/10.1115/1.4038839">Journal of Turbomachinery paper</a>. A turbomachinery fan blade is parameterised by <span class="math notranslate nohighlight">\(\mathbf{x} \in \mathbb{R}^{25}\)</span>, and the Quantity of Interest (QoI) is the efficiency <span class="math notranslate nohighlight">\(\eta=f(\mathbf{x})\)</span> of the fan blade. The task here is to find a subspace matrix <span class="math notranslate nohighlight">\(\mathbf{W} \in \mathbb{R}^{25\times 1}\)</span>, so that the <span class="math notranslate nohighlight">\(f(\mathbf{x})\)</span> can be approximated over a dimension reducing
 subspace <span class="math notranslate nohighlight">\(u=\mathbf{W}^T \mathbf{x}\)</span>, where <span class="math notranslate nohighlight">\(u \in \mathbb{R}^1\)</span>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">data</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">load_eq_dataset</span><span class="p">(</span><span class="s1">&#39;3Dfan_blades&#39;</span><span class="p">)</span>
+<span></span><span class="n">data</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">load_eq_dataset</span><span class="p">(</span><span class="s1">&#39;3Dfan_blades&#39;</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">X</span>  <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;X_a&#39;</span><span class="p">]</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;y1_a&#39;</span><span class="p">]</span>
 </pre></div>
@@ -573,34 +575,11 @@ subspace <span class="math notranslate nohighlight">\(u=\mathbf{W}^T \mathbf{x}\
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Downloading the 3Dfan_blades dataset from github...
-
- This dataset contains aerodynamic data for three Rolls-Royce research fan blades. This data is shared with permission from Rolls-Royce plc. For blade there is a design of experiment with inputs, which denote the 3D design parameters, and outputs, which correspond to the non-dimensional pressure ratio and non-dimensional efficiency values.
-
-Data in file:
-
-`X_a`:  A numpy ndarray with shape (548, 25), containing the 3D design parameters for each variant of a baseline Blade A.
-
-`y1_a`: A numpy ndarray with shape (548,1), containing non-dimensional efficiency for each variant of a baseline Blade A.
-
-`y2_a`: A numpy ndarray with shape (548,1), containing non-dimensional pressure ratio for each variant of a baseline Blade A.
-
-`X_b`:  A numpy ndarray with shape (311, 25), containing the 3D design parameters for each variant of a baseline Blade B.
-
-`y1_b`: A numpy ndarray with shape (311,1), containing non-dimensional efficiency for each variant of a baseline Blade B.
-
-`y2_b`: A numpy ndarray with shape (311,1), containing non-dimensional pressure ratio for each variant of a baseline Blade B.
-
-`X_c`:  A numpy ndarray with shape (547, 25), containing the 3D design parameters for each variant of a baseline Blade C.
-
-`y1_c`: A numpy ndarray with shape (547,1), containing non-dimensional efficiency for each variant of a baseline Blade C.
-
-`y2_c`: A numpy ndarray with shape (547,1), containing non-dimensional pressure ratio for each variant of a baseline Blade C.
-
 </pre></div></div>
 </div>
 <p>Before using equadratures, lets see what happens when the subspace is formed from an equal contribution of all 25 design parameters, by setting <span class="math notranslate nohighlight">\(\mathbf{W} = \frac{\mathbf{1}}{\sqrt{25}}\)</span>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -609,23 +588,15 @@ Data in file:
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\mathbf</span><span class="si">{W}</span><span class="s1">^T\mathbf</span><span class="si">{x}</span><span class="s1">$&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$f(\mathbf</span><span class="si">{x}</span><span class="s1">)$&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="nd">@Wequal</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">ms</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;dodgerblue&#39;</span><span class="p">,</span><span class="n">mec</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[15]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[&lt;matplotlib.lines.Line2D at 0x15057dc50&gt;]
-</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/_documentation_tutorials_Dimension_Reduction_6_1.png" src="../../_images/_documentation_tutorials_Dimension_Reduction_6_1.png" />
+<img alt="../../_images/_documentation_tutorials_Dimension_Reduction_6_0.png" src="../../_images/_documentation_tutorials_Dimension_Reduction_6_0.png" />
 </div>
 </div>
 <p>Clearly, taking an equal contribution of all parameters isn’t effective here. The training samples are rather scattered over the subspace, and we’re unable to fit a ridge approximation <span class="math notranslate nohighlight">\(f(\mathbf{x}) \approx g(\mathbf{W}^T \mathbf{x})\)</span> which effectively describes the variation in <span class="math notranslate nohighlight">\(f(\mathbf{x})\)</span>.</p>
@@ -634,7 +605,7 @@ Data in file:
 \[\underset{\mathbf{W}, \boldsymbol{\alpha}}{\text{minimize}} \; \; \left\Vert f\left(\mathbf{x}\right)-g_{\boldsymbol{\alpha}}\left(\mathbf{W}^{T} \mathbf{x}\right)\right\Vert _{2}^{2}\]</div>
 <p>is solved by recasting it as a separable non-linear least squares problem. Here, Gauss-Newton optimization used to solve for the polynomial coefficients <span class="math notranslate nohighlight">\(\alpha\)</span> and subspace matrix <span class="math notranslate nohighlight">\(\mathbf{W}\)</span> together. After computing the <code class="docutils literal notranslate"><span class="pre">Subspace</span></code>, we could generate the below plot in one line using <code class="docutils literal notranslate"><span class="pre">plot_sufficient_summary()</span></code>, but here we’ll do it manually to expose the inner workings.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -655,23 +626,15 @@ Data in file:
 <span class="n">u_to_plot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">u_vp</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span><span class="n">u_vp</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">+</span><span class="mf">0.2</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">u_to_plot</span><span class="p">,</span><span class="n">subpoly</span><span class="o">.</span><span class="n">get_polyfit</span><span class="p">(</span><span class="n">u_to_plot</span><span class="p">),</span><span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;firebrick&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Ridge function&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[30]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&lt;matplotlib.legend.Legend at 0x1539fe3c8&gt;
-</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../../_images/_documentation_tutorials_Dimension_Reduction_8_1.png" src="../../_images/_documentation_tutorials_Dimension_Reduction_8_1.png" />
+<img alt="../../_images/_documentation_tutorials_Dimension_Reduction_8_0.png" src="../../_images/_documentation_tutorials_Dimension_Reduction_8_0.png" />
 </div>
 </div>
 <p>Much better! We now have a one-dimensional subspace, formed from a linear combination of the 25 design parameters, which is able to describe the variation in the fan efficiency, <span class="math notranslate nohighlight">\(f=\eta\)</span>. As we will see in later tutorials, such subspaces can be used for design space exploration, physics investigation, and even flowfield estimation!</p>

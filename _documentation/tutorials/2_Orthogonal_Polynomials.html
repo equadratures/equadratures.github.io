@@ -25,11 +25,14 @@
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/basic.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/styles.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/footer.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/cards.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/fonts.css" />
     
   <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
 
@@ -40,7 +43,6 @@
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "document", "processHtmlClass": "math|output_area"}}</script>
     <link rel="shortcut icon" href="../../_static/eq-logo-favicon.png"/>
@@ -183,7 +185,7 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../tutorial_6.html">
+  <a class="reference internal" href="Sensitivity_Analysis_Probe.html">
    Sensitivity analysis for a piston model
   </a>
  </li>
@@ -784,22 +786,12 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
+<div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <img alt="../../_images/_documentation_tutorials_2_Orthogonal_Polynomials_18_0.png" src="../../_images/_documentation_tutorials_2_Orthogonal_Polynomials_18_0.png" />
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[9]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-(&lt;Figure size 360x360 with 1 Axes&gt;,
- &lt;Axes3DSubplot:xlabel=&#39;$i_1$&#39;, ylabel=&#39;$i_2$&#39;&gt;)
-</pre></div></div>
 </div>
 <p>It is readily apparent that the tensor grid index set has virtually every element within the order [4,4,4] cube. Lets suppose that one does not want to afford <span class="math notranslate nohighlight">\(4^3\)</span> computations, necessary to approximate all the coefficients associated with a tensor index set multivariate polynomial. One can then opt for a sparse grid, which are select linear combinations of select tensor products. In Effective Quadratures, they can be declared as follows:</p>
 <div class="nbinput docutils container">
@@ -812,22 +804,12 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
+<div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <img alt="../../_images/_documentation_tutorials_2_Orthogonal_Polynomials_20_0.png" src="../../_images/_documentation_tutorials_2_Orthogonal_Polynomials_20_0.png" />
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[10]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-(&lt;Figure size 360x360 with 1 Axes&gt;,
- &lt;Axes3DSubplot:xlabel=&#39;$i_1$&#39;, ylabel=&#39;$i_2$&#39;&gt;)
-</pre></div></div>
 </div>
 <p>Here <span class="math notranslate nohighlight">\(a\)</span> is the select tensor product grid used, and <span class="math notranslate nohighlight">\(b\)</span> is the linear coefficients used when combining the tensor product grid. While the code can perform integrations and coefficient approximation using sparse grids, we recommend users to stick to the effective subsampling approach that uses least squares. In both theory and practice, the results are identical. We now move on to the three other index sets: Total order, Euclidean and a Hyperbolic basis.</p>
 <div class="nbinput docutils container">
@@ -840,22 +822,12 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
+<div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <img alt="../../_images/_documentation_tutorials_2_Orthogonal_Polynomials_22_0.png" src="../../_images/_documentation_tutorials_2_Orthogonal_Polynomials_22_0.png" />
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[11]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-(&lt;Figure size 360x360 with 1 Axes&gt;,
- &lt;Axes3DSubplot:xlabel=&#39;$i_1$&#39;, ylabel=&#39;$i_2$&#39;&gt;)
-</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [12]:
@@ -867,22 +839,12 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
+<div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <img alt="../../_images/_documentation_tutorials_2_Orthogonal_Polynomials_23_0.png" src="../../_images/_documentation_tutorials_2_Orthogonal_Polynomials_23_0.png" />
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[12]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-(&lt;Figure size 360x360 with 1 Axes&gt;,
- &lt;Axes3DSubplot:xlabel=&#39;$i_1$&#39;, ylabel=&#39;$i_2$&#39;&gt;)
-</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [13]:
@@ -894,22 +856,12 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
+<div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <img alt="../../_images/_documentation_tutorials_2_Orthogonal_Polynomials_24_0.png" src="../../_images/_documentation_tutorials_2_Orthogonal_Polynomials_24_0.png" />
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[13]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-(&lt;Figure size 360x360 with 1 Axes&gt;,
- &lt;Axes3DSubplot:xlabel=&#39;$i_1$&#39;, ylabel=&#39;$i_2$&#39;&gt;)
-</pre></div></div>
 </div>
 <p>The hyperbolic basis takes in a <span class="math notranslate nohighlight">\(q\)</span> value, which varies between 0.1 and 1.0. Feel free to play around with this parameter and see what the effect on the total number of basis terms are. This is known as the cardinality of the index set, and can be returned with:</p>
 <div class="nbinput docutils container">

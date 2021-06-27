@@ -6,43 +6,53 @@ Below we provide some introductory tutorials to give you an idea of what Effecti
 
 *Note: We are currently updating the tutorials. We apologise in advance for any inconvenience this may cause.*
 
-.. toctree::
-   :maxdepth: 1
+Foundations
+"""""""""""
+.. nbgallery::
    :caption: Foundations
+   :name: foundations-gallery
 
    tutorials/1_Defining_a_Parameter
    tutorials/2_Orthogonal_Polynomials
    tutorials/3_Model_Fitting
 
 
-.. toctree::
-   :maxdepth: 1
+Uncertainty quantification and sensitivity analysis
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+.. nbgallery::
    :caption: Uncertainty quantification and sensitivity analysis
+   :name: uq-gallery
 
    tutorials/Computing_Moments_for_CFD
    tutorial_5
-   tutorial_6
+   tutorials/Sensitivity_Analysis_Probe
 
 
-.. toctree::
-   :maxdepth: 1
+Dimension reduction
+"""""""""""""""""""
+.. nbgallery::
    :caption: Dimension reduction
+   :name: dr-gallery
 
    tutorials/Dimension_Reduction
    tutorials/Dimension_Reduction_Turbomachinery
    tutorial_8
 
 
-.. toctree::
-   :maxdepth: 1
+Optimisation
+""""""""""""
+.. nbgallery::
    :caption: Optimisation
+   :name: optimisation-gallery
 
    tutorial_9
 
 
-.. toctree::
-   :maxdepth: 1
+Advanced applications
+"""""""""""""""""""""
+.. nbgallery::
    :caption: Advanced applications
+   :name: advanced-gallery
 
    tutorial_10
    tutorial_11

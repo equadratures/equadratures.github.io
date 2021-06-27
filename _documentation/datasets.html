@@ -25,11 +25,14 @@
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/basic.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/styles.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/footer.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/cards.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/fonts.css" />
     
   <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
@@ -40,7 +43,6 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <link rel="shortcut icon" href="../_static/eq-logo-favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -326,7 +328,7 @@ and one with shape (n_observations,1) containing the outputs/targets.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="equadratures.datasets.load_eq_dataset">
-<span class="sig-prename descclassname"><span class="pre">equadratures.datasets.</span></span><span class="sig-name descname"><span class="pre">load_eq_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/datasets.html#load_eq_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.datasets.load_eq_dataset" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">equadratures.datasets.</span></span><span class="sig-name descname"><span class="pre">load_eq_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/datasets.html#load_eq_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.datasets.load_eq_dataset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads the requested dataset from the <a class="reference external" href="https://github.com/Effective-Quadratures/data-sets">equadratures dataset repository</a>.</p>
 <p>Visit the aforementioned repo for a description of the available datasets.</p>
 <p>The requested dataset can either be downloaded directly upon request, or to minimise downloads the repo can be cloned
@@ -337,6 +339,7 @@ once by the user, and the local repo directory can be given via <code class="doc
 <li><p><strong>dataset</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – The dataset to download. Options are <code class="docutils literal notranslate"><span class="pre">`naca0012`</span></code>, <code class="docutils literal notranslate"><span class="pre">`blade_envelopes`</span></code>, <code class="docutils literal notranslate"><span class="pre">`probes`</span></code>, <code class="docutils literal notranslate"><span class="pre">`3Dfan_blades`</span></code>.</p></li>
 <li><p><strong>data_dir</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>optional</em>) – Directory name where a local clone of the data-sets repo is located. If given, the dataset will be loaded from here
 instead of downloading from the remote repo.</p></li>
+<li><p><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to print verbose messages to screen.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
