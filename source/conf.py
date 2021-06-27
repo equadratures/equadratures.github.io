@@ -104,6 +104,7 @@ nbsphinx_epilog = r"""
 """
 
 nbsphinx_thumbnails = {
+    '_documentation/tutorials/3_Model_Fitting':'_static/eq-logo-favicon.png',
     '_documentation/tutorials/Dimension_Reduction_Turbomachinery':'_documentation/tutorials/images/probe.jpeg',
 }
 
