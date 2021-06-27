@@ -40,6 +40,7 @@
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "document", "processHtmlClass": "math|output_area"}}</script>
     <link rel="shortcut icon" href="../../_static/eq-logo-favicon.png"/>
@@ -568,13 +569,7 @@ div.rendered_html tbody tr:hover {
   background: rgba(66, 165, 245, 0.2);
 }
 </style>
-<div class="admonition tutorial">
-  This page was generated from
-  <a class="reference external" href="https://github.com/equadratures/equadratures.github.io/blob/master/_documentation/tutorials/Computing_Moments_for_CFD.ipynb">tutorials/Computing_Moments_for_CFD.ipynb</a>.
-  <br>
-  Interactive online version:
-  <span style="white-space: nowrap;"><a href="https://colab.research.google.com/github/equadratures/equadratures.github.io/blob/master/_documentation/tutorials/Computing_Moments_for_CFD.ipynb"><img alt="Colab badge" src="https://colab.research.google.com/assets/colab-badge.svg" style="vertical-align:text-bottom"></a></span>
-</div><div class="section" id="Uncertainty-quantification-of-CFD-simulations">
+<div class="section" id="Uncertainty-quantification-of-CFD-simulations">
 <h1>Uncertainty quantification of CFD simulations<a class="headerlink" href="#Uncertainty-quantification-of-CFD-simulations" title="Permalink to this headline">¶</a></h1>
 <p>One of the primary uses of <code class="docutils literal notranslate"><span class="pre">equadratures</span></code>, and orthogonal polynomials, is for uncertainty quantification. Given a model under uncertain inputs, we wish to compute the uncertainty in its output. As is demonstrated in this tutorial, we can use polynomial chaos expansion (PCE) to replace the expensive-to-compute computational model with a polynomial, and use this to compute the moments (i.e. mean and variance) of the model’s output.</p>
 <div class="section" id="Polynomial-chaos-and-Monte-Carlo">
@@ -1074,7 +1069,13 @@ Errors as a % of original values: mean = 0.019%, variance = -1.755%
 </script></div>
 </div>
 </div>
-
+<div class="admonition tutorial">
+  This page was generated from
+  <a class="reference external" href="https://github.com/equadratures/equadratures.github.io/blob/master/_documentation/tutorials/Computing_Moments_for_CFD.ipynb">tutorials/Computing_Moments_for_CFD.ipynb</a>.
+  <br>
+  Interactive online version:
+  <span style="white-space: nowrap;"><a href="https://colab.research.google.com/github/equadratures/equadratures.github.io/blob/master/_documentation/tutorials/Computing_Moments_for_CFD.ipynb"><img alt="Colab badge" src="https://colab.research.google.com/assets/colab-badge.svg" style="vertical-align:text-bottom"></a></span>
+</div>
 
               </div>
               

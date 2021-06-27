@@ -40,6 +40,7 @@
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "document", "processHtmlClass": "math|output_area"}}</script>
     <link rel="shortcut icon" href="../../_static/eq-logo-favicon.png"/>
@@ -541,13 +542,7 @@ div.rendered_html tbody tr:hover {
   background: rgba(66, 165, 245, 0.2);
 }
 </style>
-<div class="admonition tutorial">
-  This page was generated from
-  <a class="reference external" href="https://github.com/equadratures/equadratures.github.io/blob/master/_documentation/tutorials/Dimension_Reduction.ipynb">tutorials/Dimension_Reduction.ipynb</a>.
-  <br>
-  Interactive online version:
-  <span style="white-space: nowrap;"><a href="https://colab.research.google.com/github/equadratures/equadratures.github.io/blob/master/_documentation/tutorials/Dimension_Reduction.ipynb"><img alt="Colab badge" src="https://colab.research.google.com/assets/colab-badge.svg" style="vertical-align:text-bottom"></a></span>
-</div><div class="section" id="A-primer-on-data-driven-dimension-reduction">
+<div class="section" id="A-primer-on-data-driven-dimension-reduction">
 <h1>A primer on data-driven dimension reduction<a class="headerlink" href="#A-primer-on-data-driven-dimension-reduction" title="Permalink to this headline">¶</a></h1>
 <p>Many physical systems are high dimensional, which can make it challenging to obtain approximations of them, and it often even more challenging to visualise these approximations. However, all is not lost! Many seemingly high-dimensional systems have intrinsically low-dimensional structure. Although the quantity of interest <span class="math notranslate nohighlight">\(f(\mathbf{x})\)</span> might be defined as a function of a large set of parameters <span class="math notranslate nohighlight">\(\mathbf{x} \in \mathbb{R}^d\)</span>, its variation can often be approximately captured with a
 small number of linear projections of the original parameters <span class="math notranslate nohighlight">\(\mathbf{W}^T \mathbf{x} \in \mathbb{R}^n\)</span>. Here, <span class="math notranslate nohighlight">\(n \ll d\)</span> and <span class="math notranslate nohighlight">\(\mathbf{W} \in \mathbb{R}^{d\times n}\)</span> is a tall matrix whose column span is called the <em>dimension reducing subspace</em>, or <em>active subspace</em>.</p>
@@ -603,7 +598,7 @@ Data in file:
 
 </pre></div></div>
 </div>
-<p>Before using equadratures, lets see what happens when the subspace is formed from an equal contribution of all 25 design parameters, by setting the unit vector <span class="math notranslate nohighlight">\(\mathbf{W} = \frac{\mathbf{1}}{\sqrt{25}}\)</span>.</p>
+<p>Before using equadratures, lets see what happens when the subspace is formed from an equal contribution of all 25 design parameters, by setting <span class="math notranslate nohighlight">\(\mathbf{W} = \frac{\mathbf{1}}{\sqrt{25}}\)</span>.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [15]:
 </pre></div>
@@ -637,7 +632,7 @@ Data in file:
 <p>Instead, lets try the obtain a 1D dimension reducing subspace with the <code class="docutils literal notranslate"><span class="pre">Subspaces</span></code> module. We use <code class="docutils literal notranslate"><span class="pre">method='variable-projection'</span></code> here, where the non-linear least squares problem</p>
 <div class="math notranslate nohighlight">
 \[\underset{\mathbf{W}, \boldsymbol{\alpha}}{\text{minimize}} \; \; \left\Vert f\left(\mathbf{x}\right)-g_{\boldsymbol{\alpha}}\left(\mathbf{W}^{T} \mathbf{x}\right)\right\Vert _{2}^{2}\]</div>
-<p>is solved by recasting it as a separable non-linear least squares problem. Here, Gauss-Newton optimization used to solve for the polynomial coefficients <span class="math notranslate nohighlight">\(\alpha\)</span> and subspace matrix <span class="math notranslate nohighlight">\(\mathbf{W}\)</span> together.</p>
+<p>is solved by recasting it as a separable non-linear least squares problem. Here, Gauss-Newton optimization used to solve for the polynomial coefficients <span class="math notranslate nohighlight">\(\alpha\)</span> and subspace matrix <span class="math notranslate nohighlight">\(\mathbf{W}\)</span> together. After computing the <code class="docutils literal notranslate"><span class="pre">Subspace</span></code>, we could generate the below plot in one line using <code class="docutils literal notranslate"><span class="pre">plot_sufficient_summary()</span></code>, but here we’ll do it manually to expose the inner workings.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [30]:
 </pre></div>
@@ -682,7 +677,13 @@ Data in file:
 <p>Much better! We now have a one-dimensional subspace, formed from a linear combination of the 25 design parameters, which is able to describe the variation in the fan efficiency, <span class="math notranslate nohighlight">\(f=\eta\)</span>. As we will see in later tutorials, such subspaces can be used for design space exploration, physics investigation, and even flowfield estimation!</p>
 </div>
 </div>
-
+<div class="admonition tutorial">
+  This page was generated from
+  <a class="reference external" href="https://github.com/equadratures/equadratures.github.io/blob/master/_documentation/tutorials/Dimension_Reduction.ipynb">tutorials/Dimension_Reduction.ipynb</a>.
+  <br>
+  Interactive online version:
+  <span style="white-space: nowrap;"><a href="https://colab.research.google.com/github/equadratures/equadratures.github.io/blob/master/_documentation/tutorials/Dimension_Reduction.ipynb"><img alt="Colab badge" src="https://colab.research.google.com/assets/colab-badge.svg" style="vertical-align:text-bottom"></a></span>
+</div>
 
               </div>
               

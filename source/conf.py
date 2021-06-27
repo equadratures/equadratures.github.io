@@ -80,7 +80,7 @@ nbsphinx_execute_arguments = [
 nbsphinx_input_prompt = 'In [%s]:'
 nbsphinx_output_prompt = 'Out[%s]:'
 # This is processed by Jinja2 and inserted before each notebook
-nbsphinx_prolog = r""" 
+nbsphinx_epilog = r""" 
 {% set docname = env.doc2path(env.docname, base=None) | replace('_documentation/', '') %}
 
 .. raw:: html
@@ -95,7 +95,7 @@ nbsphinx_prolog = r"""
 
 .. raw:: latex
 
-    \nbsphinxstartnotebook{\scriptsize\noindent\strut
+    \nbsphinxstopnotebook{\scriptsize\noindent\strut
     \textcolor{gray}{The following section was generated from
     \sphinxcode{\sphinxupquote{\strut {{ docname | escape_latex }}}} \dotfill}}
 """

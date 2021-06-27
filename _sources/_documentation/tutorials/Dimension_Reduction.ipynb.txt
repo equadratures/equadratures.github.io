@@ -104,7 +104,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "Before using equadratures, lets see what happens when the subspace is formed from an equal contribution of all 25 design parameters, by setting the unit vector $\\mathbf{W} = \\frac{\\mathbf{1}}{\\sqrt{25}}$."
+    "Before using equadratures, lets see what happens when the subspace is formed from an equal contribution of all 25 design parameters, by setting $\\mathbf{W} = \\frac{\\mathbf{1}}{\\sqrt{25}}$."
    ]
   },
   {
@@ -155,7 +155,7 @@
     "\\underset{\\mathbf{W}, \\boldsymbol{\\alpha}}{\\text{minimize}} \\; \\; \\left\\Vert f\\left(\\mathbf{x}\\right)-g_{\\boldsymbol{\\alpha}}\\left(\\mathbf{W}^{T} \\mathbf{x}\\right)\\right\\Vert _{2}^{2}\n",
     "$$\n",
     "\n",
-    "is solved by recasting it as a separable non-linear least squares problem. Here, Gauss-Newton optimization used to solve for the polynomial coefficients $\\alpha$ and subspace matrix $\\mathbf{W}$ together. "
+    "is solved by recasting it as a separable non-linear least squares problem. Here, Gauss-Newton optimization used to solve for the polynomial coefficients $\\alpha$ and subspace matrix $\\mathbf{W}$ together. After computing the `Subspace`, we could generate the below plot in one line using `plot_sufficient_summary()`, but here we'll do it manually to expose the inner workings."
    ]
   },
   {
