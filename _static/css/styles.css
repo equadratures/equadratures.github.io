@@ -2,14 +2,14 @@
 
 :root {
 /* Override default colors */
---pst-color-primary: 58, 81, 105 !important;
---pst-color-secondary: 65,99,118  !important;
---pst-color-tertiary: 134, 189, 219 !important;
---pst-color-success: 40, 167, 69;
---pst-color-info: 0, 123, 255;  /*23, 162, 184;*/
---pst-color-warning: 255, 193, 7;
---pst-color-danger: 220, 53, 69;
---pst-color-text-base: 51, 51, 51;
+  --pst-color-primary: 58, 81, 105 !important;
+  --pst-color-secondary: 65,99,118  !important;
+  --pst-color-tertiary: 134, 189, 219 !important;
+  --pst-color-success: 40, 167, 69;
+  --pst-color-info: 0, 123, 255;  /*23, 162, 184;*/
+  --pst-color-warning: 255, 193, 7;
+  --pst-color-danger: 220, 53, 69;
+  --pst-color-text-base: 51, 51, 51;
 
   --pst-color-h1: var(--pst-color-primary);
   --pst-color-h2: var(--pst-color-primary);
@@ -39,6 +39,7 @@
   --pst-color-toc-link-hover: var(--pst-color-active-navigation);
   --pst-color-toc-link-active: var(--pst-color-active-navigation);
 }
+
   /* Admonitions */
 .admonition.tutorial {
     background-color: rgba(var(--pst-color-tertiary),0.3);
@@ -48,21 +49,21 @@
 
 /* Default fonts */
 body {
-  font-family: "Raleway";
+  font-family: 'Raleway';
 }
 
 h1 {
-  font-family: "Raleway";
+  font-family: 'Raleway';
   color: rgba(var(--pst-color-primary));
 }
 
 h2 {
-  font-family: "Raleway";
+  font-family: 'Raleway';
   color: rgba(var(--pst-color-primary));
 }
 
 h3 {
-  font-family: "Raleway";
+  font-family: 'Raleway';
   color: rgba(var(--pst-color-primary));
 }
 

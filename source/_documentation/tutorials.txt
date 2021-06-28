@@ -24,7 +24,6 @@ Uncertainty quantification and sensitivity analysis
    :name: uq-gallery
 
    tutorials/Computing_Moments_for_CFD
-   tutorial_5
    tutorials/Sensitivity_Analysis_Probe
 
 
@@ -54,7 +53,8 @@ Advanced applications
    :caption: Advanced applications
    :name: advanced-gallery
 
-   tutorial_10
+   tutorial_5
+   tutorials/Machine_Learning_Airfoil
    tutorial_11
    tutorial_12
    tutorial_13

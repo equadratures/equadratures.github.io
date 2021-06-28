@@ -107,6 +107,7 @@ nbsphinx_thumbnails = {
     '_documentation/tutorials/3_Model_Fitting':'_static/eq-logo-favicon.png',
     '_documentation/tutorials/Dimension_Reduction_Turbomachinery':'_documentation/tutorials/images/probe.jpeg',
     '_documentation/tutorials/Computing_Moments_for_CFD':'_documentation/tutorials/images/vki_turbine.jpeg',
+    '_documentation/tutorials/Machine_Learning_Airfoil':'_documentation/tutorials/images/airfoil_noise.png',
 }
 
 # Intersphinx mapping
