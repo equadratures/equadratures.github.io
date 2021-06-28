@@ -106,6 +106,7 @@ nbsphinx_epilog = r"""
 nbsphinx_thumbnails = {
     '_documentation/tutorials/3_Model_Fitting':'_static/eq-logo-favicon.png',
     '_documentation/tutorials/Dimension_Reduction_Turbomachinery':'_documentation/tutorials/images/probe.jpeg',
+    '_documentation/tutorials/Computing_Moments_for_CFD':'_documentation/tutorials/images/vki_turbine.jpeg',
 }
 
 # Intersphinx mapping
