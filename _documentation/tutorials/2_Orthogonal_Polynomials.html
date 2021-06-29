@@ -167,6 +167,11 @@
    Foundations III: Solving linear systems for model fitting
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Object_Persistence.html">
+   Persistence of equadratures objects
+  </a>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -228,26 +233,6 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../tutorial_5.html">
    Uncertainty quantification with correlations for a borehole model
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Machine_Learning_Airfoil.html">
-   Machine learning of airfoil self-noise with interpretable polynomial trees
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../tutorial_11.html">
-   Time-series remaining useful life prediction with spatio-temporal polynomials
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../tutorial_12.html">
-   Flow-field estimation using vector-valued polynomial ridge approximations
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../tutorial_13.html">
-   Multi-fidelity Bayesian polynomials on turbine cascade experiments
   </a>
  </li>
 </ul>
@@ -560,7 +545,11 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">order</span> <span class="o">=</span> <span class="mi">5</span>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">equadratures</span> <span class="k">as</span> <span class="nn">eq</span>
+
+<span class="n">order</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="n">s1</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">lower</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span> <span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;Uniform&#39;</span><span class="p">)</span>
 </pre></div>
 </div>

@@ -167,6 +167,11 @@
    Foundations III: Solving linear systems for model fitting
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Object_Persistence.html">
+   Persistence of equadratures objects
+  </a>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -228,26 +233,6 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../tutorial_5.html">
    Uncertainty quantification with correlations for a borehole model
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Machine_Learning_Airfoil.html">
-   Machine learning of airfoil self-noise with interpretable polynomial trees
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../tutorial_11.html">
-   Time-series remaining useful life prediction with spatio-temporal polynomials
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../tutorial_12.html">
-   Flow-field estimation using vector-valued polynomial ridge approximations
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../tutorial_13.html">
-   Multi-fidelity Bayesian polynomials on turbine cascade experiments
   </a>
  </li>
 </ul>
@@ -643,7 +628,11 @@ how we can compute these indices using <code class="docutils literal notranslate
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">order_parameters</span> <span class="o">=</span> <span class="mi">3</span>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">equadratures</span> <span class="k">as</span> <span class="nn">eq</span>
+
+<span class="n">order_parameters</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="n">mass</span>     <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">lower</span><span class="o">=</span><span class="mf">30.0</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mf">60.0</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order_parameters</span><span class="p">)</span>
 <span class="n">area</span>     <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">lower</span><span class="o">=</span><span class="mf">0.005</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mf">0.020</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order_parameters</span><span class="p">)</span>
 <span class="n">volume</span>   <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">lower</span><span class="o">=</span><span class="mf">0.002</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mf">0.010</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order_parameters</span><span class="p">)</span>
@@ -774,9 +763,18 @@ how we can compute these indices using <code class="docutils literal notranslate
 </div>
 <div class="section" id="References">
 <h2>References<a class="headerlink" href="#References" title="Permalink to this headline">¶</a></h2>
-<p>[1] Blatman, G., and Bruno S., (2011) Adaptive sparse polynomial chaos expansion based on least angle regression. Journal of Computational Physics 230.6: 2345-2367. <a class="reference external" href="https://doi.org/10.1016/j.jcp.2010.12.021">Paper</a>.</p>
-<p>[2] Kenett, R., Shelemyahu Z., and Daniele A., (2013) Modern Industrial Statistics: with applications in R, MINITAB and JMP. John Wiley &amp; Sons. <a class="reference external" href="https://dl.acm.org/doi/10.5555/2568447">Book</a>.</p>
-<p>[3] Owen, A. B., Dick, J. and Chen, S., (2014) Higher order Sobol’ indices. Information and Inference 3.1: 59-81. <a class="reference external" href="https://doi.org/10.1093/imaiai/iau001">Paper</a>.</p>
+<p>[1] Blatman, G., and Bruno S. (2011), Adaptive sparse polynomial chaos expansion based on least angle regression. Journal of Computational Physics 230.6: 2345-2367. <a class="reference external" href="https://doi.org/10.1016/j.jcp.2010.12.021">Paper</a>.</p>
+<p>[2] Kenett, R., Shelemyahu Z., and Daniele A. (2013), Modern Industrial Statistics: with applications in R, MINITAB and JMP. John Wiley &amp; Sons. <a class="reference external" href="https://dl.acm.org/doi/10.5555/2568447">Book</a>.</p>
+<p>[3] Owen, A. B., Dick, J. and Chen, S. (2014), Higher order Sobol’ indices. Information and Inference 3.1: 59-81. <a class="reference external" href="https://doi.org/10.1093/imaiai/iau001">Paper</a>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="admonition tutorial">

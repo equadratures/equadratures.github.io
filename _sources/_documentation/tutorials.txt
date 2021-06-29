@@ -15,6 +15,7 @@ Foundations
    tutorials/1_Defining_a_Parameter
    tutorials/2_Orthogonal_Polynomials
    tutorials/3_Model_Fitting
+   tutorials/Object_Persistence
 
 
 Uncertainty quantification and sensitivity analysis
@@ -54,7 +55,8 @@ Advanced applications
    :name: advanced-gallery
 
    tutorial_5
-   tutorials/Machine_Learning_Airfoil
    tutorial_11
    tutorial_12
    tutorial_13
+..   tutorials/Machine_Learning_Airfoil
+

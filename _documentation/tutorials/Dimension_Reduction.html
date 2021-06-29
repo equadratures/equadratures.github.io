@@ -167,6 +167,11 @@
    Foundations III: Solving linear systems for model fitting
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Object_Persistence.html">
+   Persistence of equadratures objects
+  </a>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -228,26 +233,6 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../tutorial_5.html">
    Uncertainty quantification with correlations for a borehole model
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Machine_Learning_Airfoil.html">
-   Machine learning of airfoil self-noise with interpretable polynomial trees
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../tutorial_11.html">
-   Time-series remaining useful life prediction with spatio-temporal polynomials
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../tutorial_12.html">
-   Flow-field estimation using vector-valued polynomial ridge approximations
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../tutorial_13.html">
-   Multi-fidelity Bayesian polynomials on turbine cascade experiments
   </a>
  </li>
 </ul>
@@ -559,11 +544,15 @@ a suitable <span class="math notranslate nohighlight">\(\mathbf{W}\)</span> matr
 <p>To provide a brief demononstration, we take a dataset from this <a class="reference external" href="https://doi.org/10.1115/1.4038839">Journal of Turbomachinery paper</a>. A turbomachinery fan blade is parameterised by <span class="math notranslate nohighlight">\(\mathbf{x} \in \mathbb{R}^{25}\)</span>, and the Quantity of Interest (QoI) is the efficiency <span class="math notranslate nohighlight">\(\eta=f(\mathbf{x})\)</span> of the fan blade. The task here is to find a subspace matrix <span class="math notranslate nohighlight">\(\mathbf{W} \in \mathbb{R}^{25\times 1}\)</span>, so that the <span class="math notranslate nohighlight">\(f(\mathbf{x})\)</span> can be approximated over a dimension reducing
 subspace <span class="math notranslate nohighlight">\(u=\mathbf{W}^T \mathbf{x}\)</span>, where <span class="math notranslate nohighlight">\(u \in \mathbb{R}^1\)</span>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">data</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">load_eq_dataset</span><span class="p">(</span><span class="s1">&#39;3Dfan_blades&#39;</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">equadratures</span> <span class="k">as</span> <span class="nn">eq</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">load_eq_dataset</span><span class="p">(</span><span class="s1">&#39;3Dfan_blades&#39;</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">X</span>  <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;X_a&#39;</span><span class="p">]</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;y1_a&#39;</span><span class="p">]</span>
 </pre></div>

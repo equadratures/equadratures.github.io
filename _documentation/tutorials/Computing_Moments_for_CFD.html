@@ -49,7 +49,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Sensitivity analysis for a piston model" href="Sensitivity_Analysis_Probe.html" />
-    <link rel="prev" title="Foundations III: Solving linear systems for model fitting" href="3_Model_Fitting.html" />
+    <link rel="prev" title="Persistence of equadratures objects" href="Object_Persistence.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -167,6 +167,11 @@
    Foundations III: Solving linear systems for model fitting
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Object_Persistence.html">
+   Persistence of equadratures objects
+  </a>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -228,26 +233,6 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../tutorial_5.html">
    Uncertainty quantification with correlations for a borehole model
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Machine_Learning_Airfoil.html">
-   Machine learning of airfoil self-noise with interpretable polynomial trees
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../tutorial_11.html">
-   Time-series remaining useful life prediction with spatio-temporal polynomials
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../tutorial_12.html">
-   Flow-field estimation using vector-valued polynomial ridge approximations
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../tutorial_13.html">
-   Multi-fidelity Bayesian polynomials on turbine cascade experiments
   </a>
  </li>
 </ul>
@@ -591,7 +576,11 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">rosenbrock_fun</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">equadratures</span> <span class="k">as</span> <span class="nn">eq</span>
+
+<span class="k">def</span> <span class="nf">rosenbrock_fun</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
 </pre></div>
 </div>
@@ -1076,7 +1065,16 @@ Errors as a % of original values: mean = 0.019%, variance = -1.755%
 </div>
 <div class="section" id="References">
 <h2>References<a class="headerlink" href="#References" title="Permalink to this headline">¶</a></h2>
-<p>[1] Xiu, D., and Karniadakis, G. E., The Wiener-Askey polynomial chaos for stochastic differential equations. SIAM J. Sci. Comput. 24.2: 619-644. <a class="reference external" href="https://doi.org/10.1137/S1064827501387826">Paper</a>.</p>
+<p>[1] Xiu, D., and Karniadakis, G. E. (2002), The Wiener-Askey polynomial chaos for stochastic differential equations. SIAM J. Sci. Comput. 24.2: 619-644. <a class="reference external" href="https://doi.org/10.1137/S1064827501387826">Paper</a>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
 <script type="application/vnd.jupyter.widget-state+json">
 {"39ff90c06a6744dfa916d3f2f14dd487": {"model_module": "@jupyter-widgets/controls", "model_name": "ButtonStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "ButtonStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "button_color": null, "font_weight": ""}}, "50ea96e6ff824bdf88319a3b69c62ded": {"model_module": "@jupyter-widgets/output", "model_name": "OutputModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_e06b003e1ce84bdbbca1c079cd42b8d0", "msg_id": "", "outputs": []}}, "5c51cdc1a30e48878064714c6d59cd79": {"model_module": "@jupyter-widgets/base", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "6ea5fbfb7c30496d80ba401274d19a74": {"model_module": "@jupyter-widgets/controls", "model_name": "IntSliderModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "IntSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "IntSliderView", "continuous_update": true, "description": "N", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_eaca711913c84ef9a4be273f43ced851", "max": 1000, "min": 5, "orientation": "horizontal", "readout": true, "readout_format": "d", "step": 1, "style": "IPY_MODEL_bc34b4e5245d48c99f546b36a27e6708", "value": 5}}, "89e8e6b63a2c43b587809552e9c6bff8": {"model_module": "@jupyter-widgets/base", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "bc34b4e5245d48c99f546b36a27e6708": {"model_module": "@jupyter-widgets/controls", "model_name": "SliderStyleModel", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "c842e0d07c9a45d2866b09563d579fef": {"model_module": "@jupyter-widgets/controls", "model_name": "ButtonModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "ButtonModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "ButtonView", "button_style": "", "description": "Run Interact", "disabled": false, "icon": "", "layout": "IPY_MODEL_89e8e6b63a2c43b587809552e9c6bff8", "style": "IPY_MODEL_39ff90c06a6744dfa916d3f2f14dd487", "tooltip": ""}}, "d22438c224734cf5a506491fd9f04eb7": {"model_module": "@jupyter-widgets/controls", "model_name": "VBoxModel", "state": {"_dom_classes": ["widget-interact"], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "VBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "VBoxView", "box_style": "", "children": ["IPY_MODEL_6ea5fbfb7c30496d80ba401274d19a74", "IPY_MODEL_c842e0d07c9a45d2866b09563d579fef", "IPY_MODEL_50ea96e6ff824bdf88319a3b69c62ded"], "layout": "IPY_MODEL_5c51cdc1a30e48878064714c6d59cd79"}}, "e06b003e1ce84bdbbca1c079cd42b8d0": {"model_module": "@jupyter-widgets/base", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "eaca711913c84ef9a4be273f43ced851": {"model_module": "@jupyter-widgets/base", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}}
 </script></div>
