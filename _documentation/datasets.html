@@ -144,7 +144,7 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search equadratures..." aria-label="Search equadratures..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <div class="bd-toc-item active">
-    <p class="caption">
+    <p class="caption" role="heading">
  <span class="caption-text">
   Core modules
  </span>
@@ -166,7 +166,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Additional modules
  </span>
@@ -260,33 +260,28 @@
                 
   <div class="section" id="module-equadratures.datasets">
 <span id="datasets"></span><h1>Datasets<a class="headerlink" href="#module-equadratures.datasets" title="Permalink to this headline">¶</a></h1>
-<p>Utilities for downloading or generating datasets, splitting data, and computing accuracy metrics.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="equadratures.datasets.gen_friedman">
 <span class="sig-prename descclassname"><span class="pre">equadratures.datasets.</span></span><span class="sig-name descname"><span class="pre">gen_friedman</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_observations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noise</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalise</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/datasets.html#gen_friedman"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.datasets.gen_friedman" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generates the friedman regression problem described by Friedman [1] and Breiman [2].</p>
-<p>Inspired by <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_friedman1.html#sklearn.datasets.make_friedman1" title="(in scikit-learn v0.24)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sklearn.datasets.make_friedman1</span></code></a>. The function has <code class="docutils literal notranslate"><span class="pre">n_dim=5</span></code>, and choosing <code class="docutils literal notranslate"><span class="pre">n_dim&gt;5</span></code> adds irrelevent input dimensions.
-Gaussian noise with standard deviation <code class="docutils literal notranslate"><span class="pre">noise</span></code> is added.</p>
+<dd><p>Generates the friedman regression problem described by Friedman [1] and Breiman [2]. The function has n_dim=5, and choosing n_dim&gt;5 adds irrelevent input dimensions. Gaussian noise with standard deviation <code class="docutils literal notranslate"><span class="pre">noise</span></code> is added.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>n_observations</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) – The number of observations (samples).</p></li>
-<li><p><strong>n_dim</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) – The total number of dimensions. n_dim&gt;=5, with n_dim&gt;5 adding irrelevent input dimensions.</p></li>
-<li><p><strong>noise</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a><em>, </em><em>optional</em>) – The standard deviation of the gaussian noise applied to the output.</p></li>
-<li><p><strong>random_seed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) – Random number generator seed.</p></li>
-<li><p><strong>normalise</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – Normalise y to lie between -1 to 1.</p></li>
+<li><p><strong>n_observations</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The number of observations (samples).</p></li>
+<li><p><strong>n_dim</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The total number of dimensions. n_dim&gt;=5, with n_dim&gt;5 adding irrelevent input dimensions.</p></li>
+<li><p><strong>noise</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – The standard deviation of the gaussian noise applied to the output.</p></li>
+<li><p><strong>random_seed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Random number generator seed.</p></li>
+<li><p><strong>normalise</strong> (<em>boolean</em>) – Normalise y to lie between -1 to 1.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Tuple (X,y) containing two numpy.ndarray’s; One with shape (n_observations,n_dim) containing the inputs,
-and one with shape (n_observations,1) containing the outputs/targets.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)">tuple</a></p>
+<dd class="field-even"><p></p>
 </dd>
 </dl>
-<p class="rubric">References</p>
-<ol class="arabic simple">
+<p><strong>X</strong>: A numpy.ndarray of shape (n_observations,n_dim) containing the inputs.
+<strong>y</strong> : A numpy.ndarray of shape (n_observations,1) containing the outputs/targets.</p>
+<dl class="simple">
+<dt><strong>References</strong></dt><dd><ol class="arabic simple">
 <li><ol class="upperalpha simple" start="10">
 <li><p>Friedman, “Multivariate adaptive regression splines”, The Annals of Statistics 19 (1), pages 1-67, 1991.</p></li>
 </ol>
@@ -296,97 +291,47 @@ and one with shape (n_observations,1) containing the outputs/targets.</p>
 </ol>
 </li>
 </ol>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="equadratures.datasets.gen_linear">
 <span class="sig-prename descclassname"><span class="pre">equadratures.datasets.</span></span><span class="sig-name descname"><span class="pre">gen_linear</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_observations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_relevent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bias</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noise</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/datasets.html#gen_linear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.datasets.gen_linear" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generate a synthetic linear dataset for regression.</p>
-<p>Data is generated using a random linear regression model with <code class="docutils literal notranslate"><span class="pre">n_relevent</span></code> input dimensions.
-The remaining dimensions are “irrelevent” noise i.e. they do not affect the output.
-Gaussian noise with standard deviation <code class="docutils literal notranslate"><span class="pre">noise</span></code> is added.</p>
+<dd><p>Generate a synthetic linear dataset for regression. Data is generated using a random linear regression model with <code class="docutils literal notranslate"><span class="pre">n_relevent</span></code> input dimensions. Gaussian noise with standard deviation <code class="docutils literal notranslate"><span class="pre">noise</span></code> is added.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>n_observations</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) – The number of observations (samples).</p></li>
-<li><p><strong>n_dim</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) – The total number of dimensions.</p></li>
-<li><p><strong>n_relevent</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) – The number of relevent input dimensions, i.e., the number of features used to build the linear model used to generate the output.</p></li>
-<li><p><strong>bias</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a><em>, </em><em>optional</em>) – The bias term in the underlying linear model.</p></li>
-<li><p><strong>noise</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a><em>, </em><em>optional</em>) – The standard deviation of the gaussian noise applied to the output.</p></li>
-<li><p><strong>random_seed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) – Random number generator seed.</p></li>
+<li><p><strong>n_observations</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The number of observations (samples).</p></li>
+<li><p><strong>n_dim</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The total number of dimensions.</p></li>
+<li><p><strong>n_relevent</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The number of relevent input dimensions, i.e., the number of features used to build the linear model used to generate the output.</p></li>
+<li><p><strong>bias</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – The bias term in the underlying linear model.</p></li>
+<li><p><strong>noise</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – The standard deviation of the gaussian noise applied to the output.</p></li>
+<li><p><strong>random_seed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Random number generator seed.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Tuple (X,y) containing two numpy.ndarray’s; One with shape (n_observations,n_dim) containing the inputs,
-and one with shape (n_observations,1) containing the outputs/targets.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)">tuple</a></p>
+<dd class="field-even"><p></p>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="equadratures.datasets.load_eq_dataset">
-<span class="sig-prename descclassname"><span class="pre">equadratures.datasets.</span></span><span class="sig-name descname"><span class="pre">load_eq_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/datasets.html#load_eq_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.datasets.load_eq_dataset" title="Permalink to this definition">¶</a></dt>
-<dd><p>Loads the requested dataset from the <a class="reference external" href="https://github.com/Effective-Quadratures/data-sets">equadratures dataset repository</a>.</p>
-<p>Visit the aforementioned repo for a description of the available datasets.</p>
-<p>The requested dataset can either be downloaded directly upon request, or to minimise downloads the repo can be cloned
-once by the user, and the local repo directory can be given via <code class="docutils literal notranslate"><span class="pre">data_dir</span></code> (see examples).</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>dataset</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – The dataset to download. Options are <code class="docutils literal notranslate"><span class="pre">`naca0012`</span></code>, <code class="docutils literal notranslate"><span class="pre">`blade_envelopes`</span></code>, <code class="docutils literal notranslate"><span class="pre">`probes`</span></code>, <code class="docutils literal notranslate"><span class="pre">`3Dfan_blades`</span></code>.</p></li>
-<li><p><strong>data_dir</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>optional</em>) – Directory name where a local clone of the data-sets repo is located. If given, the dataset will be loaded from here
-instead of downloading from the remote repo.</p></li>
-<li><p><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to print verbose messages to screen.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>NpzFile instance (see <a class="reference external" href="https://numpy.org/devdocs/reference/generated/numpy.lib.format.html#module-numpy.lib.format">numpy.lib.format</a>)
-containing the dataset. Contents can be accessed in the usual way e.g. <code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">=</span> <span class="pre">NpzFile['X']</span></code>.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>NpzFile</p>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
-<dl>
-<dt>Loading from remote repository</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Load the naca0012 aerofoil dataset</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">load_eq_dataset</span><span class="p">(</span><span class="s1">&#39;naca0012&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">files</span><span class="p">)</span>
-<span class="go">[&#39;X&#39;, &#39;Cp&#39;, &#39;Cl&#39;, &#39;Cd&#39;]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Cp&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-</dd>
-<dt>Loading from a locally cloned repository</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">Effective</span><span class="o">-</span><span class="n">Quadratures</span><span class="o">/</span><span class="n">data</span><span class="o">-</span><span class="n">sets</span><span class="o">.</span><span class="n">git</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">load_eq_dataset</span><span class="p">(</span><span class="s1">&#39;naca0012&#39;</span><span class="p">,</span> <span class="n">data_dir</span><span class="o">=</span><span class="s1">&#39;/Users/user/Documents/data-sets&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd>
-</dl>
+<p><strong>X</strong>: A numpy.ndarray of shape (n_observations,n_dim) containing the inputs.
+<strong>y</strong> : A numpy.ndarray of shape (n_observations,1) containing the outputs/targets.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="equadratures.datasets.score">
-<span class="sig-prename descclassname"><span class="pre">equadratures.datasets.</span></span><span class="sig-name descname"><span class="pre">score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'r2'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/datasets.html#score"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.datasets.score" title="Permalink to this definition">¶</a></dt>
-<dd><p>Evaluates the accuracy/error score between predictions and the truth, according to the given accuracy metric.</p>
+<span class="sig-prename descclassname"><span class="pre">equadratures.datasets.</span></span><span class="sig-name descname"><span class="pre">score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_true</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_pred</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/datasets.html#score"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.datasets.score" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluates the accuracy/error score between predictions <code class="docutils literal notranslate"><span class="pre">y_pred</span></code> and the truth <code class="docutils literal notranslate"><span class="pre">y_true</span></code>, according to the given accuracy metric <code class="docutils literal notranslate"><span class="pre">metric</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>y_pred</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – Array with shape (number_of_observations, 1), containing predictions.</p></li>
-<li><p><strong>y_true</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – Array with shape (number_of_observations, 1) containing the true data.</p></li>
-<li><p><strong>metric</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>optional</em>) – The scoring metric to use. Avaliable options are: <code class="docutils literal notranslate"><span class="pre">`adjusted_r2`</span></code>, <code class="docutils literal notranslate"><span class="pre">`r2`</span></code>, <code class="docutils literal notranslate"><span class="pre">`mae`</span></code>, <code class="docutils literal notranslate"><span class="pre">`rmse`</span></code>, or <code class="docutils literal notranslate"><span class="pre">`normalised_mae`</span></code>.</p></li>
-<li><p><strong>X</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – The input data associated with <strong>y_pred</strong>. Required if <code class="docutils literal notranslate"><span class="pre">metric=`adjusted_r2`</span></code>.</p></li>
+<li><p><strong>y_true</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – An ndarray with shape (number_of_observations, 1), containing predictions.</p></li>
+<li><p><strong>y_pred</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – An ndarray with shape (number_of_observations, 1) containing the true data.</p></li>
+<li><p><strong>metric</strong> (<em>string</em>) – An optional string containing the scoring metric to use. Avaliable options are: <code class="docutils literal notranslate"><span class="pre">adjusted_r2</span></code>, <code class="docutils literal notranslate"><span class="pre">r2</span></code>, <code class="docutils literal notranslate"><span class="pre">mae</span></code>, <code class="docutils literal notranslate"><span class="pre">rmse</span></code>, or <code class="docutils literal notranslate"><span class="pre">normalised_mae</span></code> (default: <code class="docutils literal notranslate"><span class="pre">adjusted_r2</span></code>).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>The accuracy or error score.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)">float</a></p>
+<dd class="field-even"><p><strong>score</strong>: The accuracy or error score..</p>
 </dd>
 </dl>
 </dd></dl>
@@ -394,30 +339,20 @@ containing the dataset. Contents can be accessed in the usual way e.g. <code cla
 <dl class="py function">
 <dt class="sig sig-object py" id="equadratures.datasets.train_test_split">
 <span class="sig-prename descclassname"><span class="pre">equadratures.datasets.</span></span><span class="sig-name descname"><span class="pre">train_test_split</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shuffle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/datasets.html#train_test_split"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.datasets.train_test_split" title="Permalink to this definition">¶</a></dt>
-<dd><p>Split arrays or matrices into random train and test subsets.</p>
-<p>Inspired by <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html#sklearn.model_selection.train_test_split" title="(in scikit-learn v0.24)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sklearn.model_selection.train_test_split</span></code></a>.</p>
+<dd><p>Split arrays or matrices into random train and test subsets. Inspired by scikit-learn’s datasets.train_test_split.
+:param numpy.ndarray X: An numpy.ndarray of shape (n_observations,n_dim) containing the inputs.
+:param numpy.ndarray y: A numpy.ndarray of shape (n_observations,1) containing the outputs/targets.
+:param float train: Fraction between 0.0 and 1.0, representing the proportion of the dataset to include in the train split.
+:param boolean shuffle: Whether to shuffle the rows of data when spliting</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>X</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – Array with shape (n_observations,n_dim) containing the inputs.</p></li>
-<li><p><strong>y</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – Array with shape (n_observations,1) containing the outputs/targets.</p></li>
-<li><p><strong>train</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a><em>, </em><em>optional</em>) – Fraction between 0.0 and 1.0, representing the proportion of the dataset to include in the train split.</p></li>
-<li><p><strong>random_seed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) – Seed for random number generator.</p></li>
-<li><p><strong>shuffle</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – Whether to shuffle the rows of data when spliting.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Tuple (X_train, X_test, y_train, y_test) containing the split data, output as numpy.ndarray’s.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)">tuple</a></p>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
 </dd>
 </dl>
-<p class="rubric">Example</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span>
-<span class="gp">&gt;&gt;&gt; </span>                                   <span class="n">train</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">random_seed</span> <span class="o">=</span> <span class="mi">42</span><span class="p">)</span>
-</pre></div>
-</div>
+<p><strong>X_train</strong>: A numpy.ndarray of shape (n_train,n_dim) containing the training inputs.
+<strong>X_test</strong>: A numpy.ndarray of shape (n_test,n_dim) containing the test inputs.
+<strong>y_train</strong>: A numpy.ndarray of shape (n_train,1) containing the training outputs/targets.
+<strong>y_test</strong>: A numpy.ndarray of shape (n_test,1) containing the test outputs/targets.</p>
 </dd></dl>
 
 </div>

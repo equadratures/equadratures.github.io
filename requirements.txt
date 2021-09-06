@@ -1,0 +1,8 @@
+sphinx
+sphinxcontrib-napoleon
+sphinx-panels
+sphinx-copybutton
+nbsphinx
+sphinx-gallery
+pydata-sphinx-theme
+pandoc

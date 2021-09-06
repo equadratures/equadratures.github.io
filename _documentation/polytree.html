@@ -144,7 +144,7 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search equadratures..." aria-label="Search equadratures..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <div class="bd-toc-item active">
-    <p class="caption">
+    <p class="caption" role="heading">
  <span class="caption-text">
   Core modules
  </span>
@@ -166,7 +166,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Additional modules
  </span>
@@ -262,65 +262,70 @@
 <span id="polynomial-regression-trees"></span><h1>Polynomial Regression Trees<a class="headerlink" href="#module-equadratures.polytree" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="equadratures.polytree.PolyTree">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">equadratures.polytree.</span></span><span class="sig-name descname"><span class="pre">PolyTree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">splitting_criterion</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'model_aware'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_depth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_samples_leaf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'total-order'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'exhaustive'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">samples</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">poly_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'least-squares'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">poly_solver_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">all_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split_dims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distribution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'uniform'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/polytree.html#PolyTree"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.polytree.PolyTree" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">equadratures.polytree.</span></span><span class="sig-name descname"><span class="pre">PolyTree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">splitting_criterion</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'model_aware'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_depth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_samples_leaf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">basis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'total-order'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'exhaustive'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">samples</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">poly_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'least-squares'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">poly_solver_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">all_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split_dims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/polytree.html#PolyTree"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.polytree.PolyTree" title="Permalink to this definition">¶</a></dt>
 <dd><p>Definition of a polynomial tree object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>splitting_criterion</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>optional</em>) – The type of splitting_criterion to use in the fit function. Options include <code class="docutils literal notranslate"><span class="pre">model_aware</span></code> which fits polynomials for each candidate split, <code class="docutils literal notranslate"><span class="pre">model_agnostic</span></code> which uses a standard deviation based model-agnostic split criterion [1], and <code class="docutils literal notranslate"><span class="pre">loss_gradient</span></code> which uses a gradient based splitting criterion similar to that in [2].</p></li>
-<li><p><strong>max_depth</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) – The maximum depth which the tree will grow to.</p></li>
-<li><p><strong>min_samples_leaf</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) – The minimum number of samples per leaf node.</p></li>
-<li><p><strong>order</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) – The order of the generated orthogonal polynomials.</p></li>
-<li><p><strong>basis</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>optional</em>) – The type of index set used for the basis. Options include: <code class="docutils literal notranslate"><span class="pre">univariate</span></code>, <code class="docutils literal notranslate"><span class="pre">total-order</span></code>, <code class="docutils literal notranslate"><span class="pre">tensor-grid</span></code>, <code class="docutils literal notranslate"><span class="pre">sparse-grid</span></code> and <code class="docutils literal notranslate"><span class="pre">hyperbolic-basis</span></code>.</p></li>
-<li><p><strong>search</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>optional</em>) – The method of search to be used. Options are <code class="docutils literal notranslate"><span class="pre">grid</span></code> or <code class="docutils literal notranslate"><span class="pre">exhaustive</span></code>.</p></li>
-<li><p><strong>samples</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) – The interval between splits if <code class="docutils literal notranslate"><span class="pre">grid</span></code> search is chosen.</p></li>
-<li><p><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – For debugging.</p></li>
-<li><p><strong>all_data</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – Store data at all nodes in <a class="reference internal" href="#equadratures.polytree.PolyTree" title="equadratures.polytree.PolyTree"><code class="xref py py-class docutils literal notranslate"><span class="pre">PolyTree</span></code></a> (instead of only leaf nodes).</p></li>
-<li><p><strong>split_dims</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em>, </em><em>optional</em>) – List of dimensions along which to make splits.</p></li>
-<li><p><strong>k</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a><em>, </em><em>optional</em>) – The smoothing parameter. Range from 0.0 to 1.0, with 0 giving no smoothing, and 1 giving maximum smoothing.</p></li>
-<li><p><strong>distribution</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>optional</em>) – The type of input parameter distributions. Either <code class="docutils literal notranslate"><span class="pre">uniform</span></code> or <code class="docutils literal notranslate"><span class="pre">data</span></code>.</p></li>
+<li><p><strong>splitting_criterion</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – The type of splitting_criterion to use in the fit function. Options include <code class="docutils literal notranslate"><span class="pre">model_aware</span></code> which fits polynomials for each candidate split, <code class="docutils literal notranslate"><span class="pre">model_agnostic</span></code> which uses a standard deviation based model-agnostic split criterion [1], and <code class="docutils literal notranslate"><span class="pre">loss_gradient</span></code> which uses a gradient based splitting criterion similar to that in [2].</p></li>
+<li><p><strong>max_depth</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The maximum depth which the tree will grow to.</p></li>
+<li><p><strong>min_samples_leaf</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The minimum number of samples per leaf node.</p></li>
+<li><p><strong>order</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The order of the generated orthogonal polynomials.</p></li>
+<li><p><strong>basis</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – The type of index set used for the basis. Options include: <code class="docutils literal notranslate"><span class="pre">univariate</span></code>, <code class="docutils literal notranslate"><span class="pre">total-order</span></code>, <code class="docutils literal notranslate"><span class="pre">tensor-grid</span></code>, <code class="docutils literal notranslate"><span class="pre">sparse-grid</span></code> and <code class="docutils literal notranslate"><span class="pre">hyperbolic-basis</span></code></p></li>
+<li><p><strong>search</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – The method of search to be used. Options are <code class="docutils literal notranslate"><span class="pre">grid</span></code> or <code class="docutils literal notranslate"><span class="pre">exhaustive</span></code>.</p></li>
+<li><p><strong>samples</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The interval between splits if <code class="docutils literal notranslate"><span class="pre">grid</span></code> search is chosen.</p></li>
+<li><p><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – For debugging</p></li>
+<li><p><strong>all_data</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – Save data at all nodes (instead of only leaf nodes).</p></li>
+<li><p><strong>split_dims</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a>) – List of dimensions along which to make splits.</p></li>
 </ul>
 </dd>
 </dl>
-<p class="rubric">Example</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tree</span> <span class="o">=</span> <span class="n">polytree</span><span class="o">.</span><span class="n">PolyTree</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;inputs.txt&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Xtest</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;inputs_test.txt&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;outputs.txt&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">tree</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y_test</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<p><strong>Sample constructor initialisations</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">equadratures</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">tree</span> <span class="o">=</span> <span class="n">polytree</span><span class="o">.</span><span class="n">PolyTree</span><span class="p">()</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;inputs.txt&#39;</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;outputs.txt&#39;</span><span class="p">)</span>
+
+<span class="n">tree</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
-<p class="rubric">References</p>
-<ol class="arabic simple">
+<dl class="simple">
+<dt><strong>References</strong></dt><dd><ol class="arabic simple">
 <li><p>Wang, Y., Witten, I. H., (1997) Inducing Model Trees for Continuous Classes. In Proc. of the 9th European Conf. on Machine Learning Poster Papers. 128-137. <a class="reference external" href="https://researchcommons.waikato.ac.nz/handle/10289/1183">Paper</a></p></li>
 <li><p>Broelemann, K., Kasneci, G., (2019) A Gradient-Based Split Criterion for Highly Accurate and Transparent Model Trees. In Int. Joint Conf. on Artificial Intelligence (IJCAI). 2030-2037. <a class="reference external" href="https://www.ijcai.org/Proceedings/2019/0281.pdf">Paper</a></p></li>
 <li><p>Chan, T. F., Golub, G. H., LeVeque, R. J., (1983) Algorithms for computing the sample variance: Analysis and recommendations. The American Statistician. 37(3): 242–247. <a class="reference external" href="https://www.tandfonline.com/doi/abs/10.1080/00031305.1983.10483115">Paper</a></p></li>
 </ol>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.polytree.PolyTree.apply">
 <span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/polytree.html#PolyTree.apply"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.polytree.PolyTree.apply" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the leaf node index for each observation in the data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>X</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – Array with shape (number_of_observations, dimensions) at which the tree fit must be evaluated at.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<a class="reference internal" href="#equadratures.polytree.PolyTree" title="equadratures.polytree.PolyTree"><em>PolyTree</em></a>) – An instance of the PolyTree class.</p></li>
+<li><p><strong>X</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – An ndarray with shape (number_of_observations, dimensions) at which the tree fit must be evaluated at.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>A numpy.ndarray of shape (number_of_observations,1) corresponding to the node indices for each observation in X.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)">numpy.ndarray</a></p>
+<dd class="field-even"><p></p>
 </dd>
 </dl>
+<p><strong>inode</strong>: A numpy.ndarray of shape (number_of_observations,1) corresponding to the node indices for each observation in X.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.polytree.PolyTree.fit">
 <span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/polytree.html#PolyTree.fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.polytree.PolyTree.fit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fits the PolyTree to the provided data.</p>
+<dd><p>Fits the tree to the provided data</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<a class="reference internal" href="#equadratures.polytree.PolyTree" title="equadratures.polytree.PolyTree"><em>PolyTree</em></a>) – An instance of the PolyTree class.</p></li>
 <li><p><strong>X</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – Training input data</p></li>
 <li><p><strong>y</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – Training output data</p></li>
 </ul>
@@ -331,13 +336,14 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.polytree.PolyTree.get_graphviz">
 <span class="sig-name descname"><span class="pre">get_graphviz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/polytree.html#PolyTree.get_graphviz"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.polytree.PolyTree.get_graphviz" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generates a graphviz visualisation of the PolyTree.</p>
+<dd><p>Returns a url to the rendered graphviz representation of the tree.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>X</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – An ndarray with shape (dimensions) containing an input vector for a given sample, to highlight in the tree.</p></li>
-<li><p><strong>feature_names</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em>, </em><em>optional</em>) – A list of the names of the features used in the training data.</p></li>
-<li><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>optional</em>) – Filename to write graphviz data to. If <code class="docutils literal notranslate"><span class="pre">None</span></code> (default) then rendered in-place, if <code class="docutils literal notranslate"><span class="pre">'source'</span></code>, the raw graphviz string is returned.</p></li>
+<li><p><strong>self</strong> (<a class="reference internal" href="#equadratures.polytree.PolyTree" title="equadratures.polytree.PolyTree"><em>PolyTree</em></a>) – An instance of the PolyTree class.</p></li>
+<li><p><strong>X</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – An ndarray with shape (dimensions) containing an input vector for a given sample, to highlight in the tree (optional).</p></li>
+<li><p><strong>feature_names</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a>) – A list of the names of the features used in the training data (optional).</p></li>
+<li><p><strong>filename</strong> (<em>string</em>) – Filename to write graphviz data to (optional). If None (default) then rendered in-place.</p></li>
 </ul>
 </dd>
 </dl>
@@ -348,13 +354,14 @@
 <span class="sig-name descname"><span class="pre">get_leaves</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/polytree.html#PolyTree.get_leaves"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.polytree.PolyTree.get_leaves" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the node indices for all leaf nodes.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>Contains the node indices of all leaf nodes.</p>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>self</strong> (<a class="reference internal" href="#equadratures.polytree.PolyTree" title="equadratures.polytree.PolyTree"><em>PolyTree</em></a>) – An instance of the PolyTree class.</p>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)">list</a></p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
 </dd>
 </dl>
+<p><strong>inode</strong>: A list containing the node indices of all leaf nodes.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -362,11 +369,13 @@
 <span class="sig-name descname"><span class="pre">get_mean_and_variance</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/polytree.html#PolyTree.get_mean_and_variance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.polytree.PolyTree.get_mean_and_variance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the mean and variance of the polynomial tree model.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>Tuple (mean,variance) containing two floats; the approximated mean and variance from the fitted PolyTree.</p>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>self</strong> (<a class="reference internal" href="poly.html#equadratures.poly.Poly" title="equadratures.poly.Poly"><em>Poly</em></a>) – An instance of the PolyTree class.</p>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)">tuple</a></p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><p><strong>mean</strong>: The approximated mean of the polynomial tree fit; output as a float.</p>
+<p><strong>variance</strong>: The approximated variance of the polynomial tree fit; output as a float.</p>
+</p>
 </dd>
 </dl>
 </dd></dl>
@@ -374,18 +383,19 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.polytree.PolyTree.get_node">
 <span class="sig-name descname"><span class="pre">get_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inode</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/polytree.html#PolyTree.get_node"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.polytree.PolyTree.get_node" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the node corresponding to a given node number.</p>
+<dd><p>Returns the node corresponding to a given node number inode (int).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>inode</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The node number.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<a class="reference internal" href="#equadratures.polytree.PolyTree" title="equadratures.polytree.PolyTree"><em>PolyTree</em></a>) – An instance of the PolyTree class.</p></li>
+<li><p><strong>inode</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – An int containing the node index.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Dictionary containing the data for the requested node.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a></p>
+<dd class="field-even"><p></p>
 </dd>
 </dl>
+<p><strong>node</strong>: The data for the node X belongs to; output as a dict.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -394,27 +404,28 @@
 <dd><p>Returns the tree paths for the leaf nodes in the tree.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>X</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – Array with shape (number_of_observations, dimensions) to apply the tree to. If given, paths will only be returned for leaves which contain observations.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<a class="reference internal" href="#equadratures.polytree.PolyTree" title="equadratures.polytree.PolyTree"><em>PolyTree</em></a>) – An instance of the PolyTree class.</p></li>
+<li><p><strong>X</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – An ndarray with shape (number_of_observations, dimensions) to apply the tree to (optional). If given, paths will only be returned for leaves which contain observations.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Dictionary containing a dict for each leaf node. Indexed by the node indices for the leaf nodes.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a></p>
+<dd class="field-even"><p></p>
 </dd>
 </dl>
+<p><strong>paths</strong>: A dict containing a dict for each leaf node. Indexed by the node indexes for the leaf nodes.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.polytree.PolyTree.get_polys">
 <span class="sig-name descname"><span class="pre">get_polys</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/polytree.html#PolyTree.get_polys"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.polytree.PolyTree.get_polys" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns all of the polynomials fitted at each node in the tree.</p>
+<dd><p>Returns the list of polynomials used in the tree</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>A list of Poly objects.</p>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>self</strong> (<a class="reference internal" href="#equadratures.polytree.PolyTree" title="equadratures.polytree.PolyTree"><em>PolyTree</em></a>) – An instance of the PolyTree class.</p>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)">list</a></p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>polys</strong>: A list of Poly objects</p>
 </dd>
 </dl>
 </dd></dl>
@@ -422,13 +433,13 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.polytree.PolyTree.get_splits">
 <span class="sig-name descname"><span class="pre">get_splits</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/polytree.html#PolyTree.get_splits"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.polytree.PolyTree.get_splits" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns all of the data splits made.</p>
+<dd><p>Returns the list of splits made</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>A list of splits made in the format of a nested list: [[split, dimension], …]</p>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>self</strong> (<a class="reference internal" href="#equadratures.polytree.PolyTree" title="equadratures.polytree.PolyTree"><em>PolyTree</em></a>) – An instance of the PolyTree class.</p>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)">list</a></p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>splits</strong>: A list of Splits made in the format of a nested list: [[split, dimension], …]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -436,22 +447,38 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.polytree.PolyTree.plot_decision_surface">
 <span class="sig-name descname"><span class="pre">plot_decision_surface</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ij</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_depth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'data'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colorbar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/polytree.html#PolyTree.plot_decision_surface"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.polytree.PolyTree.plot_decision_surface" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plots the decision boundaries of the PolyTree over a 2D surface. See <a class="reference internal" href="plot.html#equadratures.plot.plot_decision_surface" title="equadratures.plot.plot_decision_surface"><code class="xref py py-meth docutils literal notranslate"><span class="pre">plot_decision_surface()</span></code></a> for full description.</p>
+<dd><p>Plots the decision boundaries of the PolyTree over a 2D surface.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<a class="reference internal" href="#equadratures.polytree.PolyTree" title="equadratures.polytree.PolyTree"><em>PolyTree</em></a>) – An instance of the PolyTree class.</p></li>
+<li><p><strong>ij</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a>) – A list containing the two dimensions to plot over. For example, <code class="docutils literal notranslate"><span class="pre">ij=[6,7]</span></code> with plot over the 6th and 7th dimensions in <code class="docutils literal notranslate"><span class="pre">X</span></code>.</p></li>
+<li><p><strong>ax</strong> (<em>matplotlib.ax</em>) – An instance of the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> axes class to plot onto. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, a new figure and axes are created (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>).</p></li>
+<li><p><strong>X</strong> (<em>:numpy.ndarray</em>) – A numpy ndarray containing the input data to plot.</p></li>
+<li><p><strong>y</strong> (<em>:numpy.ndarray</em>) – A numpy ndarray containing the output data to plot.</p></li>
+<li><p><strong>max_depth</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The maximum tree depth to plot decision boundaries for.</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code> then the subdomains are labelled by their node number.</p></li>
+<li><p><strong>color</strong> (<em>string</em>) – What to color the scatter points by. <code class="docutils literal notranslate"><span class="pre">'data'</span></code> to color by the <code class="docutils literal notranslate"><span class="pre">X</span></code>,``y`` data. <code class="docutils literal notranslate"><span class="pre">'predict'</span></code> to color by the PolyTree predictions, and <code class="docutils literal notranslate"><span class="pre">'error'</span></code> to color by the predictive error. (default: <code class="docutils literal notranslate"><span class="pre">'data'</span></code>).</p></li>
+<li><p><strong>colorbar</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – Option to add a colorbar.</p></li>
+<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – Option to view the plot.</p></li>
+<li><p><strong>kwargs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – Dictionary of keyword arguments to pass to matplotlib.scatter().</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.polytree.PolyTree.predict">
 <span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/polytree.html#PolyTree.predict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.polytree.PolyTree.predict" title="Permalink to this definition">¶</a></dt>
-<dd><p>Evaluates the the polynomial tree approximation of the data.</p>
+<dd><p>Evaluates the the polynomial tree approximation of the data.
+:param numpy.ndarray X:</p>
+<blockquote>
+<div><p>An ndarray with shape (number_of_observations, dimensions) at which the tree fit must be evaluated at.</p>
+</div></blockquote>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>X</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – An ndarray with shape (number_of_observations, dimensions) at which the tree fit must be evaluated at.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Array with shape (1, number_of_observations) corresponding to the polynomial approximations of the tree.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)">numpy.ndarray</a></p>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>y</strong>:
+A numpy.ndarray of shape (1, number_of_observations) corresponding to the polynomial approximation of the tree.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -463,10 +490,11 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<a class="reference internal" href="#equadratures.polytree.PolyTree" title="equadratures.polytree.PolyTree"><em>PolyTree</em></a>) – An instance of the PolyTree class.</p></li>
 <li><p><strong>X</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – Training input data</p></li>
 <li><p><strong>y</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – Training output data</p></li>
-<li><p><strong>tol</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a><em>, </em><em>optional</em>) – Pruning tolerance (%). Prune nodes if they only improve loss by less than this tolerance.</p></li>
-<li><p><strong>percent</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – If true, tol is taken as a percentage of the parent node’s error. Otherwise, tol is taken to be an absolute value.</p></li>
+<li><p><strong>tol</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a>) – Pruning tolerance (%). Prune nodes if they only improve loss by less than this tolerance (optional).</p></li>
+<li><p><strong>percent</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – If true, tol is taken as a percentage of the parent node’s error. Otherwise, tol is taken to be an absolute value.</p></li>
 </ul>
 </dd>
 </dl>

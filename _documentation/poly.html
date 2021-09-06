@@ -144,7 +144,7 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search equadratures..." aria-label="Search equadratures..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <div class="bd-toc-item active">
-    <p class="caption">
+    <p class="caption" role="heading">
  <span class="caption-text">
   Core modules
  </span>
@@ -166,7 +166,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Additional modules
  </span>
@@ -263,70 +263,69 @@
 <p>The polynomial parent class; one of the main building blocks in Effective Quadratures.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="equadratures.poly.Poly">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">equadratures.poly.</span></span><span class="sig-name descname"><span class="pre">Poly</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">basis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampling_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">override_cardinality</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">equadratures.poly.</span></span><span class="sig-name descname"><span class="pre">Poly</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">basis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampling_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly" title="Permalink to this definition">¶</a></dt>
 <dd><p>Definition of a polynomial object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>parameters</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a>) – A list of parameters, where each element of the list is an instance of the Parameter class.</p></li>
 <li><p><strong>basis</strong> (<a class="reference internal" href="basis.html#equadratures.basis.Basis" title="equadratures.basis.Basis"><em>Basis</em></a>) – An instance of the Basis class corresponding to the multi-index set used.</p></li>
-<li><p><strong>method</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>optional</em>) – The method used for computing the coefficients. Should be one of: <code class="docutils literal notranslate"><span class="pre">compressed-sensing</span></code>, <code class="docutils literal notranslate"><span class="pre">least-squares</span></code>, <code class="docutils literal notranslate"><span class="pre">minimum-norm</span></code>, <code class="docutils literal notranslate"><span class="pre">numerical-integration</span></code>, <code class="docutils literal notranslate"><span class="pre">least-squares-with-gradients</span></code>, <code class="docutils literal notranslate"><span class="pre">least-absolute-residual</span></code>, <code class="docutils literal notranslate"><span class="pre">huber</span></code>, <code class="docutils literal notranslate"><span class="pre">elastic-net</span></code>, <code class="docutils literal notranslate"><span class="pre">relevance-vector-machine</span></code> or <code class="docutils literal notranslate"><span class="pre">custom-solver</span></code>. See <a class="reference internal" href="solver.html#equadratures.solver.Solver" title="equadratures.solver.Solver"><code class="xref py py-class docutils literal notranslate"><span class="pre">Solver</span></code></a> for further details.</p></li>
-<li><p><strong>sampling_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a><em>, </em><em>optional</em>) – <p>A dict containing optional arguments centered around the specific sampling strategy:</p>
-<blockquote>
-<div><ul>
-<li><p><strong>mesh</strong> (str): Avaliable options are: <code class="docutils literal notranslate"><span class="pre">monte-carlo</span></code>, <code class="docutils literal notranslate"><span class="pre">sparse-grid</span></code>, <code class="docutils literal notranslate"><span class="pre">tensor-grid</span></code>, <code class="docutils literal notranslate"><span class="pre">induced</span></code>, or <code class="docutils literal notranslate"><span class="pre">user-defined</span></code>. Note that when the <code class="docutils literal notranslate"><span class="pre">sparse-grid</span></code> option is invoked, the sparse pseudospectral approximation method [1] is the adopted. One can think of this as being the correct way to use sparse grids in the context of polynomial chaos [2] techniques.</p></li>
-<li><p><strong>subsampling-algorithm</strong> (str): The <code class="docutils literal notranslate"><span class="pre">subsampling-algorithm</span></code> input refers to the optimisation technique for subsampling. In the aforementioned four sampling strategies, we generate a logarithm factor of samples above the required amount and prune down the samples using an optimisation technique (see [1]). Existing optimisation strategies include: <code class="docutils literal notranslate"><span class="pre">qr</span></code>, <code class="docutils literal notranslate"><span class="pre">lu</span></code>, <code class="docutils literal notranslate"><span class="pre">svd</span></code>, <code class="docutils literal notranslate"><span class="pre">newton</span></code>. These refer to QR with column pivoting [2], LU with row pivoting [3], singular value decomposition with subset selection [2] and a convex relaxation via Newton’s method for determinant maximization [4]. Note that if the <code class="docutils literal notranslate"><span class="pre">tensor-grid</span></code> option is selected, then subsampling will depend on whether the Basis argument is a total order index set, hyperbolic basis or a tensor order index set.</p></li>
-<li><p><strong>sampling-ratio</strong> (float): Denotes the extent of undersampling or oversampling required. For values equal to unity (default), the number of rows and columns of the associated Vandermonde-type matrix are equal.</p></li>
-<li><p><strong>sample-points</strong> (numpy.ndarray): A numpy ndarray with shape (number_of_observations, dimensions) that corresponds to a set of sample points over the parameter space.</p></li>
-<li><p><strong>sample-outputs</strong> (numpy.ndarray): A numpy ndarray with shape (number_of_observations, 1) that corresponds to model evaluations at the sample points. Note that if <code class="docutils literal notranslate"><span class="pre">sample-points</span></code> is provided as an input, then the code expects <code class="docutils literal notranslate"><span class="pre">sample-outputs</span></code> too.</p></li>
-<li><p><strong>sample-gradients</strong> (numpy.ndarray): A numpy ndarray with shape (number_of_observations, dimensions) that corresponds to a set of sample gradient values over the parameter space.</p></li>
-</ul>
-</div></blockquote>
-</p></li>
-<li><p><strong>solver_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a><em>, </em><em>optional</em>) – Optional arguments centered around the specific solver used for computing the coefficients. See <a class="reference internal" href="solver.html#equadratures.solver.Solver" title="equadratures.solver.Solver"><code class="xref py py-class docutils literal notranslate"><span class="pre">Solver</span></code></a>.</p></li>
-<li><p><strong>override_cardinality</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to override the soft cardinality limit of 50E3. By default the limit is enforced in order to avoid excessively long run times when the polynomial coefficients are computed.</p></li>
+<li><p><strong>method</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – The method used for computing the coefficients. Should be one of: <code class="docutils literal notranslate"><span class="pre">compressed-sensing</span></code>, <code class="docutils literal notranslate"><span class="pre">least-squares</span></code>, <code class="docutils literal notranslate"><span class="pre">minimum-norm</span></code>, <code class="docutils literal notranslate"><span class="pre">numerical-integration</span></code>, <code class="docutils literal notranslate"><span class="pre">least-squares-with-gradients</span></code>, <code class="docutils literal notranslate"><span class="pre">least-absolute-residual</span></code>, <code class="docutils literal notranslate"><span class="pre">huber</span></code>, <code class="docutils literal notranslate"><span class="pre">elastic-net</span></code>, <code class="docutils literal notranslate"><span class="pre">elastic-path</span></code> or <code class="docutils literal notranslate"><span class="pre">relevance-vector-machine</span></code>.</p></li>
+<li><p><strong>sampling_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – Optional arguments centered around the specific sampling strategy.
+:string mesh: Avaliable options are: <code class="docutils literal notranslate"><span class="pre">monte-carlo</span></code>, <code class="docutils literal notranslate"><span class="pre">sparse-grid</span></code>, <code class="docutils literal notranslate"><span class="pre">tensor-grid</span></code>, <code class="docutils literal notranslate"><span class="pre">induced</span></code>, or <code class="docutils literal notranslate"><span class="pre">user-defined</span></code>. Note that when the <code class="docutils literal notranslate"><span class="pre">sparse-grid</span></code> option is invoked, the sparse pseudospectral approximation method [1] is the adopted. One can think of this as being the correct way to use sparse grids in the context of polynomial chaos [2] techniques.
+:string subsampling-algorithm: The <code class="docutils literal notranslate"><span class="pre">subsampling-algorithm</span></code> input refers to the optimisation technique for subsampling. In the aforementioned four sampling strategies, we generate a logarithm factor of samples above the required amount and prune down the samples using an optimisation technique (see [1]). Existing optimisation strategies include: <code class="docutils literal notranslate"><span class="pre">qr</span></code>, <code class="docutils literal notranslate"><span class="pre">lu</span></code>, <code class="docutils literal notranslate"><span class="pre">svd</span></code>, <code class="docutils literal notranslate"><span class="pre">newton</span></code>. These refer to QR with column pivoting [2], LU with row pivoting [3], singular value decomposition with subset selection [2] and a convex relaxation via Newton’s method for determinant maximization [4]. Note that if the <code class="docutils literal notranslate"><span class="pre">tensor-grid</span></code> option is selected, then subsampling will depend on whether the Basis argument is a total order index set, hyperbolic basis or a tensor order index set.
+:float sampling-ratio: Denotes the extent of undersampling or oversampling required. For values equal to unity (default), the number of rows and columns of the associated Vandermonde-type matrix are equal.
+:numpy.ndarray sample-points: A numpy ndarray with shape (number_of_observations, dimensions) that corresponds to a set of sample points over the parameter space.
+:numpy.ndarray sample-outputs: A numpy ndarray with shape (number_of_observations, 1) that corresponds to model evaluations at the sample points. Note that if <code class="docutils literal notranslate"><span class="pre">sample-points</span></code> is provided as an input, then the code expects <code class="docutils literal notranslate"><span class="pre">sample-outputs</span></code> too.
+:numpy.ndarray sample-gradients: A numpy ndarray with shape (number_of_observations, dimensions) that corresponds to a set of sample gradient values over the parameter space.</p></li>
+<li><p><strong>solver_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – Optional arguments centered around the specific solver used for computing the coefficients.</p></li>
 </ul>
 </dd>
 </dl>
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Subsampling from a tensor grid</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">param</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">lower</span><span class="o">=-</span><span class="mf">1.</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">basis</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Basis</span><span class="p">(</span><span class="s1">&#39;total order&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">poly</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Poly</span><span class="p">(</span><span class="n">parameters</span><span class="o">=</span><span class="p">[</span><span class="n">param</span><span class="p">,</span> <span class="n">param</span><span class="p">],</span> <span class="n">basis</span><span class="o">=</span><span class="n">basis</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;least-squares&#39;</span> <span class="p">,</span> <span class="n">sampling_args</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;mesh&#39;</span><span class="p">:</span><span class="s1">&#39;tensor-grid&#39;</span><span class="p">,</span> <span class="s1">&#39;subsampling-algorithm&#39;</span><span class="p">:</span><span class="s1">&#39;svd&#39;</span><span class="p">,</span> <span class="s1">&#39;sampling-ratio&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">})</span>
+<p><strong>Sample constructor initialisations</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">equadratures</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="c1"># Subsampling from a tensor grid</span>
+<span class="n">param</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">lower</span><span class="o">=-</span><span class="mf">1.</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">basis</span> <span class="o">=</span> <span class="n">Basis</span><span class="p">(</span><span class="s1">&#39;total order&#39;</span><span class="p">)</span>
+<span class="n">poly</span> <span class="o">=</span> <span class="n">Poly</span><span class="p">(</span><span class="n">parameters</span><span class="o">=</span><span class="p">[</span><span class="n">param</span><span class="p">,</span> <span class="n">param</span><span class="p">],</span> <span class="n">basis</span><span class="o">=</span><span class="n">basis</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;least-squares&#39;</span> <span class="p">,</span> <span class="n">sampling_args</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;mesh&#39;</span><span class="p">:</span><span class="s1">&#39;tensor-grid&#39;</span><span class="p">,</span> <span class="s1">&#39;subsampling-algorithm&#39;</span><span class="p">:</span><span class="s1">&#39;svd&#39;</span><span class="p">,</span> <span class="s1">&#39;sampling-ratio&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">})</span>
+
+<span class="c1"># User-defined data with compressive sensing</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;inputs.txt&#39;</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;outputs.txt&#39;</span><span class="p">)</span>
+<span class="n">param</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">lower</span><span class="o">=-</span><span class="mf">1.</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">basis</span> <span class="o">=</span> <span class="n">Basis</span><span class="p">(</span><span class="s1">&#39;total order&#39;</span><span class="p">)</span>
+<span class="n">poly</span> <span class="o">=</span> <span class="n">Poly</span><span class="p">([</span><span class="n">param</span><span class="p">,</span> <span class="n">param</span><span class="p">],</span> <span class="n">basis</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;compressive-sensing&#39;</span><span class="p">,</span> <span class="n">sampling_args</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;sample-points&#39;</span><span class="p">:</span><span class="n">X_red</span><span class="p">,</span>                                                                <span class="s1">&#39;sample-outputs&#39;</span><span class="p">:</span><span class="n">Y_red</span><span class="p">})</span>
+
+<span class="c1"># Using a sparse grid</span>
+<span class="n">param</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">lower</span><span class="o">=-</span><span class="mf">1.</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">basis</span> <span class="o">=</span> <span class="n">Basis</span><span class="p">(</span><span class="s1">&#39;sparse-grid&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">growth_rule</span><span class="o">=</span><span class="s1">&#39;exponential&#39;</span><span class="p">)</span>
+<span class="n">poly</span> <span class="o">=</span> <span class="n">Poly</span><span class="p">(</span><span class="n">parameters</span><span class="o">=</span><span class="p">[</span><span class="n">param</span><span class="p">,</span> <span class="n">param</span><span class="p">],</span> <span class="n">basis</span><span class="o">=</span><span class="n">basis</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;numerical-integration&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># User-defined data with compressive sensing</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;inputs.txt&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;outputs.txt&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">param</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">lower</span><span class="o">=-</span><span class="mf">1.</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">basis</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Basis</span><span class="p">(</span><span class="s1">&#39;total order&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">poly</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Poly</span><span class="p">([</span><span class="n">param</span><span class="p">,</span> <span class="n">param</span><span class="p">],</span> <span class="n">basis</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;compressive-sensing&#39;</span><span class="p">,</span> <span class="n">sampling_args</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;sample-points&#39;</span><span class="p">:</span><span class="n">X_red</span><span class="p">,</span><span class="s1">&#39;sample-outputs&#39;</span><span class="p">:</span><span class="n">Y_red</span><span class="p">})</span>
-</pre></div>
-</div>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Using a sparse grid</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">param</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">lower</span><span class="o">=-</span><span class="mf">1.</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">basis</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Basis</span><span class="p">(</span><span class="s1">&#39;sparse-grid&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">growth_rule</span><span class="o">=</span><span class="s1">&#39;exponential&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">poly</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Poly</span><span class="p">(</span><span class="n">parameters</span><span class="o">=</span><span class="p">[</span><span class="n">param</span><span class="p">,</span> <span class="n">param</span><span class="p">],</span> <span class="n">basis</span><span class="o">=</span><span class="n">basis</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;numerical-integration&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p class="rubric">References</p>
-<ol class="arabic simple">
+<dl class="simple">
+<dt><strong>References</strong></dt><dd><ol class="arabic simple">
 <li><p>Constantine, P. G., Eldred, M. S., Phipps, E. T., (2012) Sparse Pseudospectral Approximation Method. Computer Methods in Applied Mechanics and Engineering. 1-12. <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0045782512000953">Paper</a></p></li>
 <li><p>Xiu, D., Karniadakis, G. E., (2002) The Wiener-Askey Polynomial Chaos for Stochastic Differential Equations. SIAM Journal on Scientific Computing,  24(2), <a class="reference external" href="https://epubs.siam.org/doi/abs/10.1137/S1064827501387826?journalCode=sjoce3">Paper</a></p></li>
 <li><p>Seshadri, P., Iaccarino, G., Ghisu, T., (2018) Quadrature Strategies for Constructing Polynomial Approximations. Uncertainty Modeling for Engineering Applications. Springer, Cham, 2019. 1-25. <a class="reference external" href="https://arxiv.org/pdf/1805.07296.pdf">Preprint</a></p></li>
 <li><p>Seshadri, P., Narayan, A., Sankaran M., (2017) Effectively Subsampled Quadratures for Least Squares Polynomial Approximations. SIAM/ASA Journal on Uncertainty Quantification, 5(1). <a class="reference external" href="https://epubs.siam.org/doi/abs/10.1137/16M1057668">Paper</a></p></li>
+<li><p>Bos, L., De Marchi, S., Sommariva, A., Vianello, M., (2010) Computing Multivariate Fekete and Leja points by Numerical Linear Algebra. SIAM Journal on Numerical Analysis, 48(5). <a class="reference external" href="https://epubs.siam.org/doi/abs/10.1137/090779024">Paper</a></p></li>
+<li><p>Joshi, S., Boyd, S., (2009) Sensor Selection via Convex Optimization. IEEE Transactions on Signal Processing, 57(2). <a class="reference external" href="https://ieeexplore.ieee.org/document/4663892">Paper</a></p></li>
 <li><p>Rogers, S., Girolami, M., (2016) Variability in predictions. In: A First Course in Machine Learning, Second Edition (2nd. ed.). Chapman &amp; Hall/CRC. <a class="reference external" href="https://github.com/wwkenwong/book/blob/master/Simon%20Rogers%2C%20Mark%20Girolami%20A%20First%20Course%20in%20Machine%20Learning.pdf">Book</a></p></li>
 </ol>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.poly.Poly.get_coefficients">
 <span class="sig-name descname"><span class="pre">get_coefficients</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_coefficients"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_coefficients" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the coefficients of the polynomial approximation.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The coefficients with size (number_of_coefficients, 1).</p>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>self</strong> (<a class="reference internal" href="#equadratures.poly.Poly" title="equadratures.poly.Poly"><em>Poly</em></a>) – An instance of the Poly object.</p>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)">numpy.ndarray</a></p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>coefficients</strong>: A numpy.ndarray of the coefficients with size (number_of_coefficients, 1).</p>
 </dd>
 </dl>
 </dd></dl>
@@ -337,13 +336,13 @@
 <dd><p>Computes the kurtosis indices.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>order</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The highest order of the kurtosis indices required.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<a class="reference internal" href="#equadratures.poly.Poly" title="equadratures.poly.Poly"><em>Poly</em></a>) – An instance of the Poly class.</p></li>
+<li><p><strong>order</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The highest order of the kurtosis indices required.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>A dict comprising of kurtosis indices and constitutent mixed orders of the parameters.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a></p>
+<dd class="field-even"><p><strong>kurtosis_indices</strong>: A dict comprising of kurtosis indices and constitutent mixed orders of the parameters.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -354,13 +353,13 @@
 <dd><p>Computes the skewness indices.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>order</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The highest order of the skewness indices required.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<a class="reference internal" href="#equadratures.poly.Poly" title="equadratures.poly.Poly"><em>Poly</em></a>) – An instance of the Poly class.</p></li>
+<li><p><strong>order</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The highest order of the skewness indices required.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>A dict comprising of skewness indices and constitutent mixed orders of the parameters.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a></p>
+<dd class="field-even"><p><strong>skewness_indices</strong>: A dict comprising of skewness indices and constitutent mixed orders of the parameters.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -370,11 +369,13 @@
 <span class="sig-name descname"><span class="pre">get_mean_and_variance</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_mean_and_variance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_mean_and_variance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the mean and variance of the model.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>Tuple containing two floats; the approximated mean and variance from the polynomial fit.</p>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>self</strong> (<a class="reference internal" href="#equadratures.poly.Poly" title="equadratures.poly.Poly"><em>Poly</em></a>) – An instance of the Poly class.</p>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)">tuple</a></p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><p><strong>mean</strong>: The approximated mean of the polynomial fit; output as a float.</p>
+<p><strong>variance</strong>: The approximated variance of the polynomial fit; output as a float.</p>
+</p>
 </dd>
 </dl>
 </dd></dl>
@@ -382,13 +383,10 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.poly.Poly.get_model_evaluations">
 <span class="sig-name descname"><span class="pre">get_model_evaluations</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_model_evaluations"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_model_evaluations" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the output model evaluations used to fit the polynomial.</p>
+<dd><p>Returns the points at which the model was evaluated at.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>Array containing the output model evaluations.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)">numpy.ndarray</a></p>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>self</strong> (<a class="reference internal" href="#equadratures.poly.Poly" title="equadratures.poly.Poly"><em>Poly</em></a>) – An instance of the Poly class.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -398,11 +396,11 @@
 <span class="sig-name descname"><span class="pre">get_multi_index</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_multi_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_multi_index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the multi-index set of the basis.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>Array of the coefficients with size (cardinality_of_basis, dimensions).</p>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>self</strong> (<a class="reference internal" href="#equadratures.poly.Poly" title="equadratures.poly.Poly"><em>Poly</em></a>) – An instance of the Poly object.</p>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)">numpy.ndarray</a></p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>multi_indices</strong>: A numpy.ndarray of the coefficients with size (cardinality_of_basis, dimensions).</p>
 </dd>
 </dl>
 </dd></dl>
@@ -410,13 +408,10 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.poly.Poly.get_parameters">
 <span class="sig-name descname"><span class="pre">get_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_parameters" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the list of parameters.</p>
+<dd><p>Returns the list of parameters</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>Contains the <a class="reference internal" href="parameter.html#equadratures.parameter.Parameter" title="equadratures.parameter.Parameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code></a> objects belonging to the polynomial.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)">list</a></p>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>self</strong> (<a class="reference internal" href="#equadratures.poly.Poly" title="equadratures.poly.Poly"><em>Poly</em></a>) – An instance of the Poly object.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -426,11 +421,11 @@
 <span class="sig-name descname"><span class="pre">get_points</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_points"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_points" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the samples based on the sampling strategy.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The sampled quadrature points with shape (number_of_samples, dimension).</p>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>self</strong> (<a class="reference internal" href="#equadratures.poly.Poly" title="equadratures.poly.Poly"><em>Poly</em></a>) – An instance of the Poly object.</p>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)">numpy.ndarray</a></p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>points</strong>: A numpy.ndarray of sampled quadrature points with shape (number_of_samples, dimension).</p>
 </dd>
 </dl>
 </dd></dl>
@@ -440,11 +435,13 @@
 <span class="sig-name descname"><span class="pre">get_points_and_weights</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_points_and_weights"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_points_and_weights" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the samples and weights based on the sampling strategy.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>Tuple containing two ndarrays; the sampled quadrature points with shape (number_of_samples, dimension), and the corresponding quadrature weights with shape (number_of_samples, 1).</p>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>self</strong> (<a class="reference internal" href="#equadratures.poly.Poly" title="equadratures.poly.Poly"><em>Poly</em></a>) – An instance of the Poly object.</p>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)">tuple</a></p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><p><strong>x</strong>: A numpy.ndarray of sampled quadrature points with shape (number_of_samples, dimension).</p>
+<p><strong>w</strong>: A numpy.ndarray of the corresponding quadrature weights with shape (number_of_samples, 1).</p>
+</p>
 </dd>
 </dl>
 </dd></dl>
@@ -456,15 +453,13 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<a class="reference internal" href="#equadratures.poly.Poly" title="equadratures.poly.Poly"><em>Poly</em></a>) – An instance of the Poly class.</p></li>
 <li><p><strong>stack_of_points</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – An ndarray with shape (number of observations, dimensions) at which the polynomial must be evaluated.</p></li>
-<li><p><strong>custom_multi_index</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – Array containing a custom multi-index set, in the format given by <a class="reference internal" href="basis.html#equadratures.basis.Basis.get_elements" title="equadratures.basis.Basis.get_elements"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_elements()</span></code></a>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Array of shape (cardinality, number_of_observations) corresponding to the polynomial basis function evaluations at the stack_of_points.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)">numpy.ndarray</a></p>
+<dd class="field-even"><p><strong>polynomial</strong>: A numpy.ndarray of shape (cardinality, number_of_observations) corresponding to the polynomial basis function evaluations
+at the stack_of_points.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -472,19 +467,18 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.poly.Poly.get_poly_grad">
 <span class="sig-name descname"><span class="pre">get_poly_grad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stack_of_points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_poly_grad"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_poly_grad" title="Permalink to this definition">¶</a></dt>
-<dd><p>Evaluates the gradient for each of the polynomial basis functions at a set of points, with respect to each input variable.</p>
+<dd><p>Evaluates the gradient for each of the polynomial basis functions at a set of points,
+with respect to each input variable.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<a class="reference internal" href="#equadratures.poly.Poly" title="equadratures.poly.Poly"><em>Poly</em></a>) – An instance of the Poly class.</p></li>
 <li><p><strong>stack_of_points</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – An ndarray with shape (number_of_observations, dimensions) at which the gradient must be evaluated.</p></li>
-<li><p><strong>dim_index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) – Index of the dimension to evaluate the gradient for.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>A list with d elements, where d corresponds to the dimension of the problem. Each element is a numpy.ndarray of shape (cardinality, number_of_observations) corresponding to the gradient polynomial evaluations at the stack_of_points.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)">list</a></p>
+<dd class="field-even"><p><strong>Gradients</strong>: A list with d elements, where d corresponds to the dimension of the problem. Each element is a numpy.ndarray of shape
+(cardinality, number_of_observations) corresponding to the gradient polynomial evaluations at the stack_of_points.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -492,16 +486,18 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.poly.Poly.get_poly_hess">
 <span class="sig-name descname"><span class="pre">get_poly_hess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stack_of_points</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_poly_hess"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_poly_hess" title="Permalink to this definition">¶</a></dt>
-<dd><p>Evaluates the Hessian for each of the polynomial basis functions at a set of points, with respect to each input variable.</p>
+<dd><p>Evaluates the Hessian for each of the polynomial basis functions at a set of points,
+with respect to each input variable.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>stack_of_points</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – An ndarray with shape (number_of_observations, dimensions) at which the Hessian must be evaluated.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<a class="reference internal" href="#equadratures.poly.Poly" title="equadratures.poly.Poly"><em>Poly</em></a>) – An instance of the Poly class.</p></li>
+<li><p><strong>stack_of_points</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – An ndarray with shape (number_of_observations, dimensions) at which the Hessian must be evaluated.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>A list with d^2 elements, where d corresponds to the dimension of the model. Each element is a numpy.ndarray of shape (cardinality, number_of_observations) corresponding to the hessian polynomial evaluations at the stack_of_points.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)">list</a></p>
+<dd class="field-even"><p><strong>Hessian</strong>: A list with d^2 elements, where d corresponds to the dimension of the model. Each element is a numpy.ndarray of shape
+(cardinality, number_of_observations) corresponding to the hessian polynomial evaluations at the stack_of_points.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -513,15 +509,13 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<a class="reference internal" href="#equadratures.poly.Poly" title="equadratures.poly.Poly"><em>Poly</em></a>) – An instance of the Poly class.</p></li>
 <li><p><strong>stack_of_points</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – An ndarray with shape (number_of_observations, dimensions) at which the polynomial fit must be evaluated at.</p></li>
-<li><p><strong>uq</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the estimated uncertainty (standard deviation) of the polynomial approximation is also returned (see [5]).</p></li>
+<li><p><strong>uq</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – If true, the estimated uncertainty (standard deviation) of the polynomial approximation is also returned.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Array with shape (1, number_of_observations) corresponding to the polynomial approximation of the model.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)">numpy.ndarray</a></p>
+<dd class="field-even"><p><strong>p</strong>: A numpy.ndarray of shape (1, number_of_observations) corresponding to the polynomial approximation of the model.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -531,11 +525,11 @@
 <span class="sig-name descname"><span class="pre">get_polyfit_function</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_polyfit_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_polyfit_function" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a callable polynomial approximation of a function (or model data).</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>A callable function.</p>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>self</strong> (<a class="reference internal" href="#equadratures.poly.Poly" title="equadratures.poly.Poly"><em>Poly</em></a>) – An instance of the Poly class.</p>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable" title="(in Python v3.9)">Callable</a></p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A callable function.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -547,15 +541,13 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>stack_of_points</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – An ndarray with shape (number_of_observations, dimensions) at which the polynomial fit approximation’s gradient must be evaluated at.</p></li>
-<li><p><strong>dim_index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) – Index of dimension to evaluate gradient for.</p></li>
+<li><p><strong>self</strong> (<a class="reference internal" href="#equadratures.poly.Poly" title="equadratures.poly.Poly"><em>Poly</em></a>) – An instance of the Poly class.</p></li>
+<li><p><strong>stack_of_points</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – An ndarray with shape (number_of_observations, dimensions) at which the polynomial fit approximation’s
+gradient must be evaluated at.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Array of shape (dimensions, number_of_observations) corresponding to the polynomial gradient approximation of the model.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)">numpy.ndarray</a></p>
+<dd class="field-even"><p><strong>p</strong>: A numpy.ndarray of shape (dimensions, number_of_observations) corresponding to the polynomial gradient approximation of the model.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -565,11 +557,11 @@
 <span class="sig-name descname"><span class="pre">get_polyfit_grad_function</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_polyfit_grad_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_polyfit_grad_function" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a callable for the gradients of the polynomial approximation of a function (or model data).</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>A callable function.</p>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>self</strong> (<a class="reference internal" href="#equadratures.poly.Poly" title="equadratures.poly.Poly"><em>Poly</em></a>) – An instance of the Poly class.</p>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable" title="(in Python v3.9)">Callable</a></p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A callable function.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -580,13 +572,14 @@
 <dd><p>Evaluates the hessian of the polynomial approximation of a function (or model data) at prescribed points.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>stack_of_points</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – An ndarray with shape (number_of_observations, dimensions) at which the polynomial fit approximation’s Hessian must be evaluated at.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<a class="reference internal" href="#equadratures.poly.Poly" title="equadratures.poly.Poly"><em>Poly</em></a>) – An instance of the Poly class.</p></li>
+<li><p><strong>stack_of_points</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – An ndarray with shape (number_of_observations, dimensions) at which the polynomial fit approximation’s
+Hessian must be evaluated at.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Array of shape (dimensions, dimensions, number_of_observations) corresponding to the polynomial Hessian approximation of the model.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)">numpy.ndarray</a></p>
+<dd class="field-even"><p><strong>h</strong>: A numpy.ndarray of shape (dimensions, dimensions, number_of_observations) corresponding to the polynomial Hessian approximation of the model.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -596,11 +589,11 @@
 <span class="sig-name descname"><span class="pre">get_polyfit_hess_function</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_polyfit_hess_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_polyfit_hess_function" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a callable for the hessian of the polynomial approximation of a function (or model data).</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>A callable function.</p>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>self</strong> (<a class="reference internal" href="#equadratures.poly.Poly" title="equadratures.poly.Poly"><em>Poly</em></a>) – An instance of the Poly class.</p>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable" title="(in Python v3.9)">Callable</a></p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A callable function.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -608,22 +601,19 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.poly.Poly.get_polyscore">
 <span class="sig-name descname"><span class="pre">get_polyscore</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X_test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'adjusted_r2'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_polyscore"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_polyscore" title="Permalink to this definition">¶</a></dt>
-<dd><p>Evaluates the accuracy of the polynomial approximation using the selected accuracy metric.</p>
-<p>Training accuracy is evaluated on the data used for fitting the polynomial. Testing accuracy is evaluated on new data if it is provided by the <code class="docutils literal notranslate"><span class="pre">X_test</span></code> and <code class="docutils literal notranslate"><span class="pre">y_test</span></code> arguments (both must be provided together).</p>
+<dd><p>Evaluates the accuracy of the polynomial approximation using the selected accuracy metric. Training accuracy is evaluated on the data used for fitting the polynomial. Testing accuracy is evaluated on new data if it is provided by the <code class="docutils literal notranslate"><span class="pre">X_test</span></code> and <code class="docutils literal notranslate"><span class="pre">y_test</span></code> arguments (both must be provided together).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>X_test</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – An ndarray with shape (number_of_observations, dimensions), containing new data <code class="docutils literal notranslate"><span class="pre">X_test</span></code> data (optional).</p></li>
-<li><p><strong>y_test</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – An ndarray with shape (number_of_observations, 1) containing new <code class="docutils literal notranslate"><span class="pre">y_test</span></code> data (optional).</p></li>
-<li><p><strong>metric</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>optional</em>) – An optional string containing the scoring metric to use. Avaliable options are: <code class="docutils literal notranslate"><span class="pre">adjusted_r2</span></code>, <code class="docutils literal notranslate"><span class="pre">r2</span></code>, <code class="docutils literal notranslate"><span class="pre">mae</span></code>, <code class="docutils literal notranslate"><span class="pre">rmse</span></code>, or <code class="docutils literal notranslate"><span class="pre">normalised_mae</span></code> (default: <code class="docutils literal notranslate"><span class="pre">adjusted_r2</span></code>).</p></li>
+<li><p><strong>self</strong> (<a class="reference internal" href="#equadratures.poly.Poly" title="equadratures.poly.Poly"><em>Poly</em></a>) – An instance of the Poly class.</p></li>
+<li><p><strong>X_test</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – An ndarray with shape (number_of_observations, dimensions), containing new data <code class="docutils literal notranslate"><span class="pre">X_test</span></code> data (optional).</p></li>
+<li><p><strong>y_test</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – An ndarray with shape (number_of_observations, 1) containing new <code class="docutils literal notranslate"><span class="pre">y_test</span></code> data (optional).</p></li>
+<li><p><strong>metric</strong> (<em>string</em>) – An optional string containing the scoring metric to use. Avaliable options are: <code class="docutils literal notranslate"><span class="pre">adjusted_r2</span></code>, <code class="docutils literal notranslate"><span class="pre">r2</span></code>, <code class="docutils literal notranslate"><span class="pre">mae</span></code>, <code class="docutils literal notranslate"><span class="pre">rmse</span></code>, or <code class="docutils literal notranslate"><span class="pre">normalised_mae</span></code> (default: <code class="docutils literal notranslate"><span class="pre">adjusted_r2</span></code>).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><ul class="simple">
-<li><p><em>float</em> – If <code class="docutils literal notranslate"><span class="pre">X_test</span></code> and <code class="docutils literal notranslate"><span class="pre">y_test</span></code> are <code class="docutils literal notranslate"><span class="pre">None</span></code>. The training score of the model, output as a float.</p></li>
-<li><p><em>tuple</em> – If <code class="docutils literal notranslate"><span class="pre">X_test</span></code> and <code class="docutils literal notranslate"><span class="pre">y_test</span></code> are given. Tuple containing the train and test scores of the model.</p></li>
-</ul>
-</p>
+<dd class="field-even"><p><strong>score_train</strong>: The training score of the model, output as a float.
+approximated mean of the polynomial fit; output as a float.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -633,11 +623,13 @@
 <span class="sig-name descname"><span class="pre">get_skewness_and_kurtosis</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_skewness_and_kurtosis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_skewness_and_kurtosis" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the skewness and kurtosis of the model.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>Tuple containing two floats; the approximated skewness and kurtosis from the polynomial fit.</p>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>self</strong> (<a class="reference internal" href="#equadratures.poly.Poly" title="equadratures.poly.Poly"><em>Poly</em></a>) – An instance of the Poly class.</p>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)">tuple</a></p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><p><strong>skewness</strong>: The approximated skewness of the polynomial fit; output as a float.</p>
+<p><strong>kurtosis</strong>: The approximated kurtosis of the polynomial fit; output as a float.</p>
+</p>
 </dd>
 </dl>
 </dd></dl>
@@ -648,13 +640,13 @@
 <dd><p>Computes the Sobol’ indices.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>order</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The order of the Sobol’ indices required.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<a class="reference internal" href="#equadratures.poly.Poly" title="equadratures.poly.Poly"><em>Poly</em></a>) – An instance of the Poly class.</p></li>
+<li><p><strong>highest_sobol_order_to_compute</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The order of the Sobol’ indices required.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>A dict comprising of Sobol’ indices and constitutent mixed orders of the parameters.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a></p>
+<dd class="field-even"><p><strong>sobol_indices</strong>: A dict comprising of Sobol’ indices and constitutent mixed orders of the parameters.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -662,12 +654,13 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.poly.Poly.get_summary">
 <span class="sig-name descname"><span class="pre">get_summary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tosay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_summary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_summary" title="Permalink to this definition">¶</a></dt>
-<dd><p>A simple utility that writes a file summarising what the polynomial approximation has determined.</p>
+<dd><p>A simple utility that returns file summarising what the polynomial approximation has determined.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>optional</em>) – The filename to write to. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, the summary is written to <em>effective-quadratures-output.txt</em>.</p></li>
-<li><p><strong>tosay</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – True will replace “-” signs with “minus” when writing to file for compatibility with os.say().</p></li>
+<li><p><strong>self</strong> (<a class="reference internal" href="#equadratures.poly.Poly" title="equadratures.poly.Poly"><em>Poly</em></a>) – An instance of the Poly object.</p></li>
+<li><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – The filename to write to.</p></li>
+<li><p><strong>tosay</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – True will replace “-” signs with “minus” when writing to file for compatibility with os.say().</p></li>
 </ul>
 </dd>
 </dl>
@@ -678,11 +671,11 @@
 <span class="sig-name descname"><span class="pre">get_total_sobol_indices</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_total_sobol_indices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_total_sobol_indices" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the total Sobol’ indices.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>Array of length d (number of input parameters) of total Sobol’ indices.</p>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>self</strong> (<a class="reference internal" href="#equadratures.poly.Poly" title="equadratures.poly.Poly"><em>Poly</em></a>) – An instance of the Poly class.</p>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)">numpy.ndarray</a></p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>total_sobol_indices</strong>: A list of length d (number of input parameters) of total Sobol’ indices.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -692,11 +685,11 @@
 <span class="sig-name descname"><span class="pre">get_weights</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_weights"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_weights" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes quadrature weights.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>Array of the corresponding quadrature weights with shape (number_of_samples, 1).</p>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>self</strong> (<a class="reference internal" href="#equadratures.poly.Poly" title="equadratures.poly.Poly"><em>Poly</em></a>) – An instance of the Poly class.</p>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)">numpy.ndarray</a></p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>weights</strong>: A numpy.ndarray of the corresponding quadrature weights with shape (number_of_samples, 1).</p>
 </dd>
 </dl>
 </dd></dl>
@@ -704,89 +697,82 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.poly.Poly.plot_model_vs_data">
 <span class="sig-name descname"><span class="pre">plot_model_vs_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'adjusted_r2'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.plot_model_vs_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.plot_model_vs_data" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plots the polynomial approximation against the true data. See <a class="reference internal" href="plot.html#equadratures.plot.plot_model_vs_data" title="equadratures.plot.plot_model_vs_data"><code class="xref py py-meth docutils literal notranslate"><span class="pre">plot_model_vs_data()</span></code></a> for full description.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="equadratures.poly.Poly.plot_parameters">
-<span class="sig-name descname"><span class="pre">plot_parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cols</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.plot_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.plot_parameters" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plots the probability density functions for all Parameters within a Polynomial. See <a class="reference internal" href="plot.html#equadratures.plot.plot_parameters" title="equadratures.plot.plot_parameters"><code class="xref py py-meth docutils literal notranslate"><span class="pre">plot_parameters()</span></code></a> for full description.</p>
+<dd><p>Plots the polynomial approximation against the true data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>Polynomial</em>) – An instance of the Poly class.</p></li>
+<li><p><strong>ax</strong> (<em>matplotlib.ax</em>) – An instance of the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> axes class to plot onto. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, a new figure and axes are created (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>).</p></li>
+<li><p><strong>sample_data</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a>) – A list formed by <code class="docutils literal notranslate"><span class="pre">[X,</span> <span class="pre">y]</span></code> where <code class="docutils literal notranslate"><span class="pre">X</span></code> represents the spatial data input and <code class="docutils literal notranslate"><span class="pre">y</span></code> the output.</p></li>
+<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – Option to view the plot.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.poly.Poly.plot_polyfit_1D">
 <span class="sig-name descname"><span class="pre">plot_polyfit_1D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uncertainty</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_variances</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number_of_points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.plot_polyfit_1D"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.plot_polyfit_1D" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plots a 1D only polynomial fit to the data. See <a class="reference internal" href="plot.html#equadratures.plot.plot_polyfit_1D" title="equadratures.plot.plot_polyfit_1D"><code class="xref py py-meth docutils literal notranslate"><span class="pre">plot_polyfit_1D()</span></code></a> for full description.</p>
+<dd><p>Plots a 1D only polynomial fit to the data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<a class="reference internal" href="#equadratures.poly.Poly" title="equadratures.poly.Poly"><em>Poly</em></a>) – An instance of the Polynomial class.</p></li>
+<li><p><strong>ax</strong> (<em>matplotlib.ax</em>) – An instance of the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> axes class to plot onto. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, a new figure and axes are created (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>).</p></li>
+<li><p><strong>uncertainty</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – Option to show confidence intervals (1 standard deviation).</p></li>
+<li><p><strong>output_variances</strong> (<em>numpy.array</em>) – User-defined uncertainty associated with each data point; can be either a <code class="docutils literal notranslate"><span class="pre">float</span></code> in which case all data points are assumed to have the same variance, or can be an array of length equivalent to the number of data points.</p></li>
+<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – Option to view the plot.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.poly.Poly.plot_sobol">
 <span class="sig-name descname"><span class="pre">plot_sobol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.plot_sobol"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.plot_sobol" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plots a polynomial’s Sobol’ indices of a given order. See <a class="reference internal" href="plot.html#equadratures.plot.plot_sobol" title="equadratures.plot.plot_sobol"><code class="xref py py-meth docutils literal notranslate"><span class="pre">plot_sobol()</span></code></a> for full description.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="equadratures.poly.Poly.plot_sobol_heatmap">
-<span class="sig-name descname"><span class="pre">plot_sobol_heatmap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.plot_sobol_heatmap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.plot_sobol_heatmap" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generates a heatmap showing the first and second order Sobol indices. See <a class="reference internal" href="plot.html#equadratures.plot.plot_sobol_heatmap" title="equadratures.plot.plot_sobol_heatmap"><code class="xref py py-meth docutils literal notranslate"><span class="pre">plot_sobol_heatmap()</span></code></a> for full description.</p>
+<dd><p>Plots a polynomial’s Sobol’ indices of a given order.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<a class="reference internal" href="#equadratures.poly.Poly" title="equadratures.poly.Poly"><em>Poly</em></a>) – An instance of the Poly class.</p></li>
+<li><p><strong>ax</strong> (<em>matplotlib.ax</em>) – An instance of the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> axes class to plot onto. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, a new figure and axes are created (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>).</p></li>
+<li><p><strong>order</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Order of the Sobol’ indices to plot.</p></li>
+<li><p><strong>parameters</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a>) – List of the parameters for the given polynomial.</p></li>
+<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – Option to show the graph.</p></li>
+<li><p><strong>kwargs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – Dictionary of keyword arguments to pass to matplotlib.bar() function.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.poly.Poly.plot_total_sobol">
 <span class="sig-name descname"><span class="pre">plot_total_sobol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.plot_total_sobol"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.plot_total_sobol" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plots a polynomial’s total-order Sobol’ indices. See <a class="reference internal" href="plot.html#equadratures.plot.plot_total_sobol" title="equadratures.plot.plot_total_sobol"><code class="xref py py-meth docutils literal notranslate"><span class="pre">plot_total_sobol()</span></code></a> for full description.</p>
+<dd><p>Plots a polynomial’s total-order Sobol’ indices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<a class="reference internal" href="#equadratures.poly.Poly" title="equadratures.poly.Poly"><em>Poly</em></a>) – An instance of the Poly class.</p></li>
+<li><p><strong>ax</strong> (<em>matplotlib.ax</em>) – An instance of the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> axes class to plot onto. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, a new figure and axes are created (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>).</p></li>
+<li><p><strong>parameters</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a>) – List of the parameters for the given polynomial.</p></li>
+<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – Option to show the graph.</p></li>
+<li><p><strong>kwargs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – Dictionary of keyword arguments to pass to matplotlib.bar() function.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.poly.Poly.set_model">
 <span class="sig-name descname"><span class="pre">set_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_grads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.set_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.set_model" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the coefficients of the polynomial via the method selected.</p>
-<p>If model evaluations and/or gradients have not yet been provided to Poly via <code class="docutils literal notranslate"><span class="pre">sample-outputs</span></code> and/or <code class="docutils literal notranslate"><span class="pre">sample-gradients</span></code>, they can be given here via the <code class="docutils literal notranslate"><span class="pre">model</span></code> and <code class="docutils literal notranslate"><span class="pre">model_grads</span></code> arguments.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>model</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable" title="(in Python v3.9)"><em>Callable</em></a><em>,</em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – The function that needs to be approximated. In the absence of a callable function, the input can be a ndarray model evaluations at the quadrature points.</p></li>
-<li><p><strong>model_grads</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable" title="(in Python v3.9)"><em>Callable</em></a><em>,</em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – The gradient of the function that needs to be approximated. In the absence of a callable gradient function, the input can be a ndarray of gradient evaluations at the quadrature points.</p></li>
+<li><p><strong>self</strong> (<a class="reference internal" href="#equadratures.poly.Poly" title="equadratures.poly.Poly"><em>Poly</em></a>) – An instance of the Poly class.</p></li>
+<li><p><strong>model</strong> (<em>callable</em>) – The function that needs to be approximated. In the absence of a callable function, the input can be the function evaluated at the quadrature points.</p></li>
+<li><p><strong>model_grads</strong> (<em>callable</em>) – The gradient of the function that needs to be approximated. In the absence of a callable gradient function, the input can be a matrix of gradient evaluations at the quadrature points.</p></li>
 </ul>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
-<dl>
-<dt>Defining a simple univariate example</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">param</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">lower</span><span class="o">=-</span><span class="mi">2</span><span class="p">,</span><span class="n">upper</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">order</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">basis</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Basis</span><span class="p">(</span><span class="s1">&#39;univariate&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</dd>
-<dt>Least-squares regression of existing data</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">poly</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Poly</span><span class="p">(</span><span class="n">param</span><span class="p">,</span><span class="n">basis</span><span class="p">,</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;least-squares&#39;</span><span class="p">,</span><span class="n">sampling_args</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;mesh&#39;</span><span class="p">:</span> <span class="s1">&#39;user-defined&#39;</span><span class="p">,</span><span class="s1">&#39;sample-points&#39;</span><span class="p">:</span><span class="n">x</span><span class="p">,</span><span class="s1">&#39;sample-outputs&#39;</span><span class="p">:</span><span class="n">y</span><span class="p">})</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">poly</span><span class="o">.</span><span class="n">set_model</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">eq</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">xtest</span><span class="p">),</span><span class="n">poly</span><span class="o">.</span><span class="n">get_polyfit</span><span class="p">(</span><span class="n">xtest</span><span class="p">),</span><span class="n">metric</span><span class="o">=</span><span class="s1">&#39;rmse&#39;</span><span class="p">)</span>
-<span class="go">5.438959822042073e-16</span>
-</pre></div>
-</div>
-</dd>
-<dt>Numerical integration with model provided as a callable function</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">poly</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Poly</span><span class="p">(</span><span class="n">param</span><span class="p">,</span><span class="n">basis</span><span class="p">,</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;numerical-integration&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">poly</span><span class="o">.</span><span class="n">set_model</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">eq</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">xtest</span><span class="p">),</span><span class="n">poly</span><span class="o">.</span><span class="n">get_polyfit</span><span class="p">(</span><span class="n">xtest</span><span class="p">),</span><span class="n">metric</span><span class="o">=</span><span class="s1">&#39;rmse&#39;</span><span class="p">)</span>
-<span class="go">5.363652779335998e-15</span>
-</pre></div>
-</div>
-</dd>
-<dt>Numerical integration, manually providing model evaluations at quadrature points</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">poly</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Poly</span><span class="p">(</span><span class="n">param</span><span class="p">,</span><span class="n">basis</span><span class="p">,</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;numerical-integration&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">poly</span><span class="o">.</span><span class="n">get_points</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">poly</span><span class="o">.</span><span class="n">set_model</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">eq</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">xtest</span><span class="p">),</span><span class="n">poly</span><span class="o">.</span><span class="n">get_polyfit</span><span class="p">(</span><span class="n">xtest</span><span class="p">),</span><span class="n">metric</span><span class="o">=</span><span class="s1">&#39;rmse&#39;</span><span class="p">)</span>
-<span class="go">5.363652779335998e-15</span>
-</pre></div>
-</div>
-</dd>
-</dl>
-<dl class="field-list simple">
-<dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.9)"><strong>ValueError</strong></a> – model values should be a column vector.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -801,35 +787,31 @@
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>points</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – An ndarray with shape (number_of_observations, dimensions) at which the gradient must be evaluated.</p></li>
-<li><p><strong>function</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable" title="(in Python v3.9)"><em>Callable</em></a>) – A callable argument for the function.</p></li>
+<li><p><strong>function</strong> (<em>callable</em>) – A callable argument for the function.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Array of function evaluations.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)">numpy.ndarray</a></p>
+<dd class="field-even"><p><strong>function_values</strong>: A numpy.ndarray of function evaluations.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="equadratures.poly.evaluate_model_gradients">
-<span class="sig-prename descclassname"><span class="pre">equadratures.poly.</span></span><span class="sig-name descname"><span class="pre">evaluate_model_gradients</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fungrad</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'matrix'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#evaluate_model_gradients"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.evaluate_model_gradients" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">equadratures.poly.</span></span><span class="sig-name descname"><span class="pre">evaluate_model_gradients</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fungrad</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#evaluate_model_gradients"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.evaluate_model_gradients" title="Permalink to this definition">¶</a></dt>
 <dd><p>Evaluates the model gradient at given values.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>points</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – An ndarray with shape (number_of_observations, dimensions) at which the gradient must be evaluated.</p></li>
-<li><p><strong>fungrad</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable" title="(in Python v3.9)"><em>Callable</em></a>) – A callable argument for the function’s gradients.</p></li>
-<li><p><strong>format</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>optional</em>) – The format in which the output is to be provided: <code class="docutils literal notranslate"><span class="pre">matrix</span></code> will output a numpy.ndarray of shape (number_of_observations, dimensions) with gradient values, while <code class="docutils literal notranslate"><span class="pre">vector</span></code> will stack all the vectors in this matrix to yield a numpy.ndarray with shape (number_of_observations x dimensions, 1).</p></li>
+<li><p><strong>fungrad</strong> (<em>callable</em>) – A callable argument for the function’s gradients.</p></li>
+<li><p><strong>format</strong> (<em>string</em>) – The format in which the output is to be provided: <code class="docutils literal notranslate"><span class="pre">matrix</span></code> will output a numpy.ndarray of shape
+(number_of_observations, dimensions) with gradient values, while <code class="docutils literal notranslate"><span class="pre">vector</span></code> will stack all the
+vectors in this matrix to yield a numpy.ndarray with shape (number_of_observations x dimensions, 1).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Array of gradient evaluations.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)">numpy.ndarray</a></p>
+<dd class="field-even"><p><strong>grad_values</strong>: A numpy.ndarray of gradient evaluations.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -846,10 +828,11 @@
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Tuple (x,y,z,max_order), containing the x,y values of the meshgrid, the coefficient values, and the highest order.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)">tuple</a></p>
+<dd class="field-even"><p><p><strong>x</strong>: A numpy.ndarray of x values of the meshgrid.</p>
+<p><strong>y</strong>: A numpy.ndarray of y values of the meshgrid.</p>
+<p><strong>z</strong>: A numpy.ndarray of the coefficient values.</p>
+<p><strong>max_order</strong>: int corresponds to the highest order.</p>
+</p>
 </dd>
 </dl>
 </dd></dl>

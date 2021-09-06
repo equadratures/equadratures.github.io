@@ -51,5 +51,7 @@ Before downloading the code, feel free to have a go with our web apps!
 
     +++
 
-    Coming soon!
-
+    .. link-button:: http://uq.equadratures.org/
+            :type: url
+            :text: Load App!
+            :classes: btn-primary

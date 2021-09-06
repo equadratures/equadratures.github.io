@@ -144,7 +144,7 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search equadratures..." aria-label="Search equadratures..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <div class="bd-toc-item active">
-    <p class="caption">
+    <p class="caption" role="heading">
  <span class="caption-text">
   Core modules
  </span>
@@ -166,7 +166,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Additional modules
  </span>
@@ -266,62 +266,98 @@
 <dd><p>This class defines a subspaces object. It can be used for polynomial-based subspace dimension reduction.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>method</strong> (<em>string</em>) – The method to be used for subspace-based dimension reduction. One option is</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">active-subspace</span></code>, which uses ideas in [1] and [2] to compute a dimension-reducing subspace with a global</dt><dd><dl class="simple">
+<dt>polynomial approximant. Gradients evaluations of the polynomial approximation are used to compute the averaged</dt><dd><p>outer product of the gradient covariance matrix. Another option is <code class="docutils literal notranslate"><span class="pre">variable-projection</span></code> [3], where a
+Gauss-Newton optimisation problem is solved to compute both the polynomial coefficients and its subspace.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>method</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – <p>The method to be used for subspace-based dimension reduction. Two options:</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">active-subspace</span></code>, which uses ideas in [1] and [2] to compute a dimension-reducing subspace with a global polynomial approximant. Gradients evaluations of the polynomial approximation are used to compute the averaged outer product of the gradient covariance matrix. The polynomial approximation in the original full-space can be provided via <code class="docutils literal notranslate"><span class="pre">full_space_poly</span></code>. Otherwise, it is fit internally to the data provided via <code class="docutils literal notranslate"><span class="pre">sample_points</span></code> and <code class="docutils literal notranslate"><span class="pre">sample_outputs</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">variable-projection</span></code> [3], where a Gauss-Newton optimisation problem is solved to compute both the polynomial coefficients and its subspace, with the data provided via <code class="docutils literal notranslate"><span class="pre">sample_points</span></code> and <code class="docutils literal notranslate"><span class="pre">sample_outputs</span></code>.</p></li>
-</ul>
-</p></li>
-<li><p><strong>full_space_poly</strong> (<a class="reference internal" href="poly.html#equadratures.poly.Poly" title="equadratures.poly.Poly"><em>Poly</em></a><em>, </em><em>optional</em>) – An instance of Poly fitted to the full-space data, to use for the AS computation.</p></li>
-<li><p><strong>sample_points</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – Array with shape (number_of_observations, dimensions) that corresponds to a set of sample points over the parameter space.</p></li>
-<li><p><strong>sample_outputs</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – Array with shape (number_of_observations, 1) that corresponds to model evaluations at the sample points.</p></li>
-<li><p><strong>subspace_dimension</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) – The dimension of the <em>active</em> subspace.</p></li>
-<li><p><strong>param_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a><em>, </em><em>optional</em>) – Arguments passed to parameters of the AS polynomial. (see <a class="reference internal" href="parameter.html#equadratures.parameter.Parameter" title="equadratures.parameter.Parameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code></a>)</p></li>
-<li><p><strong>poly_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a><em> , </em><em>optional</em>) – Arguments passed to constructing polynomial used for AS computation. (see <a class="reference internal" href="poly.html#equadratures.poly.Poly" title="equadratures.poly.Poly"><code class="xref py py-class docutils literal notranslate"><span class="pre">Poly</span></code></a>)</p></li>
-<li><p><strong>dr_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a><em>, </em><em>optional</em>) – Arguments passed to customise the VP optimiser. See documentation for <code class="xref py py-meth docutils literal notranslate"><span class="pre">_get_variable_projection()</span></code> in source.</p></li>
+<li><p><strong>sample_points</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – A numpy ndarray with shape (number_of_observations, dimensions) that corresponds
+to a set of sample points over the parameter space.</p></li>
+<li><p><strong>sample_outputs</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – A numpy ndarray with shape (number_of_observations, 1) that corresponds to</p></li>
 </ul>
 </dd>
 </dl>
-<p class="rubric">Examples</p>
+<p>model evaluations at the sample points.
+:param int subspace_dimension: The dimension of the <em>active</em> subspace.
+:param dict param_args: Arguments passed to parameters of the AS polynomial. (see <cite>parameter.py</cite>)
+:param dict poly_args: Arguments passed to constructing polynomial used for AS computation. (see <cite>poly.py</cite>)
+:param dict dr_args: Arguments passed to customise the VP optimiser. See documentation for _get_variable_projection.</p>
+<p><strong>Sample constructor initialisations</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">equadratures</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="c1"># Active subspaces with a global order 2 polynomial.</span>
+<span class="n">mysubspace</span> <span class="o">=</span> <span class="n">Subspaces</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;active-subspace&#39;</span><span class="p">,</span> <span class="n">sample_points</span><span class="o">=</span><span class="n">X_red</span><span class="p">,</span> <span class="n">sample_outputs</span><span class="o">=</span><span class="n">Y_red</span><span class="p">)</span>
+<span class="n">eigs</span> <span class="o">=</span> <span class="n">mysubspace</span><span class="o">.</span><span class="n">get_eigenvalues</span><span class="p">()</span>
+<span class="n">W</span> <span class="o">=</span> <span class="n">mysubspace</span><span class="o">.</span><span class="n">get_subspace</span><span class="p">()</span>
+<span class="n">e</span> <span class="o">=</span> <span class="n">mysubspace</span><span class="o">.</span><span class="n">get_eigenvalues</span><span class="p">()</span>
+</pre></div>
+</div>
 <dl>
-<dt>Obtaining a 2D subspace via active subspaces on user data</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mysubspace</span> <span class="o">=</span> <span class="n">Subspaces</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;active-subspace&#39;</span><span class="p">,</span> <span class="n">sample_points</span><span class="o">=</span><span class="n">X</span><span class="p">,</span> <span class="n">sample_outputs</span><span class="o">=</span><span class="n">Y</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">eigs</span> <span class="o">=</span> <span class="n">mysubspace</span><span class="o">.</span><span class="n">get_eigenvalues</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">W</span> <span class="o">=</span> <span class="n">mysubspace</span><span class="o">.</span><span class="n">get_subspace</span><span class="p">()[:,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">e</span> <span class="o">=</span> <span class="n">mysubspace</span><span class="o">.</span><span class="n">get_eigenvalues</span><span class="p">()</span>
-</pre></div>
-</div>
-</dd>
-<dt>Obtaining a 2D subspace via active subspaces with a Poly object (remember to call set_model() on Poly first)</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mysubspace</span> <span class="o">=</span> <span class="n">Subspaces</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;active-subspace&#39;</span><span class="p">,</span> <span class="n">full_space_poly</span><span class="o">=</span><span class="n">my_poly</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">eigs</span> <span class="o">=</span> <span class="n">mysubspace</span><span class="o">.</span><span class="n">get_eigenvalues</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">W</span> <span class="o">=</span> <span class="n">mysubspace</span><span class="o">.</span><span class="n">get_subspace</span><span class="p">()[:,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">e</span> <span class="o">=</span> <span class="n">mysubspace</span><span class="o">.</span><span class="n">get_eigenvalues</span><span class="p">()</span>
-</pre></div>
-</div>
-</dd>
-<dt>Obtaining a 2D subspace via variable projection on user data</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mysubspace</span> <span class="o">=</span> <span class="n">Subspaces</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;variable-projection&#39;</span><span class="p">,</span> <span class="n">sample_points</span><span class="o">=</span><span class="n">X</span><span class="p">,</span> <span class="n">sample_outputs</span><span class="o">=</span><span class="n">Y</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">W</span> <span class="o">=</span> <span class="n">mysubspace</span><span class="o">.</span><span class="n">get_subspace</span><span class="p">()[:,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span>
-</pre></div>
-</div>
+<dt><strong>References</strong></dt><dd><p>1. Constantine, P., (2015) Active Subspaces: Emerging Ideas for Dimension Reduction in Parameter Studies.
+SIAM Spotlights.
+2. Seshadri, P., Shahpar, S., Constantine, P., Parks, G., Adams, M. (2018) Turbomachinery Active Subspace</p>
+<blockquote>
+<div><p>Performance Maps. Journal of Turbomachinery, 140(4), 041003.
+<a class="reference external" href="http://turbomachinery.asmedigitalcollection.asme.org/article.aspx?articleid=2668256">Paper</a>.</p>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p>Hokanson, J., Constantine, P., (2018) Data-driven Polynomial Ridge Approximation Using Variable Projection.</p></li>
+</ol>
+<blockquote>
+<div><dl class="simple">
+<dt>SIAM Journal of Scientific Computing, 40(3), A1566-A1589.</dt><dd><p><a class="reference external" href="https://epubs.siam.org/doi/abs/10.1137/17M1117690">Paper</a>.</p>
 </dd>
 </dl>
-<p class="rubric">References</p>
-<ol class="arabic simple">
-<li><p>Constantine, P., (2015) Active Subspaces: Emerging Ideas for Dimension Reduction in Parameter Studies. SIAM Spotlights.</p></li>
-<li><p>Seshadri, P., Shahpar, S., Constantine, P., Parks, G., Adams, M. (2018) Turbomachinery Active Subspace Performance Maps. Journal of Turbomachinery, 140(4), 041003. <a class="reference external" href="http://turbomachinery.asmedigitalcollection.asme.org/article.aspx?articleid=2668256">Paper</a>.</p></li>
-<li><p>Hokanson, J., Constantine, P., (2018) Data-driven Polynomial Ridge Approximation Using Variable Projection. SIAM Journal of Scientific Computing, 40(3), A1566-A1589. <a class="reference external" href="https://epubs.siam.org/doi/abs/10.1137/17M1117690">Paper</a>.</p></li>
-</ol>
+</div></blockquote>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="equadratures.subspaces.Subspaces.Y">
+<span class="sig-name descname"><span class="pre">Y</span></span><a class="headerlink" href="#equadratures.subspaces.Subspaces.Y" title="Permalink to this definition">¶</a></dt>
+<dd><p>How to standardise?
+If just a dataset, no poly, then use minmax scaling
+If poly, no datapoints, then data should be contained in poly</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>extract points from poly using .get_points() and .get_model_evaluations</p></li>
+<li><p>standaridise according to distributions extracted from the poly’s params</p></li>
+</ul>
+</div></blockquote>
+<dl class="simple">
+<dt>If poly, but with new points? We should assume points are drawn from same distr according to poly’s params</dt><dd><ul class="simple">
+<li><p>standaridise according to distributions extracted from the poly’s params</p></li>
+</ul>
+</dd>
+<dt>We need information on whether marginals are bounded, semi-bounded or unbounded?</dt><dd><ul class="simple">
+<li><p>bounded, minmax scaling: analytical, beta, chebyshev, truncated gaussian, uniform</p></li>
+<li><p>unbounded, meanvar scaling: cauchy (although stddev undefined!), gaussian, gumbel, logistic, studentst,</p></li>
+<li><p>semi-bounded, ???: chi, chi squared, exponential, gamma, lognormal, pareto (x geq 1), rayleigh, weibull</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.subspaces.Subspaces.get_eigenvalues">
 <span class="sig-name descname"><span class="pre">get_eigenvalues</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/subspaces.html#Subspaces.get_eigenvalues"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.subspaces.Subspaces.get_eigenvalues" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the eigenvalues of the dimension reducing subspace. Note: this option is
 currently only valid for method <code class="docutils literal notranslate"><span class="pre">active-subspace</span></code>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>Array of shape (dimensions,) corresponding to the eigenvalues of the above mentioned covariance matrix.</p>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>self</strong> (<a class="reference internal" href="#equadratures.subspaces.Subspaces" title="equadratures.subspaces.Subspaces"><em>Subspaces</em></a>) – An instance of the Subspaces object.</p>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)">numpy.ndarray</a></p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>eigenvalues</strong>: A numpy.ndarray of shape (dimensions,) corresponding to the eigenvalues of the above mentioned covariance matrix.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -331,12 +367,14 @@ currently only valid for method <code class="docutils literal notranslate"><span
 <span class="sig-name descname"><span class="pre">get_linear_inequalities</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/subspaces.html#Subspaces.get_linear_inequalities"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.subspaces.Subspaces.get_linear_inequalities" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the linear inequalities defining the zonotope vertices, i.e., Ax&lt;=b.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>Tuple (A,b), containing the numpy.ndarray’s A and b; where A is the matrix for setting the linear inequalities,
-and b is the right-hand-side vector for setting the linear inequalities.</p>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>self</strong> (<a class="reference internal" href="#equadratures.subspaces.Subspaces" title="equadratures.subspaces.Subspaces"><em>Subspaces</em></a>) – An instance of the Subspaces object.</p>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)">tuple</a></p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>A</strong>: The matrix for setting the linear inequalities.</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>b</strong>: The right-hand-side vector for setting the linear inequalities.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -349,22 +387,18 @@ by varying its coordinates along the inactive subspace.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<a class="reference internal" href="#equadratures.subspaces.Subspaces" title="equadratures.subspaces.Subspaces"><em>Subspaces</em></a>) – An instance of the Subspaces object.</p></li>
 <li><p><strong>inactive_samples</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The number of inactive samples required.</p></li>
 <li><p><strong>active_coordiantes</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – The active subspace coordinates.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Array containing the full-space coordinates.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)">numpy.ndarray</a></p>
+<dd class="field-even"><p><strong>X</strong>: An numpy.ndarray of the full-space coordinates.</p>
 </dd>
 </dl>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This routine has been adapted from Paul Constantine’s hit_and_run() function; see reference below.</p>
+<p><strong>Note:</strong>
+This routine has been adapted from Paul Constantine’s hit_and_run() function; see reference below.</p>
 <p>Constantine, P., Howard, R., Glaws, A., Grey, Z., Diaz, P., Fletcher, L., (2016) Python Active-Subspaces Utility Library. Journal of Open Source Software, 1(5), 79. <a class="reference external" href="http://joss.theoj.org/papers/10.21105/joss.00079">Paper</a>.</p>
-</div>
 </dd></dl>
 
 <dl class="py method">
@@ -372,12 +406,12 @@ by varying its coordinates along the inactive subspace.</p>
 <span class="sig-name descname"><span class="pre">get_subspace</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/subspaces.html#Subspaces.get_subspace"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.subspaces.Subspaces.get_subspace" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the dimension reducing subspace.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>Array of shape (dimensions, dimensions) where the first <code class="docutils literal notranslate"><span class="pre">subspace_dimension</span></code> columns
-contain the dimension reducing subspace, while the remaining columns contain its orthogonal complement.</p>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>self</strong> (<a class="reference internal" href="#equadratures.subspaces.Subspaces" title="equadratures.subspaces.Subspaces"><em>Subspaces</em></a>) – An instance of the Subspaces object.</p>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)">numpy.ndarray</a></p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>subspace</strong>: A numpy.ndarray of shape (dimensions, dimensions) where the first <code class="docutils literal notranslate"><span class="pre">subspace_dimension</span></code> columns
+contain the dimension reducing subspace, while the remaining columns contain its orthogonal complement.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -387,13 +421,18 @@ contain the dimension reducing subspace, while the remaining columns contain its
 <span class="sig-name descname"><span class="pre">get_subspace_polynomial</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/subspaces.html#Subspaces.get_subspace_polynomial"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.subspaces.Subspaces.get_subspace_polynomial" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a polynomial defined over the dimension reducing subspace.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>A Poly object that defines a polynomial over the subspace. The distribution of parameters
-is assumed to be uniform and the maximum and minimum bounds for each parameter are defined by the maximum
-and minimum values of the project samples.</p>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>self</strong> (<a class="reference internal" href="#equadratures.subspaces.Subspaces" title="equadratures.subspaces.Subspaces"><em>Subspaces</em></a>) – An instance of the Subspaces object.</p>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="poly.html#equadratures.poly.Poly" title="equadratures.poly.Poly">Poly</a></p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt><strong>subspacepoly</strong>: A Poly object that defines a polynomial over the subspace. The distribution of parameters</dt><dd><dl class="simple">
+<dt>is assumed to be uniform and the maximum and minimum bounds for each parameter are defined by the maximum</dt><dd><p>and minimum values of the project samples.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</p>
 </dd>
 </dl>
 </dd></dl>
@@ -405,44 +444,50 @@ and minimum values of the project samples.</p>
 subspace.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>num_samples</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) – Number of samples per iteration to check.</p></li>
-<li><p><strong>max_count</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) – Maximum number of iteration.</p></li>
-</ul>
+<dd class="field-odd"><p><strong>self</strong> (<a class="reference internal" href="#equadratures.subspaces.Subspaces" title="equadratures.subspaces.Subspaces"><em>Subspaces</em></a>) – An instance of the Subspaces object.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Array of shape (number of vertices, <code class="docutils literal notranslate"><span class="pre">subspace_dimension</span></code>).</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)">numpy.ndarray</a></p>
+<dd class="field-even"><p><strong>vertices</strong>: A numpy.ndarray of shape (number of vertices, <code class="docutils literal notranslate"><span class="pre">subspace_dimension</span></code>).</p>
 </dd>
 </dl>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This routine has been adapted from Paul Constantine’s zonotope_vertices() function; see reference below.</p>
+<p><strong>Note:</strong>
+This routine has been adapted from Paul Constantine’s zonotope_vertices() function; see reference below.</p>
 <p>Constantine, P., Howard, R., Glaws, A., Grey, Z., Diaz, P., Fletcher, L., (2016) Python Active-Subspaces Utility Library. Journal of Open Source Software, 1(5), 79. <a class="reference external" href="http://joss.theoj.org/papers/10.21105/joss.00079">Paper</a>.</p>
-</div>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.subspaces.Subspaces.plot_2D_contour_zonotope">
-<span class="sig-name descname"><span class="pre">plot_2D_contour_zonotope</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mysubspace</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[-</span> <span class="pre">3.5,</span> <span class="pre">3.5]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid_pts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">180</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/subspaces.html#Subspaces.plot_2D_contour_zonotope"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.subspaces.Subspaces.plot_2D_contour_zonotope" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generates a 2D contour plot of the polynomial ridge approximation.
-See <a class="reference internal" href="plot.html#equadratures.plot.plot_2D_contour_zonotope" title="equadratures.plot.plot_2D_contour_zonotope"><code class="xref py py-meth docutils literal notranslate"><span class="pre">plot_2D_contour_zonotope()</span></code></a> for full description.</p>
+<span class="sig-name descname"><span class="pre">plot_2D_contour_zonotope</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/subspaces.html#Subspaces.plot_2D_contour_zonotope"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.subspaces.Subspaces.plot_2D_contour_zonotope" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a 2D contour plot of the polynomial ridge approximation.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.subspaces.Subspaces.plot_samples_from_second_subspace_over_first">
-<span class="sig-name descname"><span class="pre">plot_samples_from_second_subspace_over_first</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mysubspace_2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">no_of_samples</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[-</span> <span class="pre">3.5,</span> <span class="pre">3.5]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid_pts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">180</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/subspaces.html#Subspaces.plot_samples_from_second_subspace_over_first"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.subspaces.Subspaces.plot_samples_from_second_subspace_over_first" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generates a zonotope plot where samples from the second subspace are projected over the first.
-See <a class="reference internal" href="plot.html#equadratures.plot.plot_samples_from_second_subspace_over_first" title="equadratures.plot.plot_samples_from_second_subspace_over_first"><code class="xref py py-meth docutils literal notranslate"><span class="pre">plot_samples_from_second_subspace_over_first()</span></code></a> for full description.</p>
+<span class="sig-name descname"><span class="pre">plot_samples_from_second_subspace_over_first</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mysubspace_2</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/subspaces.html#Subspaces.plot_samples_from_second_subspace_over_first"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.subspaces.Subspaces.plot_samples_from_second_subspace_over_first" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a zonotope plot where samples from the second subspace are projected
+over the first.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.subspaces.Subspaces.plot_sufficient_summary">
 <span class="sig-name descname"><span class="pre">plot_sufficient_summary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">poly</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uncertainty</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scatter_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/subspaces.html#Subspaces.plot_sufficient_summary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.subspaces.Subspaces.plot_sufficient_summary" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generates a sufficient summary plot for 1D or 2D polynomial ridge approximations.
-See <a class="reference internal" href="plot.html#equadratures.plot.plot_sufficient_summary" title="equadratures.plot.plot_sufficient_summary"><code class="xref py py-meth docutils literal notranslate"><span class="pre">plot_sufficient_summary()</span></code></a> for full description.</p>
+<dd><p>Generates a sufficient summary plot for 1D or 2D polynomial ridge approximations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mysubspace</strong> (<em>Subspace</em>) – An instance of the Subspace class.</p></li>
+<li><p><strong>ax</strong> (<em>matplotlib.ax</em>) – An instance of the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> axes class to plot onto. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, a new figure and axes are created (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>).</p></li>
+<li><p><strong>X_test</strong> (<em>:numpy.ndarray</em>) – A numpy ndarray containing input test data to plot (in addition to the training data). Must have same number of dimensions as the training data.</p></li>
+<li><p><strong>y_test</strong> (<em>:numpy.ndarray</em>) – A numpy ndarray containing output test data to plot (in addition to the training data).</p></li>
+<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – Option to view the plot.</p></li>
+<li><p><strong>poly</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – Option to plot the subspace polynomial.</p></li>
+<li><p><strong>uncertainty</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – Option to show confidence intervals (1 standard deviation) of the subspace polynomial.</p></li>
+<li><p><strong>legend</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – Option to show legend.</p></li>
+<li><p><strong>scatter_kwargs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – Dictionary of keyword arguments to pass to matplotlib.scatter functions.</p></li>
+<li><p><strong>plot_kwargs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – Dictionary of keyword arguments to pass to matplotlib.plot functions.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
