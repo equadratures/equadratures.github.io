@@ -22,7 +22,7 @@ Although ``equadratures`` is proudly open-source, we have two main revenue strea
     * Private discourse forum
     * Four workshops sessions per year
 
-    .. link-button:: https://www.ascillitoe.com/
+    .. link-button:: https://equadratures.org/_documentation/commercial.html
         :text:
         :classes: stretched-link
 
@@ -36,7 +36,7 @@ Although ``equadratures`` is proudly open-source, we have two main revenue strea
     * Desktop or cloud deployment
     * Short-term or long-term projects
 
-    .. link-button:: https://www.ascillitoe.com/
+    .. link-button:: https://equadratures.org/_documentation/commercial.html
         :text:
         :classes: stretched-link
 
