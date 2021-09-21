@@ -7,8 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Linear system solvers &#8212; equadratures</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet" />
-  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
     
   <link rel="stylesheet"
@@ -20,6 +19,10 @@
 
     
       
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -34,7 +37,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/css/gallery.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/fonts.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -43,6 +46,8 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <link rel="shortcut icon" href="../_static/eq-logo-favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -50,86 +55,64 @@
     <link rel="prev" title="Polynomial Regression Trees" href="polytree.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
-    <div class="container-fluid" id="banner"></div>
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
 
+    <a class="navbar-brand" href="../index.html">
     
-    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
-
-  <div id="navbar-start">
+      <img src="../_static/logo_new.png" class="logo" alt="logo" />
     
-    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-<a class="navbar-brand" href="../index.html">
-  <img src="../_static/logo_new.png" class="logo" alt="logo">
-</a>
-
-
-    
-  </div>
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  
-  <div id="navbar-collapsible" class=" collapse navbar-collapse">
-    <div id="navbar-center" class="ml-auto">
-      
-      <div class="navbar-center-item">
-        <ul id="navbar-main-elements" class="navbar-nav">
-    <li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="tutorials.html">
-  Tutorials
- </a>
-</li>
-
-<li class="toctree-l1 current active nav-item">
- <a class="reference internal nav-link" href="documentation.html">
-  Documentation
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="research.html">
-  Research
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="apps.html">
-  Apps
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="developers.html">
-  Developers
- </a>
-</li>
-
-    
-    <li class="nav-item">
-        <a class="nav-link nav-external" href="https://discourse.equadratures.org/">Discourse<i class="fas fa-external-link-alt"></i></a>
-    </li>
-    
-</ul>
-      </div>
-      
-    </div>
-
-    <div id="navbar-end">
-      
-      <div class="navbar-end-item">
-        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="research.html">Research</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="apps.html">Apps</a>
+        </li>
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="documentation.html">Documentation</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href=""></a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="about.html">About</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="commercial.html">Commercial</a>
+        </li>
+        
+        
+        <li class="nav-item">
+            <a class="nav-link nav-external" href="https://discourse.equadratures.org/">Discourse<i class="fas fa-external-link-alt"></i></a>
+        </li>
+        
       </ul>
-      </div>
+
+
       
+
+      <ul class="navbar-nav">
+        
+        
+      </ul>
     </div>
-  </div>
 </div>
     </nav>
     
@@ -137,122 +120,130 @@
     <div class="container-xl">
       <div class="row">
           
-            
-            <!-- Only show if we have sidebars configured, else just a small margin  -->
-            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search equadratures..." aria-label="Search equadratures..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <div class="bd-toc-item active">
-    <p class="caption" role="heading">
- <span class="caption-text">
-  Core modules
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="parameter.html">
-   Parameter
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="basis.html">
-   Basis
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="poly.html">
-   Polynomial
-  </a>
- </li>
-</ul>
-<p class="caption" role="heading">
- <span class="caption-text">
-  Additional modules
- </span>
-</p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="subspaces.html">
-   Dimension reduction with polynomials
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="optimisation.html">
-   Optimisation with polynomials
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="polytree.html">
-   Polynomial Regression Trees
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Linear system solvers
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="quadrature.html">
-   Quadrature
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="weight.html">
-   Prescribing probability functions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="plot.html">
-   Plotting utilities
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="correlated.html">
-   Correlations
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="datasets.html">
-   Datasets
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="scalers.html">
-   Scalers
-  </a>
- </li>
-</ul>
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
 
-  </div>
-</nav>
-            </div>
-            
-          
-
-          
-          <div class="d-none d-xl-block col-xl-2 bd-toc">
-            
-              
-              <div class="toc-item">
-                
-
-<nav id="bd-toc-nav">
+    <div class="bd-toc-item active">
     
-</nav>
-              </div>
-              
-              <div class="toc-item">
-                
-              </div>
-              
+  
+    <ul class="nav bd-sidenav">
+        
+        
+        
+        
+        
+        
+          
             
+                <li class="">
+                    <a href="parameter.html">Parameter</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="basis.html">Basis</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="poly.html">Polynomial</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="subspaces.html">Dimension reduction with polynomials</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="optimisation.html">Optimisation with polynomials</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="polytree.html">Polynomial Regression Trees</a>
+                </li>
+            
+          
+            
+                <li class="active">
+                    <a href="">Linear system solvers</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="quadrature.html">Quadrature</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="weight.html">Prescribing probability functions</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="plot.html">Plotting utilities</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="correlated.html">Correlations</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="datasets.html">Datasets</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="scalers.html">Scalers</a>
+                </li>
+            
+          
+        
+        
+        
+        
+        
+        
+        
+        
+      </ul>
+  
+  </nav>
           </div>
           
 
           
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
           
-            
+
           
           <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
               
@@ -260,38 +251,114 @@
                 
   <div class="section" id="module-equadratures.solver">
 <span id="linear-system-solvers"></span><h1>Linear system solvers<a class="headerlink" href="#module-equadratures.solver" title="Permalink to this headline">¶</a></h1>
-<p>Solvers for computing of a linear system.</p>
+<p>Solvers for computation of linear systems of the form <span class="math notranslate nohighlight">\(\mathbf{A}\mathbf{x}=\mathbf{b}\)</span>.</p>
+<p>These solvers are used <em>under-the-hood</em> by <a class="reference internal" href="poly.html#equadratures.poly.Poly" title="equadratures.poly.Poly"><code class="xref py py-class docutils literal notranslate"><span class="pre">Poly</span></code></a> when <a class="reference internal" href="poly.html#equadratures.poly.Poly.set_model" title="equadratures.poly.Poly.set_model"><code class="xref py py-meth docutils literal notranslate"><span class="pre">set_model()</span></code></a> is called, with the solver specified by the <code class="docutils literal notranslate"><span class="pre">method</span></code> argument.
+The solvers can also be used independently (see examples) for debugging and experimentation purposes.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="equadratures.solver.Solver">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">equadratures.solver.</span></span><span class="sig-name descname"><span class="pre">Solver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/solver.html#Solver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.solver.Solver" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns solver functions for solving Ax=b
-:param string method: The method used for solving the linear system. Options include: <code class="docutils literal notranslate"><span class="pre">compressed-sensing</span></code>, <code class="docutils literal notranslate"><span class="pre">least-squares</span></code>, <code class="docutils literal notranslate"><span class="pre">minimum-norm</span></code>, <code class="docutils literal notranslate"><span class="pre">numerical-integration</span></code>, <code class="docutils literal notranslate"><span class="pre">least-squares-with-gradients</span></code>, <code class="docutils literal notranslate"><span class="pre">least-absolute-residual</span></code>, <code class="docutils literal notranslate"><span class="pre">huber</span></code>, <code class="docutils literal notranslate"><span class="pre">elastic-net</span></code>, <code class="docutils literal notranslate"><span class="pre">elastic-path</span></code> and <code class="docutils literal notranslate"><span class="pre">relevance-vector-machine</span></code>.
-:param dict solver_args: Optional arguments centered around the specific solver.</p>
-<blockquote>
-<div><dl class="field-list simple">
-<dt class="field-odd">param bool verbose</dt>
-<dd class="field-odd"><p>Default value of this input is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>; when <code class="docutils literal notranslate"><span class="pre">True</span></code>, the solver prints information to screen.</p>
-</dd>
-<dt class="field-even">param string opt</dt>
-<dd class="field-even"><p>Specifies the underlying optimisation method to use. <code class="docutils literal notranslate"><span class="pre">scipy</span></code> for scipy, and <cite>osqp</cite> to use the OSQP optimiser (requires <code class="docutils literal notranslate"><span class="pre">cvxpy</span></code> to be installed).</p>
+<dd><p>The parent solver class. All other solver subclasses inherit attributes and methods from this parent class.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This parent class should not be used directly, but can be used to select the desired solver subclass (see examples).</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>method</strong> (<em>string</em>) – The method used for solving the linear system. Options include: <code class="docutils literal notranslate"><span class="pre">compressed-sensing</span></code>, <code class="docutils literal notranslate"><span class="pre">least-squares</span></code>, <code class="docutils literal notranslate"><span class="pre">minimum-norm</span></code>, <code class="docutils literal notranslate"><span class="pre">numerical-integration</span></code>, <code class="docutils literal notranslate"><span class="pre">least-squares-with-gradients</span></code>, <code class="docutils literal notranslate"><span class="pre">least-absolute-residual</span></code>, <code class="docutils literal notranslate"><span class="pre">huber</span></code>, <code class="docutils literal notranslate"><span class="pre">elastic-net</span></code>, and <code class="docutils literal notranslate"><span class="pre">relevance-vector-machine</span></code>.</p></li>
+<li><p><strong>solver_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a><em>, </em><em>optional</em>) – <p>Dictionary containing optional arguments centered around the specific solver. Arguments are specific to the requested solver, except for the following generic arguments:</p>
+<ul>
+<li><p><strong>verbose</strong> (bool): Default value of this input is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>; when <code class="docutils literal notranslate"><span class="pre">True</span></code>, the solver prints information to screen.</p></li>
+<li><p><strong>opt</strong> (str): Specifies the underlying optimisation method to use. <code class="docutils literal notranslate"><span class="pre">scipy</span></code> for scipy, and <cite>osqp</cite> to use the OSQP optimiser (requires <code class="docutils literal notranslate"><span class="pre">cvxpy</span></code> to be installed).</p></li>
+</ul>
+</p></li>
+</ul>
 </dd>
 </dl>
-</div></blockquote>
+<p class="rubric">Examples</p>
+<dl>
+<dt>Accessing the underlying solver used by a Poly instance</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Fit a 2D polynomial using the elastic-net solver (with some specific solver_args passed)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">80</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">xx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">xx</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">3</span> <span class="o">+</span> <span class="n">xx</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">80</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">myparam</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span><span class="n">order</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mybasis</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Basis</span><span class="p">(</span><span class="s1">&#39;total-order&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mypoly</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Poly</span><span class="p">([</span><span class="n">myparam</span><span class="p">,</span><span class="n">myparam</span><span class="p">],</span><span class="n">mybasis</span><span class="p">,</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;elastic-net&#39;</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>                <span class="n">sampling_args</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;mesh&#39;</span><span class="p">:</span> <span class="s1">&#39;user-defined&#39;</span><span class="p">,</span><span class="s1">&#39;sample-points&#39;</span><span class="p">:</span><span class="n">xx</span><span class="p">,</span><span class="s1">&#39;sample-outputs&#39;</span><span class="p">:</span><span class="n">y</span><span class="p">},</span>
+<span class="gp">&gt;&gt;&gt; </span>                <span class="n">solver_args</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;verbose&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span><span class="s1">&#39;crit&#39;</span><span class="p">:</span><span class="s1">&#39;AIC&#39;</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mypoly</span><span class="o">.</span><span class="n">set_model</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Plot the regularisation path using the solver&#39;s method</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mypoly</span><span class="o">.</span><span class="n">solver</span><span class="o">.</span><span class="n">plot_regpath</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+<dt>Using solver subclasses independently</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Example data</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># # select_solver will return the requested solver subclass</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mysolver</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Solver</span><span class="o">.</span><span class="n">select_solver</span><span class="p">(</span><span class="s1">&#39;least-squares&#39;</span><span class="p">,</span><span class="n">solver_args</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;verbose&#39;</span><span class="p">:</span><span class="kc">False</span><span class="p">})</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Or you can select the solversubclass directly</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mysolver</span> <span class="o">=</span> <span class="n">solver</span><span class="o">.</span><span class="n">least_squares</span><span class="p">(</span><span class="n">solver_args</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;verbose&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">})</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># You can manually run solve and then get_coefficients</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mysolver</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">mysolver</span><span class="o">.</span><span class="n">get_coefficients</span><span class="p">()</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Or providing get_coefficients() with A and b will automatically run solve()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">mysolver</span><span class="o">.</span><span class="n">get_coefficients</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+<span class="go">The condition number of the matrix is 29.82452477932781.</span>
+<span class="go">The condition number of the matrix is 29.82452477932781.</span>
+</pre></div>
+</div>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.solver.Solver.get_coefficients">
 <span class="sig-name descname"><span class="pre">get_coefficients</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/solver.html#Solver.get_coefficients"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.solver.Solver.get_coefficients" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the coefficients the solver has calculated. If the A and b matrices are provied Solver.solve() will be run first. If the solver uses gradients, C and d can also be given.
-:param :numpy.ndarray A: <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> with shape (number_of_observations, cardinality). Optional.
-:param :numpy.ndarray b: <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> with shape (number_of_observations, 1) or (number_of_observations). Optional.
-:param :numpy.ndarray C: <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> with shape (number_of_observations, cardinality). Optional.
-:param :numpy.ndarray d: <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> with shape (number_of_observations, 1) or (number_of_observations). Optional.</p>
+<dd><p>Get the coefficients the solver has calculated. If the A and b matrices are provied Solver.solve() will be run first. If the solver uses gradients, C and d can also be given.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – Array with shape (number_of_observations, cardinality).</p></li>
+<li><p><strong>b</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – Array with shape (number_of_observations, 1) or (number_of_observations).</p></li>
+<li><p><strong>C</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – Array with shape (number_of_observations, cardinality).</p></li>
+<li><p><strong>d</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – Array with shape (number_of_observations, 1) or (number_of_observations).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Array containing the coefficients x computed by the solver.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)">numpy.ndarray</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.solver.Solver.select_solver">
 <em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">select_solver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/solver.html#Solver.select_solver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.solver.Solver.select_solver" title="Permalink to this definition">¶</a></dt>
-<dd><p>Method to return a solver subclass.
-:param string method: The name of the solver to return.</p>
+<dd><p>Method to return a solver subclass.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>method</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – The name of the solver to return.</p></li>
+<li><p><strong>solver_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a><em>, </em><em>optional</em>) – <p>Dictionary containing optional arguments centered around the specific solver. Arguments are specific to the requested solver, except for the following generic arguments:</p>
+<ul>
+<li><p><strong>verbose</strong> (bool): Default value of this input is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>; when <code class="docutils literal notranslate"><span class="pre">True</span></code>, the solver prints information to screen.</p></li>
+<li><p><strong>opt</strong> (str): Specifies the underlying optimisation method to use. <code class="docutils literal notranslate"><span class="pre">scipy</span></code> for scipy, and <cite>osqp</cite> to use the OSQP optimiser (requires <code class="docutils literal notranslate"><span class="pre">cvxpy</span></code> to be installed).</p></li>
+</ul>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The Solver subclass specified in <code class="docutils literal notranslate"><span class="pre">method</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#equadratures.solver.Solver" title="equadratures.solver.Solver">Solver</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -299,180 +366,206 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="equadratures.solver.compressed_sensing">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">equadratures.solver.</span></span><span class="sig-name descname"><span class="pre">compressed_sensing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">solver_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/solver.html#compressed_sensing"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.solver.compressed_sensing" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compressed sensing solver.
-:param dict solver_args: Optional arguments for the solver.</p>
-<blockquote>
-<div><dl class="field-list simple">
-<dt class="field-odd">param bool verbose</dt>
-<dd class="field-odd"><p>Default value of this input is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>; when <code class="docutils literal notranslate"><span class="pre">True</span></code>, the solver prints information to screen.</p>
-</dd>
-<dt class="field-even">param float noise-level</dt>
-<dd class="field-even"><p></p></dd>
-<dt class="field-odd">param string opt</dt>
-<dd class="field-odd"><p>Specifies the underlying optimisation method to use. <code class="docutils literal notranslate"><span class="pre">scipy</span></code> for scipy, and <cite>osqp</cite> to use the OSQP optimiser (requires <code class="docutils literal notranslate"><span class="pre">cvxpy</span></code> to be installed).</p>
+<dd><p>Compressed sensing solver.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>solver_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – <p>Optional arguments for the solver:</p>
+<ul class="simple">
+<li><p><strong>verbose</strong> (bool): Default value of this input is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>; when <code class="docutils literal notranslate"><span class="pre">True</span></code>, the solver prints information to screen.</p></li>
+<li><p><strong>noise-level</strong> (float)</p></li>
+</ul>
+</p>
 </dd>
 </dl>
-</div></blockquote>
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="equadratures.solver.constrained_least_squares">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">equadratures.solver.</span></span><span class="sig-name descname"><span class="pre">constrained_least_squares</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">solver_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/solver.html#constrained_least_squares"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.solver.constrained_least_squares" title="Permalink to this definition">¶</a></dt>
-<dd><p>Constrained least squares regression.
-This solves an orthogonal linear system i.e. simply c=A^T.b.
-:param dict solver_args: Optional arguments for the solver.</p>
-<blockquote>
-<div><dl class="field-list simple">
-<dt class="field-odd">param bool verbose</dt>
-<dd class="field-odd"><p>Default value of this input is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>; when <code class="docutils literal notranslate"><span class="pre">True</span></code>, the solver prints information to screen.</p>
+<dd><p>Constrained least squares regression.</p>
+<p>This solves an orthogonal linear system i.e. simply c=A^T.b.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>solver_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – <p>Optional arguments for the solver:</p>
+<ul class="simple">
+<li><p><strong>verbose</strong> (bool): Default value of this input is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>; when <code class="docutils literal notranslate"><span class="pre">True</span></code>, the solver prints information to screen.</p></li>
+</ul>
+</p>
 </dd>
 </dl>
-</div></blockquote>
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="equadratures.solver.custom_solver">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">equadratures.solver.</span></span><span class="sig-name descname"><span class="pre">custom_solver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">solver_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/solver.html#custom_solver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.solver.custom_solver" title="Permalink to this definition">¶</a></dt>
-<dd><p>Custom solver class. This class allows you to enter a custom <code class="docutils literal notranslate"><span class="pre">solve()</span></code> function to solve Ax=b.
-The <code class="docutils literal notranslate"><span class="pre">solve()</span></code> is provided via <code class="docutils literal notranslate"><span class="pre">solver_args</span></code>, and should accept the <code class="docutils literal notranslate"><span class="pre">numpy.ndarrays</span></code> A and b, and return the coefficients x.</p>
+<dd><p>Custom solver class.</p>
+<p>This class allows you to enter a custom <code class="docutils literal notranslate"><span class="pre">solve()</span></code> function to solve <span class="math notranslate nohighlight">\(\mathbf{A}\mathbf{x}=\mathbf{b}\)</span>. The <code class="docutils literal notranslate"><span class="pre">solve()</span></code> is provided via <code class="docutils literal notranslate"><span class="pre">solver_args</span></code>, and should accept the numpy.ndarray’s <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{b}\)</span>, and return a numpy.ndarray containing the coefficients <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>solver_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – Optional arguments for the solver. Additional arguments are passed through to the custom <code class="docutils literal notranslate"><span class="pre">solve()</span></code> function as kwargs.
-:param function solve: The custom <code class="docutils literal notranslate"><span class="pre">solve()</span></code> solve function. This must accept A and b, and return x.</p>
+<dd class="field-odd"><p><strong>solver_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – <p>Optional arguments for the solver. Optional arguments for the solver. Additional arguments are passed through to the custom <code class="docutils literal notranslate"><span class="pre">solve()</span></code> function as kwargs.</p>
+<ul class="simple">
+<li><p><strong>verbose</strong> (bool): Default value of this input is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>; when <code class="docutils literal notranslate"><span class="pre">True</span></code>, the solver prints information to screen.</p></li>
+<li><p><strong>solve</strong> (Callable): The custom <code class="docutils literal notranslate"><span class="pre">solve()</span></code> solve function. This must accept A and b, and return x.</p></li>
+</ul>
+</p>
 </dd>
 </dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Create a new solve method - the Kaczmarz iterative solver</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">kaczmarz</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">m</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># initial guess</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">MAXITER</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">for</span> <span class="n">iters</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">MAXITER</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span>        <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Iteration </span><span class="si">%d</span><span class="s1">/</span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">iters</span><span class="p">,</span><span class="n">MAXITER</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">m</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span>            <span class="n">a_row</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span>            <span class="n">term_3</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="mf">1.0</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">a_row</span> <span class="p">,</span> <span class="n">a_row</span><span class="o">.</span><span class="n">T</span><span class="p">)))</span>
+<span class="gp">&gt;&gt;&gt; </span>            <span class="n">term_1</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">a_row</span> <span class="p">,</span> <span class="n">x</span><span class="p">)))</span>
+<span class="gp">&gt;&gt;&gt; </span>            <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="p">(</span><span class="n">term_1</span> <span class="o">*</span> <span class="n">term_3</span> <span class="o">*</span> <span class="n">a_row</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">return</span> <span class="n">x</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Wrap this function in the custom_solver subclass and use it to fit a polynomial</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mypoly</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Poly</span><span class="p">(</span><span class="n">myparam</span><span class="p">,</span> <span class="n">mybasis</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;custom-solver&#39;</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>            <span class="n">sampling_args</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;mesh&#39;</span><span class="p">:</span><span class="s1">&#39;user-defined&#39;</span><span class="p">,</span> <span class="s1">&#39;sample-points&#39;</span><span class="p">:</span><span class="n">X</span><span class="p">,</span> <span class="s1">&#39;sample-outputs&#39;</span><span class="p">:</span><span class="n">y</span><span class="p">},</span>
+<span class="gp">&gt;&gt;&gt; </span>              <span class="n">solver_args</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;solve&#39;</span><span class="p">:</span><span class="n">lsq</span><span class="p">,</span><span class="s1">&#39;verbose&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">})</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="equadratures.solver.elastic_net">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">equadratures.solver.</span></span><span class="sig-name descname"><span class="pre">elastic_net</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">solver_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/solver.html#elastic_net"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.solver.elastic_net" title="Permalink to this definition">¶</a></dt>
-<dd><p>Elastic net solver. Solves 0.5*||Ax-b||_2 + lamda*( alpha*||x||_1  + 0.5*(1-alpha)*||x||_2**2).
-The elastic net consists of an L2 cost function, with mix of L1 and L2 penalties (scaled by lamda1 and lamda2).
-The penalties shrink the parameter estimates in the hopes of reducing variance, improving prediction accuracy, and aiding interpetation.
-lamda controls amount of penalisation i.e. lamda=0 gives OLS.
-alpha controls L1/L2 penalisation mix. alpha=1 gives LASSO, and alpha=0 gives ridge regression (however alpha&lt;0.01 is unreliable).</p>
-<p>Note, to set lamda1 and lamda2 directly:
-lamda = lamda1 + lamda2
-alpha = lamda1 / (lamda1 + lamda2)</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">path=True</span></code>, the elastic net is solved via coordinate descent [1]. The full regularisation path is computed (for a given l1 vs l2 blending parameter alpha), and the set of coefficients with the lowest model selection criteria is then selected according to [2]. Otherwise, the elastic net is solved for a given alpha and lambda value using the OSQP optimiser (if <code class="docutils literal notranslate"><span class="pre">cvxpy</span></code> is installed).</p>
+<dd><p>Elastic net solver.</p>
+<p>The elastic net solver minimises</p>
+<p><span class="math notranslate nohighlight">\(\frac{1}{2}||\mathbf{A}\mathbf{x}-\mathbf{b}||_2 + \lambda (\alpha||\mathbf{x}||_1 + \frac{1}{2}(1-\alpha)||\mathbf{x}||_2^2)\)</span>.</p>
+<p>where <span class="math notranslate nohighlight">\(\lambda\)</span> controls the strength of the regularisation (with OLS returned when <span class="math notranslate nohighlight">\(\lambda=0\)</span>), and <span class="math notranslate nohighlight">\(\alpha\)</span> controlling the blending between the L1 and L2 penalty terms.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">path=True</span></code>, the elastic net is solved via coordinate descent [1]. The full regularisation path (<span class="math notranslate nohighlight">\(\lambda\)</span> path) is computed (for a given <span class="math notranslate nohighlight">\(\alpha\)</span>), and the set of coefficients with the lowest model selection criteria is then selected according to [2]. Otherwise, the elastic net is solved for a given <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\lambda\)</span> using the OSQP quadratic program optimiser (if <code class="docutils literal notranslate"><span class="pre">cvxpy</span></code> is installed).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>solver_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – Optional arguments for the solver.
-:param bool verbose: Default value of this input is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>; when <code class="docutils literal notranslate"><span class="pre">True</span></code>, the solver prints information to screen.
-:param float alpha: The L1/L2 pentalty blending parameter. Default: <code class="docutils literal notranslate"><span class="pre">alpha=1.0</span></code>.
-:param bool path: Computes the full regularisation path if True, otherwise solves for a single lambda value. Default: <code class="docutils literal notranslate"><span class="pre">path=True</span></code>.
-:param int max_iter: Max number of iterations for the coordinate descent solver (if <code class="docutils literal notranslate"><span class="pre">path=True</span></code>). Default: <code class="docutils literal notranslate"><span class="pre">max_iter=100</span></code>.
-:param int n_lambdas: Number of lambda values along the regularisation path (if <code class="docutils literal notranslate"><span class="pre">path=True</span></code>). Default: <code class="docutils literal notranslate"><span class="pre">n_lambdas=100</span></code>.
-:param float lambda_eps: Minimum lambda value, as a fraction of <code class="docutils literal notranslate"><span class="pre">lambda_max</span></code> (if <code class="docutils literal notranslate"><span class="pre">path=True</span></code>). Default: <code class="docutils literal notranslate"><span class="pre">lambda_eps=1e-3</span></code>.
-:param float lambda_max: Maximum lambda value (if <code class="docutils literal notranslate"><span class="pre">path=True</span></code>). If not <code class="docutils literal notranslate"><span class="pre">None</span></code> this overrides the automatically calculated value. Default: <code class="docutils literal notranslate"><span class="pre">lambda_max=None</span></code>.
-:param float tol: Convergence tolerance criterion for coordinate descent solver (if <code class="docutils literal notranslate"><span class="pre">path=True</span></code>). <code class="docutils literal notranslate"><span class="pre">tol=1e-6</span></code>.
-:param string crit: Information criterion to select optimal lambda from regularisation path. <code class="docutils literal notranslate"><span class="pre">'AIC'</span></code> is Akaike information criterion, <code class="docutils literal notranslate"><span class="pre">'BIC'</span></code> is Bayesian information criterion, <code class="docutils literal notranslate"><span class="pre">'CV'</span></code> is 5-fold cross-validated RSS error (if <code class="docutils literal notranslate"><span class="pre">path=True</span></code>). <code class="docutils literal notranslate"><span class="pre">crit='CV'</span></code>.
-:param float lambda: The penalty scaling parameter (if <code class="docutils literal notranslate"><span class="pre">path=False</span></code>). Default: <a href="#id1"><span class="problematic" id="id2">``</span></a>lambda=0.01`.</p>
+<dd class="field-odd"><p><strong>solver_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – <p>Optional arguments for the solver:</p>
+<ul class="simple">
+<li><p><strong>verbose</strong> (bool): Default value of this input is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>; when <code class="docutils literal notranslate"><span class="pre">True</span></code>, the solver prints information to screen.</p></li>
+<li><p><strong>alpha</strong> (float): The L1/L2 pentalty blending parameter <span class="math notranslate nohighlight">\(\alpha\)</span>. Default: <code class="docutils literal notranslate"><span class="pre">alpha=1.0</span></code>. If <code class="docutils literal notranslate"><span class="pre">alpha=0</span></code> is desired, use <a class="reference internal" href="#equadratures.solver.least_squares" title="equadratures.solver.least_squares"><code class="xref py py-class docutils literal notranslate"><span class="pre">least_squares</span></code></a>.</p></li>
+<li><p><strong>path</strong> (bool): Computes the full regularisation path if True, otherwise solves for a single <span class="math notranslate nohighlight">\(\lambda\)</span> value. Default: <code class="docutils literal notranslate"><span class="pre">path=True</span></code>.</p></li>
+<li><p><strong>max_iter</strong> (int): Max number of iterations for the coordinate descent solver (if <code class="docutils literal notranslate"><span class="pre">path=True</span></code>). Default: <code class="docutils literal notranslate"><span class="pre">max_iter=100</span></code>.</p></li>
+<li><p><strong>n_lambdas</strong> (int): Number of lambda values along the regularisation path (if <code class="docutils literal notranslate"><span class="pre">path=True</span></code>). Default: <code class="docutils literal notranslate"><span class="pre">n_lambdas=100</span></code>.</p></li>
+<li><p><strong>lambda_eps</strong> (float): Minimum lambda value, as a fraction of <code class="docutils literal notranslate"><span class="pre">lambda_max</span></code> (if <code class="docutils literal notranslate"><span class="pre">path=True</span></code>). Default: <code class="docutils literal notranslate"><span class="pre">lambda_eps=1e-3</span></code>.</p></li>
+<li><p><strong>lambda_max</strong> (float): Maximum lambda value (if <code class="docutils literal notranslate"><span class="pre">path=True</span></code>). If not <code class="docutils literal notranslate"><span class="pre">None</span></code> this overrides the automatically calculated value. Default: <code class="docutils literal notranslate"><span class="pre">lambda_max=None</span></code>.</p></li>
+<li><p><strong>tol</strong> (float): Convergence tolerance criterion for coordinate descent solver (if <code class="docutils literal notranslate"><span class="pre">path=True</span></code>). Default: <code class="docutils literal notranslate"><span class="pre">tol=1e-6</span></code>.</p></li>
+<li><p><strong>crit</strong> (str): Information criterion to select optimal lambda from regularisation path. <code class="docutils literal notranslate"><span class="pre">'AIC'</span></code> is Akaike information criterion, <code class="docutils literal notranslate"><span class="pre">'BIC'</span></code> is Bayesian information criterion, <code class="docutils literal notranslate"><span class="pre">'CV'</span></code> is 5-fold cross-validated RSS error (if <code class="docutils literal notranslate"><span class="pre">path=True</span></code>). Default: <code class="docutils literal notranslate"><span class="pre">crit='CV'</span></code>.</p></li>
+<li><p><strong>lambda</strong> (float): The penalty scaling parameter (if <code class="docutils literal notranslate"><span class="pre">path=False</span></code>). Default: <a href="#id1"><span class="problematic" id="id2">``</span></a>lambda=0.01`.</p></li>
+</ul>
+</p>
 </dd>
 </dl>
-<dl class="simple">
-<dt><strong>References</strong></dt><dd><ol class="arabic simple">
+<p class="rubric">References</p>
+<ol class="arabic simple">
 <li><p>Friedman J., Hastie T., Tibshirani R., (2010) Regularization Paths for Generalized Linear Models via Coordinate Descent. Journal of Statistical Software, 33(1), 1-22. <a class="reference external" href="https://www.jstatsoft.org/article/view/v033i01">Paper</a></p></li>
 <li><p>Zou, H., Hastie, T., Tibshirani, R., (2007) On the “degrees of freedom” of the lasso. The Annals of Statistics, 35(5), 2173–2192. <a class="reference external" href="https://projecteuclid.org/download/pdfview_1/euclid.aos/1194461726">Paper</a></p></li>
 </ol>
-</dd>
-</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="equadratures.solver.elastic_net.plot_regpath">
+<span class="sig-name descname"><span class="pre">plot_regpath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nplot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/solver.html#elastic_net.plot_regpath"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.solver.elastic_net.plot_regpath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the regularisation path. See <a class="reference internal" href="plot.html#equadratures.plot.plot_regpath" title="equadratures.plot.plot_regpath"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot.plot_regpath</span></code></a> for full description.</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="equadratures.solver.huber">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">equadratures.solver.</span></span><span class="sig-name descname"><span class="pre">huber</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">solver_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/solver.html#huber"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.solver.huber" title="Permalink to this definition">¶</a></dt>
-<dd><p>Huber regression solver. Solves Ax=b by minimising the Huber loss function.
-This function is identical to the least squares (L2) penalty for small residuals (i.e. ||Ax-b||**2&lt;=M).
-But on large residuals (||Ax-b||**2&gt;M), its penalty is lower (L1) and increases linearly rather than quadratically.
-It is thus more forgiving of outliers.
-:param dict solver_args: Optional arguments for the solver.</p>
-<blockquote>
-<div><dl class="field-list simple">
-<dt class="field-odd">param bool verbose</dt>
-<dd class="field-odd"><p>Default value of this input is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>; when <code class="docutils literal notranslate"><span class="pre">True</span></code>, the solver prints information to screen.</p>
-</dd>
-<dt class="field-even">param float M</dt>
-<dd class="field-even"><p>The huber threshold. Default <code class="docutils literal notranslate"><span class="pre">M=1</span></code>.</p>
+<dd><p>Huber regression solver. Minimises the Huber loss function.</p>
+<p>This function is identical to the least squares (L2) penalty for small residuals (i.e. <span class="math notranslate nohighlight">\(||\mathbf{A}\mathbf{x}-\mathbf{b}||^2\le M\)</span>).
+But on large residuals (<span class="math notranslate nohighlight">\(||\mathbf{A}\mathbf{x}-\mathbf{b}||^2 &gt; M\)</span>), its penalty is lower (L1) and increases linearly rather than quadratically.
+It is thus more forgiving of outliers.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>solver_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a><em>, </em><em>optional</em>) – <p>Optional arguments for the solver:</p>
+<ul class="simple">
+<li><p><strong>verbose</strong> (bool): Default value of this input is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>; when <code class="docutils literal notranslate"><span class="pre">True</span></code>, the solver prints information to screen.</p></li>
+<li><p><strong>M</strong> (float): The huber threshold. Default <code class="docutils literal notranslate"><span class="pre">M=1</span></code>.</p></li>
+</ul>
+</p>
 </dd>
 </dl>
-</div></blockquote>
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="equadratures.solver.least_absolute_residual">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">equadratures.solver.</span></span><span class="sig-name descname"><span class="pre">least_absolute_residual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">solver_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/solver.html#least_absolute_residual"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.solver.least_absolute_residual" title="Permalink to this definition">¶</a></dt>
-<dd><p>Least absolute residual solver. Solves Ax=b by minimising the L1 norm (absolute residuals).
-:param dict solver_args: Optional arguments for the solver.</p>
-<blockquote>
-<div><dl class="field-list simple">
-<dt class="field-odd">param bool verbose</dt>
-<dd class="field-odd"><p>Default value of this input is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>; when <code class="docutils literal notranslate"><span class="pre">True</span></code>, the solver prints information to screen.</p>
-</dd>
-<dt class="field-even">param string opt</dt>
-<dd class="field-even"><p>Specifies the underlying optimisation method to use. <code class="docutils literal notranslate"><span class="pre">scipy</span></code> for scipy, and <cite>osqp</cite> to use the OSQP optimiser (requires <code class="docutils literal notranslate"><span class="pre">cvxpy</span></code> to be installed).</p>
+<dd><p>Least absolute residual solver. Minimises the L1 norm (absolute residuals).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>solver_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – <p>Optional arguments for the solver:</p>
+<ul class="simple">
+<li><p><strong>verbose</strong> (bool): Default value of this input is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>; when <code class="docutils literal notranslate"><span class="pre">True</span></code>, the solver prints information to screen.</p></li>
+<li><p><strong>opt</strong> (str): Specifies the underlying optimisation method to use. <code class="docutils literal notranslate"><span class="pre">scipy</span></code> for scipy, and <cite>osqp</cite> to use the OSQP optimiser (requires <code class="docutils literal notranslate"><span class="pre">cvxpy</span></code> to be installed).</p></li>
+</ul>
+</p>
 </dd>
 </dl>
-</div></blockquote>
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="equadratures.solver.least_squares">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">equadratures.solver.</span></span><span class="sig-name descname"><span class="pre">least_squares</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">solver_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/solver.html#least_squares"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.solver.least_squares" title="Permalink to this definition">¶</a></dt>
-<dd><p>Ordinary least squares solver.
-:param dict solver_args: Optional arguments for the solver.</p>
-<blockquote>
-<div><dl class="field-list simple">
-<dt class="field-odd">param bool verbose</dt>
-<dd class="field-odd"><p>Default value of this input is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>; when <code class="docutils literal notranslate"><span class="pre">True</span></code>, the solver prints information to screen.</p>
+<dd><p>Ordinary least squares solver.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>solver_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – <p>Optional arguments for the solver:</p>
+<ul class="simple">
+<li><p><strong>verbose</strong> (bool): Default value of this input is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>; when <code class="docutils literal notranslate"><span class="pre">True</span></code>, the solver prints information to screen.</p></li>
+</ul>
+</p>
 </dd>
 </dl>
-</div></blockquote>
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="equadratures.solver.minimum_norm">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">equadratures.solver.</span></span><span class="sig-name descname"><span class="pre">minimum_norm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">solver_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/solver.html#minimum_norm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.solver.minimum_norm" title="Permalink to this definition">¶</a></dt>
-<dd><p>Minimum norm solver, used for uniquely or overdetermined systems (i.e. m&gt;=n).
-:param dict solver_args: Optional arguments for the solver.</p>
-<blockquote>
-<div><dl class="field-list simple">
-<dt class="field-odd">param bool verbose</dt>
-<dd class="field-odd"><p>Default value of this input is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>; when <code class="docutils literal notranslate"><span class="pre">True</span></code>, the solver prints information to screen.</p>
+<dd><p>Minimum norm solver, used for uniquely or overdetermined systems (i.e. m&gt;=n).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>solver_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – <p>Optional arguments for the solver:</p>
+<ul class="simple">
+<li><p><strong>verbose</strong> (bool): Default value of this input is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>; when <code class="docutils literal notranslate"><span class="pre">True</span></code>, the solver prints information to screen.</p></li>
+</ul>
+</p>
 </dd>
 </dl>
-</div></blockquote>
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="equadratures.solver.numerical_integration">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">equadratures.solver.</span></span><span class="sig-name descname"><span class="pre">numerical_integration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">solver_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/solver.html#numerical_integration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.solver.numerical_integration" title="Permalink to this definition">¶</a></dt>
-<dd><p>Numerical integration solver. This solves an orthogonal linear system i.e. simply c=A^T.b.
-:param dict solver_args: Optional arguments for the solver.</p>
-<blockquote>
-<div><dl class="field-list simple">
-<dt class="field-odd">param bool verbose</dt>
-<dd class="field-odd"><p>Default value of this input is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>; when <code class="docutils literal notranslate"><span class="pre">True</span></code>, the solver prints information to screen.</p>
+<dd><p>Numerical integration solver. This solves an orthogonal linear system i.e. simply <span class="math notranslate nohighlight">\(\mathbf{x}=\mathbf{A}^T\mathbf{b}\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>solver_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – <p>Optional arguments for the solver:</p>
+<ul class="simple">
+<li><p><strong>verbose</strong> (bool): Default value of this input is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>; when <code class="docutils literal notranslate"><span class="pre">True</span></code>, the solver prints information to screen.</p></li>
+</ul>
+</p>
 </dd>
 </dl>
-</div></blockquote>
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="equadratures.solver.rvm">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">equadratures.solver.</span></span><span class="sig-name descname"><span class="pre">rvm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">solver_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/solver.html#rvm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.solver.rvm" title="Permalink to this definition">¶</a></dt>
-<dd><p>Relevence vector machine solver.
-:param dict solver_args: Optional arguments for the solver.</p>
-<blockquote>
-<div><dl class="field-list simple">
-<dt class="field-odd">param bool verbose</dt>
-<dd class="field-odd"><p>Default value of this input is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>; when <code class="docutils literal notranslate"><span class="pre">True</span></code>, the solver prints information to screen.</p>
-</dd>
-<dt class="field-even">param int max_iter</dt>
-<dd class="field-even"><p>Maximum number of iterations. Default is 1000.</p>
+<dd><p>Relevence vector machine solver.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>solver_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – <p>Optional arguments for the solver:</p>
+<ul class="simple">
+<li><p><strong>verbose</strong> (bool): Default value of this input is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>; when <code class="docutils literal notranslate"><span class="pre">True</span></code>, the solver prints information to screen.</p></li>
+<li><p><strong>max_iter</strong> (int): Maximum number of iterations. Default is 1000.</p></li>
+</ul>
+</p>
 </dd>
 </dl>
-</div></blockquote>
 </dd></dl>
 
 </div>
@@ -486,23 +579,24 @@ It is thus more forgiving of outliers.
 
       </div>
     </div>
-  
-  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-  <footer>
-<div align="center"> 
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    <footer>
+<div align="center">
 <div class="logos">
-<a href="https://github.com/Effective-Quadratures/Effective-Quadratures"><i class="fab fa-github"></i></a>   
-<a href="https://effectivequadratures.slack.com/"><i class="fab fa-slack"></i></a>   
-<a href="https://twitter.com/EQuadratures"><i class="fab fa-twitter"></i></a>   
-<a href="https://discourse.equadratures.org"><i class="fab fa-discourse"></i></a>   
-<a href="https://www.linkedin.com/company/effective-quadratures/about/"><i class="fab fa-linkedin"></i></a>   
-<a href="https://www.youtube.com/channel/UCpjwFDSZuFbzW-2lj6d96dA"><i class="fab fa-youtube"></i></a>   
+<a href="https://github.com/Effective-Quadratures/Effective-Quadratures"><i class="fab fa-github"></i></a>
+<a href="https://effectivequadratures.slack.com/"><i class="fab fa-slack"></i></a>
+<a href="https://twitter.com/EQuadratures"><i class="fab fa-twitter"></i></a>
+<a href="https://discourse.equadratures.org"><i class="fab fa-discourse"></i></a>
+<a href="https://www.linkedin.com/company/effective-quadratures/about/"><i class="fab fa-linkedin"></i></a>
+<a href="https://www.youtube.com/channel/UCpjwFDSZuFbzW-2lj6d96dA"><i class="fab fa-youtube"></i></a>
 </div>
-
-<span>Made by the Effective Quadratures Team, with ❤️</span>    
-<span>Copyright © 2016-2021 by equadratures.org</span>    
-<span> <a href="mailto:contact@equadratures.org">contact@equadratures.org</a> </span>   
+<span>Copyright © 2016-2021 by equadratures. Made by the equadratures team, with ❤️.</span>
+<br>
+<br>
 </div>
 </footer>
   </body>

@@ -2,13 +2,30 @@
 Research
 =============
 
+Our team undertakes research in the following areas.
 
-.. figure:: /_documentation/Figures/equadratures_laptop.jpg
-   :width: 100%
 
-Below you will find a list of publications, along with their supporting code, and in some cases a related blog post. Publications are classified by their domain area. For an overview do check out the slides below:
+.. list-table::
+   :widths: 30 30 30 30 30
+   :header-rows: 0
 
-* `Scope and capability <https://drive.google.com/file/d/1L970YCnN4B-SnbKnXyB9jgbb4qCncDAx/view?usp=sharing>`__
+   * - bayesian inference
+     - uncertainty quantification
+     - polynomial chaos
+     - dimension reduction
+     - polynomial interpolation
+   * - surrogate-based optimisation
+     - supervised machine learning
+     - sensitivity analysis
+     - active subspaces
+     - matrix computations
+   * - numerical integration
+     - design of experiment
+     - transfer learning
+     - manifold learning
+     - linear algebra
+
+Relevant papers may be found below.
 
 Data-driven dimension reduction
 --------------------------------
@@ -57,7 +74,7 @@ Data-driven dimension reduction
   2020
 
 :Resources:
-  `Preprint I <https://arxiv.org/abs/2011.11636>`__ | `Blog I <https://discourse.equadratures.org/t/blade-envelopes-computational-methods/96>`__ | `Preprint II <https://arxiv.org/abs/2012.15579>`__ | `Blog II <https://discourse.equadratures.org/t/blade-envelopes-3d-visualisation/100>`__ | `Slides <https://drive.google.com/file/d/1iO_CBAdAhIHvTXVPLSFauevcC7luKTED/view?usp=sharing>`__ 
+  `Preprint I <https://arxiv.org/abs/2011.11636>`__ | `Blog I <https://discourse.equadratures.org/t/blade-envelopes-computational-methods/96>`__ | `Preprint II <https://arxiv.org/abs/2012.15579>`__ | `Blog II <https://discourse.equadratures.org/t/blade-envelopes-3d-visualisation/100>`__ | `Slides <https://drive.google.com/file/d/1iO_CBAdAhIHvTXVPLSFauevcC7luKTED/view?usp=sharing>`__
 
 :Video:
    ..  youtube:: M4N2eBaarpc
@@ -73,19 +90,19 @@ Data-driven dimension reduction
   Design Space Exploration of Stagnation Temperature Probes via Dimension Reduction
 
 :Authors:
-  `Ashley Scillitoe <https://ascillitoe.com>`__, `Bryn Noel Ubald <https://scholar.google.com/citations?user=lyOAyewAAAAJ&hl=en>`__, `Pranay Seshadri <https://www.psesh.com>`__, `Shahrokh Shahpar <https://scholar.google.com/citations?user=zaSWpdkAAAAJ&hl=en>`__  
+  `Ashley Scillitoe <https://ascillitoe.com>`__, `Bryn Noel Ubald <https://scholar.google.com/citations?user=lyOAyewAAAAJ&hl=en>`__, `Pranay Seshadri <https://www.psesh.com>`__, `Shahrokh Shahpar <https://scholar.google.com/citations?user=zaSWpdkAAAAJ&hl=en>`__
 
 :Essence:
   Using polynomial variable projection to explore the design space of a stagnation temperature probe representative of those used in gas-turbine aero engines. Dimension reducing subspaces are used to find more accurate designs with less sensitivity to manufacturing uncertainties.
 
 :Conference:
-  ASME Turbo Expo 
+  ASME Turbo Expo
 
 :Year:
   2021
 
 :Resources:
-  `Paper <http://dx.doi.org/10.1115/GT2020-16277>`__ | `Blog <https://discourse.equadratures.org/t/exploring-the-design-of-a-temperature-probe-with-dimension-reduction/80>`__ | `Code <https://github.com/ascillitoe/probe-subspaces>`__ 
+  `Paper <http://dx.doi.org/10.1115/GT2020-16277>`__ | `Blog <https://discourse.equadratures.org/t/exploring-the-design-of-a-temperature-probe-with-dimension-reduction/80>`__ | `Code <https://github.com/ascillitoe/probe-subspaces>`__
 
 |
 
@@ -236,14 +253,26 @@ Uncertainty quantification and sensitivity analysis
   `Paper <https://gmd.copernicus.org/articles/10/4511/2017/gmd-10-4511-2017-discussion.html>`__ | `Blog <https://discourse.equadratures.org/t/eq-methodology-for-coastal-models/95>`__
 
 
-Adjoint / gradient enhancement
---------------------------------
-
-Coming soon!
-
-
 Flow-field estimation
 --------------------------------
 
 .. figure:: /_documentation/Figures/procvideo.gif
    :width: 100%
+
+:Title:
+ Polynomial ridge flowfield estimation
+
+:Authors:
+ `Ashley Scillitoe <https://ncywong.github.io>`__, `Pranay Seshadri <https://www.psesh.com>`__,   `Chun Yui Wong <https://ncywong.github.io>`__, `Andrew Duncan <https://wwwf.imperial.ac.uk/~aduncan/>`__
+
+:Essence:
+ Flowfield estimation for a new geometry or boundary condition given a relevant training repository of the same test case.
+
+:Journal:
+ Physics of Fluids (under review)
+
+:Year:
+ 2021
+
+:Resources:
+ `Preprint <https://arxiv.org/abs/2107.07547>`__ | `App <https://www.reduce.equadratures.org/flowfield>`__

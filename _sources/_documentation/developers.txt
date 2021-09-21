@@ -1,8 +1,8 @@
 =============
-Developers
+About
 =============
 
-``equadratures`` wouldn't be possible without our community of contributors, past and present. 
+``equadratures`` wouldn't be possible without our community of contributors, past and present.
 
 We welcome all contributions. If you'd like to get involved, please get in touch on our `discourse <https://discourse.equadratures.org/>`__!
 
@@ -24,7 +24,7 @@ Primary Developers
     ^^^^^^^^^^^^^^^^
 
     * Machine learning
-    * Web dev, testing & CI 
+    * Web dev, testing & CI
     * Cloud computing
 
     .. link-button:: https://www.ascillitoe.com/
@@ -40,7 +40,7 @@ Primary Developers
     * Sparse regression
     * Dimension reduction
     * Bayesian inference
-    
+
     .. link-button:: https://ncywong.github.io/
         :text:
         :classes: stretched-link
@@ -93,8 +93,8 @@ Current Contributors
 .. hlist::
     :columns: 3
 
-    * `Michael Donnelly <https://github.com/mdonnelly1>`__ 
-    * `Simardeep Singh Sethi <https://github.com/Simardeep27>`__ 
+    * `Michael Donnelly <https://github.com/mdonnelly1>`__
+    * `Simardeep Singh Sethi <https://github.com/Simardeep27>`__
 
 Past Contributors
 -----------------
@@ -103,8 +103,8 @@ Past Contributors
     :columns: 3
 
     * `Irene Virdis <https://github.com/irevirdis>`__
-    * `James Gross <https://github.com/computers-n-wings>`__ 
+    * `James Gross <https://github.com/computers-n-wings>`__
     * `He (Joe) Zhou <https://github.com/hz324>`__
-    * `Barney Hill <https://github.com/barneyhill>`__ 
+    * `Barney Hill <https://github.com/barneyhill>`__
     * `Tarandeep Singh Kalra <https://github.com/tarankalra-usgs>`__
     * `Henry Shaowu Yuchi <https://github.com/yuchi973>`__

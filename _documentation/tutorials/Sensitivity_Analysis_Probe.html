@@ -7,8 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sensitivity analysis for a piston model &#8212; equadratures</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
     
   <link rel="stylesheet"
@@ -20,6 +19,10 @@
 
     
       
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
@@ -34,7 +37,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/css/gallery.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/fonts.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -52,86 +55,64 @@
     <link rel="prev" title="Uncertainty quantification of CFD simulations" href="Computing_Moments_for_CFD.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
-    <div class="container-fluid" id="banner"></div>
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
 
+    <a class="navbar-brand" href="../../index.html">
     
-    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
-
-  <div id="navbar-start">
+      <img src="../../_static/logo_new.png" class="logo" alt="logo" />
     
-    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-<a class="navbar-brand" href="../../index.html">
-  <img src="../../_static/logo_new.png" class="logo" alt="logo">
-</a>
-
-
-    
-  </div>
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  
-  <div id="navbar-collapsible" class=" collapse navbar-collapse">
-    <div id="navbar-center" class="ml-auto">
-      
-      <div class="navbar-center-item">
-        <ul id="navbar-main-elements" class="navbar-nav">
-    <li class="toctree-l1 current active nav-item">
- <a class="reference internal nav-link" href="../tutorials.html">
-  Tutorials
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../documentation.html">
-  Documentation
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../research.html">
-  Research
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../apps.html">
-  Apps
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../developers.html">
-  Developers
- </a>
-</li>
-
-    
-    <li class="nav-item">
-        <a class="nav-link nav-external" href="https://discourse.equadratures.org/">Discourse<i class="fas fa-external-link-alt"></i></a>
-    </li>
-    
-</ul>
-      </div>
-      
-    </div>
-
-    <div id="navbar-end">
-      
-      <div class="navbar-end-item">
-        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../research.html">Research</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../apps.html">Apps</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../documentation.html">Documentation</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href=""></a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../about.html">About</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../commercial.html">Commercial</a>
+        </li>
+        
+        
+        <li class="nav-item">
+            <a class="nav-link nav-external" href="https://discourse.equadratures.org/">Discourse<i class="fas fa-external-link-alt"></i></a>
+        </li>
+        
       </ul>
-      </div>
+
+
       
+
+      <ul class="navbar-nav">
+        
+        
+      </ul>
     </div>
-  </div>
 </div>
     </nav>
     
@@ -139,158 +120,57 @@
     <div class="container-xl">
       <div class="row">
           
-            
-            <!-- Only show if we have sidebars configured, else just a small margin  -->
-            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search equadratures..." aria-label="Search equadratures..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <div class="bd-toc-item active">
-    <p class="caption" role="heading">
- <span class="caption-text">
-  Foundations
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="1_Defining_a_Parameter.html">
-   Foundations I: Parameter
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="2_Orthogonal_Polynomials.html">
-   Foundations II: Orthogonal polynomials
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="3_Model_Fitting.html">
-   Foundations III: Solving linear systems for model fitting
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Object_Persistence.html">
-   Persistence of equadratures objects
-  </a>
- </li>
-</ul>
-<p class="caption" role="heading">
- <span class="caption-text">
-  Uncertainty quantification and sensitivity analysis
- </span>
-</p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="Computing_Moments_for_CFD.html">
-   Uncertainty quantification of CFD simulations
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Sensitivity analysis for a piston model
-  </a>
- </li>
-</ul>
-<p class="caption" role="heading">
- <span class="caption-text">
-  Dimension reduction
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="Dimension_Reduction.html">
-   A primer on data-driven dimension reduction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Dimension_Reduction_Turbomachinery.html">
-   Data-driven dimension reduction in turbomachinery
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../tutorial_8.html">
-   Adjoint/gradient-enhanced surrogate modelling
-  </a>
- </li>
-</ul>
-<p class="caption" role="heading">
- <span class="caption-text">
-  Optimisation
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../tutorial_9.html">
-   Surrogate-based design optimisation on Rosenbrock’s function
-  </a>
- </li>
-</ul>
-<p class="caption" role="heading">
- <span class="caption-text">
-  Advanced applications
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../tutorial_5.html">
-   Uncertainty quantification with correlations for a borehole model
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../tutorial_11.html">
-   Time-series remaining useful life prediction with spatio-temporal polynomials
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../tutorial_12.html">
-   Flow-field estimation using vector-valued polynomial ridge approximations
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../tutorial_13.html">
-   Multi-fidelity Bayesian polynomials on turbine cascade experiments
-  </a>
- </li>
-</ul>
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
 
-  </div>
-</nav>
-            </div>
-            
+    <div class="bd-toc-item active">
+    
+  
+    <ul class="nav bd-sidenav">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </ul>
+  
+  </nav>
+          </div>
           
 
           
           <div class="d-none d-xl-block col-xl-2 bd-toc">
-            
               
-              <div class="toc-item">
-                
 <div class="tocsection onthispage pt-5 pb-3">
     <i class="fas fa-list"></i> On this page
 </div>
 
 <nav id="bd-toc-nav">
-    <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#References">
-   References
-  </a>
- </li>
-</ul>
-
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#References" class="nav-link">References</a>
+        </li>
+    
+    </ul>
 </nav>
-              </div>
+
+
               
-              <div class="toc-item">
-                
-              </div>
-              
-            
           </div>
           
 
-          
-          
-            
           
           <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
               
@@ -808,23 +688,24 @@ how we can compute these indices using <code class="docutils literal notranslate
 
       </div>
     </div>
-  
-  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-  <footer>
-<div align="center"> 
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    <footer>
+<div align="center">
 <div class="logos">
-<a href="https://github.com/Effective-Quadratures/Effective-Quadratures"><i class="fab fa-github"></i></a>   
-<a href="https://effectivequadratures.slack.com/"><i class="fab fa-slack"></i></a>   
-<a href="https://twitter.com/EQuadratures"><i class="fab fa-twitter"></i></a>   
-<a href="https://discourse.equadratures.org"><i class="fab fa-discourse"></i></a>   
-<a href="https://www.linkedin.com/company/effective-quadratures/about/"><i class="fab fa-linkedin"></i></a>   
-<a href="https://www.youtube.com/channel/UCpjwFDSZuFbzW-2lj6d96dA"><i class="fab fa-youtube"></i></a>   
+<a href="https://github.com/Effective-Quadratures/Effective-Quadratures"><i class="fab fa-github"></i></a>
+<a href="https://effectivequadratures.slack.com/"><i class="fab fa-slack"></i></a>
+<a href="https://twitter.com/EQuadratures"><i class="fab fa-twitter"></i></a>
+<a href="https://discourse.equadratures.org"><i class="fab fa-discourse"></i></a>
+<a href="https://www.linkedin.com/company/effective-quadratures/about/"><i class="fab fa-linkedin"></i></a>
+<a href="https://www.youtube.com/channel/UCpjwFDSZuFbzW-2lj6d96dA"><i class="fab fa-youtube"></i></a>
 </div>
-
-<span>Made by the Effective Quadratures Team, with ❤️</span>    
-<span>Copyright © 2016-2021 by equadratures.org</span>    
-<span> <a href="mailto:contact@equadratures.org">contact@equadratures.org</a> </span>   
+<span>Copyright © 2016-2021 by equadratures. Made by the equadratures team, with ❤️.</span>
+<br>
+<br>
 </div>
 </footer>
   </body>

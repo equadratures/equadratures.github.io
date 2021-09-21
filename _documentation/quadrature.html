@@ -7,8 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quadrature &#8212; equadratures</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet" />
-  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
     
   <link rel="stylesheet"
@@ -20,6 +19,10 @@
 
     
       
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -34,7 +37,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/css/gallery.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/fonts.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -50,86 +53,64 @@
     <link rel="prev" title="Linear system solvers" href="solver.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
-    <div class="container-fluid" id="banner"></div>
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
 
+    <a class="navbar-brand" href="../index.html">
     
-    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
-
-  <div id="navbar-start">
+      <img src="../_static/logo_new.png" class="logo" alt="logo" />
     
-    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-<a class="navbar-brand" href="../index.html">
-  <img src="../_static/logo_new.png" class="logo" alt="logo">
-</a>
-
-
-    
-  </div>
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  
-  <div id="navbar-collapsible" class=" collapse navbar-collapse">
-    <div id="navbar-center" class="ml-auto">
-      
-      <div class="navbar-center-item">
-        <ul id="navbar-main-elements" class="navbar-nav">
-    <li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="tutorials.html">
-  Tutorials
- </a>
-</li>
-
-<li class="toctree-l1 current active nav-item">
- <a class="reference internal nav-link" href="documentation.html">
-  Documentation
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="research.html">
-  Research
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="apps.html">
-  Apps
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="developers.html">
-  Developers
- </a>
-</li>
-
-    
-    <li class="nav-item">
-        <a class="nav-link nav-external" href="https://discourse.equadratures.org/">Discourse<i class="fas fa-external-link-alt"></i></a>
-    </li>
-    
-</ul>
-      </div>
-      
-    </div>
-
-    <div id="navbar-end">
-      
-      <div class="navbar-end-item">
-        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="research.html">Research</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="apps.html">Apps</a>
+        </li>
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="documentation.html">Documentation</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href=""></a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="about.html">About</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="commercial.html">Commercial</a>
+        </li>
+        
+        
+        <li class="nav-item">
+            <a class="nav-link nav-external" href="https://discourse.equadratures.org/">Discourse<i class="fas fa-external-link-alt"></i></a>
+        </li>
+        
       </ul>
-      </div>
+
+
       
+
+      <ul class="navbar-nav">
+        
+        
+      </ul>
     </div>
-  </div>
 </div>
     </nav>
     
@@ -137,122 +118,130 @@
     <div class="container-xl">
       <div class="row">
           
-            
-            <!-- Only show if we have sidebars configured, else just a small margin  -->
-            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search equadratures..." aria-label="Search equadratures..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <div class="bd-toc-item active">
-    <p class="caption" role="heading">
- <span class="caption-text">
-  Core modules
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="parameter.html">
-   Parameter
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="basis.html">
-   Basis
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="poly.html">
-   Polynomial
-  </a>
- </li>
-</ul>
-<p class="caption" role="heading">
- <span class="caption-text">
-  Additional modules
- </span>
-</p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="subspaces.html">
-   Dimension reduction with polynomials
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="optimisation.html">
-   Optimisation with polynomials
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="polytree.html">
-   Polynomial Regression Trees
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="solver.html">
-   Linear system solvers
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Quadrature
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="weight.html">
-   Prescribing probability functions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="plot.html">
-   Plotting utilities
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="correlated.html">
-   Correlations
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="datasets.html">
-   Datasets
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="scalers.html">
-   Scalers
-  </a>
- </li>
-</ul>
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
 
-  </div>
-</nav>
-            </div>
-            
-          
-
-          
-          <div class="d-none d-xl-block col-xl-2 bd-toc">
-            
-              
-              <div class="toc-item">
-                
-
-<nav id="bd-toc-nav">
+    <div class="bd-toc-item active">
     
-</nav>
-              </div>
-              
-              <div class="toc-item">
-                
-              </div>
-              
+  
+    <ul class="nav bd-sidenav">
+        
+        
+        
+        
+        
+        
+          
             
+                <li class="">
+                    <a href="parameter.html">Parameter</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="basis.html">Basis</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="poly.html">Polynomial</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="subspaces.html">Dimension reduction with polynomials</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="optimisation.html">Optimisation with polynomials</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="polytree.html">Polynomial Regression Trees</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="solver.html">Linear system solvers</a>
+                </li>
+            
+          
+            
+                <li class="active">
+                    <a href="">Quadrature</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="weight.html">Prescribing probability functions</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="plot.html">Plotting utilities</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="correlated.html">Correlations</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="datasets.html">Datasets</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="scalers.html">Scalers</a>
+                </li>
+            
+          
+        
+        
+        
+        
+        
+        
+        
+        
+      </ul>
+  
+  </nav>
           </div>
           
 
           
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
           
-            
+
           
           <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
               
@@ -270,6 +259,10 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>parameters</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a>) – A list of parameters, where each element of the list is an instance of the Parameter class.</p></li>
 <li><p><strong>basis</strong> (<a class="reference internal" href="basis.html#equadratures.basis.Basis" title="equadratures.basis.Basis"><em>Basis</em></a>) – An instance of the Basis class corresponding to the multi-index set used.</p></li>
+<li><p><strong>points</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – Array containing the quadrature points.</p></li>
+<li><p><strong>mesh</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – Description needed.</p></li>
+<li><p><strong>corr</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – Description needed.</p></li>
+<li><p><strong>oversampling</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><em>float</em></a><em>, </em><em>optional</em>) – Description needed.</p></li>
 </ul>
 </dd>
 </dl>
@@ -278,8 +271,11 @@
 <span class="sig-name descname"><span class="pre">get_points</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/quadrature.html#Quadrature.get_points"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.quadrature.Quadrature.get_points" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the quadrature points.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>self</strong> (<em>Sampling</em>) – An instance of the sampling class.</p>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Array of quadrature points.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)">numpy.ndarray</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -289,8 +285,11 @@
 <span class="sig-name descname"><span class="pre">get_points_and_weights</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/quadrature.html#Quadrature.get_points_and_weights"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.quadrature.Quadrature.get_points_and_weights" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the quadrature points and weights.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>self</strong> (<em>Sampling</em>) – An instance of the sampling class.</p>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Tuple (points,weights) containing two numpy.ndarray’s; the quadrature points and weights.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)">tuple</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -300,8 +299,11 @@
 <span class="sig-name descname"><span class="pre">get_weights</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/quadrature.html#Quadrature.get_weights"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.quadrature.Quadrature.get_weights" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the quadrature weights.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>self</strong> (<em>Sampling</em>) – An instance of the sampling class.</p>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Array of quadrature weights</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)">numpy.ndarray</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -319,23 +321,24 @@
 
       </div>
     </div>
-  
-  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-  <footer>
-<div align="center"> 
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    <footer>
+<div align="center">
 <div class="logos">
-<a href="https://github.com/Effective-Quadratures/Effective-Quadratures"><i class="fab fa-github"></i></a>   
-<a href="https://effectivequadratures.slack.com/"><i class="fab fa-slack"></i></a>   
-<a href="https://twitter.com/EQuadratures"><i class="fab fa-twitter"></i></a>   
-<a href="https://discourse.equadratures.org"><i class="fab fa-discourse"></i></a>   
-<a href="https://www.linkedin.com/company/effective-quadratures/about/"><i class="fab fa-linkedin"></i></a>   
-<a href="https://www.youtube.com/channel/UCpjwFDSZuFbzW-2lj6d96dA"><i class="fab fa-youtube"></i></a>   
+<a href="https://github.com/Effective-Quadratures/Effective-Quadratures"><i class="fab fa-github"></i></a>
+<a href="https://effectivequadratures.slack.com/"><i class="fab fa-slack"></i></a>
+<a href="https://twitter.com/EQuadratures"><i class="fab fa-twitter"></i></a>
+<a href="https://discourse.equadratures.org"><i class="fab fa-discourse"></i></a>
+<a href="https://www.linkedin.com/company/effective-quadratures/about/"><i class="fab fa-linkedin"></i></a>
+<a href="https://www.youtube.com/channel/UCpjwFDSZuFbzW-2lj6d96dA"><i class="fab fa-youtube"></i></a>
 </div>
-
-<span>Made by the Effective Quadratures Team, with ❤️</span>    
-<span>Copyright © 2016-2021 by equadratures.org</span>    
-<span> <a href="mailto:contact@equadratures.org">contact@equadratures.org</a> </span>   
+<span>Copyright © 2016-2021 by equadratures. Made by the equadratures team, with ❤️.</span>
+<br>
+<br>
 </div>
 </footer>
   </body>

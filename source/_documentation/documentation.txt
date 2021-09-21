@@ -2,22 +2,14 @@
 Documentation
 ===============
 
-This page covers some of the key modules in Effective Quadratures; they are split into two parts. First we have the **core building blocks** to assist users in creating bespoke polynomial approximations for their data.
+Code documentation for :code:`equadratures` can be found by clicking on the links below.
 
 .. toctree::
    :maxdepth: 1
-   :caption: Core modules
 
    parameter
    basis
    poly
-
-Next, we have a range of modules which extend the functionality of :code:`equadratures` for various applications.
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Additional modules
-
    subspaces
    optimisation
    polytree
@@ -28,3 +20,65 @@ Next, we have a range of modules which extend the functionality of :code:`equadr
    correlated
    datasets
    scalers
+
+==================
+Tutorials
+==================
+
+The tutorials below are organised by complexity, so if you are new to the code, consider starting from the first tutorial.
+
+*Note: We are currently updating the tutorials. We apologise in advance for any inconvenience this may cause.*
+
+Foundations
+"""""""""""
+.. nbgallery::
+  :caption: Foundations
+  :name: foundations-gallery
+
+  tutorials/1_Defining_a_Parameter
+  tutorials/2_Orthogonal_Polynomials
+  tutorials/3_Model_Fitting
+  tutorials/Object_Persistence
+
+
+Uncertainty quantification and sensitivity analysis
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+.. nbgallery::
+  :caption: Uncertainty quantification and sensitivity analysis
+  :name: uq-gallery
+
+  tutorials/Computing_Moments_for_CFD
+  tutorials/Sensitivity_Analysis_Probe
+
+
+Dimension reduction
+"""""""""""""""""""
+.. nbgallery::
+  :caption: Dimension reduction
+  :name: dr-gallery
+
+  tutorials/Dimension_Reduction
+  tutorials/Dimension_Reduction_Turbomachinery
+  tutorial_8
+
+
+Optimisation
+""""""""""""
+.. nbgallery::
+  :caption: Optimisation
+  :name: optimisation-gallery
+
+  tutorial_9
+
+
+Advanced applications
+"""""""""""""""""""""
+.. nbgallery::
+  :caption: Advanced applications
+  :name: advanced-gallery
+
+  tutorial_5
+  tutorial_11
+  tutorial_12
+  tutorial_13
+..   tutorials/Machine_Learning_Airfoil

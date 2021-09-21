@@ -1,0 +1,115 @@
+=============
+About
+=============
+
+``equadratures`` is first and foremost a scientific organisation with a global footprint. We are proud to make freely available the various modules and codes we develop, and see their use across a range of data science problems. 
+
+Primary Developers
+--------------------
+
+.. panels::
+    :card: people-card shadow text-center
+    :column: col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-6 d-flex my-3 px-4
+    :header: font-weight-bold px-1
+    :img-top-cls: p-0
+    :body: text-left
+
+    ---
+    :img-top: ../_static/people/ashley.jpeg
+
+    Ashley Scillitoe
+    ^^^^^^^^^^^^^^^^
+
+    * Machine learning
+    * Web dev, testing & CI
+    * Cloud computing
+
+    .. link-button:: https://www.ascillitoe.com/
+        :text:
+        :classes: stretched-link
+
+    ---
+    :img-top: ../_static/people/nick.jpeg
+
+    Chun Yui (Nicholas) Wong
+    ^^^^^^^^^^^^^^^^^^^^^^^^
+
+    * Sparse regression
+    * Dimension reduction
+    * Bayesian inference
+
+    .. link-button:: https://ncywong.github.io/
+        :text:
+        :classes: stretched-link
+
+    ---
+    :img-top: ../_static/people/bryn.jpeg
+
+    Bryn Noel Ubald
+    ^^^^^^^^^^^^^^^
+
+    * Code refactoring
+    * Virtual reality
+
+    .. link-button:: https://www.linkedin.com/in/bryn-noel-ubald
+        :text:
+        :classes: stretched-link
+
+    ---
+    :img-top: ../_static/people/andrew.jpeg
+
+    Andrew Duncan
+    ^^^^^^^^^^^^^
+
+    * Bayesian inference
+    * Dimension reduction
+    * Numerical analysis
+
+    .. link-button:: https://www.ma.imperial.ac.uk/~aduncan/
+        :text:
+        :classes: stretched-link
+
+    ---
+    :img-top: ../_static/people/pranay.jpeg
+
+    Pranay Seshadri
+    ^^^^^^^^^^^^^^^
+
+    * Founder
+    * Approximation theory
+    * Uncertainty quantification
+
+    .. link-button:: https://www.psesh.com/
+        :text:
+        :classes: stretched-link
+
+
+Current Contributors
+--------------------
+
+.. hlist::
+    :columns: 3
+
+    * `Michael Donnelly <https://github.com/mdonnelly1>`__
+    * `Simardeep Singh Sethi <https://github.com/Simardeep27>`__
+
+Past Contributors
+-----------------
+
+.. hlist::
+    :columns: 3
+
+    * `Irene Virdis <https://github.com/irevirdis>`__
+    * `James Gross <https://github.com/computers-n-wings>`__
+    * `He (Joe) Zhou <https://github.com/hz324>`__
+    * `Barney Hill <https://github.com/barneyhill>`__
+    * `Tarandeep Singh Kalra <https://github.com/tarankalra-usgs>`__
+    * `Henry Shaowu Yuchi <https://github.com/yuchi973>`__
+    * `Tiziano Ghisu <https://github.com/tizianoghisu>`__
+
+
+.. rubric:: Acknowledgments
+
+``equadratures`` has been supported by numerous grants; it was founded through an `Engineering and Physical Sciences Research Council (EPSRC) <https://epsrc.ukri.org/>`_ Knowledge Transfer Fellowship (KTF) from the Department of Engineering at the `University of Cambridge <https://www.cam.ac.uk/>`_ in 2016. Since 2018, the project has been supported by Wave 1 of The UKRI Strategic Priorities Fund under the EPSRC Grant EP/T001569/1, particularly the Digital twins for aeronautics theme within that grant, and by the `Lloyd’s Register Foundation-Alan Turing Institute programme on Data-Centric Engineering <https://www.turing.ac.uk/research/research-programmes/data-centric-engineering>`_ under the LRF grant G0095. The project is also grateful to the financial support of `Jesus College Cambridge <https://www.jesus.cam.ac.uk/>`__ and the `Cambridge Trusts <https://www.cambridgetrust.org/>`__.
+
+``equadratures`` is proudly a `NumFocus <https://numfocus.org/>`__ affiliate organisation and has benefitted from their stewardship of open-source science and code. It has also been a mentoring organisation for the `Google summer of code program <https://summerofcode.withgoogle.com/>`__ in 2020 and 2021.

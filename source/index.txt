@@ -1,38 +1,91 @@
-=============
-equadratures
-=============
+=======================
+Data Science Delivered.
+=======================
+
+
+.. figure:: /_documentation/Figures/figure.png
+   :width: 100%
 
 .. meta::
    :description: equadratures is an open-source python code for uncertainty quantification, surrogate-based optimisation, numerical integration and data-driven dimension reduction. It is built on orthogonal polynomial approximations.
    :keywords: polynomials, polynomial chaos, optimisation, orthogonal polynomials, dimension reduction
 
-:code:`equadratures` is an open-source python code tailored for **uncertainty quantification**, **surrogate-based optimisation**, **numerical integration**, and **data-driven dimension reduction**.
 
-It does this by constructing orthogonal polynomials. It is particularly useful for problems where output quantities of interest are smooth and continuous and to this extent it has found widespread applications in computational engineering models.
+``equadratures`` is the data science platform of choice for thousands of data scientists. It’s easy to use in desktop, cloud, or cloud-in-a-box environments. What separates ``equadratures`` from other platforms is its ability to work on both large and small datasets and offer readily interpretable models.
 
-To download and install the code please use the python package index command:
+Given it's novel algorithmic core, it is purpose built to offer end-to-end intelligent and robust data solutions. It is also flexible enough to be integrated with standard data workflows.
 
-.. code::
+.. rubric:: Usage
 
-	pip3 install equadratures
+The code can be used in isolation to analyse an existing database, e.g., a ``.csv`` file of data.
 
 
-.. figure:: /_documentation/Figures/intro.png
-   :scale: 40 %
+.. figure:: /_documentation/Figures/schematic_2.png
+   :width: 100%
 
-To learn more about the code's capabilities, do check out the documentation links below or `get in touch <mailto:contact@equadratures.org?subject=query>`__.
+Alternatively it can be used within a workflow where both inputs and outputs feed into other packages, e.g., a fluid or structural simulation package.
+
+
+.. figure:: /_documentation/Figures/schematic_1.png
+   :width: 100%
+
+
+.. rubric:: User downloads
+
+.. image:: https://pepy.tech/badge/equadratures
+   :height: 21px
+.. image:: https://pepy.tech/badge/equadratures/month
+  :height: 21px
+.. image:: https://pepy.tech/badge/equadratures/week
+  :height: 21px
+
+.. rubric:: Case studies
+
+
+.. panels::
+    :card: people-card shadow text-center
+    :column: col-xl-6 col-lg-6 col-md-4 col-sm-6 col-xs-6 d-flex my-3 px-4
+    :header: font-weight-bold px-1
+    :img-top-cls: p-0
+    :body: text-left
+
+    ---
+    :img-top: _static/people/aero.jpg
+
+    Streamlining jet engine design and manufacture
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    .. link-button:: https://www.turing.ac.uk/research/impact-stories/streamlining-jet-engine-design-and-manufacture
+        :text:
+        :classes: stretched-link
+
+
+.. rubric:: Used by
+
+.. image:: /_documentation/Figures/airbus.png
+   :width: 22%
+.. image:: /_documentation/Figures/rr.png
+   :width: 22%
+.. image:: /_documentation/Figures/siemens.png
+   :width: 22%
+.. image:: /_documentation/Figures/mclaren.png
+  :width: 22%
+.. image:: /_documentation/Figures/usgs.png
+  :width: 22%
+.. image:: /_documentation/Figures/ukaea.png
+  :width: 22%
+.. image:: /_documentation/Figures/cambridge.png
+  :width: 22%
+.. image:: /_documentation/Figures/turing.png
+  :width: 22%
+
+
+.. rubric:: Contents
 
 .. toctree::
    :maxdepth: 1
 
-   /_documentation/tutorials
-   /_documentation/documentation
    /_documentation/research
    /_documentation/apps
-   /_documentation/developers
-
-
-.. rubric:: Acknowledgments
-``equadratures`` has been supported by numerous grants; it was founded through an `Engineering and Physical Sciences Research Council (EPSRC) <https://epsrc.ukri.org/>`_ Knowledge Transfer Fellowship (KTF) from the Department of Engineering at the `University of Cambridge <https://www.cam.ac.uk/>`_ in 2016. Since 2018, the project has been supported by Wave 1 of The UKRI Strategic Priorities Fund under the EPSRC Grant EP/T001569/1, particularly the Digital twins for aeronautics theme within that grant, and by the `Lloyd’s Register Foundation-Alan Turing Institute programme on Data-Centric Engineering <https://www.turing.ac.uk/research/research-programmes/data-centric-engineering>`_ under the LRF grant G0095. The project has also benefitted from industrial funding through various workshops including for `Rolls-Royce plc <https://www.rolls-royce.com>`__ and `United Kingdom Atomic Energy Authority <https://www.gov.uk/government/organisations/uk-atomic-energy-authority>`__. The project is also grateful to the financial support of `Jesus College Cambridge <https://www.jesus.cam.ac.uk/>`__ and the `Cambridge Trusts <https://www.cambridgetrust.org/>`__.
-
-``equadratures`` is proudly a `NumFocus <https://numfocus.org/>`__ affiliate organisation and has benefitted from their support. 
+   /_documentation/documentation
+   /_documentation/about
+   /_documentation/commercial
