@@ -1,5 +1,5 @@
 =======================
-Data Science Delivered.
+Data Science Delivered
 =======================
 
 
@@ -7,8 +7,8 @@ Data Science Delivered.
    :width: 100%
 
 .. meta::
-   :description: equadratures is an open-source python code for uncertainty quantification, surrogate-based optimisation, numerical integration and data-driven dimension reduction. It is built on orthogonal polynomial approximations.
-   :keywords: polynomials, polynomial chaos, optimisation, orthogonal polynomials, dimension reduction
+   :description: equadratures is the data science platform of choice for thousands of data scientists
+   :keywords: data science, machine learning, artificial intelligence, polynomial chaos, uncertainty quantification
 
 
 ``equadratures`` is the data science platform of choice for thousands of data scientists. It’s easy to use in desktop, cloud, or cloud-in-a-box environments. What separates ``equadratures`` from other platforms is its ability to work on both large and small datasets and offer readily interpretable models.
@@ -77,7 +77,8 @@ Alternatively it can be used within a workflow where both inputs and outputs fee
   :width: 22%
 .. image:: /_documentation/Figures/turing.png
   :width: 22%
-
+.. image:: /_documentation/Figures/imperial.png
+  :width: 22%
 
 .. rubric:: Contents
 
