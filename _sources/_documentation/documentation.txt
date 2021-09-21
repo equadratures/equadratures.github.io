@@ -2,7 +2,28 @@
 Documentation
 ===============
 
+This page has everything you need to get started with ``equadratures``.
+
+Download
+"""""""""""
+
+To download and install the code please use the python package index command:
+
+.. code::
+
+	pip3 install equadratures
+
+or ``pip3`` can be replaced with ``python -m pip``, where ``python`` is the python version you wish to install *equadratures* for. Use of a virtual enviroment such as `virtualenv <https://pypi.org/project/virtualenv/>`__ or `pyenv <https://pypi.org/project/pipenv/>`__ is also encouraged. Alternatively you can click either on the **Fork Code** button or **Clone** on `Github <https://github.com/equadratures/equadratures>`__, and install from your local version of the code.
+
+For issues with the code, please do *raise an issue* on our Github page; do make sure to add the relevant bits of code and specifics on package version numbers. We welcome contributions and suggestions from both users and folks interested in developing the code further.
+
+Our code is designed to require minimal dependencies; current package requirements include ``numpy``, ``scipy`` and ``matplotlib``.
+
+Code documentation
+"""""""""""""""""""""
+
 Code documentation for :code:`equadratures` can be found by clicking on the links below.
+
 
 .. toctree::
    :maxdepth: 1
@@ -21,16 +42,15 @@ Code documentation for :code:`equadratures` can be found by clicking on the link
    datasets
    scalers
 
-==================
-Tutorials
-==================
+Code tutorials
+"""""""""""""""""""""
 
 The tutorials below are organised by complexity, so if you are new to the code, consider starting from the first tutorial.
 
 *Note: We are currently updating the tutorials. We apologise in advance for any inconvenience this may cause.*
 
 Foundations
-"""""""""""
+---------------
 .. nbgallery::
   :caption: Foundations
   :name: foundations-gallery
@@ -42,7 +62,7 @@ Foundations
 
 
 Uncertainty quantification and sensitivity analysis
-"""""""""""""""""""""""""""""""""""""""""""""""""""
+---------------
 .. nbgallery::
   :caption: Uncertainty quantification and sensitivity analysis
   :name: uq-gallery
@@ -52,7 +72,7 @@ Uncertainty quantification and sensitivity analysis
 
 
 Dimension reduction
-"""""""""""""""""""
+---------------
 .. nbgallery::
   :caption: Dimension reduction
   :name: dr-gallery
@@ -63,7 +83,7 @@ Dimension reduction
 
 
 Optimisation
-""""""""""""
+---------------
 .. nbgallery::
   :caption: Optimisation
   :name: optimisation-gallery
@@ -72,7 +92,7 @@ Optimisation
 
 
 Advanced applications
-"""""""""""""""""""""
+---------------
 .. nbgallery::
   :caption: Advanced applications
   :name: advanced-gallery

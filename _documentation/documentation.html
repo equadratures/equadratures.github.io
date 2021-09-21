@@ -85,10 +85,6 @@
         </li>
         
         <li class="nav-item ">
-            <a class="nav-link" href=""></a>
-        </li>
-        
-        <li class="nav-item ">
             <a class="nav-link" href="about.html">About</a>
         </li>
         
@@ -135,86 +131,6 @@
         
         
           
-            
-                <li class="">
-                    <a href="parameter.html">Parameter</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="basis.html">Basis</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="poly.html">Polynomial</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="subspaces.html">Dimension reduction with polynomials</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="optimisation.html">Optimisation with polynomials</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="polytree.html">Polynomial Regression Trees</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="solver.html">Linear system solvers</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="quadrature.html">Quadrature</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="weight.html">Prescribing probability functions</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="plot.html">Plotting utilities</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="correlated.html">Correlations</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="datasets.html">Datasets</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="scalers.html">Scalers</a>
-                </li>
-            
-          
-        
-        
         
         
         
@@ -238,11 +154,15 @@
     <ul class="nav section-nav flex-column">
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#" class="nav-link">Documentation</a>
+            <a href="#download" class="nav-link">Download</a>
         </li>
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#tutorials" class="nav-link">Tutorials</a><ul class="nav section-nav flex-column">
+            <a href="#code-documentation" class="nav-link">Code documentation</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#code-tutorials" class="nav-link">Code tutorials</a><ul class="nav section-nav flex-column">
                 
         <li class="nav-item toc-entry toc-h3">
             <a href="#foundations" class="nav-link">Foundations</a>
@@ -282,6 +202,19 @@
                 
   <div class="section" id="documentation">
 <h1>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h1>
+<p>This page has everything you need to get started with <code class="docutils literal notranslate"><span class="pre">equadratures</span></code>.</p>
+<div class="section" id="download">
+<h2>Download<a class="headerlink" href="#download" title="Permalink to this headline">¶</a></h2>
+<p>To download and install the code please use the python package index command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip3</span> <span class="n">install</span> <span class="n">equadratures</span>
+</pre></div>
+</div>
+<p>or <code class="docutils literal notranslate"><span class="pre">pip3</span></code> can be replaced with <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span></code>, where <code class="docutils literal notranslate"><span class="pre">python</span></code> is the python version you wish to install <em>equadratures</em> for. Use of a virtual enviroment such as <a class="reference external" href="https://pypi.org/project/virtualenv/">virtualenv</a> or <a class="reference external" href="https://pypi.org/project/pipenv/">pyenv</a> is also encouraged. Alternatively you can click either on the <strong>Fork Code</strong> button or <strong>Clone</strong> on <a class="reference external" href="https://github.com/equadratures/equadratures">Github</a>, and install from your local version of the code.</p>
+<p>For issues with the code, please do <em>raise an issue</em> on our Github page; do make sure to add the relevant bits of code and specifics on package version numbers. We welcome contributions and suggestions from both users and folks interested in developing the code further.</p>
+<p>Our code is designed to require minimal dependencies; current package requirements include <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">scipy</span></code> and <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>.</p>
+</div>
+<div class="section" id="code-documentation">
+<h2>Code documentation<a class="headerlink" href="#code-documentation" title="Permalink to this headline">¶</a></h2>
 <p>Code documentation for <code class="code docutils literal notranslate"><span class="pre">equadratures</span></code> can be found by clicking on the links below.</p>
 <div class="toctree-wrapper compound">
 <ul>
@@ -301,12 +234,12 @@
 </ul>
 </div>
 </div>
-<div class="section" id="tutorials">
-<h1>Tutorials<a class="headerlink" href="#tutorials" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="code-tutorials">
+<h2>Code tutorials<a class="headerlink" href="#code-tutorials" title="Permalink to this headline">¶</a></h2>
 <p>The tutorials below are organised by complexity, so if you are new to the code, consider starting from the first tutorial.</p>
 <p><em>Note: We are currently updating the tutorials. We apologise in advance for any inconvenience this may cause.</em></p>
 <div class="section" id="foundations">
-<h2>Foundations<a class="headerlink" href="#foundations" title="Permalink to this headline">¶</a></h2>
+<h3>Foundations<a class="headerlink" href="#foundations" title="Permalink to this headline">¶</a></h3>
 <div class="toctree-wrapper compound" id="foundations-gallery">
 </div>
 <div class="sphx-glr-thumbcontainer">
@@ -359,7 +292,7 @@
 </div>
 <div class="sphx-glr-clear"></div></div>
 <div class="section" id="uncertainty-quantification-and-sensitivity-analysis">
-<h2>Uncertainty quantification and sensitivity analysis<a class="headerlink" href="#uncertainty-quantification-and-sensitivity-analysis" title="Permalink to this headline">¶</a></h2>
+<h3>Uncertainty quantification and sensitivity analysis<a class="headerlink" href="#uncertainty-quantification-and-sensitivity-analysis" title="Permalink to this headline">¶</a></h3>
 <div class="toctree-wrapper compound" id="uq-gallery">
 </div>
 <div class="sphx-glr-thumbcontainer">
@@ -388,7 +321,7 @@
 </div>
 <div class="sphx-glr-clear"></div></div>
 <div class="section" id="dimension-reduction">
-<h2>Dimension reduction<a class="headerlink" href="#dimension-reduction" title="Permalink to this headline">¶</a></h2>
+<h3>Dimension reduction<a class="headerlink" href="#dimension-reduction" title="Permalink to this headline">¶</a></h3>
 <div class="toctree-wrapper compound" id="dr-gallery">
 </div>
 <div class="sphx-glr-thumbcontainer">
@@ -429,7 +362,7 @@
 </div>
 <div class="sphx-glr-clear"></div></div>
 <div class="section" id="optimisation">
-<h2>Optimisation<a class="headerlink" href="#optimisation" title="Permalink to this headline">¶</a></h2>
+<h3>Optimisation<a class="headerlink" href="#optimisation" title="Permalink to this headline">¶</a></h3>
 <div class="toctree-wrapper compound" id="optimisation-gallery">
 </div>
 <div class="sphx-glr-thumbcontainer">
@@ -446,7 +379,7 @@
 </div>
 <div class="sphx-glr-clear"></div></div>
 <div class="section" id="advanced-applications">
-<h2>Advanced applications<a class="headerlink" href="#advanced-applications" title="Permalink to this headline">¶</a></h2>
+<h3>Advanced applications<a class="headerlink" href="#advanced-applications" title="Permalink to this headline">¶</a></h3>
 <div class="toctree-wrapper compound" id="advanced-gallery">
 </div>
 <div class="sphx-glr-thumbcontainer">
@@ -498,6 +431,7 @@
   </div>
 </div>
 <div class="sphx-glr-clear"></div></div>
+</div>
 </div>
 
 
