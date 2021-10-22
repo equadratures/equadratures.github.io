@@ -85,10 +85,6 @@
         </li>
         
         <li class="nav-item ">
-            <a class="nav-link" href=""></a>
-        </li>
-        
-        <li class="nav-item ">
             <a class="nav-link" href="about.html">About</a>
         </li>
         
@@ -135,86 +131,6 @@
         
         
           
-            
-                <li class="">
-                    <a href="parameter.html">Parameter</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="basis.html">Basis</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="poly.html">Polynomial</a>
-                </li>
-            
-          
-            
-                <li class="active">
-                    <a href="">Dimension reduction with polynomials</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="optimisation.html">Optimisation with polynomials</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="polytree.html">Polynomial Regression Trees</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="solver.html">Linear system solvers</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="quadrature.html">Quadrature</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="weight.html">Prescribing probability functions</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="plot.html">Plotting utilities</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="correlated.html">Correlations</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="datasets.html">Datasets</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="scalers.html">Scalers</a>
-                </li>
-            
-          
-        
-        
         
         
         
@@ -256,7 +172,7 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>method</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – <p>The method to be used for subspace-based dimension reduction. Two options:</p>
+<li><p><strong>method</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – <p>The method to be used for subspace-based dimension reduction. Two options:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">active-subspace</span></code>, which uses ideas in [1] and [2] to compute a dimension-reducing subspace with a global polynomial approximant. Gradients evaluations of the polynomial approximation are used to compute the averaged outer product of the gradient covariance matrix. The polynomial approximation in the original full-space can be provided via <code class="docutils literal notranslate"><span class="pre">full_space_poly</span></code>. Otherwise, it is fit internally to the data provided via <code class="docutils literal notranslate"><span class="pre">sample_points</span></code> and <code class="docutils literal notranslate"><span class="pre">sample_outputs</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">variable-projection</span></code> [3], where a Gauss-Newton optimisation problem is solved to compute both the polynomial coefficients and its subspace, with the data provided via <code class="docutils literal notranslate"><span class="pre">sample_points</span></code> and <code class="docutils literal notranslate"><span class="pre">sample_outputs</span></code>.</p></li>
@@ -265,10 +181,10 @@
 <li><p><strong>full_space_poly</strong> (<a class="reference internal" href="poly.html#equadratures.poly.Poly" title="equadratures.poly.Poly"><em>Poly</em></a><em>, </em><em>optional</em>) – An instance of Poly fitted to the full-space data, to use for the AS computation.</p></li>
 <li><p><strong>sample_points</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – Array with shape (number_of_observations, dimensions) that corresponds to a set of sample points over the parameter space.</p></li>
 <li><p><strong>sample_outputs</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – Array with shape (number_of_observations, 1) that corresponds to model evaluations at the sample points.</p></li>
-<li><p><strong>subspace_dimension</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) – The dimension of the <em>active</em> subspace.</p></li>
-<li><p><strong>param_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a><em>, </em><em>optional</em>) – Arguments passed to parameters of the AS polynomial. (see <a class="reference internal" href="parameter.html#equadratures.parameter.Parameter" title="equadratures.parameter.Parameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code></a>)</p></li>
-<li><p><strong>poly_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a><em> , </em><em>optional</em>) – Arguments passed to constructing polynomial used for AS computation. (see <a class="reference internal" href="poly.html#equadratures.poly.Poly" title="equadratures.poly.Poly"><code class="xref py py-class docutils literal notranslate"><span class="pre">Poly</span></code></a>)</p></li>
-<li><p><strong>dr_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a><em>, </em><em>optional</em>) – Arguments passed to customise the VP optimiser. See documentation for <code class="xref py py-meth docutils literal notranslate"><span class="pre">_get_variable_projection()</span></code> in source.</p></li>
+<li><p><strong>subspace_dimension</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – The dimension of the <em>active</em> subspace.</p></li>
+<li><p><strong>param_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><em>optional</em>) – Arguments passed to parameters of the AS polynomial. (see <a class="reference internal" href="parameter.html#equadratures.parameter.Parameter" title="equadratures.parameter.Parameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code></a>)</p></li>
+<li><p><strong>poly_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em> , </em><em>optional</em>) – Arguments passed to constructing polynomial used for AS computation. (see <a class="reference internal" href="poly.html#equadratures.poly.Poly" title="equadratures.poly.Poly"><code class="xref py py-class docutils literal notranslate"><span class="pre">Poly</span></code></a>)</p></li>
+<li><p><strong>dr_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><em>optional</em>) – Arguments passed to customise the VP optimiser. See documentation for <code class="xref py py-meth docutils literal notranslate"><span class="pre">_get_variable_projection()</span></code> in source.</p></li>
 </ul>
 </dd>
 </dl>
@@ -325,7 +241,7 @@ currently only valid for method <code class="docutils literal notranslate"><span
 and b is the right-hand-side vector for setting the linear inequalities.</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)">tuple</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -338,7 +254,7 @@ by varying its coordinates along the inactive subspace.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>inactive_samples</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The number of inactive samples required.</p></li>
+<li><p><strong>inactive_samples</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The number of inactive samples required.</p></li>
 <li><p><strong>active_coordiantes</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – The active subspace coordinates.</p></li>
 </ul>
 </dd>
@@ -395,8 +311,8 @@ subspace.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>num_samples</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) – Number of samples per iteration to check.</p></li>
-<li><p><strong>max_count</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) – Maximum number of iteration.</p></li>
+<li><p><strong>num_samples</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – Number of samples per iteration to check.</p></li>
+<li><p><strong>max_count</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – Maximum number of iteration.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>

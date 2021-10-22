@@ -85,10 +85,6 @@
         </li>
         
         <li class="nav-item ">
-            <a class="nav-link" href=""></a>
-        </li>
-        
-        <li class="nav-item ">
             <a class="nav-link" href="about.html">About</a>
         </li>
         
@@ -135,86 +131,6 @@
         
         
           
-            
-                <li class="">
-                    <a href="parameter.html">Parameter</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="basis.html">Basis</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="poly.html">Polynomial</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="subspaces.html">Dimension reduction with polynomials</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="optimisation.html">Optimisation with polynomials</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="polytree.html">Polynomial Regression Trees</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="solver.html">Linear system solvers</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="quadrature.html">Quadrature</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="weight.html">Prescribing probability functions</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="plot.html">Plotting utilities</a>
-                </li>
-            
-          
-            
-                <li class="active">
-                    <a href="">Correlations</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="datasets.html">Datasets</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="scalers.html">Scalers</a>
-                </li>
-            
-          
-        
-        
         
         
         
@@ -259,9 +175,9 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>correlation_matrix</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – The correlation matrix associated with the joint distribution.</p></li>
 <li><p><strong>poly</strong> (<a class="reference internal" href="poly.html#equadratures.poly.Poly" title="equadratures.poly.Poly"><em>Poly</em></a><em>, </em><em>optional</em>) – Polynomial defined with parameters with marginal distributions in uncorrelated space.</p></li>
-<li><p><strong>parameters</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em>, </em><em>optional</em>) – List of parameters with marginal distributions.</p></li>
-<li><p><strong>method</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>optional</em>) – <cite>nataf-transform</cite> or <cite>gram-schmidt</cite>.</p></li>
-<li><p><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – Display Cholesky decomposition of the fictive matrix.</p></li>
+<li><p><strong>parameters</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a><em>, </em><em>optional</em>) – List of parameters with marginal distributions.</p></li>
+<li><p><strong>method</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – <cite>nataf-transform</cite> or <cite>gram-schmidt</cite>.</p></li>
+<li><p><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Display Cholesky decomposition of the fictive matrix.</p></li>
 </ul>
 </dd>
 </dl>
@@ -298,7 +214,7 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>N</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – Number of correlated samples required.</p></li>
+<li><p><strong>N</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Number of correlated samples required.</p></li>
 <li><p><strong>X</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – Points in the uncorrelated space to map to the correlated space.</p></li>
 </ul>
 </dd>
@@ -365,8 +281,8 @@ For Gram-Schmidt, returns points according to the GS polynomial basis.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>model</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable" title="(in Python v3.9)"><em>Callable</em></a><em>,</em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – The function that needs to be approximated. In the absence of a callable function, the input can be the function evaluated at the quadrature points.</p></li>
-<li><p><strong>model_grads</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable" title="(in Python v3.9)"><em>Callable</em></a><em>,</em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – The gradient of the function that needs to be approximated. In the absence of a callable gradient function, the input can be a matrix of gradient evaluations at the quadrature points.</p></li>
+<li><p><strong>model</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable" title="(in Python v3.10)"><em>Callable</em></a><em>,</em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – The function that needs to be approximated. In the absence of a callable function, the input can be the function evaluated at the quadrature points.</p></li>
+<li><p><strong>model_grads</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable" title="(in Python v3.10)"><em>Callable</em></a><em>,</em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – The gradient of the function that needs to be approximated. In the absence of a callable gradient function, the input can be a matrix of gradient evaluations at the quadrature points.</p></li>
 </ul>
 </dd>
 </dl>

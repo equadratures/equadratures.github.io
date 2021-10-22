@@ -85,10 +85,6 @@
         </li>
         
         <li class="nav-item ">
-            <a class="nav-link" href=""></a>
-        </li>
-        
-        <li class="nav-item ">
             <a class="nav-link" href="about.html">About</a>
         </li>
         
@@ -135,86 +131,6 @@
         
         
           
-            
-                <li class="">
-                    <a href="parameter.html">Parameter</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="basis.html">Basis</a>
-                </li>
-            
-          
-            
-                <li class="active">
-                    <a href="">Polynomial</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="subspaces.html">Dimension reduction with polynomials</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="optimisation.html">Optimisation with polynomials</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="polytree.html">Polynomial Regression Trees</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="solver.html">Linear system solvers</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="quadrature.html">Quadrature</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="weight.html">Prescribing probability functions</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="plot.html">Plotting utilities</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="correlated.html">Correlations</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="datasets.html">Datasets</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="scalers.html">Scalers</a>
-                </li>
-            
-          
-        
-        
         
         
         
@@ -257,10 +173,10 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>parameters</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a>) – A list of parameters, where each element of the list is an instance of the Parameter class.</p></li>
+<li><p><strong>parameters</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a>) – A list of parameters, where each element of the list is an instance of the Parameter class.</p></li>
 <li><p><strong>basis</strong> (<a class="reference internal" href="basis.html#equadratures.basis.Basis" title="equadratures.basis.Basis"><em>Basis</em></a>) – An instance of the Basis class corresponding to the multi-index set used.</p></li>
-<li><p><strong>method</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>optional</em>) – The method used for computing the coefficients. Should be one of: <code class="docutils literal notranslate"><span class="pre">compressed-sensing</span></code>, <code class="docutils literal notranslate"><span class="pre">least-squares</span></code>, <code class="docutils literal notranslate"><span class="pre">minimum-norm</span></code>, <code class="docutils literal notranslate"><span class="pre">numerical-integration</span></code>, <code class="docutils literal notranslate"><span class="pre">least-squares-with-gradients</span></code>, <code class="docutils literal notranslate"><span class="pre">least-absolute-residual</span></code>, <code class="docutils literal notranslate"><span class="pre">huber</span></code>, <code class="docutils literal notranslate"><span class="pre">elastic-net</span></code>, <code class="docutils literal notranslate"><span class="pre">relevance-vector-machine</span></code> or <code class="docutils literal notranslate"><span class="pre">custom-solver</span></code>. See <a class="reference internal" href="solver.html#equadratures.solver.Solver" title="equadratures.solver.Solver"><code class="xref py py-class docutils literal notranslate"><span class="pre">Solver</span></code></a> for further details.</p></li>
-<li><p><strong>sampling_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a><em>, </em><em>optional</em>) – <p>A dict containing optional arguments centered around the specific sampling strategy:</p>
+<li><p><strong>method</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – The method used for computing the coefficients. Should be one of: <code class="docutils literal notranslate"><span class="pre">compressed-sensing</span></code>, <code class="docutils literal notranslate"><span class="pre">least-squares</span></code>, <code class="docutils literal notranslate"><span class="pre">minimum-norm</span></code>, <code class="docutils literal notranslate"><span class="pre">numerical-integration</span></code>, <code class="docutils literal notranslate"><span class="pre">least-squares-with-gradients</span></code>, <code class="docutils literal notranslate"><span class="pre">least-absolute-residual</span></code>, <code class="docutils literal notranslate"><span class="pre">huber</span></code>, <code class="docutils literal notranslate"><span class="pre">elastic-net</span></code>, <code class="docutils literal notranslate"><span class="pre">relevance-vector-machine</span></code> or <code class="docutils literal notranslate"><span class="pre">custom-solver</span></code>. See <a class="reference internal" href="solver.html#equadratures.solver.Solver" title="equadratures.solver.Solver"><code class="xref py py-class docutils literal notranslate"><span class="pre">Solver</span></code></a> for further details.</p></li>
+<li><p><strong>sampling_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><em>optional</em>) – <p>A dict containing optional arguments centered around the specific sampling strategy:</p>
 <blockquote>
 <div><ul>
 <li><p><strong>mesh</strong> (str): Avaliable options are: <code class="docutils literal notranslate"><span class="pre">monte-carlo</span></code>, <code class="docutils literal notranslate"><span class="pre">sparse-grid</span></code>, <code class="docutils literal notranslate"><span class="pre">tensor-grid</span></code>, <code class="docutils literal notranslate"><span class="pre">induced</span></code>, or <code class="docutils literal notranslate"><span class="pre">user-defined</span></code>. Note that when the <code class="docutils literal notranslate"><span class="pre">sparse-grid</span></code> option is invoked, the sparse pseudospectral approximation method [1] is the adopted. One can think of this as being the correct way to use sparse grids in the context of polynomial chaos [2] techniques.</p></li>
@@ -272,8 +188,8 @@
 </ul>
 </div></blockquote>
 </p></li>
-<li><p><strong>solver_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a><em>, </em><em>optional</em>) – Optional arguments centered around the specific solver used for computing the coefficients. See <a class="reference internal" href="solver.html#equadratures.solver.Solver" title="equadratures.solver.Solver"><code class="xref py py-class docutils literal notranslate"><span class="pre">Solver</span></code></a>.</p></li>
-<li><p><strong>override_cardinality</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to override the soft cardinality limit of 50E3. By default the limit is enforced in order to avoid excessively long run times when the polynomial coefficients are computed.</p></li>
+<li><p><strong>solver_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><em>optional</em>) – Optional arguments centered around the specific solver used for computing the coefficients. See <a class="reference internal" href="solver.html#equadratures.solver.Solver" title="equadratures.solver.Solver"><code class="xref py py-class docutils literal notranslate"><span class="pre">Solver</span></code></a>.</p></li>
+<li><p><strong>override_cardinality</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to override the soft cardinality limit of 50E3. By default the limit is enforced in order to avoid excessively long run times when the polynomial coefficients are computed.</p></li>
 </ul>
 </dd>
 </dl>
@@ -326,13 +242,13 @@
 <dd><p>Computes the kurtosis indices.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>order</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The highest order of the kurtosis indices required.</p>
+<dd class="field-odd"><p><strong>order</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The highest order of the kurtosis indices required.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>A dict comprising of kurtosis indices and constitutent mixed orders of the parameters.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)">dict</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -343,13 +259,13 @@
 <dd><p>Computes the skewness indices.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>order</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The highest order of the skewness indices required.</p>
+<dd class="field-odd"><p><strong>order</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The highest order of the skewness indices required.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>A dict comprising of skewness indices and constitutent mixed orders of the parameters.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)">dict</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -363,7 +279,7 @@
 <dd class="field-odd"><p>Tuple containing two floats; the approximated mean and variance from the polynomial fit.</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)">tuple</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -405,7 +321,7 @@
 <dd class="field-odd"><p>Contains the <a class="reference internal" href="parameter.html#equadratures.parameter.Parameter" title="equadratures.parameter.Parameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code></a> objects belonging to the polynomial.</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)">list</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)">list</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -433,7 +349,7 @@
 <dd class="field-odd"><p>Tuple containing two ndarrays; the sampled quadrature points with shape (number_of_samples, dimension), and the corresponding quadrature weights with shape (number_of_samples, 1).</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)">tuple</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -466,14 +382,14 @@
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>stack_of_points</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – An ndarray with shape (number_of_observations, dimensions) at which the gradient must be evaluated.</p></li>
-<li><p><strong>dim_index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) – Index of the dimension to evaluate the gradient for.</p></li>
+<li><p><strong>dim_index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – Index of the dimension to evaluate the gradient for.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>A list with d elements, where d corresponds to the dimension of the problem. Each element is a numpy.ndarray of shape (cardinality, number_of_observations) corresponding to the gradient polynomial evaluations at the stack_of_points.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)">list</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)">list</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -490,7 +406,7 @@
 <dd class="field-even"><p>A list with d^2 elements, where d corresponds to the dimension of the model. Each element is a numpy.ndarray of shape (cardinality, number_of_observations) corresponding to the hessian polynomial evaluations at the stack_of_points.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)">list</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)">list</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -503,7 +419,7 @@
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>stack_of_points</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – An ndarray with shape (number_of_observations, dimensions) at which the polynomial fit must be evaluated at.</p></li>
-<li><p><strong>uq</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the estimated uncertainty (standard deviation) of the polynomial approximation is also returned (see [5]).</p></li>
+<li><p><strong>uq</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the estimated uncertainty (standard deviation) of the polynomial approximation is also returned (see [5]).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -524,7 +440,7 @@
 <dd class="field-odd"><p>A callable function.</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable" title="(in Python v3.9)">Callable</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable" title="(in Python v3.10)">Callable</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -537,7 +453,7 @@
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>stack_of_points</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – An ndarray with shape (number_of_observations, dimensions) at which the polynomial fit approximation’s gradient must be evaluated at.</p></li>
-<li><p><strong>dim_index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) – Index of dimension to evaluate gradient for.</p></li>
+<li><p><strong>dim_index</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – Index of dimension to evaluate gradient for.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -558,7 +474,7 @@
 <dd class="field-odd"><p>A callable function.</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable" title="(in Python v3.9)">Callable</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable" title="(in Python v3.10)">Callable</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -589,7 +505,7 @@
 <dd class="field-odd"><p>A callable function.</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable" title="(in Python v3.9)">Callable</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable" title="(in Python v3.10)">Callable</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -604,7 +520,7 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>X_test</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – An ndarray with shape (number_of_observations, dimensions), containing new data <code class="docutils literal notranslate"><span class="pre">X_test</span></code> data (optional).</p></li>
 <li><p><strong>y_test</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – An ndarray with shape (number_of_observations, 1) containing new <code class="docutils literal notranslate"><span class="pre">y_test</span></code> data (optional).</p></li>
-<li><p><strong>metric</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>optional</em>) – An optional string containing the scoring metric to use. Avaliable options are: <code class="docutils literal notranslate"><span class="pre">adjusted_r2</span></code>, <code class="docutils literal notranslate"><span class="pre">r2</span></code>, <code class="docutils literal notranslate"><span class="pre">mae</span></code>, <code class="docutils literal notranslate"><span class="pre">rmse</span></code>, or <code class="docutils literal notranslate"><span class="pre">normalised_mae</span></code> (default: <code class="docutils literal notranslate"><span class="pre">adjusted_r2</span></code>).</p></li>
+<li><p><strong>metric</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – An optional string containing the scoring metric to use. Avaliable options are: <code class="docutils literal notranslate"><span class="pre">adjusted_r2</span></code>, <code class="docutils literal notranslate"><span class="pre">r2</span></code>, <code class="docutils literal notranslate"><span class="pre">mae</span></code>, <code class="docutils literal notranslate"><span class="pre">rmse</span></code>, or <code class="docutils literal notranslate"><span class="pre">normalised_mae</span></code> (default: <code class="docutils literal notranslate"><span class="pre">adjusted_r2</span></code>).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -626,7 +542,7 @@
 <dd class="field-odd"><p>Tuple containing two floats; the approximated skewness and kurtosis from the polynomial fit.</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)">tuple</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -637,13 +553,13 @@
 <dd><p>Computes the Sobol’ indices.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>order</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a>) – The order of the Sobol’ indices required.</p>
+<dd class="field-odd"><p><strong>order</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The order of the Sobol’ indices required.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>A dict comprising of Sobol’ indices and constitutent mixed orders of the parameters.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)">dict</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -655,8 +571,8 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>optional</em>) – The filename to write to. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, the summary is written to <em>effective-quadratures-output.txt</em>.</p></li>
-<li><p><strong>tosay</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – True will replace “-” signs with “minus” when writing to file for compatibility with os.say().</p></li>
+<li><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – The filename to write to. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, the summary is written to <em>effective-quadratures-output.txt</em>.</p></li>
+<li><p><strong>tosay</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – True will replace “-” signs with “minus” when writing to file for compatibility with os.say().</p></li>
 </ul>
 </dd>
 </dl>
@@ -734,8 +650,8 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>model</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable" title="(in Python v3.9)"><em>Callable</em></a><em>,</em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – The function that needs to be approximated. In the absence of a callable function, the input can be a ndarray model evaluations at the quadrature points.</p></li>
-<li><p><strong>model_grads</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable" title="(in Python v3.9)"><em>Callable</em></a><em>,</em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – The gradient of the function that needs to be approximated. In the absence of a callable gradient function, the input can be a ndarray of gradient evaluations at the quadrature points.</p></li>
+<li><p><strong>model</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable" title="(in Python v3.10)"><em>Callable</em></a><em>,</em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – The function that needs to be approximated. In the absence of a callable function, the input can be a ndarray model evaluations at the quadrature points.</p></li>
+<li><p><strong>model_grads</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable" title="(in Python v3.10)"><em>Callable</em></a><em>,</em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – The gradient of the function that needs to be approximated. In the absence of a callable gradient function, the input can be a ndarray of gradient evaluations at the quadrature points.</p></li>
 </ul>
 </dd>
 </dl>
@@ -775,7 +691,7 @@
 </dl>
 <dl class="field-list simple">
 <dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.9)"><strong>ValueError</strong></a> – model values should be a column vector.</p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.10)"><strong>ValueError</strong></a> – model values should be a column vector.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -790,7 +706,7 @@
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>points</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – An ndarray with shape (number_of_observations, dimensions) at which the gradient must be evaluated.</p></li>
-<li><p><strong>function</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable" title="(in Python v3.9)"><em>Callable</em></a>) – A callable argument for the function.</p></li>
+<li><p><strong>function</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable" title="(in Python v3.10)"><em>Callable</em></a>) – A callable argument for the function.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -810,8 +726,8 @@
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>points</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – An ndarray with shape (number_of_observations, dimensions) at which the gradient must be evaluated.</p></li>
-<li><p><strong>fungrad</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable" title="(in Python v3.9)"><em>Callable</em></a>) – A callable argument for the function’s gradients.</p></li>
-<li><p><strong>format</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>optional</em>) – The format in which the output is to be provided: <code class="docutils literal notranslate"><span class="pre">matrix</span></code> will output a numpy.ndarray of shape (number_of_observations, dimensions) with gradient values, while <code class="docutils literal notranslate"><span class="pre">vector</span></code> will stack all the vectors in this matrix to yield a numpy.ndarray with shape (number_of_observations x dimensions, 1).</p></li>
+<li><p><strong>fungrad</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable" title="(in Python v3.10)"><em>Callable</em></a>) – A callable argument for the function’s gradients.</p></li>
+<li><p><strong>format</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – The format in which the output is to be provided: <code class="docutils literal notranslate"><span class="pre">matrix</span></code> will output a numpy.ndarray of shape (number_of_observations, dimensions) with gradient values, while <code class="docutils literal notranslate"><span class="pre">vector</span></code> will stack all the vectors in this matrix to yield a numpy.ndarray with shape (number_of_observations x dimensions, 1).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -838,7 +754,7 @@
 <dd class="field-even"><p>Tuple (x,y,z,max_order), containing the x,y values of the meshgrid, the coefficient values, and the highest order.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)">tuple</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a></p>
 </dd>
 </dl>
 </dd></dl>

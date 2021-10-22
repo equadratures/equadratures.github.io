@@ -87,10 +87,6 @@
         </li>
         
         <li class="nav-item ">
-            <a class="nav-link" href=""></a>
-        </li>
-        
-        <li class="nav-item ">
             <a class="nav-link" href="about.html">About</a>
         </li>
         
@@ -137,86 +133,6 @@
         
         
           
-            
-                <li class="">
-                    <a href="parameter.html">Parameter</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="basis.html">Basis</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="poly.html">Polynomial</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="subspaces.html">Dimension reduction with polynomials</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="optimisation.html">Optimisation with polynomials</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="polytree.html">Polynomial Regression Trees</a>
-                </li>
-            
-          
-            
-                <li class="active">
-                    <a href="">Linear system solvers</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="quadrature.html">Quadrature</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="weight.html">Prescribing probability functions</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="plot.html">Plotting utilities</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="correlated.html">Correlations</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="datasets.html">Datasets</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="scalers.html">Scalers</a>
-                </li>
-            
-          
-        
-        
         
         
         
@@ -266,7 +182,7 @@ The solvers can also be used independently (see examples) for debugging and expe
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>method</strong> (<em>string</em>) – The method used for solving the linear system. Options include: <code class="docutils literal notranslate"><span class="pre">compressed-sensing</span></code>, <code class="docutils literal notranslate"><span class="pre">least-squares</span></code>, <code class="docutils literal notranslate"><span class="pre">minimum-norm</span></code>, <code class="docutils literal notranslate"><span class="pre">numerical-integration</span></code>, <code class="docutils literal notranslate"><span class="pre">least-squares-with-gradients</span></code>, <code class="docutils literal notranslate"><span class="pre">least-absolute-residual</span></code>, <code class="docutils literal notranslate"><span class="pre">huber</span></code>, <code class="docutils literal notranslate"><span class="pre">elastic-net</span></code>, and <code class="docutils literal notranslate"><span class="pre">relevance-vector-machine</span></code>.</p></li>
-<li><p><strong>solver_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a><em>, </em><em>optional</em>) – <p>Dictionary containing optional arguments centered around the specific solver. Arguments are specific to the requested solver, except for the following generic arguments:</p>
+<li><p><strong>solver_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><em>optional</em>) – <p>Dictionary containing optional arguments centered around the specific solver. Arguments are specific to the requested solver, except for the following generic arguments:</p>
 <ul>
 <li><p><strong>verbose</strong> (bool): Default value of this input is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>; when <code class="docutils literal notranslate"><span class="pre">True</span></code>, the solver prints information to screen.</p></li>
 <li><p><strong>opt</strong> (str): Specifies the underlying optimisation method to use. <code class="docutils literal notranslate"><span class="pre">scipy</span></code> for scipy, and <cite>osqp</cite> to use the OSQP optimiser (requires <code class="docutils literal notranslate"><span class="pre">cvxpy</span></code> to be installed).</p></li>
@@ -343,8 +259,8 @@ The solvers can also be used independently (see examples) for debugging and expe
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>method</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – The name of the solver to return.</p></li>
-<li><p><strong>solver_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a><em>, </em><em>optional</em>) – <p>Dictionary containing optional arguments centered around the specific solver. Arguments are specific to the requested solver, except for the following generic arguments:</p>
+<li><p><strong>method</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The name of the solver to return.</p></li>
+<li><p><strong>solver_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><em>optional</em>) – <p>Dictionary containing optional arguments centered around the specific solver. Arguments are specific to the requested solver, except for the following generic arguments:</p>
 <ul>
 <li><p><strong>verbose</strong> (bool): Default value of this input is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>; when <code class="docutils literal notranslate"><span class="pre">True</span></code>, the solver prints information to screen.</p></li>
 <li><p><strong>opt</strong> (str): Specifies the underlying optimisation method to use. <code class="docutils literal notranslate"><span class="pre">scipy</span></code> for scipy, and <cite>osqp</cite> to use the OSQP optimiser (requires <code class="docutils literal notranslate"><span class="pre">cvxpy</span></code> to be installed).</p></li>
@@ -369,7 +285,7 @@ The solvers can also be used independently (see examples) for debugging and expe
 <dd><p>Compressed sensing solver.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>solver_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – <p>Optional arguments for the solver:</p>
+<dd class="field-odd"><p><strong>solver_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – <p>Optional arguments for the solver:</p>
 <ul class="simple">
 <li><p><strong>verbose</strong> (bool): Default value of this input is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>; when <code class="docutils literal notranslate"><span class="pre">True</span></code>, the solver prints information to screen.</p></li>
 <li><p><strong>noise-level</strong> (float)</p></li>
@@ -386,7 +302,7 @@ The solvers can also be used independently (see examples) for debugging and expe
 <p>This solves an orthogonal linear system i.e. simply c=A^T.b.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>solver_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – <p>Optional arguments for the solver:</p>
+<dd class="field-odd"><p><strong>solver_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – <p>Optional arguments for the solver:</p>
 <ul class="simple">
 <li><p><strong>verbose</strong> (bool): Default value of this input is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>; when <code class="docutils literal notranslate"><span class="pre">True</span></code>, the solver prints information to screen.</p></li>
 </ul>
@@ -402,7 +318,7 @@ The solvers can also be used independently (see examples) for debugging and expe
 <p>This class allows you to enter a custom <code class="docutils literal notranslate"><span class="pre">solve()</span></code> function to solve <span class="math notranslate nohighlight">\(\mathbf{A}\mathbf{x}=\mathbf{b}\)</span>. The <code class="docutils literal notranslate"><span class="pre">solve()</span></code> is provided via <code class="docutils literal notranslate"><span class="pre">solver_args</span></code>, and should accept the numpy.ndarray’s <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{b}\)</span>, and return a numpy.ndarray containing the coefficients <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>solver_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – <p>Optional arguments for the solver. Optional arguments for the solver. Additional arguments are passed through to the custom <code class="docutils literal notranslate"><span class="pre">solve()</span></code> function as kwargs.</p>
+<dd class="field-odd"><p><strong>solver_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – <p>Optional arguments for the solver. Optional arguments for the solver. Additional arguments are passed through to the custom <code class="docutils literal notranslate"><span class="pre">solve()</span></code> function as kwargs.</p>
 <ul class="simple">
 <li><p><strong>verbose</strong> (bool): Default value of this input is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>; when <code class="docutils literal notranslate"><span class="pre">True</span></code>, the solver prints information to screen.</p></li>
 <li><p><strong>solve</strong> (Callable): The custom <code class="docutils literal notranslate"><span class="pre">solve()</span></code> solve function. This must accept A and b, and return x.</p></li>
@@ -443,7 +359,7 @@ The solvers can also be used independently (see examples) for debugging and expe
 <p>If <code class="docutils literal notranslate"><span class="pre">path=True</span></code>, the elastic net is solved via coordinate descent [1]. The full regularisation path (<span class="math notranslate nohighlight">\(\lambda\)</span> path) is computed (for a given <span class="math notranslate nohighlight">\(\alpha\)</span>), and the set of coefficients with the lowest model selection criteria is then selected according to [2]. Otherwise, the elastic net is solved for a given <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\lambda\)</span> using the OSQP quadratic program optimiser (if <code class="docutils literal notranslate"><span class="pre">cvxpy</span></code> is installed).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>solver_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – <p>Optional arguments for the solver:</p>
+<dd class="field-odd"><p><strong>solver_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – <p>Optional arguments for the solver:</p>
 <ul class="simple">
 <li><p><strong>verbose</strong> (bool): Default value of this input is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>; when <code class="docutils literal notranslate"><span class="pre">True</span></code>, the solver prints information to screen.</p></li>
 <li><p><strong>alpha</strong> (float): The L1/L2 pentalty blending parameter <span class="math notranslate nohighlight">\(\alpha\)</span>. Default: <code class="docutils literal notranslate"><span class="pre">alpha=1.0</span></code>. If <code class="docutils literal notranslate"><span class="pre">alpha=0</span></code> is desired, use <a class="reference internal" href="#equadratures.solver.least_squares" title="equadratures.solver.least_squares"><code class="xref py py-class docutils literal notranslate"><span class="pre">least_squares</span></code></a>.</p></li>
@@ -481,7 +397,7 @@ But on large residuals (<span class="math notranslate nohighlight">\(||\mathbf{A
 It is thus more forgiving of outliers.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>solver_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a><em>, </em><em>optional</em>) – <p>Optional arguments for the solver:</p>
+<dd class="field-odd"><p><strong>solver_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><em>optional</em>) – <p>Optional arguments for the solver:</p>
 <ul class="simple">
 <li><p><strong>verbose</strong> (bool): Default value of this input is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>; when <code class="docutils literal notranslate"><span class="pre">True</span></code>, the solver prints information to screen.</p></li>
 <li><p><strong>M</strong> (float): The huber threshold. Default <code class="docutils literal notranslate"><span class="pre">M=1</span></code>.</p></li>
@@ -497,7 +413,7 @@ It is thus more forgiving of outliers.</p>
 <dd><p>Least absolute residual solver. Minimises the L1 norm (absolute residuals).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>solver_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – <p>Optional arguments for the solver:</p>
+<dd class="field-odd"><p><strong>solver_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – <p>Optional arguments for the solver:</p>
 <ul class="simple">
 <li><p><strong>verbose</strong> (bool): Default value of this input is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>; when <code class="docutils literal notranslate"><span class="pre">True</span></code>, the solver prints information to screen.</p></li>
 <li><p><strong>opt</strong> (str): Specifies the underlying optimisation method to use. <code class="docutils literal notranslate"><span class="pre">scipy</span></code> for scipy, and <cite>osqp</cite> to use the OSQP optimiser (requires <code class="docutils literal notranslate"><span class="pre">cvxpy</span></code> to be installed).</p></li>
@@ -513,7 +429,7 @@ It is thus more forgiving of outliers.</p>
 <dd><p>Ordinary least squares solver.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>solver_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – <p>Optional arguments for the solver:</p>
+<dd class="field-odd"><p><strong>solver_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – <p>Optional arguments for the solver:</p>
 <ul class="simple">
 <li><p><strong>verbose</strong> (bool): Default value of this input is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>; when <code class="docutils literal notranslate"><span class="pre">True</span></code>, the solver prints information to screen.</p></li>
 </ul>
@@ -528,7 +444,7 @@ It is thus more forgiving of outliers.</p>
 <dd><p>Minimum norm solver, used for uniquely or overdetermined systems (i.e. m&gt;=n).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>solver_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – <p>Optional arguments for the solver:</p>
+<dd class="field-odd"><p><strong>solver_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – <p>Optional arguments for the solver:</p>
 <ul class="simple">
 <li><p><strong>verbose</strong> (bool): Default value of this input is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>; when <code class="docutils literal notranslate"><span class="pre">True</span></code>, the solver prints information to screen.</p></li>
 </ul>
@@ -543,7 +459,7 @@ It is thus more forgiving of outliers.</p>
 <dd><p>Numerical integration solver. This solves an orthogonal linear system i.e. simply <span class="math notranslate nohighlight">\(\mathbf{x}=\mathbf{A}^T\mathbf{b}\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>solver_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – <p>Optional arguments for the solver:</p>
+<dd class="field-odd"><p><strong>solver_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – <p>Optional arguments for the solver:</p>
 <ul class="simple">
 <li><p><strong>verbose</strong> (bool): Default value of this input is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>; when <code class="docutils literal notranslate"><span class="pre">True</span></code>, the solver prints information to screen.</p></li>
 </ul>
@@ -558,7 +474,7 @@ It is thus more forgiving of outliers.</p>
 <dd><p>Relevence vector machine solver.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>solver_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – <p>Optional arguments for the solver:</p>
+<dd class="field-odd"><p><strong>solver_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – <p>Optional arguments for the solver:</p>
 <ul class="simple">
 <li><p><strong>verbose</strong> (bool): Default value of this input is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>; when <code class="docutils literal notranslate"><span class="pre">True</span></code>, the solver prints information to screen.</p></li>
 <li><p><strong>max_iter</strong> (int): Maximum number of iterations. Default is 1000.</p></li>

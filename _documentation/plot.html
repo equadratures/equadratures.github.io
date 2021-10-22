@@ -87,10 +87,6 @@
         </li>
         
         <li class="nav-item ">
-            <a class="nav-link" href=""></a>
-        </li>
-        
-        <li class="nav-item ">
             <a class="nav-link" href="about.html">About</a>
         </li>
         
@@ -137,86 +133,6 @@
         
         
           
-            
-                <li class="">
-                    <a href="parameter.html">Parameter</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="basis.html">Basis</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="poly.html">Polynomial</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="subspaces.html">Dimension reduction with polynomials</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="optimisation.html">Optimisation with polynomials</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="polytree.html">Polynomial Regression Trees</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="solver.html">Linear system solvers</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="quadrature.html">Quadrature</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="weight.html">Prescribing probability functions</a>
-                </li>
-            
-          
-            
-                <li class="active">
-                    <a href="">Plotting utilities</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="correlated.html">Correlations</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="datasets.html">Datasets</a>
-                </li>
-            
-          
-            
-                <li class="">
-                    <a href="scalers.html">Scalers</a>
-                </li>
-            
-          
-        
-        
         
         
         
@@ -261,16 +177,16 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mysubspace</strong> (<a class="reference internal" href="subspaces.html#equadratures.subspaces.Subspaces" title="equadratures.subspaces.Subspaces"><em>Subspaces</em></a>) – An instance of the Subspaces class.</p></li>
 <li><p><strong>ax</strong> (<a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.4.3)"><em>matplotlib.axes.Axes</em></a><em>, </em><em>optional</em>) – An instance of the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> axes class to plot onto. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, a new figure and axes are created (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>).</p></li>
-<li><p><strong>minmax</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em>, </em><em>optional</em>) – A list of the minimum and maximum values of <span class="math notranslate nohighlight">\(M^T x\)</span>, where <span class="math notranslate nohighlight">\(M\)</span> is the subspace.</p></li>
-<li><p><strong>grid_pts</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) – The number of grid points for generating the contour plot.</p></li>
-<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to view the plot.</p></li>
+<li><p><strong>minmax</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a><em>, </em><em>optional</em>) – A list of the minimum and maximum values of <span class="math notranslate nohighlight">\(M^T x\)</span>, where <span class="math notranslate nohighlight">\(M\)</span> is the subspace.</p></li>
+<li><p><strong>grid_pts</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – The number of grid points for generating the contour plot.</p></li>
+<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to view the plot.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Tuple (<a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.4.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Figure</span></code></a>, <a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.4.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Axes</span></code></a>) containing the generated figure and axes (only if <cite>show=False</cite>).</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)">tuple</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a></p>
 </dd>
 </dl>
 <p class="rubric">Example</p>
@@ -289,15 +205,15 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Parameter</strong> (<a class="reference internal" href="parameter.html#equadratures.parameter.Parameter" title="equadratures.parameter.Parameter"><em>Parameter</em></a>) – An instance of the Parameter class.</p></li>
 <li><p><strong>ax</strong> (<a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.4.3)"><em>matplotlib.axes.Axes</em></a><em>, </em><em>optional</em>) – An instance of the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> axes class to plot onto. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, a new figure and axes are created (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>).</p></li>
-<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to show the graph.</p></li>
-<li><p><strong>lim_range</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to limit the range of the x-axis to just the immediate region of the pdf (rather than the full parameter support).</p></li>
+<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to show the graph.</p></li>
+<li><p><strong>lim_range</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to limit the range of the x-axis to just the immediate region of the pdf (rather than the full parameter support).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Tuple (<a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.4.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Figure</span></code></a>, <a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.4.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Axes</span></code></a>) containing the generated figure and axes (only if <cite>show=False</cite>).</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)">tuple</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -310,23 +226,23 @@
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>PolyTree</strong> (<a class="reference internal" href="polytree.html#equadratures.polytree.PolyTree" title="equadratures.polytree.PolyTree"><em>PolyTree</em></a>) – An instance of the PolyTree class.</p></li>
-<li><p><strong>ij</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em>, </em><em>optional</em>) – A list containing the two dimensions to plot over. For example, <code class="docutils literal notranslate"><span class="pre">ij=[6,7]</span></code> with plot over the 6th and 7th dimensions in <code class="docutils literal notranslate"><span class="pre">X</span></code>.</p></li>
+<li><p><strong>ij</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a><em>, </em><em>optional</em>) – A list containing the two dimensions to plot over. For example, <code class="docutils literal notranslate"><span class="pre">ij=[6,7]</span></code> with plot over the 6th and 7th dimensions in <code class="docutils literal notranslate"><span class="pre">X</span></code>.</p></li>
 <li><p><strong>ax</strong> (<a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.4.3)"><em>matplotlib.axes.Axes</em></a><em>, </em><em>optional</em>) – An instance of the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> axes class to plot onto. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, a new figure and axes are created (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>).</p></li>
 <li><p><strong>X</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – A numpy ndarray containing the input data to plot.</p></li>
 <li><p><strong>y</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – A numpy ndarray containing the output data to plot.</p></li>
-<li><p><strong>max_depth</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) – The maximum tree depth to plot decision boundaries for.</p></li>
-<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code> then the subdomains are labelled by their node number.</p></li>
-<li><p><strong>color</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>optional</em>) – What to color the scatter points by. <code class="docutils literal notranslate"><span class="pre">'data'</span></code> to color by the <strong>X</strong>, <strong>y</strong> data. <code class="docutils literal notranslate"><span class="pre">'predict'</span></code> to color by the PolyTree predictions, and <code class="docutils literal notranslate"><span class="pre">'error'</span></code> to color by the predictive error. (default: <code class="docutils literal notranslate"><span class="pre">'data'</span></code>).</p></li>
-<li><p><strong>colorbar</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to add a colorbar.</p></li>
-<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to view the plot.</p></li>
-<li><p><strong>kwargs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a><em>, </em><em>optional</em>) – Dictionary of keyword arguments to pass to matplotlib.scatter().</p></li>
+<li><p><strong>max_depth</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – The maximum tree depth to plot decision boundaries for.</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code> then the subdomains are labelled by their node number.</p></li>
+<li><p><strong>color</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – What to color the scatter points by. <code class="docutils literal notranslate"><span class="pre">'data'</span></code> to color by the <strong>X</strong>, <strong>y</strong> data. <code class="docutils literal notranslate"><span class="pre">'predict'</span></code> to color by the PolyTree predictions, and <code class="docutils literal notranslate"><span class="pre">'error'</span></code> to color by the predictive error. (default: <code class="docutils literal notranslate"><span class="pre">'data'</span></code>).</p></li>
+<li><p><strong>colorbar</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to add a colorbar.</p></li>
+<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to view the plot.</p></li>
+<li><p><strong>kwargs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><em>optional</em>) – Dictionary of keyword arguments to pass to matplotlib.scatter().</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Tuple (<a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.4.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Figure</span></code></a>, <a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.4.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Axes</span></code></a>, <a class="reference external" href="https://matplotlib.org/stable/api/collections_api.html#matplotlib.collections.PathCollection" title="(in Matplotlib v3.4.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PathCollection</span></code></a>) containing the figure, axes and handle for the scatter plot (only if <cite>show=False</cite>).</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)">tuple</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -340,14 +256,14 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Basis</strong> (<a class="reference internal" href="basis.html#equadratures.basis.Basis" title="equadratures.basis.Basis"><em>Basis</em></a>) – An instance of the Basis class.</p></li>
 <li><p><strong>ax</strong> (<a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.4.3)"><em>matplotlib.axes.Axes</em></a><em>, </em><em>optional</em>) – An instance of the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> axes class to plot onto. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, a new figure and axes are created (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>).</p></li>
-<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to view the plot.</p></li>
+<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to view the plot.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Tuple (<a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.4.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Figure</span></code></a>, <a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.4.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Axes</span></code></a>) containing the generated figure and axes (only if <cite>show=False</cite>).</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)">tuple</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a></p>
 </dd>
 </dl>
 <p class="rubric">Example</p>
@@ -366,16 +282,16 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Polynomial</strong> (<a class="reference internal" href="poly.html#equadratures.poly.Poly" title="equadratures.poly.Poly"><em>Poly</em></a>) – An instance of the Poly class.</p></li>
 <li><p><strong>ax</strong> (<a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.4.3)"><em>matplotlib.axes.Axes</em></a><em>, </em><em>optional</em>) – An instance of the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> axes class to plot onto. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, a new figure and axes are created (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>).</p></li>
-<li><p><strong>sample_data</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em>, </em><em>optional</em>) – A list formed by <code class="docutils literal notranslate"><span class="pre">[X,</span> <span class="pre">y]</span></code> where <code class="docutils literal notranslate"><span class="pre">X</span></code> represents the spatial data input and <code class="docutils literal notranslate"><span class="pre">y</span></code> the output.</p></li>
-<li><p><strong>metric</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><em>optional</em>) – Accuracy/error score metric to annotate graph with. See <a class="reference internal" href="datasets.html#equadratures.datasets.score" title="equadratures.datasets.score"><code class="xref py py-meth docutils literal notranslate"><span class="pre">score()</span></code></a> for options.</p></li>
-<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em> , </em><em>optional</em>) – Option to view the plot.</p></li>
+<li><p><strong>sample_data</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a><em>, </em><em>optional</em>) – A list formed by <code class="docutils literal notranslate"><span class="pre">[X,</span> <span class="pre">y]</span></code> where <code class="docutils literal notranslate"><span class="pre">X</span></code> represents the spatial data input and <code class="docutils literal notranslate"><span class="pre">y</span></code> the output.</p></li>
+<li><p><strong>metric</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – Accuracy/error score metric to annotate graph with. See <a class="reference internal" href="datasets.html#equadratures.datasets.score" title="equadratures.datasets.score"><code class="xref py py-meth docutils literal notranslate"><span class="pre">score()</span></code></a> for options.</p></li>
+<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em> , </em><em>optional</em>) – Option to view the plot.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Tuple (<a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.4.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Figure</span></code></a>, <a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.4.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Axes</span></code></a>) containing the generated figure and axes (only if <cite>show=False</cite>).</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)">tuple</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -389,16 +305,16 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Parameter</strong> (<a class="reference internal" href="parameter.html#equadratures.parameter.Parameter" title="equadratures.parameter.Parameter"><em>Parameter</em></a>) – An instance of the Parameter class.</p></li>
 <li><p><strong>ax</strong> (<a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.4.3)"><em>matplotlib.axes.Axes</em></a><em>, </em><em>optional</em>) – An instance of the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> axes class to plot onto. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, a new figure and axes are created (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>).</p></li>
-<li><p><strong>order_limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) – The maximum number of orthogonal polynomials that need to be plotted.</p></li>
-<li><p><strong>number_of_points</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) – The number of points used for plotting.</p></li>
-<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to view the plot.</p></li>
+<li><p><strong>order_limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – The maximum number of orthogonal polynomials that need to be plotted.</p></li>
+<li><p><strong>number_of_points</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – The number of points used for plotting.</p></li>
+<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to view the plot.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Tuple (<a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.4.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Figure</span></code></a>, <a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.4.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Axes</span></code></a>) containing the generated figure and axes (only if <cite>show=False</cite>).</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)">tuple</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a></p>
 </dd>
 </dl>
 <p class="rubric">Example</p>
@@ -417,15 +333,15 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Polynomial</strong> (<a class="reference internal" href="poly.html#equadratures.poly.Poly" title="equadratures.poly.Poly"><em>Poly</em></a>) – An instance of the Poly class.</p></li>
 <li><p><strong>ax</strong> (<a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.4.3)"><em>matplotlib.axes.Axes</em></a><em>, </em><em>optional</em>) – An instance of the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> axes class to plot onto. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, a new figure and axes are created (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>).</p></li>
-<li><p><strong>cols</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) – The number of columns to organise the parameter PDF plots into.</p></li>
-<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to show the graph.</p></li>
+<li><p><strong>cols</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – The number of columns to organise the parameter PDF plots into.</p></li>
+<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to show the graph.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Tuple (<a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.4.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Figure</span></code></a>, <a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.4.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Axes</span></code></a>) containing the generated figure and axes (only if <cite>show=False</cite>).</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)">tuple</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -440,15 +356,15 @@
 <li><p><strong>Parameter</strong> (<a class="reference internal" href="parameter.html#equadratures.parameter.Parameter" title="equadratures.parameter.Parameter"><em>Parameter</em></a>) – An instance of the Parameter class.</p></li>
 <li><p><strong>ax</strong> (<a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.4.3)"><em>matplotlib.axes.Axes</em></a><em>, </em><em>optional</em>) – An instance of the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> axes class to plot onto. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, a new figure and axes are created (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>).</p></li>
 <li><p><strong>data</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – Samples from the distribution (or a similar one) that need to be plotted as a histogram.</p></li>
-<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to show the graph.</p></li>
-<li><p><strong>lim_range</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to limit the range of the x-axis to just the immediate region of the pdf (rather than the full parameter support).</p></li>
+<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to show the graph.</p></li>
+<li><p><strong>lim_range</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to limit the range of the x-axis to just the immediate region of the pdf (rather than the full parameter support).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Tuple (<a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.4.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Figure</span></code></a>, <a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.4.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Axes</span></code></a>) containing the generated figure and axes (only if <cite>show=False</cite>).</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)">tuple</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -462,16 +378,16 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Polynomial</strong> (<a class="reference internal" href="poly.html#equadratures.poly.Poly" title="equadratures.poly.Poly"><em>Poly</em></a>) – An instance of the Poly class.</p></li>
 <li><p><strong>ax</strong> (<a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.4.3)"><em>matplotlib.axes.Axes</em></a><em>, </em><em>optional</em>) – An instance of the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> axes class to plot onto. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, a new figure and axes are created (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>).</p></li>
-<li><p><strong>uncertainty</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to show confidence intervals (1 standard deviation).</p></li>
+<li><p><strong>uncertainty</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to show confidence intervals (1 standard deviation).</p></li>
 <li><p><strong>output_variances</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – User-defined uncertainty associated with each data point; can be either a <code class="docutils literal notranslate"><span class="pre">float</span></code> in which case all data points are assumed to have the same variance, or can be an array of length equivalent to the number of data points.</p></li>
-<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to view the plot.</p></li>
+<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to view the plot.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Tuple (<a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.4.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Figure</span></code></a>, <a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.4.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Axes</span></code></a>) containing the generated figure and axes (only if <cite>show=False</cite>).</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)">tuple</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -485,15 +401,15 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>solver</strong> (<a class="reference internal" href="solver.html#equadratures.solver.Solver" title="equadratures.solver.Solver"><em>Solver</em></a>) – An instance of the Solver class.</p></li>
 <li><p><strong>elements</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – Elements of the index set to label the coefficients with. Typically set internally when this function is called by <a class="reference internal" href="solver.html#equadratures.solver.elastic_net.plot_regpath" title="equadratures.solver.elastic_net.plot_regpath"><code class="xref py py-meth docutils literal notranslate"><span class="pre">plot_regpath()</span></code></a>.</p></li>
-<li><p><strong>nplot</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) – Number of coefficients for the plot.</p></li>
-<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to show the graph.</p></li>
+<li><p><strong>nplot</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – Number of coefficients for the plot.</p></li>
+<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to show the graph.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Tuple (<a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.4.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Figure</span></code></a>, <a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.4.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Axes</span></code></a>, <a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.4.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Axes</span></code></a>) containing figure and two axes corresponding to the polynomial coefficients and information criterion plots (only if <cite>show=False</cite>).</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)">tuple</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -508,18 +424,18 @@ over the first.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mysubspace_1</strong> (<a class="reference internal" href="subspaces.html#equadratures.subspaces.Subspaces" title="equadratures.subspaces.Subspaces"><em>Subspaces</em></a>) – An instance of the Subspaces class, to project samples onto.</p></li>
 <li><p><strong>mysubspace_2</strong> (<a class="reference internal" href="subspaces.html#equadratures.subspaces.Subspaces" title="equadratures.subspaces.Subspaces"><em>Subspaces</em></a>) – A second instance of the Subspaces class, to generate samples from.</p></li>
-<li><p><strong>axs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em>, </em><em>optional</em>) – A len(2) list containing two instances of the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> axes class to plot onto. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, new figures and axes are created (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>).</p></li>
-<li><p><strong>no_of_samples</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) – Number of inactive samples to be generated.</p></li>
-<li><p><strong>minmax</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em>, </em><em>optional</em>) – A list of the minimum and maximum values of <span class="math notranslate nohighlight">\(M^T x\)</span>, where <span class="math notranslate nohighlight">\(M\)</span> is the subspace.</p></li>
-<li><p><strong>grid_pts</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) – The number of grid points for generating the contour plot.</p></li>
-<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to view the plot.</p></li>
+<li><p><strong>axs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a><em>, </em><em>optional</em>) – A len(2) list containing two instances of the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> axes class to plot onto. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, new figures and axes are created (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>).</p></li>
+<li><p><strong>no_of_samples</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – Number of inactive samples to be generated.</p></li>
+<li><p><strong>minmax</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a><em>, </em><em>optional</em>) – A list of the minimum and maximum values of <span class="math notranslate nohighlight">\(M^T x\)</span>, where <span class="math notranslate nohighlight">\(M\)</span> is the subspace.</p></li>
+<li><p><strong>grid_pts</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – The number of grid points for generating the contour plot.</p></li>
+<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to view the plot.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Tuple (<a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.4.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Figure</span></code></a>, <a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.4.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Axes</span></code></a>, <a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.4.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Figure</span></code></a>, <a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.4.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Axes</span></code></a> ) containing contour plots of the sample mean and variance over the 2D subspace (only if <cite>show=False</cite>).</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)">tuple</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a></p>
 </dd>
 </dl>
 <p class="rubric">Example</p>
@@ -539,17 +455,17 @@ over the first.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Polynomial</strong> (<a class="reference internal" href="poly.html#equadratures.poly.Poly" title="equadratures.poly.Poly"><em>Poly</em></a>) – An instance of the Poly class.</p></li>
 <li><p><strong>ax</strong> (<a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.4.3)"><em>matplotlib.axes.Axes</em></a><em>, </em><em>optional</em>) – An instance of the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> axes class to plot onto. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, a new figure and axes are created (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>).</p></li>
-<li><p><strong>order</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><em>int</em></a><em>, </em><em>optional</em>) – Order of the Sobol’ indices to plot.</p></li>
-<li><p><strong>parameters</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em>, </em><em>optional</em>) – List of the parameters for the given polynomial.</p></li>
-<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to show the graph.</p></li>
-<li><p><strong>kwargs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a><em>, </em><em>optional</em>) – Dictionary of keyword arguments to pass to matplotlib.bar().</p></li>
+<li><p><strong>order</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – Order of the Sobol’ indices to plot.</p></li>
+<li><p><strong>parameters</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a><em>, </em><em>optional</em>) – List of the parameters for the given polynomial.</p></li>
+<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to show the graph.</p></li>
+<li><p><strong>kwargs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><em>optional</em>) – Dictionary of keyword arguments to pass to matplotlib.bar().</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Tuple (<a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.4.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Figure</span></code></a>, <a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.4.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Axes</span></code></a>) containing the generated figure and axes (only if <cite>show=False</cite>).</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)">tuple</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -562,16 +478,16 @@ over the first.</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Polynomial</strong> (<a class="reference internal" href="poly.html#equadratures.poly.Poly" title="equadratures.poly.Poly"><em>Poly</em></a>) – An instance of the Poly class.</p></li>
-<li><p><strong>parameters</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a>) – A list of strings to use for the axis labels.</p></li>
+<li><p><strong>parameters</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a>) – A list of strings to use for the axis labels.</p></li>
 <li><p><strong>ax</strong> (<a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.4.3)"><em>matplotlib.axes.Axes</em></a>) – An instance of the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> axes class to plot onto. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, a new figure and axes are created (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>).</p></li>
-<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – Option to show the graph.</p></li>
+<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – Option to show the graph.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Tuple (<a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.4.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Figure</span></code></a>, <a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.4.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Axes</span></code></a>) containing the generated figure and axes (only if <cite>show=False</cite>).</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)">tuple</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -587,19 +503,19 @@ over the first.</p>
 <li><p><strong>ax</strong> (<a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.4.3)"><em>matplotlib.axes.Axes</em></a><em>, </em><em>optional</em>) – An instance of the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> axes class to plot onto. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, a new figure and axes are created (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>).</p></li>
 <li><p><strong>X_test</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – A numpy ndarray containing input test data to plot (in addition to the training data). Must have same number of dimensions as the training data.</p></li>
 <li><p><strong>y_test</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – A numpy ndarray containing output test data to plot (in addition to the training data).</p></li>
-<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to view the plot.</p></li>
-<li><p><strong>poly</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to plot the subspace polynomial.</p></li>
-<li><p><strong>uncertainty</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to show confidence intervals (1 standard deviation) of the subspace polynomial.</p></li>
-<li><p><strong>legend</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to show legend.</p></li>
-<li><p><strong>scatter_kwargs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a><em>, </em><em>optional</em>) – Dictionary of keyword arguments to pass to matplotlib.scatter().</p></li>
-<li><p><strong>plot_kwargs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a><em>, </em><em>optional</em>) – Dictionary of keyword arguments to pass to matplotlib.plot().</p></li>
+<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to view the plot.</p></li>
+<li><p><strong>poly</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to plot the subspace polynomial.</p></li>
+<li><p><strong>uncertainty</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to show confidence intervals (1 standard deviation) of the subspace polynomial.</p></li>
+<li><p><strong>legend</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to show legend.</p></li>
+<li><p><strong>scatter_kwargs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><em>optional</em>) – Dictionary of keyword arguments to pass to matplotlib.scatter().</p></li>
+<li><p><strong>plot_kwargs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><em>optional</em>) – Dictionary of keyword arguments to pass to matplotlib.plot().</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Tuple (<a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.4.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Figure</span></code></a>, <a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.4.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Axes</span></code></a>) containing the generated figure and axes (only if <cite>show=False</cite>).</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)">tuple</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a></p>
 </dd>
 </dl>
 <p class="rubric">Example</p>
@@ -618,16 +534,16 @@ over the first.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>Polynomial</strong> (<a class="reference internal" href="poly.html#equadratures.poly.Poly" title="equadratures.poly.Poly"><em>Poly</em></a>) – An instance of the Poly class.</p></li>
 <li><p><strong>ax</strong> (<a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.4.3)"><em>matplotlib.axes.Axes</em></a><em>, </em><em>optional</em>) – An instance of the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> axes class to plot onto. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, a new figure and axes are created (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>).</p></li>
-<li><p><strong>parameters</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.9)"><em>list</em></a><em>, </em><em>optional</em>) – List of the parameters for the given polynomial.</p></li>
-<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to show the graph.</p></li>
-<li><p><strong>kwargs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a><em>, </em><em>optional</em>) – Dictionary of keyword arguments to pass to matplotlib.bar().</p></li>
+<li><p><strong>parameters</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a><em>, </em><em>optional</em>) – List of the parameters for the given polynomial.</p></li>
+<li><p><strong>show</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to show the graph.</p></li>
+<li><p><strong>kwargs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><em>optional</em>) – Dictionary of keyword arguments to pass to matplotlib.bar().</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Tuple (<a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.4.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Figure</span></code></a>, <a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v3.4.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Axes</span></code></a>) containing the generated figure and axes (only if <cite>show=False</cite>).</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.9)">tuple</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a></p>
 </dd>
 </dl>
 </dd></dl>

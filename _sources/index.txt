@@ -1,17 +1,17 @@
-=======================
-Data Science Delivered
-=======================
+=============================
+Integrate, Predict, Explain.
+=============================
 
 
 .. figure:: /_documentation/Figures/figure.png
    :width: 100%
 
 .. meta::
-   :description: equadratures is the data science platform of choice for thousands of data scientists
+   :description: equadratures is the data science platform of choice for thousands of data scientists, engineers, and analysts.
    :keywords: data science, machine learning, artificial intelligence, polynomial chaos, uncertainty quantification
 
 
-``equadratures`` is the data science platform of choice for thousands of data scientists. It’s easy to use in desktop, cloud, or cloud-in-a-box environments. What separates ``equadratures`` from other platforms is its ability to work on both large and small datasets and offer readily interpretable models.
+``equadratures`` is the data science platform of choice for thousands of data scientists, engineers, and analysts. It’s easy to use in desktop, cloud, or cloud-in-a-box environments. What separates ``equadratures`` from other platforms is its ability to work on both large and small datasets and offer readily interpretable models.
 
 Given it's novel algorithmic core, it is purpose built to offer end-to-end intelligent and robust data solutions. It is also flexible enough to be integrated with standard data workflows.
 
