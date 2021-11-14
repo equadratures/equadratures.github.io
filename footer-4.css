@@ -112,12 +112,12 @@ a {
 }
 
 .footer .footer-links a {
-  display: block;
   color: #FFFFFF;
 }
 
 .footer .footer-links a:last-child {
   margin: 0;
+  text-decoration: none;
 }
 
 .footer .footer-links a:hover {

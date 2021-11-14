@@ -2,7 +2,7 @@
 Tutorials
 ==================
 
-Below we provide some introductory tutorials to give you an idea of what Effective Quadratures can do. The tutorials are organised by complexity, so if you are new to the notion of learning through polynomials, consider starting from the first tutorial.
+Below we provide some introductory tutorials to give you an idea of what ``equadratures`` can do. The tutorials are organised by complexity, so if you are new to the notion of learning through polynomials, consider starting from the first tutorial.
 
 
 Foundations
