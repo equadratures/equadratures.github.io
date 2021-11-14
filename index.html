@@ -1,230 +1,185 @@
-
 <!DOCTYPE html>
-
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta content="equadratures is the data science platform of choice for thousands of data scientists, engineers, and analysts." name="description" />
-<meta content="data science, machine learning, artificial intelligence, polynomial chaos, uncertainty quantification" name="keywords" />
-
-    <title>Integrate, Predict, Explain. &#8212; equadratures</title>
-    
-  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
-
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-
-    
-      
-  <link rel="stylesheet"
-    href="_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
-
-    
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/basic.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/gallery.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    <link rel="stylesheet" type="text/css" href="_static/css/styles.css" />
-    <link rel="stylesheet" type="text/css" href="_static/css/footer.css" />
-    <link rel="stylesheet" type="text/css" href="_static/css/cards.css" />
-    <link rel="stylesheet" type="text/css" href="_static/css/gallery.css" />
-    <link rel="stylesheet" type="text/css" href="_static/css/fonts.css" />
-    
-  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
-
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <link rel="shortcut icon" href="_static/eq-logo-favicon.png"/>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Research" href="_documentation/research.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
-  </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
-<div class="container-xl">
-
-    <a class="navbar-brand" href="#">
-    
-      <img src="_static/logo_new.png" class="logo" alt="logo" />
-    
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
-      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
-        
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="_documentation/research.html">Research</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="_documentation/apps.html">Apps</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="_documentation/documentation.html">Documentation</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="_documentation/about.html">About</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="_documentation/commercial.html">Commercial</a>
-        </li>
-        
-        
-        <li class="nav-item">
-            <a class="nav-link nav-external" href="https://discourse.equadratures.org/">Discourse<i class="fas fa-external-link-alt"></i></a>
-        </li>
-        
-      </ul>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href='https://fonts.googleapis.com/css2?family=Raleway:wght@100;300&display=swap"' rel='stylesheet'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="infinite-slider.css">
+<link href="footer-4.css" rel="stylesheet">
+<link rel='icon' href='./logos/eq.ico' type='image/x-icon'/ >
 
 
-      
+<meta property="og:site_name" content="equadratures" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://equadratures.org/" />
+<meta property="og:title" content="Integrate, Predict, Explain &amp; Audit | equadratures" />
+<meta property="og:description" content="equadratures is a model development platform. The models built in equadratures are explainable, robust, and do not require large cloud infrastructure to train. Additionally, equadratures’ models can audit themselves as well as audit models built from other platforms — ushering a new era in artificial intelligence." />
+<meta property="og:image" content="./icons/logo_new.png" />
+<meta property="og:image:url" content="./icons/logo_new.png" />
+<meta property="og:image:secure_url" content="./icons/logo_new.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="equadratures is a model development platform. The models built in equadratures are explainable, robust, and do not require large cloud infrastructure to train. Additionally, equadratures’ models can audit themselves as well as audit models built from other platforms — ushering a new era in artificial intelligence." />
+<meta name="twitter:site" content="@equadratures" />
+<meta name="twitter:title" content="Integrate, Predict, Explain &amp; Audit | equadratures" />
+<meta name="twitter:creator" content="@equadratures" />
+<meta name="twitter:url" content="https://twitter.com/equadratures" />
+<meta name="Generator" content="Drupal 8 (https://www.drupal.org)" />
+<title>Integrate, Predict, Explain &amp; Audit | equadratures</title>
 
-      <ul class="navbar-nav">
-        
-        
-      </ul>
-    </div>
-</div>
-    </nav>
-    
+<meta name="description" content="equadratures is a model development platform. The models built in equadratures are explainable, robust, and do not require large cloud infrastructure to train. Additionally, equadratures’ models can audit themselves as well as audit models built from other platforms - ushering a new era in artificial intelligence.">
+<meta name="keywords" content="data science, machine learning, polynomial chaos, uncertainty quantification, model auditing, Pranay Seshadri">
 
-    <div class="container-xl">
-      <div class="row">
-          
-          <div class="col-12 col-md-3 bd-sidebar">
-          </div>
-          
-
-          
-          <div class="d-none d-xl-block col-xl-2 bd-toc">
-              
-
-<nav id="bd-toc-nav">
-    <ul class="nav section-nav flex-column">
-    
-    </ul>
-</nav>
-
-
-              
-          </div>
-          
-
-          
-          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
-              
-              <div>
-                
-  <div class="section" id="integrate-predict-explain">
-<h1>Integrate, Predict, Explain.<a class="headerlink" href="#integrate-predict-explain" title="Permalink to this headline">¶</a></h1>
-<div class="figure align-default">
-<a class="reference internal image-reference" href="_images/figure.png"><img alt="_images/figure.png" src="_images/figure.png" style="width: 100%;" /></a>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">equadratures</span></code> is the data science platform of choice for thousands of data scientists, engineers, and analysts. It’s easy to use in desktop, cloud, or cloud-in-a-box environments. What separates <code class="docutils literal notranslate"><span class="pre">equadratures</span></code> from other platforms is its ability to work on both large and small datasets and offer readily interpretable models.</p>
-<p>Given it’s novel algorithmic core, it is purpose built to offer end-to-end intelligent and robust data solutions. It is also flexible enough to be integrated with standard data workflows.</p>
-<p class="rubric">Usage</p>
-<p>The code can be used in isolation to analyse an existing database, e.g., a <code class="docutils literal notranslate"><span class="pre">.csv</span></code> file of data.</p>
-<div class="figure align-default">
-<a class="reference internal image-reference" href="_images/schematic_2.png"><img alt="_images/schematic_2.png" src="_images/schematic_2.png" style="width: 100%;" /></a>
-</div>
-<p>Alternatively it can be used within a workflow where both inputs and outputs feed into other packages, e.g., a fluid or structural simulation package.</p>
-<div class="figure align-default">
-<a class="reference internal image-reference" href="_images/schematic_1.png"><img alt="_images/schematic_1.png" src="_images/schematic_1.png" style="width: 100%;" /></a>
-</div>
-<p class="rubric">User downloads</p>
-<a class="reference internal image-reference" href="https://pepy.tech/badge/equadratures"><img alt="https://pepy.tech/badge/equadratures" src="https://pepy.tech/badge/equadratures" style="height: 21px;" /></a>
-<a class="reference internal image-reference" href="https://pepy.tech/badge/equadratures/month"><img alt="https://pepy.tech/badge/equadratures/month" src="https://pepy.tech/badge/equadratures/month" style="height: 21px;" /></a>
-<a class="reference internal image-reference" href="https://pepy.tech/badge/equadratures/week"><img alt="https://pepy.tech/badge/equadratures/week" src="https://pepy.tech/badge/equadratures/week" style="height: 21px;" /></a>
-<p class="rubric">Case studies</p>
-<div class="sphinx-bs container pb-4 docutils">
-<div class="row docutils">
-<div class="d-flex col-xl-6 col-lg-6 col-md-4 col-sm-6 col-xs-6 my-3 px-4 docutils">
-<div class="card w-100 people-card shadow text-center docutils">
-<img alt="img-top" class="card-img-top p-0" src="_images/aero.jpg" />
-<div class="card-header font-weight-bold px-1 docutils">
-<p class="card-text">Streamlining jet engine design and manufacture</p>
-</div>
-<div class="card-body text-left docutils">
-<p class="card-text"><a class="sphinx-bs btn text-wrap stretched-link reference external" href="https://www.turing.ac.uk/research/impact-stories/streamlining-jet-engine-design-and-manufacture"><span></span></a></p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<p class="rubric">Used by</p>
-<a class="reference internal image-reference" href="_images/airbus.png"><img alt="_images/airbus.png" src="_images/airbus.png" style="width: 22%;" /></a>
-<a class="reference internal image-reference" href="_images/rr.png"><img alt="_images/rr.png" src="_images/rr.png" style="width: 22%;" /></a>
-<a class="reference internal image-reference" href="_images/siemens.png"><img alt="_images/siemens.png" src="_images/siemens.png" style="width: 22%;" /></a>
-<a class="reference internal image-reference" href="_images/mclaren.png"><img alt="_images/mclaren.png" src="_images/mclaren.png" style="width: 22%;" /></a>
-<a class="reference internal image-reference" href="_images/usgs.png"><img alt="_images/usgs.png" src="_images/usgs.png" style="width: 22%;" /></a>
-<a class="reference internal image-reference" href="_images/ukaea.png"><img alt="_images/ukaea.png" src="_images/ukaea.png" style="width: 22%;" /></a>
-<a class="reference internal image-reference" href="_images/cambridge.png"><img alt="_images/cambridge.png" src="_images/cambridge.png" style="width: 22%;" /></a>
-<a class="reference internal image-reference" href="_images/turing.png"><img alt="_images/turing.png" src="_images/turing.png" style="width: 22%;" /></a>
-<a class="reference internal image-reference" href="_images/imperial.png"><img alt="_images/imperial.png" src="_images/imperial.png" style="width: 22%;" /></a>
-<p class="rubric">Contents</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="_documentation/research.html">Research</a></li>
-<li class="toctree-l1"><a class="reference internal" href="_documentation/apps.html">Apps</a></li>
-<li class="toctree-l1"><a class="reference internal" href="_documentation/documentation.html">Documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="_documentation/about.html">About</a></li>
-<li class="toctree-l1"><a class="reference internal" href="_documentation/commercial.html">Commercial</a></li>
-</ul>
-</div>
-</div>
-
-
-              </div>
-              
-              
-          </main>
-          
-
-      </div>
-    </div>
-
-    
-  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
-
-
-    <footer>
-<div align="center">
-<div class="logos">
-<a href="https://github.com/Effective-Quadratures/Effective-Quadratures"><i class="fab fa-github"></i></a>
-<a href="https://effectivequadratures.slack.com/"><i class="fab fa-slack"></i></a>
-<a href="https://twitter.com/EQuadratures"><i class="fab fa-twitter"></i></a>
-<a href="https://discourse.equadratures.org"><i class="fab fa-discourse"></i></a>
-<a href="https://www.linkedin.com/company/effective-quadratures/about/"><i class="fab fa-linkedin"></i></a>
-<a href="https://www.youtube.com/channel/UCpjwFDSZuFbzW-2lj6d96dA"><i class="fab fa-youtube"></i></a>
-</div>
-<span>Copyright © 2016-2021 by equadratures. Made by the equadratures team, with ❤️.</span>
+</head>
+<img style="float: right; margin: 0em 0px 0px 0px;" src="./icons/side.png" width="200" />
+<body>
+<div class="main">
+<img style="float: left; margin: 2em 0px 0px 2em; width:25%; min-width:220px" src="./icons/logo_new.png"/>
 <br>
 <br>
+<br>
+<br>
+<div class="topnav" id="myTopnav">
+  <a href="./index.html" class="active">home</a>
+  <a href="./digital.html">digital & ai upskilling</a>
+  <a href="./code.html">code</a>
+  <a href="./case-studies.html">case studies</a>
+  <a href="./research/index.html">research</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
 </div>
-</footer>
-  </body>
+<h1>integrate, predict, explain &amp; audit</h1>
+<h3>equadratures is a model development platform. The models built in equadratures are explainable, robust, and do not require large cloud infrastructure to train. Additionally, equadratures' models can audit themselves as well as audit models built from other platforms - ushering a new era in artificial intelligence.
+</h3>
+<br>
+<br>
+<div class="row">
+  <div class="column">
+    <center>
+    <img src="./icons/f1.png" ; style="width:100%">
+  </center>
+</div>
+  <div class="column">
+    <center>
+    <img src="./icons/f3.png" ;style="width:100%">
+  </center>
+  </div>
+  <div class="column">
+    <center>
+    <img src="./icons/f2.png" ; style="width:100%">
+  </center>
+  </div>
+  <div class="column">
+    <center>
+    <img src="./icons/f4.png" ;style="width:100%">
+  </center>
+  </div>
+</div>
+<h1>framework</h1>
+<h3>
+equadratures builds models using orthonormal polynomials over subspaces. And while orthonormal polynomials - e.g., Hermite, Legendre, Laguerre - have been around since the time of Hermite, Legendre and Laguerre, using them for data science, analytics, and digital twinning is relatively new. Moreover, the construction of such models (underscored by the model coefficients) over subspaces rather than the full space ensures that even with a small amount of data, explainable, interpretable and robust models are always a few lines of code away.
+</h3>
+<br>
+<br>
+  <div class="row">
+    <center>
+    <img src="./icons/subspace.png" width="1200" />
+  </center>
+</div>
+<h1>utility</h1>
+<h3>
+Fundamentally, equadratures is purpose built for task-driven outputs. Provided a model is built well, users are interested in extracting value from a model. This typically takes the form of the tasks below.
+</h3>
+<br>
+<br>
+  <div class="row">
+    <center>
+    <img src="./icons/list.png" width="1200" />
+  </center>
+</div>
+<br>
+<br>
+<h3>
+Numerous companies and academic institutions are already using equadratures. Join them and use equadratures to integrate, predict, explain and audit.
+<br>
+<br>
+</h3>
+  <section class="customer-logos slider">
+    <div class="slide"><img src="logos/airbus.png" ></div>
+    <div class="slide"><img src="logos/cambridge.png" ></div>
+    <div class="slide"><img src="logos/mclaren.png" ></div>
+    <div class="slide"><img src="logos/siemens.png" ></div>
+    <div class="slide"><img src="logos/turing.png" ></div>
+  </section>
+  <section class="customer-logos slider">
+    <div class="slide"><img src="logos/ukaea.png" ></div>
+    <div class="slide"><img src="logos/usgs.png" ></div>
+    <div class="slide"><img src="logos/rr.png" ></div>
+    <div class="slide"><img src="logos/safran.png" ></div>
+    <div class="slide"><img src="logos/icl.png" ></div>
+  </section>
+  <br>
+  <br>
+</div>
+<div class="footer">
+           <div class="container">
+               <div class="row">
+                 <div class="col-md-6 col-lg-3">
+                     <div class="footer-about">
+                          <img style="float: left; margin: 0px 250px 2px 10px; width:50%; min-width:25px" src="./icons/logo.png" alt="Image"><br>
+                          <b>equadratures</b> <br>
+                          mail@equadratures.org <br>
+                     </div>
+                 </div>
+                 <div class="col-md-6 col-lg-3">
+                     <div class="footer-social">
+                         <a href="https://github.com/portrait-code"><img alt="" src="icons/github.png" hspace="0x" style="width:100%; min-width:25px"></a>
+                         <a href="https://www.linkedin.com/company/portrait-tec"><img alt=""  src="icons/linkedin.png" hspace="0x" style="width:100%; min-width:25px"></a>
+                        <a href="https://twitter.com/PortraitTec"><img alt="" src="icons/twitter.png" hspace="0x" style="width:100%; min-width:25px"></a>
+                      <a href="https://twitter.com/PortraitTec"><img alt="" src="icons/youtube.png" hspace="0x" style="width:100%; min-width:25px"></a>
+                     </div>
+                     <br>
+                     <br>
+                 </div>
+                 <div class="col-md-6 col-lg-3">
+                     <div class="footer-contact">
+                       <b>management </b><br>
+                        team <br>
+                        partnerships <br>
+                        digital & ai upskilling <br>
+                        case studies <br>
+                        <a href="https://research.equadratures.org/">research</a><br>
+                     </div>
+                 </div>
+                   <div class="col-md-6 col-lg-3">
+                       <div class="footer-links">
+                           <b>code </b><br>
+                            overview <br>
+                            documentation <br>
+                            tutorials <br>
+                            <a href="https://discourse.equadratures.org/">discourse</a>
+                            numfocus affiliation <br>
+                            google summer of code <br>
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <center>
+             <div class="small">
+             copyright &copy; 2021 by equadratures.
+             <br>
+             made by the equadratures team, with &#10084;&#65039;.
+           </div>
+             <br>
+             <br>
+           </center>
+       </div>
+</body>
+<script type="text/javascript" src="./script.js"> </script>
+<script type="text/javascript" src="./carousel.js"> </script>
 </html>

@@ -1,7 +1,0 @@
-Datasets
-=============================
-
-.. automodule:: equadratures.datasets
-    :members:
-
-

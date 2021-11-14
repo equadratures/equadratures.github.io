@@ -1,0 +1,13 @@
+===============
+Documentation
+===============
+
+Code documentation for :code:`equadratures` can be found by clicking on the links below.
+
+
+.. toctree::
+   :maxdepth: 1
+
+   Core classes <core/index>
+   secondary classes <secondary/index>
+   tutorials <tutorials/index>

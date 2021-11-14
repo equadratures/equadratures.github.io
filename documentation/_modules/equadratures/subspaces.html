@@ -1,0 +1,999 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>equadratures.subspaces &#8212; equadratures</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/footer.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/cards.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/fonts.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    <a class="navbar-brand" href="../../documentation.html">
+    
+      <p class="title"> </p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../parameter.html">Parameter</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../basis.html">Basis</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../poly.html">Polynomial</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../subspaces.html">Dimension reduction with polynomials</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../optimisation.html">Optimisation with polynomials</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../polytree.html">Polynomial Regression Trees</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../solver.html">Linear system solvers</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../quadrature.html">Quadrature</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../weight.html">Prescribing probability functions</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../correlated.html">Correlations</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../scalers.html">Scalers</a>
+        </li>
+        
+        
+        <li class="nav-item">
+            <a class="nav-link nav-external" href="https://discourse.equadratures.org/">Discourse<i class="fas fa-external-link-alt"></i></a>
+        </li>
+        
+      </ul>
+
+
+      
+
+      <ul class="navbar-nav">
+        
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search equadratures..." aria-label="Search equadratures..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+    <div class="bd-toc-item active">
+    
+  
+    <ul class="nav bd-sidenav">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </ul>
+  
+  </nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <h1>Source code for equadratures.subspaces</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">equadratures.parameter</span> <span class="kn">import</span> <span class="n">Parameter</span>
+<span class="kn">from</span> <span class="nn">equadratures.poly</span> <span class="kn">import</span> <span class="n">Poly</span>
+<span class="kn">from</span> <span class="nn">equadratures.basis</span> <span class="kn">import</span> <span class="n">Basis</span>
+<span class="kn">from</span> <span class="nn">equadratures.scalers</span> <span class="kn">import</span> <span class="n">scaler_minmax</span><span class="p">,</span> <span class="n">scaler_meanvar</span><span class="p">,</span> <span class="n">scaler_custom</span>
+<span class="kn">import</span> <span class="nn">equadratures.plot</span> <span class="k">as</span> <span class="nn">plot</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy</span>
+<span class="kn">import</span> <span class="nn">scipy.io</span>
+<span class="kn">from</span> <span class="nn">scipy.linalg</span> <span class="kn">import</span> <span class="n">orth</span><span class="p">,</span> <span class="n">sqrtm</span>
+<span class="kn">from</span> <span class="nn">scipy.spatial</span> <span class="kn">import</span> <span class="n">ConvexHull</span>
+<span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">comb</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">linprog</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<div class="viewcode-block" id="Subspaces"><a class="viewcode-back" href="../../subspaces.html#equadratures.subspaces.Subspaces">[docs]</a><span class="k">class</span> <span class="nc">Subspaces</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; This class defines a subspaces object. It can be used for polynomial-based subspace dimension reduction.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    method : str</span>
+<span class="sd">        The method to be used for subspace-based dimension reduction. Two options:</span>
+
+<span class="sd">        - ``active-subspace``, which uses ideas in [1] and [2] to compute a dimension-reducing subspace with a global polynomial approximant. Gradients evaluations of the polynomial approximation are used to compute the averaged outer product of the gradient covariance matrix. The polynomial approximation in the original full-space can be provided via ``full_space_poly``. Otherwise, it is fit internally to the data provided via ``sample_points`` and ``sample_outputs``.</span>
+<span class="sd">        - ``variable-projection`` [3], where a Gauss-Newton optimisation problem is solved to compute both the polynomial coefficients and its subspace, with the data provided via ``sample_points`` and ``sample_outputs``.</span>
+
+<span class="sd">    full_space_poly : Poly, optional</span>
+<span class="sd">        An instance of Poly fitted to the full-space data, to use for the AS computation.</span>
+<span class="sd">    sample_points : numpy.ndarray, optional</span>
+<span class="sd">        Array with shape (number_of_observations, dimensions) that corresponds to a set of sample points over the parameter space.</span>
+<span class="sd">    sample_outputs : numpy.ndarray, optional</span>
+<span class="sd">        Array with shape (number_of_observations, 1) that corresponds to model evaluations at the sample points.</span>
+<span class="sd">    subspace_dimension : int, optional</span>
+<span class="sd">        The dimension of the *active* subspace.</span>
+<span class="sd">    param_args : dict, optional</span>
+<span class="sd">        Arguments passed to parameters of the AS polynomial. (see :class:`~equadratures.parameter.Parameter`)</span>
+<span class="sd">    poly_args : dict , optional</span>
+<span class="sd">        Arguments passed to constructing polynomial used for AS computation. (see :class:`~equadratures.poly.Poly`)</span>
+<span class="sd">    dr_args : dict, optional</span>
+<span class="sd">        Arguments passed to customise the VP optimiser. See documentation for :meth:`~equadratures.subspaces.Subspaces._get_variable_projection` in source.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Obtaining a 2D subspace via active subspaces on user data</span>
+<span class="sd">        &gt;&gt;&gt; mysubspace = Subspaces(method=&#39;active-subspace&#39;, sample_points=X, sample_outputs=Y)</span>
+<span class="sd">        &gt;&gt;&gt; eigs = mysubspace.get_eigenvalues()</span>
+<span class="sd">        &gt;&gt;&gt; W = mysubspace.get_subspace()[:, :2]</span>
+<span class="sd">        &gt;&gt;&gt; e = mysubspace.get_eigenvalues()</span>
+
+<span class="sd">    Obtaining a 2D subspace via active subspaces with a Poly object (remember to call set_model() on Poly first)</span>
+<span class="sd">        &gt;&gt;&gt; mysubspace = Subspaces(method=&#39;active-subspace&#39;, full_space_poly=my_poly)</span>
+<span class="sd">        &gt;&gt;&gt; eigs = mysubspace.get_eigenvalues()</span>
+<span class="sd">        &gt;&gt;&gt; W = mysubspace.get_subspace()[:, :2]</span>
+<span class="sd">        &gt;&gt;&gt; e = mysubspace.get_eigenvalues()</span>
+
+<span class="sd">    Obtaining a 2D subspace via variable projection on user data</span>
+<span class="sd">        &gt;&gt;&gt; mysubspace = Subspaces(method=&#39;variable-projection&#39;, sample_points=X, sample_outputs=Y)</span>
+<span class="sd">        &gt;&gt;&gt; W = mysubspace.get_subspace()[:, :2]</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    1. Constantine, P., (2015) Active Subspaces: Emerging Ideas for Dimension Reduction in Parameter Studies. SIAM Spotlights.</span>
+<span class="sd">    2. Seshadri, P., Shahpar, S., Constantine, P., Parks, G., Adams, M. (2018) Turbomachinery Active Subspace Performance Maps. Journal of Turbomachinery, 140(4), 041003. `Paper &lt;http://turbomachinery.asmedigitalcollection.asme.org/article.aspx?articleid=2668256&gt;`__.</span>
+<span class="sd">    3. Hokanson, J., Constantine, P., (2018) Data-driven Polynomial Ridge Approximation Using Variable Projection. SIAM Journal of Scientific Computing, 40(3), A1566-A1589. `Paper &lt;https://epubs.siam.org/doi/abs/10.1137/17M1117690&gt;`__.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">full_space_poly</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sample_points</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sample_outputs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">subspace_dimension</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">polynomial_degree</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">param_args</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">poly_args</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dr_args</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">full_space_poly</span> <span class="o">=</span> <span class="n">full_space_poly</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sample_points</span> <span class="o">=</span> <span class="n">sample_points</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Y</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># for the zonotope vertices</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sample_outputs</span> <span class="o">=</span> <span class="n">sample_outputs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="o">=</span> <span class="n">method</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">subspace_dimension</span> <span class="o">=</span> <span class="n">subspace_dimension</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">polynomial_degree</span> <span class="o">=</span> <span class="n">polynomial_degree</span>
+
+        <span class="n">my_poly_args</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;method&#39;</span><span class="p">:</span> <span class="s1">&#39;least-squares&#39;</span><span class="p">,</span> <span class="s1">&#39;solver_args&#39;</span><span class="p">:</span> <span class="p">{}}</span>
+        <span class="k">if</span> <span class="n">poly_args</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">my_poly_args</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">poly_args</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">poly_args</span> <span class="o">=</span> <span class="n">my_poly_args</span>
+
+        <span class="n">my_param_args</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;distribution&#39;</span><span class="p">:</span> <span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="s1">&#39;order&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">polynomial_degree</span><span class="p">,</span> <span class="s1">&#39;lower&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;upper&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+        <span class="k">if</span> <span class="n">param_args</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">my_param_args</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">param_args</span><span class="p">)</span>
+
+        <span class="c1"># I suppose we can detect if lower and upper is present to decide between these categories?</span>
+        <span class="n">bounded_distrs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;analytical&#39;</span><span class="p">,</span> <span class="s1">&#39;beta&#39;</span><span class="p">,</span> <span class="s1">&#39;chebyshev&#39;</span><span class="p">,</span> <span class="s1">&#39;arcsine&#39;</span><span class="p">,</span> <span class="s1">&#39;truncated-gaussian&#39;</span><span class="p">,</span> <span class="s1">&#39;uniform&#39;</span><span class="p">]</span>
+        <span class="n">unbounded_distrs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;gaussian&#39;</span><span class="p">,</span> <span class="s1">&#39;normal&#39;</span><span class="p">,</span> <span class="s1">&#39;gumbel&#39;</span><span class="p">,</span> <span class="s1">&#39;logistic&#39;</span><span class="p">,</span> <span class="s1">&#39;students-t&#39;</span><span class="p">,</span> <span class="s1">&#39;studentst&#39;</span><span class="p">]</span>
+        <span class="n">semi_bounded_distrs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;chi&#39;</span><span class="p">,</span> <span class="s1">&#39;chi-squared&#39;</span><span class="p">,</span> <span class="s1">&#39;exponential&#39;</span><span class="p">,</span> <span class="s1">&#39;gamma&#39;</span><span class="p">,</span> <span class="s1">&#39;lognormal&#39;</span><span class="p">,</span> <span class="s1">&#39;log-normal&#39;</span><span class="p">,</span> <span class="s1">&#39;pareto&#39;</span><span class="p">,</span> <span class="s1">&#39;rayleigh&#39;</span><span class="p">,</span> <span class="s1">&#39;weibull&#39;</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">dr_args</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s1">&#39;standardize&#39;</span> <span class="ow">in</span> <span class="n">dr_args</span><span class="p">:</span>
+                <span class="n">dr_args</span><span class="p">[</span><span class="s1">&#39;standardise&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dr_args</span><span class="p">[</span><span class="s1">&#39;standardize&#39;</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">method</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;active-subspace&#39;</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">method</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;active-subspaces&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;active-subspace&#39;</span>
+            <span class="k">if</span> <span class="n">dr_args</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">standardise</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">dr_args</span><span class="p">,</span> <span class="s1">&#39;standardise&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">standardise</span> <span class="o">=</span> <span class="kc">True</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">full_space_poly</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="c1"># user provided input/output data</span>
+                <span class="n">N</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sample_points</span><span class="o">.</span><span class="n">shape</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">standardise</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">data_scaler</span> <span class="o">=</span> <span class="n">scaler_minmax</span><span class="p">()</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">data_scaler</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sample_points</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">std_sample_points</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sample_points</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">std_sample_points</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sample_points</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+                <span class="n">param</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="o">**</span><span class="n">my_param_args</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">param_args</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="nb">hasattr</span><span class="p">(</span><span class="n">dr_args</span><span class="p">,</span> <span class="s1">&#39;lower&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">dr_args</span><span class="p">,</span> <span class="s1">&#39;upper&#39;</span><span class="p">))</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">standardise</span><span class="p">:</span>
+                        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s1">&#39;Points standardised but parameter range provided. Overriding default ([-1,1])...&#39;</span><span class="p">,</span>
+                            <span class="ne">UserWarning</span><span class="p">)</span>
+                <span class="n">myparameters</span> <span class="o">=</span> <span class="p">[</span><span class="n">param</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">d</span><span class="p">)]</span>
+                <span class="n">mybasis</span> <span class="o">=</span> <span class="n">Basis</span><span class="p">(</span><span class="s2">&quot;total-order&quot;</span><span class="p">)</span>
+                <span class="n">mypoly</span> <span class="o">=</span> <span class="n">Poly</span><span class="p">(</span><span class="n">myparameters</span><span class="p">,</span> <span class="n">mybasis</span><span class="p">,</span> <span class="n">sampling_args</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;sample-points&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">std_sample_points</span><span class="p">,</span>
+                                                                    <span class="s1">&#39;sample-outputs&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">sample_outputs</span><span class="p">},</span>
+                              <span class="o">**</span><span class="n">my_poly_args</span><span class="p">)</span>
+                <span class="n">mypoly</span><span class="o">.</span><span class="n">set_model</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">full_space_poly</span> <span class="o">=</span> <span class="n">mypoly</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># User provided polynomial</span>
+                <span class="c1"># Standardise according to distribution specified. Only care about the scaling (not shift)</span>
+                <span class="c1"># TODO: user provided callable with parameters?</span>
+                <span class="n">user_params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">full_space_poly</span><span class="o">.</span><span class="n">parameters</span>
+                <span class="n">d</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">user_params</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">sample_points</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">full_space_poly</span><span class="o">.</span><span class="n">get_points</span><span class="p">()</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">standardise</span><span class="p">:</span>
+                    <span class="n">scale_factors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+                    <span class="n">centers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="n">dd</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">user_params</span><span class="p">):</span>
+                        <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="n">bounded_distrs</span><span class="p">:</span>
+                            <span class="n">scale_factors</span><span class="p">[</span><span class="n">dd</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">upper</span> <span class="o">-</span> <span class="n">p</span><span class="o">.</span><span class="n">lower</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.0</span>
+                            <span class="n">centers</span><span class="p">[</span><span class="n">dd</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">upper</span> <span class="o">+</span> <span class="n">p</span><span class="o">.</span><span class="n">lower</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.0</span>
+                        <span class="k">elif</span> <span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="n">unbounded_distrs</span><span class="p">:</span>
+                            <span class="n">scale_factors</span><span class="p">[</span><span class="n">dd</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">variance</span><span class="p">)</span>
+                            <span class="n">centers</span><span class="p">[</span><span class="n">dd</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">mean</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="n">scale_factors</span><span class="p">[</span><span class="n">dd</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">variance</span><span class="p">)</span>
+                            <span class="n">centers</span><span class="p">[</span><span class="n">dd</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">param_scaler</span> <span class="o">=</span> <span class="n">scaler_custom</span><span class="p">(</span><span class="n">centers</span><span class="p">,</span> <span class="n">scale_factors</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">std_sample_points</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sample_points</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">std_sample_points</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sample_points</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">full_space_poly</span><span class="p">,</span> <span class="s1">&#39;coefficients&#39;</span><span class="p">):</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Please call set_model() first on poly.&#39;</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">sample_outputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">full_space_poly</span><span class="o">.</span><span class="n">get_model_evaluations</span><span class="p">()</span>
+            <span class="c1"># TODO: use dr_args for resampling of gradient points</span>
+            <span class="n">as_args</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;grad_points&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
+            <span class="k">if</span> <span class="n">dr_args</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">as_args</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">dr_args</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_get_active_subspace</span><span class="p">(</span><span class="o">**</span><span class="n">as_args</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;variable-projection&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data_scaler</span> <span class="o">=</span> <span class="n">scaler_minmax</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data_scaler</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sample_points</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">std_sample_points</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sample_points</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">dr_args</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">vp_args</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;gamma&#39;</span><span class="p">:</span><span class="mf">0.1</span><span class="p">,</span> <span class="s1">&#39;beta&#39;</span><span class="p">:</span><span class="mf">1e-4</span><span class="p">,</span> <span class="s1">&#39;tol&#39;</span><span class="p">:</span><span class="mf">1e-7</span><span class="p">,</span> <span class="s1">&#39;maxiter&#39;</span><span class="p">:</span><span class="mi">1000</span><span class="p">,</span> <span class="s1">&#39;U0&#39;</span><span class="p">:</span><span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;verbose&#39;</span><span class="p">:</span><span class="kc">False</span><span class="p">}</span>
+                <span class="n">vp_args</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">dr_args</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_get_variable_projection</span><span class="p">(</span><span class="o">**</span><span class="n">vp_args</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_get_variable_projection</span><span class="p">()</span>
+
+<div class="viewcode-block" id="Subspaces.get_subspace_polynomial"><a class="viewcode-back" href="../../subspaces.html#equadratures.subspaces.Subspaces.get_subspace_polynomial">[docs]</a>    <span class="k">def</span> <span class="nf">get_subspace_polynomial</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Returns a polynomial defined over the dimension reducing subspace.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        Poly</span>
+<span class="sd">            A Poly object that defines a polynomial over the subspace. The distribution of parameters</span>
+<span class="sd">            is assumed to be uniform and the maximum and minimum bounds for each parameter are defined by the maximum</span>
+<span class="sd">            and minimum values of the project samples.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># TODO: Try correlated poly here</span>
+        <span class="n">active_subspace</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_subspace</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">subspace_dimension</span><span class="p">]</span>
+        <span class="n">projected_points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">std_sample_points</span><span class="p">,</span> <span class="n">active_subspace</span><span class="p">)</span>
+        <span class="n">myparameters</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">subspace_dimension</span><span class="p">):</span>
+            <span class="n">param</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">lower</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">projected_points</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]),</span>
+                              <span class="n">upper</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">projected_points</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]),</span> <span class="n">order</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">polynomial_degree</span><span class="p">)</span>
+            <span class="n">myparameters</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">param</span><span class="p">)</span>
+        <span class="n">mybasis</span> <span class="o">=</span> <span class="n">Basis</span><span class="p">(</span><span class="s2">&quot;total-order&quot;</span><span class="p">)</span>
+        <span class="n">subspacepoly</span> <span class="o">=</span> <span class="n">Poly</span><span class="p">(</span><span class="n">myparameters</span><span class="p">,</span> <span class="n">mybasis</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;least-squares&#39;</span><span class="p">,</span>
+                            <span class="n">sampling_args</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;sample-points&#39;</span><span class="p">:</span> <span class="n">projected_points</span><span class="p">,</span>
+                                           <span class="s1">&#39;sample-outputs&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">sample_outputs</span><span class="p">})</span>
+        <span class="n">subspacepoly</span><span class="o">.</span><span class="n">set_model</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">subspacepoly</span></div>
+
+<div class="viewcode-block" id="Subspaces.get_eigenvalues"><a class="viewcode-back" href="../../subspaces.html#equadratures.subspaces.Subspaces.get_eigenvalues">[docs]</a>    <span class="k">def</span> <span class="nf">get_eigenvalues</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Returns the eigenvalues of the dimension reducing subspace. Note: this option is</span>
+<span class="sd">        currently only valid for method ``active-subspace``.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        numpy.ndarray</span>
+<span class="sd">            Array of shape (dimensions,) corresponding to the eigenvalues of the above mentioned covariance matrix.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;active-subspace&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_eigenvalues</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Only the active-subspace method yields eigenvalues.&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Subspaces.get_subspace"><a class="viewcode-back" href="../../subspaces.html#equadratures.subspaces.Subspaces.get_subspace">[docs]</a>    <span class="k">def</span> <span class="nf">get_subspace</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Returns the dimension reducing subspace.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        numpy.ndarray</span>
+<span class="sd">            Array of shape (dimensions, dimensions) where the first ``subspace_dimension`` columns</span>
+<span class="sd">            contain the dimension reducing subspace, while the remaining columns contain its orthogonal complement.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_subspace</span></div>
+
+    <span class="k">def</span> <span class="nf">_get_active_subspace</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">grad_points</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Private method to compute active subspaces. &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">grad_points</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">full_space_poly</span><span class="o">.</span><span class="n">get_points</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;data_scaler&#39;</span><span class="p">):</span>
+                <span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">grad_points</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># Either no standardisation, or user provided poly + param scaling</span>
+                <span class="n">X</span> <span class="o">=</span> <span class="n">grad_points</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+        <span class="n">M</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span>
+        <span class="k">if</span> <span class="n">d</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sample_points</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;In _get_active_subspace: dimensions of gradient evaluation points mismatched with input dimension!&#39;</span><span class="p">)</span>
+
+        <span class="n">alpha</span> <span class="o">=</span> <span class="mf">2.0</span>
+        <span class="n">num_grad_lb</span> <span class="o">=</span> <span class="n">alpha</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">subspace_dimension</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">M</span> <span class="o">&lt;</span> <span class="n">num_grad_lb</span><span class="p">:</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s1">&#39;Number of gradient evaluation points is likely to be insufficient. Consider resampling!&#39;</span><span class="p">,</span> <span class="ne">UserWarning</span><span class="p">)</span>
+
+        <span class="n">polygrad</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">full_space_poly</span><span class="o">.</span><span class="n">get_polyfit_grad</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;param_scaler&#39;</span><span class="p">):</span>
+            <span class="c1"># Evaluate gradient in transformed coordinate space</span>
+            <span class="n">polygrad</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">param_scaler</span><span class="o">.</span><span class="n">div</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span> <span class="o">*</span> <span class="n">polygrad</span>
+        <span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">M</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="o">/</span> <span class="n">M</span>
+        <span class="n">R</span> <span class="o">=</span> <span class="n">polygrad</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span> <span class="o">*</span> <span class="n">weights</span>
+        <span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">polygrad</span><span class="p">,</span> <span class="n">R</span> <span class="p">)</span>
+
+        <span class="c1"># Compute eigendecomposition!</span>
+        <span class="n">e</span><span class="p">,</span> <span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+        <span class="n">idx</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">argsort</span><span class="p">()[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">eigs</span> <span class="o">=</span> <span class="n">e</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+        <span class="n">eigVecs</span> <span class="o">=</span> <span class="n">W</span><span class="p">[:,</span> <span class="n">idx</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;data_scaler&#39;</span><span class="p">):</span>
+            <span class="n">scale_factors</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">/</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_scaler</span><span class="o">.</span><span class="n">Xmax</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_scaler</span><span class="o">.</span><span class="n">Xmin</span><span class="p">)</span>
+            <span class="n">eigVecs</span> <span class="o">=</span> <span class="n">scale_factors</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span> <span class="o">*</span> <span class="n">eigVecs</span>
+            <span class="n">eigVecs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">qr</span><span class="p">(</span><span class="n">eigVecs</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_subspace</span> <span class="o">=</span> <span class="n">eigVecs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_eigenvalues</span> <span class="o">=</span> <span class="n">eigs</span>
+
+    <span class="k">def</span> <span class="nf">_get_variable_projection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-7</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">U0</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Private method to obtain an active subspace in inputs design space via variable projection.</span>
+
+<span class="sd">        Note: It may help to standardize outputs to zero mean and unit variance</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        gamma : float, optional</span>
+<span class="sd">            Step length reduction factor (0,1).</span>
+<span class="sd">        beta : float, optional</span>
+<span class="sd">            Armijo tolerance for backtracking line search (0,1).</span>
+<span class="sd">        tol : float, optional</span>
+<span class="sd">            Tolerance for convergence, measured in the norm of residual over norm of f.</span>
+<span class="sd">        maxiter : int, optional</span>
+<span class="sd">            Maximum number of optimisation iterations.</span>
+<span class="sd">        U0 : numpy.ndarray, optional</span>
+<span class="sd">            Initial guess for active subspace.</span>
+<span class="sd">        verbose : bool, optional</span>
+<span class="sd">            Set to ``True`` for debug messages.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># NOTE: How do we know these are the best values of gamma and beta?</span>
+        <span class="n">M</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">std_sample_points</span><span class="o">.</span><span class="n">shape</span>
+        <span class="k">if</span> <span class="n">U0</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">Z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">subspace_dimension</span><span class="p">)</span>
+            <span class="n">U</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">qr</span><span class="p">(</span><span class="n">Z</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">U</span> <span class="o">=</span> <span class="n">orth</span><span class="p">(</span><span class="n">U0</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">std_sample_points</span><span class="p">,</span><span class="n">U</span><span class="p">)</span>
+        <span class="n">minmax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">subspace_dimension</span><span class="p">))</span>
+        <span class="n">minmax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">minmax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="c1"># Construct the affine transformation</span>
+        <span class="n">eta</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">((</span><span class="n">y</span> <span class="o">-</span> <span class="n">minmax</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]),</span> <span class="p">(</span><span class="n">minmax</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span><span class="o">-</span><span class="n">minmax</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]))</span> <span class="o">-</span> <span class="mi">1</span>
+
+        <span class="c1"># Construct the Vandermonde matrix step 6</span>
+
+        <span class="n">V</span><span class="p">,</span> <span class="n">poly_obj</span> <span class="o">=</span> <span class="n">vandermonde</span><span class="p">(</span><span class="n">eta</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">polynomial_degree</span><span class="p">)</span>
+        <span class="n">V_plus</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">pinv</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
+        <span class="n">coeff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">V_plus</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sample_outputs</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sample_outputs</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">coeff</span><span class="p">)</span>
+        <span class="c1"># R = np.linalg.norm(res)</span>
+        <span class="c1"># TODO: convergence criterion??</span>
+
+        <span class="k">for</span> <span class="n">iteration</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">maxiter</span><span class="p">):</span>
+            <span class="c1"># Construct the Jacobian step 9</span>
+            <span class="n">J</span> <span class="o">=</span> <span class="n">jacobian_vp</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">V_plus</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sample_outputs</span><span class="p">,</span> <span class="n">poly_obj</span><span class="p">,</span> <span class="n">eta</span><span class="p">,</span> <span class="n">minmax</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">std_sample_points</span><span class="p">)</span>
+            <span class="c1"># Calculate the gradient of Jacobian (step 10)</span>
+            <span class="n">G</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">m</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">subspace_dimension</span><span class="p">))</span>
+            <span class="c1"># NOTE: Can be vectorised</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">M</span><span class="p">):</span>
+                <span class="n">G</span> <span class="o">+=</span> <span class="n">res</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">J</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span>
+
+            <span class="c1"># conduct the SVD for J_vec</span>
+            <span class="n">vec_J</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">J</span><span class="p">,</span> <span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">m</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">subspace_dimension</span><span class="p">))</span>
+            <span class="n">Y</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">Z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">vec_J</span><span class="p">,</span><span class="n">full_matrices</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># step 11</span>
+
+            <span class="c1"># obtain delta</span>
+            <span class="n">delta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Y</span><span class="p">[:,:</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">subspace_dimension</span><span class="o">**</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">res</span><span class="p">)</span>
+            <span class="n">delta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">S</span><span class="p">[:</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">subspace_dimension</span><span class="o">**</span><span class="mi">2</span><span class="p">]),</span> <span class="n">delta</span><span class="p">)</span>
+            <span class="n">delta</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Z</span><span class="p">[:</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">subspace_dimension</span><span class="o">**</span><span class="mi">2</span><span class="p">,:]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">delta</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">U</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+            <span class="c1"># carry out Gauss-Newton step</span>
+            <span class="n">vec_delta</span><span class="o">=</span><span class="n">delta</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>  <span class="c1"># step 12</span>
+
+            <span class="c1"># vectorize G step 13</span>
+            <span class="n">vec_G</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+            <span class="n">alpha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">vec_G</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">vec_delta</span><span class="p">)</span>
+            <span class="n">norm_G</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">vec_G</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">vec_G</span><span class="p">)</span>
+
+            <span class="c1"># check alpha step 14</span>
+            <span class="k">if</span> <span class="n">alpha</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">delta</span> <span class="o">=</span> <span class="o">-</span><span class="n">G</span>
+                <span class="n">alpha</span> <span class="o">=</span> <span class="o">-</span><span class="n">norm_G</span>
+
+            <span class="c1"># SVD on delta step 17</span>
+            
+            <span class="n">Y</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">Z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">delta</span><span class="p">,</span> <span class="n">full_matrices</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+            <span class="n">UZ</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">U</span><span class="p">,</span><span class="n">Z</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+            <span class="n">t</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="k">for</span> <span class="n">iter2</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">):</span>
+                <span class="n">U_new</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">UZ</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">S</span><span class="o">*</span><span class="n">t</span><span class="p">)))</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">S</span><span class="o">*</span><span class="n">t</span><span class="p">)))</span><span class="c1">#step 19</span>
+                <span class="n">U_new</span> <span class="o">=</span> <span class="n">orth</span><span class="p">(</span><span class="n">U_new</span><span class="p">)</span>
+                <span class="c1"># Update the values with the new U matrix</span>
+                <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">std_sample_points</span><span class="p">,</span> <span class="n">U_new</span><span class="p">)</span>
+                <span class="n">minmax</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+                <span class="n">minmax</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+                <span class="n">eta</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">((</span><span class="n">y</span> <span class="o">-</span> <span class="n">minmax</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]),</span> <span class="p">(</span><span class="n">minmax</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span><span class="o">-</span><span class="n">minmax</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]))</span> <span class="o">-</span> <span class="mi">1</span>
+
+                <span class="n">V_new</span><span class="p">,</span> <span class="n">poly_obj</span> <span class="o">=</span> <span class="n">vandermonde</span><span class="p">(</span><span class="n">eta</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">polynomial_degree</span><span class="p">)</span>
+                <span class="n">V_plus_new</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">pinv</span><span class="p">(</span><span class="n">V_new</span><span class="p">)</span>
+                <span class="n">coeff_new</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">V_plus_new</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sample_outputs</span><span class="p">)</span>
+                <span class="n">res_new</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sample_outputs</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">V_new</span><span class="p">,</span><span class="n">coeff_new</span><span class="p">)</span>
+                <span class="n">R_new</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">res_new</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">res_new</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">res</span><span class="p">)</span><span class="o">+</span><span class="n">alpha</span><span class="o">*</span><span class="n">beta</span><span class="o">*</span><span class="n">t</span> <span class="ow">or</span> <span class="n">t</span> <span class="o">&lt;</span> <span class="mf">1e-10</span><span class="p">:</span>  <span class="c1"># step 21</span>
+                    <span class="k">break</span>
+                <span class="n">t</span> <span class="o">=</span> <span class="n">t</span> <span class="o">*</span> <span class="n">gamma</span>
+            <span class="n">dist_change</span> <span class="o">=</span> <span class="n">subspace_dist</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">U_new</span><span class="p">)</span>
+            <span class="n">U</span> <span class="o">=</span> <span class="n">U_new</span>
+            <span class="n">V</span> <span class="o">=</span> <span class="n">V_new</span>
+            <span class="c1"># coeff = coeff_new</span>
+            <span class="n">V_plus</span> <span class="o">=</span> <span class="n">V_plus_new</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="n">res_new</span>
+            <span class="c1"># R = R_new</span>
+            <span class="k">if</span> <span class="n">dist_change</span> <span class="o">&lt;</span> <span class="n">tol</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;VP finished with </span><span class="si">%d</span><span class="s2"> iterations&quot;</span> <span class="o">%</span> <span class="n">iteration</span><span class="p">)</span>
+                <span class="k">break</span>
+        <span class="k">if</span> <span class="n">iteration</span> <span class="o">==</span> <span class="n">maxiter</span> <span class="o">-</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">verbose</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;VP finished with </span><span class="si">%d</span><span class="s2"> iterations&quot;</span> <span class="o">%</span> <span class="n">iteration</span><span class="p">)</span>
+        <span class="n">active_subspace</span> <span class="o">=</span> <span class="n">U</span>
+        <span class="n">inactive_subspace</span> <span class="o">=</span> <span class="n">_null_space</span><span class="p">(</span><span class="n">active_subspace</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_subspace</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">active_subspace</span><span class="p">,</span> <span class="n">inactive_subspace</span><span class="p">])</span>
+
+<div class="viewcode-block" id="Subspaces.get_zonotope_vertices"><a class="viewcode-back" href="../../subspaces.html#equadratures.subspaces.Subspaces.get_zonotope_vertices">[docs]</a>    <span class="k">def</span> <span class="nf">get_zonotope_vertices</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num_samples</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">max_count</span><span class="o">=</span><span class="mi">100000</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Returns the vertices of the zonotope -- the projection of the high-dimensional space over the computed</span>
+<span class="sd">        subspace.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        num_samples : int, optional</span>
+<span class="sd">            Number of samples per iteration to check.</span>
+<span class="sd">        max_count : int, optional</span>
+<span class="sd">            Maximum number of iteration.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        numpy.ndarray</span>
+<span class="sd">            Array of shape (number of vertices, ``subspace_dimension``).</span>
+
+<span class="sd">        Note</span>
+<span class="sd">        ----</span>
+<span class="sd">        This routine has been adapted from Paul Constantine&#39;s zonotope_vertices() function; see reference below.</span>
+
+<span class="sd">        Constantine, P., Howard, R., Glaws, A., Grey, Z., Diaz, P., Fletcher, L., (2016) Python Active-Subspaces Utility Library. Journal of Open Source Software, 1(5), 79. `Paper &lt;http://joss.theoj.org/papers/10.21105/joss.00079&gt;`__.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_subspace</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">subspace_dimension</span>
+        <span class="n">W</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_subspace</span><span class="p">[:,</span> <span class="p">:</span><span class="n">n</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">y0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">W</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">W</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">y0</span> <span class="o">&lt;</span> <span class="o">-</span><span class="n">y0</span><span class="p">:</span>
+                <span class="n">yl</span><span class="p">,</span> <span class="n">yu</span> <span class="o">=</span> <span class="n">y0</span><span class="p">,</span> <span class="o">-</span><span class="n">y0</span>
+                <span class="n">xl</span><span class="p">,</span> <span class="n">xu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">W</span><span class="p">),</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">yl</span><span class="p">,</span> <span class="n">yu</span> <span class="o">=</span> <span class="o">-</span><span class="n">y0</span><span class="p">,</span> <span class="n">y0</span>
+                <span class="n">xl</span><span class="p">,</span> <span class="n">xu</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">W</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
+            <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">yl</span><span class="p">,</span> <span class="n">yu</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+            <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">xl</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="n">m</span><span class="p">)),</span> <span class="n">xu</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="n">m</span><span class="p">))))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">Y</span> <span class="o">=</span> <span class="n">Y</span>
+            <span class="k">return</span> <span class="n">Y</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">total_vertices</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+                <span class="n">total_vertices</span> <span class="o">+=</span> <span class="n">comb</span><span class="p">(</span><span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
+            <span class="n">total_vertices</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">total_vertices</span><span class="p">)</span>
+
+            <span class="n">Z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">num_samples</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+            <span class="n">X</span> <span class="o">=</span> <span class="n">get_unique_rows</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">W</span><span class="o">.</span><span class="n">transpose</span><span class="p">())))</span>
+            <span class="n">X</span> <span class="o">=</span> <span class="n">get_unique_rows</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">X</span><span class="p">,</span> <span class="o">-</span><span class="n">X</span><span class="p">)))</span>
+            <span class="n">N</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+            <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">while</span> <span class="n">N</span> <span class="o">&lt;</span> <span class="n">total_vertices</span><span class="p">:</span>
+                <span class="n">Z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">num_samples</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+                <span class="n">X0</span> <span class="o">=</span> <span class="n">get_unique_rows</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">W</span><span class="o">.</span><span class="n">transpose</span><span class="p">())))</span>
+                <span class="n">X0</span> <span class="o">=</span> <span class="n">get_unique_rows</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">X0</span><span class="p">,</span> <span class="o">-</span><span class="n">X0</span><span class="p">)))</span>
+                <span class="n">X</span> <span class="o">=</span> <span class="n">get_unique_rows</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">X</span><span class="p">,</span> <span class="n">X0</span><span class="p">)))</span>
+                <span class="n">N</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">if</span> <span class="n">count</span> <span class="o">&gt;</span> <span class="n">max_count</span><span class="p">:</span>
+                    <span class="k">break</span>
+
+            <span class="n">num_vertices</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">total_vertices</span> <span class="o">&gt;</span> <span class="n">num_vertices</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Warning: </span><span class="si">{}</span><span class="s1"> of </span><span class="si">{}</span><span class="s1"> vertices found.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">num_vertices</span><span class="p">,</span> <span class="n">total_vertices</span><span class="p">))</span>
+
+            <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">W</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">Y</span> <span class="o">=</span> <span class="n">Y</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">num_vertices</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">Y</span></div>
+
+<div class="viewcode-block" id="Subspaces.get_linear_inequalities"><a class="viewcode-back" href="../../subspaces.html#equadratures.subspaces.Subspaces.get_linear_inequalities">[docs]</a>    <span class="k">def</span> <span class="nf">get_linear_inequalities</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Returns the linear inequalities defining the zonotope vertices, i.e., Ax&lt;=b.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        tuple</span>
+<span class="sd">            Tuple (A,b), containing the numpy.ndarray&#39;s A and b; where A is the matrix for setting the linear inequalities, </span>
+<span class="sd">            and b is the right-hand-side vector for setting the linear inequalities.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">Y</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">Y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_zonotope_vertices</span><span class="p">()</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+            <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Y</span><span class="p">)],[</span><span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Y</span><span class="p">)]])</span>
+            <span class="k">return</span>  <span class="n">A</span><span class="p">,</span> <span class="n">b</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">convexHull</span> <span class="o">=</span> <span class="n">ConvexHull</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Y</span><span class="p">)</span>
+            <span class="n">A</span> <span class="o">=</span> <span class="n">convexHull</span><span class="o">.</span><span class="n">equations</span><span class="p">[:,:</span><span class="n">n</span><span class="p">]</span>
+            <span class="n">b</span> <span class="o">=</span> <span class="o">-</span><span class="n">convexHull</span><span class="o">.</span><span class="n">equations</span><span class="p">[:,</span><span class="n">n</span><span class="p">]</span>
+            <span class="k">return</span> <span class="n">A</span><span class="p">,</span> <span class="n">b</span></div>
+
+<div class="viewcode-block" id="Subspaces.get_samples_constraining_active_coordinates"><a class="viewcode-back" href="../../subspaces.html#equadratures.subspaces.Subspaces.get_samples_constraining_active_coordinates">[docs]</a>    <span class="k">def</span> <span class="nf">get_samples_constraining_active_coordinates</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inactive_samples</span><span class="p">,</span> <span class="n">active_coordinates</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; A hit and run type sampling strategy for generating samples at a given coordinate in the active subspace</span>
+<span class="sd">        by varying its coordinates along the inactive subspace.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        inactive_samples : int</span>
+<span class="sd">            The number of inactive samples required.</span>
+<span class="sd">        active_coordiantes : numpy.ndarray</span>
+<span class="sd">            The active subspace coordinates.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        numpy.ndarray</span>
+<span class="sd">            Array containing the full-space coordinates.</span>
+
+<span class="sd">        Note</span>
+<span class="sd">        ----</span>
+<span class="sd">        This routine has been adapted from Paul Constantine&#39;s hit_and_run() function; see reference below.</span>
+
+<span class="sd">        Constantine, P., Howard, R., Glaws, A., Grey, Z., Diaz, P., Fletcher, L., (2016) Python Active-Subspaces Utility Library. Journal of Open Source Software, 1(5), 79. `Paper &lt;http://joss.theoj.org/papers/10.21105/joss.00079&gt;`__.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">active_coordinates</span>
+        <span class="n">N</span> <span class="o">=</span> <span class="n">inactive_samples</span>
+        <span class="n">W1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_subspace</span><span class="p">[:,</span> <span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">subspace_dimension</span><span class="p">]</span>
+        <span class="n">W2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_subspace</span><span class="p">[:,</span> <span class="bp">self</span><span class="o">.</span><span class="n">subspace_dimension</span><span class="p">:]</span>
+        <span class="n">m</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">W1</span><span class="o">.</span><span class="n">shape</span>
+
+        <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">W1</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">m</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="n">normW2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">W2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">m</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">W2</span><span class="p">,</span> <span class="o">-</span><span class="n">W2</span><span class="o">.</span><span class="n">copy</span><span class="p">())),</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">normW2</span><span class="p">,</span> <span class="n">normW2</span><span class="o">.</span><span class="n">copy</span><span class="p">()))))</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">s</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">s</span><span class="p">))</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span> <span class="o">*</span> <span class="n">m</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">m</span> <span class="o">-</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="n">c</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span>
+        <span class="c1"># print()</span>
+
+        <span class="n">zc</span> <span class="o">=</span> <span class="n">linear_program_ineq</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="o">-</span><span class="n">A</span><span class="p">,</span> <span class="o">-</span><span class="n">b</span><span class="p">)</span>
+        <span class="n">z0</span> <span class="o">=</span> <span class="n">zc</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">m</span> <span class="o">-</span> <span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+        <span class="c1"># define the polytope A &gt;= b</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">W1</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">m</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">W2</span><span class="p">,</span> <span class="o">-</span><span class="n">W2</span><span class="p">))</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span> <span class="o">-</span> <span class="n">s</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="o">+</span> <span class="n">s</span><span class="p">))</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span> <span class="o">*</span> <span class="n">m</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+        <span class="c1"># tolerance</span>
+        <span class="n">ztol</span> <span class="o">=</span> <span class="mf">1e-6</span>
+        <span class="n">eps0</span> <span class="o">=</span> <span class="n">ztol</span> <span class="o">/</span> <span class="mf">4.0</span>
+
+        <span class="n">Z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="n">m</span> <span class="o">-</span> <span class="n">n</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+
+            <span class="c1"># random direction</span>
+            <span class="n">bad_dir</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">count</span><span class="p">,</span> <span class="n">maxcount</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">50</span>
+            <span class="k">while</span> <span class="n">bad_dir</span><span class="p">:</span>
+                <span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">m</span> <span class="o">-</span> <span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+                <span class="n">bad_dir</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">z0</span> <span class="o">+</span> <span class="n">eps0</span> <span class="o">*</span> <span class="n">d</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">b</span><span class="p">)</span>
+                <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">if</span> <span class="n">count</span> <span class="o">&gt;=</span> <span class="n">maxcount</span><span class="p">:</span>
+                    <span class="n">Z</span><span class="p">[</span><span class="n">i</span><span class="p">:,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">z0</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span> <span class="o">-</span> <span class="n">i</span><span class="p">))</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+                    <span class="n">yz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">y</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">],</span> <span class="n">N</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">Z</span><span class="o">.</span><span class="n">T</span><span class="p">])</span>
+                    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_subspace</span><span class="p">,</span> <span class="n">yz</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+
+            <span class="c1"># find constraints that impose lower and upper bounds on eps</span>
+            <span class="n">f</span><span class="p">,</span> <span class="n">g</span> <span class="o">=</span> <span class="n">b</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">z0</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+
+            <span class="c1"># find an upper bound on the step</span>
+            <span class="n">min_ind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">g</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">f</span> <span class="o">&lt;</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float</span><span class="p">)</span><span class="o">.</span><span class="n">eps</span><span class="p">))</span>
+            <span class="n">eps_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="n">min_ind</span><span class="p">]</span> <span class="o">/</span> <span class="n">g</span><span class="p">[</span><span class="n">min_ind</span><span class="p">])</span>
+
+            <span class="c1"># find a lower bound on the step</span>
+            <span class="n">max_ind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">g</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">f</span> <span class="o">&lt;</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float</span><span class="p">)</span><span class="o">.</span><span class="n">eps</span><span class="p">))</span>
+            <span class="n">eps_min</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="n">max_ind</span><span class="p">]</span> <span class="o">/</span> <span class="n">g</span><span class="p">[</span><span class="n">max_ind</span><span class="p">])</span>
+
+            <span class="c1"># randomly sample eps</span>
+            <span class="n">eps1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">eps_min</span><span class="p">,</span> <span class="n">eps_max</span><span class="p">)</span>
+
+            <span class="c1"># take a step along d</span>
+            <span class="n">z1</span> <span class="o">=</span> <span class="n">z0</span> <span class="o">+</span> <span class="n">eps1</span> <span class="o">*</span> <span class="n">d</span>
+            <span class="n">Z</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">z1</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">m</span> <span class="o">-</span> <span class="n">n</span><span class="p">,))</span>
+
+            <span class="c1"># update temp var</span>
+            <span class="n">z0</span> <span class="o">=</span> <span class="n">z1</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+        <span class="n">yz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">y</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">],</span> <span class="n">N</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">Z</span><span class="o">.</span><span class="n">T</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_subspace</span><span class="p">,</span> <span class="n">yz</span><span class="p">)</span><span class="o">.</span><span class="n">T</span></div>
+
+<div class="viewcode-block" id="Subspaces.plot_sufficient_summary"><a class="viewcode-back" href="../../subspaces.html#equadratures.subspaces.Subspaces.plot_sufficient_summary">[docs]</a>    <span class="k">def</span> <span class="nf">plot_sufficient_summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">X_test</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">y_test</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">poly</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">uncertainty</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">scatter_kwargs</span><span class="o">=</span><span class="p">{},</span> <span class="n">plot_kwargs</span><span class="o">=</span><span class="p">{}):</span>
+        <span class="sd">&quot;&quot;&quot; Generates a sufficient summary plot for 1D or 2D polynomial ridge approximations.</span>
+<span class="sd">        See :meth:`~equadratures.plot.plot_sufficient_summary` for full description. &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">plot</span><span class="o">.</span><span class="n">plot_sufficient_summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">show</span><span class="p">,</span> <span class="n">poly</span><span class="p">,</span> <span class="n">uncertainty</span><span class="p">,</span> <span class="n">legend</span><span class="p">,</span> <span class="n">scatter_kwargs</span><span class="p">,</span> <span class="n">plot_kwargs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Subspaces.plot_2D_contour_zonotope"><a class="viewcode-back" href="../../subspaces.html#equadratures.subspaces.Subspaces.plot_2D_contour_zonotope">[docs]</a>    <span class="k">def</span> <span class="nf">plot_2D_contour_zonotope</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mysubspace</span><span class="p">,</span> <span class="n">minmax</span><span class="o">=</span><span class="p">[</span><span class="o">-</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">],</span> <span class="n">grid_pts</span><span class="o">=</span><span class="mi">180</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Generates a 2D contour plot of the polynomial ridge approximation.</span>
+<span class="sd">        See :meth:`~equadratures.plot.plot_2D_contour_zonotope` for full description. &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">plot</span><span class="o">.</span><span class="n">plot_2D_contour_zonotope</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">minmax</span><span class="p">,</span><span class="n">grid_pts</span><span class="p">,</span><span class="n">show</span><span class="p">,</span><span class="n">ax</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Subspaces.plot_samples_from_second_subspace_over_first"><a class="viewcode-back" href="../../subspaces.html#equadratures.subspaces.Subspaces.plot_samples_from_second_subspace_over_first">[docs]</a>    <span class="k">def</span> <span class="nf">plot_samples_from_second_subspace_over_first</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mysubspace_2</span><span class="p">,</span> <span class="n">axs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">no_of_samples</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">minmax</span><span class="o">=</span><span class="p">[</span><span class="o">-</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">],</span> <span class="n">grid_pts</span><span class="o">=</span><span class="mi">180</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generates a zonotope plot where samples from the second subspace are projected over the first.</span>
+<span class="sd">        See :meth:`~equadratures.plot.plot_samples_from_second_subspace_over_first` for full description.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">plot</span><span class="o">.</span><span class="n">plot_samples_from_second_subspace_over_first</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">mysubspace_2</span><span class="p">,</span> <span class="n">axs</span><span class="p">,</span> <span class="n">no_of_samples</span><span class="p">,</span> <span class="n">minmax</span><span class="p">,</span> <span class="n">grid_pts</span><span class="p">,</span> <span class="n">show</span><span class="p">)</span></div></div>
+
+<span class="k">def</span> <span class="nf">vandermonde</span><span class="p">(</span><span class="n">eta</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+    <span class="c1"># TODO: Try using a &quot;correlated&quot; basis here?</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">eta</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">listing</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="n">listing</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+    <span class="n">Object</span><span class="o">=</span><span class="n">Basis</span><span class="p">(</span><span class="s1">&#39;total-order&#39;</span><span class="p">,</span><span class="n">listing</span><span class="p">)</span>
+    <span class="c1"># Establish n Parameter objects</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">P</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">order</span><span class="o">=</span><span class="n">p</span><span class="p">,</span> <span class="n">lower</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="n">params</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
+    <span class="c1"># Use the params list to establish the Poly object</span>
+    <span class="n">poly_obj</span> <span class="o">=</span> <span class="n">Poly</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">Object</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;least-squares&#39;</span><span class="p">)</span>
+    <span class="n">V</span> <span class="o">=</span> <span class="n">poly_obj</span><span class="o">.</span><span class="n">get_poly</span><span class="p">(</span><span class="n">eta</span><span class="p">)</span>
+    <span class="n">V</span> <span class="o">=</span> <span class="n">V</span><span class="o">.</span><span class="n">T</span>
+    <span class="k">return</span> <span class="n">V</span><span class="p">,</span> <span class="n">poly_obj</span>
+
+
+<span class="k">def</span> <span class="nf">vector_AS</span><span class="p">(</span><span class="n">list_of_polys</span><span class="p">,</span> <span class="n">R</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">samples</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bootstrap</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">bs_trials</span> <span class="o">=</span> <span class="mi">50</span>
+                <span class="p">,</span> <span class="n">J</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">save_path</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="c1"># Find AS directions to vector val func</span>
+    <span class="c1"># analogous to computeActiveSubspace</span>
+    <span class="c1"># Since we are dealing with *one* vector val func we should have just one input space</span>
+    <span class="c1"># Take the first of the polys.</span>
+    <span class="n">poly</span> <span class="o">=</span> <span class="n">list_of_polys</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">samples</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="n">poly</span><span class="o">.</span><span class="n">dimensions</span>
+        <span class="k">if</span> <span class="n">alpha</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">alpha</span> <span class="o">=</span> <span class="mi">4</span>
+        <span class="k">if</span> <span class="n">k</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">k</span> <span class="o">&gt;</span> <span class="n">d</span><span class="p">:</span>
+            <span class="n">k</span> <span class="o">=</span> <span class="n">d</span>
+        <span class="n">M</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">alpha</span> <span class="o">*</span> <span class="n">k</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">M</span><span class="p">,</span> <span class="n">d</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
+            <span class="n">X</span><span class="p">[:,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">poly</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">getSamples</span><span class="p">(</span><span class="n">M</span><span class="p">),</span> <span class="n">M</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">samples</span>
+        <span class="n">M</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">list_of_polys</span><span class="p">)</span> <span class="c1"># number of outputs</span>
+    <span class="k">if</span> <span class="n">R</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">R</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">J</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">J</span> <span class="o">=</span> <span class="n">jacobian_vec</span><span class="p">(</span><span class="n">list_of_polys</span><span class="p">,</span><span class="n">X</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span><span class="p">(</span><span class="n">save_path</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">save_path</span><span class="p">,</span><span class="n">J</span><span class="p">)</span>
+
+
+    <span class="n">J_new</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">sqrtm</span><span class="p">(</span><span class="n">R</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">J</span><span class="p">,[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="n">JtJ</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">J_new</span><span class="p">,[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]),</span> <span class="n">J_new</span><span class="p">)</span>
+    <span class="n">H</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">JtJ</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="c1"># Compute P_r by solving generalized eigenvalue problem...</span>
+    <span class="c1"># Assume sigma = identity for now</span>
+    <span class="n">e</span><span class="p">,</span> <span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
+    <span class="n">eigs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">flipud</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+    <span class="n">eigVecs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fliplr</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">bootstrap</span><span class="p">:</span>
+        <span class="n">all_bs_eigs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">bs_trials</span><span class="p">,</span> <span class="n">d</span><span class="p">))</span>
+        <span class="n">all_bs_W</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">bs_trials</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Starting bootstrap trial </span><span class="si">%d</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">t</span><span class="p">)</span>
+            <span class="n">bs_samples</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="n">M</span><span class="p">),</span> <span class="p">:]</span>
+            <span class="n">J_bs</span> <span class="o">=</span> <span class="n">jacobian_vec</span><span class="p">(</span><span class="n">list_of_polys</span><span class="p">,</span> <span class="n">bs_samples</span><span class="p">)</span>
+            <span class="n">J_new_bs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">sqrtm</span><span class="p">(</span><span class="n">R</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">J_bs</span><span class="p">,[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]))</span>
+            <span class="n">JtJ_bs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">J_new_bs</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]),</span> <span class="n">J_new_bs</span><span class="p">)</span>
+            <span class="n">H_bs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">JtJ_bs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+            <span class="c1"># Compute P_r by solving generalized eigenvalue problem...</span>
+            <span class="c1"># Assume sigma = identity for now</span>
+            <span class="n">e_bs</span><span class="p">,</span> <span class="n">W_bs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">H_bs</span><span class="p">)</span>
+            <span class="n">all_bs_eigs</span><span class="p">[</span><span class="n">t</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">flipud</span><span class="p">(</span><span class="n">e_bs</span><span class="p">)</span>
+            <span class="n">eigVecs_bs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fliplr</span><span class="p">(</span><span class="n">W_bs</span><span class="p">)</span>
+            <span class="n">all_bs_W</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">eigVecs_bs</span><span class="p">)</span>
+
+        <span class="n">eigs_bs_lower</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">all_bs_eigs</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">eigs_bs_upper</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">all_bs_eigs</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">eigs</span><span class="p">,</span><span class="n">eigVecs</span><span class="p">,</span><span class="n">eigs_bs_lower</span><span class="p">,</span><span class="n">eigs_bs_upper</span><span class="p">,</span> <span class="n">all_bs_W</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">eigs</span><span class="p">,</span><span class="n">eigVecs</span>
+
+
+<span class="k">def</span> <span class="nf">jacobian_vp</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">V_plus</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">Polybasis</span><span class="p">,</span> <span class="n">eta</span><span class="p">,</span> <span class="n">minmax</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+    <span class="n">M</span><span class="p">,</span> <span class="n">N</span> <span class="o">=</span> <span class="n">V</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">m</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">U</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">Gradient</span> <span class="o">=</span> <span class="n">Polybasis</span><span class="o">.</span><span class="n">get_poly_grad</span><span class="p">(</span><span class="n">eta</span><span class="p">)</span>
+    <span class="n">sub</span> <span class="o">=</span> <span class="p">(</span><span class="n">minmax</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span><span class="o">-</span><span class="n">minmax</span><span class="p">[</span><span class="mi">0</span><span class="p">,:])</span><span class="o">.</span><span class="n">T</span>
+    <span class="n">vectord</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mf">2.0</span><span class="o">/</span><span class="n">sub</span><span class="p">,(</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+    <span class="c1"># Initialize the tensor</span>
+    <span class="n">J</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">M</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+    <span class="c1"># Obtain the derivative of this tensor</span>
+    <span class="n">dV</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+            <span class="n">current</span> <span class="o">=</span> <span class="n">Gradient</span><span class="p">[</span><span class="n">l</span><span class="p">]</span><span class="o">.</span><span class="n">T</span>
+            <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">current</span> <span class="o">=</span> <span class="n">Gradient</span><span class="o">.</span><span class="n">T</span>
+            <span class="n">dV</span><span class="p">[:,</span><span class="n">l</span><span class="p">,:,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asscalar</span><span class="p">(</span><span class="n">vectord</span><span class="p">[</span><span class="n">l</span><span class="p">])</span><span class="o">*</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="o">*</span><span class="n">current</span><span class="p">[:,</span><span class="n">j</span><span class="p">])</span>
+
+    <span class="c1"># Get the P matrix</span>
+    <span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="n">M</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">V_plus</span><span class="p">)</span>
+    <span class="n">V_minus</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">pinv</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
+
+    <span class="c1"># Calculate entries for the tensor</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">m</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+            <span class="n">temp1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">multi_dot</span><span class="p">([</span><span class="n">P</span><span class="p">,</span><span class="n">dV</span><span class="p">[</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">,:,:],</span><span class="n">V_minus</span><span class="p">])</span>
+            <span class="n">J</span><span class="p">[:,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">((</span><span class="n">temp1</span><span class="o">+</span><span class="n">temp1</span><span class="o">.</span><span class="n">T</span><span class="p">),</span><span class="n">f</span><span class="p">))</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">M</span><span class="p">,))</span>  <span class="c1"># Eqn 15</span>
+
+    <span class="k">return</span> <span class="n">J</span>
+
+
+<span class="k">def</span> <span class="nf">jacobian_vec</span><span class="p">(</span><span class="n">list_of_poly</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">list_of_poly</span><span class="p">)</span>
+    <span class="p">[</span><span class="n">N</span><span class="p">,</span> <span class="n">d</span><span class="p">]</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">J</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">m</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">list_of_poly</span><span class="p">)):</span>
+        <span class="n">J</span><span class="p">[</span><span class="n">p</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">list_of_poly</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="o">.</span><span class="n">get_polyfit_grad</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">J</span>
+
+
+<span class="k">def</span> <span class="nf">subspace_dist</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">U</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">U</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">V</span><span class="p">),</span> <span class="nb">ord</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">U</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">V</span><span class="o">.</span><span class="n">T</span><span class="p">),</span> <span class="nb">ord</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">linear_program_ineq</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">c</span><span class="o">.</span><span class="n">size</span><span class="p">,))</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">b</span><span class="o">.</span><span class="n">size</span><span class="p">,))</span>
+
+    <span class="c1"># make unbounded bounds</span>
+    <span class="n">bounds</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
+        <span class="n">bounds</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+
+    <span class="n">A_ub</span><span class="p">,</span> <span class="n">b_ub</span> <span class="o">=</span> <span class="o">-</span><span class="n">A</span><span class="p">,</span> <span class="o">-</span><span class="n">b</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">linprog</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">A_ub</span><span class="o">=</span><span class="n">A_ub</span><span class="p">,</span> <span class="n">b_ub</span><span class="o">=</span><span class="n">b_ub</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="n">bounds</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;disp&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;simplex&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">res</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">res</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">c</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">savez</span><span class="p">(</span><span class="s1">&#39;bad_scipy_lp_ineq_</span><span class="si">{:010d}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="mf">1e9</span><span class="p">))),</span>
+                 <span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">A</span><span class="o">=</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="n">b</span><span class="p">,</span> <span class="n">res</span><span class="o">=</span><span class="n">res</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Scipy did not solve the LP. Blame Scipy.&#39;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">get_unique_rows</span><span class="p">(</span><span class="n">X0</span><span class="p">):</span>
+    <span class="n">X1</span> <span class="o">=</span> <span class="n">X0</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">void</span><span class="p">,</span> <span class="n">X0</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">itemsize</span> <span class="o">*</span> <span class="n">X0</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])))</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">X1</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">X0</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">X0</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="k">def</span> <span class="nf">_null_space</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">rcond</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    null space method adapted from scipy.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">u</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">vh</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">full_matrices</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">M</span><span class="p">,</span> <span class="n">N</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">vh</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">rcond</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">rcond</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span><span class="o">.</span><span class="n">eps</span> <span class="o">*</span> <span class="nb">max</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+    <span class="n">tol</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">*</span> <span class="n">rcond</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">s</span> <span class="o">&gt;</span> <span class="n">tol</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">Q</span> <span class="o">=</span> <span class="n">vh</span><span class="p">[</span><span class="n">num</span><span class="p">:,:]</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">Q</span>
+</pre></div>
+
+              </div>
+              
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    <footer>
+  <div class="footer">
+             <div class="container">
+                 <div class="row">
+                   <div class="col-md-6 col-lg-3">
+                       <div class="footer-about">
+                            <img style="float: left; margin: 0px 250px 2px 10px; width:50%; min-width:25px" src="./icons/logo.png" alt="Image"><br>
+                            <b>equadratures</b> <br>
+                            mail@equadratures.org <br>
+                       </div>
+                   </div>
+                   <div class="col-md-6 col-lg-3">
+                       <div class="footer-social">
+                           <a href="https://github.com/portrait-code"><img alt="" src="icons/github.png" hspace="0x" style="width:100%; min-width:25px"></a>
+                           <a href="https://www.linkedin.com/company/portrait-tec"><img alt=""  src="icons/linkedin.png" hspace="0x" style="width:100%; min-width:25px"></a>
+                          <a href="https://twitter.com/PortraitTec"><img alt="" src="icons/twitter.png" hspace="0x" style="width:100%; min-width:25px"></a>
+                        <a href="https://twitter.com/PortraitTec"><img alt="" src="icons/youtube.png" hspace="0x" style="width:100%; min-width:25px"></a>
+                       </div>
+                       <br>
+                       <br>
+                   </div>
+                   <div class="col-md-6 col-lg-3">
+                       <div class="footer-contact">
+                         <b>management </b><br>
+                          team <br>
+                          partnerships <br>
+                          digital & ai upskilling <br>
+                          case studies <br>
+                          <a href="https://research.equadratures.org/">research</a><br>
+                       </div>
+                   </div>
+                     <div class="col-md-6 col-lg-3">
+                         <div class="footer-links">
+                             <b>code </b><br>
+                              overview <br>
+                              documentation <br>
+                              tutorials <br>
+                              <a href="https://discourse.equadratures.org/">discourse</a>
+                              numfocus affiliation <br>
+                              google summer of code <br>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+             <center>
+               <div class="small">
+               copyright &copy; 2021 by equadratures.
+               <br>
+               made by the equadratures team, with &#10084;&#65039;.
+             </div>
+               <br>
+               <br>
+             </center>
+         </div>
+</footer>
+  </body>
+</html>
