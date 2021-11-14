@@ -138,11 +138,11 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>correlation_matrix</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – The correlation matrix associated with the joint distribution.</p></li>
+<li><p><strong>correlation_matrix</strong> (<em>numpy.ndarray</em>) – The correlation matrix associated with the joint distribution.</p></li>
 <li><p><strong>poly</strong> (<a class="reference internal" href="core/poly.html#equadratures.poly.Poly" title="equadratures.poly.Poly"><em>Poly</em></a><em>, </em><em>optional</em>) – Polynomial defined with parameters with marginal distributions in uncorrelated space.</p></li>
-<li><p><strong>parameters</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a><em>, </em><em>optional</em>) – List of parameters with marginal distributions.</p></li>
-<li><p><strong>method</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – <cite>nataf-transform</cite> or <cite>gram-schmidt</cite>.</p></li>
-<li><p><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Display Cholesky decomposition of the fictive matrix.</p></li>
+<li><p><strong>parameters</strong> (<em>list</em><em>, </em><em>optional</em>) – List of parameters with marginal distributions.</p></li>
+<li><p><strong>method</strong> (<em>str</em><em>, </em><em>optional</em>) – <cite>nataf-transform</cite> or <cite>gram-schmidt</cite>.</p></li>
+<li><p><strong>verbose</strong> (<em>bool</em><em>, </em><em>optional</em>) – Display Cholesky decomposition of the fictive matrix.</p></li>
 </ul>
 </dd>
 </dl>
@@ -179,15 +179,15 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>N</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Number of correlated samples required.</p></li>
-<li><p><strong>X</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – Points in the uncorrelated space to map to the correlated space.</p></li>
+<li><p><strong>N</strong> (<em>int</em>) – Number of correlated samples required.</p></li>
+<li><p><strong>X</strong> (<em>numpy.ndarray</em><em>, </em><em>optional</em>) – Points in the uncorrelated space to map to the correlated space.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Array with shape (N, M), which contains the correlated samples.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)">numpy.ndarray</a></p>
+<dd class="field-odd"><p>numpy.ndarray</p>
 </dd>
 </dl>
 </dd></dl>
@@ -198,13 +198,13 @@
 <dd><p>Evaluate PDF at the sample points.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>X</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – Array of sample points with shape (number_of_points, dimensions).</p>
+<dd class="field-odd"><p><strong>X</strong> (<em>numpy.ndarray</em>) – Array of sample points with shape (number_of_points, dimensions).</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Array with shape (N,) containing evaluations of the PDF.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)">numpy.ndarray</a></p>
+<dd class="field-odd"><p>numpy.ndarray</p>
 </dd>
 </dl>
 </dd></dl>
@@ -220,7 +220,7 @@ For Gram-Schmidt, returns points according to the GS polynomial basis.</p>
 <dd class="field-odd"><p>Array of quadrature points with shape (number_of_samples, dimension).</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)">numpy.ndarray</a></p>
+<dd class="field-even"><p>numpy.ndarray</p>
 </dd>
 </dl>
 </dd></dl>
@@ -246,8 +246,8 @@ For Gram-Schmidt, returns points according to the GS polynomial basis.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>model</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable" title="(in Python v3.10)"><em>Callable</em></a><em>,</em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – The function that needs to be approximated. In the absence of a callable function, the input can be the function evaluated at the quadrature points.</p></li>
-<li><p><strong>model_grads</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable" title="(in Python v3.10)"><em>Callable</em></a><em>,</em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – The gradient of the function that needs to be approximated. In the absence of a callable gradient function, the input can be a matrix of gradient evaluations at the quadrature points.</p></li>
+<li><p><strong>model</strong> (<em>Callable</em><em>,</em><em>numpy.ndarray</em><em>, </em><em>optional</em>) – The function that needs to be approximated. In the absence of a callable function, the input can be the function evaluated at the quadrature points.</p></li>
+<li><p><strong>model_grads</strong> (<em>Callable</em><em>,</em><em>numpy.ndarray</em><em>, </em><em>optional</em>) – The gradient of the function that needs to be approximated. In the absence of a callable gradient function, the input can be a matrix of gradient evaluations at the quadrature points.</p></li>
 </ul>
 </dd>
 </dl>
@@ -280,17 +280,17 @@ For Gram-Schmidt, returns points according to the GS polynomial basis.</p>
                  <div class="row">
                    <div class="col-md-6 col-lg-3">
                        <div class="footer-about">
-                            <img style="float: left; margin: 0px 250px 2px 10px; width:30%; min-width:25px" src="./_static/logo.png" alt="Image"><br>
+                            <a href="https://equadratures.org/"><img style="float: left; margin: 0px 250px 2px 10px; width:30%; min-width:25px" src="https://equadratures.org/icons/logo.png" alt="Image"></a><br>
                             <b>equadratures</b> <br>
                             mail@equadratures.org <br>
                        </div>
                    </div>
                    <div class="col-md-6 col-lg-3">
                        <div class="footer-social">
-                           <a href="https://github.com/portrait-code"><img alt="" src="./_static/github.png" hspace="0x" style="width:100%; min-width:25px"></a>
-                           <a href="https://www.linkedin.com/company/portrait-tec"><img alt=""  src="./_static/linkedin.png" hspace="0x" style="width:100%; min-width:25px"></a>
-                          <a href="https://twitter.com/PortraitTec"><img alt="" src="./_static/twitter.png" hspace="0x" style="width:100%; min-width:25px"></a>
-                        <a href="https://twitter.com/PortraitTec"><img alt="" src="./_static/youtube.png" hspace="0x" style="width:100%; min-width:25px"></a>
+                           <a href="https://github.com/equadratures"><img alt="" src="https://equadratures.org/icons/github.png" hspace="0x" style="width:100%; min-width:25px"></a>
+                           <a href="https://www.linkedin.com/company/67900612"><img alt=""  src="https://equadratures.org/icons/linkedin.png" hspace="0x" style="width:100%; min-width:25px"></a>
+                          <a href="https://twitter.com/equadratures"><img alt="" src="https://equadratures.org/icons/twitter.png" hspace="0x" style="width:100%; min-width:25px"></a>
+                        <a href="https://www.youtube.com/channel/UCpjwFDSZuFbzW-2lj6d96dA"><img alt="" src="https://equadratures.org/icons/youtube.png" hspace="0x" style="width:100%; min-width:25px"></a>
                        </div>
                        <br>
                        <br>

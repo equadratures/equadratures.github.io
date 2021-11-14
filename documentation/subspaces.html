@@ -137,19 +137,19 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>method</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – <p>The method to be used for subspace-based dimension reduction. Two options:</p>
+<li><p><strong>method</strong> (<em>str</em>) – <p>The method to be used for subspace-based dimension reduction. Two options:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">active-subspace</span></code>, which uses ideas in [1] and [2] to compute a dimension-reducing subspace with a global polynomial approximant. Gradients evaluations of the polynomial approximation are used to compute the averaged outer product of the gradient covariance matrix. The polynomial approximation in the original full-space can be provided via <code class="docutils literal notranslate"><span class="pre">full_space_poly</span></code>. Otherwise, it is fit internally to the data provided via <code class="docutils literal notranslate"><span class="pre">sample_points</span></code> and <code class="docutils literal notranslate"><span class="pre">sample_outputs</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">variable-projection</span></code> [3], where a Gauss-Newton optimisation problem is solved to compute both the polynomial coefficients and its subspace, with the data provided via <code class="docutils literal notranslate"><span class="pre">sample_points</span></code> and <code class="docutils literal notranslate"><span class="pre">sample_outputs</span></code>.</p></li>
 </ul>
 </p></li>
 <li><p><strong>full_space_poly</strong> (<a class="reference internal" href="core/poly.html#equadratures.poly.Poly" title="equadratures.poly.Poly"><em>Poly</em></a><em>, </em><em>optional</em>) – An instance of Poly fitted to the full-space data, to use for the AS computation.</p></li>
-<li><p><strong>sample_points</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – Array with shape (number_of_observations, dimensions) that corresponds to a set of sample points over the parameter space.</p></li>
-<li><p><strong>sample_outputs</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – Array with shape (number_of_observations, 1) that corresponds to model evaluations at the sample points.</p></li>
-<li><p><strong>subspace_dimension</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – The dimension of the <em>active</em> subspace.</p></li>
-<li><p><strong>param_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><em>optional</em>) – Arguments passed to parameters of the AS polynomial. (see <a class="reference internal" href="core/parameter.html#equadratures.parameter.Parameter" title="equadratures.parameter.Parameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code></a>)</p></li>
-<li><p><strong>poly_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em> , </em><em>optional</em>) – Arguments passed to constructing polynomial used for AS computation. (see <a class="reference internal" href="core/poly.html#equadratures.poly.Poly" title="equadratures.poly.Poly"><code class="xref py py-class docutils literal notranslate"><span class="pre">Poly</span></code></a>)</p></li>
-<li><p><strong>dr_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><em>optional</em>) – Arguments passed to customise the VP optimiser. See documentation for <code class="xref py py-meth docutils literal notranslate"><span class="pre">_get_variable_projection()</span></code> in source.</p></li>
+<li><p><strong>sample_points</strong> (<em>numpy.ndarray</em><em>, </em><em>optional</em>) – Array with shape (number_of_observations, dimensions) that corresponds to a set of sample points over the parameter space.</p></li>
+<li><p><strong>sample_outputs</strong> (<em>numpy.ndarray</em><em>, </em><em>optional</em>) – Array with shape (number_of_observations, 1) that corresponds to model evaluations at the sample points.</p></li>
+<li><p><strong>subspace_dimension</strong> (<em>int</em><em>, </em><em>optional</em>) – The dimension of the <em>active</em> subspace.</p></li>
+<li><p><strong>param_args</strong> (<em>dict</em><em>, </em><em>optional</em>) – Arguments passed to parameters of the AS polynomial. (see <a class="reference internal" href="core/parameter.html#equadratures.parameter.Parameter" title="equadratures.parameter.Parameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code></a>)</p></li>
+<li><p><strong>poly_args</strong> (<em>dict</em><em> , </em><em>optional</em>) – Arguments passed to constructing polynomial used for AS computation. (see <a class="reference internal" href="core/poly.html#equadratures.poly.Poly" title="equadratures.poly.Poly"><code class="xref py py-class docutils literal notranslate"><span class="pre">Poly</span></code></a>)</p></li>
+<li><p><strong>dr_args</strong> (<em>dict</em><em>, </em><em>optional</em>) – Arguments passed to customise the VP optimiser. See documentation for <code class="xref py py-meth docutils literal notranslate"><span class="pre">_get_variable_projection()</span></code> in source.</p></li>
 </ul>
 </dd>
 </dl>
@@ -191,7 +191,7 @@ currently only valid for method <code class="docutils literal notranslate"><span
 <dd class="field-odd"><p>Array of shape (dimensions,) corresponding to the eigenvalues of the above mentioned covariance matrix.</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)">numpy.ndarray</a></p>
+<dd class="field-even"><p>numpy.ndarray</p>
 </dd>
 </dl>
 </dd></dl>
@@ -206,7 +206,7 @@ currently only valid for method <code class="docutils literal notranslate"><span
 and b is the right-hand-side vector for setting the linear inequalities.</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a></p>
+<dd class="field-even"><p>tuple</p>
 </dd>
 </dl>
 </dd></dl>
@@ -219,15 +219,15 @@ by varying its coordinates along the inactive subspace.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>inactive_samples</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The number of inactive samples required.</p></li>
-<li><p><strong>active_coordiantes</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – The active subspace coordinates.</p></li>
+<li><p><strong>inactive_samples</strong> (<em>int</em>) – The number of inactive samples required.</p></li>
+<li><p><strong>active_coordiantes</strong> (<em>numpy.ndarray</em>) – The active subspace coordinates.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Array containing the full-space coordinates.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)">numpy.ndarray</a></p>
+<dd class="field-odd"><p>numpy.ndarray</p>
 </dd>
 </dl>
 <div class="admonition note">
@@ -247,7 +247,7 @@ by varying its coordinates along the inactive subspace.</p>
 contain the dimension reducing subspace, while the remaining columns contain its orthogonal complement.</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)">numpy.ndarray</a></p>
+<dd class="field-even"><p>numpy.ndarray</p>
 </dd>
 </dl>
 </dd></dl>
@@ -276,15 +276,15 @@ subspace.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>num_samples</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – Number of samples per iteration to check.</p></li>
-<li><p><strong>max_count</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – Maximum number of iteration.</p></li>
+<li><p><strong>num_samples</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of samples per iteration to check.</p></li>
+<li><p><strong>max_count</strong> (<em>int</em><em>, </em><em>optional</em>) – Maximum number of iteration.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Array of shape (number of vertices, <code class="docutils literal notranslate"><span class="pre">subspace_dimension</span></code>).</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)">numpy.ndarray</a></p>
+<dd class="field-odd"><p>numpy.ndarray</p>
 </dd>
 </dl>
 <div class="admonition note">
@@ -342,17 +342,17 @@ See <code class="xref py py-meth docutils literal notranslate"><span class="pre"
                  <div class="row">
                    <div class="col-md-6 col-lg-3">
                        <div class="footer-about">
-                            <img style="float: left; margin: 0px 250px 2px 10px; width:30%; min-width:25px" src="./_static/logo.png" alt="Image"><br>
+                            <a href="https://equadratures.org/"><img style="float: left; margin: 0px 250px 2px 10px; width:30%; min-width:25px" src="https://equadratures.org/icons/logo.png" alt="Image"></a><br>
                             <b>equadratures</b> <br>
                             mail@equadratures.org <br>
                        </div>
                    </div>
                    <div class="col-md-6 col-lg-3">
                        <div class="footer-social">
-                           <a href="https://github.com/portrait-code"><img alt="" src="./_static/github.png" hspace="0x" style="width:100%; min-width:25px"></a>
-                           <a href="https://www.linkedin.com/company/portrait-tec"><img alt=""  src="./_static/linkedin.png" hspace="0x" style="width:100%; min-width:25px"></a>
-                          <a href="https://twitter.com/PortraitTec"><img alt="" src="./_static/twitter.png" hspace="0x" style="width:100%; min-width:25px"></a>
-                        <a href="https://twitter.com/PortraitTec"><img alt="" src="./_static/youtube.png" hspace="0x" style="width:100%; min-width:25px"></a>
+                           <a href="https://github.com/equadratures"><img alt="" src="https://equadratures.org/icons/github.png" hspace="0x" style="width:100%; min-width:25px"></a>
+                           <a href="https://www.linkedin.com/company/67900612"><img alt=""  src="https://equadratures.org/icons/linkedin.png" hspace="0x" style="width:100%; min-width:25px"></a>
+                          <a href="https://twitter.com/equadratures"><img alt="" src="https://equadratures.org/icons/twitter.png" hspace="0x" style="width:100%; min-width:25px"></a>
+                        <a href="https://www.youtube.com/channel/UCpjwFDSZuFbzW-2lj6d96dA"><img alt="" src="https://equadratures.org/icons/youtube.png" hspace="0x" style="width:100%; min-width:25px"></a>
                        </div>
                        <br>
                        <br>

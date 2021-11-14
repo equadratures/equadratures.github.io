@@ -137,18 +137,18 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>splitting_criterion</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – The type of splitting_criterion to use in the fit function. Options include <code class="docutils literal notranslate"><span class="pre">model_aware</span></code> which fits polynomials for each candidate split, <code class="docutils literal notranslate"><span class="pre">model_agnostic</span></code> which uses a standard deviation based model-agnostic split criterion [1], and <code class="docutils literal notranslate"><span class="pre">loss_gradient</span></code> which uses a gradient based splitting criterion similar to that in [2].</p></li>
-<li><p><strong>max_depth</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – The maximum depth which the tree will grow to.</p></li>
-<li><p><strong>min_samples_leaf</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – The minimum number of samples per leaf node.</p></li>
-<li><p><strong>order</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – The order of the generated orthogonal polynomials.</p></li>
-<li><p><strong>basis</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – The type of index set used for the basis. Options include: <code class="docutils literal notranslate"><span class="pre">univariate</span></code>, <code class="docutils literal notranslate"><span class="pre">total-order</span></code>, <code class="docutils literal notranslate"><span class="pre">tensor-grid</span></code>, <code class="docutils literal notranslate"><span class="pre">sparse-grid</span></code> and <code class="docutils literal notranslate"><span class="pre">hyperbolic-basis</span></code>.</p></li>
-<li><p><strong>search</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – The method of search to be used. Options are <code class="docutils literal notranslate"><span class="pre">grid</span></code> or <code class="docutils literal notranslate"><span class="pre">exhaustive</span></code>.</p></li>
-<li><p><strong>samples</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – The interval between splits if <code class="docutils literal notranslate"><span class="pre">grid</span></code> search is chosen.</p></li>
-<li><p><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – For debugging.</p></li>
-<li><p><strong>all_data</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – Store data at all nodes in <a class="reference internal" href="#equadratures.polytree.PolyTree" title="equadratures.polytree.PolyTree"><code class="xref py py-class docutils literal notranslate"><span class="pre">PolyTree</span></code></a> (instead of only leaf nodes).</p></li>
-<li><p><strong>split_dims</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a><em>, </em><em>optional</em>) – List of dimensions along which to make splits.</p></li>
-<li><p><strong>k</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>, </em><em>optional</em>) – The smoothing parameter. Range from 0.0 to 1.0, with 0 giving no smoothing, and 1 giving maximum smoothing.</p></li>
-<li><p><strong>distribution</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – The type of input parameter distributions. Either <code class="docutils literal notranslate"><span class="pre">uniform</span></code> or <code class="docutils literal notranslate"><span class="pre">data</span></code>.</p></li>
+<li><p><strong>splitting_criterion</strong> (<em>str</em><em>, </em><em>optional</em>) – The type of splitting_criterion to use in the fit function. Options include <code class="docutils literal notranslate"><span class="pre">model_aware</span></code> which fits polynomials for each candidate split, <code class="docutils literal notranslate"><span class="pre">model_agnostic</span></code> which uses a standard deviation based model-agnostic split criterion [1], and <code class="docutils literal notranslate"><span class="pre">loss_gradient</span></code> which uses a gradient based splitting criterion similar to that in [2].</p></li>
+<li><p><strong>max_depth</strong> (<em>int</em><em>, </em><em>optional</em>) – The maximum depth which the tree will grow to.</p></li>
+<li><p><strong>min_samples_leaf</strong> (<em>int</em><em>, </em><em>optional</em>) – The minimum number of samples per leaf node.</p></li>
+<li><p><strong>order</strong> (<em>int</em><em>, </em><em>optional</em>) – The order of the generated orthogonal polynomials.</p></li>
+<li><p><strong>basis</strong> (<em>str</em><em>, </em><em>optional</em>) – The type of index set used for the basis. Options include: <code class="docutils literal notranslate"><span class="pre">univariate</span></code>, <code class="docutils literal notranslate"><span class="pre">total-order</span></code>, <code class="docutils literal notranslate"><span class="pre">tensor-grid</span></code>, <code class="docutils literal notranslate"><span class="pre">sparse-grid</span></code> and <code class="docutils literal notranslate"><span class="pre">hyperbolic-basis</span></code>.</p></li>
+<li><p><strong>search</strong> (<em>str</em><em>, </em><em>optional</em>) – The method of search to be used. Options are <code class="docutils literal notranslate"><span class="pre">grid</span></code> or <code class="docutils literal notranslate"><span class="pre">exhaustive</span></code>.</p></li>
+<li><p><strong>samples</strong> (<em>int</em><em>, </em><em>optional</em>) – The interval between splits if <code class="docutils literal notranslate"><span class="pre">grid</span></code> search is chosen.</p></li>
+<li><p><strong>verbose</strong> (<em>bool</em><em>, </em><em>optional</em>) – For debugging.</p></li>
+<li><p><strong>all_data</strong> (<em>bool</em><em>, </em><em>optional</em>) – Store data at all nodes in <a class="reference internal" href="#equadratures.polytree.PolyTree" title="equadratures.polytree.PolyTree"><code class="xref py py-class docutils literal notranslate"><span class="pre">PolyTree</span></code></a> (instead of only leaf nodes).</p></li>
+<li><p><strong>split_dims</strong> (<em>list</em><em>, </em><em>optional</em>) – List of dimensions along which to make splits.</p></li>
+<li><p><strong>k</strong> (<em>float</em><em>, </em><em>optional</em>) – The smoothing parameter. Range from 0.0 to 1.0, with 0 giving no smoothing, and 1 giving maximum smoothing.</p></li>
+<li><p><strong>distribution</strong> (<em>str</em><em>, </em><em>optional</em>) – The type of input parameter distributions. Either <code class="docutils literal notranslate"><span class="pre">uniform</span></code> or <code class="docutils literal notranslate"><span class="pre">data</span></code>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -173,13 +173,13 @@
 <dd><p>Returns the leaf node index for each observation in the data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>X</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – Array with shape (number_of_observations, dimensions) at which the tree fit must be evaluated at.</p>
+<dd class="field-odd"><p><strong>X</strong> (<em>numpy.ndarray</em>) – Array with shape (number_of_observations, dimensions) at which the tree fit must be evaluated at.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>A numpy.ndarray of shape (number_of_observations,1) corresponding to the node indices for each observation in X.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)">numpy.ndarray</a></p>
+<dd class="field-odd"><p>numpy.ndarray</p>
 </dd>
 </dl>
 </dd></dl>
@@ -191,8 +191,8 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>X</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – Training input data</p></li>
-<li><p><strong>y</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – Training output data</p></li>
+<li><p><strong>X</strong> (<em>numpy.ndarray</em>) – Training input data</p></li>
+<li><p><strong>y</strong> (<em>numpy.ndarray</em>) – Training output data</p></li>
 </ul>
 </dd>
 </dl>
@@ -205,9 +205,9 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>X</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – An ndarray with shape (dimensions) containing an input vector for a given sample, to highlight in the tree.</p></li>
-<li><p><strong>feature_names</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a><em>, </em><em>optional</em>) – A list of the names of the features used in the training data.</p></li>
-<li><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – Filename to write graphviz data to. If <code class="docutils literal notranslate"><span class="pre">None</span></code> (default) then rendered in-place, if <code class="docutils literal notranslate"><span class="pre">'source'</span></code>, the raw graphviz string is returned.</p></li>
+<li><p><strong>X</strong> (<em>numpy.ndarray</em><em>, </em><em>optional</em>) – An ndarray with shape (dimensions) containing an input vector for a given sample, to highlight in the tree.</p></li>
+<li><p><strong>feature_names</strong> (<em>list</em><em>, </em><em>optional</em>) – A list of the names of the features used in the training data.</p></li>
+<li><p><strong>filename</strong> (<em>str</em><em>, </em><em>optional</em>) – Filename to write graphviz data to. If <code class="docutils literal notranslate"><span class="pre">None</span></code> (default) then rendered in-place, if <code class="docutils literal notranslate"><span class="pre">'source'</span></code>, the raw graphviz string is returned.</p></li>
 </ul>
 </dd>
 </dl>
@@ -222,7 +222,7 @@
 <dd class="field-odd"><p>Contains the node indices of all leaf nodes.</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)">list</a></p>
+<dd class="field-even"><p>list</p>
 </dd>
 </dl>
 </dd></dl>
@@ -236,7 +236,7 @@
 <dd class="field-odd"><p>Tuple (mean,variance) containing two floats; the approximated mean and variance from the fitted PolyTree.</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a></p>
+<dd class="field-even"><p>tuple</p>
 </dd>
 </dl>
 </dd></dl>
@@ -247,13 +247,13 @@
 <dd><p>Returns the node corresponding to a given node number.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>inode</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The node number.</p>
+<dd class="field-odd"><p><strong>inode</strong> (<em>int</em>) – The node number.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Dictionary containing the data for the requested node.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)">dict</a></p>
+<dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
 </dd></dl>
@@ -264,13 +264,13 @@
 <dd><p>Returns the tree paths for the leaf nodes in the tree.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>X</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – Array with shape (number_of_observations, dimensions) to apply the tree to. If given, paths will only be returned for leaves which contain observations.</p>
+<dd class="field-odd"><p><strong>X</strong> (<em>numpy.ndarray</em><em>, </em><em>optional</em>) – Array with shape (number_of_observations, dimensions) to apply the tree to. If given, paths will only be returned for leaves which contain observations.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Dictionary containing a dict for each leaf node. Indexed by the node indices for the leaf nodes.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)">dict</a></p>
+<dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
 </dd></dl>
@@ -284,7 +284,7 @@
 <dd class="field-odd"><p>A list of Poly objects.</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)">list</a></p>
+<dd class="field-even"><p>list</p>
 </dd>
 </dl>
 </dd></dl>
@@ -298,7 +298,7 @@
 <dd class="field-odd"><p>A list of splits made in the format of a nested list: [[split, dimension], …]</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)">list</a></p>
+<dd class="field-even"><p>list</p>
 </dd>
 </dl>
 </dd></dl>
@@ -315,13 +315,13 @@
 <dd><p>Evaluates the the polynomial tree approximation of the data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>X</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – An ndarray with shape (number_of_observations, dimensions) at which the tree fit must be evaluated at.</p>
+<dd class="field-odd"><p><strong>X</strong> (<em>numpy.ndarray</em>) – An ndarray with shape (number_of_observations, dimensions) at which the tree fit must be evaluated at.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Array with shape (1, number_of_observations) corresponding to the polynomial approximations of the tree.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)">numpy.ndarray</a></p>
+<dd class="field-odd"><p>numpy.ndarray</p>
 </dd>
 </dl>
 </dd></dl>
@@ -333,10 +333,10 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>X</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – Training input data</p></li>
-<li><p><strong>y</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – Training output data</p></li>
-<li><p><strong>tol</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>, </em><em>optional</em>) – Pruning tolerance (%). Prune nodes if they only improve loss by less than this tolerance.</p></li>
-<li><p><strong>percent</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – If true, tol is taken as a percentage of the parent node’s error. Otherwise, tol is taken to be an absolute value.</p></li>
+<li><p><strong>X</strong> (<em>numpy.ndarray</em>) – Training input data</p></li>
+<li><p><strong>y</strong> (<em>numpy.ndarray</em>) – Training output data</p></li>
+<li><p><strong>tol</strong> (<em>float</em><em>, </em><em>optional</em>) – Pruning tolerance (%). Prune nodes if they only improve loss by less than this tolerance.</p></li>
+<li><p><strong>percent</strong> (<em>bool</em><em>, </em><em>optional</em>) – If true, tol is taken as a percentage of the parent node’s error. Otherwise, tol is taken to be an absolute value.</p></li>
 </ul>
 </dd>
 </dl>
@@ -369,17 +369,17 @@
                  <div class="row">
                    <div class="col-md-6 col-lg-3">
                        <div class="footer-about">
-                            <img style="float: left; margin: 0px 250px 2px 10px; width:30%; min-width:25px" src="./_static/logo.png" alt="Image"><br>
+                            <a href="https://equadratures.org/"><img style="float: left; margin: 0px 250px 2px 10px; width:30%; min-width:25px" src="https://equadratures.org/icons/logo.png" alt="Image"></a><br>
                             <b>equadratures</b> <br>
                             mail@equadratures.org <br>
                        </div>
                    </div>
                    <div class="col-md-6 col-lg-3">
                        <div class="footer-social">
-                           <a href="https://github.com/portrait-code"><img alt="" src="./_static/github.png" hspace="0x" style="width:100%; min-width:25px"></a>
-                           <a href="https://www.linkedin.com/company/portrait-tec"><img alt=""  src="./_static/linkedin.png" hspace="0x" style="width:100%; min-width:25px"></a>
-                          <a href="https://twitter.com/PortraitTec"><img alt="" src="./_static/twitter.png" hspace="0x" style="width:100%; min-width:25px"></a>
-                        <a href="https://twitter.com/PortraitTec"><img alt="" src="./_static/youtube.png" hspace="0x" style="width:100%; min-width:25px"></a>
+                           <a href="https://github.com/equadratures"><img alt="" src="https://equadratures.org/icons/github.png" hspace="0x" style="width:100%; min-width:25px"></a>
+                           <a href="https://www.linkedin.com/company/67900612"><img alt=""  src="https://equadratures.org/icons/linkedin.png" hspace="0x" style="width:100%; min-width:25px"></a>
+                          <a href="https://twitter.com/equadratures"><img alt="" src="https://equadratures.org/icons/twitter.png" hspace="0x" style="width:100%; min-width:25px"></a>
+                        <a href="https://www.youtube.com/channel/UCpjwFDSZuFbzW-2lj6d96dA"><img alt="" src="https://equadratures.org/icons/youtube.png" hspace="0x" style="width:100%; min-width:25px"></a>
                        </div>
                        <br>
                        <br>
