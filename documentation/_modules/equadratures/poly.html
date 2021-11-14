@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>equadratures.poly &#8212; equadratures</title>
+    <title>equadratures.poly &#8212; Documentation | equadratures</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -33,8 +33,6 @@
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/styles.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/footer.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/cards.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/gallery.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/fonts.css" />
     
   <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
@@ -46,6 +44,8 @@
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <link rel="shortcut icon" href="../../_static/eq-logo-favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -56,9 +56,9 @@
     <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
 <div class="container-xl">
 
-    <a class="navbar-brand" href="../../documentation.html">
+    <a class="navbar-brand" href="../../index.html">
     
-      <p class="title"> </p>
+      <img src="../../_static/logo_new.png" class="logo" alt="logo" />
     
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
@@ -70,53 +70,17 @@
         
         
         <li class="nav-item ">
-            <a class="nav-link" href="../../parameter.html">Parameter</a>
+            <a class="nav-link" href="../../core/index.html">Core classes</a>
         </li>
         
         <li class="nav-item ">
-            <a class="nav-link" href="../../basis.html">Basis</a>
+            <a class="nav-link" href="../../secondary/index.html">Secondary classes</a>
         </li>
         
         <li class="nav-item ">
-            <a class="nav-link" href="../../poly.html">Polynomial</a>
+            <a class="nav-link" href="../../tutorials/index.html">Tutorials</a>
         </li>
         
-        <li class="nav-item ">
-            <a class="nav-link" href="../../subspaces.html">Dimension reduction with polynomials</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../optimisation.html">Optimisation with polynomials</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../polytree.html">Polynomial Regression Trees</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../solver.html">Linear system solvers</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../quadrature.html">Quadrature</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../weight.html">Prescribing probability functions</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../correlated.html">Correlations</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../scalers.html">Scalers</a>
-        </li>
-        
-        
-        <li class="nav-item">
-            <a class="nav-link nav-external" href="https://discourse.equadratures.org/">Discourse<i class="fas fa-external-link-alt"></i></a>
-        </li>
         
       </ul>
 
@@ -137,7 +101,7 @@
           
           <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search equadratures..." aria-label="Search equadratures..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search documentation" aria-label="Search documentation" autocomplete="off" >
 </form>
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
 
@@ -145,22 +109,6 @@
     
   
     <ul class="nav bd-sidenav">
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         
         
         
@@ -210,7 +158,7 @@
 <span class="n">MAXIMUM_ORDER_FOR_STATS</span> <span class="o">=</span> <span class="mi">8</span>
 <span class="n">CARD_LIMIT_SOFT</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">50e3</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Poly"><a class="viewcode-back" href="../../poly.html#equadratures.poly.Poly">[docs]</a><span class="k">class</span> <span class="nc">Poly</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="Poly"><a class="viewcode-back" href="../../core/poly.html#equadratures.poly.Poly">[docs]</a><span class="k">class</span> <span class="nc">Poly</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Definition of a polynomial object.</span>
 
 <span class="sd">    Parameters</span>
@@ -389,27 +337,27 @@
                 <span class="n">polynew</span><span class="o">.</span><span class="n">_model_evaluations</span> <span class="o">-=</span> <span class="n">other</span><span class="o">.</span><span class="n">_model_evaluations</span>
         <span class="k">return</span> <span class="n">polynew</span>
 
-<div class="viewcode-block" id="Poly.plot_polyfit_1D"><a class="viewcode-back" href="../../poly.html#equadratures.poly.Poly.plot_polyfit_1D">[docs]</a>    <span class="k">def</span> <span class="nf">plot_polyfit_1D</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">uncertainty</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">output_variances</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">number_of_points</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="viewcode-block" id="Poly.plot_polyfit_1D"><a class="viewcode-back" href="../../core/poly.html#equadratures.poly.Poly.plot_polyfit_1D">[docs]</a>    <span class="k">def</span> <span class="nf">plot_polyfit_1D</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">uncertainty</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">output_variances</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">number_of_points</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Plots a 1D only polynomial fit to the data. See :meth:`~equadratures.plot.plot_polyfit_1D` for full description. &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">plot</span><span class="o">.</span><span class="n">plot_polyfit_1D</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">ax</span><span class="p">,</span><span class="n">uncertainty</span><span class="p">,</span><span class="n">output_variances</span><span class="p">,</span><span class="n">number_of_points</span><span class="p">,</span><span class="n">show</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Poly.plot_model_vs_data"><a class="viewcode-back" href="../../poly.html#equadratures.poly.Poly.plot_model_vs_data">[docs]</a>    <span class="k">def</span> <span class="nf">plot_model_vs_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sample_data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;adjusted_r2&#39;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="viewcode-block" id="Poly.plot_model_vs_data"><a class="viewcode-back" href="../../core/poly.html#equadratures.poly.Poly.plot_model_vs_data">[docs]</a>    <span class="k">def</span> <span class="nf">plot_model_vs_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sample_data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;adjusted_r2&#39;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Plots the polynomial approximation against the true data. See :meth:`~equadratures.plot.plot_model_vs_data` for full description. &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">plot</span><span class="o">.</span><span class="n">plot_model_vs_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">ax</span><span class="p">,</span><span class="n">sample_data</span><span class="p">,</span><span class="n">metric</span><span class="p">,</span><span class="n">show</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Poly.plot_sobol"><a class="viewcode-back" href="../../poly.html#equadratures.poly.Poly.plot_sobol">[docs]</a>    <span class="k">def</span> <span class="nf">plot_sobol</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="p">{}):</span>
+<div class="viewcode-block" id="Poly.plot_sobol"><a class="viewcode-back" href="../../core/poly.html#equadratures.poly.Poly.plot_sobol">[docs]</a>    <span class="k">def</span> <span class="nf">plot_sobol</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="p">{}):</span>
         <span class="sd">&quot;&quot;&quot; Plots a polynomial&#39;s Sobol&#39; indices of a given order. See :meth:`~equadratures.plot.plot_sobol` for full description. &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">plot</span><span class="o">.</span><span class="n">plot_sobol</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">ax</span><span class="p">,</span><span class="n">order</span><span class="p">,</span><span class="n">show</span><span class="p">,</span><span class="n">labels</span><span class="p">,</span><span class="n">kwargs</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Poly.plot_parameters"><a class="viewcode-back" href="../../poly.html#equadratures.poly.Poly.plot_parameters">[docs]</a>    <span class="k">def</span> <span class="nf">plot_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="viewcode-block" id="Poly.plot_parameters"><a class="viewcode-back" href="../../core/poly.html#equadratures.poly.Poly.plot_parameters">[docs]</a>    <span class="k">def</span> <span class="nf">plot_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Plots the probability density functions for all Parameters within a Polynomial. See :meth:`~equadratures.plot.plot_parameters` for full description. &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">plot</span><span class="o">.</span><span class="n">plot_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">cols</span><span class="p">,</span> <span class="n">show</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Poly.plot_total_sobol"><a class="viewcode-back" href="../../poly.html#equadratures.poly.Poly.plot_total_sobol">[docs]</a>    <span class="k">def</span> <span class="nf">plot_total_sobol</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="p">{}):</span>
+<div class="viewcode-block" id="Poly.plot_total_sobol"><a class="viewcode-back" href="../../core/poly.html#equadratures.poly.Poly.plot_total_sobol">[docs]</a>    <span class="k">def</span> <span class="nf">plot_total_sobol</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="p">{}):</span>
         <span class="sd">&quot;&quot;&quot; Plots a polynomial&#39;s total-order Sobol&#39; indices. See :meth:`~equadratures.plot.plot_total_sobol` for full description. &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">plot</span><span class="o">.</span><span class="n">plot_total_sobol</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">ax</span><span class="p">,</span><span class="n">show</span><span class="p">,</span><span class="n">labels</span><span class="p">,</span><span class="n">kwargs</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Poly.plot_sobol_heatmap"><a class="viewcode-back" href="../../poly.html#equadratures.poly.Poly.plot_sobol_heatmap">[docs]</a>    <span class="k">def</span> <span class="nf">plot_sobol_heatmap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">parameters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Poly.plot_sobol_heatmap"><a class="viewcode-back" href="../../core/poly.html#equadratures.poly.Poly.plot_sobol_heatmap">[docs]</a>    <span class="k">def</span> <span class="nf">plot_sobol_heatmap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">parameters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Generates a heatmap showing the first and second order Sobol indices. See :meth:`~equadratures.plot.plot_sobol_heatmap` for full description. &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">plot</span><span class="o">.</span><span class="n">plot_sobol_heatmap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">parameters</span><span class="p">,</span><span class="n">show</span><span class="p">,</span><span class="n">ax</span><span class="p">)</span></div>
 
@@ -418,7 +366,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span> <span class="o">=</span> <span class="n">parameters</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_set_points_and_weights</span><span class="p">()</span>
 
-<div class="viewcode-block" id="Poly.get_parameters"><a class="viewcode-back" href="../../poly.html#equadratures.poly.Poly.get_parameters">[docs]</a>    <span class="k">def</span> <span class="nf">get_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Poly.get_parameters"><a class="viewcode-back" href="../../core/poly.html#equadratures.poly.Poly.get_parameters">[docs]</a>    <span class="k">def</span> <span class="nf">get_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Returns the list of parameters.</span>
 
 <span class="sd">        Returns</span>
@@ -428,7 +376,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">parameters</span></div>
 
-<div class="viewcode-block" id="Poly.get_summary"><a class="viewcode-back" href="../../poly.html#equadratures.poly.Poly.get_summary">[docs]</a>    <span class="k">def</span> <span class="nf">get_summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tosay</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="Poly.get_summary"><a class="viewcode-back" href="../../core/poly.html#equadratures.poly.Poly.get_summary">[docs]</a>    <span class="k">def</span> <span class="nf">get_summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tosay</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; A simple utility that writes a file summarising what the polynomial approximation has determined.</span>
 
 <span class="sd">        Parameters</span>
@@ -519,7 +467,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">A</span> <span class="o">=</span> <span class="n">A</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">P</span> <span class="o">=</span> <span class="n">P</span>
 
-<div class="viewcode-block" id="Poly.get_model_evaluations"><a class="viewcode-back" href="../../poly.html#equadratures.poly.Poly.get_model_evaluations">[docs]</a>    <span class="k">def</span> <span class="nf">get_model_evaluations</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Poly.get_model_evaluations"><a class="viewcode-back" href="../../core/poly.html#equadratures.poly.Poly.get_model_evaluations">[docs]</a>    <span class="k">def</span> <span class="nf">get_model_evaluations</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Returns the output model evaluations used to fit the polynomial.</span>
 
 <span class="sd">        Returns</span>
@@ -529,7 +477,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_model_evaluations</span></div>
 
-<div class="viewcode-block" id="Poly.get_mean_and_variance"><a class="viewcode-back" href="../../poly.html#equadratures.poly.Poly.get_mean_and_variance">[docs]</a>    <span class="k">def</span> <span class="nf">get_mean_and_variance</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Poly.get_mean_and_variance"><a class="viewcode-back" href="../../core/poly.html#equadratures.poly.Poly.get_mean_and_variance">[docs]</a>    <span class="k">def</span> <span class="nf">get_mean_and_variance</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Computes the mean and variance of the model.</span>
 
 <span class="sd">        Returns</span>
@@ -540,7 +488,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_set_statistics</span><span class="p">()</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">statistics_object</span><span class="o">.</span><span class="n">get_mean</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">statistics_object</span><span class="o">.</span><span class="n">get_variance</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="Poly.get_skewness_and_kurtosis"><a class="viewcode-back" href="../../poly.html#equadratures.poly.Poly.get_skewness_and_kurtosis">[docs]</a>    <span class="k">def</span> <span class="nf">get_skewness_and_kurtosis</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Poly.get_skewness_and_kurtosis"><a class="viewcode-back" href="../../core/poly.html#equadratures.poly.Poly.get_skewness_and_kurtosis">[docs]</a>    <span class="k">def</span> <span class="nf">get_skewness_and_kurtosis</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Computes the skewness and kurtosis of the model.</span>
 
 <span class="sd">        Returns</span>
@@ -584,7 +532,7 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">statistics_object</span> <span class="o">=</span> <span class="n">Statistics</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">basis</span><span class="p">,</span>  <span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span><span class="p">,</span>  <span class="n">quad_pts</span><span class="p">,</span> \
                         <span class="n">quad_wts</span><span class="p">,</span> <span class="n">poly_vandermonde_matrix</span><span class="p">,</span> <span class="n">max_sobol_order</span><span class="o">=</span><span class="n">MAXIMUM_ORDER_FOR_STATS</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Poly.get_sobol_indices"><a class="viewcode-back" href="../../poly.html#equadratures.poly.Poly.get_sobol_indices">[docs]</a>    <span class="k">def</span> <span class="nf">get_sobol_indices</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">order</span><span class="p">):</span>
+<div class="viewcode-block" id="Poly.get_sobol_indices"><a class="viewcode-back" href="../../core/poly.html#equadratures.poly.Poly.get_sobol_indices">[docs]</a>    <span class="k">def</span> <span class="nf">get_sobol_indices</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">order</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Computes the Sobol&#39; indices.</span>
 
 <span class="sd">        Parameters</span>
@@ -600,7 +548,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_set_statistics</span><span class="p">()</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">statistics_object</span><span class="o">.</span><span class="n">get_sobol</span><span class="p">(</span><span class="n">order</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Poly.get_total_sobol_indices"><a class="viewcode-back" href="../../poly.html#equadratures.poly.Poly.get_total_sobol_indices">[docs]</a>    <span class="k">def</span> <span class="nf">get_total_sobol_indices</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Poly.get_total_sobol_indices"><a class="viewcode-back" href="../../core/poly.html#equadratures.poly.Poly.get_total_sobol_indices">[docs]</a>    <span class="k">def</span> <span class="nf">get_total_sobol_indices</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Computes the total Sobol&#39; indices.</span>
 
 <span class="sd">        Returns</span>
@@ -611,7 +559,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_set_statistics</span><span class="p">()</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">statistics_object</span><span class="o">.</span><span class="n">get_sobol_total</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="Poly.get_conditional_skewness_indices"><a class="viewcode-back" href="../../poly.html#equadratures.poly.Poly.get_conditional_skewness_indices">[docs]</a>    <span class="k">def</span> <span class="nf">get_conditional_skewness_indices</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">order</span><span class="p">):</span>
+<div class="viewcode-block" id="Poly.get_conditional_skewness_indices"><a class="viewcode-back" href="../../core/poly.html#equadratures.poly.Poly.get_conditional_skewness_indices">[docs]</a>    <span class="k">def</span> <span class="nf">get_conditional_skewness_indices</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">order</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Computes the skewness indices.</span>
 
 <span class="sd">        Parameters</span>
@@ -627,7 +575,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_set_statistics</span><span class="p">()</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">statistics_object</span><span class="o">.</span><span class="n">get_conditional_skewness</span><span class="p">(</span><span class="n">order</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Poly.get_conditional_kurtosis_indices"><a class="viewcode-back" href="../../poly.html#equadratures.poly.Poly.get_conditional_kurtosis_indices">[docs]</a>    <span class="k">def</span> <span class="nf">get_conditional_kurtosis_indices</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">order</span><span class="p">):</span>
+<div class="viewcode-block" id="Poly.get_conditional_kurtosis_indices"><a class="viewcode-back" href="../../core/poly.html#equadratures.poly.Poly.get_conditional_kurtosis_indices">[docs]</a>    <span class="k">def</span> <span class="nf">get_conditional_kurtosis_indices</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">order</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Computes the kurtosis indices.</span>
 
 <span class="sd">        Parameters</span>
@@ -643,7 +591,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_set_statistics</span><span class="p">()</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">statistics_object</span><span class="o">.</span><span class="n">get_conditional_kurtosis</span><span class="p">(</span><span class="n">order</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Poly.set_model"><a class="viewcode-back" href="../../poly.html#equadratures.poly.Poly.set_model">[docs]</a>    <span class="k">def</span> <span class="nf">set_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">model_grads</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Poly.set_model"><a class="viewcode-back" href="../../core/poly.html#equadratures.poly.Poly.set_model">[docs]</a>    <span class="k">def</span> <span class="nf">set_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">model_grads</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Computes the coefficients of the polynomial via the method selected.</span>
 
 <span class="sd">        If model evaluations and/or gradients have not yet been provided to Poly via ``sample-outputs`` and/or ``sample-gradients``, they can be given here via the ``model`` and ``model_grads`` arguments.</span>
@@ -797,7 +745,7 @@
             <span class="k">else</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">solver</span><span class="o">.</span><span class="n">get_coefficients</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Poly.get_multi_index"><a class="viewcode-back" href="../../poly.html#equadratures.poly.Poly.get_multi_index">[docs]</a>    <span class="k">def</span> <span class="nf">get_multi_index</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Poly.get_multi_index"><a class="viewcode-back" href="../../core/poly.html#equadratures.poly.Poly.get_multi_index">[docs]</a>    <span class="k">def</span> <span class="nf">get_multi_index</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Returns the multi-index set of the basis.</span>
 
 <span class="sd">        Returns</span>
@@ -807,7 +755,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">elements</span></div>
 
-<div class="viewcode-block" id="Poly.get_coefficients"><a class="viewcode-back" href="../../poly.html#equadratures.poly.Poly.get_coefficients">[docs]</a>    <span class="k">def</span> <span class="nf">get_coefficients</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Poly.get_coefficients"><a class="viewcode-back" href="../../core/poly.html#equadratures.poly.Poly.get_coefficients">[docs]</a>    <span class="k">def</span> <span class="nf">get_coefficients</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Returns the coefficients of the polynomial approximation.</span>
 
 <span class="sd">        Returns</span>
@@ -817,7 +765,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span></div>
 
-<div class="viewcode-block" id="Poly.get_points"><a class="viewcode-back" href="../../poly.html#equadratures.poly.Poly.get_points">[docs]</a>    <span class="k">def</span> <span class="nf">get_points</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Poly.get_points"><a class="viewcode-back" href="../../core/poly.html#equadratures.poly.Poly.get_points">[docs]</a>    <span class="k">def</span> <span class="nf">get_points</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Returns the samples based on the sampling strategy.</span>
 
 <span class="sd">        Returns</span>
@@ -827,7 +775,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_quadrature_points</span></div>
 
-<div class="viewcode-block" id="Poly.get_weights"><a class="viewcode-back" href="../../poly.html#equadratures.poly.Poly.get_weights">[docs]</a>    <span class="k">def</span> <span class="nf">get_weights</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Poly.get_weights"><a class="viewcode-back" href="../../core/poly.html#equadratures.poly.Poly.get_weights">[docs]</a>    <span class="k">def</span> <span class="nf">get_weights</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Computes quadrature weights.</span>
 
 <span class="sd">        Returns</span>
@@ -837,7 +785,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_quadrature_weights</span></div>
 
-<div class="viewcode-block" id="Poly.get_points_and_weights"><a class="viewcode-back" href="../../poly.html#equadratures.poly.Poly.get_points_and_weights">[docs]</a>    <span class="k">def</span> <span class="nf">get_points_and_weights</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Poly.get_points_and_weights"><a class="viewcode-back" href="../../core/poly.html#equadratures.poly.Poly.get_points_and_weights">[docs]</a>    <span class="k">def</span> <span class="nf">get_points_and_weights</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Returns the samples and weights based on the sampling strategy.</span>
 
 <span class="sd">        Returns</span>
@@ -847,7 +795,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_quadrature_points</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_quadrature_weights</span></div>
 
-<div class="viewcode-block" id="Poly.get_polyfit"><a class="viewcode-back" href="../../poly.html#equadratures.poly.Poly.get_polyfit">[docs]</a>    <span class="k">def</span> <span class="nf">get_polyfit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stack_of_points</span><span class="p">,</span> <span class="n">uq</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="Poly.get_polyfit"><a class="viewcode-back" href="../../core/poly.html#equadratures.poly.Poly.get_polyfit">[docs]</a>    <span class="k">def</span> <span class="nf">get_polyfit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stack_of_points</span><span class="p">,</span> <span class="n">uq</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Evaluates the /polynomial approximation of a function (or model data) at prescribed points.</span>
 
 <span class="sd">        Parameters</span>
@@ -868,7 +816,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_poly</span><span class="p">(</span><span class="n">stack_of_points</span><span class="p">)</span><span class="o">.</span><span class="n">T</span> <span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="Poly.get_polyfit_grad"><a class="viewcode-back" href="../../poly.html#equadratures.poly.Poly.get_polyfit_grad">[docs]</a>    <span class="k">def</span> <span class="nf">get_polyfit_grad</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stack_of_points</span><span class="p">,</span> <span class="n">dim_index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Poly.get_polyfit_grad"><a class="viewcode-back" href="../../core/poly.html#equadratures.poly.Poly.get_polyfit_grad">[docs]</a>    <span class="k">def</span> <span class="nf">get_polyfit_grad</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stack_of_points</span><span class="p">,</span> <span class="n">dim_index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Evaluates the gradient of the polynomial approximation of a function (or model data) at prescribed points.</span>
 
 <span class="sd">        Parameters</span>
@@ -896,7 +844,7 @@
             <span class="n">grads</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">N</span><span class="p">,)</span> <span class="p">,</span> <span class="n">H</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">)</span>
         <span class="k">return</span> <span class="n">grads</span></div>
 
-<div class="viewcode-block" id="Poly.get_polyfit_hess"><a class="viewcode-back" href="../../poly.html#equadratures.poly.Poly.get_polyfit_hess">[docs]</a>    <span class="k">def</span> <span class="nf">get_polyfit_hess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stack_of_points</span><span class="p">):</span>
+<div class="viewcode-block" id="Poly.get_polyfit_hess"><a class="viewcode-back" href="../../core/poly.html#equadratures.poly.Poly.get_polyfit_hess">[docs]</a>    <span class="k">def</span> <span class="nf">get_polyfit_hess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stack_of_points</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Evaluates the hessian of the polynomial approximation of a function (or model data) at prescribed points.</span>
 
 <span class="sd">        Parameters</span>
@@ -922,7 +870,7 @@
                 <span class="n">hess</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span><span class="o">.</span><span class="n">T</span> <span class="p">,</span> <span class="n">H</span><span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">dimensions</span> <span class="o">+</span> <span class="n">j</span><span class="p">])</span>
         <span class="k">return</span> <span class="n">hess</span></div>
 
-<div class="viewcode-block" id="Poly.get_polyfit_function"><a class="viewcode-back" href="../../poly.html#equadratures.poly.Poly.get_polyfit_function">[docs]</a>    <span class="k">def</span> <span class="nf">get_polyfit_function</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Poly.get_polyfit_function"><a class="viewcode-back" href="../../core/poly.html#equadratures.poly.Poly.get_polyfit_function">[docs]</a>    <span class="k">def</span> <span class="nf">get_polyfit_function</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Returns a callable polynomial approximation of a function (or model data).</span>
 
 <span class="sd">        Returns</span>
@@ -933,7 +881,7 @@
         <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span><span class="p">)</span>
         <span class="k">return</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_poly</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">T</span> <span class="p">,</span>  <span class="bp">self</span><span class="o">.</span><span class="n">coefficients</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="p">)</span></div>
 
-<div class="viewcode-block" id="Poly.get_polyfit_grad_function"><a class="viewcode-back" href="../../poly.html#equadratures.poly.Poly.get_polyfit_grad_function">[docs]</a>    <span class="k">def</span> <span class="nf">get_polyfit_grad_function</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Poly.get_polyfit_grad_function"><a class="viewcode-back" href="../../core/poly.html#equadratures.poly.Poly.get_polyfit_grad_function">[docs]</a>    <span class="k">def</span> <span class="nf">get_polyfit_grad_function</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Returns a callable for the gradients of the polynomial approximation of a function (or model data).</span>
 
 <span class="sd">        Returns</span>
@@ -943,7 +891,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_polyfit_grad</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Poly.get_polyfit_hess_function"><a class="viewcode-back" href="../../poly.html#equadratures.poly.Poly.get_polyfit_hess_function">[docs]</a>    <span class="k">def</span> <span class="nf">get_polyfit_hess_function</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Poly.get_polyfit_hess_function"><a class="viewcode-back" href="../../core/poly.html#equadratures.poly.Poly.get_polyfit_hess_function">[docs]</a>    <span class="k">def</span> <span class="nf">get_polyfit_hess_function</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Returns a callable for the hessian of the polynomial approximation of a function (or model data).</span>
 
 <span class="sd">        Returns</span>
@@ -953,7 +901,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_polyfit_hess</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Poly.get_poly"><a class="viewcode-back" href="../../poly.html#equadratures.poly.Poly.get_poly">[docs]</a>    <span class="k">def</span> <span class="nf">get_poly</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stack_of_points</span><span class="p">,</span> <span class="n">custom_multi_index</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Poly.get_poly"><a class="viewcode-back" href="../../core/poly.html#equadratures.poly.Poly.get_poly">[docs]</a>    <span class="k">def</span> <span class="nf">get_poly</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stack_of_points</span><span class="p">,</span> <span class="n">custom_multi_index</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Evaluates the value of each polynomial basis function at a set of points.</span>
 
 <span class="sd">        Parameters</span>
@@ -999,7 +947,7 @@
             <span class="n">polynomial</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inv_R_Psi</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">polynomial</span>
         <span class="k">return</span> <span class="n">polynomial</span></div>
 
-<div class="viewcode-block" id="Poly.get_poly_grad"><a class="viewcode-back" href="../../poly.html#equadratures.poly.Poly.get_poly_grad">[docs]</a>    <span class="k">def</span> <span class="nf">get_poly_grad</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stack_of_points</span><span class="p">,</span> <span class="n">dim_index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Poly.get_poly_grad"><a class="viewcode-back" href="../../core/poly.html#equadratures.poly.Poly.get_poly_grad">[docs]</a>    <span class="k">def</span> <span class="nf">get_poly_grad</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stack_of_points</span><span class="p">,</span> <span class="n">dim_index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Evaluates the gradient for each of the polynomial basis functions at a set of points, with respect to each input variable.</span>
 
 <span class="sd">        Parameters</span>
@@ -1058,7 +1006,7 @@
                 <span class="n">R</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">polynomialgradient</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">R</span></div>
 
-<div class="viewcode-block" id="Poly.get_poly_hess"><a class="viewcode-back" href="../../poly.html#equadratures.poly.Poly.get_poly_hess">[docs]</a>    <span class="k">def</span> <span class="nf">get_poly_hess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stack_of_points</span><span class="p">):</span>
+<div class="viewcode-block" id="Poly.get_poly_hess"><a class="viewcode-back" href="../../core/poly.html#equadratures.poly.Poly.get_poly_hess">[docs]</a>    <span class="k">def</span> <span class="nf">get_poly_hess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stack_of_points</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Evaluates the Hessian for each of the polynomial basis functions at a set of points, with respect to each input variable.</span>
 
 <span class="sd">        Parameters</span>
@@ -1115,7 +1063,7 @@
                 <span class="n">H</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">polynomialhessian</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">H</span></div>
-<div class="viewcode-block" id="Poly.get_polyscore"><a class="viewcode-back" href="../../poly.html#equadratures.poly.Poly.get_polyscore">[docs]</a>    <span class="k">def</span> <span class="nf">get_polyscore</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">X_test</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">y_test</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">metric</span><span class="o">=</span><span class="s1">&#39;adjusted_r2&#39;</span><span class="p">):</span>
+<div class="viewcode-block" id="Poly.get_polyscore"><a class="viewcode-back" href="../../core/poly.html#equadratures.poly.Poly.get_polyscore">[docs]</a>    <span class="k">def</span> <span class="nf">get_polyscore</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">X_test</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">y_test</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">metric</span><span class="o">=</span><span class="s1">&#39;adjusted_r2&#39;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Evaluates the accuracy of the polynomial approximation using the selected accuracy metric.</span>
 
 <span class="sd">        Training accuracy is evaluated on the data used for fitting the polynomial. Testing accuracy is evaluated on new data if it is provided by the ``X_test`` and ``y_test`` arguments (both must be provided together).</span>
@@ -1204,7 +1152,7 @@
     <span class="n">inv_M</span> <span class="o">=</span> <span class="n">inv_L</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">inv_L</span>
     <span class="k">return</span> <span class="n">inv_M</span>
 
-<div class="viewcode-block" id="evaluate_model_gradients"><a class="viewcode-back" href="../../poly.html#equadratures.poly.evaluate_model_gradients">[docs]</a><span class="k">def</span> <span class="nf">evaluate_model_gradients</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">fungrad</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;matrix&#39;</span><span class="p">):</span>
+<div class="viewcode-block" id="evaluate_model_gradients"><a class="viewcode-back" href="../../core/poly.html#equadratures.poly.evaluate_model_gradients">[docs]</a><span class="k">def</span> <span class="nf">evaluate_model_gradients</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">fungrad</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;matrix&#39;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Evaluates the model gradient at given values.</span>
 
 <span class="sd">    Parameters</span>
@@ -1244,7 +1192,7 @@
     <span class="k">else</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;evalgradients(): Format must be either matrix or vector!&#39;</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="evaluate_model"><a class="viewcode-back" href="../../poly.html#equadratures.poly.evaluate_model">[docs]</a><span class="k">def</span> <span class="nf">evaluate_model</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">function</span><span class="p">):</span>
+<div class="viewcode-block" id="evaluate_model"><a class="viewcode-back" href="../../core/poly.html#equadratures.poly.evaluate_model">[docs]</a><span class="k">def</span> <span class="nf">evaluate_model</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">function</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Evaluates the model function at given values.</span>
 
@@ -1265,7 +1213,7 @@
         <span class="n">function_values</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="n">points</span><span class="p">[</span><span class="n">i</span><span class="p">,:])</span>
     <span class="k">return</span> <span class="n">function_values</span></div>
 
-<div class="viewcode-block" id="vector_to_2D_grid"><a class="viewcode-back" href="../../poly.html#equadratures.poly.vector_to_2D_grid">[docs]</a><span class="k">def</span> <span class="nf">vector_to_2D_grid</span><span class="p">(</span><span class="n">coefficients</span><span class="p">,</span> <span class="n">index_set</span><span class="p">):</span>
+<div class="viewcode-block" id="vector_to_2D_grid"><a class="viewcode-back" href="../../core/poly.html#equadratures.poly.vector_to_2D_grid">[docs]</a><span class="k">def</span> <span class="nf">vector_to_2D_grid</span><span class="p">(</span><span class="n">coefficients</span><span class="p">,</span> <span class="n">index_set</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Handy function that converts a vector of coefficients into a matrix based on index set values.</span>
 
 <span class="sd">    Parameters</span>
@@ -1319,23 +1267,26 @@
   <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
 
 
-    <footer>
-  <div class="footer">
+    <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="footer.css" rel="stylesheet">
+</head>
+<div class="footer">
              <div class="container">
                  <div class="row">
                    <div class="col-md-6 col-lg-3">
                        <div class="footer-about">
-                            <img style="float: left; margin: 0px 250px 2px 10px; width:50%; min-width:25px" src="./icons/logo.png" alt="Image"><br>
+                            <a href="https://equadratures.org/"><img style="float: left; margin: 0px 250px 2px 10px; width:30%; min-width:25px" src="https://equadratures.org/icons/logo.png" alt="Image"></a><br>
                             <b>equadratures</b> <br>
                             mail@equadratures.org <br>
                        </div>
                    </div>
                    <div class="col-md-6 col-lg-3">
                        <div class="footer-social">
-                           <a href="https://github.com/portrait-code"><img alt="" src="icons/github.png" hspace="0x" style="width:100%; min-width:25px"></a>
-                           <a href="https://www.linkedin.com/company/portrait-tec"><img alt=""  src="icons/linkedin.png" hspace="0x" style="width:100%; min-width:25px"></a>
-                          <a href="https://twitter.com/PortraitTec"><img alt="" src="icons/twitter.png" hspace="0x" style="width:100%; min-width:25px"></a>
-                        <a href="https://twitter.com/PortraitTec"><img alt="" src="icons/youtube.png" hspace="0x" style="width:100%; min-width:25px"></a>
+                           <a href="https://github.com/equadratures"><img alt="" src="https://equadratures.org/icons/github.png" hspace="0x" style="width:100%; min-width:25px"></a>
+                           <a href="https://www.linkedin.com/company/67900612"><img alt=""  src="https://equadratures.org/icons/linkedin.png" hspace="0x" style="width:100%; min-width:25px"></a>
+                          <a href="https://twitter.com/equadratures"><img alt="" src="https://equadratures.org/icons/twitter.png" hspace="0x" style="width:100%; min-width:25px"></a>
+                        <a href="https://www.youtube.com/channel/UCpjwFDSZuFbzW-2lj6d96dA"><img alt="" src="https://equadratures.org/icons/youtube.png" hspace="0x" style="width:100%; min-width:25px"></a>
                        </div>
                        <br>
                        <br>
@@ -1364,7 +1315,7 @@
                  </div>
              </div>
              <center>
-               <div class="small">
+               <div class="smallerr">
                copyright &copy; 2021 by equadratures.
                <br>
                made by the equadratures team, with &#10084;&#65039;.
@@ -1373,6 +1324,5 @@
                <br>
              </center>
          </div>
-</footer>
   </body>
 </html>

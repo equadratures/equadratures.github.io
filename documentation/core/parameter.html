@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Parameter &#8212; equadratures</title>
+    <title>Parameter &#8212; Documentation | equadratures</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -44,6 +44,8 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <link rel="shortcut icon" href="../_static/eq-logo-favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Basis" href="basis.html" />
@@ -56,7 +58,7 @@
     <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
 <div class="container-xl">
 
-    <a class="navbar-brand" href="../documentation.html">
+    <a class="navbar-brand" href="../index.html">
     
       <img src="../_static/logo_new.png" class="logo" alt="logo" />
     
@@ -71,6 +73,14 @@
         
         <li class="nav-item active">
             <a class="nav-link" href="index.html">Core classes</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../secondary/index.html">Secondary classes</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../tutorials/index.html">Tutorials</a>
         </li>
         
         
@@ -130,6 +140,10 @@
           
         
         
+        
+        
+        
+        
       </ul>
   
   </nav>
@@ -166,10 +180,10 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>lower</strong> (<em>float</em><em>, </em><em>optional</em>) – Lower bound for the parameter.</p></li>
-<li><p><strong>upper</strong> (<em>float</em><em>, </em><em>optional</em>) – Upper bound for the parameter.</p></li>
-<li><p><strong>order</strong> (<em>int</em><em>, </em><em>optional</em>) – Order of the parameter.</p></li>
-<li><p><strong>param_type</strong> (<em>str</em><em>, </em><em>optional</em>) – The type of distribution that characterizes the parameter (see [1, 2]). Options include <a class="reference external" href="https://en.wikipedia.org/wiki/Arcsine_distribution">chebyshev (arcsine)</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Normal_distribution">gaussian</a>,
+<li><p><strong>lower</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>, </em><em>optional</em>) – Lower bound for the parameter.</p></li>
+<li><p><strong>upper</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>, </em><em>optional</em>) – Upper bound for the parameter.</p></li>
+<li><p><strong>order</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – Order of the parameter.</p></li>
+<li><p><strong>param_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – The type of distribution that characterizes the parameter (see [1, 2]). Options include <a class="reference external" href="https://en.wikipedia.org/wiki/Arcsine_distribution">chebyshev (arcsine)</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Normal_distribution">gaussian</a>,
 <a class="reference external" href="https://en.wikipedia.org/wiki/Truncated_normal_distribution">truncated-gaussian</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Beta_distribution">beta</a>,
 <a class="reference external" href="https://en.wikipedia.org/wiki/Cauchy_distribution">cauchy</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Exponential_distribution">exponential</a>,
 <a class="reference external" href="https://en.wikipedia.org/wiki/Uniform_distribution_(continuous)">uniform</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Triangular_distribution">triangular</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Gamma_distribution">gamma</a>,
@@ -178,10 +192,10 @@
 <a class="reference external" href="https://en.wikipedia.org/wiki/Student%27s_t-distribution">students-t</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Log-normal_distribution">logistic</a>,
 <a class="reference external" href="https://en.wikipedia.org/wiki/Gumbel_distribution">gumbel</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Chi_distribution">chi</a>  and <a class="reference external" href="https://en.wikipedia.org/wiki/Chi-squared_distribution">chi-squared</a>.
 If no string is provided, a <code class="docutils literal notranslate"><span class="pre">uniform</span></code> distribution is assumed. Data-driven and custom analytical parameters can also be constructed by setting this option to <code class="docutils literal notranslate"><span class="pre">data</span></code> and <code class="docutils literal notranslate"><span class="pre">analytical</span></code> and providing a <strong>weight_function</strong> (see examples).</p></li>
-<li><p><strong>shape_parameter_A</strong> (<em>float</em><em>, </em><em>optional</em>) – Most of the aforementioned distributions are characterized by two shape parameters. For instance, in the case of a <code class="docutils literal notranslate"><span class="pre">gaussian</span></code> (or <code class="docutils literal notranslate"><span class="pre">truncated-gaussian</span></code>), this represents the mean. In the case of a beta distribution this represents the alpha value. For a <code class="docutils literal notranslate"><span class="pre">uniform</span></code> distribution this input is not required.</p></li>
-<li><p><strong>shape_parameter_B</strong> (<em>float</em><em>, </em><em>optional</em>) – This is the second shape parameter that characterizes the distribution selected. In the case of a <code class="docutils literal notranslate"><span class="pre">gaussian</span></code> or <code class="docutils literal notranslate"><span class="pre">truncated-gaussian</span></code>, this is the variance.</p></li>
-<li><p><strong>data</strong> (<em>numpy.ndarray</em><em>, </em><em>optional</em>) – A data-set with shape (number_of_data_points, 2), where the first column comprises of parameter values, while the second column corresponds to the data observations. This input should only be used with the <code class="docutils literal notranslate"><span class="pre">Analytical</span></code> distribution.</p></li>
-<li><p><strong>endpoints</strong> (<em>str</em><em>, </em><em>optional</em>) – If set to <code class="docutils literal notranslate"><span class="pre">both</span></code>, then the quadrature points and weights will have end-points, based on Gauss-Lobatto quadrature rules. If set to <code class="docutils literal notranslate"><span class="pre">upper</span></code> or <code class="docutils literal notranslate"><span class="pre">lower</span></code> a Gauss-Radau rule is used to compute one end-point at either the upper or lower bound.</p></li>
+<li><p><strong>shape_parameter_A</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>, </em><em>optional</em>) – Most of the aforementioned distributions are characterized by two shape parameters. For instance, in the case of a <code class="docutils literal notranslate"><span class="pre">gaussian</span></code> (or <code class="docutils literal notranslate"><span class="pre">truncated-gaussian</span></code>), this represents the mean. In the case of a beta distribution this represents the alpha value. For a <code class="docutils literal notranslate"><span class="pre">uniform</span></code> distribution this input is not required.</p></li>
+<li><p><strong>shape_parameter_B</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>, </em><em>optional</em>) – This is the second shape parameter that characterizes the distribution selected. In the case of a <code class="docutils literal notranslate"><span class="pre">gaussian</span></code> or <code class="docutils literal notranslate"><span class="pre">truncated-gaussian</span></code>, this is the variance.</p></li>
+<li><p><strong>data</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – A data-set with shape (number_of_data_points, 2), where the first column comprises of parameter values, while the second column corresponds to the data observations. This input should only be used with the <code class="docutils literal notranslate"><span class="pre">Analytical</span></code> distribution.</p></li>
+<li><p><strong>endpoints</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – If set to <code class="docutils literal notranslate"><span class="pre">both</span></code>, then the quadrature points and weights will have end-points, based on Gauss-Lobatto quadrature rules. If set to <code class="docutils literal notranslate"><span class="pre">upper</span></code> or <code class="docutils literal notranslate"><span class="pre">lower</span></code> a Gauss-Radau rule is used to compute one end-point at either the upper or lower bound.</p></li>
 <li><p><strong>weight_function</strong> (<a class="reference internal" href="weight.html#equadratures.weight.Weight" title="equadratures.weight.Weight"><em>Weight</em></a><em>, </em><em>optional</em>) – An instance of Weight, which contains a bespoke analytical or data-driven weight (probability density) function.</p></li>
 </ul>
 </dd>
@@ -216,7 +230,7 @@ If no string is provided, a <code class="docutils literal notranslate"><span cla
 <dd><p>Computes the cumulative density function associated with the Parameter.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>points</strong> (<em>numpy.ndarray</em><em>, </em><em>optional</em>) – Values of the parameter at which the CDF must be evaluated.</p>
+<dd class="field-odd"><p><strong>points</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – Values of the parameter at which the CDF must be evaluated.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><ul class="simple">
@@ -237,7 +251,7 @@ If no string is provided, a <code class="docutils literal notranslate"><span cla
 <dd class="field-odd"><p>A description of the parameter.</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p>str</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)">str</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -248,13 +262,13 @@ If no string is provided, a <code class="docutils literal notranslate"><span cla
 <dd><p>Computes the inverse cumulative density function associated with the Parameter.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>cdf_values</strong> (<em>numpy.ndarray</em>) – Values of the cumulative density function for which its inverse needs to be computed.</p>
+<dd class="field-odd"><p><strong>cdf_values</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a>) – Values of the cumulative density function for which its inverse needs to be computed.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>The inverse cumulative density function.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>numpy.ndarray</p>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)">numpy.ndarray</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -265,13 +279,13 @@ If no string is provided, a <code class="docutils literal notranslate"><span cla
 <dd><p>Computes the eigenvectors of the Jacobi matrix.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>order</strong> (<em>int</em>) – Order of the recurrence coefficients.</p>
+<dd class="field-odd"><p><strong>order</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Order of the recurrence coefficients.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Array of eigenvectors.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>numpy.ndarray</p>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)">numpy.ndarray</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -282,13 +296,13 @@ If no string is provided, a <code class="docutils literal notranslate"><span cla
 <dd><p>Computes the Jacobi matrix—a tridiagonal matrix of the recurrence coefficients.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>order</strong> (<em>int</em>) – Order of the recurrence coefficients.</p>
+<dd class="field-odd"><p><strong>order</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Order of the recurrence coefficients.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>2D array containing the Jacobi matrix.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>numpy.ndarray</p>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)">numpy.ndarray</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -299,7 +313,7 @@ If no string is provided, a <code class="docutils literal notranslate"><span cla
 <dd><p>Computes the probability density function associated with the Parameter.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>points</strong> (<em>numpy.ndarray</em><em>, </em><em>optional</em>) – Values of the parameter at which the PDF must be evaluated.</p>
+<dd class="field-odd"><p><strong>points</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – Values of the parameter at which the PDF must be evaluated.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><ul class="simple">
@@ -317,13 +331,13 @@ If no string is provided, a <code class="docutils literal notranslate"><span cla
 <dd><p>Generates the recurrence coefficients.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>order</strong> (<em>int</em><em>, </em><em>optional</em>) – Order of the recurrence coefficients.</p>
+<dd class="field-odd"><p><strong>order</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – Order of the recurrence coefficients.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Array of recurrence coefficients.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>numpy.ndarray</p>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)">numpy.ndarray</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -334,13 +348,13 @@ If no string is provided, a <code class="docutils literal notranslate"><span cla
 <dd><p>Generates samples from the distribution associated with the Parameter.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>number_of_samples_required</strong> (<em>int</em>) – Number of samples that are required.</p>
+<dd class="field-odd"><p><strong>number_of_samples_required</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Number of samples that are required.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>The generated samples.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>numpy.ndarray</p>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)">numpy.ndarray</a></p>
 </dd>
 </dl>
 </dd></dl>

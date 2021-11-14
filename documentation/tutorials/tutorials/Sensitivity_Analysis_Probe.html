@@ -1,0 +1,727 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sensitivity analysis for a piston model &#8212; Documentation | equadratures</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/footer.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/fonts.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <link rel="shortcut icon" href="../../_static/eq-logo-favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="A primer on data-driven dimension reduction" href="Dimension_Reduction.html" />
+    <link rel="prev" title="Uncertainty quantification of CFD simulations" href="Computing_Moments_for_CFD.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    <a class="navbar-brand" href="../../index.html">
+    
+      <img src="../../_static/logo_new.png" class="logo" alt="logo" />
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../core/index.html">Core classes</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../secondary/index.html">Secondary classes</a>
+        </li>
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="../index.html">Tutorials</a>
+        </li>
+        
+        
+      </ul>
+
+
+      
+
+      <ul class="navbar-nav">
+        
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search documentation" aria-label="Search documentation" autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+    <div class="bd-toc-item active">
+    
+  
+    <ul class="nav bd-sidenav">
+        
+        
+        
+        
+        
+        
+          
+        
+        
+      </ul>
+  
+  </nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#References" class="nav-link">References</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+</style>
+<div class="section" id="Sensitivity-analysis-for-a-piston-model">
+<h1>Sensitivity analysis for a piston model<a class="headerlink" href="#Sensitivity-analysis-for-a-piston-model" title="Permalink to this headline">¶</a></h1>
+<p>In many computational problems there are a few key inputs that actually dictate the state of the output. Computing the Sobol’ indices of the inputs is one approach to determine which inputs are the <em>drivers</em>. Typically computation of the Sobol’ indices involves a large number of samples – significantly more than required to get the variance in the data. However as shown in Blatman et al. [1], using orthogonal polynomials these can be computed with relative ease. In this notebook we demonstrate
+how we can compute these indices using <code class="docutils literal notranslate"><span class="pre">equadratures</span></code>.</p>
+<p>We consider the well-known piston problem from Kenett et al. [2] that is a non-linear, seven-dimensional problem that outputs the piston cycle time given various piston parameters. These parameters and their bounds are shown in the table below.</p>
+<table class="table">
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 31%" />
+<col style="width: 47%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Variable</p></th>
+<th class="head"><p>Range</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(M\)</span></p></td>
+<td><p>[30, 60]</p></td>
+<td><p>Piston weight</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(S\)</span></p></td>
+<td><p>[0.005, 0.0020]</p></td>
+<td><p>Surface area</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(V_0\)</span></p></td>
+<td><p>[0.002, 0.010]</p></td>
+<td><p>Initial gas volume</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(k\)</span></p></td>
+<td><p>[1000,5000]</p></td>
+<td><p>Spring coefficient</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(P_0\)</span></p></td>
+<td><p>[90000, 110000]</p></td>
+<td><p>Atmospheric pressure</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(T_a\)</span></p></td>
+<td><p>[290, 296]</p></td>
+<td><p>Ambient temperature</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(T_0\)</span></p></td>
+<td><p>[340, 360]</p></td>
+<td><p>Filling gas temperature</p></td>
+</tr>
+</tbody>
+</table>
+<p>The cycle time for the piston is given by</p>
+<div class="math notranslate nohighlight">
+\[C=2\pi\sqrt{\frac{M}{k+S^{2}\frac{P_{0}V_{0}T_{a}}{T_{0}V^{2}}}},\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[V=\frac{S}{2k}\left(\sqrt{A^{2}+4k\frac{P_{0}V_{0}}{T_{0}}T_{a}}-A\right),\]</div>
+<p>and <span class="math notranslate nohighlight">\(A=P_{0}S+19.62M-\frac{kV_{0}}{S}\)</span>. The estimated <em>unnormalized</em> Sobol’ indices (denoted <span class="math notranslate nohighlight">\(\tau_i^2\)</span>) from Kenett et al. [2] are given to be:</p>
+<table class="table">
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 11%" />
+<col style="width: 9%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Variable</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(M\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(S\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(V_0\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(k\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(P_0\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(T_a\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(T_0\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(10^2 \tau^{2}\)</span> indices</p></td>
+<td><p>0.073</p></td>
+<td><p>1.088</p></td>
+<td><p>0.626</p></td>
+<td><p>0.040</p></td>
+<td><p>0.001</p></td>
+<td><p>-0.002</p></td>
+<td><p>-0.002</p></td>
+</tr>
+</tbody>
+</table>
+<p>These values measure the effect of varying each of the 7 input parameters on the output, the piston cycle time <span class="math notranslate nohighlight">\(C\)</span>. Dividing these values by the variance of the output gives the normalised Sobol’ indices. For example, the first order normalised Sobol’ index for the <span class="math notranslate nohighlight">\(i^{th}\)</span> input parameter is</p>
+<div class="math notranslate nohighlight">
+\[S_i = \frac{\tau_i^2}{\sigma^2}\]</div>
+<p>See Section 2.2 in [3] for further details. We wish to use Effective Quadratures to compute these values for the piston problem.</p>
+<p>As before, we begin by defining each parameter and its range using four points for each variable.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">equadratures</span> <span class="k">as</span> <span class="nn">eq</span>
+
+<span class="n">order_parameters</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">mass</span>     <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">lower</span><span class="o">=</span><span class="mf">30.0</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mf">60.0</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order_parameters</span><span class="p">)</span>
+<span class="n">area</span>     <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">lower</span><span class="o">=</span><span class="mf">0.005</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mf">0.020</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order_parameters</span><span class="p">)</span>
+<span class="n">volume</span>   <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">lower</span><span class="o">=</span><span class="mf">0.002</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mf">0.010</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order_parameters</span><span class="p">)</span>
+<span class="n">spring</span>   <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">lower</span><span class="o">=</span><span class="mf">1000.</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mf">5000.</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order_parameters</span><span class="p">)</span>
+<span class="n">pressure</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">lower</span><span class="o">=</span><span class="mf">90000.</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mf">110000.</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order_parameters</span><span class="p">)</span>
+<span class="n">ambtemp</span>  <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">lower</span><span class="o">=</span><span class="mf">290.</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mf">296.</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order_parameters</span><span class="p">)</span>
+<span class="n">gastemp</span>  <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">lower</span><span class="o">=</span><span class="mf">340.</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mf">360.</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order_parameters</span><span class="p">)</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span><span class="n">mass</span><span class="p">,</span> <span class="n">area</span><span class="p">,</span> <span class="n">volume</span><span class="p">,</span> <span class="n">spring</span><span class="p">,</span> <span class="n">pressure</span><span class="p">,</span> <span class="n">ambtemp</span><span class="p">,</span> <span class="n">gastemp</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<p>Then, we define the piston model:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">piston</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">mass</span><span class="p">,</span> <span class="n">area</span><span class="p">,</span> <span class="n">volume</span><span class="p">,</span> <span class="n">spring</span><span class="p">,</span> <span class="n">pressure</span><span class="p">,</span> <span class="n">ambtemp</span><span class="p">,</span> <span class="n">gastemp</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">pressure</span> <span class="o">*</span> <span class="n">area</span> <span class="o">+</span> <span class="mf">19.62</span><span class="o">*</span><span class="n">mass</span> <span class="o">-</span> <span class="p">(</span><span class="n">spring</span> <span class="o">*</span> <span class="n">volume</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">*</span> <span class="n">area</span><span class="p">)</span>
+    <span class="n">V</span> <span class="o">=</span> <span class="p">(</span><span class="n">area</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">spring</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">A</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="n">spring</span> <span class="o">*</span> <span class="n">pressure</span> <span class="o">*</span> <span class="n">volume</span> <span class="o">*</span> <span class="n">ambtemp</span><span class="o">/</span><span class="n">gastemp</span><span class="p">)</span> <span class="o">-</span> <span class="n">A</span><span class="p">)</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mass</span><span class="o">/</span><span class="p">(</span><span class="n">spring</span> <span class="o">+</span> <span class="n">area</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">pressure</span> <span class="o">*</span> <span class="n">volume</span> <span class="o">*</span> <span class="n">ambtemp</span><span class="o">/</span><span class="p">(</span><span class="n">gastemp</span> <span class="o">*</span> <span class="n">V</span><span class="o">**</span><span class="mi">2</span><span class="p">)))</span>
+    <span class="k">return</span> <span class="n">C</span>
+</pre></div>
+</div>
+</div>
+<p>We will opt for a total order basis set with qr subsampling.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">mybasis</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Basis</span><span class="p">(</span><span class="s1">&#39;total-order&#39;</span><span class="p">)</span>
+<span class="n">mypoly</span>  <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Poly</span><span class="p">(</span><span class="n">parameters</span><span class="p">,</span> <span class="n">mybasis</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;least-squares&#39;</span><span class="p">,</span>\
+                  <span class="n">sampling_args</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;mesh&#39;</span><span class="p">:</span><span class="s1">&#39;tensor-grid&#39;</span><span class="p">,</span> <span class="s1">&#39;subsampling-algorithm&#39;</span><span class="p">:</span><span class="s1">&#39;qr&#39;</span><span class="p">,</span> <span class="s1">&#39;sampling-ratio&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<p>Now (and this is the important part), we wish to ascertain how many model evaluations will be required for computing these sensitivities. The objective is for these to be orders of magnitude lower than other methods for computing Sobol’ indices.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">mypoly</span><span class="o">.</span><span class="n">basis</span><span class="o">.</span><span class="n">cardinality</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>Out[11]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+120
+</pre></div></div>
+</div>
+<p>Excellent! So the number of model evaluations we will require is 120! Now lets compute the coefficients and get the Sobol indices to ascertain which of the variables above are the most important.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">mypoly</span><span class="o">.</span><span class="n">set_model</span><span class="p">(</span><span class="n">piston</span><span class="p">)</span>
+<span class="n">mean</span><span class="p">,</span> <span class="n">var</span> <span class="o">=</span> <span class="n">mypoly</span><span class="o">.</span><span class="n">get_mean_and_variance</span><span class="p">()</span>
+<span class="n">sobol</span> <span class="o">=</span> <span class="n">mypoly</span><span class="o">.</span><span class="n">get_sobol_indices</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>For the <em>unnormalised</em> Sobol’ indices we obtain</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">parameters</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">sobol</span><span class="p">[(</span><span class="n">i</span><span class="p">,)])</span> <span class="o">*</span> <span class="mi">10</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">var</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0.08539566261615422
+1.0891138923819914
+0.6185474012210984
+0.0461594487842166
+0.003561262905089266
+0.0011791102008189406
+0.00039249850671305234
+</pre></div></div>
+</div>
+<p>which are similar to the values obtained by Owen. Next, we plot the <em>normalized</em> Sobol’ indices with the code below.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">mypoly</span><span class="o">.</span><span class="n">plot_sobol</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/tutorials_tutorials_Sensitivity_Analysis_Probe_14_0.png" src="../../_images/tutorials_tutorials_Sensitivity_Analysis_Probe_14_0.png" />
+</div>
+</div>
+<p>We can also obtain higher order Sobol indices, which tell us about the importance of interaction between input parameters. For example, for the <span class="math notranslate nohighlight">\(2^{nd}\)</span> order indices:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">mypoly</span><span class="o">.</span><span class="n">plot_sobol</span><span class="p">(</span><span class="n">order</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/tutorials_tutorials_Sensitivity_Analysis_Probe_16_0.png" src="../../_images/tutorials_tutorials_Sensitivity_Analysis_Probe_16_0.png" />
+</div>
+</div>
+<div class="section" id="References">
+<h2>References<a class="headerlink" href="#References" title="Permalink to this headline">¶</a></h2>
+<p>[1] Blatman, G., and Bruno S. (2011), Adaptive sparse polynomial chaos expansion based on least angle regression. Journal of Computational Physics 230.6: 2345-2367. <a class="reference external" href="https://doi.org/10.1016/j.jcp.2010.12.021">Paper</a>.</p>
+<p>[2] Kenett, R., Shelemyahu Z., and Daniele A. (2013), Modern Industrial Statistics: with applications in R, MINITAB and JMP. John Wiley &amp; Sons. <a class="reference external" href="https://dl.acm.org/doi/10.5555/2568447">Book</a>.</p>
+<p>[3] Owen, A. B., Dick, J. and Chen, S. (2014), Higher order Sobol’ indices. Information and Inference 3.1: 59-81. <a class="reference external" href="https://doi.org/10.1093/imaiai/iau001">Paper</a>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="footer.css" rel="stylesheet">
+</head>
+<div class="footer">
+             <div class="container">
+                 <div class="row">
+                   <div class="col-md-6 col-lg-3">
+                       <div class="footer-about">
+                            <a href="https://equadratures.org/"><img style="float: left; margin: 0px 250px 2px 10px; width:30%; min-width:25px" src="https://equadratures.org/icons/logo.png" alt="Image"></a><br>
+                            <b>equadratures</b> <br>
+                            mail@equadratures.org <br>
+                       </div>
+                   </div>
+                   <div class="col-md-6 col-lg-3">
+                       <div class="footer-social">
+                           <a href="https://github.com/equadratures"><img alt="" src="https://equadratures.org/icons/github.png" hspace="0x" style="width:100%; min-width:25px"></a>
+                           <a href="https://www.linkedin.com/company/67900612"><img alt=""  src="https://equadratures.org/icons/linkedin.png" hspace="0x" style="width:100%; min-width:25px"></a>
+                          <a href="https://twitter.com/equadratures"><img alt="" src="https://equadratures.org/icons/twitter.png" hspace="0x" style="width:100%; min-width:25px"></a>
+                        <a href="https://www.youtube.com/channel/UCpjwFDSZuFbzW-2lj6d96dA"><img alt="" src="https://equadratures.org/icons/youtube.png" hspace="0x" style="width:100%; min-width:25px"></a>
+                       </div>
+                       <br>
+                       <br>
+                   </div>
+                   <div class="col-md-6 col-lg-3">
+                       <div class="footer-contact">
+                         <b>management </b><br>
+                          team <br>
+                          partnerships <br>
+                          digital & ai upskilling <br>
+                          case studies <br>
+                          <a href="https://research.equadratures.org/">research</a><br>
+                       </div>
+                   </div>
+                     <div class="col-md-6 col-lg-3">
+                         <div class="footer-links">
+                             <b>code </b><br>
+                              overview <br>
+                              documentation <br>
+                              tutorials <br>
+                              <a href="https://discourse.equadratures.org/">discourse</a>
+                              numfocus affiliation <br>
+                              google summer of code <br>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+             <center>
+               <div class="smallerr">
+               copyright &copy; 2021 by equadratures.
+               <br>
+               made by the equadratures team, with &#10084;&#65039;.
+             </div>
+               <br>
+               <br>
+             </center>
+         </div>
+  </body>
+</html>

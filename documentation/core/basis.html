@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Basis &#8212; equadratures</title>
+    <title>Basis &#8212; Documentation | equadratures</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -44,6 +44,8 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <link rel="shortcut icon" href="../_static/eq-logo-favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Polynomial" href="poly.html" />
@@ -56,7 +58,7 @@
     <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
 <div class="container-xl">
 
-    <a class="navbar-brand" href="../documentation.html">
+    <a class="navbar-brand" href="../index.html">
     
       <img src="../_static/logo_new.png" class="logo" alt="logo" />
     
@@ -71,6 +73,14 @@
         
         <li class="nav-item active">
             <a class="nav-link" href="index.html">Core classes</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../secondary/index.html">Secondary classes</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../tutorials/index.html">Tutorials</a>
         </li>
         
         
@@ -130,6 +140,10 @@
           
         
         
+        
+        
+        
+        
       </ul>
   
   </nav>
@@ -166,12 +180,12 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>basis_type</strong> (<em>str</em>) – The type of index set to be used. Options include: <code class="docutils literal notranslate"><span class="pre">univariate</span></code>, <code class="docutils literal notranslate"><span class="pre">total-order</span></code>, <code class="docutils literal notranslate"><span class="pre">tensor-grid</span></code>,
+<li><p><strong>basis_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The type of index set to be used. Options include: <code class="docutils literal notranslate"><span class="pre">univariate</span></code>, <code class="docutils literal notranslate"><span class="pre">total-order</span></code>, <code class="docutils literal notranslate"><span class="pre">tensor-grid</span></code>,
 <code class="docutils literal notranslate"><span class="pre">sparse-grid</span></code>, <code class="docutils literal notranslate"><span class="pre">hyperbolic-basis</span></code> [1] and <code class="docutils literal notranslate"><span class="pre">euclidean-degree</span></code> [2]; all basis are isotropic.</p></li>
-<li><p><strong>orders</strong> (<em>list</em><em>, </em><em>optional</em>) – List of integers corresponding to the highest polynomial order in each direction.</p></li>
-<li><p><strong>growth_rule</strong> (<em>str</em><em>, </em><em>optional</em>) – The type of growth rule associated with sparse grids.
+<li><p><strong>orders</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a><em>, </em><em>optional</em>) – List of integers corresponding to the highest polynomial order in each direction.</p></li>
+<li><p><strong>growth_rule</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a><em>, </em><em>optional</em>) – The type of growth rule associated with sparse grids.
 Options include: <code class="docutils literal notranslate"><span class="pre">linear</span></code> and <code class="docutils literal notranslate"><span class="pre">exponential</span></code>. This input is only required when using a sparse grid.</p></li>
-<li><p><strong>q</strong> (<em>float</em><em>, </em><em>optional</em>) – The <code class="docutils literal notranslate"><span class="pre">q</span></code> parameter is used to control the number of basis terms used in a hyperbolic basis (see [1]).
+<li><p><strong>q</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>, </em><em>optional</em>) – The <code class="docutils literal notranslate"><span class="pre">q</span></code> parameter is used to control the number of basis terms used in a hyperbolic basis (see [1]).
 Varies between 0.0 to 1.0. A value of 1.0 yields a total order basis.</p></li>
 </ul>
 </dd>
@@ -203,10 +217,10 @@ Varies between 0.0 to 1.0. A value of 1.0 yields a total order basis.</p></li>
 <dd class="field-odd"><p>Elements associated with the multi-index set. For <code class="docutils literal notranslate"><span class="pre">total-order</span></code>, <code class="docutils literal notranslate"><span class="pre">tensor-grid</span></code>, <code class="docutils literal notranslate"><span class="pre">hyperbolic-basis</span></code>, <code class="docutils literal notranslate"><span class="pre">hyperbolic-basis</span></code> and <code class="docutils literal notranslate"><span class="pre">euclidean-degree</span></code> these correspond to the multi-index set elements within the set. For a <code class="docutils literal notranslate"><span class="pre">sparse-grid</span></code> the output will comprise of three arguments: (i) list of tensor grid orders (anisotropic), (ii) the positive and negative weights, and (iii) the individual sparse grid multi-index elements.</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p>numpy.ndarray</p>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)">numpy.ndarray</a></p>
 </dd>
 <dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p><strong>ValueError</strong> – invalid value for basis_type!</p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.10)"><strong>ValueError</strong></a> – invalid value for basis_type!</p>
 </dd>
 </dl>
 </dd></dl>
@@ -220,7 +234,7 @@ Varies between 0.0 to 1.0. A value of 1.0 yields a total order basis.</p></li>
 <dd class="field-odd"><p>The number of multi-index elements of the basis.</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p>int</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -234,7 +248,7 @@ Varies between 0.0 to 1.0. A value of 1.0 yields a total order basis.</p></li>
 <dd class="field-odd"><p>The multi-index elements of the basis.</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p>numpy.ndarray</p>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)">numpy.ndarray</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -251,10 +265,10 @@ Varies between 0.0 to 1.0. A value of 1.0 yields a total order basis.</p></li>
 <dd><p>Prunes down the number of elements in an index set.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>number_of_elements_to_delete</strong> (<em>int</em>) – The number of multi-indices the user would like to delete.</p>
+<dd class="field-odd"><p><strong>number_of_elements_to_delete</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The number of multi-indices the user would like to delete.</p>
 </dd>
 <dt class="field-even">Raises</dt>
-<dd class="field-even"><p><strong>ValueError</strong> – In Basis() –&gt; prune(): Number of elements to be deleted must be greater than the total number of elements</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.10)"><strong>ValueError</strong></a> – In Basis() –&gt; prune(): Number of elements to be deleted must be greater than the total number of elements</p>
 </dd>
 </dl>
 </dd></dl>
@@ -265,10 +279,10 @@ Varies between 0.0 to 1.0. A value of 1.0 yields a total order basis.</p></li>
 <dd><p>Sets the highest order in each direction of the basis.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>orders</strong> (<em>list</em>) – The highest polynomial order along each dimension.</p>
+<dd class="field-odd"><p><strong>orders</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a>) – The highest polynomial order along each dimension.</p>
 </dd>
 <dt class="field-even">Raises</dt>
-<dd class="field-even"><p><strong>ValueError</strong> – Basis __init__: invalid value for basis_type!</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.10)"><strong>ValueError</strong></a> – Basis __init__: invalid value for basis_type!</p>
 </dd>
 </dl>
 </dd></dl>

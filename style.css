@@ -7,7 +7,6 @@ body {
   line-height: 150%;
   color: #4B9AD3;
   text-decoration: none;
-  min-width: 400px;
 }
 
 .p3 {
@@ -36,7 +35,6 @@ body {
   margin-top: 3em;
   margin-bottom: 2em;
   max-width: 1300px;
-  min-width: 500px;
   align-content: center;
   margin: 0 auto !important;
 	float: none !important;
@@ -160,7 +158,6 @@ img {
 
 .img2 {
   border-radius: 8px;
-  min-width: 180px;
   max-width: 200px;
 }
 
@@ -277,7 +274,6 @@ div.a {
 .responsivefour {
   width: 24%;
   height: auto;
-  min-width: 300px;
   vertical-align: middle;
 }
 

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>equadratures.quadrature &#8212; equadratures</title>
+    <title>equadratures.quadrature &#8212; Documentation | equadratures</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -33,8 +33,6 @@
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/styles.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/footer.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/cards.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/gallery.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/fonts.css" />
     
   <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
@@ -46,6 +44,8 @@
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <link rel="shortcut icon" href="../../_static/eq-logo-favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -56,9 +56,9 @@
     <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
 <div class="container-xl">
 
-    <a class="navbar-brand" href="../../documentation.html">
+    <a class="navbar-brand" href="../../index.html">
     
-      <p class="title"> </p>
+      <img src="../../_static/logo_new.png" class="logo" alt="logo" />
     
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
@@ -70,53 +70,17 @@
         
         
         <li class="nav-item ">
-            <a class="nav-link" href="../../parameter.html">Parameter</a>
+            <a class="nav-link" href="../../core/index.html">Core classes</a>
         </li>
         
         <li class="nav-item ">
-            <a class="nav-link" href="../../basis.html">Basis</a>
+            <a class="nav-link" href="../../secondary/index.html">Secondary classes</a>
         </li>
         
         <li class="nav-item ">
-            <a class="nav-link" href="../../poly.html">Polynomial</a>
+            <a class="nav-link" href="../../tutorials/index.html">Tutorials</a>
         </li>
         
-        <li class="nav-item ">
-            <a class="nav-link" href="../../subspaces.html">Dimension reduction with polynomials</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../optimisation.html">Optimisation with polynomials</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../polytree.html">Polynomial Regression Trees</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../solver.html">Linear system solvers</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../quadrature.html">Quadrature</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../weight.html">Prescribing probability functions</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../correlated.html">Correlations</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../scalers.html">Scalers</a>
-        </li>
-        
-        
-        <li class="nav-item">
-            <a class="nav-link nav-external" href="https://discourse.equadratures.org/">Discourse<i class="fas fa-external-link-alt"></i></a>
-        </li>
         
       </ul>
 
@@ -137,7 +101,7 @@
           
           <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search equadratures..." aria-label="Search equadratures..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search documentation" aria-label="Search documentation" autocomplete="off" >
 </form>
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
 
@@ -145,22 +109,6 @@
     
   
     <ul class="nav bd-sidenav">
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         
         
         
@@ -203,7 +151,7 @@
 <span class="kn">from</span> <span class="nn">equadratures.sampling_methods.induced</span> <span class="kn">import</span> <span class="n">Induced</span>
 <span class="kn">from</span> <span class="nn">equadratures.sampling_methods.sampling_template</span> <span class="kn">import</span> <span class="n">Sampling</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<div class="viewcode-block" id="Quadrature"><a class="viewcode-back" href="../../quadrature.html#equadratures.quadrature.Quadrature">[docs]</a><span class="k">class</span> <span class="nc">Quadrature</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="Quadrature"><a class="viewcode-back" href="../../secondary/quadrature.html#equadratures.quadrature.Quadrature">[docs]</a><span class="k">class</span> <span class="nc">Quadrature</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; The class defines a Sampling object. It serves as a template for all sampling methodologies.</span>
 
 <span class="sd">    Parameters</span>
@@ -243,7 +191,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="n">error_message</span><span class="p">()</span>
 
-<div class="viewcode-block" id="Quadrature.get_points"><a class="viewcode-back" href="../../quadrature.html#equadratures.quadrature.Quadrature.get_points">[docs]</a>    <span class="k">def</span> <span class="nf">get_points</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Quadrature.get_points"><a class="viewcode-back" href="../../secondary/quadrature.html#equadratures.quadrature.Quadrature.get_points">[docs]</a>    <span class="k">def</span> <span class="nf">get_points</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Returns the quadrature points.</span>
 
 <span class="sd">        Returns</span>
@@ -253,7 +201,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">points</span></div>
 
-<div class="viewcode-block" id="Quadrature.get_weights"><a class="viewcode-back" href="../../quadrature.html#equadratures.quadrature.Quadrature.get_weights">[docs]</a>    <span class="k">def</span> <span class="nf">get_weights</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Quadrature.get_weights"><a class="viewcode-back" href="../../secondary/quadrature.html#equadratures.quadrature.Quadrature.get_weights">[docs]</a>    <span class="k">def</span> <span class="nf">get_weights</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Returns the quadrature weights.</span>
 
 <span class="sd">        Returns</span>
@@ -263,7 +211,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">weights</span></div>
 
-<div class="viewcode-block" id="Quadrature.get_points_and_weights"><a class="viewcode-back" href="../../quadrature.html#equadratures.quadrature.Quadrature.get_points_and_weights">[docs]</a>    <span class="k">def</span> <span class="nf">get_points_and_weights</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Quadrature.get_points_and_weights"><a class="viewcode-back" href="../../secondary/quadrature.html#equadratures.quadrature.Quadrature.get_points_and_weights">[docs]</a>    <span class="k">def</span> <span class="nf">get_points_and_weights</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Returns the quadrature points and weights.</span>
 
 <span class="sd">        Returns</span>
@@ -290,23 +238,26 @@
   <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
 
 
-    <footer>
-  <div class="footer">
+    <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="footer.css" rel="stylesheet">
+</head>
+<div class="footer">
              <div class="container">
                  <div class="row">
                    <div class="col-md-6 col-lg-3">
                        <div class="footer-about">
-                            <img style="float: left; margin: 0px 250px 2px 10px; width:50%; min-width:25px" src="./icons/logo.png" alt="Image"><br>
+                            <a href="https://equadratures.org/"><img style="float: left; margin: 0px 250px 2px 10px; width:30%; min-width:25px" src="https://equadratures.org/icons/logo.png" alt="Image"></a><br>
                             <b>equadratures</b> <br>
                             mail@equadratures.org <br>
                        </div>
                    </div>
                    <div class="col-md-6 col-lg-3">
                        <div class="footer-social">
-                           <a href="https://github.com/portrait-code"><img alt="" src="icons/github.png" hspace="0x" style="width:100%; min-width:25px"></a>
-                           <a href="https://www.linkedin.com/company/portrait-tec"><img alt=""  src="icons/linkedin.png" hspace="0x" style="width:100%; min-width:25px"></a>
-                          <a href="https://twitter.com/PortraitTec"><img alt="" src="icons/twitter.png" hspace="0x" style="width:100%; min-width:25px"></a>
-                        <a href="https://twitter.com/PortraitTec"><img alt="" src="icons/youtube.png" hspace="0x" style="width:100%; min-width:25px"></a>
+                           <a href="https://github.com/equadratures"><img alt="" src="https://equadratures.org/icons/github.png" hspace="0x" style="width:100%; min-width:25px"></a>
+                           <a href="https://www.linkedin.com/company/67900612"><img alt=""  src="https://equadratures.org/icons/linkedin.png" hspace="0x" style="width:100%; min-width:25px"></a>
+                          <a href="https://twitter.com/equadratures"><img alt="" src="https://equadratures.org/icons/twitter.png" hspace="0x" style="width:100%; min-width:25px"></a>
+                        <a href="https://www.youtube.com/channel/UCpjwFDSZuFbzW-2lj6d96dA"><img alt="" src="https://equadratures.org/icons/youtube.png" hspace="0x" style="width:100%; min-width:25px"></a>
                        </div>
                        <br>
                        <br>
@@ -335,7 +286,7 @@
                  </div>
              </div>
              <center>
-               <div class="small">
+               <div class="smallerr">
                copyright &copy; 2021 by equadratures.
                <br>
                made by the equadratures team, with &#10084;&#65039;.
@@ -344,6 +295,5 @@
                <br>
              </center>
          </div>
-</footer>
   </body>
 </html>

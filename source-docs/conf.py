@@ -4,7 +4,7 @@ import sys
 # Misc Sphinx settings
 #########################
 project = u' '
-copyright = u'2016-2021 by equadratures.org'
+copyright = u'2016-2021 by equadratures'
 author = u'equadratures'
 land_page = "equadratures.org"
 outdir = sys.argv[-1]   #Bryn: Assuming last system argument is output directory
@@ -26,8 +26,8 @@ extensions = [
     'nbsphinx',
     'sphinx_gallery.load_style',
 ] #TODO - prune unused extensions
-master_doc = 'documentation'
-html_title = 'equadratures'
+master_doc = 'index'
+html_title = 'Documentation | equadratures'
 html_theme = 'pydata_sphinx_theme'
 html_logo = 'logo_new.png'
 html_favicon = 'eq-logo-favicon.png'
@@ -43,12 +43,12 @@ latex_elements = {
 # Manual and text info outputs
 #########################
 man_pages = [
-    (master_doc, 'effectivequadratures', u'Effective Quadratures Documentation',
+    (master_doc, 'effectivequadratures', u'equadratures documentation',
      [author], 1)
 ]
 texinfo_documents = [
     (master_doc, 'equadratures', u' ',
-     author, 'equadratures', 'equadratures is an open-source python code developed by Effective Quadratures. It is tailored for tackling problems in uncertainty quantification, surrogate-based optimisation, numerical integration, and data-driven dimension reduction. ',
+     author, 'equadratures', 'equadratures is an open-source python code.',
      'Miscellaneous'),
 ]
 
@@ -61,6 +61,17 @@ html_css_files = [
         'css/footer.css',
         'css/fonts.css'
 ]
+
+# Intersphinx mapping
+intersphinx_mapping = {
+        'https://docs.python.org/': None,
+        'numpy': ('https://numpy.org/doc/stable/', None),
+        'matplotlib': ('https://matplotlib.org/stable/', None),
+        'scipy': ('https://docs.scipy.org/doc/scipy/reference/',None),
+        'sklearn': ('http://scikit-learn.org/stable',
+            (None, './_intersphinx/sklearn-objects.inv'))
+        }
+
 
 # Sphinx panels
 #########################

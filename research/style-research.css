@@ -7,7 +7,6 @@ body {
   line-height: 150%;
   color: #C0C0C0;
   text-decoration: none;
-  min-width: 400px;
   background-color: #213A55;
 }
 
@@ -69,7 +68,6 @@ body {
   margin-top: 3em;
   margin-bottom: 2em;
   max-width: 1300px;
-  min-width: 500px;
   align-content: center;
   margin: 0 auto !important;
 	float: none !important;
@@ -196,15 +194,12 @@ a {
 }
 
 img {
-  border-radius: 19px;
   max-width: 100%;
   align: center
 }
 
 .img2 {
-  border-radius: 12px;
-  min-width: 180px;
-  max-width: 200px;
+  max-width: 400px;
 }
 
 div.a {
@@ -321,7 +316,6 @@ div.a {
 .responsivefour {
   width: 24%;
   height: auto;
-  min-width: 300px;
   vertical-align: middle;
 }
 
@@ -426,9 +420,9 @@ div.a {
 /* Responsive layout - makes a two column-layout instead of four columns */
 @media screen and (max-width: 800px) {
   .column {
-    -ms-flex: 50%;
-    flex: 50%;
-    max-width: 50%;
+    -ms-flex: 100%;
+    flex: 100%;
+    max-width: 100%;
   }
   .column_type_2 {
     -ms-flex: 100%;
@@ -436,6 +430,11 @@ div.a {
     max-width: 100%;
   }
   .column_3 {
+    -ms-flex: 100%;
+    flex: 100%;
+    max-width: 100%;
+  }
+  .column_4 {
     -ms-flex: 100%;
     flex: 100%;
     max-width: 100%;
@@ -458,7 +457,7 @@ div.a {
   .column {
     -ms-flex: 100%;
     flex: 100%;
-    max-width: 50%;
+    max-width: 100%;
   }
 }
 

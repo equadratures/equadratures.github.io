@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>equadratures.polytree &#8212; equadratures</title>
+    <title>equadratures.polytree &#8212; Documentation | equadratures</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -33,8 +33,6 @@
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/styles.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/footer.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/cards.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/gallery.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/fonts.css" />
     
   <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
@@ -46,6 +44,8 @@
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <link rel="shortcut icon" href="../../_static/eq-logo-favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -56,9 +56,9 @@
     <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
 <div class="container-xl">
 
-    <a class="navbar-brand" href="../../documentation.html">
+    <a class="navbar-brand" href="../../index.html">
     
-      <p class="title"> </p>
+      <img src="../../_static/logo_new.png" class="logo" alt="logo" />
     
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
@@ -70,53 +70,17 @@
         
         
         <li class="nav-item ">
-            <a class="nav-link" href="../../parameter.html">Parameter</a>
+            <a class="nav-link" href="../../core/index.html">Core classes</a>
         </li>
         
         <li class="nav-item ">
-            <a class="nav-link" href="../../basis.html">Basis</a>
+            <a class="nav-link" href="../../secondary/index.html">Secondary classes</a>
         </li>
         
         <li class="nav-item ">
-            <a class="nav-link" href="../../poly.html">Polynomial</a>
+            <a class="nav-link" href="../../tutorials/index.html">Tutorials</a>
         </li>
         
-        <li class="nav-item ">
-            <a class="nav-link" href="../../subspaces.html">Dimension reduction with polynomials</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../optimisation.html">Optimisation with polynomials</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../polytree.html">Polynomial Regression Trees</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../solver.html">Linear system solvers</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../quadrature.html">Quadrature</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../weight.html">Prescribing probability functions</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../correlated.html">Correlations</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../scalers.html">Scalers</a>
-        </li>
-        
-        
-        <li class="nav-item">
-            <a class="nav-link nav-external" href="https://discourse.equadratures.org/">Discourse<i class="fas fa-external-link-alt"></i></a>
-        </li>
         
       </ul>
 
@@ -137,7 +101,7 @@
           
           <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search equadratures..." aria-label="Search equadratures..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search documentation" aria-label="Search documentation" autocomplete="off" >
 </form>
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
 
@@ -145,22 +109,6 @@
     
   
     <ul class="nav bd-sidenav">
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         
         
         
@@ -204,7 +152,7 @@
 <span class="kn">import</span> <span class="nn">equadratures.plot</span> <span class="k">as</span> <span class="nn">plot</span>
 <span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">quote</span>
 
-<div class="viewcode-block" id="PolyTree"><a class="viewcode-back" href="../../polytree.html#equadratures.polytree.PolyTree">[docs]</a><span class="k">class</span> <span class="nc">PolyTree</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="PolyTree"><a class="viewcode-back" href="../../secondary/polytree.html#equadratures.polytree.PolyTree">[docs]</a><span class="k">class</span> <span class="nc">PolyTree</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Definition of a polynomial tree object.</span>
 
 <span class="sd">        Parameters</span>
@@ -277,7 +225,7 @@
                 <span class="k">assert</span> <span class="n">samples</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;samples must be a postive integer&quot;</span>
                 <span class="k">assert</span> <span class="n">k</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;k must be a positive number&quot;</span>
 
-<div class="viewcode-block" id="PolyTree.get_splits"><a class="viewcode-back" href="../../polytree.html#equadratures.polytree.PolyTree.get_splits">[docs]</a>        <span class="k">def</span> <span class="nf">get_splits</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="PolyTree.get_splits"><a class="viewcode-back" href="../../secondary/polytree.html#equadratures.polytree.PolyTree.get_splits">[docs]</a>        <span class="k">def</span> <span class="nf">get_splits</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
                 <span class="sd">&quot;&quot;&quot; Returns all of the data splits made.</span>
 
 <span class="sd">                Returns</span>
@@ -307,7 +255,7 @@
                 <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">idx_left</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">idx_right</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
                 <span class="k">return</span> <span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">idx_left</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">idx_left</span><span class="p">]),</span> <span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">idx_right</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">idx_right</span><span class="p">])</span>
 
-<div class="viewcode-block" id="PolyTree.get_polys"><a class="viewcode-back" href="../../polytree.html#equadratures.polytree.PolyTree.get_polys">[docs]</a>        <span class="k">def</span> <span class="nf">get_polys</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="PolyTree.get_polys"><a class="viewcode-back" href="../../secondary/polytree.html#equadratures.polytree.PolyTree.get_polys">[docs]</a>        <span class="k">def</span> <span class="nf">get_polys</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
                 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">                Returns all of the polynomials fitted at each node in the tree.</span>
 
@@ -331,7 +279,7 @@
 
                 <span class="k">return</span> <span class="n">_search_tree</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tree</span><span class="p">,</span> <span class="p">[])</span></div>
 
-<div class="viewcode-block" id="PolyTree.fit"><a class="viewcode-back" href="../../polytree.html#equadratures.polytree.PolyTree.fit">[docs]</a>        <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<div class="viewcode-block" id="PolyTree.fit"><a class="viewcode-back" href="../../secondary/polytree.html#equadratures.polytree.PolyTree.fit">[docs]</a>        <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
                 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">                Fits the PolyTree to the provided data.</span>
 
@@ -564,7 +512,7 @@
 
                 <span class="bp">self</span><span class="o">.</span><span class="n">tree</span> <span class="o">=</span> <span class="n">_build_tree</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="PolyTree.prune"><a class="viewcode-back" href="../../polytree.html#equadratures.polytree.PolyTree.prune">[docs]</a>        <span class="k">def</span> <span class="nf">prune</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">percent</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="PolyTree.prune"><a class="viewcode-back" href="../../secondary/polytree.html#equadratures.polytree.PolyTree.prune">[docs]</a>        <span class="k">def</span> <span class="nf">prune</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">percent</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
                 <span class="sd">&quot;&quot;&quot; Prunes the tree that you have fitted.</span>
 
 <span class="sd">                Parameters</span>
@@ -620,7 +568,7 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">tree</span><span class="p">[</span><span class="s2">&quot;children&quot;</span><span class="p">][</span><span class="s2">&quot;right&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pruner</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tree</span><span class="p">[</span><span class="s2">&quot;children&quot;</span><span class="p">][</span><span class="s2">&quot;right&quot;</span><span class="p">],</span> <span class="n">X_right</span><span class="p">,</span> <span class="n">y_right</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="PolyTree.predict"><a class="viewcode-back" href="../../polytree.html#equadratures.polytree.PolyTree.predict">[docs]</a>        <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+<div class="viewcode-block" id="PolyTree.predict"><a class="viewcode-back" href="../../secondary/polytree.html#equadratures.polytree.PolyTree.predict">[docs]</a>        <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
             <span class="sd">&quot;&quot;&quot; Evaluates the the polynomial tree approximation of the data.</span>
 
 <span class="sd">            Parameters</span>
@@ -677,7 +625,7 @@
 
             <span class="k">return</span> <span class="n">smoothed_y_pred</span></div>
 
-<div class="viewcode-block" id="PolyTree.apply"><a class="viewcode-back" href="../../polytree.html#equadratures.polytree.PolyTree.apply">[docs]</a>        <span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">X</span><span class="p">):</span>
+<div class="viewcode-block" id="PolyTree.apply"><a class="viewcode-back" href="../../secondary/polytree.html#equadratures.polytree.PolyTree.apply">[docs]</a>        <span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">X</span><span class="p">):</span>
                 <span class="sd">&quot;&quot;&quot; Returns the leaf node index for each observation in the data.</span>
 
 <span class="sd">                Parameters</span>
@@ -707,7 +655,7 @@
                 <span class="n">_apply</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tree</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
                 <span class="k">return</span> <span class="n">inode</span></div>
 
-<div class="viewcode-block" id="PolyTree.get_leaves"><a class="viewcode-back" href="../../polytree.html#equadratures.polytree.PolyTree.get_leaves">[docs]</a>        <span class="k">def</span> <span class="nf">get_leaves</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="PolyTree.get_leaves"><a class="viewcode-back" href="../../secondary/polytree.html#equadratures.polytree.PolyTree.get_leaves">[docs]</a>        <span class="k">def</span> <span class="nf">get_leaves</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
                 <span class="sd">&quot;&quot;&quot; Returns the node indices for all leaf nodes.</span>
 <span class="sd">                </span>
 <span class="sd">                Returns</span>
@@ -728,7 +676,7 @@
                 <span class="n">_recurse</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tree</span><span class="p">,</span><span class="n">leaf_list</span><span class="p">)</span>
                 <span class="k">return</span> <span class="n">leaf_list</span></div>
 
-<div class="viewcode-block" id="PolyTree.get_mean_and_variance"><a class="viewcode-back" href="../../polytree.html#equadratures.polytree.PolyTree.get_mean_and_variance">[docs]</a>        <span class="k">def</span> <span class="nf">get_mean_and_variance</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="PolyTree.get_mean_and_variance"><a class="viewcode-back" href="../../secondary/polytree.html#equadratures.polytree.PolyTree.get_mean_and_variance">[docs]</a>        <span class="k">def</span> <span class="nf">get_mean_and_variance</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
             <span class="sd">&quot;&quot;&quot; Computes the mean and variance of the polynomial tree model.</span>
 <span class="sd">            </span>
 <span class="sd">            Returns</span>
@@ -763,7 +711,7 @@
         
             <span class="k">return</span> <span class="n">mean</span><span class="p">,</span> <span class="n">var</span></div>
 
-<div class="viewcode-block" id="PolyTree.get_graphviz"><a class="viewcode-back" href="../../polytree.html#equadratures.polytree.PolyTree.get_graphviz">[docs]</a>        <span class="k">def</span> <span class="nf">get_graphviz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">feature_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="PolyTree.get_graphviz"><a class="viewcode-back" href="../../secondary/polytree.html#equadratures.polytree.PolyTree.get_graphviz">[docs]</a>        <span class="k">def</span> <span class="nf">get_graphviz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">feature_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
                 <span class="sd">&quot;&quot;&quot; Generates a graphviz visualisation of the PolyTree.</span>
 
 <span class="sd">                Parameters</span>
@@ -878,7 +826,7 @@
                         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
                                 <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">source</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="PolyTree.get_node"><a class="viewcode-back" href="../../polytree.html#equadratures.polytree.PolyTree.get_node">[docs]</a>        <span class="k">def</span> <span class="nf">get_node</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inode</span><span class="p">):</span>
+<div class="viewcode-block" id="PolyTree.get_node"><a class="viewcode-back" href="../../secondary/polytree.html#equadratures.polytree.PolyTree.get_node">[docs]</a>        <span class="k">def</span> <span class="nf">get_node</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inode</span><span class="p">):</span>
                 <span class="sd">&quot;&quot;&quot; Returns the node corresponding to a given node number.</span>
 
 <span class="sd">                Parameters</span>
@@ -905,7 +853,7 @@
                                 <span class="k">return</span> <span class="kc">None</span>
                 <span class="k">return</span> <span class="n">_get_node_from_n</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tree</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="PolyTree.get_paths"><a class="viewcode-back" href="../../polytree.html#equadratures.polytree.PolyTree.get_paths">[docs]</a>        <span class="k">def</span> <span class="nf">get_paths</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">X</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="PolyTree.get_paths"><a class="viewcode-back" href="../../secondary/polytree.html#equadratures.polytree.PolyTree.get_paths">[docs]</a>        <span class="k">def</span> <span class="nf">get_paths</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">X</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
                 <span class="sd">&quot;&quot;&quot; Returns the tree paths for the leaf nodes in the tree.</span>
 
 <span class="sd">                Parameters</span>
@@ -961,7 +909,7 @@
 
                 <span class="k">return</span> <span class="n">paths</span></div>
 
-<div class="viewcode-block" id="PolyTree.plot_decision_surface"><a class="viewcode-back" href="../../polytree.html#equadratures.polytree.PolyTree.plot_decision_surface">[docs]</a>        <span class="k">def</span> <span class="nf">plot_decision_surface</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">ij</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">X</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">max_depth</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<div class="viewcode-block" id="PolyTree.plot_decision_surface"><a class="viewcode-back" href="../../secondary/polytree.html#equadratures.polytree.PolyTree.plot_decision_surface">[docs]</a>        <span class="k">def</span> <span class="nf">plot_decision_surface</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">ij</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">X</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">max_depth</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                                          <span class="n">color</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span><span class="n">colorbar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">kwargs</span><span class="o">=</span><span class="p">{}):</span>
                 <span class="sd">&quot;&quot;&quot; Plots the decision boundaries of the PolyTree over a 2D surface. See :meth:`~equadratures.plot.plot_decision_surface` for full description. &quot;&quot;&quot;</span>
                 <span class="k">return</span> <span class="n">plot</span><span class="o">.</span><span class="n">plot_decision_surface</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">ij</span><span class="p">,</span><span class="n">ax</span><span class="p">,</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">max_depth</span><span class="p">,</span><span class="n">label</span><span class="p">,</span><span class="n">color</span><span class="p">,</span><span class="n">colorbar</span><span class="p">,</span><span class="n">show</span><span class="p">,</span><span class="n">kwargs</span><span class="p">)</span></div>
@@ -1144,23 +1092,26 @@
   <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
 
 
-    <footer>
-  <div class="footer">
+    <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="footer.css" rel="stylesheet">
+</head>
+<div class="footer">
              <div class="container">
                  <div class="row">
                    <div class="col-md-6 col-lg-3">
                        <div class="footer-about">
-                            <img style="float: left; margin: 0px 250px 2px 10px; width:50%; min-width:25px" src="./icons/logo.png" alt="Image"><br>
+                            <a href="https://equadratures.org/"><img style="float: left; margin: 0px 250px 2px 10px; width:30%; min-width:25px" src="https://equadratures.org/icons/logo.png" alt="Image"></a><br>
                             <b>equadratures</b> <br>
                             mail@equadratures.org <br>
                        </div>
                    </div>
                    <div class="col-md-6 col-lg-3">
                        <div class="footer-social">
-                           <a href="https://github.com/portrait-code"><img alt="" src="icons/github.png" hspace="0x" style="width:100%; min-width:25px"></a>
-                           <a href="https://www.linkedin.com/company/portrait-tec"><img alt=""  src="icons/linkedin.png" hspace="0x" style="width:100%; min-width:25px"></a>
-                          <a href="https://twitter.com/PortraitTec"><img alt="" src="icons/twitter.png" hspace="0x" style="width:100%; min-width:25px"></a>
-                        <a href="https://twitter.com/PortraitTec"><img alt="" src="icons/youtube.png" hspace="0x" style="width:100%; min-width:25px"></a>
+                           <a href="https://github.com/equadratures"><img alt="" src="https://equadratures.org/icons/github.png" hspace="0x" style="width:100%; min-width:25px"></a>
+                           <a href="https://www.linkedin.com/company/67900612"><img alt=""  src="https://equadratures.org/icons/linkedin.png" hspace="0x" style="width:100%; min-width:25px"></a>
+                          <a href="https://twitter.com/equadratures"><img alt="" src="https://equadratures.org/icons/twitter.png" hspace="0x" style="width:100%; min-width:25px"></a>
+                        <a href="https://www.youtube.com/channel/UCpjwFDSZuFbzW-2lj6d96dA"><img alt="" src="https://equadratures.org/icons/youtube.png" hspace="0x" style="width:100%; min-width:25px"></a>
                        </div>
                        <br>
                        <br>
@@ -1189,7 +1140,7 @@
                  </div>
              </div>
              <center>
-               <div class="small">
+               <div class="smallerr">
                copyright &copy; 2021 by equadratures.
                <br>
                made by the equadratures team, with &#10084;&#65039;.
@@ -1198,6 +1149,5 @@
                <br>
              </center>
          </div>
-</footer>
   </body>
 </html>

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>equadratures.subspaces &#8212; equadratures</title>
+    <title>equadratures.subspaces &#8212; Documentation | equadratures</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -33,8 +33,6 @@
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/styles.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/footer.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/cards.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/gallery.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/fonts.css" />
     
   <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
@@ -46,6 +44,8 @@
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <link rel="shortcut icon" href="../../_static/eq-logo-favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -56,9 +56,9 @@
     <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
 <div class="container-xl">
 
-    <a class="navbar-brand" href="../../documentation.html">
+    <a class="navbar-brand" href="../../index.html">
     
-      <p class="title"> </p>
+      <img src="../../_static/logo_new.png" class="logo" alt="logo" />
     
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
@@ -70,53 +70,17 @@
         
         
         <li class="nav-item ">
-            <a class="nav-link" href="../../parameter.html">Parameter</a>
+            <a class="nav-link" href="../../core/index.html">Core classes</a>
         </li>
         
         <li class="nav-item ">
-            <a class="nav-link" href="../../basis.html">Basis</a>
+            <a class="nav-link" href="../../secondary/index.html">Secondary classes</a>
         </li>
         
         <li class="nav-item ">
-            <a class="nav-link" href="../../poly.html">Polynomial</a>
+            <a class="nav-link" href="../../tutorials/index.html">Tutorials</a>
         </li>
         
-        <li class="nav-item ">
-            <a class="nav-link" href="../../subspaces.html">Dimension reduction with polynomials</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../optimisation.html">Optimisation with polynomials</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../polytree.html">Polynomial Regression Trees</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../solver.html">Linear system solvers</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../quadrature.html">Quadrature</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../weight.html">Prescribing probability functions</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../correlated.html">Correlations</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../scalers.html">Scalers</a>
-        </li>
-        
-        
-        <li class="nav-item">
-            <a class="nav-link nav-external" href="https://discourse.equadratures.org/">Discourse<i class="fas fa-external-link-alt"></i></a>
-        </li>
         
       </ul>
 
@@ -137,7 +101,7 @@
           
           <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search equadratures..." aria-label="Search equadratures..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search documentation" aria-label="Search documentation" autocomplete="off" >
 </form>
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
 
@@ -145,22 +109,6 @@
     
   
     <ul class="nav bd-sidenav">
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         
         
         
@@ -209,7 +157,7 @@
 <span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">linprog</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
 
-<div class="viewcode-block" id="Subspaces"><a class="viewcode-back" href="../../subspaces.html#equadratures.subspaces.Subspaces">[docs]</a><span class="k">class</span> <span class="nc">Subspaces</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="Subspaces"><a class="viewcode-back" href="../../secondary/subspaces.html#equadratures.subspaces.Subspaces">[docs]</a><span class="k">class</span> <span class="nc">Subspaces</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; This class defines a subspaces object. It can be used for polynomial-based subspace dimension reduction.</span>
 
 <span class="sd">    Parameters</span>
@@ -360,7 +308,7 @@
             <span class="k">else</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_get_variable_projection</span><span class="p">()</span>
 
-<div class="viewcode-block" id="Subspaces.get_subspace_polynomial"><a class="viewcode-back" href="../../subspaces.html#equadratures.subspaces.Subspaces.get_subspace_polynomial">[docs]</a>    <span class="k">def</span> <span class="nf">get_subspace_polynomial</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Subspaces.get_subspace_polynomial"><a class="viewcode-back" href="../../secondary/subspaces.html#equadratures.subspaces.Subspaces.get_subspace_polynomial">[docs]</a>    <span class="k">def</span> <span class="nf">get_subspace_polynomial</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Returns a polynomial defined over the dimension reducing subspace.</span>
 <span class="sd">        </span>
 <span class="sd">        Returns</span>
@@ -385,7 +333,7 @@
         <span class="n">subspacepoly</span><span class="o">.</span><span class="n">set_model</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">subspacepoly</span></div>
 
-<div class="viewcode-block" id="Subspaces.get_eigenvalues"><a class="viewcode-back" href="../../subspaces.html#equadratures.subspaces.Subspaces.get_eigenvalues">[docs]</a>    <span class="k">def</span> <span class="nf">get_eigenvalues</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Subspaces.get_eigenvalues"><a class="viewcode-back" href="../../secondary/subspaces.html#equadratures.subspaces.Subspaces.get_eigenvalues">[docs]</a>    <span class="k">def</span> <span class="nf">get_eigenvalues</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Returns the eigenvalues of the dimension reducing subspace. Note: this option is</span>
 <span class="sd">        currently only valid for method ``active-subspace``.</span>
 
@@ -399,7 +347,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Only the active-subspace method yields eigenvalues.&#39;</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Subspaces.get_subspace"><a class="viewcode-back" href="../../subspaces.html#equadratures.subspaces.Subspaces.get_subspace">[docs]</a>    <span class="k">def</span> <span class="nf">get_subspace</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Subspaces.get_subspace"><a class="viewcode-back" href="../../secondary/subspaces.html#equadratures.subspaces.Subspaces.get_subspace">[docs]</a>    <span class="k">def</span> <span class="nf">get_subspace</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Returns the dimension reducing subspace.</span>
 
 <span class="sd">        Returns</span>
@@ -566,7 +514,7 @@
         <span class="n">inactive_subspace</span> <span class="o">=</span> <span class="n">_null_space</span><span class="p">(</span><span class="n">active_subspace</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_subspace</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">active_subspace</span><span class="p">,</span> <span class="n">inactive_subspace</span><span class="p">])</span>
 
-<div class="viewcode-block" id="Subspaces.get_zonotope_vertices"><a class="viewcode-back" href="../../subspaces.html#equadratures.subspaces.Subspaces.get_zonotope_vertices">[docs]</a>    <span class="k">def</span> <span class="nf">get_zonotope_vertices</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num_samples</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">max_count</span><span class="o">=</span><span class="mi">100000</span><span class="p">):</span>
+<div class="viewcode-block" id="Subspaces.get_zonotope_vertices"><a class="viewcode-back" href="../../secondary/subspaces.html#equadratures.subspaces.Subspaces.get_zonotope_vertices">[docs]</a>    <span class="k">def</span> <span class="nf">get_zonotope_vertices</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num_samples</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">max_count</span><span class="o">=</span><span class="mi">100000</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Returns the vertices of the zonotope -- the projection of the high-dimensional space over the computed</span>
 <span class="sd">        subspace.</span>
 <span class="sd">        </span>
@@ -633,7 +581,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">Y</span> <span class="o">=</span> <span class="n">Y</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">num_vertices</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">Y</span></div>
 
-<div class="viewcode-block" id="Subspaces.get_linear_inequalities"><a class="viewcode-back" href="../../subspaces.html#equadratures.subspaces.Subspaces.get_linear_inequalities">[docs]</a>    <span class="k">def</span> <span class="nf">get_linear_inequalities</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Subspaces.get_linear_inequalities"><a class="viewcode-back" href="../../secondary/subspaces.html#equadratures.subspaces.Subspaces.get_linear_inequalities">[docs]</a>    <span class="k">def</span> <span class="nf">get_linear_inequalities</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Returns the linear inequalities defining the zonotope vertices, i.e., Ax&lt;=b.</span>
 
 <span class="sd">        Returns</span>
@@ -655,7 +603,7 @@
             <span class="n">b</span> <span class="o">=</span> <span class="o">-</span><span class="n">convexHull</span><span class="o">.</span><span class="n">equations</span><span class="p">[:,</span><span class="n">n</span><span class="p">]</span>
             <span class="k">return</span> <span class="n">A</span><span class="p">,</span> <span class="n">b</span></div>
 
-<div class="viewcode-block" id="Subspaces.get_samples_constraining_active_coordinates"><a class="viewcode-back" href="../../subspaces.html#equadratures.subspaces.Subspaces.get_samples_constraining_active_coordinates">[docs]</a>    <span class="k">def</span> <span class="nf">get_samples_constraining_active_coordinates</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inactive_samples</span><span class="p">,</span> <span class="n">active_coordinates</span><span class="p">):</span>
+<div class="viewcode-block" id="Subspaces.get_samples_constraining_active_coordinates"><a class="viewcode-back" href="../../secondary/subspaces.html#equadratures.subspaces.Subspaces.get_samples_constraining_active_coordinates">[docs]</a>    <span class="k">def</span> <span class="nf">get_samples_constraining_active_coordinates</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inactive_samples</span><span class="p">,</span> <span class="n">active_coordinates</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; A hit and run type sampling strategy for generating samples at a given coordinate in the active subspace</span>
 <span class="sd">        by varying its coordinates along the inactive subspace.</span>
 
@@ -743,17 +691,17 @@
         <span class="n">yz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">y</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">],</span> <span class="n">N</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">Z</span><span class="o">.</span><span class="n">T</span><span class="p">])</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_subspace</span><span class="p">,</span> <span class="n">yz</span><span class="p">)</span><span class="o">.</span><span class="n">T</span></div>
 
-<div class="viewcode-block" id="Subspaces.plot_sufficient_summary"><a class="viewcode-back" href="../../subspaces.html#equadratures.subspaces.Subspaces.plot_sufficient_summary">[docs]</a>    <span class="k">def</span> <span class="nf">plot_sufficient_summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">X_test</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">y_test</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">poly</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">uncertainty</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">scatter_kwargs</span><span class="o">=</span><span class="p">{},</span> <span class="n">plot_kwargs</span><span class="o">=</span><span class="p">{}):</span>
+<div class="viewcode-block" id="Subspaces.plot_sufficient_summary"><a class="viewcode-back" href="../../secondary/subspaces.html#equadratures.subspaces.Subspaces.plot_sufficient_summary">[docs]</a>    <span class="k">def</span> <span class="nf">plot_sufficient_summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">X_test</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">y_test</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">poly</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">uncertainty</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">scatter_kwargs</span><span class="o">=</span><span class="p">{},</span> <span class="n">plot_kwargs</span><span class="o">=</span><span class="p">{}):</span>
         <span class="sd">&quot;&quot;&quot; Generates a sufficient summary plot for 1D or 2D polynomial ridge approximations.</span>
 <span class="sd">        See :meth:`~equadratures.plot.plot_sufficient_summary` for full description. &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">plot</span><span class="o">.</span><span class="n">plot_sufficient_summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">show</span><span class="p">,</span> <span class="n">poly</span><span class="p">,</span> <span class="n">uncertainty</span><span class="p">,</span> <span class="n">legend</span><span class="p">,</span> <span class="n">scatter_kwargs</span><span class="p">,</span> <span class="n">plot_kwargs</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Subspaces.plot_2D_contour_zonotope"><a class="viewcode-back" href="../../subspaces.html#equadratures.subspaces.Subspaces.plot_2D_contour_zonotope">[docs]</a>    <span class="k">def</span> <span class="nf">plot_2D_contour_zonotope</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mysubspace</span><span class="p">,</span> <span class="n">minmax</span><span class="o">=</span><span class="p">[</span><span class="o">-</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">],</span> <span class="n">grid_pts</span><span class="o">=</span><span class="mi">180</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Subspaces.plot_2D_contour_zonotope"><a class="viewcode-back" href="../../secondary/subspaces.html#equadratures.subspaces.Subspaces.plot_2D_contour_zonotope">[docs]</a>    <span class="k">def</span> <span class="nf">plot_2D_contour_zonotope</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mysubspace</span><span class="p">,</span> <span class="n">minmax</span><span class="o">=</span><span class="p">[</span><span class="o">-</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">],</span> <span class="n">grid_pts</span><span class="o">=</span><span class="mi">180</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Generates a 2D contour plot of the polynomial ridge approximation.</span>
 <span class="sd">        See :meth:`~equadratures.plot.plot_2D_contour_zonotope` for full description. &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">plot</span><span class="o">.</span><span class="n">plot_2D_contour_zonotope</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">minmax</span><span class="p">,</span><span class="n">grid_pts</span><span class="p">,</span><span class="n">show</span><span class="p">,</span><span class="n">ax</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Subspaces.plot_samples_from_second_subspace_over_first"><a class="viewcode-back" href="../../subspaces.html#equadratures.subspaces.Subspaces.plot_samples_from_second_subspace_over_first">[docs]</a>    <span class="k">def</span> <span class="nf">plot_samples_from_second_subspace_over_first</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mysubspace_2</span><span class="p">,</span> <span class="n">axs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">no_of_samples</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">minmax</span><span class="o">=</span><span class="p">[</span><span class="o">-</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">],</span> <span class="n">grid_pts</span><span class="o">=</span><span class="mi">180</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="viewcode-block" id="Subspaces.plot_samples_from_second_subspace_over_first"><a class="viewcode-back" href="../../secondary/subspaces.html#equadratures.subspaces.Subspaces.plot_samples_from_second_subspace_over_first">[docs]</a>    <span class="k">def</span> <span class="nf">plot_samples_from_second_subspace_over_first</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mysubspace_2</span><span class="p">,</span> <span class="n">axs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">no_of_samples</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">minmax</span><span class="o">=</span><span class="p">[</span><span class="o">-</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">],</span> <span class="n">grid_pts</span><span class="o">=</span><span class="mi">180</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Generates a zonotope plot where samples from the second subspace are projected over the first.</span>
 <span class="sd">        See :meth:`~equadratures.plot.plot_samples_from_second_subspace_over_first` for full description.</span>
@@ -940,23 +888,26 @@
   <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
 
 
-    <footer>
-  <div class="footer">
+    <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="footer.css" rel="stylesheet">
+</head>
+<div class="footer">
              <div class="container">
                  <div class="row">
                    <div class="col-md-6 col-lg-3">
                        <div class="footer-about">
-                            <img style="float: left; margin: 0px 250px 2px 10px; width:50%; min-width:25px" src="./icons/logo.png" alt="Image"><br>
+                            <a href="https://equadratures.org/"><img style="float: left; margin: 0px 250px 2px 10px; width:30%; min-width:25px" src="https://equadratures.org/icons/logo.png" alt="Image"></a><br>
                             <b>equadratures</b> <br>
                             mail@equadratures.org <br>
                        </div>
                    </div>
                    <div class="col-md-6 col-lg-3">
                        <div class="footer-social">
-                           <a href="https://github.com/portrait-code"><img alt="" src="icons/github.png" hspace="0x" style="width:100%; min-width:25px"></a>
-                           <a href="https://www.linkedin.com/company/portrait-tec"><img alt=""  src="icons/linkedin.png" hspace="0x" style="width:100%; min-width:25px"></a>
-                          <a href="https://twitter.com/PortraitTec"><img alt="" src="icons/twitter.png" hspace="0x" style="width:100%; min-width:25px"></a>
-                        <a href="https://twitter.com/PortraitTec"><img alt="" src="icons/youtube.png" hspace="0x" style="width:100%; min-width:25px"></a>
+                           <a href="https://github.com/equadratures"><img alt="" src="https://equadratures.org/icons/github.png" hspace="0x" style="width:100%; min-width:25px"></a>
+                           <a href="https://www.linkedin.com/company/67900612"><img alt=""  src="https://equadratures.org/icons/linkedin.png" hspace="0x" style="width:100%; min-width:25px"></a>
+                          <a href="https://twitter.com/equadratures"><img alt="" src="https://equadratures.org/icons/twitter.png" hspace="0x" style="width:100%; min-width:25px"></a>
+                        <a href="https://www.youtube.com/channel/UCpjwFDSZuFbzW-2lj6d96dA"><img alt="" src="https://equadratures.org/icons/youtube.png" hspace="0x" style="width:100%; min-width:25px"></a>
                        </div>
                        <br>
                        <br>
@@ -985,7 +936,7 @@
                  </div>
              </div>
              <center>
-               <div class="small">
+               <div class="smallerr">
                copyright &copy; 2021 by equadratures.
                <br>
                made by the equadratures team, with &#10084;&#65039;.
@@ -994,6 +945,5 @@
                <br>
              </center>
          </div>
-</footer>
   </body>
 </html>
