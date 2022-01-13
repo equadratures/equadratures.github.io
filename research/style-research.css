@@ -83,7 +83,7 @@ body {
 
 h1{
   font-family: 'Raleway';
-  font-size: 40px;
+  font-size: 25px;
   font-weight:bolder;
   line-height: 110%;
   color: #C0C0C0;
@@ -94,7 +94,7 @@ h1{
 
 h2{
   font-family: 'Raleway';
-  font-size: 29px;
+  font-size: 22px;
   font-weight:bolder;
   line-height: 120%;
   color: #C0C0C0;
@@ -107,7 +107,7 @@ h2{
 
 h3{
   font-family: 'Raleway';
-  font-size: 25px;
+  font-size: 15px;
   font-style:normal;
   font-weight:normal;
   line-height: 150%;
@@ -119,7 +119,7 @@ h3{
 
 h3:hover, a:hover{
   font-family: 'Raleway';
-  font-size: 25px;
+  font-size: 15px;
   font-style:normal;
   font-weight:normal;
   line-height: 150%;
@@ -129,7 +129,7 @@ h3:hover, a:hover{
 
 h4{
   font-family: 'Raleway';
-  font-size: 20px;
+  font-size: 13px;
   font-style:normal;
   font-weight:bold;
   line-height: 150%;
