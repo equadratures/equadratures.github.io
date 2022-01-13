@@ -87,13 +87,12 @@ h3{
 
 h3 a{
   font-family: 'Raleway';
-  font-size: 15px;
+  font-size: 19px;
   font-style:normal;
   font-weight:normal;
   line-height: 150%;
   color: black;
   text-decoration: none;
-  text
 }
 
 h3 a:hover{
@@ -104,7 +103,6 @@ h3 a:hover{
   line-height: 150%;
   color: black;
   text-decoration: none;
-  text
 }
 
 
