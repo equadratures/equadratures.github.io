@@ -357,9 +357,9 @@ div.a {
 }
 
 .column_type_2 {
-  -ms-flex: 50%; /* IE10 */
-  flex: 50%;
-  max-width: 50%;
+  -ms-flex: 40%; /* IE10 */
+  flex: 40%;
+  max-width: 40%;
   padding: 10px 10px;
 }
 
@@ -399,12 +399,13 @@ div.a {
     flex: 50%;
     max-width: 50%;
   }
+
   .column_type_2 {
     -ms-flex: 100%;
     flex: 100%;
-    max-width: 50%;
+    max-width: 100%;
   }
-
+  
   .column_type_3 {
     -ms-flex: 100%;
     flex: 100%;
@@ -431,6 +432,7 @@ div.a {
     flex: 100%;
     max-width: 50%;
   }
+
 }
 
 @media screen and (max-width: 600px) {
