@@ -356,6 +356,12 @@ div.a {
   margin-right:2em;
 }
 
+.column_type_2 {
+  -ms-flex: 50%; /* IE10 */
+  flex: 50%;
+  max-width: 50%;
+  padding: 10px 10px;
+}
 
 .column_type_3 {
   -ms-flex: 30%; /* IE10 */
@@ -396,7 +402,7 @@ div.a {
   .column_type_2 {
     -ms-flex: 100%;
     flex: 100%;
-    max-width: 100%;
+    max-width: 50%;
   }
 
   .column_type_3 {
