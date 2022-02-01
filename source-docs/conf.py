@@ -87,6 +87,13 @@ nbsphinx_execute_arguments = [
 ]
 nbsphinx_input_prompt = 'In [%s]:'
 nbsphinx_output_prompt = 'Out[%s]:'
+nbsphinx_thumbnails = {
+    'theory/notebooks/1_Introduction': '_static/gallery/whale.png',
+    'theory/notebooks/2_Parameter': '_static/gallery/parameter.png',
+    'theory/notebooks/3_Basis': '_static/gallery/total.png',
+    'theory/notebooks/4_Polynomial': '_static/gallery/polynomials.png',
+}
+
 
 # sphinxcontrib.bibtex setting
 ##############################
