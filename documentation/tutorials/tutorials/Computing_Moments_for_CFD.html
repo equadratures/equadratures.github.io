@@ -7,36 +7,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Uncertainty quantification of CFD simulations &#8212; Documentation | equadratures</title>
     
-  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
-
+    <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  
     
-  <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-
+    <link rel="stylesheet"
+      href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+      href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+      href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
     
       
-  <link rel="stylesheet"
-    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
-
+  
     
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/basic.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/pydata-sphinx-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/styles.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/footer.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/fonts.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
-
+    <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
@@ -44,57 +41,90 @@
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="shortcut icon" href="../../_static/eq-logo-favicon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Sensitivity analysis for a piston model" href="Sensitivity_Analysis_Probe.html" />
     <link rel="prev" title="Persistence of equadratures objects" href="Object_Persistence.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
-    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
-<div class="container-xl">
+    <div class="container-fluid" id="banner"></div>
 
-    <a class="navbar-brand" href="../../index.html">
     
-      <img src="../../_static/logo_new.png" class="logo" alt="logo" />
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
     
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+    
 
-    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
-      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
-        
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../core/index.html">Core classes</a>
-        </li>
-        
-        <li class="nav-item ">
-            <a class="nav-link" href="../../secondary/index.html">Secondary classes</a>
-        </li>
-        
-        <li class="nav-item active">
-            <a class="nav-link" href="../index.html">Tutorials</a>
-        </li>
-        
-        
-      </ul>
+<a class="navbar-brand" href="../../index.html">
+  <img src="../../_static/logo_new.png" class="logo" alt="logo">
+</a>
 
 
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
       
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../core/index.html">
+  Core classes
+ </a>
+</li>
 
-      <ul class="navbar-nav">
-        
-        
-      </ul>
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../secondary/index.html">
+  Secondary classes
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../theory/index.html">
+  Theory
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="../index.html">
+  Tutorials
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
     </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
 </div>
     </nav>
     
@@ -102,79 +132,162 @@
     <div class="container-xl">
       <div class="row">
           
-          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search documentation" aria-label="Search documentation" autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Foundations
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_Defining_a_Parameter.html">
+   Foundations I: Parameter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_Orthogonal_Polynomials.html">
+   Foundations II: Orthogonal polynomials
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_Model_Fitting.html">
+   Foundations III: Solving linear systems for model fitting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Object_Persistence.html">
+   Persistence of equadratures objects
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Uncertainty quantification and sensitivity analysis
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Uncertainty quantification of CFD simulations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Sensitivity_Analysis_Probe.html">
+   Sensitivity analysis for a piston model
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Dimension reduction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Dimension_Reduction.html">
+   A primer on data-driven dimension reduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Dimension_Reduction_Turbomachinery.html">
+   Data-driven dimension reduction in turbomachinery
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Advanced applications
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Machine_Learning_Airfoil.html">
+   Machine learning of airfoil self-noise with interpretable polynomial trees
+  </a>
+ </li>
+</ul>
 
-    <div class="bd-toc-item active">
-    
-  
-    <ul class="nav bd-sidenav">
-        
-        
-        
-        
-        
-        
-          
-        
-        
-      </ul>
-  
-  </nav>
-          </div>
+  </div>
+</nav>
+              </div>
+              <div class="sidebar-end-items">
+              </div>
+            </div>
+            
           
 
           
           <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
               
+              <div class="toc-item">
+                
 <div class="tocsection onthispage pt-5 pb-3">
     <i class="fas fa-list"></i> On this page
 </div>
 
 <nav id="bd-toc-nav">
-    <ul class="nav section-nav flex-column">
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#Polynomial-chaos-and-Monte-Carlo" class="nav-link">Polynomial chaos and Monte Carlo</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#CFD-simulations-with-two-aleatory-uncertainties" class="nav-link">CFD simulations with two aleatory uncertainties</a><ul class="nav section-nav flex-column">
-                
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#Checking-the-accuracy-of-the-polynomial-approximation" class="nav-link">Checking the accuracy of the polynomial approximation</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#Dealing-with-invalid-simulation-results" class="nav-link">Dealing with invalid simulation results</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#Sensitivity-analysis" class="nav-link">Sensitivity analysis</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#Visualising-the-response-surface" class="nav-link">Visualising the response surface</a>
-        </li>
-    
-            </ul>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#References" class="nav-link">References</a>
-        </li>
-    
-    </ul>
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#Polynomial-chaos-and-Monte-Carlo">
+   Polynomial chaos and Monte Carlo
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#CFD-simulations-with-two-aleatory-uncertainties">
+   CFD simulations with two aleatory uncertainties
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#Checking-the-accuracy-of-the-polynomial-approximation">
+     Checking the accuracy of the polynomial approximation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#Dealing-with-invalid-simulation-results">
+     Dealing with invalid simulation results
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#Sensitivity-analysis">
+     Sensitivity analysis
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#Visualising-the-response-surface">
+     Visualising the response surface
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#References">
+   References
+  </a>
+ </li>
+</ul>
+
 </nav>
-
-
+              </div>
               
+              <div class="toc-item">
+                
+              </div>
+              
+            
           </div>
           
 
+          
+          
+            
           
           <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
               
@@ -390,7 +503,7 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt a.copybtn {
+.prompt .copybtn {
     display: none;
 }
 
@@ -442,8 +555,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [140]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">equadratures</span> <span class="k">as</span> <span class="nn">eq</span>
 
@@ -457,8 +569,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [20]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">mu</span> <span class="o">=</span> <span class="mi">1</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mu</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">sigma</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="n">variance</span> <span class="o">=</span> <span class="n">sigma</span><span class="o">**</span><span class="mi">2</span>
 <span class="n">x1</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s2">&quot;Gaussian&quot;</span><span class="p">,</span> <span class="n">shape_parameter_A</span><span class="o">=</span><span class="n">mu</span><span class="p">,</span> <span class="n">shape_parameter_B</span><span class="o">=</span><span class="n">variance</span><span class="p">)</span>
@@ -472,8 +583,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [134]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">pce</span><span class="p">(</span><span class="n">params</span><span class="p">,</span><span class="n">order</span><span class="p">,</span><span class="n">function</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pce</span><span class="p">(</span><span class="n">params</span><span class="p">,</span><span class="n">order</span><span class="p">,</span><span class="n">function</span><span class="p">):</span>
     <span class="n">mybasis</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Basis</span><span class="p">(</span><span class="s1">&#39;tensor-grid&#39;</span><span class="p">,</span><span class="n">orders</span><span class="o">=</span><span class="p">[</span><span class="n">order</span><span class="p">,</span><span class="n">order</span><span class="p">])</span>
     <span class="n">mypoly</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Poly</span><span class="p">(</span><span class="n">myparams</span><span class="p">,</span> <span class="n">mybasis</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;numerical-integration&#39;</span><span class="p">)</span>
     <span class="n">mypoly</span><span class="o">.</span><span class="n">set_model</span><span class="p">(</span><span class="n">rosenbrock_fun</span><span class="p">)</span>
@@ -498,8 +608,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [24]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">def</span> <span class="nf">monte_carlo</span><span class="p">(</span><span class="n">n_samples</span><span class="p">,</span><span class="n">function</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">monte_carlo</span><span class="p">(</span><span class="n">n_samples</span><span class="p">,</span><span class="n">function</span><span class="p">):</span>
     <span class="n">n_samples</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_samples</span><span class="p">)</span>
     <span class="n">s</span> <span class="o">=</span> <span class="n">sigma</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n_samples</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">mu</span>
     <span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_samples</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
@@ -526,8 +635,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [135]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># THIS WILL TAKE A WHILE - SKIP IF SHORT ON TIME!</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># THIS WILL TAKE A WHILE - SKIP IF SHORT ON TIME!</span>
 <span class="c1"># Test pce</span>
 <span class="n">Ntests</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">n_to_try_pce</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">2.0</span><span class="p">,</span><span class="n">Ntests</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
@@ -551,8 +659,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [138]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">fig1</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig1</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Number of samples&#39;</span><span class="p">);</span> <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Number of samples&#39;</span><span class="p">)</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Mean&#39;</span><span class="p">);</span> <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Variance&#39;</span><span class="p">)</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">);</span> <span class="n">ax1</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
@@ -599,8 +706,7 @@ distribution.</p>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [207]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">s1</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">lower</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span> <span class="c1">#turb2lamviscosity</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s1</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">lower</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span> <span class="c1">#turb2lamviscosity</span>
 <span class="n">s2</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;Gaussian&#39;</span><span class="p">,</span> <span class="n">shape_parameter_A</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">shape_parameter_B</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span> <span class="c1">#Ti</span>
 <span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">s1</span><span class="o">.</span><span class="n">plot_pdf</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">,</span><span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">);</span> <span class="n">s2</span><span class="o">.</span><span class="n">plot_pdf</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">,</span><span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -620,8 +726,7 @@ distribution.</p>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [164]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">mybasis</span> <span class="o">=</span> <span class="n">Basis</span><span class="p">(</span><span class="s1">&#39;tensor-grid&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mybasis</span> <span class="o">=</span> <span class="n">Basis</span><span class="p">(</span><span class="s1">&#39;tensor-grid&#39;</span><span class="p">)</span>
 <span class="n">mypoly</span> <span class="o">=</span> <span class="n">Poly</span><span class="p">(</span><span class="n">parameters</span><span class="o">=</span><span class="p">[</span><span class="n">s1</span><span class="p">,</span><span class="n">s2</span><span class="p">],</span> <span class="n">basis</span><span class="o">=</span><span class="n">mybasis</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;numerical-integration&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -631,8 +736,7 @@ distribution.</p>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [165]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Get the DOE points</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the DOE points</span>
 <span class="n">pts</span> <span class="o">=</span> <span class="n">mypoly</span><span class="o">.</span><span class="n">get_points</span><span class="p">()</span>
 
 <span class="c1"># Print and save to file</span>
@@ -685,8 +789,7 @@ Viscosity ratio          Ti
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [204]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Load the Yp array from file</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the Yp array from file</span>
 <span class="k">if</span> <span class="n">IN_COLAB</span><span class="p">:</span>
     <span class="o">!</span>wget https://github.com/equadratures/equadratures.github.io/blob/master/_documentation/tutorials/lossarray_sst.npy -O data/lossarray_sst.npy
 <span class="n">Yp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;data/lossarray_sst.npy&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -728,8 +831,7 @@ SA ratio         Ti              Y_p
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [205]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">mean</span><span class="p">,</span> <span class="n">var</span> <span class="o">=</span> <span class="n">mypoly</span><span class="o">.</span><span class="n">get_mean_and_variance</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean</span><span class="p">,</span> <span class="n">var</span> <span class="o">=</span> <span class="n">mypoly</span><span class="o">.</span><span class="n">get_mean_and_variance</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mean Yp = </span><span class="si">%.2g</span><span class="s1">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">mean</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;95</span><span class="si">%%</span><span class="s1"> confidence interval for Yp = </span><span class="si">%.2g</span><span class="s1"> (</span><span class="si">%.2g%%</span><span class="s1">)&#39;</span> <span class="o">%</span><span class="p">(</span><span class="mf">1.96</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">var</span><span class="p">),</span><span class="mi">100</span><span class="o">*</span><span class="mf">1.96</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">var</span><span class="p">)</span><span class="o">/</span><span class="n">mean</span><span class="p">))</span>
 </pre></div>
@@ -752,8 +854,7 @@ Mean Yp = 0.053
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [174]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">mypoly</span><span class="o">.</span><span class="n">get_polyfit</span><span class="p">(</span><span class="n">pts</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">mypoly</span><span class="o">.</span><span class="n">get_polyfit</span><span class="p">(</span><span class="n">pts</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
 <span class="n">y_true</span> <span class="o">=</span> <span class="n">Yp</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
 <span class="n">r2</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span><span class="n">y_true</span><span class="p">,</span><span class="n">metric</span><span class="o">=</span><span class="s1">&#39;r2&#39;</span><span class="p">)</span>
 <span class="n">rmse</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span><span class="n">y_true</span><span class="p">,</span><span class="n">metric</span><span class="o">=</span><span class="s1">&#39;rmse&#39;</span><span class="p">)</span>
@@ -778,8 +879,7 @@ R2 = 1, RMSE = 1.76e-16
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [176]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Enter list of points you want to set to NaN here (0 to 15)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Enter list of points you want to set to NaN here (0 to 15)</span>
 <span class="n">indices</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">14</span><span class="p">]</span>
 <span class="n">indices_to_set_to_NaN</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">indices</span><span class="p">)</span>
 
@@ -811,8 +911,7 @@ R2 = 1, RMSE = 1.76e-16
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [177]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">mypoly_NaN</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">mypoly</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mypoly_NaN</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">mypoly</span><span class="p">)</span>
 <span class="n">mypoly_NaN</span><span class="o">.</span><span class="n">set_model</span><span class="p">(</span><span class="n">Yp_with_NaNs</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -831,8 +930,7 @@ The code will now use a least-squares technique that will ignore input-output pa
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [178]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Compute moments</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute moments</span>
 <span class="n">mean_with_NaNs</span><span class="p">,</span> <span class="n">var_with_NaNs</span> <span class="o">=</span> <span class="n">mypoly_NaN</span><span class="o">.</span><span class="n">get_mean_and_variance</span><span class="p">()</span>
 
 <span class="c1"># Print</span>
@@ -864,8 +962,7 @@ Errors as a % of original values: mean = 0.019%, variance = -1.755%
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [179]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">mypoly</span><span class="o">.</span><span class="n">get_sobol_indices</span><span class="p">(</span><span class="n">order</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mypoly</span><span class="o">.</span><span class="n">get_sobol_indices</span><span class="p">(</span><span class="n">order</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -887,8 +984,7 @@ Errors as a % of original values: mean = 0.019%, variance = -1.755%
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [201]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1"># Get the mypolyfit model</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the mypolyfit model</span>
 <span class="n">mypolyfit</span> <span class="o">=</span> <span class="n">mypoly</span><span class="o">.</span><span class="n">get_polyfit</span>
 
 <span class="c1"># Get the sampling points</span>
@@ -937,8 +1033,7 @@ Errors as a % of original values: mean = 0.019%, variance = -1.755%
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -956,12 +1051,9 @@ Errors as a % of original values: mean = 0.019%, variance = -1.755%
 
       </div>
     </div>
-
-    
-  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
-
-
-    <head>
+  
+    <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="footer.css" rel="stylesheet">
 </head>

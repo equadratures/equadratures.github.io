@@ -1,0 +1,405 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introduction &#8212; Documentation | equadratures</title>
+    
+    <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  
+    
+    <link rel="stylesheet"
+      href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+      href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+      href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+    
+      
+  
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/pydata-sphinx-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/footer.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/fonts.css" />
+    
+    <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <link rel="shortcut icon" href="../../_static/eq-logo-favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Parameters" href="2_Parameter.html" />
+    <link rel="prev" title="Theory" href="../index.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="../../index.html">
+  <img src="../../_static/logo_new.png" class="logo" alt="logo">
+</a>
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../core/index.html">
+  Core classes
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../secondary/index.html">
+  Secondary classes
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="../index.html">
+  Theory
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../tutorials/index.html">
+  Tutorials
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search documentation" aria-label="Search documentation" autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Fundamentals
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_Parameter.html">
+   Parameters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_Basis.html">
+   Basis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_Polynomial.html">
+   Polynomials
+  </a>
+ </li>
+</ul>
+
+  </div>
+</nav>
+              </div>
+              <div class="sidebar-end-items">
+              </div>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#References">
+   References
+  </a>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="Introduction">
+<h1>Introduction<a class="headerlink" href="#Introduction" title="Permalink to this headline">¶</a></h1>
+<p>For nearly five years now, equadratures <a class="footnote-reference brackets" href="#seshadri2017effective" id="id1">1</a>, a pure python code, has been made openly available to the computational methods community. Over the last two years alone, it has been downloaded well over 40,000 times, and is being used across industry, government, and academia. Today, equadratures is a model development platform facilitating explainable and robust models that do not require large cloud infrastructure to train, unlike many deep learning frameworks.
+Models built in equadratures can be used for a wide range of tasks spanning uncertainty quantification, sensitivity analysis, numerical integration, optimisation, clustering, parameter-space exploration, dimension reduction, surrogate modelling, and even digital twinning.</p>
+<p>When originally developed five years ago, equadratures (known then as Effective Quadratures) was purpose-built for facilitating non-intrusive uncertainty quantification through polynomial chaos expansions <a class="footnote-reference brackets" href="#xiu2002wiener" id="id2">2</a><a class="footnote-reference brackets" href="#constantine2012sparse" id="id3">3</a><a class="footnote-reference brackets" href="#seshadri2017effectively" id="id4">4</a>. The unique selling point of the code was an adoption of least squares and compressed sensing-based approaches for estimating polynomial coefficients, rather than opting for more conventional tensor and sparse grid
+strategies. This permitted greater anisotropy in the selection of basis functions used in the polynomial expansions, as well as a reduction in the number of samples required with rising problem dimensionality. The overall workflow can best be summarised in the steps below.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>          User prescribes input marginal distributions for each uncertainty.
+
+                                         │
+                                         ▼
+
+Least squares or compressed sensing framework is used to generate a design of experiment.
+
+                                         │
+                                         ▼
+
+                   Model is evaluated at the design of experiment.
+
+                                         │
+                                         ▼
+
+                        Polynomial coefficients are computed.
+
+                                         │
+                                         ▼
+
+     Moments and sensitivities (Sobol&#39; indices) are determined from the coefficients.
+</pre></div>
+</div>
+<p>This shift towards least squares and compressed sensing is well captured in literature <a class="footnote-reference brackets" href="#cohen2013stability" id="id5">5</a><a class="footnote-reference brackets" href="#luthen2021sparse" id="id6">6</a> as are the different strategies for arriving at well conditioned matrices and sampling distributions <a class="footnote-reference brackets" href="#guo2020constructing" id="id7">7</a><a class="footnote-reference brackets" href="#hadigol2018least" id="id8">8</a><a class="footnote-reference brackets" href="#peng2014weighted" id="id9">9</a> . There is a clear trend to opt for random sampling techniques paired with well-worn algorithms for identifying well-conditioned submatrices, e.g., QR with column pivoting and SVD-based subset
+selection <a class="footnote-reference brackets" href="#bjorck2015numerical" id="id10">10</a> , among other convex optimisation rooted techniques (see <a class="footnote-reference brackets" href="#seshadri2019quadrature" id="id11">11</a> for a comparison).</p>
+<p>Over the past few years, equadratures has grown in capability, ingesting and synthesising key advances in literature to accelerate application impact. One of the most fruitful advances have been in parameter-space dimension reduction, where the central idea is to ascertain whether a function admits a dimension reducing subspace—i.e., a few linear combination of all the variables which may be used for function approximation. While the idea is itself not unprecedented
+<a class="footnote-reference brackets" href="#samarov1993exploring" id="id12">12</a>, it has experienced a resurgence owing to a prodigious number of publications under the handles of active subspaces <a class="footnote-reference brackets" href="#constantine2015active" id="id13">13</a>, sufficient dimension reduction <a class="footnote-reference brackets" href="#cook2005sufficient" id="id14">14</a> and ridge functions <a class="footnote-reference brackets" href="#pinkus2015ridge" id="id15">15</a> (to name a few). These works have been championed by researchers spanning both academia and industry—with impactful use cases
+<a class="footnote-reference brackets" href="#seshadri2018turbomachinery" id="id16">16</a><a class="footnote-reference brackets" href="#scillitoe2020design" id="id17">17</a><a class="footnote-reference brackets" href="#constantine2017global" id="id18">18</a><a class="footnote-reference brackets" href="#constantine2015exploiting" id="id19">19</a> that likely serve as a precursor to further advances within the areas of function approximation. A practical outlook on the success of data-driven dimension reduction in computational science may be enforced by the notion that we trust our models within a relatively small parameter space and conduct our parameter studies accordingly. Thus, function values around a notional centroid may
+be well-approximated via linear projections of neighboring parameter values.</p>
+<p>Beyond dimension reduction, ancillary progress on robust methods for dealing with correlations in the inputs, i.e., identifying independent polynomial basis on correlated spaces <a class="footnote-reference brackets" href="#jakeman2019polynomial" id="id20">20</a> has been important for driving forth the uptake of polynomial-based methods and thus equadratures. This builds upon prior work with Nataf and Rosenblatt transformations <a class="footnote-reference brackets" href="#novak2018polynomial" id="id21">21</a>. These advances have permitted the construction of stable <em>global</em> polynomials across
+both high order and high dimensional problems. This naturally leads one to consider leveraging polynomials across a wider range of challenges including optimisation, multi-fidelity modelling, spatial-field modelling and dimension reduction.</p>
+<p>It is important to remark that <em>global</em> smoothness and continuity are certainly not guaranteed for all problems. Thus, strategies to fit multiple polynomials over a domain are extremely useful, especially when working with problems that are characterised by a relatively large parameter space. This may take the form of trust region methods <a class="footnote-reference brackets" href="#nocedal2006trust" id="id22">22</a> or tree-based methods <a class="footnote-reference brackets" href="#breiman2017classification" id="id23">23</a>, where polynomials need to be defined over a subdomain in a recursive
+manner—based on certain approximation error criterion. Within equadratures these ideas have found utility in polynomial regression tree models and trust-region optimisation methods. In fact for the latter, if one further assumes that a subspace-based dimension reduction representation exists, then from the perspective of optimiser, as the trust region migrates through a larger parameter space, finding such projections iteratively may be incredibly valuable, both from the perspectives of
+convergence rate and optimality (see <a class="footnote-reference brackets" href="#gross2021optimization" id="id24">24</a>).</p>
+<div class="section" id="References">
+<h2>References<a class="headerlink" href="#References" title="Permalink to this headline">¶</a></h2>
+<p><dl class="footnote brackets">
+<dt class="label" id="seshadri2017effective"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Pranay Seshadri and Geoffrey Parks. Effective-quadratures (eq): polynomials for computational engineering studies. <em>The Journal of Open Source Software</em>, 2:166–166, 2017.</p>
+</dd>
+<dt class="label" id="xiu2002wiener"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>Dongbin Xiu and George Em Karniadakis. The wiener–askey polynomial chaos for stochastic differential equations. <em>SIAM journal on scientific computing</em>, 24(2):619–644, 2002.</p>
+</dd>
+<dt class="label" id="constantine2012sparse"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
+<dd><p>Paul G Constantine, Michael S Eldred, and Eric T Phipps. Sparse pseudospectral approximation method. <em>Computer Methods in Applied Mechanics and Engineering</em>, 229:1–12, 2012.</p>
+</dd>
+<dt class="label" id="seshadri2017effectively"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
+<dd><p>Pranay Seshadri, Akil Narayan, and Sankaran Mahadevan. Effectively subsampled quadratures for least squares polynomial approximations. <em>SIAM/ASA Journal on Uncertainty Quantification</em>, 5(1):1003–1023, 2017.</p>
+</dd>
+<dt class="label" id="cohen2013stability"><span class="brackets"><a class="fn-backref" href="#id5">5</a></span></dt>
+<dd><p>Albert Cohen, Mark A Davenport, and Dany Leviatan. On the stability and accuracy of least squares approximations. <em>Foundations of computational mathematics</em>, 13(5):819–834, 2013.</p>
+</dd>
+<dt class="label" id="luthen2021sparse"><span class="brackets"><a class="fn-backref" href="#id6">6</a></span></dt>
+<dd><p>Nora Lüthen, Stefano Marelli, and Bruno Sudret. Sparse polynomial chaos expansions: literature survey and benchmark. <em>SIAM/ASA Journal on Uncertainty Quantification</em>, 9(2):593–649, 2021.</p>
+</dd>
+<dt class="label" id="guo2020constructing"><span class="brackets"><a class="fn-backref" href="#id7">7</a></span></dt>
+<dd><p>Ling Guo, Akil Narayan, and Tao Zhou. Constructing least-squares polynomial approximations. <em>SIAM Review</em>, 62(2):483–508, 2020.</p>
+</dd>
+<dt class="label" id="hadigol2018least"><span class="brackets"><a class="fn-backref" href="#id8">8</a></span></dt>
+<dd><p>Mohammad Hadigol and Alireza Doostan. Least squares polynomial chaos expansion: a review of sampling strategies. <em>Computer Methods in Applied Mechanics and Engineering</em>, 332:382–407, 2018.</p>
+</dd>
+<dt class="label" id="peng2014weighted"><span class="brackets"><a class="fn-backref" href="#id9">9</a></span></dt>
+<dd><p>Ji Peng, Jerrad Hampton, and Alireza Doostan. A weighted ℓ1-minimization approach for sparse polynomial chaos expansions. <em>Journal of Computational Physics</em>, 267:92–111, 2014.</p>
+</dd>
+<dt class="label" id="bjorck2015numerical"><span class="brackets"><a class="fn-backref" href="#id10">10</a></span></dt>
+<dd><p>Åke Björck. <em>Numerical methods in matrix computations</em>. Volume 59. Springer, 2015.</p>
+</dd>
+<dt class="label" id="seshadri2019quadrature"><span class="brackets"><a class="fn-backref" href="#id11">11</a></span></dt>
+<dd><p>Pranay Seshadri, Gianluca Iaccarino, and Tiziano Ghisu. Quadrature strategies for constructing polynomial approximations. In <em>Uncertainty Modeling for Engineering Applications</em>, pages 1–25. Springer, 2019.</p>
+</dd>
+<dt class="label" id="samarov1993exploring"><span class="brackets"><a class="fn-backref" href="#id12">12</a></span></dt>
+<dd><p>Alexander M Samarov. Exploring regression structure using nonparametric functional estimation. <em>Journal of the American Statistical Association</em>, 88(423):836–847, 1993.</p>
+</dd>
+<dt class="label" id="constantine2015active"><span class="brackets"><a class="fn-backref" href="#id13">13</a></span></dt>
+<dd><p>Paul G Constantine. <em>Active subspaces: Emerging ideas for dimension reduction in parameter studies</em>. SIAM, 2015.</p>
+</dd>
+<dt class="label" id="cook2005sufficient"><span class="brackets"><a class="fn-backref" href="#id14">14</a></span></dt>
+<dd><p>R Dennis Cook and Liqiang Ni. Sufficient dimension reduction via inverse regression: a minimum discrepancy approach. <em>Journal of the American Statistical Association</em>, 100(470):410–428, 2005.</p>
+</dd>
+<dt class="label" id="pinkus2015ridge"><span class="brackets"><a class="fn-backref" href="#id15">15</a></span></dt>
+<dd><p>Allan Pinkus. <em>Ridge functions</em>. Volume 205. Cambridge University Press, 2015.</p>
+</dd>
+<dt class="label" id="seshadri2018turbomachinery"><span class="brackets"><a class="fn-backref" href="#id16">16</a></span></dt>
+<dd><p>Pranay Seshadri, Shahrokh Shahpar, Paul Constantine, Geoffrey Parks, and Mike Adams. Turbomachinery active subspace performance maps. <em>Journal of Turbomachinery</em>, 140(4):041003, 2018.</p>
+</dd>
+<dt class="label" id="scillitoe2020design"><span class="brackets"><a class="fn-backref" href="#id17">17</a></span></dt>
+<dd><p>Ashley D Scillitoe, Bryn Ubald, Pranay Seshadri, and Shahrokh Shahpar. Design space exploration of stagnation temperature probes via dimension reduction. In <em>Turbo Expo: Power for Land, Sea, and Air</em>, volume 84089, V02CT35A057. American Society of Mechanical Engineers, 2020.</p>
+</dd>
+<dt class="label" id="constantine2017global"><span class="brackets"><a class="fn-backref" href="#id18">18</a></span></dt>
+<dd><p>Paul G Constantine and Paul Diaz. Global sensitivity metrics from active subspaces. <em>Reliability Engineering &amp; System Safety</em>, 162:1–13, 2017.</p>
+</dd>
+<dt class="label" id="constantine2015exploiting"><span class="brackets"><a class="fn-backref" href="#id19">19</a></span></dt>
+<dd><p>Paul G Constantine, Michael Emory, Johan Larsson, and Gianluca Iaccarino. Exploiting active subspaces to quantify uncertainty in the numerical simulation of the hyshot ii scramjet. <em>Journal of Computational Physics</em>, 302:1–20, 2015.</p>
+</dd>
+<dt class="label" id="jakeman2019polynomial"><span class="brackets"><a class="fn-backref" href="#id20">20</a></span></dt>
+<dd><p>John D Jakeman, Fabian Franzelin, Akil Narayan, Michael Eldred, and Dirk Plfüger. Polynomial chaos expansions for dependent random variables. <em>Computer Methods in Applied Mechanics and Engineering</em>, 351:643–666, 2019.</p>
+</dd>
+<dt class="label" id="novak2018polynomial"><span class="brackets"><a class="fn-backref" href="#id21">21</a></span></dt>
+<dd><p>Lukas Novak and Drahomir Novak. Polynomial chaos expansion for surrogate modelling: theory and software. <em>Beton-und Stahlbetonbau</em>, 113:27–32, 2018.</p>
+</dd>
+<dt class="label" id="nocedal2006trust"><span class="brackets"><a class="fn-backref" href="#id22">22</a></span></dt>
+<dd><p>Jorge Nocedal and Stephen J Wright. Trust-region methods. <em>Numerical Optimization</em>, pages 66–100, 2006.</p>
+</dd>
+<dt class="label" id="breiman2017classification"><span class="brackets"><a class="fn-backref" href="#id23">23</a></span></dt>
+<dd><p>Leo Breiman, Jerome H Friedman, Richard A Olshen, and Charles J Stone. <em>Classification and regression trees</em>. Routledge, 2017.</p>
+</dd>
+<dt class="label" id="gross2021optimization"><span class="brackets"><a class="fn-backref" href="#id24">24</a></span></dt>
+<dd><p>James C Gross and Geoffrey T Parks. Optimization by moving ridge functions: derivative-free optimization for computationally intensive functions. <em>Engineering Optimization</em>, pages 1–23, 2021.</p>
+</dd>
+</dl>
+</p>
+</div>
+</div>
+
+
+              </div>
+              
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+    <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="footer.css" rel="stylesheet">
+</head>
+<div class="footer">
+             <div class="container">
+                 <div class="row">
+                   <div class="col-md-6 col-lg-3">
+                       <div class="footer-about">
+                            <a href="https://equadratures.org/"><img style="float: left; margin: 0px 250px 2px 10px; width:30%; min-width:25px" src="https://equadratures.org/icons/logo.png" alt="Image"></a><br>
+                            <b>equadratures</b> <br>
+                            mail@equadratures.org<br>
+                       </div>
+                   </div>
+                   <div class="col-md-6 col-lg-3">
+                       <div class="footer-social">
+                           <a href="https://github.com/equadratures"><img alt="" src="https://equadratures.org/icons/github.png" hspace="0x" style="width:100%; min-width:25px"></a>
+                           <a href="https://www.linkedin.com/company/67900612"><img alt=""  src="https://equadratures.org/icons/linkedin.png" hspace="0x" style="width:100%; min-width:25px"></a>
+                          <a href="https://twitter.com/equadratures"><img alt="" src="https://equadratures.org/icons/twitter.png" hspace="0x" style="width:100%; min-width:25px"></a>
+                        <a href="https://www.youtube.com/channel/UCpjwFDSZuFbzW-2lj6d96dA"><img alt="" src="https://equadratures.org/icons/youtube.png" hspace="0x" style="width:100%; min-width:25px"></a>
+                       </div>
+                       <br>
+                       <br>
+                   </div>
+                   <div class="col-md-6 col-lg-3">
+                       <div class="footer-contact">
+                         <b>management </b><br>
+                         <a href="https://equadratures.org/team">team </a><br>
+                         <a href="https://equadratures.org/partnerships">partnerships</a> <br>
+                         <a href="https://equadratures.org/digital">digital & ai upskilling</a> <br>
+                         <a href="https://equadratures.org/case-studies">case studies</a> <br>
+                         <a href="https://research.equadratures.org/">research</a><br>
+                       </div>
+                   </div> 
+                     <div class="col-md-6 col-lg-3">
+                         <div class="footer-links">
+                             <b>code </b><br>
+                             <a href="https://equadratures.org/documentation">documentation</a><br>
+                             <a href="https://discourse.equadratures.org/">discourse</a><br>
+                             <a href="https://equadratures.org/numfocus">numfocus affiliation</a> <br>
+                             <a href="https://equadratures.org/gsoc">google summer of code</a> <br>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+             <center>
+               <div class="smallerr">
+               copyright &copy; 2021 by equadratures.
+               <br>
+               made by the equadratures team, with &#10084;&#65039;.
+             </div>
+               <br>
+               <br>
+             </center>
+         </div>
+  </body>
+</html>

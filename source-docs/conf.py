@@ -20,11 +20,13 @@ extensions = [
     'sphinx.ext.ifconfig',
     'sphinx.ext.viewcode',
     'sphinx.ext.githubpages',
-    'sphinxcontrib.napoleon',
+    'sphinx.ext.napoleon',
+    'sphinxcontrib.mermaid',
     'sphinx_panels',
     'sphinx_copybutton',
     'nbsphinx',
     'sphinx_gallery.load_style',
+    'sphinxcontrib.bibtex',
 ] #TODO - prune unused extensions
 master_doc = 'index'
 html_title = 'Documentation | equadratures'
@@ -86,6 +88,9 @@ nbsphinx_execute_arguments = [
 nbsphinx_input_prompt = 'In [%s]:'
 nbsphinx_output_prompt = 'Out[%s]:'
 
+# sphinxcontrib.bibtex setting
+##############################
+bibtex_bibfiles = ['references.bib']
 
 # pydata theme options
 #########################
@@ -93,3 +98,4 @@ html_theme_options = {
     "show_prev_next": False,
     "search_bar_text": "Search documentation",
 }
+

@@ -41,4 +41,5 @@ Code documentation for :code:`equadratures` can be found by clicking on the link
 
    Core classes <core/index>
    Secondary classes <secondary/index>
+   Theory <theory/index>
    Tutorials <tutorials/index>
