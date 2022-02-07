@@ -92,6 +92,10 @@ nbsphinx_thumbnails = {
     'theory/notebooks/2_Parameter': '_static/gallery/parameter.png',
     'theory/notebooks/3_Basis': '_static/gallery/total.png',
     'theory/notebooks/4_Polynomial': '_static/gallery/polynomials.png',
+    'tutorials/tutorials/3_Model_Fitting': '_static/gallery/tensor-grid.png',
+    'tutorials/tutorials/Computing_Moments_for_CFD': '_static/gallery/vki_turbine.jpeg',
+    'tutorials/tutorials/Dimension_Reduction_Turbomachinery': '_static/gallery/probe.jpeg',
+    'tutorials/tutorials/Machine_Learning_Airfoil': '_static/gallery/airfoil_noise.png',
 }
 
 
@@ -105,4 +109,3 @@ html_theme_options = {
     "show_prev_next": False,
     "search_bar_text": "Search documentation",
 }
-
