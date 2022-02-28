@@ -47,6 +47,17 @@ body {
   padding: 30px;
 }
 
+h6{
+  font-family: 'Raleway';
+  font-size: 40px;
+  font-weight:bolder;
+  line-height: 110%;
+  color: black;
+  margin-right:10px;
+  margin-left:36px;
+  margin-top:2em;
+  margin-bottom:0.5em;
+}
 
 h1{
   font-family: 'Raleway';
@@ -356,6 +367,19 @@ div.a {
   margin-right:2em;
 }
 
+.row_2 {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+}
+
+.column_type_1 {
+  -ms-flex: 50%; /* IE10 */
+  flex: 50%;
+  max-width: 50%;
+}
+
 .column_type_2 {
   -ms-flex: 40%; /* IE10 */
   flex: 40%;
@@ -400,12 +424,18 @@ div.a {
     max-width: 50%;
   }
 
+  .column_type_1 {
+    -ms-flex: 100%;
+    flex: 100%;
+    max-width: 100%;
+  }
+
   .column_type_2 {
     -ms-flex: 100%;
     flex: 100%;
     max-width: 100%;
   }
-  
+
   .column_type_3 {
     -ms-flex: 100%;
     flex: 100%;
