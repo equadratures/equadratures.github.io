@@ -1,0 +1,324 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Polynomials &#8212; Documentation | equadratures</title>
+    
+    <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  
+    
+    <link rel="stylesheet"
+      href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+      href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+      href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+    
+      
+  
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/pydata-sphinx-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/footer.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/fonts.css" />
+    
+    <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <link rel="shortcut icon" href="../../_static/eq-logo-favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Tutorials" href="../../tutorials/index.html" />
+    <link rel="prev" title="Basis" href="3_Basis.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="../../index.html">
+  <img src="../../_static/logo_new.png" class="logo" alt="logo">
+</a>
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../core/index.html">
+  Core classes
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../secondary/index.html">
+  Secondary classes
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="../index.html">
+  Theory
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../tutorials/index.html">
+  Tutorials
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search documentation" aria-label="Search documentation" autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Fundamentals
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_Introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_Parameter.html">
+   Parameters
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_Basis.html">
+   Basis
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Polynomials
+  </a>
+ </li>
+</ul>
+
+  </div>
+</nav>
+              </div>
+              <div class="sidebar-end-items">
+              </div>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#References">
+   References
+  </a>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="Polynomials">
+<h1>Polynomials<a class="headerlink" href="#Polynomials" title="Permalink to this headline">¶</a></h1>
+<p>Assume that <span class="math notranslate nohighlight">\(f\)</span> is sufficiently smooth and continuous such that it can be approximated by a global polynomial <span class="math notranslate nohighlight">\(p\)</span> <span class="math">\begin{align}
+\begin{split}
+f \left( \boldsymbol{x} \right) & \approx p \left( \boldsymbol{x} \right) \\
+&= \sum_{j=1}^{N} \alpha_{j} \boldsymbol{\phi}_{j}\left( \boldsymbol{x}\right), \\
+&= \boldsymbol{P} \boldsymbol{\alpha}
+\end{split}
+\label{equ:polyapprox}{\tag{1}}
+\end{align}</span></p>
+<p>defined as a weighted sum of <span class="math notranslate nohighlight">\(N\)</span> known basis polynomials, where</p>
+<p><span class="math">\begin{align}
+\boldsymbol{\phi}_{j} \left(\boldsymbol{x}  \right)&=\prod_{k=1}^{d}\phi^{(k)}_{j_{k}}\left(x^{(k)}\right), &  \left(j_1, \ldots, j_d \right) \in \mathbb{N}_0^d,
+\end{align}</span></p>
+<p>and where <span class="math notranslate nohighlight">\(\left[\boldsymbol{P} \right]_{i,j}=\boldsymbol{\phi}_{j}\left(\boldsymbol{x}_{i}\right)\)</span> for some discretised value <span class="math notranslate nohighlight">\(\boldsymbol{x}_{i} \in \mathcal{X}\)</span>. Note that the polynomials <span class="math notranslate nohighlight">\(\boldsymbol{\phi}_{j}\)</span> defined in this way are mutually orthogonal in <span class="math notranslate nohighlight">\(L^2\)</span> weighted by <span class="math notranslate nohighlight">\(\boldsymbol{\rho}\)</span>. More specifically, we can state that these composite univariate polynomials must satisfy</p>
+<p><span class="math">\begin{equation}
+\int_{\mathcal{X}^{k}}\phi_{g}\left(x^{(k)}\right)\phi_{h}\left(x^{(i)}\right)\rho_{k}\left(x^{(k)}\right)dx^{(k)}=\delta_{gh},
+\end{equation}</span></p>
+<p>where <span class="math notranslate nohighlight">\(\delta_{gh}\)</span> is the Kronecker delta; subscripts <span class="math notranslate nohighlight">\(g\)</span> and <span class="math notranslate nohighlight">\(h\)</span> denote polynomial orders. The above expression crystallizes the choice of the orthogonal polynomial family based on the choice of the weight function <span class="math notranslate nohighlight">\(\rho_{k} \left( x^{(k)} \right)\)</span>. For instance if <span class="math notranslate nohighlight">\(\rho_{k} \left( x^{(k)} \right)\)</span> were the uniform distribution with <span class="math notranslate nohighlight">\(\mathcal{X}^{(k)} \in [a, b]\)</span> then <span class="math notranslate nohighlight">\(\left\{ \phi_{j} \left( x^{(k)} \right) \right\}_{j=0}^{\infty}\)</span> would correspond to
+Legendre polynomials; for Gaussian weights one would use Hermite polynomials, and so on. Details about these weight-polynomial pairs can be found in <a class="footnote-reference brackets" href="#xiu2002wiener" id="id1">1</a>. Succinctly stated, choosing the correct weight-polynomial pairs will lead to an exponential convergence in <span class="math notranslate nohighlight">\(\eqref{equ:polyapprox}\)</span> thereby reducing the number of terms <span class="math notranslate nohighlight">\(N\)</span> required. As a consequence, this will also reduce the number of model evaluations needed to estimate the unknown coefficients
+<span class="math notranslate nohighlight">\(\left(\alpha_1, \ldots, \alpha_{N} \right)\)</span>.</p>
+<p>Before moving on to the computation of the coefficients, a few words on the computation of the individual univariate orthogonal polynomials <span class="math notranslate nohighlight">\(\phi_{j}\left(x^{(k)} \right)\)</span> are in order. Orthogonal polynomials of any order may be given by a three-term recurrence relation</p>
+<p><span class="math">\begin{equation}
+\beta_{j+1} \phi_{j+1}\left(x^{(k)} \right) = \left(x^{(k)} - \alpha_{j} \right) \phi_{j}\left(x^{(k)} \right) - \beta_{j}\phi_{j-1}\left(x^{(k)} \right), \; \; \; \; \textrm{for} \; \; \; j=0, 1, 2, 3, \ldots
+\end{equation}</span></p>
+<p>where <span class="math notranslate nohighlight">\(\left(\alpha_{j}, \beta_{j} \right)\)</span> are a set of recurrence coefficients explicitly known, dependent upon <span class="math notranslate nohighlight">\(\rho_{k}\left( x^{(k)} \right)\)</span> <a class="footnote-reference brackets" href="#gautschi1982generating" id="id2">2</a>. A four-term recurrence formula can also be derived for the derivatives of orthogonal polynomials.</p>
+<div class="section" id="References">
+<h2>References<a class="headerlink" href="#References" title="Permalink to this headline">¶</a></h2>
+<p><dl class="footnote brackets">
+<dt class="label" id="xiu2002wiener"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Dongbin Xiu and George Em Karniadakis. The wiener–askey polynomial chaos for stochastic differential equations. <em>SIAM journal on scientific computing</em>, 24(2):619–644, 2002.</p>
+</dd>
+<dt class="label" id="gautschi1982generating"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>Walter Gautschi. On generating orthogonal polynomials. <em>SIAM Journal on Scientific and Statistical Computing</em>, 3(3):289–317, 1982.</p>
+</dd>
+</dl>
+</p>
+</div>
+</div>
+
+
+              </div>
+              
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+    <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="footer.css" rel="stylesheet">
+</head>
+<div class="footer">
+             <div class="container">
+                 <div class="row">
+                   <div class="col-md-6 col-lg-3">
+                       <div class="footer-about">
+                            <a href="https://equadratures.org/"><img style="float: left; margin: 0px 250px 2px 10px; width:30%; min-width:25px" src="https://equadratures.org/icons/logo.png" alt="Image"></a><br>
+                            <b>equadratures</b> <br>
+                            mail@equadratures.org<br>
+                       </div>
+                   </div>
+                   <div class="col-md-6 col-lg-3">
+                       <div class="footer-social">
+                           <a href="https://github.com/equadratures"><img alt="" src="https://equadratures.org/icons/github.png" hspace="0x" style="width:100%; min-width:25px"></a>
+                           <a href="https://www.linkedin.com/company/67900612"><img alt=""  src="https://equadratures.org/icons/linkedin.png" hspace="0x" style="width:100%; min-width:25px"></a>
+                          <a href="https://twitter.com/equadratures"><img alt="" src="https://equadratures.org/icons/twitter.png" hspace="0x" style="width:100%; min-width:25px"></a>
+                        <a href="https://www.youtube.com/channel/UCpjwFDSZuFbzW-2lj6d96dA"><img alt="" src="https://equadratures.org/icons/youtube.png" hspace="0x" style="width:100%; min-width:25px"></a>
+                       </div>
+                       <br>
+                       <br>
+                   </div>
+                   <div class="col-md-6 col-lg-3">
+                       <div class="footer-contact">
+                         <b>management </b><br>
+                         <a href="https://equadratures.org/team">team </a><br>
+                         <a href="https://equadratures.org/partnerships">partnerships</a> <br>
+                         <a href="https://equadratures.org/case-studies">case studies</a> <br>
+                         <a href="https://research.equadratures.org/">research</a><br>
+                       </div>
+                   </div>
+                     <div class="col-md-6 col-lg-3">
+                         <div class="footer-links">
+                             <b>code </b><br>
+                             <a href="https://equadratures.org/documentation">documentation</a><br>
+                             <a href="https://discourse.equadratures.org/">discourse</a><br>
+                             <a href="https://equadratures.org/numfocus">numfocus affiliation</a> <br>
+                             <a href="https://equadratures.org/gsoc">google summer of code</a> <br>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+             <center>
+               <div class="smallerr">
+               copyright &copy; 2022 by equadratures.
+               <br>
+               made by the equadratures team, with &#10084;&#65039;.
+             </div>
+               <br>
+               <br>
+             </center>
+         </div>
+  </body>
+</html>
