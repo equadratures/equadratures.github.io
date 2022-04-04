@@ -41,6 +41,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="shortcut icon" href="../_static/eq-logo-favicon.png"/>
@@ -174,8 +175,72 @@
               
               <div>
                 
-  <div class="section" id="logistic-regression">
-<h1>Logistic regression<a class="headerlink" href="#logistic-regression" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-equadratures.logistic_poly">
+<span id="logistic-regression"></span><h1>Logistic regression<a class="headerlink" href="#module-equadratures.logistic_poly" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="equadratures.logistic_poly.LogisticPoly">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">equadratures.logistic_poly.</span></span><span class="sig-name descname"><span class="pre">LogisticPoly</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M_init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-07</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cauchy_tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cauchy_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">C</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_M_iters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">restarts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/logistic_poly.html#LogisticPoly"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.logistic_poly.LogisticPoly" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for defining a logistic subspace polynomial, used for classification tasks.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> (<em>optional</em><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Dimension of subspace (should be smaller than ambient input dimension d). Defaults to 2.</p></li>
+<li><p><strong>M_init</strong> (<em>optional</em><em>, </em><em>numpy array of dimensions</em><em> (</em><em>d</em><em>, </em><em>n</em><em>)</em>) – Initial guess for subspace matrix. Defaults to a random projection.</p></li>
+<li><p><strong>tol</strong> (<em>optional</em><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – Optimisation terminates when cost function on training data falls below <code class="docutils literal notranslate"><span class="pre">tol</span></code>. Defaults to 1e-7.</p></li>
+<li><p><strong>cauchy_tol</strong> (<em>optional</em><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – Optimisation terminates when the difference between the average of the last <code class="docutils literal notranslate"><span class="pre">cauchy_length</span></code> cost function evaluations and the current cost is below <code class="docutils literal notranslate"><span class="pre">cauchy_tol</span></code> times the current evaluation. Defaults to 1e-5.</p></li>
+<li><p><strong>cauchy_length</strong> (<em>optional</em><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Length of comparison history for Cauchy convergence. Defaults to 3.</p></li>
+<li><p><strong>verbosity</strong> (<em>optional</em><em>, </em><em>one of</em><em> (</em><em>0</em><em>, </em><em>1</em><em>, </em><em>2</em><em>)</em>) – Print debug messages during optimisation. 0 for no messages, 1 for printing final residual every restart, 2 for printing residuals at every iteration. Defaults to 0.</p></li>
+<li><p><strong>order</strong> (<em>optional</em><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Maximum order of subspace polynomial used. Defaults to 2.</p></li>
+<li><p><strong>C</strong> (<em>optional</em><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a>) – L2 penalty on coefficients. Defaults to 1.0.</p></li>
+<li><p><strong>max_M_iters</strong> (<em>optional</em><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Maximum optimisation iterations per restart. Defaults to 10.</p></li>
+<li><p><strong>restarts</strong> (<em>optional</em><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – Number of times to restart optimisation. The result with lowest training error is taken at the end. Defaults to 1.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<dl>
+<dt>Fitting and testing a logistic polynomial on a dataset.</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">log_quad</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">LogisticPoly</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cauchy_tol</span><span class="o">=</span><span class="mf">1e-5</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">p_order</span><span class="p">,</span> <span class="n">max_M_iters</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">log_quad</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">prediction</span> <span class="o">=</span> <span class="n">log_quad</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">error_rate</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">prediction</span><span class="p">)</span> <span class="o">-</span> <span class="n">y_test</span><span class="p">))</span> <span class="o">/</span> <span class="n">y_test</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">error_rate</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="equadratures.logistic_poly.LogisticPoly.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_train</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/logistic_poly.html#LogisticPoly.fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.logistic_poly.LogisticPoly.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to fit logistic polynomial.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X_train</strong> (<em>numpy array</em><em>, </em><em>shape</em><em> (</em><em>N</em><em>, </em><em>d</em><em>)</em>) – Training input points.</p></li>
+<li><p><strong>f_train</strong> (<em>numpy array</em><em>, </em><em>shape</em><em> (</em><em>N</em><em>)</em>) – Training output targets.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="equadratures.logistic_poly.LogisticPoly.predict">
+<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/logistic_poly.html#LogisticPoly.predict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.logistic_poly.LogisticPoly.predict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to predict from input test points.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>X</strong> (<em>numpy array</em><em>, </em><em>shape</em><em> (</em><em>N</em><em>, </em><em>d</em><em>)</em>) – Test input points.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Predictions at specified test points.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy array, shape (N)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 
 
@@ -218,11 +283,10 @@
                          <b>management </b><br>
                          <a href="https://equadratures.org/team">team </a><br>
                          <a href="https://equadratures.org/partnerships">partnerships</a> <br>
-                         <a href="https://equadratures.org/digital">digital & ai upskilling</a> <br>
                          <a href="https://equadratures.org/case-studies">case studies</a> <br>
                          <a href="https://research.equadratures.org/">research</a><br>
                        </div>
-                   </div> 
+                   </div>
                      <div class="col-md-6 col-lg-3">
                          <div class="footer-links">
                              <b>code </b><br>
@@ -236,7 +300,7 @@
              </div>
              <center>
                <div class="smallerr">
-               copyright &copy; 2021 by equadratures.
+               copyright &copy; 2022 by equadratures.
                <br>
                made by the equadratures team, with &#10084;&#65039;.
              </div>

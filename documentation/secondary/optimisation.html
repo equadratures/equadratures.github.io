@@ -41,6 +41,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
@@ -224,7 +225,7 @@
 <dd><p>This class performs unconstrained or constrained optimisation of poly objects or custom functions using scipy.optimize.minimize or an in-house trust-region method.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>method</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – A string specifying the method that will be used for optimisation. Any of the methods available from <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/reference/generated/scipy.optimize.minimize.html#scipy.optimize.minimize" title="(in SciPy v1.7.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.optimize.minimize</span></code></a> can be chosen. In the case of general constrained optimisation, the options are <code class="docutils literal notranslate"><span class="pre">COBYLA</span></code>, <code class="docutils literal notranslate"><span class="pre">SLSQP</span></code>, and <code class="docutils literal notranslate"><span class="pre">trust-constr</span></code>. The in-house options <code class="docutils literal notranslate"><span class="pre">trust-region</span></code> and <code class="docutils literal notranslate"><span class="pre">omorf</span></code> are also available.</p>
+<dd class="field-odd"><p><strong>method</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – A string specifying the method that will be used for optimisation. Any of the methods available from <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html#scipy.optimize.minimize" title="(in SciPy v1.8.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.optimize.minimize</span></code></a> can be chosen. In the case of general constrained optimisation, the options are <code class="docutils literal notranslate"><span class="pre">COBYLA</span></code>, <code class="docutils literal notranslate"><span class="pre">SLSQP</span></code>, and <code class="docutils literal notranslate"><span class="pre">trust-constr</span></code>. The in-house options <code class="docutils literal notranslate"><span class="pre">trust-region</span></code> and <code class="docutils literal notranslate"><span class="pre">omorf</span></code> are also available.</p>
 </dd>
 </dl>
 <dl class="py method">
@@ -424,11 +425,10 @@ if the optimiser exited successfully.</p>
                          <b>management </b><br>
                          <a href="https://equadratures.org/team">team </a><br>
                          <a href="https://equadratures.org/partnerships">partnerships</a> <br>
-                         <a href="https://equadratures.org/digital">digital & ai upskilling</a> <br>
                          <a href="https://equadratures.org/case-studies">case studies</a> <br>
                          <a href="https://research.equadratures.org/">research</a><br>
                        </div>
-                   </div> 
+                   </div>
                      <div class="col-md-6 col-lg-3">
                          <div class="footer-links">
                              <b>code </b><br>
@@ -442,7 +442,7 @@ if the optimiser exited successfully.</p>
              </div>
              <center>
                <div class="smallerr">
-               copyright &copy; 2021 by equadratures.
+               copyright &copy; 2022 by equadratures.
                <br>
                made by the equadratures team, with &#10084;&#65039;.
              </div>

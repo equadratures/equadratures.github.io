@@ -41,6 +41,7 @@
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="shortcut icon" href="_static/eq-logo-favicon.png"/>
@@ -251,6 +252,13 @@
 </li>
       </ul></li>
       <li>
+    equadratures.logistic_poly
+
+      <ul>
+        <li><a href="secondary/logistic.html#module-equadratures.logistic_poly">module</a>
+</li>
+      </ul></li>
+      <li>
     equadratures.optimisation
 
       <ul>
@@ -271,6 +279,8 @@
         <li><a href="core/poly.html#module-equadratures.poly">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     equadratures.polytree
 
@@ -278,8 +288,6 @@
         <li><a href="secondary/polytree.html#module-equadratures.polytree">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     equadratures.quadrature
 
@@ -325,9 +333,13 @@
 <h2 id="F">F</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="secondary/polytree.html#equadratures.polytree.PolyTree.fit">fit() (equadratures.polytree.PolyTree method)</a>
+      <li><a href="secondary/logistic.html#equadratures.logistic_poly.LogisticPoly.fit">fit() (equadratures.logistic_poly.LogisticPoly method)</a>
 
       <ul>
+        <li><a href="core/poly.html#equadratures.poly.Graphpolys.fit">(equadratures.poly.Graphpolys method)</a>
+</li>
+        <li><a href="secondary/polytree.html#equadratures.polytree.PolyTree.fit">(equadratures.polytree.PolyTree method)</a>
+</li>
         <li><a href="secondary/scalers.html#equadratures.scalers.scaler_meanvar.fit">(equadratures.scalers.scaler_meanvar method)</a>
 </li>
         <li><a href="secondary/scalers.html#equadratures.scalers.scaler_minmax.fit">(equadratures.scalers.scaler_minmax method)</a>
@@ -467,6 +479,8 @@
       </ul></li>
       <li><a href="secondary/subspaces.html#equadratures.subspaces.Subspaces.get_zonotope_vertices">get_zonotope_vertices() (equadratures.subspaces.Subspaces method)</a>
 </li>
+      <li><a href="core/poly.html#equadratures.poly.Graphpolys">Graphpolys (class in equadratures.poly)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -487,6 +501,8 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="secondary/solver.html#equadratures.solver.least_squares">least_squares (class in equadratures.solver)</a>
 </li>
+      <li><a href="secondary/logistic.html#equadratures.logistic_poly.LogisticPoly">LogisticPoly (class in equadratures.logistic_poly)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -502,6 +518,8 @@
         <li><a href="core/basis.html#module-equadratures.basis">equadratures.basis</a>
 </li>
         <li><a href="secondary/correlated.html#module-equadratures.correlations">equadratures.correlations</a>
+</li>
+        <li><a href="secondary/logistic.html#module-equadratures.logistic_poly">equadratures.logistic_poly</a>
 </li>
         <li><a href="secondary/optimisation.html#module-equadratures.optimisation">equadratures.optimisation</a>
 </li>
@@ -568,10 +586,10 @@
 </li>
       <li><a href="core/poly.html#equadratures.poly.Poly.plot_polyfit_1D">plot_polyfit_1D() (equadratures.poly.Poly method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="secondary/solver.html#equadratures.solver.elastic_net.plot_regpath">plot_regpath() (equadratures.solver.elastic_net method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="secondary/subspaces.html#equadratures.subspaces.Subspaces.plot_samples_from_second_subspace_over_first">plot_samples_from_second_subspace_over_first() (equadratures.subspaces.Subspaces method)</a>
 </li>
       <li><a href="core/poly.html#equadratures.poly.Poly.plot_sobol">plot_sobol() (equadratures.poly.Poly method)</a>
@@ -586,8 +604,14 @@
 </li>
       <li><a href="secondary/polytree.html#equadratures.polytree.PolyTree">PolyTree (class in equadratures.polytree)</a>
 </li>
-      <li><a href="secondary/polytree.html#equadratures.polytree.PolyTree.predict">predict() (equadratures.polytree.PolyTree method)</a>
+      <li><a href="secondary/logistic.html#equadratures.logistic_poly.LogisticPoly.predict">predict() (equadratures.logistic_poly.LogisticPoly method)</a>
+
+      <ul>
+        <li><a href="core/poly.html#equadratures.poly.Graphpolys.predict">(equadratures.poly.Graphpolys method)</a>
 </li>
+        <li><a href="secondary/polytree.html#equadratures.polytree.PolyTree.predict">(equadratures.polytree.PolyTree method)</a>
+</li>
+      </ul></li>
       <li><a href="core/basis.html#equadratures.basis.Basis.prune">prune() (equadratures.basis.Basis method)</a>
 
       <ul>
@@ -728,11 +752,10 @@
                          <b>management </b><br>
                          <a href="https://equadratures.org/team">team </a><br>
                          <a href="https://equadratures.org/partnerships">partnerships</a> <br>
-                         <a href="https://equadratures.org/digital">digital & ai upskilling</a> <br>
                          <a href="https://equadratures.org/case-studies">case studies</a> <br>
                          <a href="https://research.equadratures.org/">research</a><br>
                        </div>
-                   </div> 
+                   </div>
                      <div class="col-md-6 col-lg-3">
                          <div class="footer-links">
                              <b>code </b><br>
@@ -746,7 +769,7 @@
              </div>
              <center>
                <div class="smallerr">
-               copyright &copy; 2021 by equadratures.
+               copyright &copy; 2022 by equadratures.
                <br>
                made by the equadratures team, with &#10084;&#65039;.
              </div>

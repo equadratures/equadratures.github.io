@@ -41,6 +41,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="shortcut icon" href="../_static/eq-logo-favicon.png"/>
@@ -201,6 +202,49 @@
   <div class="section" id="module-equadratures.poly">
 <span id="polynomial"></span><h1>Polynomial<a class="headerlink" href="#module-equadratures.poly" title="Permalink to this headline">¶</a></h1>
 <p>The polynomial parent class; one of the main building blocks in Effective Quadratures.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="equadratures.poly.Graphpolys">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">equadratures.poly.</span></span><span class="sig-name descname"><span class="pre">Graphpolys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">poly</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">15</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Graphpolys"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Graphpolys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor for generating polynomials over graphs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Graph</strong> (<em>networkx.Graph</em>) – A networkx Graph object.</p></li>
+<li><p><strong>data_train</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – A dictionary with training data.</p></li>
+<li><p><strong>poly</strong> (<a class="reference internal" href="#equadratures.poly.Poly" title="equadratures.poly.Poly"><em>Poly</em></a>) – A Poly object that defines a polynomial over the subspace.</p></li>
+<li><p><strong>edge_weight</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>, </em><em>optional</em>) – Edge weight for Graph edges, default=15.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="equadratures.poly.Graphpolys.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Graphpolys.fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Graphpolys.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit polynomial to data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="equadratures.poly.Graphpolys.predict">
+<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">score</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Graphpolys.predict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Graphpolys.predict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predict.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – A dictionary with test data.</p></li>
+<li><p><strong>score</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – returns mean error along with prediction if true.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>Y_pred</strong> (<em>numpy.nparray</em>) – Predicted data.</p></li>
+<li><p><strong>mean_error</strong> (<em>numpy.ndarray</em>) – Mean error in prediction.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="equadratures.poly.Poly">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">equadratures.poly.</span></span><span class="sig-name descname"><span class="pre">Poly</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">basis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampling_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">override_cardinality</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly" title="Permalink to this definition">¶</a></dt>
@@ -836,11 +880,10 @@
                          <b>management </b><br>
                          <a href="https://equadratures.org/team">team </a><br>
                          <a href="https://equadratures.org/partnerships">partnerships</a> <br>
-                         <a href="https://equadratures.org/digital">digital & ai upskilling</a> <br>
                          <a href="https://equadratures.org/case-studies">case studies</a> <br>
                          <a href="https://research.equadratures.org/">research</a><br>
                        </div>
-                   </div> 
+                   </div>
                      <div class="col-md-6 col-lg-3">
                          <div class="footer-links">
                              <b>code </b><br>
@@ -854,7 +897,7 @@
              </div>
              <center>
                <div class="smallerr">
-               copyright &copy; 2021 by equadratures.
+               copyright &copy; 2022 by equadratures.
                <br>
                made by the equadratures team, with &#10084;&#65039;.
              </div>
