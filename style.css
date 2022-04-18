@@ -1,5 +1,7 @@
 body {
-  font-family: 'Raleway';
+  font-family: BebasNeueRegular;
+  color: #02bec4;
+  src: url('./brand/01/BebasNeueRegular.otf');
   font-size: 20px;
   font-style:normal;
   font-weight:normal;
@@ -7,30 +9,36 @@ body {
   line-height: 150%;
   color: #4B9AD3;
   text-decoration: none;
+  background: white;
 }
 
-.p3 {
-  font-family: "Lucida Console", "Courier", monospace;
-  font-weight: normal;
-  margin-right:8em;
-  margin-left:4em;
-  color: #FFBD13;
-  padding-top:5px;
-  padding-left:10px;
-  padding-bottom:5px;
-  background-color: #424242;
-  max-width: 800px;
+.button {
+  background-color: #dc4c1a;
+  border: 1px solid black;
+  border-color: black;
+  color: white;
+  padding: 3px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px 2px;
+  cursor: pointer;
+  border-radius: 25px;
 }
 
 .small{
-  color: #FFFFFF;
+  color: #263a8c;
   line-height: 120%;
   font-size: 14px;
+  font-family: DinPro;
+  color: white;
+  src: url('./brand/01/DinPro.otf');
 }
 
 .main{
-
-  margin-left: 5em;
+  background-color: #black;
+  margin-left: 6em;
   margin-right: 5em;
   margin-top: 3em;
   margin-bottom: 2em;
@@ -47,87 +55,31 @@ body {
   padding: 30px;
 }
 
-h6{
-  font-family: 'Raleway';
-  font-size: 40px;
-  font-weight:bolder;
-  line-height: 110%;
-  color: black;
-  margin-right:10px;
-  margin-left:36px;
-  margin-top:2em;
-  margin-bottom:0.5em;
-}
-
 h1{
-  font-family: 'Raleway';
-  font-size: 25px;
-  font-weight:bolder;
-  line-height: 110%;
-  color: black;
+  font-family: BebasNeueRegular;
+  src: url('./brand/01/BebasNeueRegular.otf');
+  font-size: 35px;
+  color: #02bec4;
   margin-right:1em;
-  margin-left:1.5em;
   margin-top:2em;
   margin-bottom:0.5em;
+  margin-left:1.0em;
 }
 
 h2{
-  font-family: 'Raleway';
   font-size: 22px;
-  font-weight:bolder;
-  line-height: 120%;
-  color: black;
+  color: #263a8c;
   margin-right:1em;
-  margin-left:1.5em;
   margin-bottom:0.5em;
+  margin-left:1.5em;
+  font-family: DinPro;
+  src: url('./brand/01/DinPro.otf');
 }
 
-
-h3{
-  font-family: 'Raleway';
-  font-size: 19px;
-  font-style:normal;
-  font-weight:normal;
-  line-height: 150%;
-  color: black;
-  margin-right:1em;
-  margin-left:2em;
-
+h2 a{
+  color: #263a8c;
 }
 
-
-h3 a{
-  font-family: 'Raleway';
-  font-size: 19px;
-  font-style:normal;
-  font-weight:normal;
-  line-height: 150%;
-  color: black;
-  text-decoration: none;
-}
-
-h3 a:hover{
-  font-family: 'Raleway';
-  font-size: 19px;
-  font-style:normal;
-  font-weight:normal;
-  line-height: 150%;
-  color: black;
-  text-decoration: none;
-}
-
-
-h4{
-  font-family: 'Raleway';
-  font-size: 10px;
-  font-style:normal;
-  font-weight:bold;
-  line-height: 150%;
-  color: #6FBCE5;
-  margin-left:1em;
-  margin-right:1em;
-  margin-top:1em;
-}
 
 
 .image-list-small .details h3 a {
@@ -177,7 +129,7 @@ header {
 
 a {
   text-decoration: none;
-  color: #B41C64;
+  color: #263a8c;
   font-weight: 500;
   text-decoration: none;
 }
@@ -299,8 +251,9 @@ div.a {
 
 .topnav {
   overflow: hidden;
-  background-color: #black;
   margin-left: 1em;
+  font-family: DinPro;
+  src: url('./brand/01/DinPro.otf');
 }
 
 .responsivefour {
@@ -330,27 +283,23 @@ div.a {
 .topnav a {
   float: left;
   display: block;
-  color: #000000;
+  color: #263a8c;
   text-align: center;
   padding: 10px 0px;
   padding-right: 30px;
   text-decoration: none;
-  font-size: 20px;
-  letter-spacing: 0.05em;
+  font-size: 25px;
   font-weight: 500;
   margin-left: 1em;
 }
 
 .topnav a:hover {
-  background-color: #FFFFFF;
-  color: #000000;
-  letter-spacing: 0.05em;
+  color: #263a8c;
 }
 
 .topnav a.active {
-  background-color: #FFFFFF;
-  color: black;
-  letter-spacing: 0.05em;
+  color: #263a8c;
+  background-color: white;
 }
 
 .topnav .icon {
@@ -455,7 +404,7 @@ div.a {
   .topnav a.icon {
     float: right;
     display: block;
-    color: black;
+    color: #263a8c;
   }
   .column {
     -ms-flex: 100%;
@@ -476,6 +425,6 @@ div.a {
     float: none;
     display: block;
     text-align: left;
-    color:black;
+    color:#263a8c;
   }
 }

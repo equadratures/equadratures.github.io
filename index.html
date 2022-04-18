@@ -15,7 +15,6 @@
 <link href="footer-4.css" rel="stylesheet">
 <link rel='icon' href='./logos/eq.ico' type='image/x-icon'/ >
 
-
 <meta property="og:site_name" content="equadratures" />
 <meta property="og:type" content="website" />
 <link rel="image_src" href="https://equadratures.org/logos/figure.png" />
@@ -42,145 +41,146 @@
 <meta name="keywords" content="data science, machine learning, polynomial chaos, uncertainty quantification, model auditing, Pranay Seshadri">
 
 </head>
-<img style="float: right; margin: 0em 0px 0px 0px; width:15%; " src="./icons/side.png" width="200" />
 <body>
 <div class="main">
-<img style="float: left; margin: 2em 0px 0px 2em; width:25%; min-width:220px" src="./icons/logo_new.png"/>
+<img style="float: left; margin: 2em 0px 0px 2em; width:30%; min-width:220px" src="./brand/02/Horizontal/equadraturesLockupHorizontalMain.png"/>
 <br>
 <br>
 <br>
 <br>
 <div class="topnav" id="myTopnav">
   <a href="./index.html" class="active">home</a>
-  <a href="./what-we-offer.html">what we offer</a>
-  <a href="./case-studies.html">case studies</a>
-  <a href="./research/index.html">research</a>
+  <a href="#case-studies">case studies</a>
+  <a href="./research.html">research</a>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
   </a>
 </div>
-<h6>integrate, predict, explain &amp; audit</h6>
+<h1>OVERVIEW</h1>
 <div class="row_2">
-  <div class="column_type_1">
-<h3>equadratures is a model development platform. The models built in equadratures are explainable, robust, and do not require large cloud infrastructure to train. Additionally, equadratures' models can audit themselves as well as audit models built from other platforms - ushering a new era in machine intelligence.
-</h3>
+<div class="column_type_1">
+<h2>equadratures is an open-source model development platform. The models built in equadratures are explainable, robust, and do not require large cloud infrastructure to train. Additionally, equadratures' models can audit themselves as well as audit models built from other platforms - ushering a new era in machine intelligence.
+<center>
+<img style="margin: 0px 0px 0px 0px; max-width:50%"; src="./brand/03/metrics.png" />
+</center>
+equadratures started out as a code for efficient uncertainty quantification in engineering. It has saved countless hours in otherwise expensive Monte Carlo simulations by using a variety of polynomial chaos methods. Following the success of its polynomial chaos tools, equadratures has broadened in scope and is now used for model development, data analysis, and data visualisation.
+</h2>
 </div>
-  <div class="column_type_1">
-  </div>
+<div class="column_type_1">
+    <img style="margin: 0px 0px 50px 50px; max-width:80%"; src="./brand/03/combined.png" />
+</div>
 </div>
 <br>
-<div class="row">
-  <div class="column">
-    <center>
-    <img src="./images/f1.png" ; style="width:100%">
-  </center>
-</div>
-  <div class="column">
-    <center>
-    <img src="./images/f3.png" ;style="width:100%">
-  </center>
-  </div>
-  <div class="column">
-    <center>
-    <img src="./images/f2.png" ; style="width:100%">
-  </center>
-  </div>
-  <div class="column">
-    <center>
-    <img src="./images/f4.png" ;style="width:100%">
-  </center>
-  </div>
-</div>
+<hr color=#02bec4>
+<h1>METHODS</h1>
+<h2>equadratures builds models using orthonormal polynomials over subspaces, graphs, and trees. The models are built in a manner to ensure that even with a small amount of data, explainable and robust models are always a few lines of code away. The chart below provides an overview of some of the key methods baked into the code.
 <br>
-<hr>
-<h1>framework</h1>
-<div class="row_2">
-  <div class="column_type_1">
-    <h3>equadratures builds models using orthonormal polynomials over subspaces. The construction of such models over subspaces rather than the full space ensures that even with a small amount of data, explainable and robust models are always a few lines of code away. <br> <br>
-    The code and syntax are easy to pick up, with some commands like the following
-    <pre><code class="language-python">import equadratures as eq
-import numpy as np
+<br>
+<center>
+  <img src="./brand/04/EquadraturesGraph02.png" ; style="width:90%" />
+</center>
+<br>
+ The code and syntax are easy to pick up, with some commands as shown below. For more such examples, check out the code <a href="https://equadratures.org/documentation/"><b>documentation</b></a> and download the code!
+ <br> <br>
+ <pre><code class="language-python"># Variable projection (Subspace-based polynomial generation)
+import equadratures as eq
 
-M = eq.Subspaces(method='variable-projection', \
-    sample_points=X, sample_outputs=Y)
-p = M.get_subspace_polynomial()
-    </code></pre>
-    <script src="prism.js"></script>
-    for generating a polynomial over a subspace. For more such examples, check out the code <a href="https://equadratures.org/documentation/"><b>documentation</b></a> and download the code!</h3>
+data = eq.datasets.load_eq_dataset('3Dfan_blades')
+X  = data['X_c']
+y = data['y1_c']
+
+M = eq.Subspaces(method='variable-projection', sample_points=X, sample_outputs=y)
+p = M.get_subspace_polynomial() # returns the subspace polynomial</code></pre>
+ <script src="prism.js"></script>
+
+ <pre><code class="language-python"># Polynomial chaos with relevance vector machines
+import equadratures as eq
+
+x1 = eq.Gaussian(mean=3.2, variance=1.5, order=3)
+x2 = eq.Uniform(lower=-2., upper=13.5, order=4)
+basis = Basis('total-order')
+poly = Poly([x1, x2], basis, method='relevance-vector-machine', \
+        sampling_args={'sample-points': X, sample-outputs':y})
+poly.set_model()
+poly.get_mean_and_variance() # returns the mean & variance</code></pre>
+ <script src="prism.js"></script>
+</h2>
+<br>
+<hr color=#02bec4>
+
+<h1><a name="case-studies">APPLICATIONS &amp; CASE STUDIES</a></h1>
+<h2>equadratures may be used for a variety of tasks, ranging from uncertainty quantification, numerical integration, parameter-space exploration, to surrogate-based optimisation, data visualisation, and more broadly model development and statistical analysis. Some of the keywords associated with the code are shown in the graphic below.
+<br>
+<br>
+<center>
+  <img src="./brand/04/EquadraturesGraph01.png" ; style="width:40%" />
+</center>
+<br>
+A few of our noteworthy case studies may be found below. To learn more about each case study, please click on the relevant case study. Some will have references to more detailed technical papers.
+<br>
+<br>
     <center>
-      <a class="reference internal image-reference" href="https://pepy.tech/badge/equadratures"><img alt="https://pepy.tech/badge/equadratures" src="https://pepy.tech/badge/equadratures" style="height: 25px;" /></a>
-    <a class="reference internal image-reference" href="https://pepy.tech/badge/equadratures/month"><img alt="https://pepy.tech/badge/equadratures/month" src="https://pepy.tech/badge/equadratures/month" style="height: 25px;" /></a>
-    <a class="reference internal image-reference" href="https://pepy.tech/badge/equadratures/week"><img alt="https://pepy.tech/badge/equadratures/week" src="https://pepy.tech/badge/equadratures/week" style="height: 25px;" /></a>
-    </center>
-    </h3>
-  </div>
-  <div class="column_type_1">
-    <img src="./images/subspaces.png"/>
-  </div>
-</div>
-<br>
-<hr>
-<h1>utility</h1>
-<h3>
-Fundamentally, equadratures is purpose built for task-driven outputs. Provided a model is built well, users are interested in extracting value from a model. This typically takes the form of the tasks below.
-</h3>
-<br>
-<br>
   <div class="row">
-    <center>
-    <img src="./images/polys.png" width="1200" />
-  </center>
+    <div class="column_type_1">
+      <a href="./case-studies/case-study-1.pdf" style="text-decoration: none;" target="_blank"><img src="./case-studies/case-study-1.png"></a>
+    </div>
+    <div class="column_type_1">
+      <a href="./case-studies/case-study-2.pdf" style="text-decoration: none;" target="_blank"><img src="./case-studies/case-study-2.png"></a>
+    </div>
+  </div>
+</center>
+<br>
+Numerous companies and academic institutions are already using equadratures. Join them and be part of the open-source movement.
+<br>
+<br>
+<section class="customer-logos slider">
+  <div class="slide"><img src="logos/airbus.png" ></div>
+  <div class="slide"><img src="logos/cambridge.png" ></div>
+  <div class="slide"><img src="logos/mclaren.png" ></div>
+  <div class="slide"><img src="logos/siemens.png" ></div>
+  <div class="slide"><img src="logos/turing.png" ></div>
+  <div class="slide"><img src="logos/cranfield.png" ></div>
+</section>
+<section class="customer-logos slider">
+<div class="slide"><img src="logos/ukaea.png" ></div>
+<div class="slide"><img src="logos/usgs.png" ></div>
+<div class="slide"><img src="logos/rr.png" ></div>
+<div class="slide"><img src="logos/safran.png" ></div>
+<div class="slide"><img src="logos/icl.png" ></div>
+<div class="slide"><img src="logos/arrival.png" ></div>
+</section>
+ </h2>
 </div>
 <br>
 <br>
-<h3>
-Numerous companies and academic institutions are already using equadratures. For some neat use cases of equadratures, do check out our <a href="./case-studies.html"><b>case studies</b></a> page.
-<br>
-<br>
-</h3>
-  <section class="customer-logos slider">
-    <div class="slide"><img src="logos/airbus.png" ></div>
-    <div class="slide"><img src="logos/cambridge.png" ></div>
-    <div class="slide"><img src="logos/mclaren.png" ></div>
-    <div class="slide"><img src="logos/siemens.png" ></div>
-    <div class="slide"><img src="logos/turing.png" ></div>
-    <div class="slide"><img src="logos/cranfield.png" ></div>
-    <div class="slide"><img src="logos/ukaea.png" ></div>
-    <div class="slide"><img src="logos/usgs.png" ></div>
-    <div class="slide"><img src="logos/rr.png" ></div>
-    <div class="slide"><img src="logos/safran.png" ></div>
-    <div class="slide"><img src="logos/icl.png" ></div>
-    <div class="slide"><img src="logos/arrival.png" ></div>
-  </section>
-  <br>
-</div>
 <div class="footer">
            <div class="container">
                <div class="row">
                  <div class="col-md-6 col-lg-3">
                      <div class="footer-about">
-                          <img style="float: left; margin: 0px 250px 2px 10px; width:50%; min-width:25px" src="./icons/logo.png" alt="Image"><br>
-                          <b>equadratures</b> <br>
-                          mail@equadratures.org <br>
+                          <img style="float: left; margin: 0px 200px 2px 10px; max-width:10.5em; min-width:55px" src="./brand/02/Vertical/equadraturesLockupVerticalWithLoveWhite.png" alt="Image"><br>
+                          <br>
+                          <br>
+                          <div class="footer-social">
+                            <a href="https://github.com/equadratures"><img alt="" src="icons/github.png" hspace="0x" style="width:50%; min-width:20px"></a>
+                            <a href="https://www.linkedin.com/company/equadratures"><img alt=""  src="icons/linkedin.png" hspace="0x" style="width:50%; min-width:20px"></a>
+                           <a href="https://twitter.com/equadratures"><img alt="" src="icons/twitter.png" hspace="0x" style="width:50%; min-width:20px"></a>
+                         <a href="https://www.youtube.com/channel/UCpjwFDSZuFbzW-2lj6d96dA"><img alt="" src="icons/youtube.png" hspace="0x" style="width:50%; min-width:20px"></a>
+                        </div>
                      </div>
                  </div>
                  <div class="col-md-6 col-lg-3">
-                     <div class="footer-social">
-                       <a href="https://github.com/equadratures"><img alt="" src="icons/github.png" hspace="0x" style="width:100%; min-width:25px"></a>
-                       <a href="https://www.linkedin.com/company/equadratures"><img alt=""  src="icons/linkedin.png" hspace="0x" style="width:100%; min-width:25px"></a>
-                      <a href="https://twitter.com/equadratures"><img alt="" src="icons/twitter.png" hspace="0x" style="width:100%; min-width:25px"></a>
-                    <a href="https://www.youtube.com/channel/UCpjwFDSZuFbzW-2lj6d96dA"><img alt="" src="icons/youtube.png" hspace="0x" style="width:100%; min-width:25px"></a>
+                   <div class="footer-contact">
+                     <b>affiliations </b><br>
+                     <a href="https://equadratures.org/numfocus">numfocus</a><br>
+                     <a href="https://equadratures.org/gsoc">google summer of code</a><br>
                    </div>
-                     <br>
-                     <br>
                  </div>
                  <div class="col-md-6 col-lg-3">
                      <div class="footer-contact">
                        <b>management </b><br>
                         <a href="https://equadratures.org/team">team </a><br>
                         <a href="https://equadratures.org/partnerships">partnerships</a><br>
-                        <a href="https://equadratures.org/case-studies">case studies</a><br>
-                        <a href="https://research.equadratures.org/">research</a><br>
                      </div>
                  </div>
                    <div class="col-md-6 col-lg-3">
@@ -188,8 +188,6 @@ Numerous companies and academic institutions are already using equadratures. For
                            <b>code </b><br>
                             <a href="https://equadratures.org/documentation/">documentation</a><br>
                             <a href="https://discourse.equadratures.org/">discourse</a><br>
-                            <a href="https://equadratures.org/numfocus">numfocus affiliation</a><br>
-                            <a href="https://equadratures.org/gsoc">google summer of code</a><br>
                        </div>
                    </div>
                </div>
