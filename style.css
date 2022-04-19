@@ -1,7 +1,7 @@
 @font-face {
   font-family: "DinPro";
   src: local(DinPro),
-       url('./brand/01/DinPro.otf') format('opentype');
+       url('./brand/01/DINPro.otf') format('opentype');
 }
 
 body {
