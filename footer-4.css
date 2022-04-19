@@ -30,8 +30,6 @@ a {
   line-height: 120%;
   max-width: 700px;
   font-family: DinPro;
-  src: url('./brand/01\ Fonts/DIN\ PRO/DinPro.otf');
-
 }
 
 .footer .footer-about h3,
@@ -198,20 +196,17 @@ a {
   font-weight: 400;
   color: #999999;
   font-family: DinPro;
-  src: url('./brand/01\ Fonts/DIN\ PRO/DinPro.otf');
 }
 
 .footer .copyright .copy-text p a {
   color: #0085ff;
   text-decoration: none;
   font-family: DinPro;
-  src: url('./brand/01\ Fonts/DIN\ PRO/DinPro.otf');
 }
 
 .footer .copyright .copy-text p a:hover {
   color: #FFFFFF;
   font-family: DinPro;
-  src: url('./brand/01\ Fonts/DIN\ PRO/DinPro.otf');
 }
 
 .footer .copyright .copy-menu {
@@ -227,7 +222,6 @@ a {
   margin-right: 15px;
   padding-right: 15px;
   font-family: DinPro;
-  src: url('./brand/01\ Fonts/DIN\ PRO/DinPro.otf');
   border-right: 1px solid rgba(255, 255, 255, .3);
 }
 
@@ -247,7 +241,6 @@ aaa {
   text-decoration-color: red;
   font-size: 18px;
   font-family: DinPro;
-  src: url('./brand/01\ Fonts/DIN\ PRO/DinPro.otf');
 }
 
 @media (max-width: 767.98px) {
