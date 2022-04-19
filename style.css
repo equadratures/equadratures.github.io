@@ -62,7 +62,7 @@ h1{
   font-family: BebasNeueRegular;
   src: local(BebasNeueRegular),
        url('./brand/01/BebasNeueRegular.otf') format('opentype');
-  font-size: 35px;
+  font-size: 33px;
   color: #02bec4;
   margin-right:1em;
   margin-top:2em;
@@ -71,7 +71,7 @@ h1{
 }
 
 h2{
-  font-size: 22px;
+  font-size: 19px;
   color: #263a8c;
   margin-right:1em;
   margin-bottom:0.5em;
@@ -294,7 +294,7 @@ div.a {
   padding: 10px 0px;
   padding-right: 30px;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 18px;
   font-weight: 500;
   margin-left: 1em;
 }
