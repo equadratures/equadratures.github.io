@@ -7,23 +7,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Uncertainty quantification of CFD simulations &#8212; Documentation | equadratures</title>
     
-    <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 <link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-  
+
     
-    <link rel="stylesheet"
-      href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-  
-    
-      
-  
-    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/pydata-sphinx-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
@@ -32,8 +28,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/css/footer.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/fonts.css" />
     
-    <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
-  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
@@ -57,7 +54,7 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -69,7 +66,7 @@
     
 
 <a class="navbar-brand" href="../../index.html">
-  <img src="../../_static/logo_new.png" class="logo" alt="logo">
+  <img src="../../_static/equadraturesLockupHorizontalMain.png" class="logo" alt="logo">
 </a>
 
 
@@ -229,7 +226,7 @@
               
               <div class="toc-item">
                 
-<div class="tocsection onthispage pt-5 pb-3">
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
     <i class="fas fa-list"></i> On this page
 </div>
 
@@ -542,10 +539,10 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <div class="section" id="Uncertainty-quantification-of-CFD-simulations">
-<h1>Uncertainty quantification of CFD simulations<a class="headerlink" href="#Uncertainty-quantification-of-CFD-simulations" title="Permalink to this headline">¶</a></h1>
+<h1>Uncertainty quantification of CFD simulations<a class="headerlink" href="#Uncertainty-quantification-of-CFD-simulations" title="Permalink to this headline">#</a></h1>
 <p>One of the primary uses of <code class="docutils literal notranslate"><span class="pre">equadratures</span></code>, and orthogonal polynomials, is for uncertainty quantification. Given a model under uncertain inputs, we wish to compute the uncertainty in its output. As is demonstrated in this tutorial, we can use polynomial chaos expansion (PCE) to replace the expensive-to-compute computational model with a polynomial, and use this to compute the moments (i.e. mean and variance) of the model’s output.</p>
 <div class="section" id="Polynomial-chaos-and-Monte-Carlo">
-<h2>Polynomial chaos and Monte Carlo<a class="headerlink" href="#Polynomial-chaos-and-Monte-Carlo" title="Permalink to this headline">¶</a></h2>
+<h2>Polynomial chaos and Monte Carlo<a class="headerlink" href="#Polynomial-chaos-and-Monte-Carlo" title="Permalink to this headline">#</a></h2>
 <p>We start with an important question. Why bother using polynomials for estimating moments? What exactly is the advantage? Moreover, are we guaranteed that we will converge to the Monte Carlo solution? The answer is a resounding yes! Infact this is precisely what Dongbin Xiu and George Karniandakis showed in their seminal paper [1]. As always we begin with some definitions: <code class="docutils literal notranslate"><span class="pre">Parameter</span></code>, <code class="docutils literal notranslate"><span class="pre">Basis</span></code> and <code class="docutils literal notranslate"><span class="pre">Poly</span></code>.</p>
 <p>For our model problem, let’s consider Rosenbrock’s function</p>
 <div class="math notranslate nohighlight">
@@ -697,7 +694,7 @@ div.rendered_html tbody tr:hover {
 <p>If the third and fourth order moments (Skewness and Kurtosis) were desired, the above difference is likely to be even more pronounced. But we will leave this for you to try yourself! You can compute these with <code class="docutils literal notranslate"><span class="pre">Poly.get_skewness_and_kurtosis()</span></code>.</p>
 </div>
 <div class="section" id="CFD-simulations-with-two-aleatory-uncertainties">
-<h2>CFD simulations with two aleatory uncertainties<a class="headerlink" href="#CFD-simulations-with-two-aleatory-uncertainties" title="Permalink to this headline">¶</a></h2>
+<h2>CFD simulations with two aleatory uncertainties<a class="headerlink" href="#CFD-simulations-with-two-aleatory-uncertainties" title="Permalink to this headline">#</a></h2>
 <p>Moving on from the analytical model (the <code class="docutils literal notranslate"><span class="pre">rosenbrock_fun()</span></code> above), we shall now consider a real world model, a computational fluid dynamics (CFD) simulation of the <a class="reference external" href="https://aboutflow.sems.qmul.ac.uk/events/munich2016/benchmark/testcase2/">LS89 turbine blade</a> with the <a class="reference external" href="https://su2code.github.io">SU2</a> CFD solver.</p>
 <p><img alt="drawing" src="../../_images/vki_turbine.jpeg" /></p>
 <p>In this simulation the SST model is used to account for the effect of turbulence. This involves solving two additional PDE’s for the turbulent kinetic energy <span class="math notranslate nohighlight">\(k\)</span> and specific turbulent dissipation <span class="math notranslate nohighlight">\(\omega\)</span>, which can improve accuracy compared to a 0- or 1-equation turbulence model. However, it adds an additional source of aleatory uncertainty; the specification of inflow boundary conditions for <span class="math notranslate nohighlight">\(k\)</span> and <span class="math notranslate nohighlight">\(\omega\)</span>.</p>
@@ -858,7 +855,7 @@ Mean Yp = 0.053
 </div>
 <p>So our 95% confidence interval due to uncertainty in inflow turbulence specficiation is <span class="math notranslate nohighlight">\(Y_p\pm 0.00047\)</span>. This seems small but is actually 0.88% of the mean <span class="math notranslate nohighlight">\(Y_p\)</span> value, so may be significant depending on your use case.</p>
 <div class="section" id="Checking-the-accuracy-of-the-polynomial-approximation">
-<h3>Checking the accuracy of the polynomial approximation<a class="headerlink" href="#Checking-the-accuracy-of-the-polynomial-approximation" title="Permalink to this headline">¶</a></h3>
+<h3>Checking the accuracy of the polynomial approximation<a class="headerlink" href="#Checking-the-accuracy-of-the-polynomial-approximation" title="Permalink to this headline">#</a></h3>
 <p>A word of warning here. Accurate computed moments rely on the polynomial approximation being accurate. We have ommited checks of the polynomial accuracy so far for brevity, but usually this would be done before we call <code class="docutils literal notranslate"><span class="pre">get_mean_and_variance</span></code>. These checks would usually involve checking the <span class="math notranslate nohighlight">\(R^2\)</span> score and/or Root Mean Squared Error (RMSE) at the quadrature points.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [13]:
@@ -883,7 +880,7 @@ R2 = 1, RMSE = 3.18e-16
 <p>So we are happy with the accuracy in this case!</p>
 </div>
 <div class="section" id="Dealing-with-invalid-simulation-results">
-<h3>Dealing with invalid simulation results<a class="headerlink" href="#Dealing-with-invalid-simulation-results" title="Permalink to this headline">¶</a></h3>
+<h3>Dealing with invalid simulation results<a class="headerlink" href="#Dealing-with-invalid-simulation-results" title="Permalink to this headline">#</a></h3>
 <p>Any CFD practitioner is probably all too familiar with CFD simulations not converging! So what happens to the above procedure in this case? To investigate, we set a number of our DoE samples to NaN.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [18]:
@@ -969,7 +966,7 @@ Errors as a % of original values: mean = 0.019%, variance = -1.755%
 <p>Not too bad! This is usually the case, as long as we don’t have too many invalid samples…</p>
 </div>
 <div class="section" id="Sensitivity-analysis">
-<h3>Sensitivity analysis<a class="headerlink" href="#Sensitivity-analysis" title="Permalink to this headline">¶</a></h3>
+<h3>Sensitivity analysis<a class="headerlink" href="#Sensitivity-analysis" title="Permalink to this headline">#</a></h3>
 <p>As covered by a previous <a class="reference external" href="https://discourse.effective-quadratures.org/t/sensitivity-analysis-with-effective-quadratures/30">blog post</a>, <code class="docutils literal notranslate"><span class="pre">get_sobol_indices</span></code> computes the Sobol indices, which quantify the sensitivity of the model output to the input parameters.</p>
 <p>We now do this for the first order sobol indices <span class="math notranslate nohighlight">\(S_i\)</span>.</p>
 <div class="nbinput docutils container">
@@ -992,7 +989,7 @@ Errors as a % of original values: mean = 0.019%, variance = -1.755%
 <p>Clearly, <span class="math notranslate nohighlight">\(Y_p\)</span> is significantly more sensitive to <span class="math notranslate nohighlight">\(s_1\)</span> (<span class="math notranslate nohighlight">\(\nu_t/\nu\)</span>) than <span class="math notranslate nohighlight">\(s_2\)</span> (<span class="math notranslate nohighlight">\(Ti\)</span>). This is potentially a problem when we are looking to run CFD simulations of this nature, since (<span class="math notranslate nohighlight">\(\nu_t/\nu\)</span>) is more difficult to measure, so we often don’t have a good idea of what its value should be.</p>
 </div>
 <div class="section" id="Visualising-the-response-surface">
-<h3>Visualising the response surface<a class="headerlink" href="#Visualising-the-response-surface" title="Permalink to this headline">¶</a></h3>
+<h3>Visualising the response surface<a class="headerlink" href="#Visualising-the-response-surface" title="Permalink to this headline">#</a></h3>
 <p>We can obtain a a surrogate model <span class="math notranslate nohighlight">\(\hat{f}(s_1,s_2)\)</span> from <code class="docutils literal notranslate"><span class="pre">mypoly</span></code> with <code class="docutils literal notranslate"><span class="pre">get_polyfit</span></code>. Lets plot this to visualise the model’s response to our parameters <span class="math notranslate nohighlight">\(s_1\)</span> and <span class="math notranslate nohighlight">\(s_2\)</span>.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [26]:
@@ -1041,7 +1038,7 @@ Errors as a % of original values: mean = 0.019%, variance = -1.755%
 </div>
 </div>
 <div class="section" id="References">
-<h2>References<a class="headerlink" href="#References" title="Permalink to this headline">¶</a></h2>
+<h2>References<a class="headerlink" href="#References" title="Permalink to this headline">#</a></h2>
 <p>[1] Xiu, D., and Karniadakis, G. E. (2002), The Wiener-Askey polynomial chaos for stochastic differential equations. SIAM J. Sci. Comput. 24.2: 619-644. <a class="reference external" href="https://doi.org/10.1137/S1064827501387826">Paper</a>.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [ ]:
@@ -1066,60 +1063,60 @@ Errors as a % of original values: mean = 0.019%, variance = -1.755%
       </div>
     </div>
   
-    <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-  <head>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="footer.css" rel="stylesheet">
 </head>
 <div class="footer">
-             <div class="container">
-                 <div class="row">
-                   <div class="col-md-6 col-lg-3">
-                       <div class="footer-about">
-                            <a href="https://equadratures.org/"><img style="float: left; margin: 0px 250px 2px 10px; width:30%; min-width:25px" src="https://equadratures.org/icons/logo.png" alt="Image"></a><br>
-                            <b>equadratures</b> <br>
-                            mail@equadratures.org<br>
-                       </div>
-                   </div>
-                   <div class="col-md-6 col-lg-3">
-                       <div class="footer-social">
-                           <a href="https://github.com/equadratures"><img alt="" src="https://equadratures.org/icons/github.png" hspace="0x" style="width:100%; min-width:25px"></a>
-                           <a href="https://www.linkedin.com/company/67900612"><img alt=""  src="https://equadratures.org/icons/linkedin.png" hspace="0x" style="width:100%; min-width:25px"></a>
-                          <a href="https://twitter.com/equadratures"><img alt="" src="https://equadratures.org/icons/twitter.png" hspace="0x" style="width:100%; min-width:25px"></a>
-                        <a href="https://www.youtube.com/channel/UCpjwFDSZuFbzW-2lj6d96dA"><img alt="" src="https://equadratures.org/icons/youtube.png" hspace="0x" style="width:100%; min-width:25px"></a>
-                       </div>
-                       <br>
-                       <br>
-                   </div>
-                   <div class="col-md-6 col-lg-3">
-                       <div class="footer-contact">
-                         <b>management </b><br>
-                         <a href="https://equadratures.org/team">team </a><br>
-                         <a href="https://equadratures.org/partnerships">partnerships</a> <br>
-                         <a href="https://equadratures.org/case-studies">case studies</a> <br>
-                         <a href="https://research.equadratures.org/">research</a><br>
-                       </div>
-                   </div>
-                     <div class="col-md-6 col-lg-3">
-                         <div class="footer-links">
-                             <b>code </b><br>
-                             <a href="https://equadratures.org/documentation">documentation</a><br>
-                             <a href="https://discourse.equadratures.org/">discourse</a><br>
-                             <a href="https://equadratures.org/numfocus">numfocus affiliation</a> <br>
-                             <a href="https://equadratures.org/gsoc">google summer of code</a> <br>
-                         </div>
+        <div class="container footercontainer">
+               <div class="row">
+                 <div class="col-md-6 col-lg-3">
+                     <div class="footer-about">
+                          <img style="float: left; margin: 0px 200px 2px 10px; max-width:10.5em; min-width:55px" src="https://equadratures.org/brand/02/Vertical/equadraturesLockupVerticalWithLoveWhite.png" alt="Image"><br>
+                          <br>
+                          <br>
+                          <div class="footer-social">
+                            <a href="https://github.com/equadratures"><img alt="" src="https://equadratures.org/icons/github.png" hspace="0x" style="width:50%; min-width:20px"></a>
+                            <a href="https://www.linkedin.com/company/equadratures"><img alt=""  src="https://equadratures.org/icons/linkedin.png" hspace="0x" style="width:50%; min-width:20px"></a>
+                           <a href="https://twitter.com/equadratures"><img alt="" src="https://equadratures.org/icons/twitter.png" hspace="0x" style="width:50%; min-width:20px"></a>
+                         <a href="https://www.youtube.com/channel/UCpjwFDSZuFbzW-2lj6d96dA"><img alt="" src="https://equadratures.org/icons/youtube.png" hspace="0x" style="width:50%; min-width:20px"></a>
+                        </div>
                      </div>
                  </div>
-             </div>
-             <center>
-               <div class="smallerr">
-               copyright &copy; 2022 by equadratures.
-               <br>
-               made by the equadratures team, with &#10084;&#65039;.
-             </div>
-               <br>
-               <br>
-             </center>
-         </div>
+                 <div class="col-md-6 col-lg-3">
+                   <div class="footer-contact">
+                     <b>affiliations </b><br>
+                     <a href="https://equadratures.org/numfocus">numfocus</a><br>
+                     <a href="https://equadratures.org/gsoc">google summer of code</a><br>
+                   </div>
+                 </div>
+                 <div class="col-md-6 col-lg-3">
+                     <div class="footer-contact">
+                       <b>management </b><br>
+                        <a href="https://equadratures.org/team">team </a><br>
+                        <a href="https://equadratures.org/partnerships">partnerships</a><br>
+                     </div>
+                 </div>
+                   <div class="col-md-6 col-lg-3">
+                       <div class="footer-links">
+                           <b>code </b><br>
+                            <a href="https://equadratures.org/documentation/">documentation</a><br>
+                            <a href="https://discourse.equadratures.org/">discourse</a><br>
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <center>
+             <div class="smallerr">
+             copyright &copy; 2022 by equadratures.
+             <br>
+             made by the equadratures team, with &#10084;&#65039;.
+           </div>
+             <br>
+             <br>
+           </center>
+       </div>
   </body>
 </html>

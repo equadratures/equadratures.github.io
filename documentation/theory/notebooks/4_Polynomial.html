@@ -7,23 +7,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Polynomials &#8212; Documentation | equadratures</title>
     
-    <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 <link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-  
+
     
-    <link rel="stylesheet"
-      href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-  
-    
-      
-  
-    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/pydata-sphinx-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
@@ -32,8 +28,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/css/footer.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/fonts.css" />
     
-    <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
-  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
@@ -57,7 +54,7 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -69,7 +66,7 @@
     
 
 <a class="navbar-brand" href="../../index.html">
-  <img src="../../_static/logo_new.png" class="logo" alt="logo">
+  <img src="../../_static/equadraturesLockupHorizontalMain.png" class="logo" alt="logo">
 </a>
 
 
@@ -183,7 +180,7 @@
               
               <div class="toc-item">
                 
-<div class="tocsection onthispage pt-5 pb-3">
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
     <i class="fas fa-list"></i> On this page
 </div>
 
@@ -216,7 +213,7 @@
               <div>
                 
   <div class="section" id="Polynomials">
-<h1>Polynomials<a class="headerlink" href="#Polynomials" title="Permalink to this headline">¶</a></h1>
+<h1>Polynomials<a class="headerlink" href="#Polynomials" title="Permalink to this headline">#</a></h1>
 <p>Assume that <span class="math notranslate nohighlight">\(f\)</span> is sufficiently smooth and continuous such that it can be approximated by a global polynomial <span class="math notranslate nohighlight">\(p\)</span> <span class="math">\begin{align}
 \begin{split}
 f \left( \boldsymbol{x} \right) & \approx p \left( \boldsymbol{x} \right) \\
@@ -242,7 +239,7 @@ Legendre polynomials; for Gaussian weights one would use Hermite polynomials, an
 \end{equation}</span></p>
 <p>where <span class="math notranslate nohighlight">\(\left(\alpha_{j}, \beta_{j} \right)\)</span> are a set of recurrence coefficients explicitly known, dependent upon <span class="math notranslate nohighlight">\(\rho_{k}\left( x^{(k)} \right)\)</span> <a class="footnote-reference brackets" href="#gautschi1982generating" id="id2">2</a>. A four-term recurrence formula can also be derived for the derivatives of orthogonal polynomials.</p>
 <div class="section" id="References">
-<h2>References<a class="headerlink" href="#References" title="Permalink to this headline">¶</a></h2>
+<h2>References<a class="headerlink" href="#References" title="Permalink to this headline">#</a></h2>
 <p><dl class="footnote brackets">
 <dt class="label" id="xiu2002wiener"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
 <dd><p>Dongbin Xiu and George Em Karniadakis. The wiener–askey polynomial chaos for stochastic differential equations. <em>SIAM journal on scientific computing</em>, 24(2):619–644, 2002.</p>
@@ -265,60 +262,60 @@ Legendre polynomials; for Gaussian weights one would use Hermite polynomials, an
       </div>
     </div>
   
-    <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-  <head>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="footer.css" rel="stylesheet">
 </head>
 <div class="footer">
-             <div class="container">
-                 <div class="row">
-                   <div class="col-md-6 col-lg-3">
-                       <div class="footer-about">
-                            <a href="https://equadratures.org/"><img style="float: left; margin: 0px 250px 2px 10px; width:30%; min-width:25px" src="https://equadratures.org/icons/logo.png" alt="Image"></a><br>
-                            <b>equadratures</b> <br>
-                            mail@equadratures.org<br>
-                       </div>
-                   </div>
-                   <div class="col-md-6 col-lg-3">
-                       <div class="footer-social">
-                           <a href="https://github.com/equadratures"><img alt="" src="https://equadratures.org/icons/github.png" hspace="0x" style="width:100%; min-width:25px"></a>
-                           <a href="https://www.linkedin.com/company/67900612"><img alt=""  src="https://equadratures.org/icons/linkedin.png" hspace="0x" style="width:100%; min-width:25px"></a>
-                          <a href="https://twitter.com/equadratures"><img alt="" src="https://equadratures.org/icons/twitter.png" hspace="0x" style="width:100%; min-width:25px"></a>
-                        <a href="https://www.youtube.com/channel/UCpjwFDSZuFbzW-2lj6d96dA"><img alt="" src="https://equadratures.org/icons/youtube.png" hspace="0x" style="width:100%; min-width:25px"></a>
-                       </div>
-                       <br>
-                       <br>
-                   </div>
-                   <div class="col-md-6 col-lg-3">
-                       <div class="footer-contact">
-                         <b>management </b><br>
-                         <a href="https://equadratures.org/team">team </a><br>
-                         <a href="https://equadratures.org/partnerships">partnerships</a> <br>
-                         <a href="https://equadratures.org/case-studies">case studies</a> <br>
-                         <a href="https://research.equadratures.org/">research</a><br>
-                       </div>
-                   </div>
-                     <div class="col-md-6 col-lg-3">
-                         <div class="footer-links">
-                             <b>code </b><br>
-                             <a href="https://equadratures.org/documentation">documentation</a><br>
-                             <a href="https://discourse.equadratures.org/">discourse</a><br>
-                             <a href="https://equadratures.org/numfocus">numfocus affiliation</a> <br>
-                             <a href="https://equadratures.org/gsoc">google summer of code</a> <br>
-                         </div>
+        <div class="container footercontainer">
+               <div class="row">
+                 <div class="col-md-6 col-lg-3">
+                     <div class="footer-about">
+                          <img style="float: left; margin: 0px 200px 2px 10px; max-width:10.5em; min-width:55px" src="https://equadratures.org/brand/02/Vertical/equadraturesLockupVerticalWithLoveWhite.png" alt="Image"><br>
+                          <br>
+                          <br>
+                          <div class="footer-social">
+                            <a href="https://github.com/equadratures"><img alt="" src="https://equadratures.org/icons/github.png" hspace="0x" style="width:50%; min-width:20px"></a>
+                            <a href="https://www.linkedin.com/company/equadratures"><img alt=""  src="https://equadratures.org/icons/linkedin.png" hspace="0x" style="width:50%; min-width:20px"></a>
+                           <a href="https://twitter.com/equadratures"><img alt="" src="https://equadratures.org/icons/twitter.png" hspace="0x" style="width:50%; min-width:20px"></a>
+                         <a href="https://www.youtube.com/channel/UCpjwFDSZuFbzW-2lj6d96dA"><img alt="" src="https://equadratures.org/icons/youtube.png" hspace="0x" style="width:50%; min-width:20px"></a>
+                        </div>
                      </div>
                  </div>
-             </div>
-             <center>
-               <div class="smallerr">
-               copyright &copy; 2022 by equadratures.
-               <br>
-               made by the equadratures team, with &#10084;&#65039;.
-             </div>
-               <br>
-               <br>
-             </center>
-         </div>
+                 <div class="col-md-6 col-lg-3">
+                   <div class="footer-contact">
+                     <b>affiliations </b><br>
+                     <a href="https://equadratures.org/numfocus">numfocus</a><br>
+                     <a href="https://equadratures.org/gsoc">google summer of code</a><br>
+                   </div>
+                 </div>
+                 <div class="col-md-6 col-lg-3">
+                     <div class="footer-contact">
+                       <b>management </b><br>
+                        <a href="https://equadratures.org/team">team </a><br>
+                        <a href="https://equadratures.org/partnerships">partnerships</a><br>
+                     </div>
+                 </div>
+                   <div class="col-md-6 col-lg-3">
+                       <div class="footer-links">
+                           <b>code </b><br>
+                            <a href="https://equadratures.org/documentation/">documentation</a><br>
+                            <a href="https://discourse.equadratures.org/">discourse</a><br>
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <center>
+             <div class="smallerr">
+             copyright &copy; 2022 by equadratures.
+             <br>
+             made by the equadratures team, with &#10084;&#65039;.
+           </div>
+             <br>
+             <br>
+           </center>
+       </div>
   </body>
 </html>

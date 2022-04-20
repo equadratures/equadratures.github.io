@@ -7,23 +7,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Data-driven dimension reduction in turbomachinery &#8212; Documentation | equadratures</title>
     
-    <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 <link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-  
+
     
-    <link rel="stylesheet"
-      href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-  
-    
-      
-  
-    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/pydata-sphinx-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
@@ -32,8 +28,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/css/footer.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/fonts.css" />
     
-    <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
-  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
@@ -57,7 +54,7 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -69,7 +66,7 @@
     
 
 <a class="navbar-brand" href="../../index.html">
-  <img src="../../_static/logo_new.png" class="logo" alt="logo">
+  <img src="../../_static/equadraturesLockupHorizontalMain.png" class="logo" alt="logo">
 </a>
 
 
@@ -229,7 +226,7 @@
               
               <div class="toc-item">
                 
-<div class="tocsection onthispage pt-5 pb-3">
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
     <i class="fas fa-list"></i> On this page
 </div>
 
@@ -520,10 +517,10 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <div class="section" id="Data-driven-dimension-reduction-in-turbomachinery">
-<h1>Data-driven dimension reduction in turbomachinery<a class="headerlink" href="#Data-driven-dimension-reduction-in-turbomachinery" title="Permalink to this headline">¶</a></h1>
+<h1>Data-driven dimension reduction in turbomachinery<a class="headerlink" href="#Data-driven-dimension-reduction-in-turbomachinery" title="Permalink to this headline">#</a></h1>
 <p>In this tutorial, we will look at some of the material in this <a class="reference external" href="http://dx.doi.org/10.1115/GT2020-16277">ASME Turbo Expo paper</a>, which explores the design of a probe used to measure the stagnation temperature in gas-turbine engines. By using <em>equadratures</em> to reduce the dimensionality of the design space, the probes’ performance parameters can be more effectively visualised, and physical insights obtained.</p>
 <div class="section" id="Load-the-data">
-<h2>Load the data<a class="headerlink" href="#Load-the-data" title="Permalink to this headline">¶</a></h2>
+<h2>Load the data<a class="headerlink" href="#Load-the-data" title="Permalink to this headline">#</a></h2>
 <p>The data consists of Computational Fluid Dynamics (CFD) simulations of <span class="math notranslate nohighlight">\(N=128\)</span> temperature probes, with the upper half of one shown below. The probe geometries are parameterised by <span class="math notranslate nohighlight">\(d=7\)</span> design parameters, with the design space sampled using Latin Hypercube sampling.</p>
 <p><img alt="drawing" src="../../_images/probe.jpeg" /></p>
 <p>The input design vectors are stored in <span class="math notranslate nohighlight">\(\mathbf{X}\in \mathbb{R}^{N\times d}\)</span>, and two design objectives <span class="math notranslate nohighlight">\(y_1,y_2 \in \mathbb{R}^{N \times 1}\)</span> are considered. We wish to minimise both of these objectives, which represent the following (see Sections 2 and 6 in the paper for more details):</p>
@@ -559,7 +556,7 @@ Downloading the probes dataset from github...
 </div>
 </div>
 <div class="section" id="Find-a-1D-subspace-for-loss-coefficient">
-<h2>Find a 1D subspace for loss coefficient<a class="headerlink" href="#Find-a-1D-subspace-for-loss-coefficient" title="Permalink to this headline">¶</a></h2>
+<h2>Find a 1D subspace for loss coefficient<a class="headerlink" href="#Find-a-1D-subspace-for-loss-coefficient" title="Permalink to this headline">#</a></h2>
 <p>Here we find a subspace for the loss coefficient design objective <span class="math notranslate nohighlight">\(y_1\)</span> (<span class="math notranslate nohighlight">\(O_{Yp}\)</span> in the paper). From a <a class="reference external" href="https://github.com/ascillitoe/probe-subspaces/blob/main/Example_Notebooks/grid_search.ipynb">previous grid search</a>, we know a 1D subspace (<span class="math notranslate nohighlight">\(m=1\)</span>) and <span class="math notranslate nohighlight">\(1^{st}\)</span> order polynomial (<span class="math notranslate nohighlight">\(k=1\)</span>) are suitable.</p>
 <p>The subspace procedure is not deterministic (there is an element of randomness involved). Sometimes poor subspaces are obtained. We can judge by looking at <span class="math notranslate nohighlight">\(R^2\)</span> or simply plotting the summary plot (see later). In this event we simply rerun until we find a subspace we are happy with. This does mean that it is good practice to save a subspace to file for future analysis, instead of generating a new one each time.</p>
 <p>You can save a subspace with <code class="docutils literal notranslate"><span class="pre">joblib.dump(mysubspace1,'Yp_subspace.joblib')</span></code> for example.</p>
@@ -639,7 +636,7 @@ Downloading the probes dataset from github...
 <p>So it is apparent that the Kiel outer diameter has the greatest influence on <span class="math notranslate nohighlight">\(u\)</span>, and therefore on <span class="math notranslate nohighlight">\(O_{Y_p}\)</span>, followed by the hole diameter. A decrease in these two diameters leads to a reduction in the loss <span class="math notranslate nohighlight">\(O_{Y_p}\)</span>.</p>
 </div>
 <div class="section" id="Find-a-2D-subspace-for-the-recovery-ratio-gradient">
-<h2>Find a 2D subspace for the recovery ratio gradient<a class="headerlink" href="#Find-a-2D-subspace-for-the-recovery-ratio-gradient" title="Permalink to this headline">¶</a></h2>
+<h2>Find a 2D subspace for the recovery ratio gradient<a class="headerlink" href="#Find-a-2D-subspace-for-the-recovery-ratio-gradient" title="Permalink to this headline">#</a></h2>
 <p>Here we find a subspace for the recovery ratio gradient design objective <span class="math notranslate nohighlight">\(y_2\)</span> (<span class="math notranslate nohighlight">\(O_{Rr}\)</span> in the paper). From a previous grid search, we know a 2D subspace (<span class="math notranslate nohighlight">\(m=2\)</span>) and <span class="math notranslate nohighlight">\(3^{rd}\)</span> order polynomial (<span class="math notranslate nohighlight">\(k=3\)</span>) are suitable.</p>
 <p><strong>Note:</strong> This one is trickier! You might need to rerun it a few times to get a good <span class="math notranslate nohighlight">\(R^2\)</span> value.</p>
 <div class="nbinput nblast docutils container">
@@ -714,60 +711,60 @@ sensitivity to manufacturing uncertainties.</p>
       </div>
     </div>
   
-    <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-  <head>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="footer.css" rel="stylesheet">
 </head>
 <div class="footer">
-             <div class="container">
-                 <div class="row">
-                   <div class="col-md-6 col-lg-3">
-                       <div class="footer-about">
-                            <a href="https://equadratures.org/"><img style="float: left; margin: 0px 250px 2px 10px; width:30%; min-width:25px" src="https://equadratures.org/icons/logo.png" alt="Image"></a><br>
-                            <b>equadratures</b> <br>
-                            mail@equadratures.org<br>
-                       </div>
-                   </div>
-                   <div class="col-md-6 col-lg-3">
-                       <div class="footer-social">
-                           <a href="https://github.com/equadratures"><img alt="" src="https://equadratures.org/icons/github.png" hspace="0x" style="width:100%; min-width:25px"></a>
-                           <a href="https://www.linkedin.com/company/67900612"><img alt=""  src="https://equadratures.org/icons/linkedin.png" hspace="0x" style="width:100%; min-width:25px"></a>
-                          <a href="https://twitter.com/equadratures"><img alt="" src="https://equadratures.org/icons/twitter.png" hspace="0x" style="width:100%; min-width:25px"></a>
-                        <a href="https://www.youtube.com/channel/UCpjwFDSZuFbzW-2lj6d96dA"><img alt="" src="https://equadratures.org/icons/youtube.png" hspace="0x" style="width:100%; min-width:25px"></a>
-                       </div>
-                       <br>
-                       <br>
-                   </div>
-                   <div class="col-md-6 col-lg-3">
-                       <div class="footer-contact">
-                         <b>management </b><br>
-                         <a href="https://equadratures.org/team">team </a><br>
-                         <a href="https://equadratures.org/partnerships">partnerships</a> <br>
-                         <a href="https://equadratures.org/case-studies">case studies</a> <br>
-                         <a href="https://research.equadratures.org/">research</a><br>
-                       </div>
-                   </div>
-                     <div class="col-md-6 col-lg-3">
-                         <div class="footer-links">
-                             <b>code </b><br>
-                             <a href="https://equadratures.org/documentation">documentation</a><br>
-                             <a href="https://discourse.equadratures.org/">discourse</a><br>
-                             <a href="https://equadratures.org/numfocus">numfocus affiliation</a> <br>
-                             <a href="https://equadratures.org/gsoc">google summer of code</a> <br>
-                         </div>
+        <div class="container footercontainer">
+               <div class="row">
+                 <div class="col-md-6 col-lg-3">
+                     <div class="footer-about">
+                          <img style="float: left; margin: 0px 200px 2px 10px; max-width:10.5em; min-width:55px" src="https://equadratures.org/brand/02/Vertical/equadraturesLockupVerticalWithLoveWhite.png" alt="Image"><br>
+                          <br>
+                          <br>
+                          <div class="footer-social">
+                            <a href="https://github.com/equadratures"><img alt="" src="https://equadratures.org/icons/github.png" hspace="0x" style="width:50%; min-width:20px"></a>
+                            <a href="https://www.linkedin.com/company/equadratures"><img alt=""  src="https://equadratures.org/icons/linkedin.png" hspace="0x" style="width:50%; min-width:20px"></a>
+                           <a href="https://twitter.com/equadratures"><img alt="" src="https://equadratures.org/icons/twitter.png" hspace="0x" style="width:50%; min-width:20px"></a>
+                         <a href="https://www.youtube.com/channel/UCpjwFDSZuFbzW-2lj6d96dA"><img alt="" src="https://equadratures.org/icons/youtube.png" hspace="0x" style="width:50%; min-width:20px"></a>
+                        </div>
                      </div>
                  </div>
-             </div>
-             <center>
-               <div class="smallerr">
-               copyright &copy; 2022 by equadratures.
-               <br>
-               made by the equadratures team, with &#10084;&#65039;.
-             </div>
-               <br>
-               <br>
-             </center>
-         </div>
+                 <div class="col-md-6 col-lg-3">
+                   <div class="footer-contact">
+                     <b>affiliations </b><br>
+                     <a href="https://equadratures.org/numfocus">numfocus</a><br>
+                     <a href="https://equadratures.org/gsoc">google summer of code</a><br>
+                   </div>
+                 </div>
+                 <div class="col-md-6 col-lg-3">
+                     <div class="footer-contact">
+                       <b>management </b><br>
+                        <a href="https://equadratures.org/team">team </a><br>
+                        <a href="https://equadratures.org/partnerships">partnerships</a><br>
+                     </div>
+                 </div>
+                   <div class="col-md-6 col-lg-3">
+                       <div class="footer-links">
+                           <b>code </b><br>
+                            <a href="https://equadratures.org/documentation/">documentation</a><br>
+                            <a href="https://discourse.equadratures.org/">discourse</a><br>
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <center>
+             <div class="smallerr">
+             copyright &copy; 2022 by equadratures.
+             <br>
+             made by the equadratures team, with &#10084;&#65039;.
+           </div>
+             <br>
+             <br>
+           </center>
+       </div>
   </body>
 </html>

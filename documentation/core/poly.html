@@ -7,23 +7,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Polynomial &#8212; Documentation | equadratures</title>
     
-    <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-  
+
     
-    <link rel="stylesheet"
-      href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-    <link rel="preload" as="font" type="font/woff2" crossorigin
-      href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-  
-    
-      
-  
-    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/pydata-sphinx-theme.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
@@ -32,8 +28,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/css/footer.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/fonts.css" />
     
-    <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
-  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -55,7 +52,7 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -67,7 +64,7 @@
     
 
 <a class="navbar-brand" href="../index.html">
-  <img src="../_static/logo_new.png" class="logo" alt="logo">
+  <img src="../_static/equadraturesLockupHorizontalMain.png" class="logo" alt="logo">
 </a>
 
 
@@ -199,11 +196,11 @@
               <div>
                 
   <div class="section" id="module-equadratures.poly">
-<span id="polynomial"></span><h1>Polynomial<a class="headerlink" href="#module-equadratures.poly" title="Permalink to this headline">¶</a></h1>
+<span id="polynomial"></span><h1>Polynomial<a class="headerlink" href="#module-equadratures.poly" title="Permalink to this headline">#</a></h1>
 <p>The polynomial parent class; one of the main building blocks in Effective Quadratures.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="equadratures.poly.Graphpolys">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">equadratures.poly.</span></span><span class="sig-name descname"><span class="pre">Graphpolys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">poly</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">15</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Graphpolys"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Graphpolys" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">equadratures.poly.</span></span><span class="sig-name descname"><span class="pre">Graphpolys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">poly</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">15</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Graphpolys"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Graphpolys" title="Permalink to this definition">#</a></dt>
 <dd><p>Constructor for generating polynomials over graphs.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -217,13 +214,13 @@
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.poly.Graphpolys.fit">
-<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Graphpolys.fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Graphpolys.fit" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Graphpolys.fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Graphpolys.fit" title="Permalink to this definition">#</a></dt>
 <dd><p>Fit polynomial to data.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.poly.Graphpolys.predict">
-<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">score</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Graphpolys.predict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Graphpolys.predict" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">score</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Graphpolys.predict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Graphpolys.predict" title="Permalink to this definition">#</a></dt>
 <dd><p>Predict.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -246,7 +243,7 @@
 
 <dl class="py class">
 <dt class="sig sig-object py" id="equadratures.poly.Poly">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">equadratures.poly.</span></span><span class="sig-name descname"><span class="pre">Poly</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">basis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampling_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">override_cardinality</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">equadratures.poly.</span></span><span class="sig-name descname"><span class="pre">Poly</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">basis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampling_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solver_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">override_cardinality</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly" title="Permalink to this definition">#</a></dt>
 <dd><p>Definition of a polynomial object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -302,7 +299,7 @@
 </ol>
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.poly.Poly.get_coefficients">
-<span class="sig-name descname"><span class="pre">get_coefficients</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_coefficients"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_coefficients" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_coefficients</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_coefficients"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_coefficients" title="Permalink to this definition">#</a></dt>
 <dd><p>Returns the coefficients of the polynomial approximation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -316,7 +313,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.poly.Poly.get_conditional_kurtosis_indices">
-<span class="sig-name descname"><span class="pre">get_conditional_kurtosis_indices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_conditional_kurtosis_indices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_conditional_kurtosis_indices" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_conditional_kurtosis_indices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_conditional_kurtosis_indices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_conditional_kurtosis_indices" title="Permalink to this definition">#</a></dt>
 <dd><p>Computes the kurtosis indices.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -333,7 +330,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.poly.Poly.get_conditional_skewness_indices">
-<span class="sig-name descname"><span class="pre">get_conditional_skewness_indices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_conditional_skewness_indices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_conditional_skewness_indices" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_conditional_skewness_indices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_conditional_skewness_indices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_conditional_skewness_indices" title="Permalink to this definition">#</a></dt>
 <dd><p>Computes the skewness indices.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -350,7 +347,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.poly.Poly.get_mean_and_variance">
-<span class="sig-name descname"><span class="pre">get_mean_and_variance</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_mean_and_variance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_mean_and_variance" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_mean_and_variance</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_mean_and_variance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_mean_and_variance" title="Permalink to this definition">#</a></dt>
 <dd><p>Computes the mean and variance of the model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -364,7 +361,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.poly.Poly.get_model_evaluations">
-<span class="sig-name descname"><span class="pre">get_model_evaluations</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_model_evaluations"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_model_evaluations" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_model_evaluations</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_model_evaluations"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_model_evaluations" title="Permalink to this definition">#</a></dt>
 <dd><p>Returns the output model evaluations used to fit the polynomial.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -378,7 +375,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.poly.Poly.get_multi_index">
-<span class="sig-name descname"><span class="pre">get_multi_index</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_multi_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_multi_index" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_multi_index</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_multi_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_multi_index" title="Permalink to this definition">#</a></dt>
 <dd><p>Returns the multi-index set of the basis.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -392,7 +389,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.poly.Poly.get_parameters">
-<span class="sig-name descname"><span class="pre">get_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_parameters" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_parameters" title="Permalink to this definition">#</a></dt>
 <dd><p>Returns the list of parameters.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -406,7 +403,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.poly.Poly.get_points">
-<span class="sig-name descname"><span class="pre">get_points</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_points"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_points" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_points</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_points"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_points" title="Permalink to this definition">#</a></dt>
 <dd><p>Returns the samples based on the sampling strategy.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -420,7 +417,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.poly.Poly.get_points_and_weights">
-<span class="sig-name descname"><span class="pre">get_points_and_weights</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_points_and_weights"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_points_and_weights" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_points_and_weights</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_points_and_weights"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_points_and_weights" title="Permalink to this definition">#</a></dt>
 <dd><p>Returns the samples and weights based on the sampling strategy.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -434,7 +431,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.poly.Poly.get_poly">
-<span class="sig-name descname"><span class="pre">get_poly</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stack_of_points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_multi_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_poly"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_poly" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_poly</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stack_of_points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_multi_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_poly"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_poly" title="Permalink to this definition">#</a></dt>
 <dd><p>Evaluates the value of each polynomial basis function at a set of points.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -454,7 +451,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.poly.Poly.get_poly_grad">
-<span class="sig-name descname"><span class="pre">get_poly_grad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stack_of_points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_poly_grad"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_poly_grad" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_poly_grad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stack_of_points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_poly_grad"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_poly_grad" title="Permalink to this definition">#</a></dt>
 <dd><p>Evaluates the gradient for each of the polynomial basis functions at a set of points, with respect to each input variable.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -474,7 +471,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.poly.Poly.get_poly_hess">
-<span class="sig-name descname"><span class="pre">get_poly_hess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stack_of_points</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_poly_hess"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_poly_hess" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_poly_hess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stack_of_points</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_poly_hess"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_poly_hess" title="Permalink to this definition">#</a></dt>
 <dd><p>Evaluates the Hessian for each of the polynomial basis functions at a set of points, with respect to each input variable.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -491,7 +488,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.poly.Poly.get_polyfit">
-<span class="sig-name descname"><span class="pre">get_polyfit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stack_of_points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_polyfit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_polyfit" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_polyfit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stack_of_points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_polyfit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_polyfit" title="Permalink to this definition">#</a></dt>
 <dd><p>Evaluates the /polynomial approximation of a function (or model data) at prescribed points.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -511,7 +508,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.poly.Poly.get_polyfit_function">
-<span class="sig-name descname"><span class="pre">get_polyfit_function</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_polyfit_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_polyfit_function" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_polyfit_function</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_polyfit_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_polyfit_function" title="Permalink to this definition">#</a></dt>
 <dd><p>Returns a callable polynomial approximation of a function (or model data).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -525,7 +522,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.poly.Poly.get_polyfit_grad">
-<span class="sig-name descname"><span class="pre">get_polyfit_grad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stack_of_points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_polyfit_grad"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_polyfit_grad" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_polyfit_grad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stack_of_points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_polyfit_grad"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_polyfit_grad" title="Permalink to this definition">#</a></dt>
 <dd><p>Evaluates the gradient of the polynomial approximation of a function (or model data) at prescribed points.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -545,7 +542,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.poly.Poly.get_polyfit_grad_function">
-<span class="sig-name descname"><span class="pre">get_polyfit_grad_function</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_polyfit_grad_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_polyfit_grad_function" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_polyfit_grad_function</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_polyfit_grad_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_polyfit_grad_function" title="Permalink to this definition">#</a></dt>
 <dd><p>Returns a callable for the gradients of the polynomial approximation of a function (or model data).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -559,7 +556,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.poly.Poly.get_polyfit_hess">
-<span class="sig-name descname"><span class="pre">get_polyfit_hess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stack_of_points</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_polyfit_hess"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_polyfit_hess" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_polyfit_hess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stack_of_points</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_polyfit_hess"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_polyfit_hess" title="Permalink to this definition">#</a></dt>
 <dd><p>Evaluates the hessian of the polynomial approximation of a function (or model data) at prescribed points.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -576,7 +573,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.poly.Poly.get_polyfit_hess_function">
-<span class="sig-name descname"><span class="pre">get_polyfit_hess_function</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_polyfit_hess_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_polyfit_hess_function" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_polyfit_hess_function</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_polyfit_hess_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_polyfit_hess_function" title="Permalink to this definition">#</a></dt>
 <dd><p>Returns a callable for the hessian of the polynomial approximation of a function (or model data).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -590,7 +587,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.poly.Poly.get_polyscore">
-<span class="sig-name descname"><span class="pre">get_polyscore</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X_test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'adjusted_r2'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_polyscore"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_polyscore" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_polyscore</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X_test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'adjusted_r2'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_polyscore"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_polyscore" title="Permalink to this definition">#</a></dt>
 <dd><p>Evaluates the accuracy of the polynomial approximation using the selected accuracy metric.</p>
 <p>Training accuracy is evaluated on the data used for fitting the polynomial. Testing accuracy is evaluated on new data if it is provided by the <code class="docutils literal notranslate"><span class="pre">X_test</span></code> and <code class="docutils literal notranslate"><span class="pre">y_test</span></code> arguments (both must be provided together).</p>
 <dl class="field-list simple">
@@ -613,7 +610,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.poly.Poly.get_skewness_and_kurtosis">
-<span class="sig-name descname"><span class="pre">get_skewness_and_kurtosis</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_skewness_and_kurtosis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_skewness_and_kurtosis" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_skewness_and_kurtosis</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_skewness_and_kurtosis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_skewness_and_kurtosis" title="Permalink to this definition">#</a></dt>
 <dd><p>Computes the skewness and kurtosis of the model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -627,7 +624,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.poly.Poly.get_sobol_indices">
-<span class="sig-name descname"><span class="pre">get_sobol_indices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_sobol_indices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_sobol_indices" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_sobol_indices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_sobol_indices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_sobol_indices" title="Permalink to this definition">#</a></dt>
 <dd><p>Computes the Sobol’ indices.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -644,7 +641,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.poly.Poly.get_summary">
-<span class="sig-name descname"><span class="pre">get_summary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tosay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_summary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_summary" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_summary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tosay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_summary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_summary" title="Permalink to this definition">#</a></dt>
 <dd><p>A simple utility that writes a file summarising what the polynomial approximation has determined.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -658,7 +655,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.poly.Poly.get_total_sobol_indices">
-<span class="sig-name descname"><span class="pre">get_total_sobol_indices</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_total_sobol_indices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_total_sobol_indices" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_total_sobol_indices</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_total_sobol_indices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_total_sobol_indices" title="Permalink to this definition">#</a></dt>
 <dd><p>Computes the total Sobol’ indices.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -672,7 +669,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.poly.Poly.get_weights">
-<span class="sig-name descname"><span class="pre">get_weights</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_weights"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_weights" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_weights</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.get_weights"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.get_weights" title="Permalink to this definition">#</a></dt>
 <dd><p>Computes quadrature weights.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -686,43 +683,43 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.poly.Poly.plot_model_vs_data">
-<span class="sig-name descname"><span class="pre">plot_model_vs_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'adjusted_r2'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.plot_model_vs_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.plot_model_vs_data" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">plot_model_vs_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'adjusted_r2'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.plot_model_vs_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.plot_model_vs_data" title="Permalink to this definition">#</a></dt>
 <dd><p>Plots the polynomial approximation against the true data. See <code class="xref py py-meth docutils literal notranslate"><span class="pre">plot_model_vs_data()</span></code> for full description.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.poly.Poly.plot_parameters">
-<span class="sig-name descname"><span class="pre">plot_parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cols</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.plot_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.plot_parameters" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">plot_parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cols</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.plot_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.plot_parameters" title="Permalink to this definition">#</a></dt>
 <dd><p>Plots the probability density functions for all Parameters within a Polynomial. See <code class="xref py py-meth docutils literal notranslate"><span class="pre">plot_parameters()</span></code> for full description.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.poly.Poly.plot_polyfit_1D">
-<span class="sig-name descname"><span class="pre">plot_polyfit_1D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uncertainty</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_variances</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number_of_points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.plot_polyfit_1D"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.plot_polyfit_1D" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">plot_polyfit_1D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uncertainty</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_variances</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number_of_points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.plot_polyfit_1D"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.plot_polyfit_1D" title="Permalink to this definition">#</a></dt>
 <dd><p>Plots a 1D only polynomial fit to the data. See <code class="xref py py-meth docutils literal notranslate"><span class="pre">plot_polyfit_1D()</span></code> for full description.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.poly.Poly.plot_sobol">
-<span class="sig-name descname"><span class="pre">plot_sobol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.plot_sobol"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.plot_sobol" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">plot_sobol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.plot_sobol"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.plot_sobol" title="Permalink to this definition">#</a></dt>
 <dd><p>Plots a polynomial’s Sobol’ indices of a given order. See <code class="xref py py-meth docutils literal notranslate"><span class="pre">plot_sobol()</span></code> for full description.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.poly.Poly.plot_sobol_heatmap">
-<span class="sig-name descname"><span class="pre">plot_sobol_heatmap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.plot_sobol_heatmap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.plot_sobol_heatmap" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">plot_sobol_heatmap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.plot_sobol_heatmap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.plot_sobol_heatmap" title="Permalink to this definition">#</a></dt>
 <dd><p>Generates a heatmap showing the first and second order Sobol indices. See <code class="xref py py-meth docutils literal notranslate"><span class="pre">plot_sobol_heatmap()</span></code> for full description.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.poly.Poly.plot_total_sobol">
-<span class="sig-name descname"><span class="pre">plot_total_sobol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.plot_total_sobol"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.plot_total_sobol" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">plot_total_sobol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.plot_total_sobol"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.plot_total_sobol" title="Permalink to this definition">#</a></dt>
 <dd><p>Plots a polynomial’s total-order Sobol’ indices. See <code class="xref py py-meth docutils literal notranslate"><span class="pre">plot_total_sobol()</span></code> for full description.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="equadratures.poly.Poly.set_model">
-<span class="sig-name descname"><span class="pre">set_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_grads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.set_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.set_model" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">set_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_grads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#Poly.set_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.Poly.set_model" title="Permalink to this definition">#</a></dt>
 <dd><p>Computes the coefficients of the polynomial via the method selected.</p>
 <p>If model evaluations and/or gradients have not yet been provided to Poly via <code class="docutils literal notranslate"><span class="pre">sample-outputs</span></code> and/or <code class="docutils literal notranslate"><span class="pre">sample-gradients</span></code>, they can be given here via the <code class="docutils literal notranslate"><span class="pre">model</span></code> and <code class="docutils literal notranslate"><span class="pre">model_grads</span></code> arguments.</p>
 <dl class="field-list simple">
@@ -778,7 +775,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="equadratures.poly.evaluate_model">
-<span class="sig-prename descclassname"><span class="pre">equadratures.poly.</span></span><span class="sig-name descname"><span class="pre">evaluate_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#evaluate_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.evaluate_model" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">equadratures.poly.</span></span><span class="sig-name descname"><span class="pre">evaluate_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#evaluate_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.evaluate_model" title="Permalink to this definition">#</a></dt>
 <dd><p>Evaluates the model function at given values.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -798,7 +795,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="equadratures.poly.evaluate_model_gradients">
-<span class="sig-prename descclassname"><span class="pre">equadratures.poly.</span></span><span class="sig-name descname"><span class="pre">evaluate_model_gradients</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fungrad</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'matrix'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#evaluate_model_gradients"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.evaluate_model_gradients" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">equadratures.poly.</span></span><span class="sig-name descname"><span class="pre">evaluate_model_gradients</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fungrad</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'matrix'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#evaluate_model_gradients"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.evaluate_model_gradients" title="Permalink to this definition">#</a></dt>
 <dd><p>Evaluates the model gradient at given values.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -819,7 +816,7 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="equadratures.poly.vector_to_2D_grid">
-<span class="sig-prename descclassname"><span class="pre">equadratures.poly.</span></span><span class="sig-name descname"><span class="pre">vector_to_2D_grid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coefficients</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_set</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#vector_to_2D_grid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.vector_to_2D_grid" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">equadratures.poly.</span></span><span class="sig-name descname"><span class="pre">vector_to_2D_grid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coefficients</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_set</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/poly.html#vector_to_2D_grid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.poly.vector_to_2D_grid" title="Permalink to this definition">#</a></dt>
 <dd><p>Handy function that converts a vector of coefficients into a matrix based on index set values.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -849,60 +846,60 @@
       </div>
     </div>
   
-    <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-  <head>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="footer.css" rel="stylesheet">
 </head>
 <div class="footer">
-             <div class="container">
-                 <div class="row">
-                   <div class="col-md-6 col-lg-3">
-                       <div class="footer-about">
-                            <a href="https://equadratures.org/"><img style="float: left; margin: 0px 250px 2px 10px; width:30%; min-width:25px" src="https://equadratures.org/icons/logo.png" alt="Image"></a><br>
-                            <b>equadratures</b> <br>
-                            mail@equadratures.org<br>
-                       </div>
-                   </div>
-                   <div class="col-md-6 col-lg-3">
-                       <div class="footer-social">
-                           <a href="https://github.com/equadratures"><img alt="" src="https://equadratures.org/icons/github.png" hspace="0x" style="width:100%; min-width:25px"></a>
-                           <a href="https://www.linkedin.com/company/67900612"><img alt=""  src="https://equadratures.org/icons/linkedin.png" hspace="0x" style="width:100%; min-width:25px"></a>
-                          <a href="https://twitter.com/equadratures"><img alt="" src="https://equadratures.org/icons/twitter.png" hspace="0x" style="width:100%; min-width:25px"></a>
-                        <a href="https://www.youtube.com/channel/UCpjwFDSZuFbzW-2lj6d96dA"><img alt="" src="https://equadratures.org/icons/youtube.png" hspace="0x" style="width:100%; min-width:25px"></a>
-                       </div>
-                       <br>
-                       <br>
-                   </div>
-                   <div class="col-md-6 col-lg-3">
-                       <div class="footer-contact">
-                         <b>management </b><br>
-                         <a href="https://equadratures.org/team">team </a><br>
-                         <a href="https://equadratures.org/partnerships">partnerships</a> <br>
-                         <a href="https://equadratures.org/case-studies">case studies</a> <br>
-                         <a href="https://research.equadratures.org/">research</a><br>
-                       </div>
-                   </div>
-                     <div class="col-md-6 col-lg-3">
-                         <div class="footer-links">
-                             <b>code </b><br>
-                             <a href="https://equadratures.org/documentation">documentation</a><br>
-                             <a href="https://discourse.equadratures.org/">discourse</a><br>
-                             <a href="https://equadratures.org/numfocus">numfocus affiliation</a> <br>
-                             <a href="https://equadratures.org/gsoc">google summer of code</a> <br>
-                         </div>
+        <div class="container footercontainer">
+               <div class="row">
+                 <div class="col-md-6 col-lg-3">
+                     <div class="footer-about">
+                          <img style="float: left; margin: 0px 200px 2px 10px; max-width:10.5em; min-width:55px" src="https://equadratures.org/brand/02/Vertical/equadraturesLockupVerticalWithLoveWhite.png" alt="Image"><br>
+                          <br>
+                          <br>
+                          <div class="footer-social">
+                            <a href="https://github.com/equadratures"><img alt="" src="https://equadratures.org/icons/github.png" hspace="0x" style="width:50%; min-width:20px"></a>
+                            <a href="https://www.linkedin.com/company/equadratures"><img alt=""  src="https://equadratures.org/icons/linkedin.png" hspace="0x" style="width:50%; min-width:20px"></a>
+                           <a href="https://twitter.com/equadratures"><img alt="" src="https://equadratures.org/icons/twitter.png" hspace="0x" style="width:50%; min-width:20px"></a>
+                         <a href="https://www.youtube.com/channel/UCpjwFDSZuFbzW-2lj6d96dA"><img alt="" src="https://equadratures.org/icons/youtube.png" hspace="0x" style="width:50%; min-width:20px"></a>
+                        </div>
                      </div>
                  </div>
-             </div>
-             <center>
-               <div class="smallerr">
-               copyright &copy; 2022 by equadratures.
-               <br>
-               made by the equadratures team, with &#10084;&#65039;.
-             </div>
-               <br>
-               <br>
-             </center>
-         </div>
+                 <div class="col-md-6 col-lg-3">
+                   <div class="footer-contact">
+                     <b>affiliations </b><br>
+                     <a href="https://equadratures.org/numfocus">numfocus</a><br>
+                     <a href="https://equadratures.org/gsoc">google summer of code</a><br>
+                   </div>
+                 </div>
+                 <div class="col-md-6 col-lg-3">
+                     <div class="footer-contact">
+                       <b>management </b><br>
+                        <a href="https://equadratures.org/team">team </a><br>
+                        <a href="https://equadratures.org/partnerships">partnerships</a><br>
+                     </div>
+                 </div>
+                   <div class="col-md-6 col-lg-3">
+                       <div class="footer-links">
+                           <b>code </b><br>
+                            <a href="https://equadratures.org/documentation/">documentation</a><br>
+                            <a href="https://discourse.equadratures.org/">discourse</a><br>
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <center>
+             <div class="smallerr">
+             copyright &copy; 2022 by equadratures.
+             <br>
+             made by the equadratures team, with &#10084;&#65039;.
+           </div>
+             <br>
+             <br>
+           </center>
+       </div>
   </body>
 </html>
