@@ -37,7 +37,6 @@ h2{
   color: #263a8c;
   margin-right:1em;
   margin-bottom:0.5em;
-  margin-left:1.5em;
   font-family: DinPro;
 }
 
@@ -85,6 +84,10 @@ code, pre {
     pre {
         font-size: 0.95em;
     }
+}
+
+.sig-name {
+    color:#DC4C1A;
 }
 
 blockquote {
