@@ -1,0 +1,115 @@
+.aboutcard {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 310px 150px 80px;
+    grid-template-areas: "image""text""stats";
+
+    border-radius: 18px;
+    background: white;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
+    font-family: roboto;
+    text-align: center;
+
+    transition: 0.5s ease;
+    cursor: pointer;
+    /* margin: 30px; */
+    margin-top: 0px;
+    margin-bottom: 30px;
+}
+
+.card-image {
+    grid-area: image;
+    background: url("imgs/pranay.jpeg");
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+    background-position: center;
+}
+
+.card-text {
+    grid-area: text;
+    margin: 25px;
+}
+
+.card-text p {
+    color: grey;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.card-text h2 {
+    margin-top: 0px;
+    font-size: 28px;
+}
+
+.card-stats {
+    grid-area: stats;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background: #02bec4;
+}
+
+.card-stats .stat {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+}
+
+.card-stats .value {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.card-stats .value sup {
+    font-size: 12px;
+}
+
+.card-stats .type {
+    font-size: 11px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.aboutcard:hover {
+    transform: scale(1.1);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
+}
+
+/*card2*/
+.card-image.card2 {
+    background: url("imgs/andrew.jpeg");
+    background-size: cover;
+    background-position: center;
+}
+
+.card-stats.card2 .border {
+    border-left: 1px solid rgb(185, 67, 20);
+    border-right: 1px solid rgb(185, 67, 20);
+}
+
+/*card3*/
+.card-image.card3 {
+    background: url("https://github.com/bnubald.png");
+    background-size: cover;
+    background-position: center;
+}
+
+/*card4*/
+.card-image.card4 {
+    background: url("imgs/ashley.jpeg");
+    background-size: cover;
+    background-position: center;
+}
+
+/*card5*/
+.card-image.card5 {
+    background: url("https://ncywong.github.io/0.jpeg");
+    background-size: cover;
+    background-position: center;
+}

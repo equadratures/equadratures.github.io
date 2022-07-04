@@ -1,0 +1,129 @@
+@font-face {
+  font-family: "DIN Pro";
+  src: local(DinPro),
+    url('fonts/DINPro.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "D-DIN-PRO";
+  src: local(DinPro),
+    url('fonts/DINPRO-700-Bold.ttf') format('truetype');
+}
+
+img {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.infocontainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 62px);
+  overflow: hidden;
+}
+
+@media(max-width: 992px) {
+  .infocontainer {
+    height: calc(100vh - 56px);
+  }
+}
+
+.svg_content {
+  max-height: 80vh;
+  height: 100%;
+  width: 100vw;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease;
+  will-change: transform;
+}
+
+.svg_content:hover *[class*="hover_target"] {
+  opacity: 0.5;
+  filter: blur(2px);
+  transition: 0.3s;
+}
+
+.svg_content:hover *[class*="hover_target"]:hover {
+  opacity: 1.0;
+  filter: blur(0px) brightness(1.0);
+  transition: 0.3s;
+}
+
+.svg_content:hover *[class*="hover_target"]:hover>*[class*="hover_ring"] {
+  filter: brightness(0) saturate(100%) opacity(100%);
+  transition: 0.3s;
+}
+
+*[class*="hover_target"] {
+  transform-box: view-box;
+  transform-origin: 388.100px 385.115px;
+  cursor: pointer;
+}
+
+.hover_target_1 {
+  transform: rotate(0deg);
+}
+
+.hover_target_2 {
+  transform: rotate(45deg);
+}
+
+.hover_target_3 {
+  transform: rotate(90deg);
+}
+
+.hover_target_4 {
+  transform: rotate(135deg);
+}
+
+.hover_target_5 {
+  transform: matrix(.7071, .7071, .7071, -.7071, 0, 0);
+}
+
+.hover_target_6 {
+  transform: matrix(0, 1, 1, 0, 0, 0);
+}
+
+.hover_target_7 {
+  transform: matrix(-.7071, .7071, .7071, .7071, 0, 0);
+}
+
+.hover_target_8 {
+  transform: matrix(-1, 0, 0, 1, 0, 0);
+}
+
+@supports not (-webkit-touch-callout: none) {
+  .hover_target_1:hover {
+    transform: rotate(0deg) scale(1.2);
+  }
+
+  .hover_target_2:hover {
+    transform: rotate(45deg) scale(1.2);
+  }
+
+  .hover_target_3:hover {
+    transform: rotate(90deg) scale(1.2);
+  }
+
+  .hover_target_4:hover {
+    transform: rotate(135deg) scale(1.2);
+  }
+
+  .hover_target_5:hover {
+    transform: matrix(.7071, .7071, .7071, -.7071, 0, 0) scale(1.2);
+  }
+
+  .hover_target_6:hover {
+    transform: matrix(0, 1, 1, 0, -.1463, -.6398) scale(1.2);
+  }
+
+  .hover_target_7:hover {
+    transform: matrix(-.7071, .7071, .7071, .7071, 0, 0) scaleX(1.2) scaleY(1.2);
+  }
+
+  .hover_target_8:hover {
+    transform: matrix(-1, 0, 0, 1, 0, 0) scale(1.2);
+  }
+}

@@ -1,0 +1,53 @@
+<svg version="1.1" viewBox="0 0 275 150" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <linearGradient id="e" x1="553.3" x2="601.5" y1="568.4" y2="568.4" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#2eccd0" offset="0"/>
+   <stop stop-color="#04a0af" offset=".5"/>
+   <stop stop-color="#095277" offset="1"/>
+  </linearGradient>
+  <linearGradient id="d" x1="464" x2="664.3" y1="563.3" y2="563.3" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#9defee" offset="0"/>
+   <stop stop-color="#0ba1b6" offset=".5"/>
+   <stop stop-color="#254d8f" offset="1"/>
+  </linearGradient>
+  <linearGradient id="c" x1="469.1" x2="701.5" y1="529.3" y2="529.3" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#48d0ce" offset="0"/>
+   <stop stop-color="#09a6b9" offset=".5"/>
+   <stop stop-color="#205d97" offset="1"/>
+  </linearGradient>
+  <linearGradient id="b" x1="538.7" x2="628.2" y1="509.1" y2="509.1" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#48d5d7" offset="0"/>
+   <stop stop-color="#07abbb" offset=".5"/>
+   <stop stop-color="#167ca5" offset="1"/>
+  </linearGradient>
+  <linearGradient id="a" x1="464.8" x2="701.5" y1="522.8" y2="522.8" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#c6fcf9" offset="0"/>
+   <stop stop-color="#0dc2c7" offset=".5"/>
+   <stop stop-color="#0c2c5b" offset="1"/>
+  </linearGradient>
+  <clipPath id="j">
+   <path d="m526.7 505.3c13.4-13.74 21.92-26.78 21.92-26.78s7.252 51.1 50.67 46.26c23.36-2.606 43.37 0.1345 59.36 4.635-12.87 0.5165-26.69 2.29-40.68 5.625-13.47 3.21-24.96 4.57-34.76 4.57-39.63 0-51.84-22.22-56.52-34.31"/>
+  </clipPath>
+  <clipPath id="i">
+   <path d="m464.8 536.6c43.19 4.115 83.85-58.04 83.85-58.04s0.0204 0.1409 0.0645 0.4067c-23.25 47.49-5.368 62.58 57.49 49.35 9.073-1.911 17.24-3.187 24.61-3.929 41.19 3.567 66.72 22.51 70.71 25.34-0.2129 0.1883-0.4268 0.3776-0.6386 0.5681-26.16-15.07-78.67-19.63-144.8 8.552-14.07 5.997-26.44 8.377-37.18 8.378-31.93 3e-3 -49.4-21.05-54.13-30.63"/>
+  </clipPath>
+  <clipPath id="h">
+   <path d="m557.5 566.2c-65.6 16.2-82.7-14.32-88.4-29.46 41.55-0.1409 79.54-58.23 79.54-58.23s7.252 51.1 50.67 46.26c59.51-6.639 97.28 21.41 102.2 24.91-11.39 10.08-21.57 21.71-37.5 30.49-3.548-16.4-53.74-26.99-106.5-13.96"/>
+  </clipPath>
+  <clipPath id="g">
+   <path d="m552.6 582.8c-2.954-0.5702-5.848-1.014-8.602-1.28-68.38-6.624-80.01-45.04-80.01-45.04 11.21 1.27 22.27-1.973 32.51-7.484 20.71 8.39 47.8 15.53 83.12 19.21 41.59 4.337 92.93 25.76 92.93 25.76s0.4311 2e-3 1.249-2e-3c-8.815 6.312-19.37 11.85-33.5 15.44-25.03 6.368-36.97 7.977-41.04 8.195 4.393-7.883 11.82-29.14-46.66-14.8"/>
+  </clipPath>
+  <clipPath id="f">
+   <path d="m597.8 597.4s-31.45-13.73-53.81-15.9c-56.25-5.449-74.1-32.41-78.66-41.81 1.071-0.1421 2.138-0.3067 3.203-0.4917 13.87 14.75 76.21 25.55 138.6 32.16 17.4 1.843 27.99 10.23 34.13 17.77-0.3343 0.0871-0.6708 0.1754-1.008 0.2604-27.24 6.93-38.97 8.223-41.94 8.223-0.8449 0-0.9792-0.1055-0.5546-0.2152"/>
+  </clipPath>
+ </defs>
+ <g class="logo_transform">
+  <g class="logo_layers" transform="translate(-445.2 613.1)">
+   <path class="wave5" transform="scale(1,-1)" d="m129 163h718v543h-718z" clip-path="url(#f)" fill="url(#e)"/>
+   <path class="wave4" transform="scale(1,-1)" d="m129 163h718v543h-718z" clip-path="url(#g)" fill="url(#d)"/>
+   <path class="wave3" transform="scale(1,-1)" d="m129 163h718v543h-718z" clip-path="url(#h)" fill="url(#c)"/>
+   <path class="wave2" transform="scale(1,-1)" d="m129 163h718v543h-718z" clip-path="url(#j)" fill="url(#b)"/>
+   <path class="wave1" transform="scale(1,-1)" d="m129 163h718v543h-718z" clip-path="url(#i)" fill="url(#a)"/>
+  </g>
+ </g>
+</svg>

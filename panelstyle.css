@@ -1,0 +1,23 @@
+.panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+}
+
+.panelBackground {
+  background: rgba(234, 234, 234, 0.5);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.panelcontainer {
+  min-height: calc(100vh - 62px);
+}
+
+
+@media(max-width: 992px) {
+  .panelcontainer {
+    min-height: calc(100vh - 56px);
+  }
+}
