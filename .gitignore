@@ -46,3 +46,5 @@ _testmain.go
 #*.png
 #*.jpeg
 *.psd
+
+.ipynb_checkpoints
