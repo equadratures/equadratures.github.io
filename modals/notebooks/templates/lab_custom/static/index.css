@@ -3667,7 +3667,7 @@ span.CodeMirror-selectedtext {
   font-size: var(--jp-content-font-size1);
   line-height: var(--jp-content-line-height);
   /* Give a bit more R padding on Markdown text to keep line lengths reasonable */
-  padding-right: 20px;
+  padding-right: 0px;
 }
 
 .jp-RenderedHTMLCommon em {

@@ -6,4 +6,6 @@ function darkSwitch() {
     } else {
         localStorage.setItem('dark-mode', 'false');
     }
+    var item2 = document.getElementById('replaceDiv');
+    replacePlotlyIframe(item2);
 }

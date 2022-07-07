@@ -14,10 +14,10 @@ args = sys.argv
 ipynb_file = args[1]
 
 # Check if output HTML should be minified (Default: True)
-bool_minify = True
+bool_minify = False
 if len(args) == 3:
-    if args[2] == "False":
-        bool_minify = False
+    if args[2] == "minify":
+        bool_minify = True
 
 filename = ipynb_file.split(".")[0]
 
@@ -26,6 +26,7 @@ c = Config()
 c.TagRemovePreprocessor.remove_cell_tags = ("remove_cell",)
 c.TagRemovePreprocessor.enabled = True
 c.TemplateExporter.exclude_input_prompt = True
+c.TemplateExporter.exclude_output_prompt = True
 
 # c.TemplateExporter.template_paths = "templates"
 c.TemplateExporter.extra_template_basedirs = ["templates"]
@@ -45,7 +46,7 @@ for theme in themes:
 
     # Add header for plotly
     code_cell = nbf.v4.new_code_cell(
-        source=f"import plotly.io as pio\npio.renderers.default='notebook_connected'\npio.templates.default = 'plotly_{ptheme}' ",
+        source=f"import plotly.io as pio\npio.renderers['iframe_connected'].html_directory='{filename+'_'+theme}'\npio.renderers.default = 'iframe_connected'\npio.templates.default = 'plotly_{ptheme}'",
         metadata={"tags": ["remove_cell"]},
     )
     nb.cells.insert(0, code_cell)
@@ -55,10 +56,10 @@ for theme in themes:
     ep.preprocess(nb, {"metadata": {"path": "."}})
 
     # Define HTML export theme
-    exporter.theme = theme
+    HTMLExporter(config=c).theme = theme
 
     # Get output html and metadata
-    output = exporter.from_notebook_node(nb)
+    output = HTMLExporter(config=c).from_notebook_node(nb)
     split_out = output[0].splitlines()
 
     # for i, line in enumerate(split_out):

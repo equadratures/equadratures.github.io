@@ -40,10 +40,10 @@
 <link rel="stylesheet" href="/modals/notebooks/templates/lab_custom/static/index.css"></link>
 {% if resources.theme == 'dark' %}
     {# {{ resources.include_css("static/theme-dark.css") }} #}
-    <link rel="stylesheet" href="/modals/notebooks/templates/lab_custom/static/theme-dark.css"></link>
+    {# <link id="jupyter_dark" rel="stylesheet" href="/modals/notebooks/templates/lab_custom/static/theme-dark.css"></link> #}
 {% elif resources.theme == 'light'  %}
     {# {{ resources.include_css("static/theme-light.css") }} #}
-    <link rel="stylesheet" href="/modals/notebooks/templates/lab_custom/static/theme-light.css"></link>
+    {# <link id="jupyter_light" rel="stylesheet" href="/modals/notebooks/templates/lab_custom/static/theme-light.css"></link> #}
 {% else %}
     {{ resources.include_lab_theme(resources.theme) }}
 {% endif %}

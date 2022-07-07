@@ -13,13 +13,22 @@ function darkFunction() {
         var item = element[i];
         item.classList.toggle("dark-mode");
     }
+
+    var jp_dark = document.getElementById('jupyter_dark');
+    var jp_light = document.getElementById('jupyter_light');
+
+    jp_light.disabled = !jp_light.disabled;
+    jp_dark.disabled = !jp_light.disabled;
+
 }
 
 function checkDarkMode() {
-    // console.log(localStorage.getItem('dark-mode'));
-    if (localStorage.getItem('dark-mode') === 'false') {
-        darkFunction();
-    }
+    requirejs(["jquery"], function () {
+        var mode = localStorage.getItem('dark-mode');
+        if (mode === 'false') {
+            darkFunction();
+        }
+    });
 };
 
 // window.onpaint = checkDarkMode();
