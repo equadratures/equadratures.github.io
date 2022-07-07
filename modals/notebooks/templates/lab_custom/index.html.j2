@@ -1,5 +1,5 @@
 {%- extends 'base.html.j2' -%}
-{% from 'mathjax.html.j2' import mathjax %}
+{# {% from 'mathjax.html.j2' import mathjax %} #}
 {% from 'jupyter_widgets.html.j2' import jupyter_widgets %}
 
 {%- block header -%}
@@ -12,11 +12,13 @@
 {% set nb_title = nb.metadata.get('title', '') or resources['metadata']['name'] %}
 <title>{{nb_title}}</title>
 
+{# 
 {%- block html_head_js -%}
 {%- block html_head_js_requirejs -%}
 <script src="{{ resources.require_js_url }}"></script>
 {%- endblock html_head_js_requirejs -%}
 {%- endblock html_head_js -%}
+#}
 
 {% block jupyter_widgets %}
   {%- if "widgets" in nb.metadata -%}
@@ -128,9 +130,11 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 {% endblock notebook_css %}
 
+{#
 {%- block html_head_js_mathjax -%}
 {{ mathjax(resources.mathjax_url) }}
 {%- endblock html_head_js_mathjax -%}
+#}
 
 {%- block html_head_css -%}
 {%- endblock html_head_css -%}

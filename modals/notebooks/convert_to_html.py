@@ -88,10 +88,6 @@ for theme in themes:
         if "requirejs" in script.text:
             print(script)
             script.extract()
-        # Remove require js import
-        elif ("src" in script.attrs) and ("require.min.js" in script.get("src")):
-            print(script)
-            script.extract()
         # plyrequire = """require(["plotly"]"""
         # if plyrequire in script.text:
         #     # print(script)
