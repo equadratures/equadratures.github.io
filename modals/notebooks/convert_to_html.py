@@ -14,11 +14,10 @@ args = sys.argv
 ipynb_file = args[1]
 
 # Check if output HTML should be minified (Default: True)
+bool_minify = True
 if len(args) == 3:
     if args[2] == "False":
         bool_minify = False
-else:
-    bool_minify = True
 
 filename = ipynb_file.split(".")[0]
 
@@ -52,16 +51,19 @@ for theme in themes:
     ep.preprocess(nb, {"metadata": {"path": "."}})
 
     # Define HTML export theme
-    c.HTMLExporter.theme = theme
+    exporter.theme = theme
 
     # Get output html and metadata
-    output = HTMLExporter(config=c).from_notebook_node(nb)
+    output = exporter.from_notebook_node(nb)
     split_out = output[0].splitlines()
 
-    for i, line in enumerate(split_out):
-        if "/plotly-" in line:
-            # split_out[i] = split_out[i].replace("/plotly-", "/plotly-basic-")
-            split_out[i] = "'plotly': ['plotly-basic-2.12.1.min']"
+    # for i, line in enumerate(split_out):
+    #     if "/plotly-" in line:
+    #         ## Replace plotly js link
+    #         # split_out[i] = split_out[i].replace("/plotly-", "/plotly-basic-")
+    #         # split_out[i] = "'plotly': ['/scripts/vendor/plotly-gl3d-2.12.1.min']"
+    #         ## Remove plotly js link
+    #         split_out.pop(i)
 
     if bool_minify == True:
         html_output = minify_html.minify(
@@ -76,13 +78,23 @@ for theme in themes:
     else:
         html_output = "\n".join(split_out)
 
-    # soup = bs(html_output, "html.parser")
-    # plotlycdn = soup.find("script", type="text/javascript").string
-    # print(plotlycdn)
-
-    # rep = plotlycdn.replace("/plotly-", "/plotly-basic-")
-    # plotlycdn = rep
+    soup = bs(html_output, "html.parser")
+    for script in soup.find_all("script"):
+        # Remove requirejs definition for plotly js
+        if "requirejs" in script.text:
+            print(script)
+            script.extract()
+        # Remove require js import
+        elif ("src" in script.attrs) and ("require.min.js" in script.get("src")):
+            print(script)
+            script.extract()
+        # plyrequire = """require(["plotly"]"""
+        # if plyrequire in script.text:
+        #     # print(script)
+        #     script.string = script.text.replace(
+        #         """require(["plotly"]""", "require([" "]"
+        #     )
 
     # Write to output html file
     with open(filename + f"_{theme}.html", "w", encoding="utf-8") as f:
-        f.write(html_output)
+        f.write(str(soup))
