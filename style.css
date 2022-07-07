@@ -15,9 +15,9 @@
   color: white;
 }
 
-body {
+.body {
   font-family: BebasNeueRegular;
-  color: #02bec4;
+  /* color: #02bec4; */
   font-size: 20px;
   font-style: normal;
   font-weight: normal;
@@ -25,7 +25,7 @@ body {
   line-height: 150%;
   color: #4B9AD3;
   text-decoration: none;
-  background: white;
+  /* background: white; */
   overflow-x: hidden;
 }
 
@@ -61,7 +61,7 @@ body {
 h1 {
   font-family: BebasNeueRegular;
   font-size: 33px;
-  color: #02bec4;
+  /* color: #02bec4; */
   margin-right: 1em;
   margin-top: 2em;
   margin-bottom: 0.5em;
@@ -70,7 +70,7 @@ h1 {
 
 h2 {
   font-size: 19px;
-  color: #263a8c;
+  /* color: #263a8c; */
   margin-right: 1em;
   margin-bottom: 0.5em;
   margin-left: 1.5em;
@@ -78,7 +78,7 @@ h2 {
 }
 
 h2 a {
-  color: #263a8c;
+  /* color: #263a8c; */
 }
 
 .image-list-small .details h3 a {
@@ -151,5 +151,5 @@ div.a {
 }
 
 * {
-  box-sizing: border-box
+  box-sizing: border-box !important;
 }

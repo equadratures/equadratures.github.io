@@ -48,3 +48,4 @@ _testmain.go
 *.psd
 
 .ipynb_checkpoints
+.vscode
