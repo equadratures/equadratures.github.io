@@ -19,7 +19,7 @@ function replacePlotlyIframe(item2) {
 
 
 var goToModal = function (value) {
-    requirejs(["jquery", "bootstrap"], function () {
+    requirejs(["jquery"], function () {
         var embedfile;
         var modal = $(value);
         if (localStorage.getItem('dark-mode') === 'false') {
