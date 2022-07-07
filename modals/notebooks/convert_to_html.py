@@ -27,6 +27,10 @@ c.TagRemovePreprocessor.remove_cell_tags = ("remove_cell",)
 c.TagRemovePreprocessor.enabled = True
 c.TemplateExporter.exclude_input_prompt = True
 
+# c.TemplateExporter.template_paths = "templates"
+c.TemplateExporter.extra_template_basedirs = ["templates"]
+c.TemplateExporter.template_name = "lab_custom"
+
 # Configure and run out exporter
 c.HTMLExporter.preprocessors = ["nbconvert.preprocessors.TagRemovePreprocessor"]
 exporter = HTMLExporter(config=c)
