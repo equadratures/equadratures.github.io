@@ -11,7 +11,7 @@
 .team {
     display: flex;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
     flex-wrap: wrap;
     /* background-color: #161623; */
     min-height: 100vh;
@@ -49,7 +49,8 @@ section::before {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin: 0px 0;
+    margin: 0;
+    gap: 5px;
 }
 
 .teamcontainer .card {
