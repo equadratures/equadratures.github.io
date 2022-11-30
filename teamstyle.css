@@ -106,7 +106,7 @@ section::before {
 }
 
 .teamcontainer .card .sci li a{
-    color: #4B9AD3;
+    color: #02bec4;
     font-size: 28px;
 }
 
@@ -117,8 +117,8 @@ section::before {
 
 .teamcontainer .card .contentBox h2 {
     /* color: #000; */
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    /* text-transform: uppercase; */
+    /* letter-spacing: 2px; */
     font-weight: 500;
     font-size: 18px;
     text-align: center;
@@ -138,5 +138,5 @@ section::before {
     width: 175px;
     border-radius: 50%;
     overflow: hidden;
-    border: 3px solid rgba(0, 0, 0, 0.75);
+    border: 3px solid #02bec4;
 }
