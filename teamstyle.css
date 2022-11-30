@@ -13,8 +13,11 @@
     justify-content: center;
     /* align-items: center; */
     flex-wrap: wrap;
+    flex-direction: column;
     /* background-color: #161623; */
-    min-height: 100vh;
+    min-height: calc(100vh - 62px);
+    margin: 0;
+    gap: 0;
 }
 
 section {
