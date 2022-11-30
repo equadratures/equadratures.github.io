@@ -115,8 +115,8 @@ section::before {
     transition: 0.5s;
 }
 
-.teamcontainer .card .contentBox h3 {
-    color: #000;
+.teamcontainer .card .contentBox h2 {
+    /* color: #000; */
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: 500;
@@ -126,7 +126,7 @@ section::before {
     line-height: 1.1em;
 }
 
-.teamcontainer .card .contentBox h3 span {
+.teamcontainer .card .contentBox h2 span {
     font-size: 12px;
     font-weight: 300;
     text-transform: initial;
