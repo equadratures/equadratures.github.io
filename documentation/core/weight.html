@@ -1,0 +1,335 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prescribing probability functions &#8212; Documentation | equadratures</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/footer.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/fonts.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <link rel="shortcut icon" href="../_static/eq-logo-favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Parameter" href="parameter.html" />
+    <link rel="prev" title="Core classes" href="index.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="../index.html">
+  <img src="../_static/equadraturesLockupHorizontalMain.png" class="logo" alt="logo">
+</a>
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="index.html">
+  Core classes
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../secondary/index.html">
+  Secondary classes
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../theory/index.html">
+  Theory
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../tutorials/index.html">
+  Tutorials
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search documentation" aria-label="Search documentation" autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Prescribing probability functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="parameter.html">
+   Parameter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="basis.html">
+   Basis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="poly.html">
+   Polynomial
+  </a>
+ </li>
+</ul>
+
+  </div>
+</nav>
+              </div>
+              <div class="sidebar-end-items">
+              </div>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+
+<nav id="bd-toc-nav">
+    
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="module-equadratures.weight">
+<span id="prescribing-probability-functions"></span><h1>Prescribing probability functions<a class="headerlink" href="#module-equadratures.weight" title="Permalink to this headline">#</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="equadratures.weight.Weight">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">equadratures.weight.</span></span><span class="sig-name descname"><span class="pre">Weight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">weight_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">support</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pdf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mean</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/weight.html#Weight"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.weight.Weight" title="Permalink to this definition">#</a></dt>
+<dd><p>The class offers a template to input bespoke weight (probability density) functions. The resulting weight function can be given to <a class="reference internal" href="parameter.html#equadratures.parameter.Parameter" title="equadratures.parameter.Parameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code></a> to create a bespoke analytical or data-driven parameter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>weight_function</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable" title="(in Python v3.10)"><em>Callable</em></a><em>,</em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><em>numpy.ndarray</em></a>) – A callable function or an array of data representing the weights.</p></li>
+<li><p><strong>support</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a><em>, </em><em>optional</em>) – Lower and upper bounds of the weight respectively. Values such as <code class="docutils literal notranslate"><span class="pre">-inf</span></code> or <code class="docutils literal notranslate"><span class="pre">inf</span></code> are not acceptable.</p></li>
+<li><p><strong>pdf</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a><em>, </em><em>optional</em>) – If set to <code class="docutils literal notranslate"><span class="pre">True</span></code>, then the weight_function is assumed to be normalised to integrate to unity. Otherwise,
+the integration constant is computed and used to normalise weight_function.</p></li>
+<li><p><strong>mean</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>, </em><em>optional</em>) – User-defined mean for distribution. When provided, the code does not compute the mean of the weight_function over its support.</p></li>
+<li><p><strong>variance</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><em>float</em></a><em>, </em><em>optional</em>) – User-defined variance for distribution. When provided, the code does not compute the variance of the weight_function over its support.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<dl>
+<dt>Analytical weight functions</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># exp(-x)/sqrt(x)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pdf_1</span> <span class="o">=</span> <span class="n">Weight</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="p">[</span><span class="mf">0.00001</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">1e-10</span><span class="p">)],</span>
+<span class="gp">&gt;&gt;&gt; </span>       <span class="n">pdf</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># A triangular distribution</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="mf">3.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="mf">6.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="mf">4.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mean</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span><span class="p">)</span><span class="o">/</span><span class="mf">3.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">var</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">c</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">a</span><span class="o">*</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="o">*</span><span class="n">c</span> <span class="o">-</span> <span class="n">b</span><span class="o">*</span><span class="n">c</span><span class="p">)</span><span class="o">/</span><span class="mf">18.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pdf_2</span> <span class="o">=</span> <span class="n">Weight</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="p">((</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">c</span><span class="o">-</span><span class="n">a</span><span class="p">))</span> <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">c</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span>                        <span class="k">else</span><span class="p">(</span> <span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">)</span> <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">c</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span>                        <span class="k">else</span><span class="p">(</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="p">((</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">c</span><span class="p">)))),</span>
+<span class="gp">&gt;&gt;&gt; </span>            <span class="n">support</span><span class="o">=</span><span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">],</span> <span class="n">pdf</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Passing to Parameter</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">param</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;analytical&#39;</span><span class="p">,</span> <span class="n">weight_function</span><span class="o">=</span><span class="n">pdf_2</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+<dt>Data driven weight functions</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Constructing a kde based on given data, using Rilverman&#39;s rule for bandwidth selection</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pdf_2</span> <span class="o">=</span> <span class="n">Weight</span><span class="p">(</span> <span class="n">stats</span><span class="o">.</span><span class="n">gaussian_kde</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">bw_method</span><span class="o">=</span><span class="s1">&#39;silverman&#39;</span><span class="p">),</span>
+<span class="gp">&gt;&gt;&gt; </span>       <span class="n">support</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">])</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Passing to Parameter</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">param</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;analytical&#39;</span><span class="p">,</span> <span class="n">weight_function</span><span class="o">=</span><span class="n">pdf</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="equadratures.weight.Weight.get_pdf">
+<span class="sig-name descname"><span class="pre">get_pdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/weight.html#Weight.get_pdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.weight.Weight.get_pdf" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns the pdf associated with the distribution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>points</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – Array of points to evaluate pdf at.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Array with shape ( len(points),1 ) containing the probability distribution.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)">numpy.ndarray</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+              </div>
+              
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="footer.css" rel="stylesheet">
+</head>
+<div class="footer">
+        <div class="container footercontainer">
+               <div class="row">
+                 <div class="col-md-6 col-lg-3">
+                     <div class="footer-about">
+                          <img style="float: left; margin: 0px 200px 2px 10px; max-width:10.5em; min-width:55px" src="https://equadratures.org/brand/02/Vertical/equadraturesLockupVerticalWithLoveWhite.png" alt="Image"><br>
+                          <br>
+                          <br>
+                          <div class="footer-social">
+                            <a href="https://github.com/equadratures"><img alt="" src="https://equadratures.org/icons/github.png" hspace="0x" style="width:50%; min-width:20px"></a>
+                            <a href="https://www.linkedin.com/company/equadratures"><img alt=""  src="https://equadratures.org/icons/linkedin.png" hspace="0x" style="width:50%; min-width:20px"></a>
+                           <a href="https://twitter.com/equadratures"><img alt="" src="https://equadratures.org/icons/twitter.png" hspace="0x" style="width:50%; min-width:20px"></a>
+                         <a href="https://www.youtube.com/channel/UCpjwFDSZuFbzW-2lj6d96dA"><img alt="" src="https://equadratures.org/icons/youtube.png" hspace="0x" style="width:50%; min-width:20px"></a>
+                        </div>
+                     </div>
+                 </div>
+                 <div class="col-md-6 col-lg-3">
+                   <div class="footer-contact">
+                     <b>affiliations </b><br>
+                     <a href="https://equadratures.org/numfocus">numfocus</a><br>
+                     <a href="https://equadratures.org/gsoc">google summer of code</a><br>
+                   </div>
+                 </div>
+                 <div class="col-md-6 col-lg-3">
+                     <div class="footer-contact">
+                       <b>management </b><br>
+                        <a href="https://equadratures.org/team">team </a><br>
+                        <a href="https://equadratures.org/partnerships">partnerships</a><br>
+                     </div>
+                 </div>
+                   <div class="col-md-6 col-lg-3">
+                       <div class="footer-links">
+                           <b>code </b><br>
+                            <a href="https://equadratures.org/documentation/">documentation</a><br>
+                            <a href="https://discourse.equadratures.org/">discourse</a><br>
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <center>
+             <div class="smallerr">
+             copyright &copy; 2022 by equadratures.
+             <br>
+             made by the equadratures team, with &#10084;&#65039;.
+           </div>
+             <br>
+             <br>
+           </center>
+       </div>
+  </body>
+</html>

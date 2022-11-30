@@ -1,0 +1,470 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dimension reduction with polynomials &#8212; Documentation | equadratures</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/footer.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/fonts.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <link rel="shortcut icon" href="../_static/eq-logo-favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Theory" href="../theory/index.html" />
+    <link rel="prev" title="Linear system solvers" href="solver.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="../index.html">
+  <img src="../_static/equadraturesLockupHorizontalMain.png" class="logo" alt="logo">
+</a>
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../core/index.html">
+  Core classes
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="index.html">
+  Secondary classes
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../theory/index.html">
+  Theory
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../tutorials/index.html">
+  Tutorials
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search documentation" aria-label="Search documentation" autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="correlated.html">
+   Correlations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="optimisation.html">
+   Optimisation with polynomials
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="polytree.html">
+   Polynomial Regression Trees
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="quadrature.html">
+   Quadrature
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="scalers.html">
+   Scalers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="solver.html">
+   Linear system solvers
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Dimension reduction with polynomials
+  </a>
+ </li>
+</ul>
+
+  </div>
+</nav>
+              </div>
+              <div class="sidebar-end-items">
+              </div>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+
+<nav id="bd-toc-nav">
+    
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="module-equadratures.subspaces">
+<span id="dimension-reduction-with-polynomials"></span><h1>Dimension reduction with polynomials<a class="headerlink" href="#module-equadratures.subspaces" title="Permalink to this headline">#</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="equadratures.subspaces.Subspaces">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">equadratures.subspaces.</span></span><span class="sig-name descname"><span class="pre">Subspaces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">full_space_poly</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_outputs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subspace_dimension</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">polynomial_degree</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">poly_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dr_args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/subspaces.html#Subspaces"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.subspaces.Subspaces" title="Permalink to this definition">#</a></dt>
+<dd><p>This class defines a subspaces object. It can be used for polynomial-based subspace dimension reduction.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>method</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – <p>The method to be used for subspace-based dimension reduction. Two options:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">active-subspace</span></code>, which uses ideas in [1] and [2] to compute a dimension-reducing subspace with a global polynomial approximant. Gradients evaluations of the polynomial approximation are used to compute the averaged outer product of the gradient covariance matrix. The polynomial approximation in the original full-space can be provided via <code class="docutils literal notranslate"><span class="pre">full_space_poly</span></code>. Otherwise, it is fit internally to the data provided via <code class="docutils literal notranslate"><span class="pre">sample_points</span></code> and <code class="docutils literal notranslate"><span class="pre">sample_outputs</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">variable-projection</span></code> [3], where a Gauss-Newton optimisation problem is solved to compute both the polynomial coefficients and its subspace, with the data provided via <code class="docutils literal notranslate"><span class="pre">sample_points</span></code> and <code class="docutils literal notranslate"><span class="pre">sample_outputs</span></code>.</p></li>
+</ul>
+</p></li>
+<li><p><strong>full_space_poly</strong> (<a class="reference internal" href="../core/poly.html#equadratures.poly.Poly" title="equadratures.poly.Poly"><em>Poly</em></a><em>, </em><em>optional</em>) – An instance of Poly fitted to the full-space data, to use for the AS computation.</p></li>
+<li><p><strong>sample_points</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – Array with shape (number_of_observations, dimensions) that corresponds to a set of sample points over the parameter space.</p></li>
+<li><p><strong>sample_outputs</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><em>numpy.ndarray</em></a><em>, </em><em>optional</em>) – Array with shape (number_of_observations, 1) that corresponds to model evaluations at the sample points.</p></li>
+<li><p><strong>subspace_dimension</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – The dimension of the <em>active</em> subspace.</p></li>
+<li><p><strong>param_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><em>optional</em>) – Arguments passed to parameters of the AS polynomial. (see <a class="reference internal" href="../core/parameter.html#equadratures.parameter.Parameter" title="equadratures.parameter.Parameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code></a>)</p></li>
+<li><p><strong>poly_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em> , </em><em>optional</em>) – Arguments passed to constructing polynomial used for AS computation. (see <a class="reference internal" href="../core/poly.html#equadratures.poly.Poly" title="equadratures.poly.Poly"><code class="xref py py-class docutils literal notranslate"><span class="pre">Poly</span></code></a>)</p></li>
+<li><p><strong>dr_args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a><em>, </em><em>optional</em>) – Arguments passed to customise the VP optimiser. See documentation for <code class="xref py py-meth docutils literal notranslate"><span class="pre">_get_variable_projection()</span></code> in source.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<dl>
+<dt>Obtaining a 2D subspace via active subspaces on user data</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mysubspace</span> <span class="o">=</span> <span class="n">Subspaces</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;active-subspace&#39;</span><span class="p">,</span> <span class="n">sample_points</span><span class="o">=</span><span class="n">X</span><span class="p">,</span> <span class="n">sample_outputs</span><span class="o">=</span><span class="n">Y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">eigs</span> <span class="o">=</span> <span class="n">mysubspace</span><span class="o">.</span><span class="n">get_eigenvalues</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">W</span> <span class="o">=</span> <span class="n">mysubspace</span><span class="o">.</span><span class="n">get_subspace</span><span class="p">()[:,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">e</span> <span class="o">=</span> <span class="n">mysubspace</span><span class="o">.</span><span class="n">get_eigenvalues</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+<dt>Obtaining a 2D subspace via active subspaces with a Poly object (remember to call set_model() on Poly first)</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mysubspace</span> <span class="o">=</span> <span class="n">Subspaces</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;active-subspace&#39;</span><span class="p">,</span> <span class="n">full_space_poly</span><span class="o">=</span><span class="n">my_poly</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">eigs</span> <span class="o">=</span> <span class="n">mysubspace</span><span class="o">.</span><span class="n">get_eigenvalues</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">W</span> <span class="o">=</span> <span class="n">mysubspace</span><span class="o">.</span><span class="n">get_subspace</span><span class="p">()[:,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">e</span> <span class="o">=</span> <span class="n">mysubspace</span><span class="o">.</span><span class="n">get_eigenvalues</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+<dt>Obtaining a 2D subspace via variable projection on user data</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mysubspace</span> <span class="o">=</span> <span class="n">Subspaces</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;variable-projection&#39;</span><span class="p">,</span> <span class="n">sample_points</span><span class="o">=</span><span class="n">X</span><span class="p">,</span> <span class="n">sample_outputs</span><span class="o">=</span><span class="n">Y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">W</span> <span class="o">=</span> <span class="n">mysubspace</span><span class="o">.</span><span class="n">get_subspace</span><span class="p">()[:,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<ol class="arabic simple">
+<li><p>Constantine, P., (2015) Active Subspaces: Emerging Ideas for Dimension Reduction in Parameter Studies. SIAM Spotlights.</p></li>
+<li><p>Seshadri, P., Shahpar, S., Constantine, P., Parks, G., Adams, M. (2018) Turbomachinery Active Subspace Performance Maps. Journal of Turbomachinery, 140(4), 041003. <a class="reference external" href="http://turbomachinery.asmedigitalcollection.asme.org/article.aspx?articleid=2668256">Paper</a>.</p></li>
+<li><p>Hokanson, J., Constantine, P., (2018) Data-driven Polynomial Ridge Approximation Using Variable Projection. SIAM Journal of Scientific Computing, 40(3), A1566-A1589. <a class="reference external" href="https://epubs.siam.org/doi/abs/10.1137/17M1117690">Paper</a>.</p></li>
+</ol>
+<dl class="py method">
+<dt class="sig sig-object py" id="equadratures.subspaces.Subspaces.get_eigenvalues">
+<span class="sig-name descname"><span class="pre">get_eigenvalues</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/subspaces.html#Subspaces.get_eigenvalues"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.subspaces.Subspaces.get_eigenvalues" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns the eigenvalues of the dimension reducing subspace. Note: this option is
+currently only valid for method <code class="docutils literal notranslate"><span class="pre">active-subspace</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Array of shape (dimensions,) corresponding to the eigenvalues of the above mentioned covariance matrix.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)">numpy.ndarray</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="equadratures.subspaces.Subspaces.get_linear_inequalities">
+<span class="sig-name descname"><span class="pre">get_linear_inequalities</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/subspaces.html#Subspaces.get_linear_inequalities"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.subspaces.Subspaces.get_linear_inequalities" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns the linear inequalities defining the zonotope vertices, i.e., Ax&lt;=b.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Tuple (A,b), containing the numpy.ndarray’s A and b; where A is the matrix for setting the linear inequalities,
+and b is the right-hand-side vector for setting the linear inequalities.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="equadratures.subspaces.Subspaces.get_samples_constraining_active_coordinates">
+<span class="sig-name descname"><span class="pre">get_samples_constraining_active_coordinates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inactive_samples</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">active_coordinates</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/subspaces.html#Subspaces.get_samples_constraining_active_coordinates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.subspaces.Subspaces.get_samples_constraining_active_coordinates" title="Permalink to this definition">#</a></dt>
+<dd><p>A hit and run type sampling strategy for generating samples at a given coordinate in the active subspace
+by varying its coordinates along the inactive subspace.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inactive_samples</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – The number of inactive samples required.</p></li>
+<li><p><strong>active_coordiantes</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><em>numpy.ndarray</em></a>) – The active subspace coordinates.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Array containing the full-space coordinates.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)">numpy.ndarray</a></p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This routine has been adapted from Paul Constantine’s hit_and_run() function; see reference below.</p>
+<p>Constantine, P., Howard, R., Glaws, A., Grey, Z., Diaz, P., Fletcher, L., (2016) Python Active-Subspaces Utility Library. Journal of Open Source Software, 1(5), 79. <a class="reference external" href="http://joss.theoj.org/papers/10.21105/joss.00079">Paper</a>.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="equadratures.subspaces.Subspaces.get_subspace">
+<span class="sig-name descname"><span class="pre">get_subspace</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/subspaces.html#Subspaces.get_subspace"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.subspaces.Subspaces.get_subspace" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns the dimension reducing subspace.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Array of shape (dimensions, dimensions) where the first <code class="docutils literal notranslate"><span class="pre">subspace_dimension</span></code> columns
+contain the dimension reducing subspace, while the remaining columns contain its orthogonal complement.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)">numpy.ndarray</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="equadratures.subspaces.Subspaces.get_subspace_polynomial">
+<span class="sig-name descname"><span class="pre">get_subspace_polynomial</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/subspaces.html#Subspaces.get_subspace_polynomial"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.subspaces.Subspaces.get_subspace_polynomial" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns a polynomial defined over the dimension reducing subspace.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A Poly object that defines a polynomial over the subspace. The distribution of parameters
+is assumed to be uniform and the maximum and minimum bounds for each parameter are defined by the maximum
+and minimum values of the project samples.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../core/poly.html#equadratures.poly.Poly" title="equadratures.poly.Poly">Poly</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="equadratures.subspaces.Subspaces.get_zonotope_vertices">
+<span class="sig-name descname"><span class="pre">get_zonotope_vertices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_samples</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100000</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/subspaces.html#Subspaces.get_zonotope_vertices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.subspaces.Subspaces.get_zonotope_vertices" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns the vertices of the zonotope – the projection of the high-dimensional space over the computed
+subspace.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num_samples</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – Number of samples per iteration to check.</p></li>
+<li><p><strong>max_count</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a><em>, </em><em>optional</em>) – Maximum number of iteration.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Array of shape (number of vertices, <code class="docutils literal notranslate"><span class="pre">subspace_dimension</span></code>).</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)">numpy.ndarray</a></p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This routine has been adapted from Paul Constantine’s zonotope_vertices() function; see reference below.</p>
+<p>Constantine, P., Howard, R., Glaws, A., Grey, Z., Diaz, P., Fletcher, L., (2016) Python Active-Subspaces Utility Library. Journal of Open Source Software, 1(5), 79. <a class="reference external" href="http://joss.theoj.org/papers/10.21105/joss.00079">Paper</a>.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="equadratures.subspaces.Subspaces.plot_2D_contour_zonotope">
+<span class="sig-name descname"><span class="pre">plot_2D_contour_zonotope</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mysubspace</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[-</span> <span class="pre">3.5,</span> <span class="pre">3.5]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid_pts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">180</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/subspaces.html#Subspaces.plot_2D_contour_zonotope"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.subspaces.Subspaces.plot_2D_contour_zonotope" title="Permalink to this definition">#</a></dt>
+<dd><p>Generates a 2D contour plot of the polynomial ridge approximation.
+See <code class="xref py py-meth docutils literal notranslate"><span class="pre">plot_2D_contour_zonotope()</span></code> for full description.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="equadratures.subspaces.Subspaces.plot_samples_from_second_subspace_over_first">
+<span class="sig-name descname"><span class="pre">plot_samples_from_second_subspace_over_first</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mysubspace_2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">no_of_samples</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[-</span> <span class="pre">3.5,</span> <span class="pre">3.5]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid_pts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">180</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/subspaces.html#Subspaces.plot_samples_from_second_subspace_over_first"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.subspaces.Subspaces.plot_samples_from_second_subspace_over_first" title="Permalink to this definition">#</a></dt>
+<dd><p>Generates a zonotope plot where samples from the second subspace are projected over the first.
+See <code class="xref py py-meth docutils literal notranslate"><span class="pre">plot_samples_from_second_subspace_over_first()</span></code> for full description.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="equadratures.subspaces.Subspaces.plot_sufficient_summary">
+<span class="sig-name descname"><span class="pre">plot_sufficient_summary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">poly</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uncertainty</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scatter_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/equadratures/subspaces.html#Subspaces.plot_sufficient_summary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#equadratures.subspaces.Subspaces.plot_sufficient_summary" title="Permalink to this definition">#</a></dt>
+<dd><p>Generates a sufficient summary plot for 1D or 2D polynomial ridge approximations.
+See <code class="xref py py-meth docutils literal notranslate"><span class="pre">plot_sufficient_summary()</span></code> for full description.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+              </div>
+              
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="footer.css" rel="stylesheet">
+</head>
+<div class="footer">
+        <div class="container footercontainer">
+               <div class="row">
+                 <div class="col-md-6 col-lg-3">
+                     <div class="footer-about">
+                          <img style="float: left; margin: 0px 200px 2px 10px; max-width:10.5em; min-width:55px" src="https://equadratures.org/brand/02/Vertical/equadraturesLockupVerticalWithLoveWhite.png" alt="Image"><br>
+                          <br>
+                          <br>
+                          <div class="footer-social">
+                            <a href="https://github.com/equadratures"><img alt="" src="https://equadratures.org/icons/github.png" hspace="0x" style="width:50%; min-width:20px"></a>
+                            <a href="https://www.linkedin.com/company/equadratures"><img alt=""  src="https://equadratures.org/icons/linkedin.png" hspace="0x" style="width:50%; min-width:20px"></a>
+                           <a href="https://twitter.com/equadratures"><img alt="" src="https://equadratures.org/icons/twitter.png" hspace="0x" style="width:50%; min-width:20px"></a>
+                         <a href="https://www.youtube.com/channel/UCpjwFDSZuFbzW-2lj6d96dA"><img alt="" src="https://equadratures.org/icons/youtube.png" hspace="0x" style="width:50%; min-width:20px"></a>
+                        </div>
+                     </div>
+                 </div>
+                 <div class="col-md-6 col-lg-3">
+                   <div class="footer-contact">
+                     <b>affiliations </b><br>
+                     <a href="https://equadratures.org/numfocus">numfocus</a><br>
+                     <a href="https://equadratures.org/gsoc">google summer of code</a><br>
+                   </div>
+                 </div>
+                 <div class="col-md-6 col-lg-3">
+                     <div class="footer-contact">
+                       <b>management </b><br>
+                        <a href="https://equadratures.org/team">team </a><br>
+                        <a href="https://equadratures.org/partnerships">partnerships</a><br>
+                     </div>
+                 </div>
+                   <div class="col-md-6 col-lg-3">
+                       <div class="footer-links">
+                           <b>code </b><br>
+                            <a href="https://equadratures.org/documentation/">documentation</a><br>
+                            <a href="https://discourse.equadratures.org/">discourse</a><br>
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <center>
+             <div class="smallerr">
+             copyright &copy; 2022 by equadratures.
+             <br>
+             made by the equadratures team, with &#10084;&#65039;.
+           </div>
+             <br>
+             <br>
+           </center>
+       </div>
+  </body>
+</html>

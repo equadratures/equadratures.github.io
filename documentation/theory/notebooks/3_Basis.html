@@ -1,0 +1,635 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basis &#8212; Documentation | equadratures</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/footer.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/fonts.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <link rel="shortcut icon" href="../../_static/eq-logo-favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Polynomials" href="4_Polynomial.html" />
+    <link rel="prev" title="Parameters" href="2_Parameter.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="../../index.html">
+  <img src="../../_static/equadraturesLockupHorizontalMain.png" class="logo" alt="logo">
+</a>
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../core/index.html">
+  Core classes
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../secondary/index.html">
+  Secondary classes
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="../index.html">
+  Theory
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../tutorials/index.html">
+  Tutorials
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search documentation" aria-label="Search documentation" autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Fundamentals
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_Introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_Parameter.html">
+   Parameters
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Basis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_Polynomial.html">
+   Polynomials
+  </a>
+ </li>
+</ul>
+
+  </div>
+</nav>
+              </div>
+              <div class="sidebar-end-items">
+              </div>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#References">
+   References
+  </a>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt .copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+</style>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">IPython.core.display</span> <span class="k">as</span> <span class="nn">di</span> <span class="c1"># Example: di.display_html(&#39;&lt;h3&gt;%s:&lt;/h3&gt;&#39; % str, raw=True)</span>
+<span class="n">di</span><span class="o">.</span><span class="n">display_html</span><span class="p">(</span><span class="s1">&#39;&lt;script&gt;jQuery(function() {if (jQuery(&quot;body.notebook_app&quot;).length == 0) { jQuery(&quot;.input_area&quot;).toggle(); jQuery(&quot;.prompt&quot;).toggle();}});&lt;/script&gt;&#39;</span><span class="p">,</span> <span class="n">raw</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<script>jQuery(function() {if (jQuery("body.notebook_app").length == 0) { jQuery(".input_area").toggle(); jQuery(".prompt").toggle();}});</script></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span><span class="p">;</span>
+<span class="c1"># %matplotlib notebook</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Basis">
+<h1>Basis<a class="headerlink" href="#Basis" title="Permalink to this headline">#</a></h1>
+<p>A multi-index is a set of indices that enumerates composite univariate polynomial orders that are involved in forming the multivariate basis. As we intend to approximate <span class="math notranslate nohighlight">\(f\)</span> via a finite number of polynomials <span class="math notranslate nohighlight">\(\boldsymbol{\phi_i}\)</span>, we restrict indices <span class="math notranslate nohighlight">\(\boldsymbol{i}\)</span> to lie in a finite multi-index set <span class="math notranslate nohighlight">\(\mathcal{I}\)</span>. Whilst considerable flexibility in specifying these multi-index sets exists, well-known <span class="math notranslate nohighlight">\(\mathcal{I}\)</span> include tensor product index sets, total order
+index sets, Euclidean degree spaces <a class="footnote-reference brackets" href="#trefethen2017cubature" id="id1">1</a> , and hyperbolic spaces <a class="footnote-reference brackets" href="#blatman2011adaptive" id="id2">2</a> . Each of these index sets in <span class="math notranslate nohighlight">\(d\)</span> dimensions is well-defined given a fixed <span class="math notranslate nohighlight">\(k \in \mathbb{N}_0\)</span>, which indicates the maximum polynomial degree associated to these sets. Tensor product index sets are characterised by <span class="math">\begin{equation}
+\max_k i_k \leq k,
+{\tag{1}}
+\end{equation}</span> and have a cardinality (number of elements) equal to <span class="math notranslate nohighlight">\((k+1)^d\)</span>. Total order index sets contain multi-indices satisfying <span class="math">\begin{equation}
+\sum_{j=1}^d i_{j} \leq k
+{\tag{2}}
+\end{equation}</span> They effectively disregard some higher order interactions between dimensions present in tensorised spaces, and a total order index set <span class="math notranslate nohighlight">\(\mathcal{I}\)</span> has cardinality <span class="math">\begin{equation}
+\left| \mathcal{I} \right|=\left(\begin{array}{c}
+k+d\\
+k
+\end{array}\right).
+{\tag{3}}
+\end{equation}</span> For a hyperbolic space index set, <span class="math">\begin{equation}
+\left(\sum_{j=1}^{d}i_{j}^{q}\right)^{1/q} \leq k,
+\label{eq:hyperbolic-space}{\tag{4}}
+\end{equation}</span> where <span class="math notranslate nohighlight">\(q\)</span> is a user-defined constant that can be varied from 0.2 to 1.0. When this parameter is set to unity <span class="math notranslate nohighlight">\(q=1\)</span>, the hyperbolic index space is equivalent to a total order index space. For values less than unity higher-order interactions terms are eliminated as discussed before <a class="footnote-reference brackets" href="#blatman2011adaptive" id="id3">2</a>.</p>
+<p>For illustrative purposes, plots of the main multi-index sets associated with <span class="math notranslate nohighlight">\(d=2\)</span> and with a maximum univariate degree of 14 are shown below.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">imgs</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;Figures/tensor.png&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Figures/total.png&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Figures/hyperbolic.png&#39;</span>
+<span class="p">]</span>
+
+<span class="n">nimgs</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">imgs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>In [4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">grid_display</span><span class="p">(</span><span class="n">list_of_images</span><span class="p">,</span> <span class="n">list_of_titles</span><span class="o">=</span><span class="p">[],</span> <span class="n">no_of_columns</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)):</span>
+
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">)</span>
+    <span class="n">column</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">list_of_images</span><span class="p">)):</span>
+        <span class="n">column</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="c1">#  check for end of column and create a new figure</span>
+        <span class="k">if</span> <span class="n">column</span> <span class="o">==</span> <span class="n">no_of_columns</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span>
+            <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">)</span>
+            <span class="n">column</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">no_of_columns</span><span class="p">,</span> <span class="n">column</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">list_of_images</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">list_of_titles</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">list_of_images</span><span class="p">):</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">list_of_titles</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">fontdict</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;fontsize&#39;</span><span class="p">:</span> <span class="s1">&#39;30&#39;</span><span class="p">})</span>
+
+<span class="n">images</span> <span class="o">=</span> <span class="p">[</span><span class="n">plt</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">image</span><span class="p">)</span> <span class="k">for</span> <span class="n">image</span> <span class="ow">in</span> <span class="n">imgs</span><span class="p">]</span>
+<span class="n">grid_display</span><span class="p">(</span><span class="n">images</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;(a)&#39;</span><span class="p">,</span> <span class="s1">&#39;(b)&#39;</span><span class="p">,</span> <span class="s1">&#39;(c)&#39;</span><span class="p">],</span> <span class="mi">3</span><span class="p">,</span> <span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="mi">30</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/theory_notebooks_3_Basis_5_0.png" src="../../_images/theory_notebooks_3_Basis_5_0.png" />
+</div>
+</div>
+<center style="font-size:small;"><p>Figure 1: Multi-indices for <span class="math notranslate nohighlight">\(d=2\)</span> with a maximum univariate degree of 14 for: (a) tensor order; (b) total order; (c) hyperbolic space.</p>
+</center><p>Of particular importance is the growth and interaction of the higher order terms. In total order and hyperbolic spaces, higher order interaction terms are significantly reduced. For many physical systems, these type of <em>sparser</em> basis have found utility as lower order interactions are often far more dominant. Another important consideration when choosing a multi-index is the level of anisotropy along each dimension. For instance, one can have different maximum degrees in each direction.</p>
+<div class="section" id="References">
+<h2>References<a class="headerlink" href="#References" title="Permalink to this headline">#</a></h2>
+<p><dl class="footnote brackets">
+<dt class="label" id="trefethen2017cubature"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Lloyd N Trefethen. Cubature, approximation, and isotropy in the hypercube. <em>SIAM Review</em>, 59(3):469–491, 2017.</p>
+</dd>
+<dt class="label" id="blatman2011adaptive"><span class="brackets">2</span><span class="fn-backref">(<a href="#id2">1</a>,<a href="#id3">2</a>)</span></dt>
+<dd><p>Géraud Blatman and Bruno Sudret. Adaptive sparse polynomial chaos expansion based on least angle regression. <em>Journal of computational Physics</em>, 230(6):2345–2367, 2011.</p>
+</dd>
+</dl>
+</p>
+</div>
+</div>
+
+
+              </div>
+              
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="footer.css" rel="stylesheet">
+</head>
+<div class="footer">
+        <div class="container footercontainer">
+               <div class="row">
+                 <div class="col-md-6 col-lg-3">
+                     <div class="footer-about">
+                          <img style="float: left; margin: 0px 200px 2px 10px; max-width:10.5em; min-width:55px" src="https://equadratures.org/brand/02/Vertical/equadraturesLockupVerticalWithLoveWhite.png" alt="Image"><br>
+                          <br>
+                          <br>
+                          <div class="footer-social">
+                            <a href="https://github.com/equadratures"><img alt="" src="https://equadratures.org/icons/github.png" hspace="0x" style="width:50%; min-width:20px"></a>
+                            <a href="https://www.linkedin.com/company/equadratures"><img alt=""  src="https://equadratures.org/icons/linkedin.png" hspace="0x" style="width:50%; min-width:20px"></a>
+                           <a href="https://twitter.com/equadratures"><img alt="" src="https://equadratures.org/icons/twitter.png" hspace="0x" style="width:50%; min-width:20px"></a>
+                         <a href="https://www.youtube.com/channel/UCpjwFDSZuFbzW-2lj6d96dA"><img alt="" src="https://equadratures.org/icons/youtube.png" hspace="0x" style="width:50%; min-width:20px"></a>
+                        </div>
+                     </div>
+                 </div>
+                 <div class="col-md-6 col-lg-3">
+                   <div class="footer-contact">
+                     <b>affiliations </b><br>
+                     <a href="https://equadratures.org/numfocus">numfocus</a><br>
+                     <a href="https://equadratures.org/gsoc">google summer of code</a><br>
+                   </div>
+                 </div>
+                 <div class="col-md-6 col-lg-3">
+                     <div class="footer-contact">
+                       <b>management </b><br>
+                        <a href="https://equadratures.org/team">team </a><br>
+                        <a href="https://equadratures.org/partnerships">partnerships</a><br>
+                     </div>
+                 </div>
+                   <div class="col-md-6 col-lg-3">
+                       <div class="footer-links">
+                           <b>code </b><br>
+                            <a href="https://equadratures.org/documentation/">documentation</a><br>
+                            <a href="https://discourse.equadratures.org/">discourse</a><br>
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <center>
+             <div class="smallerr">
+             copyright &copy; 2022 by equadratures.
+             <br>
+             made by the equadratures team, with &#10084;&#65039;.
+           </div>
+             <br>
+             <br>
+           </center>
+       </div>
+  </body>
+</html>
