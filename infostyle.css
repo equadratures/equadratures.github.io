@@ -15,6 +15,14 @@ img {
   max-width: 100%;
 }
 
+.maincontainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
 .infocontainer {
   display: flex;
   align-items: center;

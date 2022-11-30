@@ -81,21 +81,31 @@
   </nav>
 
   <div>
-    <div id="mainDiv" class="container infocontainer">
-      <div class="row">
-        <div class="col-sm">
-          <div data-tilt data-tilt-max="35" data-tilt-gyroscope="false">
-            <img class="svg_content" id="infographic" src="imgs/circular_5_opt.svg" onload="SVGInject(this)" />
+    <div id="mainDiv">
+      <div class="d-flex flex-column mb-3">
+          <div class="col-sm">
+            <div data-tilt data-tilt-max="35" data-tilt-gyroscope="false">
+              <img class="svg_content" id="infographic" src="imgs/circular_5_opt.svg" onload="SVGInject(this)" />
+            </div>
           </div>
+
+          <div class="d-flex justify-content-center p-4">
+            <p>
+              build polynomial models for explaining data
+            </p>
+          </div>
+
+        <div class="col-sm justify-content-center p-4">
+          <h2>equadratures builds models using orthonormal polynomials over subspaces, graphs, and trees. The models are built in a manner to ensure that even with a small amount of data, explainable and robust models are always a few lines of code away. The chart below provides an overview of some of the key methods baked into the code.
+            <br>
+            <br>
+            <center>
+              <img src="./brand/04/EquadraturesGraph02.png" ; style="width:50%" />
+            </center>
         </div>
-        <div class="w-100"></div>
-        <div class="col-sm d-flex justify-content-center">
-          <p>
-            build polynomial models for explaining data
-          </p>
-        </div>
-        <div class="w-100"></div>
       </div>
+    </div>
+
     </div>
     <div id="replaceDiv" class="container-md">
     </div>
