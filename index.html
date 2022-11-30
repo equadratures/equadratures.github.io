@@ -19,11 +19,7 @@
   <script src="svg-inject.min.js"></script>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="scripts/dark.js" type="text/javascript"></script>
-  <link id="jupyter_light" rel="stylesheet" href="/modals/notebooks/templates/lab_custom/static/theme-light.css"
-    disabled>
-  </link>
-  <link id="jupyter_dark" rel="stylesheet" href="/modals/notebooks/templates/lab_custom/static/theme-dark.css">
+  <link id="jupyter_light" rel="stylesheet" href="/modals/notebooks/templates/lab_custom/static/theme.css">
   </link>
 
   <meta property="og:site_name" content="equadratures" />
@@ -57,9 +53,9 @@
 
 </head>
 
-<body onload="checkDarkMode();" class="body dark-mode">
+<body class="body light-mode">
 
-  <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -82,9 +78,6 @@
         </div>
       </div>
     </div>
-    <button onclick="darkSwitch();" class="btn btn-primary dark-switch"
-      style="position:absolute; top:0; right:0; margin: 10px;">Toggle dark
-      mode</button>
   </nav>
 
   <div>
@@ -108,8 +101,22 @@
     </div>
   </div>
 
-  <input type="hidden" id="modal_s3" dark="modals/notebooks/active_subspace_dark.html"
-    light="modals/notebooks/active_subspace_light.html">
+  <!-- Trust-region optimisation -->
+  <!-- <input type="hidden" id="modal_s1" html_file=""> -->
+  <!-- Bayesian polynomial regression -->
+  <!-- <input type="hidden" id="modal_s2" html_file=""> -->
+  <!-- Active subspace -->
+  <input type="hidden" id="modal_s3" html_file="modals/notebooks/active_subspace.html">
+  <!-- Sensitivity analysis -->
+  <!-- <input type="hidden" id="modal_s4" html_file=""> -->
+  <!-- Numerical integration -->
+  <!-- <input type="hidden" id="modal_s5" html_file=""> -->
+  <!-- Polynomial choas -->
+  <!-- <input type="hidden" id="modal_s6" html_file=""> -->
+  <!-- Ridge approximation -->
+  <!-- <input type="hidden" id="modal_s7" html_file=""> -->
+  <!-- Polynomial on graphs -->
+  <!-- <input type="hidden" id="modal_s8" html_file=""> -->
 
   <div class="footer">
     <div class="container">

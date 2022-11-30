@@ -38,15 +38,8 @@
 {% block notebook_css %}
 {# {{ resources.include_css("static/index.css") }} #}
 <link rel="stylesheet" href="/modals/notebooks/templates/lab_custom/static/index.css"></link>
-{% if resources.theme == 'dark' %}
-    {# {{ resources.include_css("static/theme-dark.css") }} #}
-    {# <link id="jupyter_dark" rel="stylesheet" href="/modals/notebooks/templates/lab_custom/static/theme-dark.css"></link> #}
-{% elif resources.theme == 'light'  %}
-    {# {{ resources.include_css("static/theme-light.css") }} #}
-    {# <link id="jupyter_light" rel="stylesheet" href="/modals/notebooks/templates/lab_custom/static/theme-light.css"></link> #}
-{% else %}
-    {{ resources.include_lab_theme(resources.theme) }}
-{% endif %}
+{# {{ resources.include_css("static/theme.css") }} #}
+{# <link id="jupyter_light" rel="stylesheet" href="/modals/notebooks/templates/lab_custom/static/theme.css"></link> #}
 <link rel="stylesheet" href="/modals/notebooks/templates/lab_custom/static/misc.css"></link>
 
 {% endblock notebook_css %}
@@ -65,11 +58,7 @@
 {%- endblock header -%}
 
 {%- block body_header -%}
-{% if resources.theme == 'dark' %}
-<body class="jp-Notebook" data-jp-theme-light="false" data-jp-theme-name="JupyterLab Dark">
-{% else %}
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
-{% endif %}
 {%- endblock body_header -%}
 
 {% block body_footer %}

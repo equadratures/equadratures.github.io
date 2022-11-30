@@ -6,12 +6,14 @@ function replacePlotlyIframe(item2) {
         for (i = 0; i < frames.length; ++i) {
             var url = new URL(frames[i].title);
             framepath = url.pathname;
-            if (localStorage.getItem('dark-mode') === 'false') {
-                framepath = framepath.replace("dark", "light");
-            }
-            else {
-                framepath = framepath.replace("light", "dark");
-            }
+            console.log("Framepath");
+            console.log(url);
+            // if (localStorage.getItem('dark-mode') === 'false') {
+            //     framepath = framepath.replace("dark", "light");
+            // }
+            // else {
+            //     framepath = framepath.replace("light", "dark");
+            // }
             frames[i].src = "/modals/notebooks/" + framepath;
         }
     });
@@ -22,12 +24,16 @@ var goToModal = function (value) {
     requirejs(["jquery"], function () {
         var embedfile;
         var modal = $(value);
-        if (localStorage.getItem('dark-mode') === 'false') {
-            embedfile = modal.attr("light");
-        }
-        else {
-            embedfile = modal.attr("dark");
-        }
+        console.log("Modal")
+        console.log(modal);
+        embedfile = modal.attr("html_file");
+        // if (localStorage.getItem('dark-mode') === 'false') {
+        //     embedfile = modal.attr("light");
+        // }
+        // else {
+        //     embedfile = modal.attr("dark");
+        // }
+        console.log(embedfile);
 
         $('#replaceDiv').slideUp(0);
 
