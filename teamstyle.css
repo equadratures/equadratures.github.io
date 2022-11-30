@@ -1,7 +1,7 @@
 .aboutcard {
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: 310px 150px 80px;
+    grid-template-rows: 210px 150px 80px;
     grid-template-areas: "image""text""stats";
 
     border-radius: 18px;
@@ -28,7 +28,7 @@
 
 .card-text {
     grid-area: text;
-    margin: 25px;
+    margin: 5px;
 }
 
 .card-text p {
