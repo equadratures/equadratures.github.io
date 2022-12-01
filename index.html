@@ -18,6 +18,7 @@
   <link rel='icon' href='./logos/eq.ico' type='image/x-icon' />
   <script src="scripts/require.js" data-main="./scripts/app.js"></script>
   <script src="svg-inject.min.js"></script>
+  <script src="./scripts/prism.js"></script>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link id="jupyter_light" rel="stylesheet" href="/modals/notebooks/templates/lab_custom/static/theme.css">
@@ -87,7 +88,7 @@
     <div id="mainDiv">
       <div class="d-flex flex-column mb-3">
           <div class="col-sm">
-            <div data-tilt data-tilt-max="35" data-tilt-gyroscope="false">
+            <div data-tilt data-tilt-max="30" data-tilt-gyroscope="false">
               <img class="svg_content" id="infographic" src="imgs/circular_5_opt.svg" onload="SVGInject(this)" />
             </div>
           </div>
@@ -107,10 +108,10 @@
             </center>
             <br>
             <br>
-            <pre><code class="language-python"># To install the code, use the command below
-pip install equadratures</code></pre>
- <script src="prism.js"></script>
-
+            <pre style="white-space: pre-line;">
+              <code class="language-python"># To install the code, use the command below</code>
+              <code class="language-python">pip install equadratures</code>
+            </pre>
         </div>
       </div>
     </div>
@@ -195,39 +196,11 @@ pip install equadratures</code></pre>
     </center>
   </div>
 
-  <script>
-    var modal = document.getElementById("modal_s1");
-    var span = document.getElementsByClassName("close")[0];
-
-    // Show modal cli
-    // var goToModal = function (value) {
-    //   $(value).modal('show');
-    // };
-    // $('#modal_s1').on('click', function () {
-
-    // requirejs(["scripts/jquery"], function () {
-    //   var goToModal = function (value) {
-    //     $('.s1-modal-body').load('modals/notebooks/active_subspace_light.html', function () {
-    //       $(value).modal('show');
-    //       // $('#modal_s1').modal({ show: true });
-    //     });
-    //   };
-    // });
-
-  </script>
-
   <!-- partial -->
   <script type="text/javascript" src="vanilla-tilt.min.js"></script>
-  <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script> -->
-  <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script> -->
-  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script> -->
-  <!-- <script src="scripts/bootstrap.bundle.min.js"></script> -->
   <script src="./script.js"></script>
   <script src="./scripts/modal.js"></script>
+  
 </body>
 
 </html>
