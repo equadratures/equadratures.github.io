@@ -4,20 +4,18 @@ import nbformat as nbf
 from nbconvert.exporters import HTMLExporter
 from nbconvert.preprocessors import TagRemovePreprocessor, ExecutePreprocessor
 from bs4 import BeautifulSoup as bs
-import sys
+import os, sys
 import minify_html
 
 args = sys.argv
 # Get input filename from system argument
-ipynb_file = args[1]
+filename = [os.path.basename(os.path.splitext(inp)[0]) for inp in args if os.path.splitext(inp)[1] == ".ipynb"][0]
+ipynb_file = filename + ".ipynb"
 
-# Check if output HTML should be minified (Default: True)
+# Check if output HTML should be minified (Default: False)
 bool_minify = False
-if len(args) == 3:
-    if args[2] == "minify":
-        bool_minify = True
-
-filename = ipynb_file.split(".")[0]
+if "minify" in args:
+    bool_minify = True
 
 # Setup config
 c = Config()
@@ -35,6 +33,7 @@ c.HTMLExporter.preprocessors = ["nbconvert.preprocessors.TagRemovePreprocessor"]
 exporter = HTMLExporter(config=c)
 exporter.register_preprocessor(TagRemovePreprocessor(config=c), True)
 
+# Load iPython notebook
 with open(ipynb_file) as f:
     nb = nbf.read(f, as_version=4)
 
@@ -50,7 +49,7 @@ code_cell = nbf.v4.new_code_cell(
 nb.cells.insert(0, code_cell)
 
 # Run notebook
-ep = ExecutePreprocessor()
+ep = ExecutePreprocessor(kernel_name="python3")
 ep.preprocess(nb, {"metadata": {"path": "."}})
 
 # Define HTML export theme
