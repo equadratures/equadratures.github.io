@@ -85,40 +85,35 @@
   </nav>
 
   <div>
-    <div id="mainDiv">
-      <div class="d-flex flex-column mb-3">
-          <div class="col-sm">
-            <div data-tilt data-tilt-max="30" data-tilt-gyroscope="false">
-              <img class="svg_content" id="infographic" src="imgs/circular_5_opt.svg" onload="SVGInject(this)" />
-            </div>
-          </div>
-
-          <div class="d-flex justify-content-center p-4">
-            <p>
-              <h1>Build Polynomial Models.</h1>
-            </p>
-          </div>
-
-        <div class="col-sm justify-content-center p-4">
-          <h2>equadratures is an open-source python code that builds models using <a href="https://en.wikipedia.org/wiki/Orthogonal_polynomials" style="font-family: DIN Pro; color: #2A3987;">orthonormal polynomials</a>. These models can be constructed over subspaces, graphs, and even trees. The chart below provides an overview of some of the key methods baked into the code.
-            <br>
-            <br>
-            <center>
-              <img src="./brand/04/EquadraturesGraph02.png" ; style="width:70%" />
-            </center>
-            <br>
-            <br>
-            <pre style="white-space: pre-line;">
-              <code class="language-python"># To install the code, use the command below</code>
-              <code class="language-python">pip install equadratures</code>
-            </pre>
+    <div id="mainDiv" class="d-flex flex-column mx-3 px-3">
+      <div class="d-flex justify-content-center">
+        <div data-tilt data-tilt-max="30" data-tilt-gyroscope="false" style="width: min(90vh, 90vw)">
+          <img class="svg_content" id="infographic" src="imgs/circular_5_opt.svg" onload="SVGInject(this)" />
         </div>
       </div>
-    </div>
 
+      <div class="d-flex justify-content-center p-4">
+        <p>
+          <h1>Build Polynomial Models.</h1>
+        </p>
+      </div>
+
+      <div class="d-flex justify-content-center p-4">
+        <h2>equadratures is an open-source python code that builds models using <a href="https://en.wikipedia.org/wiki/Orthogonal_polynomials" style="font-family: DIN Pro; color: #2A3987;">orthonormal polynomials</a>. These models can be constructed over subspaces, graphs, and even trees. The chart below provides an overview of some of the key methods baked into the code.
+          <br>
+          <br>
+          <center>
+            <img src="./brand/04/EquadraturesGraph02.png" ; style="width:70%" />
+          </center>
+          <br>
+          <br>
+          <pre style="white-space: pre-line;">
+            <code class="language-python"># To install the code, use the command below</code>
+            <code class="language-python">pip install equadratures</code>
+          </pre>
+      </div>
     </div>
-    <div id="replaceDiv" class="container-md">
-    </div>
+  </div>
 
   <!-- Trust-region optimisation -->
   <!-- <input type="hidden" id="modal_s1" html_file=""> -->
@@ -197,7 +192,7 @@
   </div>
 
   <!-- partial -->
-  <script type="text/javascript" src="vanilla-tilt.min.js"></script>
+  <script type="text/javascript" src="scripts/vanilla-tilt.min.js"></script>
   <script src="./script.js"></script>
   <script src="./scripts/modal.js"></script>
   
