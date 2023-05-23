@@ -21,14 +21,14 @@
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
      inkscape:zoom="0.92213699"
-     inkscape:cx="547.09876"
+     inkscape:cx="549.26763"
      inkscape:cy="434.85947"
      inkscape:window-width="1877"
      inkscape:window-height="1052"
      inkscape:window-x="87"
      inkscape:window-y="44"
      inkscape:window-maximized="0"
-     inkscape:current-layer="g210" />
+     inkscape:current-layer="g136" />
   <defs
      id="defs92">
     <linearGradient
@@ -544,9 +544,9 @@
          fill-opacity=".2"
          id="path126" />
       <text
-         transform="rotate(-45,0.35,-548)"
-         x="-170.92596"
-         y="271.00601"
+         transform="rotate(-45)"
+         x="208.67384"
+         y="431.75897"
          fill="#0ba0a0"
          font-family="D-DIN-PRO"
          font-size="29px"
@@ -556,11 +556,11 @@
          id="text134"><tspan
            sodipodi:role="line"
            id="tspan514"
-           x="-170.92596"
-           y="271.00601">stochastic</tspan><tspan
+           x="208.67384"
+           y="431.75897">stochastic</tspan><tspan
            sodipodi:role="line"
-           x="-170.92596"
-           y="294.20602"
+           x="208.67384"
+           y="454.95898"
            id="tspan649">polynomials</tspan></text>
     </g>
     <g
