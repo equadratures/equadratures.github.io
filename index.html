@@ -19,8 +19,6 @@
   <script src="scripts/require.js" data-main="./scripts/app.js"></script>
   <script src="svg-inject.min.js"></script>
   <script src="./scripts/prism.js"></script>
-  <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link id="jupyter_light" rel="stylesheet" href="/modals/notebooks/templates/lab_custom/static/theme.css">
@@ -98,37 +96,29 @@
       </div>
       <div class="col">
         <h1>Learn Continuous Structure</h1>
-        <h2>For over five years, equadratures has been an open-source tool for building models for both sensor and simulation data. It may be used for polynomial regression, sparse polynomial approximation, subspace-based dimension reduction, polynomial chaos, and more recently for kernel-based learning. Underneath the hood it leverages numerical quadrature and orthogonal polynomials. 
-        <br>
-        <br>
-        For installation:
-        <br>
+        <h2>equadratures is an open-source python framework for fitting models to data. It may be used for polynomial regression, sparse polynomial approximation, subspace-based dimension reduction, polynomial chaos, and more recently for kernel-based learning. Underneath the hood it leverages numerical quadrature and orthogonal polynomials. To learn more about what else you can do with equadratures, click one of the topics on the wheel.
+        </h2> 
+        <h1>DOWNLOAD & RUN</h1>
+        <h2>To install equadratures, you can either use pip via
         <pre style="white-space: pre-line;">
-          <code class="language-python"># In a terminal, try</code>
           <code class="language-python">pip install equadratures</code>
         </pre>
-        <br>
-        To get started, try the following:
+        or you can directly download the latest package from Github. To get started, try the following:
         <br>
         <pre style="white-space: pre-line;">
-          <code class="language-python"># Fit a polynomial to 5sin(10*x1) + 3cos(10*x2)</code>
+          <code class="language-python"># Let us fit a polynomial to 5sin(10*x1) + 3cos(10*x2)</code>
           <code class="language-python">from equadratures import *</code>
           <code class="language-python">x = Parameter(lower=-1, upper=1, order=5)</code>
           <code class="language-python">basis = Basis('tensor-grid')</code>
           <code class="language-python">poly = Poly([x,x], basis, method='numerical-integration')</code>
           <code class="language-python">poly.set_model(lambda x: 5*np.sin(10*x[0]) + 3*np.cos(10*x[1]))</code>
-        </pre>
-        <br>
-        Now to compute moments & sensitivities of this function, try:
-        <br>
-        <pre style="white-space: pre-line;">
-          <code class="language-python"># For moments</code>
+          <code class="language-python"></code>
+          <code class="language-python"># For computing moments</code>
           <code class="language-python">poly.get_mean_and_variance()</code>
-          <code class="language-python"># Get 1st order Sobol' indices</code>
+          <code class="language-python"># ..and to get 1st order Sobol' indices</code>
           <code class="language-python">poly.get_sobol_indices(order=1)</code>
         </pre>
         <br>
-        To learn more about what else you can do with equadratures, click one of the topics on the wheel to the left. 
       </h2>
       </div>
     <br>
@@ -141,7 +131,7 @@
       <div class="row">
         <div class="col">
           <h2>
-            Many organisations have and continue to use equadratures for a variety of tasks. Some of these organisations are shown on the right. If you and your organisation would like to learn more about equadratures, please do drop us a message at mail [at] equadratures.org. 
+            Many organisations have and continue to use equadratures for a variety of tasks. If you and your organisation would like to learn more about equadratures, please do drop us a message at mail [at] equadratures.org. 
           </h2>
         </div>
         <div class="col">
