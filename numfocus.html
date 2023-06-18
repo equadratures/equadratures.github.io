@@ -1,184 +1,318 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap Imports -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Bootstrap Imports -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="./navbar.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./infostyle.css" />
+    <link rel="stylesheet" href="panelstyle.css" />
+    <link rel="stylesheet" href="./footer-4.css" />
+    <link rel="icon" href="./logos/eq.ico" type="image/x-icon" />
+    <script src="svg-inject.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
 
-  <link rel="stylesheet" href="./navbar.css">
-  <link rel="stylesheet" href="./style.css">
-  <link rel="stylesheet" href="./infostyle.css">
-  <link rel="stylesheet" href="panelstyle.css">
-  <link rel="stylesheet" href="./footer-4.css">
-  <link rel='icon' href='./logos/eq.ico' type='image/x-icon' />
-  <script src="svg-inject.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta property="og:site_name" content="equadratures" />
+    <meta property="og:type" content="website" />
+    <link rel="image_src" href="logos/figure.png" />
+    <meta property="og:image" content="logos/figure.png" />
+    <meta property="og:image:url" content="logos/figure.png" />
+    <meta property="og:image:secure_url" content="logos/figure.png" />
+    <meta property="twitter:image" content="logos/figure.png" />
+    <meta property="og:url" content="https://equadratures.org/" />
+    <meta
+      property="og:title"
+      content="Integrate, Predict, Explain &amp; Audit | equadratures"
+    />
+    <meta
+      property="og:description"
+      content="equadratures is a model development platform. The models built in equadratures are explainable, robust, and do not require large cloud infrastructure to train. Additionally, equadratures’ models can audit themselves as well as audit models built from other platforms — ushering a new era in artificial intelligence."
+    />
+    <meta property="og:image" content="./icons/logo_new.png" />
+    <meta property="og:image:url" content="./icons/logo_new.png" />
+    <meta property="og:image:secure_url" content="./icons/logo_new.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:description"
+      content="equadratures is a model development platform. The models built in equadratures are explainable, robust, and do not require large cloud infrastructure to train. Additionally, equadratures’ models can audit themselves as well as audit models built from other platforms — ushering a new era in artificial intelligence."
+    />
+    <meta name="twitter:site" content="@equadratures" />
+    <meta
+      name="twitter:title"
+      content="Integrate, Predict, Explain &amp; Audit | equadratures"
+    />
+    <meta name="twitter:creator" content="@equadratures" />
+    <meta name="twitter:url" content="https://twitter.com/equadratures" />
+    <title>Numfocus | equadratures</title>
 
-  <meta property="og:site_name" content="equadratures" />
-  <meta property="og:type" content="website" />
-  <link rel="image_src" href="logos/figure.png" />
-  <meta property="og:image" content="logos/figure.png" />
-  <meta property="og:image:url" content="logos/figure.png" />
-  <meta property="og:image:secure_url" content="logos/figure.png" />
-  <meta property="twitter:image" content="logos/figure.png" />
-  <meta property="og:url" content="https://equadratures.org/" />
-  <meta property="og:title" content="Integrate, Predict, Explain &amp; Audit | equadratures" />
-  <meta property="og:description"
-    content="equadratures is a model development platform. The models built in equadratures are explainable, robust, and do not require large cloud infrastructure to train. Additionally, equadratures’ models can audit themselves as well as audit models built from other platforms — ushering a new era in artificial intelligence." />
-  <meta property="og:image" content="./icons/logo_new.png" />
-  <meta property="og:image:url" content="./icons/logo_new.png" />
-  <meta property="og:image:secure_url" content="./icons/logo_new.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:description"
-    content="equadratures is a model development platform. The models built in equadratures are explainable, robust, and do not require large cloud infrastructure to train. Additionally, equadratures’ models can audit themselves as well as audit models built from other platforms — ushering a new era in artificial intelligence." />
-  <meta name="twitter:site" content="@equadratures" />
-  <meta name="twitter:title" content="Integrate, Predict, Explain &amp; Audit | equadratures" />
-  <meta name="twitter:creator" content="@equadratures" />
-  <meta name="twitter:url" content="https://twitter.com/equadratures" />
-  <title>Numfocus | equadratures</title>
+    <meta
+      name="description"
+      content="equadratures is a model development platform. The models built in equadratures are explainable, robust, and do not require large cloud infrastructure to train. Additionally, equadratures’ models can audit themselves as well as audit models built from other platforms - ushering a new era in artificial intelligence."
+    />
+    <meta
+      name="keywords"
+      content="data science, machine learning, polynomial chaos, uncertainty quantification, model auditing, Pranay Seshadri"
+    />
+  </head>
 
-  <meta name="description"
-    content="equadratures is a model development platform. The models built in equadratures are explainable, robust, and do not require large cloud infrastructure to train. Additionally, equadratures’ models can audit themselves as well as audit models built from other platforms - ushering a new era in artificial intelligence.">
-  <meta name="keywords"
-    content="data science, machine learning, polynomial chaos, uncertainty quantification, model auditing, Pranay Seshadri">
-
-</head>
-
-<body class="body light-mode">
-
-  <nav id="navbar" class="navbar navbar-expand-lg navbar-dark" style="background-color: #02bec4">
-    <div class="container-fluid">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav mx-auto">
-          <a class="nav-item nav-link" style="padding-right: 30px; padding-left: 30px;" href="index.html">Home <span
-              class="sr-only">(current)</span></a>
-          <li class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
-              style="padding-right: 30px; padding-left: 30px;">Case Studies</a>
-            <div class="dropdown-menu">
-              <a href="./case-studies/case-study-1.pdf" style="text-decoration: none;" target="_blank" class="dropdown-item">Coastal Dynamics</a>
-              <a href="./case-studies/case-study-2.pdf" style="text-decoration: none;" target="_blank" class="dropdown-item">Aerospace Design and Manufacturing</a>
-            </div>
-          </li>
-          <a href="papers.html" class="nav-item nav-link" style="padding-right: 30px; padding-left: 30px;" href="#">Papers</a>
-          <a href="https://equadratures.org/documentation/" class="nav-item nav-link" style="padding-right: 30px; padding-left: 30px;" href="#">Code Documentation</a>
-          <a href="https://discourse.equadratures.org/" class="nav-item nav-link" style="padding-right: 30px; padding-left: 30px;" href="#">Discourse</a>
-          <a href="course.html" class="nav-item nav-link" style="padding-right: 30px; padding-left: 30px;" href="#">A Short Course</a>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <div class="container">
-    <div class="row align-items-center panelcontainer mx-1 my-3">
-      <div class="panel col-12 mx-1 px-0 align-items-center">
-        <div class="card shadow border panelBackground">
-          <img src="logos/numfocus-affiliated-project.png" class="card-img-top mx-auto"
-            style="max-width: 200px; padding: 20px;">
-          <div class="card-body d-flex flex-column align-items-center light-mode">
-            <p class="card-text" style="font-family: DIN Pro; color: #2A3987;">
-              Our code is proudly a NumFOCUS affiliated project. Our core development team feels strongly about the
-              need for greater openness in computational mathematics and statistics, and supports efforts to break
-              down barriers. This forms a core part of our ethos. We follow the <a class="card-text"
-                href="https://numfocus.org/code-of-conduct" style="text-decoration: none; color: #2A3987">NumFOCUS code of conduct</a>; a short version of this is
-              given below.
-            <ul style="font-family: DIN Pro; color: #2A3987;">
-              <li>Be kind to others. Do not insult or put down others. Behave professionally. Remember that harassment
-                and sexist, racist, or exclusionary jokes are not appropriate for NumFOCUS.</li>
-              <li>All communication should be appropriate for a professional audience including people of many
-                different backgrounds. Sexual language and imagery is not appropriate.</li>
-              <li>NumFOCUS is dedicated to providing a harassment-free community for everyone, regardless of gender,
-                sexual orientation, gender identity and expression, disability, physical appearance, body size, race,
-                or religion. We do not tolerate harassment of community members in any form.</li>
-            </ul>
-            </p>
+  <body class="body light-mode">
+    <nav
+      id="navbar"
+      class="navbar navbar-expand-lg navbar-dark"
+      style="background-color: #02bec4"
+    >
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav mx-auto">
+            <a
+              class="nav-item nav-link"
+              style="padding-right: 30px; padding-left: 30px"
+              href="index.html"
+              >Home <span class="sr-only">(current)</span></a
+            >
+            <li class="nav-item dropdown">
+              <a
+                href="#"
+                class="nav-link dropdown-toggle"
+                data-bs-toggle="dropdown"
+                style="padding-right: 30px; padding-left: 30px"
+                >Case Studies</a
+              >
+              <div class="dropdown-menu">
+                <a
+                  href="./case-studies/case-study-1.pdf"
+                  style="text-decoration: none"
+                  target="_blank"
+                  class="dropdown-item"
+                  >Coastal Dynamics</a
+                >
+                <a
+                  href="./case-studies/case-study-2.pdf"
+                  style="text-decoration: none"
+                  target="_blank"
+                  class="dropdown-item"
+                  >Aerospace Design and Manufacturing</a
+                >
+              </div>
+            </li>
+            <a
+              href="papers.html"
+              class="nav-item nav-link"
+              style="padding-right: 30px; padding-left: 30px"
+              href="#"
+              >Papers</a
+            >
+            <a
+              href="https://equadratures.org/documentation/"
+              class="nav-item nav-link"
+              style="padding-right: 30px; padding-left: 30px"
+              href="#"
+              >Code Documentation</a
+            >
+            <a
+              href="https://discourse.equadratures.org/"
+              class="nav-item nav-link"
+              style="padding-right: 30px; padding-left: 30px"
+              href="#"
+              >Discourse</a
+            >
+            <a
+              href="course.html"
+              class="nav-item nav-link"
+              style="padding-right: 30px; padding-left: 30px"
+              href="#"
+              >A Short Course</a
+            >
           </div>
         </div>
       </div>
-    </div>
-  </div>
+    </nav>
 
-
-  <div class="footer">
     <div class="container">
-      <div class="row">
-        <div class="col-md-6 col-lg-3">
-          <div class="footer-about">
-            <a href="index.html">
-              <img style="float: left; margin: 0px 200px 2px 10px; max-width:10.5em; min-width:55px"
-                src="./brand/02/Vertical/equadraturesLockupVerticalWithLoveWhite.png" alt="Image">
-            </a>
-            <br>
-            <br>
-            <br>
-            <div class="footer-social">
-              <a href="https://github.com/equadratures"><img alt="" src="icons/github.png" hspace="0x"
-                  style="width:50%; min-width:20px"></a>
-              <a href="https://www.linkedin.com/company/equadratures"><img alt="" src="icons/linkedin.png" hspace="0x"
-                  style="width:50%; min-width:20px"></a>
-              <a href="https://twitter.com/equadratures"><img alt="" src="icons/twitter.png" hspace="0x"
-                  style="width:50%; min-width:20px"></a>
-              <a href="https://www.youtube.com/channel/UCpjwFDSZuFbzW-2lj6d96dA"><img alt="" src="icons/youtube.png"
-                  hspace="0x" style="width:50%; min-width:20px"></a>
+      <div class="row align-items-center panelcontainer mx-1 my-3">
+        <div class="panel col-12 mx-1 px-0 align-items-center">
+          <div class="card shadow border panelBackground">
+            <img
+              src="logos/numfocus-affiliated-project.png"
+              class="card-img-top mx-auto"
+              style="max-width: 200px; padding: 20px"
+            />
+            <div
+              class="card-body d-flex flex-column align-items-center light-mode"
+            >
+              <div
+                class="card-text"
+                style="font-family: DIN Pro; color: #2a3987"
+              >
+                Our code is proudly a NumFOCUS affiliated project. Our core
+                development team feels strongly about the need for greater
+                openness in computational mathematics and statistics, and
+                supports efforts to break down barriers. This forms a core part
+                of our ethos. We follow the
+                <a
+                  class="card-text"
+                  href="https://numfocus.org/code-of-conduct"
+                  style="text-decoration: none; color: #2a3987"
+                  >NumFOCUS code of conduct</a
+                >; a short version of this is given below.
+                <ul style="font-family: DIN Pro; color: #2a3987">
+                  <li>
+                    Be kind to others. Do not insult or put down others. Behave
+                    professionally. Remember that harassment and sexist, racist,
+                    or exclusionary jokes are not appropriate for NumFOCUS.
+                  </li>
+                  <li>
+                    All communication should be appropriate for a professional
+                    audience including people of many different backgrounds.
+                    Sexual language and imagery is not appropriate.
+                  </li>
+                  <li>
+                    NumFOCUS is dedicated to providing a harassment-free
+                    community for everyone, regardless of gender, sexual
+                    orientation, gender identity and expression, disability,
+                    physical appearance, body size, race, or religion. We do not
+                    tolerate harassment of community members in any form.
+                  </li>
+                </ul>
+              </div>
             </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="footer-contact">
-            <b>affiliations </b><br>
-            <a href="#">numfocus</a><br>
-            <a href="gsoc.html">google summer of code</a><br>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="footer-contact">
-            <b>management </b><br>
-            <a href="team.html">team</a><br>
-            <a href="partnerships.html">partnerships</a><br>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="footer-links">
-            <b>code </b><br>
-            <a href="https://equadratures.org/documentation/">documentation</a><br>
-            <a href="https://discourse.equadratures.org/">discourse</a><br>
           </div>
         </div>
       </div>
     </div>
-    <center>
-      <div class="small">
-        copyright &copy; 2022 by equadratures.
-        <br>
-        made by the equadratures team, with &#10084;&#65039;.
+
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-lg-3">
+            <div class="footer-about">
+              <a href="index.html">
+                <img
+                  style="
+                    float: left;
+                    margin: 0px 200px 2px 10px;
+                    max-width: 10.5em;
+                    min-width: 55px;
+                  "
+                  src="./brand/02/Vertical/equadraturesLockupVerticalWithLoveWhite.png"
+                  alt="Image"
+                />
+              </a>
+              <br />
+              <br />
+              <br />
+              <div class="footer-social">
+                <a href="https://github.com/equadratures"
+                  ><img
+                    alt=""
+                    src="icons/github.png"
+                    hspace="0x"
+                    style="width: 50%; min-width: 20px"
+                /></a>
+                <a href="https://www.linkedin.com/company/equadratures"
+                  ><img
+                    alt=""
+                    src="icons/linkedin.png"
+                    hspace="0x"
+                    style="width: 50%; min-width: 20px"
+                /></a>
+                <a href="https://twitter.com/equadratures"
+                  ><img
+                    alt=""
+                    src="icons/twitter.png"
+                    hspace="0x"
+                    style="width: 50%; min-width: 20px"
+                /></a>
+                <a
+                  href="https://www.youtube.com/channel/UCpjwFDSZuFbzW-2lj6d96dA"
+                  ><img
+                    alt=""
+                    src="icons/youtube.png"
+                    hspace="0x"
+                    style="width: 50%; min-width: 20px"
+                /></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="footer-contact">
+              <b>affiliations </b><br />
+              <a href="#">numfocus</a><br />
+              <a href="gsoc.html">google summer of code</a><br />
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="footer-contact">
+              <b>management </b><br />
+              <a href="team.html">team</a><br />
+              <a href="partnerships.html">partnerships</a><br />
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="footer-links">
+              <b>code </b><br />
+              <a href="https://equadratures.org/documentation/">documentation</a
+              ><br />
+              <a href="https://discourse.equadratures.org/">discourse</a><br />
+            </div>
+          </div>
+        </div>
       </div>
-      <br>
-      <br>
-    </center>
-  </div>
+      <center>
+        <div class="small">
+          copyright &copy; 2022 by equadratures.
+          <br />
+          made by the equadratures team, with &#10084;&#65039;.
+        </div>
+        <br />
+        <br />
+      </center>
+    </div>
 
-  <!-- partial -->
-  <script src="./script.js"></script>
-  <script type="text/javascript" src="vanilla-tilt.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
-</body>
-
+    <!-- partial -->
+    <script src="./script.js"></script>
+    <script type="text/javascript" src="vanilla-tilt.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
