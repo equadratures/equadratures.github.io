@@ -37,9 +37,9 @@ a {
   .footer .footer-links h3,
   .footer .footer-project h3 {
     position: relative;
-    margin-bottom: 20px;
-    padding-bottom: 15px;
-    font-size: 18px;
+    margin-bottom: 18px;
+    padding-bottom: 13px;
+    font-size: 16px;
     line-height: 120%;
     text-decoration: none;
   }
@@ -67,7 +67,7 @@ a {
   .footer .footer-social {
     position: relative;
     color: white;
-    font-size:18px;
+    font-size:16px;
     line-height: 100%;
   }
   

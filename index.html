@@ -19,6 +19,8 @@
   <script src="scripts/require.js" data-main="./scripts/app.js"></script>
   <script src="svg-inject.min.js"></script>
   <script src="./scripts/prism.js"></script>
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link id="jupyter_light" rel="stylesheet" href="/modals/notebooks/templates/lab_custom/static/theme.css">
@@ -86,18 +88,72 @@
 
   <div>
     <div id="mainDiv" class="d-flex flex-column mx-3 px-3">
-      <div class="d-flex justify-content-center">
-        <div data-tilt data-tilt-max="25" data-tilt-gyroscope="false" style="width: min(100vh, 100vw)">
+      <div class="row">
+      <div class="col">
+        <center>
+        <div data-tilt data-tilt-max="15" data-tilt-gyroscope="false" style="width: max(50vh, 50vw)">
           <img class="svg_content" id="infographic" src="imgs/circular_5_opt_2.svg" onload="SVGInject(this)" />
         </div>
+      </center>
       </div>
-      <center>
-      <h1>Polynomial Models in Python. 
-      </h1>
-    </center>
+      <div class="col">
+        <h1>Learn Continuous Structure</h1>
+        <h2>For over five years, equadratures has been an open-source tool for building models for both sensor and simulation data. It may be used for polynomial regression, sparse polynomial approximation, subspace-based dimension reduction, polynomial chaos, and more recently for kernel-based learning. Underneath the hood it leverages numerical quadrature and orthogonal polynomials. 
+        <br>
+        <br>
+        For installation:
+        <br>
+        <pre style="white-space: pre-line;">
+          <code class="language-python"># In a terminal, try</code>
+          <code class="language-python">pip install equadratures</code>
+        </pre>
+        <br>
+        To get started, try the following:
+        <pre style="white-space: pre-line;">
+          <code class="language-python"># Fit a polynomial to 5sin(10*x1) + 3cos(10*x2)</code>
+          <code class="language-python">from equadratures import *</code>
+          <code class="language-python">x = Parameter(lower=-1, upper=1, order=5)</code>
+          <code class="language-python">basis = Basis('tensor-grid')</code>
+          <code class="language-python">poly = Poly([x,x], basis, method='numerical-integration')</code>
+          <code class="language-python">poly.set_model(lambda x: 5*np.sin(10*x[0]) + 3*np.cos(10*x[1]))</code>
+        </pre>
+        <br>
+        Now to compute moments & sensitivities of this function, try:
+        <pre style="white-space: pre-line;">
+          <code class="language-python"># For moments</code>
+          <code class="language-python">poly.get_mean_and_variance()</code>
+          <code class="language-python"># Get 1st order Sobol' indices</code>
+          <code class="language-python">poly.get_sobol_indices(order=1)</code>
+        </pre>
+        <br>
+        To learn more about what else you can do with equadratures, click one of the topics on the wheel to the left. 
+      </h2>
+      </div>
+    <br>
+    <br>
+    </div>
+    <br>
+    <br>
+    <div class="row">
+        <h1>CODE USEAGE & IMPACT</h1>
+      <div class="row">
+        <div class="col">
+          <h2>
+            Many organisations have and continue to use equadratures for a variety of tasks. Some of these organisations are shown on the right. If you and your organisation would like to learn more about equadratures, please do drop us a message at mail [at] equadratures.org. 
+          </h2>
+        </div>
+        <div class="col">
+          <img src="logos/cranfield.png" style="width:50%; max-width:200px"><img src="logos/rr.png"style="width:50%; max-width:200px">
+        <img src="logos/ukaea.png" style="width:50%; max-width:200px"><img src="logos/arrival.png" style="width:50%; max-width:200px">
+        <img src="logos/airbus.png" style="width:50%; max-width:200px"><img src="logos/safran.png" style="width:50%; max-width:200px"><img src="logos/mclaren.png" style="width:50%; max-width:200px"><img src="logos/cambridge.png" style="width:50%; max-width:200px"><img src="logos/usgs.png" style="width:50%; max-width:200px"><img src="logos/siemens.png" style="width:50%; max-width:200px"><img src="logos/turing.png" style="width:50%; max-width:200px"><img src="logos/icl.png" style="width:50%; max-width:200px">
+        </div>
+      </div>
+      <br>
+
     </div>
   </div>
-
+  <br>
+  <br>
   <!-- Trust-region optimisation -->
   <!-- <input type="hidden" id="modal_s1" html_file=""> -->
   <!-- Bayesian polynomial regression -->
@@ -178,7 +234,6 @@
   <script type="text/javascript" src="scripts/vanilla-tilt.min.js"></script>
   <script src="./script.js"></script>
   <script src="./scripts/modal.js"></script>
-  
 </body>
 
 </html>
