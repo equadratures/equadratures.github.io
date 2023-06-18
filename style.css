@@ -160,22 +160,6 @@ div.a {
   box-sizing: border-box !important;
 }
 
-/* #video-container {
-  max-width: 100%;
-  margin: 0 auto;
-}
-
-video {
-  width: 100%;
-  height: auto;
-}
-
-@media (max-width: 768px) {
-  #video-container {
-    max-width: 50%;
-  }
-} */
-
 .video-container {
   max-width: 100%;
 }
