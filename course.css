@@ -1,0 +1,23 @@
+.speakerdeck-container {
+  padding-bottom: 56.25%;
+  position: relative;
+  display: block;
+  width: 100%; /* Default width for smaller screens */
+  height: 100%;
+}
+
+@media (min-width: 768px) {
+  /* Adjust the width for screens larger than 768px */
+  .speakerdeck-container {
+    padding-bottom: 48%;
+    width: 85%;
+  }
+}
+
+@media (min-width: 1024px) {
+  /* Adjust the width for screens larger than 768px */
+  .speakerdeck-container {
+    padding-bottom: 40%;
+    width: 71%;
+  }
+}
