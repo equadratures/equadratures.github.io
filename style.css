@@ -9,6 +9,17 @@
     url("./brand/01/BebasNeueRegular.otf") format("opentype");
 }
 
+/* Page transitions with swup */
+
+.transition-fade {
+  opacity: 1;
+  transition: 0.5s;
+}
+
+html.is-animating .transition-fade {
+  opacity: 0;
+}
+
 .dark-mode {
   background-color: #1e2023;
   color: white;
