@@ -23,6 +23,17 @@ function loadHeader() {
     }
   };
 
+  // Event delegation for dropdown toggle
+  $(document)
+    .on("mouseenter", ".nav-item.dropdown", function () {
+      $(this).addClass("show");
+      $(this).find(".dropdown-menu").addClass("show");
+    })
+    .on("mouseleave", ".nav-item.dropdown", function () {
+      $(this).removeClass("show");
+      $(this).find(".dropdown-menu").removeClass("show");
+    });
+
   headerRequest.send();
 }
 
