@@ -151,10 +151,10 @@
                 <br />
                 <pre style="white-space: pre-line">
           <code class="language-python"># Let us fit a polynomial to 5sin(10*x1) + 3cos(10*x2)</code>
-          <code class="language-python">from equadratures import *</code>
-          <code class="language-python">x = Parameter(lower=-1, upper=1, order=5)</code>
-          <code class="language-python">basis = Basis('tensor-grid')</code>
-          <code class="language-python">poly = Poly([x,x], basis, method='numerical-integration')</code>
+          <code class="language-python">import equadratures as eq</code>
+          <code class="language-python">x = eq.Parameter(lower=-1, upper=1, order=5)</code>
+          <code class="language-python">basis = eq.Basis('tensor-grid')</code>
+          <code class="language-python">poly = eq.Poly([x,x], basis, method='numerical-integration')</code>
           <code class="language-python">poly.set_model(lambda x: 5*np.sin(10*x[0]) + 3*np.cos(10*x[1]))</code>
           <code class="language-python"></code>
           <code class="language-python"># For computing moments</code>
