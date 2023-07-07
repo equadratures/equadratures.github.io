@@ -9,19 +9,20 @@
     />
 
     <!-- Bootstrap Imports -->
-    <link
+    <!-- <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script> -->
 
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
     <link rel="stylesheet" href="./navbar.css" />
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="./infostyle.css" />
     <link rel="stylesheet" href="./footer-4.css" />
     <link href="prism.css" rel="stylesheet" />
     <link rel="icon" href="./logos/eq.ico" type="image/x-icon" />
-    <script src="scripts/require.js" data-main="./scripts/app.js"></script>
+    <!-- <script src="scripts/require.js" data-main="./scripts/app.js"></script> -->
     <script src="svg-inject.min.js"></script>
     <script src="./scripts/prism.js"></script>
 
@@ -35,9 +36,10 @@
       href="/modals/notebooks/templates/lab_custom/static/theme.css"
     />
 
-    <script>
-      var exports = {};
-    </script>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <!-- smoothstate -->
+    <script src="https://cdn.jsdelivr.net/npm/smoothstate@0.7.2/jquery.smoothState.min.js"></script>
 
     <meta property="og:site_name" content="equadratures" />
     <meta property="og:type" content="website" />
@@ -95,144 +97,60 @@
     />
   </head>
 
-  <nav
-    id="navbar"
-    class="navbar navbar-expand-lg navbar-dark fixed-top"
-    style="background-color: #02bec4"
-  >
-    <div class="container-fluid">
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav mx-auto">
-          <a
-            class="nav-item nav-link active"
-            style="
-              padding-right: 30px;
-              padding-left: 30px;
-              background-color: #02bec4;
-            "
-            href="index.html"
-            >Home <span class="sr-only">(current)</span></a
-          >
-          <li class="nav-item dropdown">
-            <a
-              href="#"
-              class="nav-link dropdown-toggle"
-              data-bs-toggle="dropdown"
-              style="padding-right: 30px; padding-left: 30px"
-              >Case Studies</a
-            >
-            <div class="dropdown-menu">
-              <a
-                href="./case-studies/case-study-1.pdf"
-                style="text-decoration: none"
-                target="_blank"
-                class="dropdown-item"
-                >Coastal Dynamics</a
-              >
-              <a
-                href="./case-studies/case-study-2.pdf"
-                style="text-decoration: none"
-                target="_blank"
-                class="dropdown-item"
-                >Aerospace Design and Manufacturing</a
-              >
-            </div>
-          </li>
-          <a
-            href="papers.html"
-            class="nav-item nav-link"
-            style="padding-right: 30px; padding-left: 30px"
-            href="#"
-            >Papers</a
-          >
-          <a
-            href="https://equadratures.org/documentation/"
-            class="nav-item nav-link"
-            style="padding-right: 30px; padding-left: 30px"
-            href="#"
-            >Code Documentation</a
-          >
-          <a
-            href="https://discourse.equadratures.org/"
-            class="nav-item nav-link"
-            style="padding-right: 30px; padding-left: 30px"
-            href="#"
-            >Discourse</a
-          >
-          <a
-            href="course.html"
-            class="nav-item nav-link"
-            style="padding-right: 30px; padding-left: 30px"
-            href="#"
-            >A Short Course</a
-          >
-        </div>
-      </div>
-    </div>
-  </nav>
-
   <body class="body light-mode">
-    <main id="swup" class="transition-fade">
+    <div id="header"></div>
+    <main>
       <div
         id="mainDiv"
         class="d-flex flex-column mx-3 px-3"
         style="margin-top: 62px"
+        data-aos="fade-up"
       >
-        <div class="row">
-          <div class="col">
-            <center>
-              <div
-                class="tilt-elements"
-                data-tilt
-                data-tilt-max="15"
-                data-tilt-gyroscope="false"
-                style="width: max(45vh, 45vw)"
-              >
-                <img
-                  class="svg_content"
-                  id="infographic"
-                  src="imgs/circular_5_opt_2.svg"
-                  onload="SVGInject(this)"
-                />
-              </div>
-            </center>
-          </div>
-          <div class="col">
-            <h1>Learn Continuous Structure</h1>
-            <h2>
-              equadratures is an open-source python framework for fitting models
-              to data. It may be used for polynomial regression, sparse
-              polynomial approximation, subspace-based dimension reduction,
-              polynomial chaos, and more recently for kernel-based learning.
-              Underneath the hood it leverages numerical quadrature and
-              orthogonal polynomials. To learn more about what else you can do
-              with equadratures, click one of the topics on the wheel.
-            </h2>
-            <h1>DOWNLOAD & RUN</h1>
-            <h2>
-              To install equadratures, you can either use pip via
-              <br />
-              <br />
-              <pre style="white-space: pre-line">
+        <div id="introContent">
+          <div class="row">
+            <div class="col">
+              <center>
+                <div
+                  class="tilt-elements"
+                  data-tilt
+                  data-tilt-max="15"
+                  data-tilt-gyroscope="false"
+                  style="width: max(45vh, 45vw)"
+                >
+                  <img
+                    class="svg_content"
+                    id="infographic"
+                    src="imgs/circular_5_opt_2.svg"
+                    onload="SVGInject(this)"
+                  />
+                </div>
+              </center>
+            </div>
+            <div class="col">
+              <h1>Learn Continuous Structure</h1>
+              <h2>
+                equadratures is an open-source python framework for fitting
+                models to data. It may be used for polynomial regression, sparse
+                polynomial approximation, subspace-based dimension reduction,
+                polynomial chaos, and more recently for kernel-based learning.
+                Underneath the hood it leverages numerical quadrature and
+                orthogonal polynomials. To learn more about what else you can do
+                with equadratures, click one of the topics on the wheel.
+              </h2>
+              <h1>DOWNLOAD & RUN</h1>
+              <h2>
+                To install equadratures, you can either use pip via
+                <br />
+                <br />
+                <pre style="white-space: pre-line">
           <code class="language-python">pip install equadratures</code>
         </pre>
-              or you can directly download the latest package from
-              <a href="https://github.com/equadratures/equadratures">Github</a>.
-              To build your first model, try the following:
-              <br />
-              <br />
-              <pre style="white-space: pre-line">
+                or you can directly download the latest package from
+                <a href="https://github.com/equadratures/equadratures">Github</a
+                >. To build your first model, try the following:
+                <br />
+                <br />
+                <pre style="white-space: pre-line">
           <code class="language-python"># Let us fit a polynomial to 5sin(10*x1) + 3cos(10*x2)</code>
           <code class="language-python">from equadratures import *</code>
           <code class="language-python">x = Parameter(lower=-1, upper=1, order=5)</code>
@@ -245,66 +163,66 @@
           <code class="language-python"># ..and to get 1st order Sobol' indices</code>
           <code class="language-python">poly.get_sobol_indices(order=1)</code>
         </pre>
+                <br />
+              </h2>
+            </div>
+            <br />
+            <br />
+          </div>
+          <br />
+          <br />
+          <div class="row">
+            <div class="col">
+              <h1>CODE USAGE & IMPACT</h1>
+              <h2>
+                Many organisations have and continue to use equadratures for a
+                variety of tasks. If your organisation would like to learn more
+                about equadratures, please do drop us a message at mail [at]
+                equadratures.org. Additionally, feel free to check out some of
+                the case studies above.
+              </h2>
+            </div>
+            <div class="col">
               <br />
-            </h2>
+              <br />
+              <img
+                src="logos/cranfield.png"
+                style="width: 50%; max-width: 200px"
+              /><img src="logos/rr.png" style="width: 50%; max-width: 200px" />
+              <img
+                src="logos/ukaea.png"
+                style="width: 50%; max-width: 200px"
+              /><img
+                src="logos/arrival.png"
+                style="width: 50%; max-width: 200px"
+              />
+              <img
+                src="logos/airbus.png"
+                style="width: 50%; max-width: 200px"
+              /><img
+                src="logos/safran.png"
+                style="width: 50%; max-width: 200px"
+              /><img
+                src="logos/mclaren.png"
+                style="width: 50%; max-width: 200px"
+              /><img
+                src="logos/cambridge.png"
+                style="width: 50%; max-width: 200px"
+              /><img
+                src="logos/usgs.png"
+                style="width: 50%; max-width: 200px"
+              /><img
+                src="logos/siemens.png"
+                style="width: 50%; max-width: 200px"
+              /><img
+                src="logos/turing.png"
+                style="width: 50%; max-width: 200px"
+              /><img src="logos/icl.png" style="width: 50%; max-width: 200px" />
+            </div>
           </div>
           <br />
           <br />
-        </div>
-        <br />
-        <br />
-        <div class="row">
-          <div class="col">
-            <h1>CODE USAGE & IMPACT</h1>
-            <h2>
-              Many organisations have and continue to use equadratures for a
-              variety of tasks. If your organisation would like to learn more
-              about equadratures, please do drop us a message at mail [at]
-              equadratures.org. Additionally, feel free to check out some of the
-              case studies above.
-            </h2>
-          </div>
-          <div class="col">
-            <br />
-            <br />
-            <img
-              src="logos/cranfield.png"
-              style="width: 50%; max-width: 200px"
-            /><img src="logos/rr.png" style="width: 50%; max-width: 200px" />
-            <img
-              src="logos/ukaea.png"
-              style="width: 50%; max-width: 200px"
-            /><img
-              src="logos/arrival.png"
-              style="width: 50%; max-width: 200px"
-            />
-            <img
-              src="logos/airbus.png"
-              style="width: 50%; max-width: 200px"
-            /><img
-              src="logos/safran.png"
-              style="width: 50%; max-width: 200px"
-            /><img
-              src="logos/mclaren.png"
-              style="width: 50%; max-width: 200px"
-            /><img
-              src="logos/cambridge.png"
-              style="width: 50%; max-width: 200px"
-            /><img
-              src="logos/usgs.png"
-              style="width: 50%; max-width: 200px"
-            /><img
-              src="logos/siemens.png"
-              style="width: 50%; max-width: 200px"
-            /><img
-              src="logos/turing.png"
-              style="width: 50%; max-width: 200px"
-            /><img src="logos/icl.png" style="width: 50%; max-width: 200px" />
-          </div>
-        </div>
-        <br />
-        <br />
-        <!-- 
+          <!-- 
         <div class="row justify-content-center p-5 video-container">
           <video id="videoAboutEQ" muted controls>
             <source src="videos/about_equadratures.webm" type="video/webm" />
@@ -315,8 +233,9 @@
             Your browser does not support the video tag.
           </video>
         </div>
-        -->
+        --></div>
       </div>
+      <div id="jupyterNotebook"></div>
       <!-- Trust-region optimisation -->
       <!-- <input type="hidden" id="modal_s1" html_file=""> -->
       <!-- Bayesian polynomial regression -->
@@ -353,101 +272,19 @@
         id="modal_s7"
         html_file="modals/notebooks/polynomial-integration.html"
       />
-      <div class="footer">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-6 col-lg-3">
-              <div class="footer-about">
-                <a href="#">
-                  <img
-                    style="
-                      float: left;
-                      margin: 0px 200px 2px 10px;
-                      max-width: 10.5em;
-                      min-width: 55px;
-                    "
-                    src="./brand/02/Vertical/equadraturesLockupVerticalWithLoveWhite.png"
-                    alt="Image"
-                  />
-                </a>
-                <br />
-                <br />
-                <br />
-                <div class="footer-social">
-                  <a href="https://github.com/equadratures"
-                    ><img
-                      alt=""
-                      src="icons/github.png"
-                      hspace="0x"
-                      style="width: 50%; min-width: 20px"
-                  /></a>
-                  <a href="https://www.linkedin.com/company/equadratures"
-                    ><img
-                      alt=""
-                      src="icons/linkedin.png"
-                      hspace="0x"
-                      style="width: 50%; min-width: 20px"
-                  /></a>
-                  <a href="https://twitter.com/equadratures"
-                    ><img
-                      alt=""
-                      src="icons/twitter.png"
-                      hspace="0x"
-                      style="width: 50%; min-width: 20px"
-                  /></a>
-                  <a
-                    href="https://www.youtube.com/channel/UCpjwFDSZuFbzW-2lj6d96dA"
-                    ><img
-                      alt=""
-                      src="icons/youtube.png"
-                      hspace="0x"
-                      style="width: 50%; min-width: 20px"
-                  /></a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-              <div class="footer-contact">
-                <b>affiliations </b><br />
-                <a href="numfocus.html">numfocus</a><br />
-                <a href="gsoc.html">google summer of code</a><br />
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-              <div class="footer-contact">
-                <b>management </b><br />
-                <a href="team.html">team</a><br />
-                <a href="partnerships.html">partnerships</a><br />
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-              <div class="footer-links">
-                <b>code </b><br />
-                <a href="https://equadratures.org/documentation/"
-                  >documentation</a
-                ><br />
-                <a href="https://discourse.equadratures.org/">discourse</a
-                ><br />
-              </div>
-            </div>
-          </div>
-        </div>
-        <center>
-          <div class="small">
-            copyright &copy; 2023 by equadratures.
-            <br />
-            made by the equadratures team with &#10084;&#65039;. <br />
-          </div>
-          <br />
-          <br />
-        </center>
-      </div>
     </main>
-    <script type="text/javascript" src="scripts/vanilla-tilt.min.js"></script>
-    <script></script>
-    <script src="./script.js"></script>
-    <script src="./scripts/modal.js"></script>
+
+    <div id="footer"></div>
 
     <!-- partial -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="./script.js"></script>
+    <script>
+      loadHeader();
+      loadFooter();
+    </script>
+    <script type="text/javascript" src="scripts/vanilla-tilt.min.js"></script>
+    <script src="./scripts/modal.js"></script>
+    <script src="scripts/require.js" data-main="./scripts/app.js"></script>
   </body>
 </html>

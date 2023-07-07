@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+  </head>
+
+  <header id="main" class="body light-mode">
+    <nav
+      id="navbar"
+      class="navbar navbar-expand-lg navbar-dark fixed-top"
+      style="background-color: #02bec4"
+    >
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav mx-auto">
+            <!-- href="javascript:void(0)" -->
+            <!-- onclick="loadFileContents('index_content.html', 'index.html')" -->
+            <a
+              class="nav-item nav-link"
+              style="
+                padding-right: 30px;
+                padding-left: 30px;
+                background-color: #02bec4;
+              "
+              href="index.html"
+              >Home</a
+            >
+            <li class="nav-item dropdown">
+              <a
+                href="#"
+                class="nav-link dropdown-toggle"
+                data-bs-toggle="dropdown"
+                style="padding-right: 30px; padding-left: 30px"
+                >Case Studies</a
+              >
+              <div class="dropdown-menu">
+                <a
+                  href="./case-studies/case-study-1.pdf"
+                  style="text-decoration: none"
+                  target="_blank"
+                  class="dropdown-item"
+                  >Coastal Dynamics</a
+                >
+                <a
+                  href="./case-studies/case-study-2.pdf"
+                  style="text-decoration: none"
+                  target="_blank"
+                  class="dropdown-item"
+                  >Aerospace Design and Manufacturing</a
+                >
+              </div>
+            </li>
+            <a
+              href="papers.html"
+              class="nav-item nav-link"
+              style="padding-right: 30px; padding-left: 30px"
+              >Papers</a
+            >
+            <a
+              href="https://equadratures.org/documentation/"
+              class="nav-item nav-link"
+              style="padding-right: 30px; padding-left: 30px"
+              href="#"
+              >Code Documentation</a
+            >
+            <a
+              href="https://discourse.equadratures.org/"
+              class="nav-item nav-link"
+              style="padding-right: 30px; padding-left: 30px"
+              href="#"
+              >Discourse</a
+            >
+            <a
+              href="course.html"
+              class="nav-item nav-link"
+              style="padding-right: 30px; padding-left: 30px"
+              href="#"
+              >A Short Course</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/smoothstate@0.7.2/jquery.smoothState.min.js"></script>
+  </header>
+  <script>
+    $(function () {
+      $("#main").smoothState();
+    });
+  </script>
+</html>

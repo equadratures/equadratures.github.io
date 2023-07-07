@@ -15,6 +15,7 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
     <link rel="stylesheet" href="./navbar.css" />
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="./infostyle.css" />
@@ -71,91 +72,10 @@
     />
   </head>
 
-  <nav
-    id="navbar"
-    class="navbar navbar-expand-lg navbar-dark"
-    style="background-color: #02bec4"
-  >
-    <div class="container-fluid">
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav mx-auto">
-          <a
-            class="nav-item nav-link"
-            style="padding-right: 30px; padding-left: 30px"
-            href="index.html"
-            >Home <span class="sr-only">(current)</span></a
-          >
-          <li class="nav-item dropdown">
-            <a
-              href="#"
-              class="nav-link dropdown-toggle"
-              data-bs-toggle="dropdown"
-              style="padding-right: 30px; padding-left: 30px"
-              >Case Studies</a
-            >
-            <div class="dropdown-menu">
-              <a
-                href="./case-studies/case-study-1.pdf"
-                style="text-decoration: none"
-                target="_blank"
-                class="dropdown-item"
-                >Coastal Dynamics</a
-              >
-              <a
-                href="./case-studies/case-study-2.pdf"
-                style="text-decoration: none"
-                target="_blank"
-                class="dropdown-item"
-                >Aerospace Design and Manufacturing</a
-              >
-            </div>
-          </li>
-          <a
-            href="papers.html"
-            class="nav-item nav-link"
-            style="padding-right: 30px; padding-left: 30px"
-            href="#"
-            >Papers</a
-          >
-          <a
-            href="https://equadratures.org/documentation/"
-            class="nav-item nav-link"
-            style="padding-right: 30px; padding-left: 30px"
-            href="#"
-            >Code Documentation</a
-          >
-          <a
-            href="https://discourse.equadratures.org/"
-            class="nav-item nav-link"
-            style="padding-right: 30px; padding-left: 30px"
-            href="#"
-            >Discourse</a
-          >
-          <a
-            href="course.html"
-            class="nav-item nav-link"
-            style="padding-right: 30px; padding-left: 30px"
-            href="#"
-            >A Short Course</a
-          >
-        </div>
-      </div>
-    </div>
-  </nav>
-
   <body class="body light-mode">
-    <main id="swup" class="transition-fade">
+    <div id="header"></div>
+
+    <main data-aos="fade-up">
       <div class="container">
         <div class="row align-items-center panelcontainer mx-1 my-3">
           <div class="panel col-12 mx-1 px-0 align-items-center">
@@ -210,114 +130,15 @@
         </div>
       </div>
 
-      <div class="footer">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-6 col-lg-3">
-              <div class="footer-about">
-                <a href="index.html">
-                  <img
-                    style="
-                      float: left;
-                      margin: 0px 200px 2px 10px;
-                      max-width: 10.5em;
-                      min-width: 55px;
-                    "
-                    src="./brand/02/Vertical/equadraturesLockupVerticalWithLoveWhite.png"
-                    alt="Image"
-                  />
-                </a>
-                <br />
-                <br />
-                <br />
-                <div class="footer-social">
-                  <a href="https://github.com/equadratures"
-                    ><img
-                      alt=""
-                      src="icons/github.png"
-                      hspace="0x"
-                      style="width: 50%; min-width: 20px"
-                  /></a>
-                  <a href="https://www.linkedin.com/company/equadratures"
-                    ><img
-                      alt=""
-                      src="icons/linkedin.png"
-                      hspace="0x"
-                      style="width: 50%; min-width: 20px"
-                  /></a>
-                  <a href="https://twitter.com/equadratures"
-                    ><img
-                      alt=""
-                      src="icons/twitter.png"
-                      hspace="0x"
-                      style="width: 50%; min-width: 20px"
-                  /></a>
-                  <a
-                    href="https://www.youtube.com/channel/UCpjwFDSZuFbzW-2lj6d96dA"
-                    ><img
-                      alt=""
-                      src="icons/youtube.png"
-                      hspace="0x"
-                      style="width: 50%; min-width: 20px"
-                  /></a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-              <div class="footer-contact">
-                <b>affiliations </b><br />
-                <a href="#">numfocus</a><br />
-                <a href="gsoc.html">google summer of code</a><br />
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-              <div class="footer-contact">
-                <b>management </b><br />
-                <a href="team.html">team</a><br />
-                <a href="partnerships.html">partnerships</a><br />
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-              <div class="footer-links">
-                <b>code </b><br />
-                <a href="https://equadratures.org/documentation/"
-                  >documentation</a
-                ><br />
-                <a href="https://discourse.equadratures.org/">discourse</a
-                ><br />
-              </div>
-            </div>
-          </div>
-        </div>
-        <center>
-          <div class="small">
-            copyright &copy; 2022 by equadratures.
-            <br />
-            made by the equadratures team, with &#10084;&#65039;.
-          </div>
-          <br />
-          <br />
-        </center>
-      </div>
+      <div id="footer"></div>
     </main>
 
     <!-- partial -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script src="./script.js"></script>
-    <script type="text/javascript" src="vanilla-tilt.min.js"></script>
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
+    <script>
+      loadHeader();
+      loadFooter();
+    </script>
   </body>
 </html>

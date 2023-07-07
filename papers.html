@@ -15,6 +15,7 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
     <link rel="stylesheet" href="./navbar.css" />
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="./infostyle.css" />
@@ -22,15 +23,11 @@
     <link rel="stylesheet" href="./footer-4.css" />
     <link rel="icon" href="./logos/eq.ico" type="image/x-icon" />
     <script src="svg-inject.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-
-    <script>
-      var exports = {};
-    </script>
 
     <meta property="og:site_name" content="equadratures" />
     <meta property="og:type" content="website" />
@@ -75,463 +72,284 @@
     />
   </head>
 
-  <nav
-    id="navbar"
-    class="navbar navbar-expand-lg navbar-dark"
-    style="background-color: #02bec4"
-  >
-    <div class="container-fluid">
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav mx-auto">
-          <a
-            class="nav-item nav-link"
-            style="padding-right: 30px; padding-left: 30px"
-            href="index.html"
-            >Home <span class="sr-only">(current)</span></a
-          >
-          <li class="nav-item dropdown">
-            <a
-              href="#"
-              class="nav-link dropdown-toggle"
-              data-bs-toggle="dropdown"
-              style="padding-right: 30px; padding-left: 30px"
-              >Case Studies</a
-            >
-            <div class="dropdown-menu">
-              <a
-                href="./case-studies/case-study-1.pdf"
-                style="text-decoration: none"
-                target="_blank"
-                class="dropdown-item"
-                >Coastal Dynamics</a
-              >
-              <a
-                href="./case-studies/case-study-2.pdf"
-                style="text-decoration: none"
-                target="_blank"
-                class="dropdown-item"
-                >Aerospace Design and Manufacturing</a
-              >
-            </div>
-          </li>
-          <a
-            href="papers.html"
-            class="nav-item nav-link active"
-            style="
-              padding-right: 30px;
-              padding-left: 30px;
-              background-color: #02bec4;
-            "
-            href="#"
-            >Papers</a
-          >
-          <a
-            href="https://equadratures.org/documentation/"
-            class="nav-item nav-link"
-            style="padding-right: 30px; padding-left: 30px"
-            href="#"
-            >Code Documentation</a
-          >
-          <a
-            href="https://discourse.equadratures.org/"
-            class="nav-item nav-link"
-            style="padding-right: 30px; padding-left: 30px"
-            href="#"
-            >Discourse</a
-          >
-          <a
-            href="course.html"
-            class="nav-item nav-link"
-            style="padding-right: 30px; padding-left: 30px"
-            href="#"
-            >A Short Course</a
-          >
-        </div>
-      </div>
-    </div>
-  </nav>
-
   <body class="body light-mode">
-    <main id="swup" class="transition-fade">
-      <div class="d-flex justify-content-center p-4">
-        <h1>PAPERS</h1>
-      </div>
-
-      <div class="col-sm justify-content-center p-4">
-        <h2>
-          The research behind the equadratures project spans numerous topics
-          ranging from applied mathematics to Bayesian inference, and
-          computational simulation techniques. Of late we are particularly
-          interested in high-dimensional approximation, stochastic inference,
-          and numerical integration for complex multivariate distributions. Do
-          check out some of our research outputs below; clicking each
-          publication's card will take you to its pre-print.<br />
-        </h2>
-        <br />
-        <center>
-          <img src="./brand/04/EquadraturesGraph03.png" ; style="width: 30%" />
-        </center>
-      </div>
-      <div class="container">
-        <div class="row">
-          <div class="col">
-            <a href="https://arxiv.org/abs/2203.03508"
-              ><div class="card shadow border panelBackground">
-                <img
-                  src="./papers/prior.png"
-                  class="card-img-top mx-auto"
-                  style="width: 100%; padding: 1px"
-                />
-                <div
-                  class="card-body d-flex flex-column align-items-center light-mode"
-                >
-                  <div
-                    class="card-text"
-                    style="font-family: DIN Pro; color: #2a3987"
-                  >
-                    <div class="row">
-                      <h3>
-                        <a
-                          href="https://discourse.equadratures.org/t/exploring-the-interactions-between-experiments-and-simulations-using-bayesian-polynomials/188/2"
-                          style="text-decoration: none; color: #2a3987"
-                          >Discourse</a
-                        >
-                      </h3>
-                    </div>
-                  </div>
-                </div>
-              </div></a
-            >
-          </div>
-
-          <div class="col">
-            <div class="card shadow border panelBackground">
-              <a href="https://arxiv.org/abs/2203.03508"
-                ><img
-                  src="./papers/polyridge.png"
-                  class="card-img-top mx-auto"
-                  style="width: 100%; padding: 1px"
-                />
-              </a>
-              <div
-                class="card-body d-flex flex-column align-items-center light-mode"
-              >
-                <div
-                  class="card-text"
-                  style="font-family: DIN Pro; color: #2a3987"
-                >
-                  <div class="row">
-                    <h3>
-                      <a
-                        href="https://discourse.equadratures.org/t/exploring-the-interactions-between-experiments-and-simulations-using-bayesian-polynomials/188/2"
-                        style="text-decoration: none; color: #2a3987"
-                        >Discourse, </a
-                      ><a
-                        href="https://arxiv.org/abs/2107.07547"
-                        style="text-decoration: none; color: #2a3987"
-                        >Preprint, </a
-                      ><a
-                        href="https://doi.org/10.1063/5.0064000"
-                        style="text-decoration: none; color: #2a3987"
-                        >Journal</a
-                      >
-                    </h3>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card shadow border panelBackground">
-              <a href="https://arxiv.org/abs/2203.03508"
-                ><img
-                  src="./papers/extremum.png"
-                  class="card-img-top mx-auto"
-                  style="width: 100%; padding: 1px"
-                />
-              </a>
-              <div
-                class="card-body d-flex flex-column align-items-center light-mode"
-              >
-                <div
-                  class="card-text"
-                  style="font-family: DIN Pro; color: #2a3987"
-                >
-                  <div class="row">
-                    <h3>
-                      <a
-                        href="https://discourse.equadratures.org/t/exploring-the-interactions-between-experiments-and-simulations-using-bayesian-polynomials/188/2"
-                        style="text-decoration: none; color: #2a3987"
-                        >Discourse</a
-                      >
-                    </h3>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <br />
-        <br />
-        <div class="row">
-          <div class="col">
-            <a href="https://arxiv.org/abs/2203.03508"
-              ><div class="card shadow border panelBackground">
-                <img
-                  src="./papers/embedded.png"
-                  class="card-img-top mx-auto"
-                  style="width: 100%; padding: 1px"
-                />
-                <div
-                  class="card-body d-flex flex-column align-items-center light-mode"
-                >
-                  <div
-                    class="card-text"
-                    style="
-                      font-family: DIN Pro;
-                      color: #2a3987;
-                      text-align: center;
-                    "
-                  >
-                    <div class="row">
-                      <h3>
-                        <a
-                          href="https://discourse.equadratures.org/t/exploring-the-interactions-between-experiments-and-simulations-using-bayesian-polynomials/188/2"
-                          style="text-decoration: none; color: #2a3987"
-                          >Discourse</a
-                        ><br />
-                      </h3>
-                    </div>
-                  </div>
-                </div></div
-            ></a>
-          </div>
-
-          <div class="col">
-            <a href="https://arxiv.org/abs/2203.03508"
-              ><div class="card shadow border panelBackground">
-                <img
-                  src="./papers/be1.png"
-                  class="card-img-top mx-auto"
-                  style="width: 100%; padding: 1px"
-                />
-                <div
-                  class="card-body d-flex flex-column align-items-center light-mode"
-                >
-                  <div
-                    class="card-text"
-                    style="
-                      font-family: DIN Pro;
-                      color: #2a3987;
-                      text-align: center;
-                    "
-                  >
-                    <div class="row">
-                      <h3>
-                        <a
-                          href="https://discourse.equadratures.org/t/exploring-the-interactions-between-experiments-and-simulations-using-bayesian-polynomials/188/2"
-                          style="text-decoration: none; color: #2a3987"
-                          >Discourse</a
-                        ><br />
-                      </h3>
-                    </div>
-                  </div>
-                </div></div
-            ></a>
-          </div>
-
-          <div class="col">
-            <a href="https://arxiv.org/abs/2203.03508"
-              ><div class="card shadow border panelBackground">
-                <img
-                  src="./papers/be2.png"
-                  class="card-img-top mx-auto"
-                  style="width: 100%; padding: 1px"
-                />
-                <div
-                  class="card-body d-flex flex-column align-items-center light-mode"
-                >
-                  <div
-                    class="card-text"
-                    style="font-family: DIN Pro; color: #2a3987"
-                  >
-                    <div class="row">
-                      <h3>
-                        <a
-                          href="https://discourse.equadratures.org/t/exploring-the-interactions-between-experiments-and-simulations-using-bayesian-polynomials/188/2"
-                          style="text-decoration: none; color: #2a3987"
-                          >Discourse</a
-                        ><br />
-                      </h3>
-                    </div>
-                  </div>
-                </div></div
-            ></a>
-          </div>
+    <div id="header"></div>
+    <main data-aos="fade-up">
+      <div
+        id="mainDiv"
+        class="d-flex flex-column mx-3 px-3"
+        style="margin-top: 62px"
+      >
+        <div class="d-flex justify-content-center p-4">
+          <h1>PAPERS</h1>
         </div>
 
-        <div class="row">
-          <div class="col">
-            <a href="https://arxiv.org/abs/2203.03508"
-              ><div class="card shadow border panelBackground">
-                <img
-                  src="./papers/eq.png"
-                  class="card-img-top mx-auto"
-                  style="width: 100%; padding: 1px"
-                />
-                <div
-                  class="card-body d-flex flex-column align-items-center light-mode"
-                >
-                  <div
-                    class="card-text"
-                    style="
-                      font-family: DIN Pro;
-                      color: #2a3987;
-                      text-align: center;
-                    "
-                  >
-                    <div class="row">
-                      <h3>
-                        <a
-                          href="https://discourse.equadratures.org/t/exploring-the-interactions-between-experiments-and-simulations-using-bayesian-polynomials/188/2"
-                          style="text-decoration: none; color: #2a3987"
-                          >Discourse</a
-                        >
-                      </h3>
-                    </div>
-                  </div>
-                </div>
-              </div></a
-            >
-          </div>
-          <div class="col"></div>
-          <div class="col"></div>
+        <div class="col-sm justify-content-center p-4">
+          <h2>
+            The research behind the equadratures project spans numerous topics
+            ranging from applied mathematics to Bayesian inference, and
+            computational simulation techniques. Of late we are particularly
+            interested in high-dimensional approximation, stochastic inference,
+            and numerical integration for complex multivariate distributions. Do
+            check out some of our research outputs below; clicking each
+            publication's card will take you to its pre-print.<br />
+          </h2>
+          <br />
+          <center>
+            <img
+              src="./brand/04/EquadraturesGraph03.png"
+              ;
+              style="width: 30%"
+            />
+          </center>
         </div>
-      </div>
-      <br />
-      <div class="footer">
         <div class="container">
-          <div class="row">
-            <div class="col-md-6 col-lg-3">
-              <div class="footer-about">
-                <a href="index.html">
+          <div class="row" data-aos="fade-up">
+            <div class="col">
+              <a href="https://arxiv.org/abs/2203.03508"
+                ><div class="card shadow border panelBackground">
                   <img
-                    style="
-                      float: left;
-                      margin: 0px 200px 2px 10px;
-                      max-width: 10.5em;
-                      min-width: 55px;
-                    "
-                    src="./brand/02/Vertical/equadraturesLockupVerticalWithLoveWhite.png"
-                    alt="Image"
+                    src="./papers/prior.png"
+                    class="card-img-top mx-auto"
+                    style="width: 100%; padding: 1px"
+                  />
+                  <div
+                    class="card-body d-flex flex-column align-items-center light-mode"
+                  >
+                    <div
+                      class="card-text"
+                      style="font-family: DIN Pro; color: #2a3987"
+                    >
+                      <div class="row">
+                        <h3>
+                          <a
+                            href="https://discourse.equadratures.org/t/exploring-the-interactions-between-experiments-and-simulations-using-bayesian-polynomials/188/2"
+                            style="text-decoration: none; color: #2a3987"
+                            >Discourse</a
+                          >
+                        </h3>
+                      </div>
+                    </div>
+                  </div>
+                </div></a
+              >
+            </div>
+
+            <div class="col">
+              <div class="card shadow border panelBackground">
+                <a href="https://arxiv.org/abs/2203.03508"
+                  ><img
+                    src="./papers/polyridge.png"
+                    class="card-img-top mx-auto"
+                    style="width: 100%; padding: 1px"
                   />
                 </a>
-                <br />
-                <br />
-                <br />
-                <div class="footer-social">
-                  <a href="https://github.com/equadratures"
-                    ><img
-                      alt=""
-                      src="icons/github.png"
-                      hspace="0x"
-                      style="width: 50%; min-width: 20px"
-                  /></a>
-                  <a href="https://www.linkedin.com/company/equadratures"
-                    ><img
-                      alt=""
-                      src="icons/linkedin.png"
-                      hspace="0x"
-                      style="width: 50%; min-width: 20px"
-                  /></a>
-                  <a href="https://twitter.com/equadratures"
-                    ><img
-                      alt=""
-                      src="icons/twitter.png"
-                      hspace="0x"
-                      style="width: 50%; min-width: 20px"
-                  /></a>
-                  <a
-                    href="https://www.youtube.com/channel/UCpjwFDSZuFbzW-2lj6d96dA"
-                    ><img
-                      alt=""
-                      src="icons/youtube.png"
-                      hspace="0x"
-                      style="width: 50%; min-width: 20px"
-                  /></a>
+                <div
+                  class="card-body d-flex flex-column align-items-center light-mode"
+                >
+                  <div
+                    class="card-text"
+                    style="font-family: DIN Pro; color: #2a3987"
+                  >
+                    <div class="row">
+                      <h3>
+                        <a
+                          href="https://discourse.equadratures.org/t/exploring-the-interactions-between-experiments-and-simulations-using-bayesian-polynomials/188/2"
+                          style="text-decoration: none; color: #2a3987"
+                          >Discourse, </a
+                        ><a
+                          href="https://arxiv.org/abs/2107.07547"
+                          style="text-decoration: none; color: #2a3987"
+                          >Preprint, </a
+                        ><a
+                          href="https://doi.org/10.1063/5.0064000"
+                          style="text-decoration: none; color: #2a3987"
+                          >Journal</a
+                        >
+                      </h3>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="col-md-6 col-lg-3">
-              <div class="footer-contact">
-                <b>affiliations </b><br />
-                <a href="numfocus.html">numfocus</a><br />
-                <a href="gsoc.html">google summer of code</a><br />
+            <div class="col">
+              <div class="card shadow border panelBackground">
+                <a href="https://arxiv.org/abs/2203.03508"
+                  ><img
+                    src="./papers/extremum.png"
+                    class="card-img-top mx-auto"
+                    style="width: 100%; padding: 1px"
+                  />
+                </a>
+                <div
+                  class="card-body d-flex flex-column align-items-center light-mode"
+                >
+                  <div
+                    class="card-text"
+                    style="font-family: DIN Pro; color: #2a3987"
+                  >
+                    <div class="row">
+                      <h3>
+                        <a
+                          href="https://discourse.equadratures.org/t/exploring-the-interactions-between-experiments-and-simulations-using-bayesian-polynomials/188/2"
+                          style="text-decoration: none; color: #2a3987"
+                          >Discourse</a
+                        >
+                      </h3>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="col-md-6 col-lg-3">
-              <div class="footer-contact">
-                <b>management </b><br />
-                <a href="team.html">team</a><br />
-                <a href="partnerships.html">partnerships</a><br />
-              </div>
+          </div>
+          <br />
+          <br />
+          <div class="row" data-aos="fade-up">
+            <div class="col">
+              <a href="https://arxiv.org/abs/2203.03508"
+                ><div class="card shadow border panelBackground">
+                  <img
+                    src="./papers/embedded.png"
+                    class="card-img-top mx-auto"
+                    style="width: 100%; padding: 1px"
+                  />
+                  <div
+                    class="card-body d-flex flex-column align-items-center light-mode"
+                  >
+                    <div
+                      class="card-text"
+                      style="
+                        font-family: DIN Pro;
+                        color: #2a3987;
+                        text-align: center;
+                      "
+                    >
+                      <div class="row">
+                        <h3>
+                          <a
+                            href="https://discourse.equadratures.org/t/exploring-the-interactions-between-experiments-and-simulations-using-bayesian-polynomials/188/2"
+                            style="text-decoration: none; color: #2a3987"
+                            >Discourse</a
+                          ><br />
+                        </h3>
+                      </div>
+                    </div>
+                  </div></div
+              ></a>
             </div>
-            <div class="col-md-6 col-lg-3">
-              <div class="footer-links">
-                <b>code </b><br />
-                <a href="https://equadratures.org/documentation/"
-                  >documentation</a
-                ><br />
-                <a href="https://discourse.equadratures.org/">discourse</a
-                ><br />
-              </div>
+
+            <div class="col">
+              <a href="https://arxiv.org/abs/2203.03508"
+                ><div class="card shadow border panelBackground">
+                  <img
+                    src="./papers/be1.png"
+                    class="card-img-top mx-auto"
+                    style="width: 100%; padding: 1px"
+                  />
+                  <div
+                    class="card-body d-flex flex-column align-items-center light-mode"
+                  >
+                    <div
+                      class="card-text"
+                      style="
+                        font-family: DIN Pro;
+                        color: #2a3987;
+                        text-align: center;
+                      "
+                    >
+                      <div class="row">
+                        <h3>
+                          <a
+                            href="https://discourse.equadratures.org/t/exploring-the-interactions-between-experiments-and-simulations-using-bayesian-polynomials/188/2"
+                            style="text-decoration: none; color: #2a3987"
+                            >Discourse</a
+                          ><br />
+                        </h3>
+                      </div>
+                    </div>
+                  </div></div
+              ></a>
             </div>
+
+            <div class="col">
+              <a href="https://arxiv.org/abs/2203.03508"
+                ><div class="card shadow border panelBackground">
+                  <img
+                    src="./papers/be2.png"
+                    class="card-img-top mx-auto"
+                    style="width: 100%; padding: 1px"
+                  />
+                  <div
+                    class="card-body d-flex flex-column align-items-center light-mode"
+                  >
+                    <div
+                      class="card-text"
+                      style="font-family: DIN Pro; color: #2a3987"
+                    >
+                      <div class="row">
+                        <h3>
+                          <a
+                            href="https://discourse.equadratures.org/t/exploring-the-interactions-between-experiments-and-simulations-using-bayesian-polynomials/188/2"
+                            style="text-decoration: none; color: #2a3987"
+                            >Discourse</a
+                          ><br />
+                        </h3>
+                      </div>
+                    </div>
+                  </div></div
+              ></a>
+            </div>
+          </div>
+
+          <div class="row" data-aos="fade-up">
+            <div class="col">
+              <a href="https://arxiv.org/abs/2203.03508"
+                ><div class="card shadow border panelBackground">
+                  <img
+                    src="./papers/eq.png"
+                    class="card-img-top mx-auto"
+                    style="width: 100%; padding: 1px"
+                  />
+                  <div
+                    class="card-body d-flex flex-column align-items-center light-mode"
+                  >
+                    <div
+                      class="card-text"
+                      style="
+                        font-family: DIN Pro;
+                        color: #2a3987;
+                        text-align: center;
+                      "
+                    >
+                      <div class="row">
+                        <h3>
+                          <a
+                            href="https://discourse.equadratures.org/t/exploring-the-interactions-between-experiments-and-simulations-using-bayesian-polynomials/188/2"
+                            style="text-decoration: none; color: #2a3987"
+                            >Discourse</a
+                          >
+                        </h3>
+                      </div>
+                    </div>
+                  </div>
+                </div></a
+              >
+            </div>
+            <div class="col"></div>
+            <div class="col"></div>
           </div>
         </div>
-        <center>
-          <div class="small">
-            copyright &copy; 2022 by equadratures.
-            <br />
-            made by the equadratures team, with &#10084;&#65039;.
-          </div>
-          <br />
-          <br />
-        </center>
+        <br />
       </div>
     </main>
+    <div id="footer"></div>
 
     <!-- partial -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script src="./script.js"></script>
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
-    <!-- <script src="https://unpkg.com/swup@3.1.1/dist/Swup.umd.js"></script>
     <script>
-      // Initialize Swup
-      const swup = new Swup();
-    </script> -->
+      loadHeader();
+      loadFooter();
+    </script>
   </body>
 </html>
