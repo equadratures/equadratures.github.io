@@ -22,7 +22,7 @@ const slideFadeIn = (elem) => {
 };
 
 var goToModal = function (value) {
-  requirejs(["jquery"], function () {
+  $(document).ready(function () {
     var embedfile;
     var modal = $(value);
     // $("#mainDiv").attr("data-aos", "fade-up");
