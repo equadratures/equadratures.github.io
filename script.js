@@ -10,8 +10,16 @@ AOS.init({
   //   disable: "mobile",
 });
 
+// Load Bootstrap bundle
+function loadBootstrapBundle() {
+  $.getScript(
+    "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+  );
+}
+
 // Function to load the header
 function loadHeader() {
+  loadBootstrapBundle();
   var headerContainer = document.getElementById("header");
   var headerRequest = new XMLHttpRequest();
 
@@ -36,6 +44,37 @@ function loadHeader() {
 
   headerRequest.send();
 }
+
+$(document).ready(function () {
+  // Toggle collapse of navbar on mobile
+  $(".navbar-toggler").on("click", function () {
+    $(".navbar-collapse").toggleClass("show");
+  });
+
+  // Close collapse on click outside
+  $(document).on("click", function (e) {
+    var navbarCollapse = $(".navbar-collapse");
+    var navbarToggle = $(".navbar-toggler");
+    if (
+      !navbarCollapse.is(e.target) &&
+      navbarCollapse.has(e.target).length === 0 &&
+      !navbarToggle.is(e.target) &&
+      navbarToggle.has(e.target).length === 0
+    ) {
+      navbarCollapse.removeClass("show");
+    }
+  });
+
+  // Toggle collapse on mobile if navbar open
+  $(".navbar-toggler").on("click", function () {
+    var navbarCollapse = $(".navbar-collapse");
+    if (navbarCollapse.hasClass("show")) {
+      navbarCollapse.removeClass("show");
+    } else {
+      navbarCollapse.addClass("show");
+    }
+  });
+});
 
 // Function to load the footer
 function loadFooter() {
