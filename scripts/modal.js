@@ -38,8 +38,8 @@ var goToModal = function (value) {
 
     $("#jupyterNotebook").addClass("d-flex");
     $("#jupyterNotebook").addClass("flex-column");
-    $("#jupyterNotebook").addClass("mx-5");
-    $("#jupyterNotebook").addClass("px-5 pb-5");
+    $("#jupyterNotebook").addClass("mx-2 mx-sm-5");
+    $("#jupyterNotebook").addClass("px-2 px-sm-5 pb-2 pb-sm-5");
     // $("#jupyterNotebook").css("margin-top", "62px");
 
     $("#jupyterNotebook").load(embedfile, async function () {
