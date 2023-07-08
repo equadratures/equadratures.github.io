@@ -1,5 +1,5 @@
 function replacePlotlyIframe(item) {
-  requirejs(["jquery"], function () {
+  $(document).ready(function () {
     var i, frames;
     frames = item.getElementsByTagName("iframe");
     var framepath;
