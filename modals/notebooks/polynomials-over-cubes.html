@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+
+<html>
+<head><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Notebook</title>
+<style type="text/css">
+    pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: var(--jp-cell-editor-active-background) }
+.highlight { background: var(--jp-cell-editor-background); color: var(--jp-mirror-editor-variable-color) }
+.highlight .c { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment */
+.highlight .err { color: var(--jp-mirror-editor-error-color) } /* Error */
+.highlight .k { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword */
+.highlight .o { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator */
+.highlight .p { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation */
+.highlight .ch { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Preproc */
+.highlight .cpf { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Single */
+.highlight .cs { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Special */
+.highlight .kc { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Type */
+.highlight .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */
+.highlight .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */
+.highlight .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */
+.highlight .pm { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation.Marker */
+.highlight .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */
+.highlight .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */
+.highlight .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */
+.highlight .mh { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Hex */
+.highlight .mi { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Integer */
+.highlight .mo { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Oct */
+.highlight .sa { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Affix */
+.highlight .sb { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Backtick */
+.highlight .sc { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Char */
+.highlight .dl { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Delimiter */
+.highlight .sd { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Doc */
+.highlight .s2 { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Double */
+.highlight .se { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Escape */
+.highlight .sh { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Heredoc */
+.highlight .si { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Interpol */
+.highlight .sx { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Other */
+.highlight .sr { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Regex */
+.highlight .s1 { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Single */
+.highlight .ss { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Symbol */
+.highlight .il { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Integer.Long */
+  </style>
+<link href="/modals/notebooks/templates/lab_custom/static/index.css" rel="stylesheet"/>
+<link href="/modals/notebooks/templates/lab_custom/static/misc.css" rel="stylesheet"/>
+<!-- Load mathjax -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML-full,Safe"> </script>
+<!-- MathJax configuration -->
+<script type="text/x-mathjax-config">
+    init_mathjax = function() {
+        if (window.MathJax) {
+        // MathJax loaded
+            MathJax.Hub.Config({
+                TeX: {
+                    equationNumbers: {
+                    autoNumber: "AMS",
+                    useLabelIds: true
+                    }
+                },
+                tex2jax: {
+                    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                    processEscapes: true,
+                    processEnvironments: true
+                },
+                displayAlign: 'center',
+                CommonHTML: {
+                    linebreaks: {
+                    automatic: true
+                    }
+                }
+            });
+
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        }
+    }
+    init_mathjax();
+    </script>
+<!-- End of mathjax configuration --></head><body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="Polynomials-over-cubes">Polynomials over cubes<a class="anchor-link" href="#Polynomials-over-cubes">¶</a></h1>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Table-of-Contents">Table of Contents<a class="anchor-link" href="#Table-of-Contents">¶</a></h3><ol>
+<li><a href="#intro">Introduction</a></li>
+<li><a href="#bivariate">Experiment 1: Bivariate Function</a></li>
+<li><a href="#trivariate">Experiment 2: Trivariate Function</a></li>
+<li><a href="#discontinuous">Experiment 3: Discontinuous Function</a></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Introduction-">Introduction <a class="anchor" id="intro"></a><a class="anchor-link" href="#Introduction-">¶</a></h3>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>In this post, we will conduct two experiments on the pros of using quadrature rather than defined points to create a polynomial fit for both a bivariate and a trivariate function. In addition, in experiment 3 we will look at how equadratures performs with a discontinuous function</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">equadratures</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
+<span class="kn">from</span> <span class="nn">plotly.subplots</span> <span class="kn">import</span> <span class="n">make_subplots</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Experiment-1:-Bivariate-Function-">Experiment 1: Bivariate Function <a class="anchor" id="bivariate"></a><a class="anchor-link" href="#Experiment-1:-Bivariate-Function-">¶</a></h3>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>The first experiment involves the following equation that is a function of two variables $x_1$ and $x_2$ where $x_1, x_2 \in [0, 2\pi]$</p>
+$$
+\large
+f(x_1, x_2) = sin(x_1) + cos(x_2)
+$$<p>The code below defines this function</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>In order to form a polynomial approximation for this function we first need to define two parameters that correspond to each of the variables</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">x1</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">'uniform'</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">lower</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">'uniform'</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">lower</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+<span class="n">param_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Next we can create the polynomial approximation and set the model to the function so it can make the approximation</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">basis</span> <span class="o">=</span> <span class="n">Basis</span><span class="p">(</span><span class="s1">'tensor-grid'</span><span class="p">)</span>
+<span class="n">poly</span> <span class="o">=</span> <span class="n">Poly</span><span class="p">(</span><span class="n">parameters</span><span class="o">=</span><span class="n">param_list</span><span class="p">,</span> <span class="n">basis</span><span class="o">=</span><span class="n">basis</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'numerical-integration'</span><span class="p">)</span>
+<span class="n">poly</span><span class="o">.</span><span class="n">set_model</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Then we can create a second polynomial approximation that is defined at certain points that we pass through the polynomial in sample inputs and outputs</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">def_pts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">50</span><span class="p">)])</span><span class="o">.</span><span class="n">T</span>
+<span class="n">def_pts_evals</span> <span class="o">=</span> <span class="n">evaluate_model</span><span class="p">(</span><span class="n">def_pts</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">poly_defpts</span> <span class="o">=</span> <span class="n">Poly</span><span class="p">(</span><span class="n">parameters</span><span class="o">=</span><span class="n">param_list</span><span class="p">,</span> <span class="n">basis</span><span class="o">=</span><span class="n">basis</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'least-squares'</span><span class="p">,</span> <span class="n">sampling_args</span><span class="o">=</span><span class="p">{</span><span class="s1">'mesh'</span><span class="p">:</span><span class="s1">'user-defined'</span><span class="p">,</span>
+                   <span class="s1">'sample-points'</span><span class="p">:</span><span class="n">def_pts</span><span class="p">,</span> <span class="s1">'sample-outputs'</span><span class="p">:</span><span class="n">def_pts_evals</span><span class="p">})</span>
+<span class="n">poly_defpts</span><span class="o">.</span><span class="n">set_model</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>When a polynomial is made it uses certain points called quadrature points, these points are spaced so that the polynomial approximation will be as accurate as possible, in the figure below we show the difference between the quadrature points that are calculated by equadratures and the random points defined points</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">pts</span><span class="p">,</span> <span class="n">wts</span> <span class="o">=</span> <span class="n">poly</span><span class="o">.</span><span class="n">get_points_and_weights</span><span class="p">()</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">make_subplots</span><span class="p">(</span><span class="n">rows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">subplot_titles</span><span class="o">=</span><span class="p">[</span><span class="s1">'Quadrature Points'</span><span class="p">,</span> <span class="s1">'Random Points'</span><span class="p">])</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">add_scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">pts</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">pts</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'markers'</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">def_pts</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">def_pts</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'markers'</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">showlegend</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html">
+<iframe allowfullscreen="" frameborder="0" height="545px" scrolling="no" src="polynomials-over-cubes/figure_8.html" width="100%"></iframe>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Below we look at the evaluations of the two polynomials and compare it with the actual values of the polynomial at the same points for a control group and look at the function and polynomial evaluations with each variable</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">test_pts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mgrid</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">9</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">4</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">9</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">4</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">4</span><span class="p">]</span>
+<span class="n">test_pts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">test_pts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">test_pts</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">()])</span><span class="o">.</span><span class="n">T</span>
+<span class="n">func_evals</span> <span class="o">=</span> <span class="n">evaluate_model</span><span class="p">(</span><span class="n">test_pts</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">add_scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">test_pts</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">func_evals</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s1">'Function Evaluations'</span><span class="p">,</span> <span class="n">line_color</span><span class="o">=</span><span class="s1">'blueviolet'</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'markers'</span><span class="p">,</span>
+                <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">13</span><span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">test_pts</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">poly</span><span class="o">.</span><span class="n">get_polyfit</span><span class="p">(</span><span class="n">test_pts</span><span class="p">)[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s1">'Quadrature Points Polynomial'</span><span class="p">,</span>
+                <span class="n">line_color</span><span class="o">=</span><span class="s1">'lightblue'</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'markers'</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">test_pts</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">poly_defpts</span><span class="o">.</span><span class="n">get_polyfit</span><span class="p">(</span><span class="n">test_pts</span><span class="p">)[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s1">'Defined Points Polynomial'</span><span class="p">,</span> 
+                <span class="n">line_color</span><span class="o">=</span><span class="s1">'palevioletred'</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'markers'</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">add_scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">test_pts</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">func_evals</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">visible</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'Function Evaluations'</span><span class="p">,</span> <span class="n">line_color</span><span class="o">=</span><span class="s1">'blueviolet'</span><span class="p">,</span> 
+                <span class="n">mode</span><span class="o">=</span><span class="s1">'markers'</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">13</span><span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">test_pts</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">poly</span><span class="o">.</span><span class="n">get_polyfit</span><span class="p">(</span><span class="n">test_pts</span><span class="p">)[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">visible</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'Quadrature Points Polynomial'</span><span class="p">,</span> 
+                <span class="n">mode</span><span class="o">=</span><span class="s1">'markers'</span><span class="p">,</span> <span class="n">line_color</span><span class="o">=</span><span class="s1">'lightblue'</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">test_pts</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">poly_defpts</span><span class="o">.</span><span class="n">get_polyfit</span><span class="p">(</span><span class="n">test_pts</span><span class="p">)[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">visible</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'Defined Points Polynomial'</span><span class="p">,</span>
+                <span class="n">mode</span><span class="o">=</span><span class="s1">'markers'</span><span class="p">,</span> <span class="n">line_color</span><span class="o">=</span><span class="s1">'palevioletred'</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">updatemenus</span><span class="o">=</span><span class="p">[</span><span class="nb">dict</span><span class="p">(</span><span class="n">active</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">buttons</span><span class="o">=</span><span class="p">[</span><span class="nb">dict</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">'x1'</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'update'</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">[{</span><span class="s1">'visible'</span><span class="p">:[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span>
+                  <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">]}]),</span> <span class="nb">dict</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">'x2'</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'update'</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">[{</span><span class="s1">'visible'</span><span class="p">:[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> 
+                  <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">]}])])])</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">update_yaxes</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="sa">r</span><span class="s1">'$f(x_1, x_2)$'</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html">
+<iframe allowfullscreen="" frameborder="0" height="545px" scrolling="no" src="polynomials-over-cubes/figure_10.html" width="100%"></iframe>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Below we can look at how it compares looking at a 3 dimensional plot</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">funct_evals</span> <span class="o">=</span> <span class="n">func_evals</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">func_evals_z</span> <span class="o">=</span> <span class="p">[</span><span class="n">funct_evals</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">9</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">funct_evals</span><span class="p">),</span> <span class="mi">9</span><span class="p">)]</span>
+
+<span class="n">poly_evals</span> <span class="o">=</span> <span class="n">poly</span><span class="o">.</span><span class="n">get_polyfit</span><span class="p">(</span><span class="n">test_pts</span><span class="p">)[:,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">poly_evals_z</span> <span class="o">=</span> <span class="p">[</span><span class="n">poly_evals</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">9</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">poly_evals</span><span class="p">),</span> <span class="mi">9</span><span class="p">)]</span>
+
+<span class="n">def_poly_evals</span> <span class="o">=</span> <span class="n">poly_defpts</span><span class="o">.</span><span class="n">get_polyfit</span><span class="p">(</span><span class="n">test_pts</span><span class="p">)[:,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">def_poly_evals_z</span> <span class="o">=</span> <span class="p">[</span><span class="n">def_poly_evals</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">9</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">def_poly_evals</span><span class="p">),</span> <span class="mi">9</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">add_surface</span><span class="p">(</span><span class="n">z</span><span class="o">=</span><span class="n">func_evals_z</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">test_pts</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]),</span> <span class="n">y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">test_pts</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]),</span> 
+                <span class="n">colorbar</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">'Function Evaluations'</span><span class="p">,</span> <span class="n">titleside</span><span class="o">=</span><span class="s1">'right'</span><span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_surface</span><span class="p">(</span><span class="n">z</span><span class="o">=</span><span class="n">poly_evals_z</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">test_pts</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]),</span> <span class="n">y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">test_pts</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]),</span> <span class="n">colorscale</span><span class="o">=</span><span class="s1">'viridis'</span><span class="p">,</span> 
+                <span class="n">colorbar</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">x</span><span class="o">=-</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">'Polynomial Evaluations'</span><span class="p">,</span> <span class="n">titleside</span><span class="o">=</span><span class="s1">'right'</span><span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_surface</span><span class="p">(</span><span class="n">z</span><span class="o">=</span><span class="n">def_poly_evals_z</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">test_pts</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]),</span> <span class="n">y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">test_pts</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]),</span> <span class="n">colorscale</span><span class="o">=</span><span class="s1">'viridis'</span><span class="p">,</span> 
+                <span class="n">colorbar</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">x</span><span class="o">=-</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">'Polynomial Evaluations'</span><span class="p">,</span> <span class="n">titleside</span><span class="o">=</span><span class="s1">'right'</span><span class="p">),</span> <span class="n">visible</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">updatemenus</span><span class="o">=</span><span class="p">[</span><span class="nb">dict</span><span class="p">(</span><span class="n">active</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">buttons</span><span class="o">=</span><span class="p">[</span><span class="nb">dict</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">'Quadrature Points'</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'update'</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">[{</span><span class="s1">'visible'</span><span class="p">:</span>
+                  <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">]}]),</span> <span class="nb">dict</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">'Defined Points'</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'update'</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">[{</span><span class="s1">'visible'</span><span class="p">:[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> 
+                  <span class="kc">True</span><span class="p">]}])],</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.1</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mf">0.57</span><span class="p">)])</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html">
+<iframe allowfullscreen="" frameborder="0" height="545px" scrolling="no" src="polynomials-over-cubes/figure_12.html" width="100%"></iframe>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>As we can see above the quadrature points polynomial matches the actual function very well, which is expected as the function is smooth and continuous within the domain <br/>
+However, the polynomial created with defined points is much less accurate and has many unexpected errors and outlying values</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>We can also look at the error of the two polynomials by finding the absolute value of the difference between the actual value and the value that the polynomial generates</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">poly_error</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">funct_evals</span> <span class="o">-</span> <span class="n">poly_evals</span><span class="p">)</span>
+<span class="n">def_poly_error</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">funct_evals</span> <span class="o">-</span> <span class="n">def_poly_evals</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">add_scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">funct_evals</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">def_poly_error</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'markers'</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'Defined Point Error'</span><span class="p">,</span> <span class="n">marker_color</span><span class="o">=</span><span class="s1">'#E45756'</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">funct_evals</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">poly_error</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'markers'</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'Quadrature Point Error'</span><span class="p">,</span> <span class="n">marker_color</span><span class="o">=</span><span class="s1">'cornflowerblue'</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">xaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="sa">r</span><span class="s1">'$f(x_1, x_2, x_3)$'</span><span class="p">),</span> <span class="n">yaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">'log'</span><span class="p">))</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html">
+<iframe allowfullscreen="" frameborder="0" height="545px" scrolling="no" src="polynomials-over-cubes/figure_14.html" width="100%"></iframe>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>In the above log scale plot you can see that the error for the polynomial made with quadrature points has an error close to zero, if you hover over the points you can see that the difference is only microns <br/>
+However, the difference between the actual function values and the defined points polynomial is very large with the higest value of ~3.3</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Experiment-2:-Trivariate-Function-">Experiment 2: Trivariate Function <a class="anchor" id="trivariate"></a><a class="anchor-link" href="#Experiment-2:-Trivariate-Function-">¶</a></h3>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>The second experiment involves the following trivarite function where $x_1, x_2 \in [0, 2\pi]$ and $x_3 \in [-1, 1]$</p>
+$$
+\large
+f(x_1, x_2, x_3) = sin(x_1) + cos(x_2) + e^{x_3}
+$$<p>The code below defines this function</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">func_3d</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Since the first two variables remain the same as they were in the previous experiment we only need to define one more parameter for $x_3$</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">x3</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">'uniform'</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">lower</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">params_3d</span> <span class="o">=</span> <span class="p">[</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">x3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>After we have all the parameters we can define a polynomial using equadratures and set the model to the defined trivarite function</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">poly_3d</span> <span class="o">=</span> <span class="n">Poly</span><span class="p">(</span><span class="n">parameters</span><span class="o">=</span><span class="n">params_3d</span><span class="p">,</span> <span class="n">basis</span><span class="o">=</span><span class="n">basis</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'numerical-integration'</span><span class="p">)</span>
+<span class="n">poly_3d</span><span class="o">.</span><span class="n">set_model</span><span class="p">(</span><span class="n">func_3d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Next, we can create points to use in a polynomial with defined points and evaluate the function at those points</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">def_pts_3d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="mi">1000</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="mi">1000</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1000</span><span class="p">)])</span><span class="o">.</span><span class="n">T</span>
+<span class="n">def_evals_3d</span> <span class="o">=</span> <span class="n">evaluate_model</span><span class="p">(</span><span class="n">def_pts_3d</span><span class="p">,</span> <span class="n">func_3d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>In the below graph we show the difference between the random and quadrature points for a 3 dimensional domain</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">pts_3d</span><span class="p">,</span> <span class="n">wts_3d</span> <span class="o">=</span> <span class="n">poly_3d</span><span class="o">.</span><span class="n">get_points_and_weights</span><span class="p">()</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">make_subplots</span><span class="p">(</span><span class="n">rows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">specs</span><span class="o">=</span><span class="p">[[{</span><span class="s1">'type'</span><span class="p">:</span><span class="s1">'scene'</span><span class="p">},</span> <span class="p">{</span><span class="s1">'type'</span><span class="p">:</span><span class="s1">'scene'</span><span class="p">}]],</span> <span class="n">subplot_titles</span><span class="o">=</span><span class="p">[</span><span class="s1">'Quadrature Points'</span><span class="p">,</span> 
+                    <span class="s1">'Random Points'</span><span class="p">])</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">add_scatter3d</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">pts_3d</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">pts_3d</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">z</span><span class="o">=</span><span class="n">pts_3d</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'markers'</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_scatter3d</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">def_pts_3d</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">def_pts_3d</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">z</span><span class="o">=</span><span class="n">def_pts_3d</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'markers'</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">showlegend</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html">
+<iframe allowfullscreen="" frameborder="0" height="545px" scrolling="no" src="polynomials-over-cubes/figure_19.html" width="100%"></iframe>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Using these random points we define a second polynomial below</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">def_poly_3d</span> <span class="o">=</span> <span class="n">Poly</span><span class="p">(</span><span class="n">parameters</span><span class="o">=</span><span class="n">params_3d</span><span class="p">,</span> <span class="n">basis</span><span class="o">=</span><span class="n">basis</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'least-squares'</span><span class="p">,</span> <span class="n">sampling_args</span><span class="o">=</span><span class="p">{</span><span class="s1">'mesh'</span><span class="p">:</span><span class="s1">'user-defined'</span><span class="p">,</span> 
+                   <span class="s1">'sample-points'</span><span class="p">:</span> <span class="n">def_pts_3d</span><span class="p">,</span> <span class="s1">'sample-outputs'</span><span class="p">:</span> <span class="n">def_evals_3d</span><span class="p">})</span>
+<span class="n">def_poly_3d</span><span class="o">.</span><span class="n">set_model</span><span class="p">(</span><span class="n">func_3d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Then we can compare how the two polynomials as well as the function behave when evaluated at the same set of points, the graph below shows the differences between them along each varaible</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">test_pts_3d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mgrid</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">9</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">4</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">9</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">4</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mf">1.25</span><span class="p">:</span><span class="mf">0.25</span><span class="p">]</span>
+<span class="n">test_pts_3d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">test_pts_3d</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">test_pts_3d</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">test_pts_3d</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">()])</span><span class="o">.</span><span class="n">T</span>
+<span class="n">func_eval_3d</span> <span class="o">=</span> <span class="n">evaluate_model</span><span class="p">(</span><span class="n">test_pts_3d</span><span class="p">,</span> <span class="n">func_3d</span><span class="p">)</span>
+<span class="n">poly_eval_3d</span> <span class="o">=</span> <span class="n">poly_3d</span><span class="o">.</span><span class="n">get_polyfit</span><span class="p">(</span><span class="n">test_pts_3d</span><span class="p">)</span>
+<span class="n">def_poly_eval_3d</span> <span class="o">=</span> <span class="n">def_poly_3d</span><span class="o">.</span><span class="n">get_polyfit</span><span class="p">(</span><span class="n">test_pts_3d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">add_scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">test_pts_3d</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">func_eval_3d</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'markers'</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'blueviolet'</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span>
+                <span class="s1">'Function Evaluations'</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">test_pts_3d</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">poly_eval_3d</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'markers'</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'lightblue'</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span>
+                <span class="s1">'Quadrature Polynomial'</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">test_pts_3d</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span> <span class="n">def_poly_eval_3d</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'markers'</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'palevioletred'</span><span class="p">),</span> 
+                <span class="n">name</span><span class="o">=</span><span class="s1">'Defined Points Polynomial'</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">add_scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">test_pts_3d</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">func_eval_3d</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'markers'</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'blueviolet'</span><span class="p">),</span> 
+                <span class="n">visible</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'Function Evaluations'</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">test_pts_3d</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">poly_eval_3d</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'markers'</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'lightblue'</span><span class="p">),</span>
+                <span class="n">visible</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'Quadrature Polynomial'</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">test_pts_3d</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span> <span class="n">def_poly_eval_3d</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'markers'</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'palevioletred'</span><span class="p">),</span>
+                <span class="n">visible</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'Defined Points Polynomial'</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">add_scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">test_pts_3d</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">func_eval_3d</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'markers'</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'blueviolet'</span><span class="p">),</span> 
+                <span class="n">visible</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'Function Evaluations'</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">test_pts_3d</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">poly_eval_3d</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'markers'</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'lightblue'</span><span class="p">),</span> 
+                <span class="n">visible</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'Quadrature Polynomial'</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">test_pts_3d</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span> <span class="n">def_poly_eval_3d</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'markers'</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'palevioletred'</span><span class="p">),</span> 
+                <span class="n">visible</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'Defined Points Polynomial'</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">updatemenus</span><span class="o">=</span><span class="p">[</span><span class="nb">dict</span><span class="p">(</span><span class="n">active</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">buttons</span><span class="o">=</span><span class="p">[</span><span class="nb">dict</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">'x1'</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'update'</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">[{</span><span class="s1">'visible'</span><span class="p">:</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> 
+                  <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">]}]),</span> <span class="nb">dict</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">'x2'</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'update'</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">[{</span><span class="s1">'visible'</span><span class="p">:</span> 
+                  <span class="p">[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">]}]),</span> <span class="nb">dict</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">'x3'</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'update'</span><span class="p">,</span> 
+                  <span class="n">args</span><span class="o">=</span><span class="p">[{</span><span class="s1">'visible'</span><span class="p">:[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">]}])])])</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">update_yaxes</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="sa">r</span><span class="s1">'$f(x_1, x_2, x_3)$'</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html">
+<iframe allowfullscreen="" frameborder="0" height="545px" scrolling="no" src="polynomials-over-cubes/figure_22.html" width="100%"></iframe>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>The below graph plots the outputs of the function and the two polynomials and compares them how</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">add_scatter3d</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">test_pts_3d</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">test_pts_3d</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">z</span><span class="o">=</span><span class="n">test_pts_3d</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'markers'</span><span class="p">,</span> 
+                  <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">func_eval_3d</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">colorbar</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">thickness</span><span class="o">=</span><span class="mi">20</span><span class="p">)))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_scatter3d</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">test_pts_3d</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">test_pts_3d</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">z</span><span class="o">=</span><span class="n">test_pts_3d</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'markers'</span><span class="p">,</span> 
+                  <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">poly_eval_3d</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">colorbar</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">thickness</span><span class="o">=</span><span class="mi">20</span><span class="p">)),</span> <span class="n">visible</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_scatter3d</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">test_pts_3d</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">test_pts_3d</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">z</span><span class="o">=</span><span class="n">test_pts_3d</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'markers'</span><span class="p">,</span> 
+                  <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">def_poly_eval_3d</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">colorbar</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">thickness</span><span class="o">=</span><span class="mi">20</span><span class="p">)),</span> <span class="n">visible</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">updatemenus</span><span class="o">=</span><span class="p">[</span><span class="nb">dict</span><span class="p">(</span><span class="n">active</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">buttons</span><span class="o">=</span><span class="p">[</span><span class="nb">dict</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">'Function Evaluations'</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'update'</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">[{</span><span class="s1">'visible'</span><span class="p">:</span>
+                  <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">]}]),</span> <span class="nb">dict</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">'Polynomial Evaluations'</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'update'</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">[{</span><span class="s1">'visible'</span><span class="p">:[</span><span class="kc">False</span><span class="p">,</span> 
+                  <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">]}]),</span> <span class="nb">dict</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">'Defined Point Polynomial'</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'update'</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">[{</span><span class="s1">'visible'</span><span class="p">:[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> 
+                  <span class="kc">True</span><span class="p">]}])],</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.2</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mf">1.05</span><span class="p">)])</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html">
+<iframe allowfullscreen="" frameborder="0" height="545px" scrolling="no" src="polynomials-over-cubes/figure_23.html" width="100%"></iframe>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>In the above graph you can clearly see the difference between how well the polynomial using quadrature points and the polynomial using defined function points behaves, with the actual function and quadrature polynomial being indistinguishable from one another whereas the polynomial from defined points has many differences</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Again we can look at the error between the actual function values and the two polynomials</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">poly_3d_error</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">func_eval_3d</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">poly_eval_3d</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">def_poly_3d_error</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">func_eval_3d</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">def_poly_eval_3d</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">add_scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">func_eval_3d</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">def_poly_3d_error</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'markers'</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'Defined Point Error'</span><span class="p">,</span> 
+                <span class="n">marker_color</span><span class="o">=</span><span class="s1">'#EF553B'</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">func_eval_3d</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">poly_3d_error</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'markers'</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'Quadrature Point Error'</span><span class="p">,</span> 
+                <span class="n">marker_color</span><span class="o">=</span><span class="s1">'cornflowerblue'</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">xaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="sa">r</span><span class="s1">'$f(x_1, x_2, x_3)$'</span><span class="p">),</span> <span class="n">yaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s1">'log'</span><span class="p">))</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html">
+<iframe allowfullscreen="" frameborder="0" height="545px" scrolling="no" src="polynomials-over-cubes/figure_25.html" width="100%"></iframe>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>In the above log scale plot we can once again see that the difference from the polynomial made with quadrature points is very small whereas the difference from the defined points polynomial is quite large with the biggest difference being ~19</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Experiment-3:-Discontinuous-Function-">Experiment 3: Discontinuous Function <a class="anchor" id="discontinuous"></a><a class="anchor-link" href="#Experiment-3:-Discontinuous-Function-">¶</a></h3>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>In experiment 3 we look at the following bivariate function:</p>
+$$
+\large
+f(x_1, x_2) = \frac{1}{x_1} + \frac{1}{x_2}
+$$<p>We look at this function within the domain $x_1, x_2 \in [-2,2]$, this function is discontinuous along the lines $x_1=0$ and $x_2=0$</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">dis_func</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>First, we must define quadrature points within the domain. However, this time we do not use Poly in order to create a polynomial approximation for the function because Poly does not properly handle discontinuous functions and the polynomial approximation will experience Gibbs-Runge effect where the polynomial approximation will have unecessary oscillations</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">'uniform'</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">lower</span><span class="o">=-</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">dis_poly</span> <span class="o">=</span> <span class="n">Poly</span><span class="p">(</span><span class="n">parameters</span><span class="o">=</span><span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">],</span> <span class="n">basis</span><span class="o">=</span><span class="n">basis</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'numerical-integration'</span><span class="p">)</span>
+<span class="n">dis_pts</span><span class="p">,</span> <span class="n">dis_wts</span> <span class="o">=</span> <span class="n">dis_poly</span><span class="o">.</span><span class="n">get_points_and_weights</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">dis_def_pts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">)])</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>In the below graph we can see the difference between quadrature points and the random points that are defined above, much like in experiment one</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">make_subplots</span><span class="p">(</span><span class="n">rows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">subplot_titles</span><span class="o">=</span><span class="p">[</span><span class="s1">'Quadrature Points'</span><span class="p">,</span> <span class="s1">'Random Points'</span><span class="p">])</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">add_scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">dis_pts</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">dis_pts</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'markers'</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">dis_def_pts</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">dis_def_pts</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'markers'</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">showlegend</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html">
+<iframe allowfullscreen="" frameborder="0" height="545px" scrolling="no" src="polynomials-over-cubes/figure_29.html" width="100%"></iframe>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Next we can use the PolyTree class to define two piecewise polynomials that will be able to more accurately describe the discontinuities of the original function, one using quadrature points and the other using random points</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">dis_test_pts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mgrid</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span><span class="mf">2.5</span><span class="p">:</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">:</span><span class="mf">2.5</span><span class="p">:</span><span class="mf">0.5</span><span class="p">]</span>
+<span class="n">dis_test_pts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">dis_test_pts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">dis_test_pts</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">()])</span><span class="o">.</span><span class="n">T</span>
+<span class="n">dis_func_evals</span> <span class="o">=</span> <span class="n">evaluate_model</span><span class="p">(</span><span class="n">dis_test_pts</span><span class="p">,</span> <span class="n">dis_func</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">tree</span> <span class="o">=</span> <span class="n">PolyTree</span><span class="p">()</span>
+<span class="n">tree</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">dis_pts</span><span class="p">,</span> <span class="n">evaluate_model</span><span class="p">(</span><span class="n">dis_pts</span><span class="p">,</span> <span class="n">dis_func</span><span class="p">))</span>
+<span class="n">tree_evals</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">dis_test_pts</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">def_tree</span> <span class="o">=</span> <span class="n">PolyTree</span><span class="p">()</span>
+<span class="n">def_tree</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">dis_def_pts</span><span class="p">,</span> <span class="n">evaluate_model</span><span class="p">(</span><span class="n">dis_def_pts</span><span class="p">,</span> <span class="n">dis_func</span><span class="p">))</span>
+<span class="n">def_tree_evals</span> <span class="o">=</span> <span class="n">def_tree</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">dis_test_pts</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>In the below graph we can see that while neither polynomial is completely accurate, especially along the discontinuities of $x_1=0$ and $x_2=0$, the one defined using quadrature points is much more accurate</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">add_scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">dis_test_pts</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">dis_func_evals</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s1">'Function Evaluations'</span><span class="p">,</span> <span class="n">line_color</span><span class="o">=</span><span class="s1">'blueviolet'</span><span class="p">,</span> 
+                <span class="n">mode</span><span class="o">=</span><span class="s1">'markers'</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">13</span><span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">dis_test_pts</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">tree_evals</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'Quadrature PolyTree'</span><span class="p">,</span> <span class="n">line_color</span><span class="o">=</span><span class="s1">'lightblue'</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'markers'</span><span class="p">,</span> 
+                <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">dis_test_pts</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">def_tree_evals</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'Defined Points PolyTree'</span><span class="p">,</span> <span class="n">line_color</span><span class="o">=</span><span class="s1">'palevioletred'</span><span class="p">,</span> 
+                <span class="n">mode</span><span class="o">=</span><span class="s1">'markers'</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">add_scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">dis_test_pts</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">dis_func_evals</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">visible</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'Function Evaluations'</span><span class="p">,</span> 
+                <span class="n">line_color</span><span class="o">=</span><span class="s1">'blueviolet'</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'markers'</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">13</span><span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">dis_test_pts</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">tree_evals</span><span class="p">,</span> <span class="n">visible</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'Quadrature PolyTree'</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'markers'</span><span class="p">,</span> 
+                <span class="n">line_color</span><span class="o">=</span><span class="s1">'lightblue'</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">dis_test_pts</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">def_tree_evals</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'Defined Points PolyTree'</span><span class="p">,</span> <span class="n">line_color</span><span class="o">=</span><span class="s1">'palevioletred'</span><span class="p">,</span> 
+                <span class="n">mode</span><span class="o">=</span><span class="s1">'markers'</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span> <span class="n">visible</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">updatemenus</span><span class="o">=</span><span class="p">[</span><span class="nb">dict</span><span class="p">(</span><span class="n">active</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">buttons</span><span class="o">=</span><span class="p">[</span><span class="nb">dict</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">'x1'</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'update'</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">[{</span><span class="s1">'visible'</span><span class="p">:[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span>
+                  <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">]}]),</span> <span class="nb">dict</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">'x2'</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'update'</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">[{</span><span class="s1">'visible'</span><span class="p">:[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span>
+                  <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">]}])])])</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">update_yaxes</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="sa">r</span><span class="s1">'$f(x_1, x_2)$'</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html">
+<iframe allowfullscreen="" frameborder="0" height="545px" scrolling="no" src="polynomials-over-cubes/figure_33.html" width="100%"></iframe>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">dis_funct_evals</span> <span class="o">=</span> <span class="n">dis_func_evals</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">dis_func_evals_z</span> <span class="o">=</span> <span class="p">[</span><span class="n">dis_funct_evals</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">9</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">dis_funct_evals</span><span class="p">),</span> <span class="mi">9</span><span class="p">)]</span>
+
+<span class="n">tree_evals_z</span> <span class="o">=</span> <span class="p">[</span><span class="n">tree_evals</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">9</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">tree_evals</span><span class="p">),</span> <span class="mi">9</span><span class="p">)]</span>
+
+<span class="n">def_tree_evals_z</span> <span class="o">=</span> <span class="p">[</span><span class="n">def_tree_evals</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">9</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">def_tree_evals</span><span class="p">),</span> <span class="mi">9</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Below we can see a 3 dimensional representation of the function compared to the polynomial approximations, and while not 100% accurate the quadrature points behaves much better</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">add_surface</span><span class="p">(</span><span class="n">z</span><span class="o">=</span><span class="n">dis_func_evals_z</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">dis_test_pts</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]),</span> <span class="n">y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">dis_test_pts</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]),</span> 
+                <span class="n">colorbar</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">'Function Evaluations'</span><span class="p">,</span> <span class="n">titleside</span><span class="o">=</span><span class="s1">'right'</span><span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_surface</span><span class="p">(</span><span class="n">z</span><span class="o">=</span><span class="n">tree_evals_z</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">dis_test_pts</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]),</span> <span class="n">y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">dis_test_pts</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]),</span> <span class="n">colorscale</span><span class="o">=</span><span class="s1">'viridis'</span><span class="p">,</span> 
+                <span class="n">colorbar</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">x</span><span class="o">=-</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">'Polynomial Evaluations'</span><span class="p">,</span> <span class="n">titleside</span><span class="o">=</span><span class="s1">'right'</span><span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_surface</span><span class="p">(</span><span class="n">z</span><span class="o">=</span><span class="n">def_tree_evals_z</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">dis_test_pts</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]),</span> <span class="n">y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">dis_test_pts</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]),</span> <span class="n">colorscale</span><span class="o">=</span><span class="s1">'viridis'</span><span class="p">,</span> 
+                <span class="n">colorbar</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">x</span><span class="o">=-</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">'Polynomial Evaluations'</span><span class="p">,</span> <span class="n">titleside</span><span class="o">=</span><span class="s1">'right'</span><span class="p">),</span> <span class="n">visible</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">updatemenus</span><span class="o">=</span><span class="p">[</span><span class="nb">dict</span><span class="p">(</span><span class="n">active</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">buttons</span><span class="o">=</span><span class="p">[</span><span class="nb">dict</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">'Quadrature Points'</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'update'</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">[{</span><span class="s1">'visible'</span><span class="p">:</span>
+                  <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">]}]),</span> <span class="nb">dict</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">'Defined Points'</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'update'</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">[{</span><span class="s1">'visible'</span><span class="p">:[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> 
+                  <span class="kc">True</span><span class="p">]}])],</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.1</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mf">0.57</span><span class="p">)])</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html">
+<iframe allowfullscreen="" frameborder="0" height="545px" scrolling="no" src="polynomials-over-cubes/figure_35.html" width="100%"></iframe>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">tree_error</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">dis_funct_evals</span> <span class="o">-</span> <span class="n">tree_evals</span><span class="p">)</span>
+<span class="n">def_tree_error</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">dis_funct_evals</span> <span class="o">-</span> <span class="n">def_tree_evals</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">add_scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">dis_funct_evals</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">def_tree_error</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'markers'</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'Defined Point Error'</span><span class="p">,</span> <span class="n">marker_color</span><span class="o">=</span><span class="s1">'#EF553B'</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">dis_funct_evals</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">tree_error</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'markers'</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'Quadrature Point Error'</span><span class="p">,</span> 
+                <span class="n">marker_color</span><span class="o">=</span><span class="s1">'cornflowerblue'</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">xaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="sa">r</span><span class="s1">'$f(x_1, x_2)$'</span><span class="p">))</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html">
+<iframe allowfullscreen="" frameborder="0" height="545px" scrolling="no" src="polynomials-over-cubes/figure_37.html" width="100%"></iframe>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>In the graph above we can see that the error for the piecewise polynomial made with defined points is much larger than that with the quadrature points though the error is still present</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>In conclusion, it is always of best interest to use the quadrature points when defining a polynomial approximation or the polynomial will end up with a large amount of error</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
