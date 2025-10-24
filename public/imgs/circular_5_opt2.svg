@@ -1,0 +1,780 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   onload="on_load(evt);"
+   version="1.1"
+   viewBox="0 0 774.7 774.7"
+   id="svg562"
+   sodipodi:docname="circular_5_opt2.svg"
+   inkscape:version="1.2 (dc2aedaf03, 2022-05-15)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview564"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="0.88331637"
+     inkscape:cx="327.74214"
+     inkscape:cy="431.89508"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg562" />
+  <defs
+     id="defs439">
+    <linearGradient
+       id="h"
+       x1="955.8"
+       x2="958.6"
+       y1="-78.39"
+       y2="115.5"
+       gradientTransform="translate(-424.2,105.9)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#88e0d7"
+         offset="0"
+         id="stop349">
+        <animate
+           attributeName="stop-color"
+           begin="0s"
+           calcMode="linear"
+           dur="3s"
+           repeatCount="indefinite"
+           values="#88e0d7; #d1f0f1; #88e0d7" />
+      </stop>
+      <stop
+         stop-color="#32cacb"
+         offset="1"
+         id="stop351">
+        <animate
+           attributeName="stop-color"
+           begin="0s"
+           calcMode="linear"
+           dur="3s"
+           repeatCount="indefinite"
+           values="#32cacb; #88e0d7; #32cacb" />
+      </stop>
+    </linearGradient>
+    <linearGradient
+       id="g"
+       x1="821.3"
+       x2="1069"
+       y1="-75.16"
+       y2="3.53"
+       gradientTransform="translate(-424.2,105.9)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#d1f0f1"
+         offset="0"
+         id="stop354">
+        <animate
+           attributeName="stop-color"
+           begin="0s"
+           calcMode="linear"
+           dur="3s"
+           repeatCount="indefinite"
+           values="#d1f0f1; #32cacb; #d1f0f1" />
+      </stop>
+      <stop
+         stop-color="#88e0d7"
+         offset="1"
+         id="stop356">
+        <animate
+           attributeName="stop-color"
+           begin="0s"
+           calcMode="linear"
+           dur="3s"
+           repeatCount="indefinite"
+           values="#88e0d7; #d1f0f1; #88e0d7" />
+      </stop>
+    </linearGradient>
+    <linearGradient
+       id="f"
+       x1="916.2"
+       x2="956.8"
+       y1="-87.51"
+       y2="119"
+       gradientTransform="translate(-424.2,105.9)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#a9e8dc"
+         offset="0"
+         id="stop359">
+        <animate
+           attributeName="stop-color"
+           begin="0s"
+           calcMode="linear"
+           dur="3s"
+           repeatCount="indefinite"
+           values="#a9e8dc; #32cacb; #a9e8dc" />
+      </stop>
+      <stop
+         stop-color="#20c6c8"
+         offset="1"
+         id="stop361">
+        <animate
+           attributeName="stop-color"
+           begin="0s"
+           calcMode="linear"
+           dur="3s"
+           repeatCount="indefinite"
+           values="#20c6c8; #d1f0f1; #20c6c8" />
+      </stop>
+    </linearGradient>
+    <linearGradient
+       id="e"
+       x1="916.2"
+       x2="956.8"
+       y1="-87.51"
+       y2="119"
+       gradientTransform="translate(-424.2,105.9)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#215995"
+         offset="0"
+         id="stop364">
+        <animate
+           attributeName="stop-color"
+           begin="0s"
+           calcMode="linear"
+           dur="3s"
+           repeatCount="indefinite"
+           values="#215995; #03bbc3; #215995" />
+      </stop>
+      <stop
+         stop-color="#03bbc3"
+         offset="1"
+         id="stop366">
+        <animate
+           attributeName="stop-color"
+           begin="0s"
+           calcMode="linear"
+           dur="3s"
+           repeatCount="indefinite"
+           values="#03bbc3; #215995; #03bbc3" />
+      </stop>
+    </linearGradient>
+    <linearGradient
+       id="d"
+       x1="819.1"
+       x2="1076"
+       y1="59.78"
+       y2="-.3111"
+       gradientTransform="translate(-424.2,105.9)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#a9e8dc"
+         offset="0"
+         id="stop369">
+        <animate
+           attributeName="stop-color"
+           begin="0s"
+           calcMode="linear"
+           dur="3s"
+           repeatCount="indefinite"
+           values="#a9e8dc; #d1f0f1; #a9e8dc" />
+      </stop>
+      <stop
+         stop-color="#1ac4c7"
+         offset="1"
+         id="stop371">
+        <animate
+           attributeName="stop-color"
+           begin="0s"
+           calcMode="linear"
+           dur="3s"
+           repeatCount="indefinite"
+           values="#1ac4c7; #a9e8dc; #1ac4c7" />
+      </stop>
+    </linearGradient>
+    <linearGradient
+       id="c"
+       x1="825"
+       x2="1071"
+       y1="58.06"
+       y2="2.696"
+       gradientTransform="translate(-424.2,105.9)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#cbefef"
+         offset="0"
+         id="stop374">
+        <animate
+           attributeName="stop-color"
+           begin="0s"
+           calcMode="linear"
+           dur="3s"
+           repeatCount="indefinite"
+           values="#cbefef; #88e0d7; #cbefef" />
+      </stop>
+      <stop
+         stop-color="#b1e9e6"
+         offset="1"
+         id="stop376">
+        <animate
+           attributeName="stop-color"
+           begin="0s"
+           calcMode="linear"
+           dur="3s"
+           repeatCount="indefinite"
+           values="#b1e9e6; #B9F0F1; #b1e9e6" />
+      </stop>
+    </linearGradient>
+    <linearGradient
+       id="b"
+       x1="825.3"
+       x2="1071"
+       y1="60.4"
+       y2="1.536"
+       gradientTransform="translate(-424.2,105.9)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#7cddd6"
+         offset="0"
+         id="stop379">
+        <animate
+           attributeName="stop-color"
+           begin="0s"
+           calcMode="linear"
+           dur="3s"
+           repeatCount="indefinite"
+           values="#7cddd6; #d1f0f1; #7cddd6" />
+      </stop>
+      <stop
+         stop-color="#87dfd7"
+         offset="1"
+         id="stop381">
+        <animate
+           attributeName="stop-color"
+           begin="0s"
+           calcMode="linear"
+           dur="3s"
+           repeatCount="indefinite"
+           values="#87dfd7; #B9F0F1; #87dfd7" />
+      </stop>
+    </linearGradient>
+    <linearGradient
+       id="a"
+       x1="824"
+       x2="1070"
+       y1="62.47"
+       y2="-.0407"
+       gradientTransform="translate(-424.2,105.9)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#1386aa"
+         offset="0"
+         id="stop384">
+        <animate
+           attributeName="stop-color"
+           begin="0s"
+           calcMode="linear"
+           dur="3s"
+           repeatCount="indefinite"
+           values="#1386aa; #03bbc3; #1386aa" />
+      </stop>
+      <stop
+         stop-color="#02bec4"
+         offset="1"
+         id="stop386">
+        <animate
+           attributeName="stop-color"
+           begin="0s"
+           calcMode="linear"
+           dur="3s"
+           repeatCount="indefinite"
+           values="#02bec4; #215995; #02bec4" />
+      </stop>
+    </linearGradient>
+    <linearGradient
+       id="m"
+       x1="553.3"
+       x2="601.5"
+       y1="568.4"
+       y2="568.4"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#2eccd0"
+         offset="0"
+         id="stop389" />
+      <stop
+         stop-color="#04a0af"
+         offset=".5"
+         id="stop391" />
+      <stop
+         stop-color="#095277"
+         offset="1"
+         id="stop393" />
+    </linearGradient>
+    <clipPath
+       id="n">
+      <path
+         d="m597.8 597.4s-31.45-13.73-53.81-15.9c-56.25-5.449-74.1-32.41-78.66-41.81 1.071-0.1421 2.138-0.3067 3.203-0.4917 13.87 14.75 76.21 25.55 138.6 32.16 17.4 1.843 27.99 10.23 34.13 17.77-0.3343 0.0871-0.6708 0.1754-1.008 0.2604-27.24 6.93-38.97 8.223-41.94 8.223-0.8449 0-0.9792-0.1055-0.5546-0.2152"
+         id="path396" />
+    </clipPath>
+    <linearGradient
+       id="l"
+       x1="464"
+       x2="664.3"
+       y1="563.3"
+       y2="563.3"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#9defee"
+         offset="0"
+         id="stop399" />
+      <stop
+         stop-color="#0ba1b6"
+         offset=".5"
+         id="stop401" />
+      <stop
+         stop-color="#254d8f"
+         offset="1"
+         id="stop403" />
+    </linearGradient>
+    <clipPath
+       id="o">
+      <path
+         d="m552.6 582.8c-2.954-0.5702-5.848-1.014-8.602-1.28-68.38-6.624-80.01-45.04-80.01-45.04 11.21 1.27 22.27-1.973 32.51-7.484 20.71 8.39 47.8 15.53 83.12 19.21 41.59 4.337 92.93 25.76 92.93 25.76s0.4311 2e-3 1.249-2e-3c-8.815 6.312-19.37 11.85-33.5 15.44-25.03 6.368-36.97 7.977-41.04 8.195 4.393-7.883 11.82-29.14-46.66-14.8"
+         id="path406" />
+    </clipPath>
+    <linearGradient
+       id="k"
+       x1="469.1"
+       x2="701.5"
+       y1="529.3"
+       y2="529.3"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#48d0ce"
+         offset="0"
+         id="stop409" />
+      <stop
+         stop-color="#09a6b9"
+         offset=".5"
+         id="stop411" />
+      <stop
+         stop-color="#205d97"
+         offset="1"
+         id="stop413" />
+    </linearGradient>
+    <clipPath
+       id="p">
+      <path
+         d="m557.5 566.2c-65.6 16.2-82.7-14.32-88.4-29.46 41.55-0.1409 79.54-58.23 79.54-58.23s7.252 51.1 50.67 46.26c59.51-6.639 97.28 21.41 102.2 24.91-11.39 10.08-21.57 21.71-37.5 30.49-3.548-16.4-53.74-26.99-106.5-13.96"
+         id="path416" />
+    </clipPath>
+    <linearGradient
+       id="j"
+       x1="538.7"
+       x2="628.2"
+       y1="509.1"
+       y2="509.1"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#48d5d7"
+         offset="0"
+         id="stop419" />
+      <stop
+         stop-color="#07abbb"
+         offset=".5"
+         id="stop421" />
+      <stop
+         stop-color="#167ca5"
+         offset="1"
+         id="stop423" />
+    </linearGradient>
+    <clipPath
+       id="r">
+      <path
+         d="m526.7 505.3c13.4-13.74 21.92-26.78 21.92-26.78s7.252 51.1 50.67 46.26c23.36-2.606 43.37 0.1345 59.36 4.635-12.87 0.5165-26.69 2.29-40.68 5.625-13.47 3.21-24.96 4.57-34.76 4.57-39.63 0-51.84-22.22-56.52-34.31"
+         id="path426" />
+    </clipPath>
+    <linearGradient
+       id="i"
+       x1="464.8"
+       x2="701.5"
+       y1="522.8"
+       y2="522.8"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#c6fcf9"
+         offset="0"
+         id="stop429" />
+      <stop
+         stop-color="#0dc2c7"
+         offset=".5"
+         id="stop431" />
+      <stop
+         stop-color="#0c2c5b"
+         offset="1"
+         id="stop433" />
+    </linearGradient>
+    <clipPath
+       id="q">
+      <path
+         d="m464.8 536.6c43.19 4.115 83.85-58.04 83.85-58.04s0.0204 0.1409 0.0645 0.4067c-23.25 47.49-5.368 62.58 57.49 49.35 9.073-1.911 17.24-3.187 24.61-3.929 41.19 3.567 66.72 22.51 70.71 25.34-0.2129 0.1883-0.4268 0.3776-0.6386 0.5681-26.16-15.07-78.67-19.63-144.8 8.552-14.07 5.997-26.44 8.377-37.18 8.378-31.93 3e-3 -49.4-21.05-54.13-30.63"
+         id="path436" />
+    </clipPath>
+  </defs>
+  <g
+     id="g559"
+     transform="matrix(1.2499694,0,0,1.2499694,-96.829861,-96.811024)">
+    <g
+       class="logo_transform"
+       id="g457">
+      <g
+         class="logo_layers"
+         transform="matrix(0.5193,0,0,0.5193,85.57,634)"
+         id="g451">
+        <path
+           class="wave5"
+           transform="matrix(1,0,0,-1,-8.756e-4,0.001165)"
+           d="M 129,163 H 847 V 706 H 129 Z"
+           clip-path="url(#n)"
+           fill="url(#m)"
+           id="path441"
+           style="fill:url(#m)" />
+        <path
+           class="wave4"
+           transform="matrix(1,0,0,-1,-8.756e-4,0.001165)"
+           d="M 129,163 H 847 V 706 H 129 Z"
+           clip-path="url(#o)"
+           fill="url(#l)"
+           id="path443"
+           style="fill:url(#l)" />
+        <path
+           class="wave3"
+           transform="matrix(1,0,0,-1,-8.756e-4,0.001165)"
+           d="M 129,163 H 847 V 706 H 129 Z"
+           clip-path="url(#p)"
+           fill="url(#k)"
+           id="path445"
+           style="fill:url(#k)" />
+        <path
+           class="wave2"
+           transform="matrix(1,0,0,-1,-8.756e-4,0.001165)"
+           d="M 129,163 H 847 V 706 H 129 Z"
+           clip-path="url(#r)"
+           fill="url(#j)"
+           id="path447"
+           style="fill:url(#j)" />
+        <path
+           class="wave1"
+           transform="matrix(1,0,0,-1,-8.756e-4,0.001165)"
+           d="M 129,163 H 847 V 706 H 129 Z"
+           clip-path="url(#q)"
+           fill="url(#i)"
+           id="path449"
+           style="fill:url(#i)" />
+      </g>
+      <text
+         transform="matrix(0.7817,0,0,0.7677,87.33,87.44)"
+         x="229.2477"
+         y="438.76529"
+         fill="#02bec4"
+         font-family="sans-serif"
+         font-size="52.1px"
+         stroke-width="1.303"
+         style="line-height:1.25"
+         xml:space="preserve"
+         id="text455"><tspan
+           x="229.2477"
+           y="438.76529"
+           font-family="'DIN Pro'"
+           font-size="52.1px"
+           stroke-width="1.303"
+           id="tspan453">equadratures</tspan></text>
+    </g>
+    <g
+       transform="matrix(0.7747,0,0,0.7747,87.33,87.44)"
+       id="g557">
+      <g
+         class="hover_target_1"
+         transform="translate(-5e-4,3.045e-4)"
+         onclick="goToModal('#modal_s1')"
+         id="g469">
+        <path
+           d="M 396.9,208 V 0.2 c 0,0 60.74,-2.133 136,28.72 75.25,30.85 120.5,76.95 120.5,76.95 l -147.1,147.1 c 0,0 -15.62,-15.84 -47.92,-30.01 -32.3,-14.17 -61.48,-14.94 -61.48,-14.94 z"
+           fill="url(#h)"
+           id="path459"
+           style="fill:url(#h)" />
+        <path
+           class="hover_ring_1"
+           d="m 396.9,208 -0.0305,-37.64 c 0,0 34.47,-0.2343 73.3,16.08 38.83,16.31 62.48,39.99 62.48,39.99 l -26.35,26.53 c 0,0 -15.62,-15.84 -47.92,-30.01 -32.3,-14.17 -61.48,-14.94 -61.48,-14.94 z"
+           fill="#ffffff"
+           fill-opacity="0.2"
+           id="path461" />
+        <text
+           x="430.47858"
+           y="110.65062"
+           fill="#0284a8"
+           font-family="D-DIN-PRO"
+           font-size="28.67px"
+           font-weight="bold"
+           style="line-height:0.75"
+           xml:space="preserve"
+           id="text467"><tspan
+             x="430.47858"
+             y="110.65062"
+             id="tspan463">trust-region</tspan><tspan
+             x="430.47858"
+             y="133.40251"
+             id="tspan465">optimisation</tspan></text>
+      </g>
+      <g
+         class="hover_target_2"
+         transform="rotate(45,388.3,386.6)"
+         onclick="goToModal('#modal_s2')"
+         id="g483">
+        <path
+           d="M 396.9,208 V 0.2 c 0,0 60.74,-2.133 136,28.72 75.25,30.85 120.5,76.95 120.5,76.95 l -147.1,147.1 c 0,0 -15.62,-15.84 -47.92,-30.01 -32.3,-14.17 -61.48,-14.94 -61.48,-14.94 z"
+           fill="url(#g)"
+           id="path471"
+           style="fill:url(#g)" />
+        <path
+           class="hover_ring_2"
+           d="m 396.9,208 -0.0305,-37.64 c 0,0 34.47,-0.2343 73.3,16.08 38.83,16.31 62.48,39.99 62.48,39.99 l -26.35,26.53 c 0,0 -15.62,-15.84 -47.92,-30.01 -32.3,-14.17 -61.48,-14.94 -61.48,-14.94 z"
+           fill="#ffffff"
+           fill-opacity="0.2"
+           id="path473" />
+        <text
+           transform="rotate(-45,0.3531,-548.2)"
+           x="-170.92596"
+           y="271.00601"
+           fill="#0ba0a0"
+           font-family="D-DIN-PRO"
+           font-size="28.67px"
+           font-weight="bold"
+           style="line-height:0.8"
+           xml:space="preserve"
+           id="text481"><tspan
+             x="-170.92596"
+             y="271.00601"
+             id="tspan475">Bayesian</tspan><tspan
+             x="-170.92596"
+             y="295.19122"
+             id="tspan477">polynomial</tspan><tspan
+             x="-170.92596"
+             y="319.37646"
+             id="tspan479">regression</tspan></text>
+      </g>
+      <g
+         class="hover_target_3"
+         transform="rotate(90,387.6,387.1)"
+         onclick="goToModal('#modal_s3')"
+         id="g495">
+        <path
+           d="M 394.8,208 V 0.2 c 0,0 62.86,-2.17 138.1,28.68 75.25,30.85 120.5,76.95 120.5,76.95 l -147.1,147.1 c 0,0 -15.62,-15.84 -47.92,-30.01 -32.3,-14.17 -63.6,-14.9 -63.6,-14.9 z"
+           fill="url(#f)"
+           id="path485"
+           style="fill:url(#f)" />
+        <path
+           class="hover_ring_3"
+           d="m 394.8,208.2 -0.0305,-37.64 c 0,0 36.58,-0.4583 75.41,15.85 38.83,16.31 62.48,39.99 62.48,39.99 l -26.35,26.53 c 0,0 -15.62,-15.84 -47.92,-30.01 -32.3,-14.17 -63.59,-14.71 -63.59,-14.71 z"
+           fill="#ffffff"
+           fill-opacity="0.2"
+           id="path487" />
+        <text
+           transform="rotate(-90)"
+           x="-171.19374"
+           y="495.25656"
+           fill="#0284a8"
+           font-family="D-DIN-PRO"
+           font-size="28.67px"
+           font-weight="bold"
+           style="line-height:0.75"
+           xml:space="preserve"
+           id="text493"><tspan
+             x="-171.19374"
+             y="495.25656"
+             id="tspan489">active</tspan><tspan
+             x="-171.19374"
+             y="518.00842"
+             id="tspan491">subspace</tspan></text>
+      </g>
+      <g
+         class="hover_target_4"
+         transform="rotate(135,386.8,386.9)"
+         onclick="goToModal('#modal_s4')"
+         id="g507">
+        <path
+           d="M 394.8,208 V 0.2 c 0,0 62.86,-2.17 138.1,28.68 75.25,30.85 120.5,76.95 120.5,76.95 l -147.1,147.1 c 0,0 -15.62,-15.84 -47.92,-30.01 -32.3,-14.17 -63.6,-14.9 -63.6,-14.9 z"
+           fill="url(#e)"
+           id="path497"
+           style="fill:url(#e)" />
+        <path
+           class="hover_ring_"
+           d="m 394.8,208.2 -0.0305,-37.64 c 0,0 36.58,-0.4583 75.41,15.85 38.83,16.31 62.48,39.99 62.48,39.99 l -26.35,26.53 c 0,0 -15.62,-15.84 -47.92,-30.01 -32.3,-14.17 -63.59,-14.71 -63.59,-14.71 z"
+           fill="#ffffff"
+           fill-opacity="0.2"
+           id="path499" />
+        <text
+           transform="rotate(-135)"
+           x="-497.20166"
+           y="267.07721"
+           fill="#a9e8dc"
+           font-family="D-DIN-PRO"
+           font-size="28.67px"
+           font-weight="bold"
+           style="line-height:0.75"
+           xml:space="preserve"
+           id="text505"><tspan
+             x="-497.20166"
+             y="267.07721"
+             id="tspan501">sensitivity</tspan><tspan
+             x="-497.20166"
+             y="289.8291"
+             id="tspan503">analysis</tspan></text>
+      </g>
+      <g
+         class="hover_target_5"
+         transform="matrix(0.7071,0.7071,0.7071,-0.7071,-159.3,386.9)"
+         onclick="goToModal('#modal_s5')"
+         id="g519">
+        <path
+           d="M 394.8,208 V 0.2 c 0,0 62.86,-2.17 138.1,28.68 75.25,30.85 120.5,76.95 120.5,76.95 l -147.1,147.1 c 0,0 -15.62,-15.84 -47.92,-30.01 -32.3,-14.17 -63.6,-14.9 -63.6,-14.9 z"
+           fill="url(#d)"
+           id="path509"
+           style="fill:url(#d)" />
+        <path
+           class="hover_ring_5"
+           d="m 394.8,208.2 -0.0305,-37.64 c 0,0 36.58,-0.4583 75.41,15.85 38.83,16.31 62.48,39.99 62.48,39.99 l -26.35,26.53 c 0,0 -15.62,-15.84 -47.92,-30.01 -32.3,-14.17 -63.59,-14.71 -63.59,-14.71 z"
+           fill="#ffffff"
+           fill-opacity="0.2"
+           id="path511" />
+        <text
+           transform="matrix(0.7071,0.7071,0.7071,-0.7071,0,0)"
+           x="363.84915"
+           y="266.3118"
+           fill="#0284a8"
+           font-family="D-DIN-PRO"
+           font-size="28.67px"
+           font-weight="bold"
+           style="line-height:0.8"
+           xml:space="preserve"
+           id="text517"><tspan
+             x="363.84915"
+             y="266.3118"
+             id="tspan513">numerical</tspan><tspan
+             x="363.84915"
+             y="290.49701"
+             id="tspan515">integration</tspan></text>
+      </g>
+      <g
+         class="hover_target_6"
+         transform="matrix(0,1,1,0,-0.1463,-0.6398)"
+         onclick="goToModal('#modal_s6')"
+         id="g531">
+        <path
+           d="M 394.8,208 V 0.2 c 0,0 62.86,-2.17 138.1,28.68 75.25,30.85 120.5,76.95 120.5,76.95 l -147.1,147.1 c 0,0 -15.62,-15.84 -47.92,-30.01 -32.3,-14.17 -63.6,-14.9 -63.6,-14.9 z"
+           fill="url(#c)"
+           id="path521"
+           style="fill:url(#c)" />
+        <path
+           class="hover_ring_6"
+           d="m 394.8,208.2 -0.0305,-37.64 c 0,0 36.58,-0.4583 75.41,15.85 38.83,16.31 62.48,39.99 62.48,39.99 l -26.35,26.53 c 0,0 -15.62,-15.84 -47.92,-30.01 -32.3,-14.17 -63.59,-14.71 -63.59,-14.71 z"
+           fill="#ffffff"
+           fill-opacity="0.2"
+           id="path523" />
+        <text
+           transform="matrix(0,1,1,0,0,0)"
+           x="40.204498"
+           y="495.08426"
+           fill="#0ba0a0"
+           font-family="D-DIN-PRO"
+           font-size="28.67px"
+           font-weight="bold"
+           style="line-height:0.8"
+           xml:space="preserve"
+           id="text529"><tspan
+             x="40.204498"
+             y="495.08426"
+             id="tspan525">polynomial</tspan><tspan
+             x="40.204498"
+             y="519.26947"
+             id="tspan527">chaos</tspan></text>
+      </g>
+      <g
+         class="hover_target_7"
+         transform="matrix(-0.7071,0.7071,0.7071,0.7071,387.4,-161.5)"
+         onclick="goToModal('#modal_s7')"
+         id="g543">
+        <path
+           d="M 396.9,208 V 0.2 c 0,0 60.74,-2.133 136,28.72 75.25,30.85 120.5,76.95 120.5,76.95 l -147.1,147.1 c 0,0 -15.62,-15.84 -47.92,-30.01 -32.3,-14.17 -61.48,-14.94 -61.48,-14.94 z"
+           fill="url(#b)"
+           id="path533"
+           style="fill:url(#b)" />
+        <path
+           class="hover_ring_7"
+           d="m 396.9,208 -0.0305,-37.64 c 0,0 34.47,-0.2343 73.3,16.08 38.83,16.31 62.48,39.99 62.48,39.99 l -26.35,26.53 c 0,0 -15.62,-15.84 -47.92,-30.01 -32.3,-14.17 -61.48,-14.94 -61.48,-14.94 z"
+           fill="#ffffff"
+           fill-opacity="0.2"
+           id="path535" />
+        <text
+           transform="matrix(-0.7071,0.7071,0.7071,0.7071,0,0)"
+           x="-354.11823"
+           y="435.33307"
+           fill="#0284a8"
+           font-family="D-DIN-PRO"
+           font-size="28.67px"
+           font-weight="bold"
+           style="line-height:0.8"
+           xml:space="preserve"
+           id="text541"><tspan
+             x="-354.11823"
+             y="435.33307"
+             id="tspan537">ridge</tspan><tspan
+             x="-354.11823"
+             y="459.51828"
+             id="tspan539">approximation</tspan></text>
+      </g>
+      <g
+         class="hover_target_8"
+         transform="matrix(-1,0,0,1,774.5,-0.0997)"
+         onclick="goToModal('#modal_s8')"
+         id="g555">
+        <path
+           d="M 396.9,208 V 0.2 c 0,0 60.74,-2.133 136,28.72 75.25,30.85 120.5,76.95 120.5,76.95 l -147.1,147.1 c 0,0 -15.62,-15.84 -47.92,-30.01 -32.3,-14.17 -61.48,-14.94 -61.48,-14.94 z"
+           fill="url(#a)"
+           id="path545"
+           style="fill:url(#a)" />
+        <path
+           class="hover_ring_8"
+           d="m 396.9,208 -0.0305,-37.64 c 0,0 34.47,-0.2343 73.3,16.08 38.83,16.31 62.48,39.99 62.48,39.99 l -26.35,26.53 c 0,0 -15.62,-15.84 -47.92,-30.01 -32.3,-14.17 -61.48,-14.94 -61.48,-14.94 z"
+           fill="#ffffff"
+           fill-opacity="0.2"
+           id="path547" />
+        <text
+           transform="scale(-1,1)"
+           x="-573.08734"
+           y="109.8545"
+           fill="#7ad4d1"
+           font-family="D-DIN-PRO"
+           font-size="28.67px"
+           font-weight="bold"
+           style="line-height:0.8"
+           xml:space="preserve"
+           id="text553"><tspan
+             x="-573.08734"
+             y="109.8545"
+             id="tspan549">polynomials</tspan><tspan
+             x="-573.08734"
+             y="134.03972"
+             id="tspan551">on graphs</tspan></text>
+      </g>
+    </g>
+  </g>
+  <script
+     id="s"
+     type="text/javascript">!function(){const t=&quot;http://www.w3.org/2000/svg&quot;,e=&quot;http://www.w3.org/1999/xlink&quot;,s=&quot;http://www.w3.org/1999/xhtml&quot;,r=2;if(document.createElementNS(t,&quot;meshgradient&quot;).x)return;const n=(t,e,s,r)=&gt;{let n=new x(.5*(e.x+s.x),.5*(e.y+s.y)),o=new x(.5*(t.x+e.x),.5*(t.y+e.y)),i=new x(.5*(s.x+r.x),.5*(s.y+r.y)),a=new x(.5*(n.x+o.x),.5*(n.y+o.y)),h=new x(.5*(n.x+i.x),.5*(n.y+i.y)),l=new x(.5*(a.x+h.x),.5*(a.y+h.y));return[[t,o,a,l],[l,h,i,r]]},o=t=&gt;{let e=t[0].distSquared(t[1]),s=t[2].distSquared(t[3]),r=.25*t[0].distSquared(t[2]),n=.25*t[1].distSquared(t[3]),o=e&gt;s?e:s,i=r&gt;n?r:n;return 18*(o&gt;i?o:i)},i=(t,e)=&gt;Math.sqrt(t.distSquared(e)),a=(t,e)=&gt;t.scale(2/3).add(e.scale(1/3)),h=t=&gt;{let e,s,r,n,o,i,a,h=new g;return t.match(/(\w+\(\s*[^)]+\))+/g).forEach(t=&gt;{let l=t.match(/[\w.-]+/g),d=l.shift();switch(d){case&quot;translate&quot;:2===l.length?e=new g(1,0,0,1,l[0],l[1]):(console.error(&quot;mesh.js: translate does not have 2 arguments!&quot;),e=new g(1,0,0,1,0,0)),h=h.append(e);break;case&quot;scale&quot;:1===l.length?s=new g(l[0],0,0,l[0],0,0):2===l.length?s=new g(l[0],0,0,l[1],0,0):(console.error(&quot;mesh.js: scale does not have 1 or 2 arguments!&quot;),s=new g(1,0,0,1,0,0)),h=h.append(s);break;case&quot;rotate&quot;:if(3===l.length&amp;&amp;(e=new g(1,0,0,1,l[1],l[2]),h=h.append(e)),l[0]){r=l[0]*Math.PI/180;let t=Math.cos(r),e=Math.sin(r);Math.abs(t)&lt;1e-16&amp;&amp;(t=0),Math.abs(e)&lt;1e-16&amp;&amp;(e=0),a=new g(t,e,-e,t,0,0),h=h.append(a)}else console.error(&quot;math.js: No argument to rotate transform!&quot;);3===l.length&amp;&amp;(e=new g(1,0,0,1,-l[1],-l[2]),h=h.append(e));break;case&quot;skewX&quot;:l[0]?(r=l[0]*Math.PI/180,n=Math.tan(r),o=new g(1,0,n,1,0,0),h=h.append(o)):console.error(&quot;math.js: No argument to skewX transform!&quot;);break;case&quot;skewY&quot;:l[0]?(r=l[0]*Math.PI/180,n=Math.tan(r),i=new g(1,n,0,1,0,0),h=h.append(i)):console.error(&quot;math.js: No argument to skewY transform!&quot;);break;case&quot;matrix&quot;:6===l.length?h=h.append(new g(...l)):console.error(&quot;math.js: Incorrect number of arguments for matrix!&quot;);break;default:console.error(&quot;mesh.js: Unhandled transform type: &quot;+d)}}),h},l=t=&gt;{let e=[],s=t.split(/[ ,]+/);for(let t=0,r=s.length-1;t&lt;r;t+=2)e.push(new x(parseFloat(s[t]),parseFloat(s[t+1])));return e},d=(t,e)=&gt;{for(let s in e)t.setAttribute(s,e[s])},c=(t,e,s,r,n)=&gt;{let o,i,a=[0,0,0,0];for(let h=0;h&lt;3;++h)e[h]&lt;t[h]&amp;&amp;e[h]&lt;s[h]||t[h]&lt;e[h]&amp;&amp;s[h]&lt;e[h]?a[h]=0:(a[h]=.5*((e[h]-t[h])/r+(s[h]-e[h])/n),o=Math.abs(3*(e[h]-t[h])/r),i=Math.abs(3*(s[h]-e[h])/n),a[h]&gt;o?a[h]=o:a[h]&gt;i&amp;&amp;(a[h]=i));return a},u=[[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0],[-3,3,0,0,-2,-1,0,0,0,0,0,0,0,0,0,0],[2,-2,0,0,1,1,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0],[0,0,0,0,0,0,0,0,-3,3,0,0,-2,-1,0,0],[0,0,0,0,0,0,0,0,2,-2,0,0,1,1,0,0],[-3,0,3,0,0,0,0,0,-2,0,-1,0,0,0,0,0],[0,0,0,0,-3,0,3,0,0,0,0,0,-2,0,-1,0],[9,-9,-9,9,6,3,-6,-3,6,-6,3,-3,4,2,2,1],[-6,6,6,-6,-3,-3,3,3,-4,4,-2,2,-2,-2,-1,-1],[2,0,-2,0,0,0,0,0,1,0,1,0,0,0,0,0],[0,0,0,0,2,0,-2,0,0,0,0,0,1,0,1,0],[-6,6,6,-6,-4,-2,4,2,-3,3,-3,3,-2,-1,-2,-1],[4,-4,-4,4,2,2,-2,-2,2,-2,2,-2,1,1,1,1]],f=t=&gt;{let e=[];for(let s=0;s&lt;16;++s){e[s]=0;for(let r=0;r&lt;16;++r)e[s]+=u[s][r]*t[r]}return e},p=(t,e,s)=&gt;{const r=e*e,n=s*s,o=e*e*e,i=s*s*s;return t[0]+t[1]*e+t[2]*r+t[3]*o+t[4]*s+t[5]*s*e+t[6]*s*r+t[7]*s*o+t[8]*n+t[9]*n*e+t[10]*n*r+t[11]*n*o+t[12]*i+t[13]*i*e+t[14]*i*r+t[15]*i*o},y=t=&gt;{let e=[],s=[],r=[];for(let s=0;s&lt;4;++s)e[s]=[],e[s][0]=n(t[0][s],t[1][s],t[2][s],t[3][s]),e[s][1]=[],e[s][1].push(...n(...e[s][0][0])),e[s][1].push(...n(...e[s][0][1])),e[s][2]=[],e[s][2].push(...n(...e[s][1][0])),e[s][2].push(...n(...e[s][1][1])),e[s][2].push(...n(...e[s][1][2])),e[s][2].push(...n(...e[s][1][3]));for(let t=0;t&lt;8;++t){s[t]=[];for(let r=0;r&lt;4;++r)s[t][r]=[],s[t][r][0]=n(e[0][2][t][r],e[1][2][t][r],e[2][2][t][r],e[3][2][t][r]),s[t][r][1]=[],s[t][r][1].push(...n(...s[t][r][0][0])),s[t][r][1].push(...n(...s[t][r][0][1])),s[t][r][2]=[],s[t][r][2].push(...n(...s[t][r][1][0])),s[t][r][2].push(...n(...s[t][r][1][1])),s[t][r][2].push(...n(...s[t][r][1][2])),s[t][r][2].push(...n(...s[t][r][1][3]))}for(let t=0;t&lt;8;++t){r[t]=[];for(let e=0;e&lt;8;++e)r[t][e]=[],r[t][e][0]=s[t][0][2][e],r[t][e][1]=s[t][1][2][e],r[t][e][2]=s[t][2][2][e],r[t][e][3]=s[t][3][2][e]}return r};class x{constructor(t,e){this.x=t||0,this.y=e||0}toString(){return`(x=${this.x}, y=${this.y})`}clone(){return new x(this.x,this.y)}add(t){return new x(this.x+t.x,this.y+t.y)}scale(t){return void 0===t.x?new x(this.x*t,this.y*t):new x(this.x*t.x,this.y*t.y)}distSquared(t){let e=this.x-t.x,s=this.y-t.y;return e*e+s*s}transform(t){let e=this.x*t.a+this.y*t.c+t.e,s=this.x*t.b+this.y*t.d+t.f;return new x(e,s)}}class g{constructor(t,e,s,r,n,o){void 0===t?(this.a=1,this.b=0,this.c=0,this.d=1,this.e=0,this.f=0):(this.a=t,this.b=e,this.c=s,this.d=r,this.e=n,this.f=o)}toString(){return`affine: ${this.a} ${this.c} ${this.e} \n       ${this.b} ${this.d} ${this.f}`}append(t){t instanceof g||console.error(&quot;mesh.js: argument to Affine.append is not affine!&quot;);let e=this.a*t.a+this.c*t.b,s=this.b*t.a+this.d*t.b,r=this.a*t.c+this.c*t.d,n=this.b*t.c+this.d*t.d,o=this.a*t.e+this.c*t.f+this.e,i=this.b*t.e+this.d*t.f+this.f;return new g(e,s,r,n,o,i)}}class w{constructor(t,e){this.nodes=t,this.colors=e}paintCurve(t,e){if(o(this.nodes)&gt;r){const s=n(...this.nodes);let r=[[],[]],o=[[],[]];for(let t=0;t&lt;4;++t)r[0][t]=this.colors[0][t],r[1][t]=(this.colors[0][t]+this.colors[1][t])/2,o[0][t]=r[1][t],o[1][t]=this.colors[1][t];let i=new w(s[0],r),a=new w(s[1],o);i.paintCurve(t,e),a.paintCurve(t,e)}else{let s=Math.round(this.nodes[0].x);if(s&gt;=0&amp;&amp;s&lt;e){let r=4*(~~this.nodes[0].y*e+s);t[r]=Math.round(this.colors[0][0]),t[r+1]=Math.round(this.colors[0][1]),t[r+2]=Math.round(this.colors[0][2]),t[r+3]=Math.round(this.colors[0][3])}}}}class m{constructor(t,e){this.nodes=t,this.colors=e}split(){let t=[[],[],[],[]],e=[[],[],[],[]],s=[[[],[]],[[],[]]],r=[[[],[]],[[],[]]];for(let s=0;s&lt;4;++s){const r=n(this.nodes[0][s],this.nodes[1][s],this.nodes[2][s],this.nodes[3][s]);t[0][s]=r[0][0],t[1][s]=r[0][1],t[2][s]=r[0][2],t[3][s]=r[0][3],e[0][s]=r[1][0],e[1][s]=r[1][1],e[2][s]=r[1][2],e[3][s]=r[1][3]}for(let t=0;t&lt;4;++t)s[0][0][t]=this.colors[0][0][t],s[0][1][t]=this.colors[0][1][t],s[1][0][t]=(this.colors[0][0][t]+this.colors[1][0][t])/2,s[1][1][t]=(this.colors[0][1][t]+this.colors[1][1][t])/2,r[0][0][t]=s[1][0][t],r[0][1][t]=s[1][1][t],r[1][0][t]=this.colors[1][0][t],r[1][1][t]=this.colors[1][1][t];return[new m(t,s),new m(e,r)]}paint(t,e){let s,n=!1;for(let t=0;t&lt;4;++t)if((s=o([this.nodes[0][t],this.nodes[1][t],this.nodes[2][t],this.nodes[3][t]]))&gt;r){n=!0;break}if(n){let s=this.split();s[0].paint(t,e),s[1].paint(t,e)}else{new w([...this.nodes[0]],[...this.colors[0]]).paintCurve(t,e)}}}class b{constructor(t){this.readMesh(t),this.type=t.getAttribute(&quot;type&quot;)||&quot;bilinear&quot;}readMesh(t){let e=[[]],s=[[]],r=Number(t.getAttribute(&quot;x&quot;)),n=Number(t.getAttribute(&quot;y&quot;));e[0][0]=new x(r,n);let o=t.children;for(let t=0,r=o.length;t&lt;r;++t){e[3*t+1]=[],e[3*t+2]=[],e[3*t+3]=[],s[t+1]=[];let r=o[t].children;for(let n=0,o=r.length;n&lt;o;++n){let o=r[n].children;for(let r=0,i=o.length;r&lt;i;++r){let i=r;0!==t&amp;&amp;++i;let h,d=o[r].getAttribute(&quot;path&quot;),c=&quot;l&quot;;null!=d&amp;&amp;(c=(h=d.match(/\s*([lLcC])\s*(.*)/))[1]);let u=l(h[2]);switch(c){case&quot;l&quot;:0===i?(e[3*t][3*n+3]=u[0].add(e[3*t][3*n]),e[3*t][3*n+1]=a(e[3*t][3*n],e[3*t][3*n+3]),e[3*t][3*n+2]=a(e[3*t][3*n+3],e[3*t][3*n])):1===i?(e[3*t+3][3*n+3]=u[0].add(e[3*t][3*n+3]),e[3*t+1][3*n+3]=a(e[3*t][3*n+3],e[3*t+3][3*n+3]),e[3*t+2][3*n+3]=a(e[3*t+3][3*n+3],e[3*t][3*n+3])):2===i?(0===n&amp;&amp;(e[3*t+3][3*n+0]=u[0].add(e[3*t+3][3*n+3])),e[3*t+3][3*n+1]=a(e[3*t+3][3*n],e[3*t+3][3*n+3]),e[3*t+3][3*n+2]=a(e[3*t+3][3*n+3],e[3*t+3][3*n])):(e[3*t+1][3*n]=a(e[3*t][3*n],e[3*t+3][3*n]),e[3*t+2][3*n]=a(e[3*t+3][3*n],e[3*t][3*n]));break;case&quot;L&quot;:0===i?(e[3*t][3*n+3]=u[0],e[3*t][3*n+1]=a(e[3*t][3*n],e[3*t][3*n+3]),e[3*t][3*n+2]=a(e[3*t][3*n+3],e[3*t][3*n])):1===i?(e[3*t+3][3*n+3]=u[0],e[3*t+1][3*n+3]=a(e[3*t][3*n+3],e[3*t+3][3*n+3]),e[3*t+2][3*n+3]=a(e[3*t+3][3*n+3],e[3*t][3*n+3])):2===i?(0===n&amp;&amp;(e[3*t+3][3*n+0]=u[0]),e[3*t+3][3*n+1]=a(e[3*t+3][3*n],e[3*t+3][3*n+3]),e[3*t+3][3*n+2]=a(e[3*t+3][3*n+3],e[3*t+3][3*n])):(e[3*t+1][3*n]=a(e[3*t][3*n],e[3*t+3][3*n]),e[3*t+2][3*n]=a(e[3*t+3][3*n],e[3*t][3*n]));break;case&quot;c&quot;:0===i?(e[3*t][3*n+1]=u[0].add(e[3*t][3*n]),e[3*t][3*n+2]=u[1].add(e[3*t][3*n]),e[3*t][3*n+3]=u[2].add(e[3*t][3*n])):1===i?(e[3*t+1][3*n+3]=u[0].add(e[3*t][3*n+3]),e[3*t+2][3*n+3]=u[1].add(e[3*t][3*n+3]),e[3*t+3][3*n+3]=u[2].add(e[3*t][3*n+3])):2===i?(e[3*t+3][3*n+2]=u[0].add(e[3*t+3][3*n+3]),e[3*t+3][3*n+1]=u[1].add(e[3*t+3][3*n+3]),0===n&amp;&amp;(e[3*t+3][3*n+0]=u[2].add(e[3*t+3][3*n+3]))):(e[3*t+2][3*n]=u[0].add(e[3*t+3][3*n]),e[3*t+1][3*n]=u[1].add(e[3*t+3][3*n]));break;case&quot;C&quot;:0===i?(e[3*t][3*n+1]=u[0],e[3*t][3*n+2]=u[1],e[3*t][3*n+3]=u[2]):1===i?(e[3*t+1][3*n+3]=u[0],e[3*t+2][3*n+3]=u[1],e[3*t+3][3*n+3]=u[2]):2===i?(e[3*t+3][3*n+2]=u[0],e[3*t+3][3*n+1]=u[1],0===n&amp;&amp;(e[3*t+3][3*n+0]=u[2])):(e[3*t+2][3*n]=u[0],e[3*t+1][3*n]=u[1]);break;default:console.error(&quot;mesh.js: &quot;+c+&quot; invalid path type.&quot;)}if(0===t&amp;&amp;0===n||r&gt;0){let e=window.getComputedStyle(o[r]).stopColor.match(/^rgb\s*\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)$/i),a=window.getComputedStyle(o[r]).stopOpacity,h=255;a&amp;&amp;(h=Math.floor(255*a)),e&amp;&amp;(0===i?(s[t][n]=[],s[t][n][0]=Math.floor(e[1]),s[t][n][1]=Math.floor(e[2]),s[t][n][2]=Math.floor(e[3]),s[t][n][3]=h):1===i?(s[t][n+1]=[],s[t][n+1][0]=Math.floor(e[1]),s[t][n+1][1]=Math.floor(e[2]),s[t][n+1][2]=Math.floor(e[3]),s[t][n+1][3]=h):2===i?(s[t+1][n+1]=[],s[t+1][n+1][0]=Math.floor(e[1]),s[t+1][n+1][1]=Math.floor(e[2]),s[t+1][n+1][2]=Math.floor(e[3]),s[t+1][n+1][3]=h):3===i&amp;&amp;(s[t+1][n]=[],s[t+1][n][0]=Math.floor(e[1]),s[t+1][n][1]=Math.floor(e[2]),s[t+1][n][2]=Math.floor(e[3]),s[t+1][n][3]=h))}}e[3*t+1][3*n+1]=new x,e[3*t+1][3*n+2]=new x,e[3*t+2][3*n+1]=new x,e[3*t+2][3*n+2]=new x,e[3*t+1][3*n+1].x=(-4*e[3*t][3*n].x+6*(e[3*t][3*n+1].x+e[3*t+1][3*n].x)+-2*(e[3*t][3*n+3].x+e[3*t+3][3*n].x)+3*(e[3*t+3][3*n+1].x+e[3*t+1][3*n+3].x)+-1*e[3*t+3][3*n+3].x)/9,e[3*t+1][3*n+2].x=(-4*e[3*t][3*n+3].x+6*(e[3*t][3*n+2].x+e[3*t+1][3*n+3].x)+-2*(e[3*t][3*n].x+e[3*t+3][3*n+3].x)+3*(e[3*t+3][3*n+2].x+e[3*t+1][3*n].x)+-1*e[3*t+3][3*n].x)/9,e[3*t+2][3*n+1].x=(-4*e[3*t+3][3*n].x+6*(e[3*t+3][3*n+1].x+e[3*t+2][3*n].x)+-2*(e[3*t+3][3*n+3].x+e[3*t][3*n].x)+3*(e[3*t][3*n+1].x+e[3*t+2][3*n+3].x)+-1*e[3*t][3*n+3].x)/9,e[3*t+2][3*n+2].x=(-4*e[3*t+3][3*n+3].x+6*(e[3*t+3][3*n+2].x+e[3*t+2][3*n+3].x)+-2*(e[3*t+3][3*n].x+e[3*t][3*n+3].x)+3*(e[3*t][3*n+2].x+e[3*t+2][3*n].x)+-1*e[3*t][3*n].x)/9,e[3*t+1][3*n+1].y=(-4*e[3*t][3*n].y+6*(e[3*t][3*n+1].y+e[3*t+1][3*n].y)+-2*(e[3*t][3*n+3].y+e[3*t+3][3*n].y)+3*(e[3*t+3][3*n+1].y+e[3*t+1][3*n+3].y)+-1*e[3*t+3][3*n+3].y)/9,e[3*t+1][3*n+2].y=(-4*e[3*t][3*n+3].y+6*(e[3*t][3*n+2].y+e[3*t+1][3*n+3].y)+-2*(e[3*t][3*n].y+e[3*t+3][3*n+3].y)+3*(e[3*t+3][3*n+2].y+e[3*t+1][3*n].y)+-1*e[3*t+3][3*n].y)/9,e[3*t+2][3*n+1].y=(-4*e[3*t+3][3*n].y+6*(e[3*t+3][3*n+1].y+e[3*t+2][3*n].y)+-2*(e[3*t+3][3*n+3].y+e[3*t][3*n].y)+3*(e[3*t][3*n+1].y+e[3*t+2][3*n+3].y)+-1*e[3*t][3*n+3].y)/9,e[3*t+2][3*n+2].y=(-4*e[3*t+3][3*n+3].y+6*(e[3*t+3][3*n+2].y+e[3*t+2][3*n+3].y)+-2*(e[3*t+3][3*n].y+e[3*t][3*n+3].y)+3*(e[3*t][3*n+2].y+e[3*t+2][3*n].y)+-1*e[3*t][3*n].y)/9}}this.nodes=e,this.colors=s}paintMesh(t,e){let s=(this.nodes.length-1)/3,r=(this.nodes[0].length-1)/3;if(&quot;bilinear&quot;===this.type||s&lt;2||r&lt;2){let n;for(let o=0;o&lt;s;++o)for(let s=0;s&lt;r;++s){let r=[];for(let t=3*o,e=3*o+4;t&lt;e;++t)r.push(this.nodes[t].slice(3*s,3*s+4));let i=[];i.push(this.colors[o].slice(s,s+2)),i.push(this.colors[o+1].slice(s,s+2)),(n=new m(r,i)).paint(t,e)}}else{let n,o,a,h,l,d,u;const x=s,g=r;s++,r++;let w=new Array(s);for(let t=0;t&lt;s;++t){w[t]=new Array(r);for(let e=0;e&lt;r;++e)w[t][e]=[],w[t][e][0]=this.nodes[3*t][3*e],w[t][e][1]=this.colors[t][e]}for(let t=0;t&lt;s;++t)for(let e=0;e&lt;r;++e)0!==t&amp;&amp;t!==x&amp;&amp;(n=i(w[t-1][e][0],w[t][e][0]),o=i(w[t+1][e][0],w[t][e][0]),w[t][e][2]=c(w[t-1][e][1],w[t][e][1],w[t+1][e][1],n,o)),0!==e&amp;&amp;e!==g&amp;&amp;(n=i(w[t][e-1][0],w[t][e][0]),o=i(w[t][e+1][0],w[t][e][0]),w[t][e][3]=c(w[t][e-1][1],w[t][e][1],w[t][e+1][1],n,o));for(let t=0;t&lt;r;++t){w[0][t][2]=[],w[x][t][2]=[];for(let e=0;e&lt;4;++e)n=i(w[1][t][0],w[0][t][0]),o=i(w[x][t][0],w[x-1][t][0]),w[0][t][2][e]=n&gt;0?2*(w[1][t][1][e]-w[0][t][1][e])/n-w[1][t][2][e]:0,w[x][t][2][e]=o&gt;0?2*(w[x][t][1][e]-w[x-1][t][1][e])/o-w[x-1][t][2][e]:0}for(let t=0;t&lt;s;++t){w[t][0][3]=[],w[t][g][3]=[];for(let e=0;e&lt;4;++e)n=i(w[t][1][0],w[t][0][0]),o=i(w[t][g][0],w[t][g-1][0]),w[t][0][3][e]=n&gt;0?2*(w[t][1][1][e]-w[t][0][1][e])/n-w[t][1][3][e]:0,w[t][g][3][e]=o&gt;0?2*(w[t][g][1][e]-w[t][g-1][1][e])/o-w[t][g-1][3][e]:0}for(let s=0;s&lt;x;++s)for(let r=0;r&lt;g;++r){let n=i(w[s][r][0],w[s+1][r][0]),o=i(w[s][r+1][0],w[s+1][r+1][0]),c=i(w[s][r][0],w[s][r+1][0]),x=i(w[s+1][r][0],w[s+1][r+1][0]),g=[[],[],[],[]];for(let t=0;t&lt;4;++t){(d=[])[0]=w[s][r][1][t],d[1]=w[s+1][r][1][t],d[2]=w[s][r+1][1][t],d[3]=w[s+1][r+1][1][t],d[4]=w[s][r][2][t]*n,d[5]=w[s+1][r][2][t]*n,d[6]=w[s][r+1][2][t]*o,d[7]=w[s+1][r+1][2][t]*o,d[8]=w[s][r][3][t]*c,d[9]=w[s+1][r][3][t]*x,d[10]=w[s][r+1][3][t]*c,d[11]=w[s+1][r+1][3][t]*x,d[12]=0,d[13]=0,d[14]=0,d[15]=0,u=f(d);for(let e=0;e&lt;9;++e){g[t][e]=[];for(let s=0;s&lt;9;++s)g[t][e][s]=p(u,e/8,s/8),g[t][e][s]&gt;255?g[t][e][s]=255:g[t][e][s]&lt;0&amp;&amp;(g[t][e][s]=0)}}h=[];for(let t=3*s,e=3*s+4;t&lt;e;++t)h.push(this.nodes[t].slice(3*r,3*r+4));l=y(h);for(let s=0;s&lt;8;++s)for(let r=0;r&lt;8;++r)(a=new m(l[s][r],[[[g[0][s][r],g[1][s][r],g[2][s][r],g[3][s][r]],[g[0][s][r+1],g[1][s][r+1],g[2][s][r+1],g[3][s][r+1]]],[[g[0][s+1][r],g[1][s+1][r],g[2][s+1][r],g[3][s+1][r]],[g[0][s+1][r+1],g[1][s+1][r+1],g[2][s+1][r+1],g[3][s+1][r+1]]]])).paint(t,e)}}}transform(t){if(t instanceof x)for(let e=0,s=this.nodes.length;e&lt;s;++e)for(let s=0,r=this.nodes[0].length;s&lt;r;++s)this.nodes[e][s]=this.nodes[e][s].add(t);else if(t instanceof g)for(let e=0,s=this.nodes.length;e&lt;s;++e)for(let s=0,r=this.nodes[0].length;s&lt;r;++s)this.nodes[e][s]=this.nodes[e][s].transform(t)}scale(t){for(let e=0,s=this.nodes.length;e&lt;s;++e)for(let s=0,r=this.nodes[0].length;s&lt;r;++s)this.nodes[e][s]=this.nodes[e][s].scale(t)}}document.querySelectorAll(&quot;rect,circle,ellipse,path,text&quot;).forEach((r,n)=&gt;{let o=r.getAttribute(&quot;id&quot;);o||(o=&quot;patchjs_shape&quot;+n,r.setAttribute(&quot;id&quot;,o));const i=r.style.fill.match(/^url\(\s*&quot;?\s*#([^\s&quot;]+)&quot;?\s*\)/),a=r.style.stroke.match(/^url\(\s*&quot;?\s*#([^\s&quot;]+)&quot;?\s*\)/);if(i&amp;&amp;i[1]){const a=document.getElementById(i[1]);if(a&amp;&amp;&quot;meshgradient&quot;===a.nodeName){const i=r.getBBox();let l=document.createElementNS(s,&quot;canvas&quot;);d(l,{width:i.width,height:i.height});const c=l.getContext(&quot;2d&quot;);let u=c.createImageData(i.width,i.height);const f=new b(a);&quot;objectBoundingBox&quot;===a.getAttribute(&quot;gradientUnits&quot;)&amp;&amp;f.scale(new x(i.width,i.height));const p=a.getAttribute(&quot;gradientTransform&quot;);null!=p&amp;&amp;f.transform(h(p)),&quot;userSpaceOnUse&quot;===a.getAttribute(&quot;gradientUnits&quot;)&amp;&amp;f.transform(new x(-i.x,-i.y)),f.paintMesh(u.data,l.width),c.putImageData(u,0,0);const y=document.createElementNS(t,&quot;image&quot;);d(y,{width:i.width,height:i.height,x:i.x,y:i.y});let g=l.toDataURL();y.setAttributeNS(e,&quot;xlink:href&quot;,g),r.parentNode.insertBefore(y,r),r.style.fill=&quot;none&quot;;const w=document.createElementNS(t,&quot;use&quot;);w.setAttributeNS(e,&quot;xlink:href&quot;,&quot;#&quot;+o);const m=&quot;patchjs_clip&quot;+n,M=document.createElementNS(t,&quot;clipPath&quot;);M.setAttribute(&quot;id&quot;,m),M.appendChild(w),r.parentElement.insertBefore(M,r),y.setAttribute(&quot;clip-path&quot;,&quot;url(#&quot;+m+&quot;)&quot;),u=null,l=null,g=null}}if(a&amp;&amp;a[1]){const o=document.getElementById(a[1]);if(o&amp;&amp;&quot;meshgradient&quot;===o.nodeName){const i=parseFloat(r.style.strokeWidth.slice(0,-2))*(parseFloat(r.style.strokeMiterlimit)||parseFloat(r.getAttribute(&quot;stroke-miterlimit&quot;))||1),a=r.getBBox(),l=Math.trunc(a.width+i),c=Math.trunc(a.height+i),u=Math.trunc(a.x-i/2),f=Math.trunc(a.y-i/2);let p=document.createElementNS(s,&quot;canvas&quot;);d(p,{width:l,height:c});const y=p.getContext(&quot;2d&quot;);let g=y.createImageData(l,c);const w=new b(o);&quot;objectBoundingBox&quot;===o.getAttribute(&quot;gradientUnits&quot;)&amp;&amp;w.scale(new x(l,c));const m=o.getAttribute(&quot;gradientTransform&quot;);null!=m&amp;&amp;w.transform(h(m)),&quot;userSpaceOnUse&quot;===o.getAttribute(&quot;gradientUnits&quot;)&amp;&amp;w.transform(new x(-u,-f)),w.paintMesh(g.data,p.width),y.putImageData(g,0,0);const M=document.createElementNS(t,&quot;image&quot;);d(M,{width:l,height:c,x:0,y:0});let S=p.toDataURL();M.setAttributeNS(e,&quot;xlink:href&quot;,S);const k=&quot;pattern_clip&quot;+n,A=document.createElementNS(t,&quot;pattern&quot;);d(A,{id:k,patternUnits:&quot;userSpaceOnUse&quot;,width:l,height:c,x:u,y:f}),A.appendChild(M),o.parentNode.appendChild(A),r.style.stroke=&quot;url(#&quot;+k+&quot;)&quot;,g=null,p=null,S=null}}})}();</script>
+</svg>

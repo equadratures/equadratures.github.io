@@ -1,6 +1,6 @@
 site:
-  name: AstroWind
-  site: 'https://astrowind.vercel.app'
+  name: equadratures
+  site: 'https://equadratures.org'
   base: '/'
   trailingSlash: false
 
@@ -9,22 +9,22 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: AstroWind
-    template: '%s — AstroWind'
-  description: "\U0001F680 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs."
+    default: equadratures
+    template: '%s — equadratures'
+  description: "\U0001F680 equadratures is an open-source python framework for fitting models to data."
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: AstroWind
+    site_name: equadratures
     images:
       - url: '~/assets/images/default.png'
         width: 1200
         height: 628
     type: website
   twitter:
-    handle: '@arthelokyo'
-    site: '@arthelokyo'
+    handle: '@equadratures'
+    site: '@equadratures'
     cardType: summary_large_image
 
 i18n:

@@ -115,7 +115,7 @@ export const headerData = {
       href: '#',
     },
   ],
-  actions: [{ text: 'Download', href: 'https://github.com/arthelokyo/astrowind', target: '_blank' }],
+  actions: [{ text: 'Install', href: 'https://pypi.org/project/equadratures/', target: '_blank' }],
 };
 
 export const footerData = {
