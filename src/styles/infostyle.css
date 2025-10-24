@@ -1,13 +1,13 @@
 @font-face {
   font-family: "DIN Pro";
   src: local(DinPro),
-    url('fonts/DINPro.ttf') format('truetype');
+    url('/fonts/DINPro.ttf') format('truetype');
 }
 
 @font-face {
   font-family: "D-DIN-PRO";
   src: local(DinPro),
-    url('fonts/DINPRO-700-Bold.ttf') format('truetype');
+    url('/fonts/DINPRO-700-Bold.ttf') format('truetype');
 }
 
 img {
@@ -27,7 +27,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: calc(100vh - 62px);
+  height: calc(00vh - 62px);
   overflow: hidden;
 }
 
@@ -48,7 +48,7 @@ img {
 
 .svg_content:hover *[class*="hover_target"] {
   opacity: 0.5;
-  filter: blur(2px);
+  filter: blur(3px);
   transition: 0.3s;
 }
 
