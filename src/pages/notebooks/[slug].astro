@@ -1,0 +1,91 @@
+---
+import fs from 'fs';
+import path from 'path';
+import Layout from '~/layouts/PageLayout.astro';
+
+export async function getStaticPaths() {
+  const htmlDir = path.resolve('public/notebooks');
+  const files = fs.readdirSync(htmlDir).filter(f => f.endsWith('.html'));
+
+  return files.map(f => ({
+    params: { slug: f.replace('.html', '') },
+  }));
+}
+
+const { slug } = Astro.params;
+const htmlPath = path.resolve(`public/notebooks/${slug}.html`);
+
+let notebookHTML = '';
+try {
+  notebookHTML = fs.readFileSync(htmlPath, 'utf-8');
+} catch (err) {
+  console.error(err);
+  notebookHTML = `<p>Error loading notebook <code>${slug}</code></p>`;
+}
+---
+
+<Layout>
+  <main class="bg-white dark:bg-gray-900 transition-colors duration-300">
+  <!-- Back to CircularMenu Button -->
+  <a href="/#feature-notebooks" class="back-to-circle-btn">
+    <svg fill="#ff0000" height="50px" width="50px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-6.57 -6.57 232.29 232.29" xml:space="preserve" stroke="#ff0000" stroke-width="7.231983000000001" transform="matrix(1, 0, 0, 1, 0, 0)rotate(0)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="2.6298120000000003"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M109.576,219.151c60.419,0,109.573-49.156,109.573-109.576C219.149,49.156,169.995,0,109.576,0S0.002,49.156,0.002,109.575 C0.002,169.995,49.157,219.151,109.576,219.151z M109.576,15c52.148,0,94.573,42.426,94.574,94.575 c0,52.149-42.425,94.575-94.574,94.576c-52.148-0.001-94.573-42.427-94.573-94.577C15.003,57.427,57.428,15,109.576,15z"></path> <path d="M94.861,156.507c2.929,2.928,7.678,2.927,10.606,0c2.93-2.93,2.93-7.678-0.001-10.608l-28.82-28.819l83.457-0.008 c4.142-0.001,7.499-3.358,7.499-7.502c-0.001-4.142-3.358-7.498-7.5-7.498l-83.46,0.008l28.827-28.825 c2.929-2.929,2.929-7.679,0-10.607c-1.465-1.464-3.384-2.197-5.304-2.197c-1.919,0-3.838,0.733-5.303,2.196l-41.629,41.628 c-1.407,1.406-2.197,3.313-2.197,5.303c0.001,1.99,0.791,3.896,2.198,5.305L94.861,156.507z"></path> </g> </g></svg>
+  </a>
+
+    <article
+      class="prose max-w-4xl mx-auto py-12 dark:prose-invert"
+      set:html={notebookHTML}
+    />
+  </main>
+</Layout>
+
+<style>
+  /* Styling the back-to-circle button */
+  .back-to-circle-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+    padding-left: 100px;
+    padding-right: 100px;
+    background-color: var(--md-accent-fg-color); /* Default background color */
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    z-index: 9999; /* Ensure it’s above other elements */
+  }
+
+  /* Hover effect */
+  .back-to-circle-btn:hover {
+    transform: scale(1.1); /* Slightly scale up on hover */
+  }
+
+  /* SVG inside the button */
+  .back-to-circle-btn svg {
+    transition: stroke 0.3s; /* Smooth transition for stroke color */
+    stroke: var(--md-default-fg-color); /* Default color */
+  }
+
+  /* Change color of the SVG lines on hover */
+  .back-to-circle-btn:hover svg {
+    fill: blue; /* Change the stroke color to blue on hover */
+  }
+
+  /* Focus effect */
+  .back-to-circle-btn:focus {
+    outline: none;
+  }
+
+  /* For small screens, adjust position */
+  @media screen and (max-width: 768px) {
+    .back-to-circle-btn {
+      padding: 8px 16px;
+      font-size: 0.9rem;
+      top: 10px;
+      left: 10px; /* Adjust to left for smaller screens */
+    }
+  }
+</style>
+

@@ -42,8 +42,12 @@ const metadata = {
   </Hero2>
 
   <!-- CircularMenu Widget ******************* -->
-
-  <CircularMenu id="features" />
+  <div class="text-center max-w-5xl m-auto" id="feature-notebooks">
+    <p class="text-base text-secondary dark:text-blue-200 font-bold tracking-wide uppercase intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
+      Feature Notebooks
+    </p>
+  </div>
+  <CircularMenu />
 
   <!-- HighlightedPosts Widget ******* -->
 
@@ -65,3 +69,9 @@ const metadata = {
   />
 
 </Layout>
+
+<style>
+#feature-notebooks {
+  scroll-margin-top: 100px;  /* Adjust this value to the height of your fixed/sticky header */
+}
+</style>

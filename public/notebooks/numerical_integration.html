@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+
+<html>
+<head><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Notebook</title>
+<style type="text/css">
+    pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: var(--jp-cell-editor-active-background) }
+.highlight { background: var(--jp-cell-editor-background); color: var(--jp-mirror-editor-variable-color) }
+.highlight .c { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment */
+.highlight .err { color: var(--jp-mirror-editor-error-color) } /* Error */
+.highlight .k { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword */
+.highlight .o { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator */
+.highlight .p { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation */
+.highlight .ch { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Preproc */
+.highlight .cpf { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Single */
+.highlight .cs { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Special */
+.highlight .kc { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Type */
+.highlight .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */
+.highlight .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */
+.highlight .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */
+.highlight .pm { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation.Marker */
+.highlight .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */
+.highlight .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */
+.highlight .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */
+.highlight .mh { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Hex */
+.highlight .mi { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Integer */
+.highlight .mo { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Oct */
+.highlight .sa { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Affix */
+.highlight .sb { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Backtick */
+.highlight .sc { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Char */
+.highlight .dl { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Delimiter */
+.highlight .sd { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Doc */
+.highlight .s2 { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Double */
+.highlight .se { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Escape */
+.highlight .sh { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Heredoc */
+.highlight .si { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Interpol */
+.highlight .sx { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Other */
+.highlight .sr { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Regex */
+.highlight .s1 { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Single */
+.highlight .ss { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Symbol */
+.highlight .il { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Integer.Long */
+  </style>
+<link href="/notebooks/templates/lab_custom//static/index.css" rel="stylesheet"/>
+<link href="/notebooks/templates/lab_custom/static/misc.css" rel="stylesheet"/>
+<!-- Load mathjax -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML-full,Safe"> </script>
+<!-- MathJax configuration -->
+<script type="text/x-mathjax-config">
+    init_mathjax = function() {
+        if (window.MathJax) {
+        // MathJax loaded
+            MathJax.Hub.Config({
+                TeX: {
+                    equationNumbers: {
+                    autoNumber: "AMS",
+                    useLabelIds: true
+                    }
+                },
+                tex2jax: {
+                    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                    processEscapes: true,
+                    processEnvironments: true
+                },
+                displayAlign: 'center',
+                messageStyle: 'none',
+                CommonHTML: {
+                    linebreaks: {
+                    automatic: true
+                    }
+                }
+            });
+
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        }
+    }
+    init_mathjax();
+    </script>
+<!-- End of mathjax configuration --></head><!DOCTYPE html>
+
+<html>
+<head><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Notebook</title>
+<style type="text/css">
+    pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: var(--jp-cell-editor-active-background) }
+.highlight { background: var(--jp-cell-editor-background); color: var(--jp-mirror-editor-variable-color) }
+.highlight .c { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment */
+.highlight .err { color: var(--jp-mirror-editor-error-color) } /* Error */
+.highlight .k { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword */
+.highlight .o { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator */
+.highlight .p { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation */
+.highlight .ch { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Preproc */
+.highlight .cpf { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Single */
+.highlight .cs { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment.Special */
+.highlight .kc { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: var(--jp-mirror-editor-keyword-color); font-weight: bold } /* Keyword.Type */
+.highlight .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */
+.highlight .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */
+.highlight .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */
+.highlight .pm { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation.Marker */
+.highlight .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */
+.highlight .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */
+.highlight .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */
+.highlight .mh { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Hex */
+.highlight .mi { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Integer */
+.highlight .mo { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Oct */
+.highlight .sa { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Affix */
+.highlight .sb { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Backtick */
+.highlight .sc { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Char */
+.highlight .dl { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Delimiter */
+.highlight .sd { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Doc */
+.highlight .s2 { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Double */
+.highlight .se { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Escape */
+.highlight .sh { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Heredoc */
+.highlight .si { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Interpol */
+.highlight .sx { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Other */
+.highlight .sr { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Regex */
+.highlight .s1 { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Single */
+.highlight .ss { color: var(--jp-mirror-editor-string-color) } /* Literal.String.Symbol */
+.highlight .il { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Integer.Long */
+  </style>
+<link href="/notebooks/templates/lab_custom//static/index.css" rel="stylesheet"/>
+<link href="/notebooks/templates/lab_custom/static/misc.css" rel="stylesheet"/>
+<!-- Load mathjax -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS_CHTML-full,Safe"> </script>
+<!-- MathJax configuration -->
+<script type="text/x-mathjax-config">
+    init_mathjax = function() {
+        if (window.MathJax) {
+        // MathJax loaded
+            MathJax.Hub.Config({
+                TeX: {
+                    equationNumbers: {
+                    autoNumber: "AMS",
+                    useLabelIds: true
+                    }
+                },
+                tex2jax: {
+                    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                    processEscapes: true,
+                    processEnvironments: true
+                },
+                displayAlign: 'center',
+                messageStyle: 'none',
+                CommonHTML: {
+                    linebreaks: {
+                    automatic: true
+                    }
+                }
+            });
+
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        }
+    }
+    init_mathjax();
+    </script>
+<!-- End of mathjax configuration --></meta></head><body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="Numerical-Integration">Numerical Integration<a class="anchor-link" href="#Numerical-Integration">¶</a></h1>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>In this tutorial we describe how to use Equadratures capabilities to numerically compute integrals using efficient quadratures.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="Table-Of-Contents:">Table Of Contents:<a class="anchor-link" href="#Table-Of-Contents:">¶</a></h1><ul>
+<li><a href="#GL">Gauss-Legendre Univariate Integration</a></li>
+<li><a href="#NUWD">Non Uniform Weight Distributions</a></li>
+<li><a href="#BV">Bivariate Distributions</a></li>
+<li><a href="#TG">Tensor Grid</a></li>
+<li><a href="#SG">Sparse Grid</a></li>
+<li><a href="#ESQD">Effectively Subsampled Quadrature Grid</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">equadratures</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">eq</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.graph_objects</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">go</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.express</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">px</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Gauss-Legendre-Univariate-Integration-">Gauss-Legendre Univariate Integration <a class="anchor" id="GL"></a><a class="anchor-link" href="#Gauss-Legendre-Univariate-Integration-">¶</a></h3>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">order</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">parameter</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">lower</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span> <span class="n">distribution</span><span class="o">=</span><span class="s1">'uniform'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>We will first consider univariate polynomials, evaluating using Gauss-Legendre Quadrature.</p>
+<p>Above, we being by defining a uniform paramter from -1 to 1 and of order 100, meaning that we are only considering the first 100 orthogonal polynomials in our quadrature computations.</p>
+<p>$$
+\int_{-1}^{1}f(x)dx
+$$</p>
+<p>Utilizing Gauss-Legendre Quadrature (since we are using a uniform weight distribution), we can evaluate the above integral by evaluating the function at certain points, that correspond to the roots of the Legendre polynomial, and dot those evaluations with weights associated with those points.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">basis</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Basis</span><span class="p">(</span><span class="s1">'univariate'</span><span class="p">)</span>
+<span class="n">poly</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Poly</span><span class="p">(</span><span class="n">parameter</span><span class="p">,</span> <span class="n">basis</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'numerical-integration'</span><span class="p">)</span>
+<span class="n">points</span><span class="p">,</span> <span class="n">weights</span> <span class="o">=</span> <span class="n">poly</span><span class="o">.</span><span class="n">get_points_and_weights</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Equadratures allows simple retrieval of these weights and points, allowing us to evaluate computationally efficient integrals.</p>
+<p>$$
+\int_{-1}^{1}f(x)dx \approx \sum_{n=1}^{i}f(points_i)*weights_i 
+$$</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Consider the function:
+$$
+f(x) = cos(x^2)
+$$</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Utilizing the weights and points we previously collected, evaluation is easily done through the following.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="nb">eval</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span> <span class="mi">2</span>  <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">weights</span> <span class="p">,</span> <span class="n">eq</span><span class="o">.</span><span class="n">evaluate_model</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">eval</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>1.8090484758005432
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>$$
+\int_{-1}^{1}cos(x^2)dx \approx \sum_{n=1}^{i}f(points_i)*weights_i = 1.809048475800536
+$$</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>This approach can be altered to help compute a wide variety of integrals. Including switching away from Gauss-Legendre, by specifying a non uniform distribution.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Non-Uniform-Weight-Distribution-">Non Uniform Weight Distribution <a class="anchor" id="NUWD"></a><a class="anchor-link" href="#Non-Uniform-Weight-Distribution-">¶</a></h3>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>We will now quickly showcase how to use equadratures to compute integrals with non uniform weight distributions such as a Gaussian distribution. Consider the following function:</p>
+<p>$$
+L(x) = \int_{-\infty}^{\infty}sin(x)\rho(x) \approx \sum_{n=1}^{i}f(points_i)*weights_i
+$$
+where...
+$$
+\rho(x) = \mathcal{N}(\mu, \sigma^2)
+$$</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">l</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1">#Gaussian Distribution with mean -1 and variance 0.8</span>
+<span class="n">gaussianParameter</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">lower</span><span class="o">=-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span> <span class="n">distribution</span><span class="o">=</span><span class="s1">'Gaussian'</span><span class="p">,</span> <span class="n">shape_parameter_A</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">shape_parameter_B</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">uniBasis</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Basis</span><span class="p">(</span><span class="s1">'univariate'</span><span class="p">)</span>
+<span class="n">gaussianPoly</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Poly</span><span class="p">(</span><span class="n">gaussianParameter</span><span class="p">,</span> <span class="n">uniBasis</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'numerical-integration'</span><span class="p">)</span>
+
+<span class="c1">#Returning points and weights as previously done.</span>
+<span class="n">gaussianPoints</span><span class="p">,</span> <span class="n">gaussianWeights</span> <span class="o">=</span> <span class="n">gaussianPoly</span><span class="o">.</span><span class="n">get_points_and_weights</span><span class="p">()</span>
+
+<span class="n">evalGaussian</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">gaussianWeights</span> <span class="p">,</span> <span class="n">eq</span><span class="o">.</span><span class="n">evaluate_model</span><span class="p">(</span><span class="n">gaussianPoints</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">evalGaussian</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>-0.5640548692740877
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>And thus...
+$$
+L(x) = \int_{-\infty}^{\infty}sin(x)\rho(x) \approx -0.5640548692740783
+$$</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Bivariate-Distributions-">Bivariate Distributions <a class="anchor" id="BV"></a><a class="anchor-link" href="#Bivariate-Distributions-">¶</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Given that in the real world, we are typically interested in functions of multiple variables.</p>
+<p>Equadratures allows this through the specification of the multi-index, the possible multi-indices are called index sets.</p>
+<p>The following are the 6 index sets in Equadratures: tensor-grid, total-order, sparse-grid, hyperbolic-basis, and euclidean degree.</p>
+<p>For the pruposes of this tutorial, we will begin with a tensor-grid.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Tensor-Grid-">Tensor Grid <a class="anchor" id="TG"></a><a class="anchor-link" href="#Tensor-Grid-">¶</a></h3>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">tensor</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Basis</span><span class="p">(</span><span class="s1">'tensor-grid'</span><span class="p">,</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">])</span>
+<span class="n">biParam</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">lower</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">distribution</span><span class="o">=</span><span class="s1">'Uniform'</span><span class="p">)</span>
+
+<span class="n">biPoly</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Poly</span><span class="p">([</span><span class="n">biParam</span><span class="p">,</span> <span class="n">biParam</span><span class="p">],</span> <span class="n">tensor</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'numerical-integration'</span><span class="p">)</span>
+
+<span class="n">biPoints</span><span class="p">,</span> <span class="n">biWeights</span> <span class="o">=</span> <span class="n">biPoly</span><span class="o">.</span><span class="n">get_points_and_weights</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Now consider the multivariable function:
+$$
+G(x) = \int_{-1}^{1}\int_{-1}^{1}16x^3 + 8y^2 - 8y+6 \;dxdy
+$$</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">16</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">3</span><span class="o">+</span><span class="mi">8</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="mi">8</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">6</span><span class="p">;</span>
+
+<span class="n">xValuesBi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">yValuesBi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">biPoints</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">biPoints</span><span class="p">)[</span><span class="mi">1</span><span class="p">],</span> <span class="n">biWeights</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter3d</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span>
+    <span class="n">z</span><span class="o">=</span><span class="n">z</span><span class="p">,</span>
+    <span class="n">mode</span><span class="o">=</span><span class="s1">'markers'</span><span class="p">,</span>
+    <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+        <span class="n">size</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="n">z</span><span class="p">,</span>   
+        <span class="n">colorscale</span><span class="o">=</span><span class="s1">'Viridis'</span><span class="p">,</span>
+        <span class="n">opacity</span><span class="o">=</span><span class="mf">0.8</span>
+    <span class="p">)</span>
+<span class="p">)])</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
+<iframe allowfullscreen="" frameborder="0" height="545px" scrolling="no" src="numerical_integration/figure_10.html" width="100%"></iframe>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>The numerical integral is now easily calculated using the points and weights we had earlier computed.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">evalBi</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span> <span class="mi">2</span>  <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">biWeights</span> <span class="p">,</span> <span class="n">eq</span><span class="o">.</span><span class="n">evaluate_model</span><span class="p">(</span><span class="n">biPoints</span><span class="p">,</span> <span class="n">g</span><span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">evalBi</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>17.33333333333335
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>$$
+G(x) = \int_{-1}^{1}\int_{-1}^{1}16x^3 + 8y^2 - 8y+6 \;dxdy = 17.\overline{33}
+$$</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Sparse-Grid-">Sparse Grid <a class="anchor" id="SG"></a><a class="anchor-link" href="#Sparse-Grid-">¶</a></h3>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Now we will similarly approach the problem using a sparse grid.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">sparseGrid</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Basis</span><span class="p">(</span><span class="s1">'sparse-grid'</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">growth_rule</span><span class="o">=</span><span class="s1">'linear'</span><span class="p">)</span>
+<span class="n">sparsePoly</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Poly</span><span class="p">([</span><span class="n">biParam</span><span class="p">,</span> <span class="n">biParam</span><span class="p">],</span> <span class="n">sparseGrid</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'numerical-integration'</span><span class="p">)</span>
+<span class="n">sparsePoints</span><span class="p">,</span> <span class="n">sparseWeights</span> <span class="o">=</span> <span class="n">sparsePoly</span><span class="o">.</span><span class="n">get_points_and_weights</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">z1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">sparsePoints</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">sparsePoints</span><span class="p">)[</span><span class="mi">1</span><span class="p">],</span> <span class="n">sparseWeights</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter3d</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">x1</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">y1</span><span class="p">,</span>
+    <span class="n">z</span><span class="o">=</span><span class="n">z1</span><span class="p">,</span>
+    
+    <span class="n">mode</span><span class="o">=</span><span class="s1">'markers'</span><span class="p">,</span>
+    <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+        <span class="n">size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="n">z</span><span class="p">,</span>                
+        <span class="n">colorscale</span><span class="o">=</span><span class="s1">'Viridis'</span><span class="p">,</span>   
+        <span class="n">opacity</span><span class="o">=</span><span class="mf">0.8</span>
+    <span class="p">)</span>
+<span class="p">)])</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">'Weights vs Points'</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
+<iframe allowfullscreen="" frameborder="0" height="545px" scrolling="no" src="numerical_integration/figure_13.html" width="100%"></iframe>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Once more, the numeric value is then easily computed</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">evalSparse</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span> <span class="mi">2</span>  <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">sparseWeights</span> <span class="p">,</span> <span class="n">eq</span><span class="o">.</span><span class="n">evaluate_model</span><span class="p">(</span><span class="n">sparsePoints</span><span class="p">,</span> <span class="n">g</span><span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">evalBi</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>17.33333333333335
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>$$
+G(x) = \int_{-1}^{1}\int_{-1}^{1}16x^3 + 8y^2 - 8y+6 \;dxdydz = 17.\overline{33}
+$$</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Effectively-Subsampled-Quadratures-Grid-">Effectively Subsampled Quadratures Grid <a class="anchor" id="ESQD"></a><a class="anchor-link" href="#Effectively-Subsampled-Quadratures-Grid-">¶</a></h3>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>When considering the same bivariate function, we can utilize the true strengths of equadratures to compute a more computationally efficient integral. Using our effectively subsampled quadratures grid we are able to select a sampling grid that is able to both accurately and efficiently compute the very same integral, as we will demonstrate below.</p>
+<p>$$
+G(x) = \int_{-1}^{1}\int_{-1}^{1}16x^3 + 8y^2 - 8y+6 \;dxdy
+$$</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">X1</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">lower</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="n">basis</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Basis</span><span class="p">(</span><span class="s1">'total-order'</span><span class="p">,</span> <span class="n">orders</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">])</span>
+
+<span class="c1">#basis.plot_index_set()</span>
+
+<span class="n">effSubPoly</span> <span class="o">=</span> <span class="n">eq</span><span class="o">.</span><span class="n">Poly</span><span class="p">([</span><span class="n">X1</span><span class="p">,</span><span class="n">X1</span><span class="p">],</span> <span class="n">basis</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'least-squares'</span><span class="p">,</span> 
+                  <span class="n">sampling_args</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'mesh'</span><span class="p">:</span> <span class="s1">'tensor-grid'</span><span class="p">,</span> <span class="s1">'subsampling-algorithm'</span><span class="p">:</span> <span class="s1">'qr'</span><span class="p">})</span>
+
+<span class="n">effSubPoints</span><span class="p">,</span> <span class="n">effSubWeights</span> <span class="o">=</span> <span class="n">effSubPoly</span><span class="o">.</span><span class="n">get_points_and_weights</span><span class="p">()</span>
+
+<span class="n">evalEffSub</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span> <span class="mi">2</span>  <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">effSubWeights</span> <span class="p">,</span> <span class="n">eq</span><span class="o">.</span><span class="n">evaluate_model</span><span class="p">(</span><span class="n">effSubPoints</span><span class="p">,</span> <span class="n">g</span><span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">evalEffSub</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>17.33333333333333
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Resulting in:</p>
+<p>$$
+G(x) = \int_{-1}^{1}\int_{-1}^{1}16x^3 + 8y^2 - 8y+6 \;dxdy = 17.\overline{33}
+$$</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>As seen above, allowing equadratures to select a subsampling grid will enable it to more efficiently compute the desired integral.</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
+</html>

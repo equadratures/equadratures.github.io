@@ -1,0 +1,2 @@
+Derived from defaults:
+https://github.com/jupyter/nbconvert/tree/main/share/templates
