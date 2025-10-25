@@ -26,6 +26,12 @@ metadata:
     handle: '@equadratures'
     site: '@equadratures'
     cardType: summary_large_image
+  package:
+    name: 'equadratures'
+    url: https://pypi.org/pypi/equadratures
+  github:
+    org: equadratures
+    repo: equadratures
 
 i18n:
   language: en

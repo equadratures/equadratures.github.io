@@ -13,6 +13,16 @@ const metadata = {
   ignoreTitleTemplate: true,
 };
 
+import { METADATA } from 'astrowind:config';
+import { fetchPyPIDownloadStats, fetchGitHubStats } from '../utils/custom-utils'
+
+const github_org = METADATA.github.org
+const github_repo  = METADATA.github.repo
+
+const download_stats = await fetchPyPIDownloadStats(METADATA.package.name.toLowerCase());
+const n_downloads_last_month = download_stats.data.last_month
+const github_stats = await fetchGitHubStats(github_org, github_repo);
+
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/**/*.{jpeg,jpg,png,gif}')
 ---
 
@@ -56,10 +66,10 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/
 
   <Stats
     stats={[
-      { title: 'Downloads', amount: '12K' },
-      { title: 'Stars', amount: '2.8K' },
-      { title: 'Forks', amount: '1.3K' },
-      { title: 'Users', amount: '4.4K' },
+      { title: 'Downloads last month', amount: `${n_downloads_last_month}`},
+      { title: 'GitHub Stars', amount: `${github_stats.n_stars}` },
+      { title: 'GitHub Forks', amount: `${github_stats.n_forks}` },
+      { title: 'GitHub Watchers', amount: `${github_stats.n_watchers}` },
     ]}
   />
 
