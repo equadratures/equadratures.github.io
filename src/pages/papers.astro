@@ -1,0 +1,119 @@
+---
+import PaperCard from '~/components/ui/PapersCard.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+// Dynamically load multiple imgs - making my life a lot easier
+// Ref: https://docs.astro.build/en/recipes/dynamically-importing-images/
+const images = import.meta.glob('/src/assets/images/papers/**/*.{jpeg,jpg,png,gif}', {
+  eager: true,
+});
+
+
+const papers = [
+  {
+    href: "https://arxiv.org/abs/2203.03508",
+    image: {
+      src: images['/src/assets/images/papers/prior.png'].default,
+      alt: "Prior-informed Uncertainty Modelling with Bayesian Polynomial Approximations",
+      style: '',
+    },
+    discourseLink: "https://discourse.equadratures.org/t/exploring-the-interactions-between-experiments-and-simulations-using-bayesian-polynomials/188/2",
+    preprintLink: "",
+    journalLink: "",
+  },
+  {
+    href: "https://doi.org/10.1063/5.0064000",
+    image: {
+      src: images['/src/assets/images/papers/polyridge.png'].default,
+      alt: "Polynomial ridge flowfield estimation",
+      style: '',
+    },
+    discourseLink: "https://discourse.equadratures.org/t/exploring-the-interactions-between-experiments-and-simulations-using-bayesian-polynomials/188/2",
+    preprintLink: "https://arxiv.org/abs/2107.07547",
+    journalLink: "https://doi.org/10.1063/5.0064000",
+  },
+  {
+    href: "https://arxiv.org/abs/1907.08113",
+    image: {
+      src: images['/src/assets/images/papers/extremum.png'].default,
+      alt: "Extremum Sensitivity Analysis with Polynomial Monte Carlo Filtering",
+      style: '',
+    },
+    discourseLink: "https://discourse.equadratures.org/t/exploring-the-interactions-between-experiments-and-simulations-using-bayesian-polynomials/188/2",
+    preprintLink: "https://arxiv.org/abs/1907.08113",
+    journalLink: "",
+  },
+  {
+    href: "https://doi.org/10.1016/j.cma.2020.113383",
+    image: {
+      src: images['/src/assets/images/papers/embedded.png'].default,
+      alt: "Embedded ridge approximations",
+      style: '',
+    },
+    discourseLink: "https://discourse.equadratures.org/t/exploring-the-interactions-between-experiments-and-simulations-using-bayesian-polynomials/188/2",
+    preprintLink: "",
+    journalLink: "https://doi.org/10.1016/j.cma.2020.113383",
+  },
+  {
+    href: "https://doi.org/10.1115/1.4053239",
+    image: {
+      src: images['/src/assets/images/papers/be1.png'].default,
+      alt: "Blade Envelopes Part I: Concept and Methodology",
+      style: '',
+    },
+    discourseLink: "https://discourse.equadratures.org/t/exploring-the-interactions-between-experiments-and-simulations-using-bayesian-polynomials/188/2",
+    preprintLink: "",
+    journalLink: "https://doi.org/10.1115/1.4053239",
+  },
+  {
+    href: "https://doi.org/10.1115/1.4053240",
+    image: {
+      src: images['/src/assets/images/papers/be2.png'].default,
+      alt: "Blade Envelopes Part II: Multiple Objectives and Inverse Design",
+      style: '',
+    },
+    discourseLink: "https://discourse.equadratures.org/t/exploring-the-interactions-between-experiments-and-simulations-using-bayesian-polynomials/188/2",
+    preprintLink: "",
+    journalLink: "https://doi.org/10.1115/1.4053240",
+  },
+  {
+    href: "https://doi.org/10.1137/16M1057668",
+    image: {
+      src: images['/src/assets/images/papers/eq.png'].default,
+      alt: "Effectively Subsampled Quadratures for Least Squares Polynomial Approximations",
+      style: '',
+    },
+    discourseLink: "https://discourse.equadratures.org/t/exploring-the-interactions-between-experiments-and-simulations-using-bayesian-polynomials/188/2",
+    preprintLink: "",
+    journalLink: "https://doi.org/10.1137/16M1057668",
+  }
+];
+
+---
+
+
+<Layout title="Papers">
+  <main class="px-4 py-8">
+    <div class="text-center max-w-5xl m-auto" id="feature-notebooks">
+      <p class="font-bold leading-tighter tracking-tighter font-heading text-heading text-3xl md:text-4xl intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
+        Papers
+      </p>
+    </div>
+    <p class="text-center text-gray-700 dark:text-gray-300 mb-12 max-w-3xl mx-auto intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
+      The research behind the equadratures project spans numerous topics ranging from applied mathematics to Bayesian inference, and computational simulation techniques. We are particularly interested in high-dimensional approximation, stochastic inference, and numerical integration for complex multivariate distributions. Click any card to go to the publication or pre-print.
+    </p>
+
+    <!-- Responsive Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-16 px-6">
+      {papers.map(paper => (
+        <PaperCard
+          href={paper.href}
+          image={paper.image}
+          discourseLink={paper.discourseLink}
+          preprintLink={paper.preprintLink}
+          journalLink={paper.journalLink}
+        />
+      ))}
+    </div>
+  </main>
+</Layout>
