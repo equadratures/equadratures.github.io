@@ -1,0 +1,64 @@
+---
+import PageLayout from '~/layouts/PageLayout.astro'; 
+import { Image } from 'astro:assets';
+import EPSRCLogo from '~/assets/logos/epsrc.png';
+import TuringLogo from '~/assets/logos/turing.png';
+import JesusLogo from '~/assets/logos/jesus.png';
+import CambridgeLogo from '~/assets/logos/cambridge.png';
+import LRFLogo from '~/assets/logos/lrf.png';
+---
+
+<PageLayout title="Partnerships & Funding">
+  <main class="mt-16">
+    <div class="container mx-auto">
+      <div class="flex justify-center my-6 pb-6">
+        <div class="card p-4 w-full max-w-3xl shadow-xl">
+          <div class="card-body d-flex flex-column align-items-center light-mode">
+            <div class="text-center max-w-5xl m-auto py-3">
+              <p class="text-base text-secondary dark:text-blue-200 font-bold tracking-wide uppercase intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
+                Partnerships & Funding
+              </p>
+            </div>
+            <div class="card-text">
+              <p class="text-base motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
+                equadratures has been supported by numerous grants. It was founded
+                through an
+                <a href="https://epsrc.ukri.org/">Engineering and Physical Sciences Research Council (EPSRC) Knowledge Transfer Fellowship (KTF)</a>
+                from the
+                <a href="https://www.eng.cam.ac.uk/">Department of Engineering at the University of Cambridge</a>
+                in 2016. Since 2018, the project has been supported by Wave 1 of The
+                <a href="https://www.ukri.org/">UKRI</a> Strategic Priorities Fund
+                under the EPSRC Grant EP/T001569/1, particularly the Digital twins for
+                aeronautics theme within that grant, and by the
+                <a href="https://www.turing.ac.uk/research/research-programmes/data-centric-engineering">Lloyd’s Register Foundation-Alan Turing Institute programme on Data-Centric Engineering</a>
+                under the LRF grant G0095. The project is also grateful to the financial support of
+                <a href="https://www.jesus.cam.ac.uk/">Jesus College Cambridge</a>
+                and the
+                <a href="https://www.cambridgetrust.org/">Cambridge Trusts</a>. The
+                outputs of all these projects have been made openly available.
+              </p>
+
+              <div class="text-center">
+                <div class="row">
+                  <div class="column_type_3">
+                    <Image src={EPSRCLogo} alt="EPSRC Logo" class="mx-auto mb-4" style="width: 30%; padding: 1px; max-width: 250px;" />
+                    <Image src={TuringLogo} alt="Turing Logo" class="mx-auto mb-4" style="width: 30%; padding: 1px; max-width: 250px;" />
+                    <Image src={JesusLogo} alt="Jesus Logo" class="mx-auto mb-4" style="width: 30%; padding: 1px; max-width: 250px;" />
+                    <Image src={CambridgeLogo} alt="Cambridge Logo" class="mx-auto mb-4" style="width: 30%; padding: 1px; max-width: 250px;" />
+                    <Image src={LRFLogo} alt="LRF Logo" class="mx-auto mb-4" style="width: 30%; padding: 1px; max-width: 250px;" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</PageLayout>
+
+<style>
+a {
+  color: blue;
+}
+</style>
