@@ -3,6 +3,14 @@ import { getPermalink, getAsset } from './utils/permalinks';
 export const headerData = {
   links: [
     {
+      text: 'A Short Course',
+      href: getPermalink('/a-short-course'),
+    },
+    {
+      text: 'Papers',
+      href: getPermalink('/papers'),
+    },
+    {
       text: 'Case Studies',
       links: [
         {
@@ -14,14 +22,6 @@ export const headerData = {
           href: getPermalink('/case-studies/aerospace-design-and-manufacturing'),
         },
       ],
-    },
-    {
-      text: 'Papers',
-      href: getPermalink('/papers'),
-    },
-    {
-      text: 'A Short Course',
-      href: getPermalink('/a-short-course'),
     },
   ],
   actions: [{ text: 'Install', href: 'https://pypi.org/project/equadratures/', target: '_blank' }],
