@@ -22,6 +22,14 @@ try {
   console.error(err);
   notebookHTML = `<p>Error loading notebook <code>${slug}</code></p>`;
 }
+
+// Replace relative src/href paths with absolute paths
+// This converts any relative src or href (like figure_6.html) to /notebooks/figure_6.html.
+// Works in both npm run dev and npm run build.
+notebookHTML = notebookHTML.replace(
+  /(src|href)="((?!https?:\/\/|\/)[^"]+)"/g,
+  '$1="/notebooks/$2"'
+);
 ---
 
 <Layout>
