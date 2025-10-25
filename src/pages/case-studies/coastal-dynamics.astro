@@ -1,0 +1,85 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+---
+
+<Layout title="Case Study 1">
+  <main class="flex flex-col items-center justify-center py-10 w-full">
+    <h1 class="text-3xl font-bold mb-6 text-center">
+      Case Study 1
+    </h1>
+
+    <!-- Fixed-width container -->
+    <div id="pdf-container" class="w-full max-w-4xl aspect-[1/1.414] shadow-md">
+      <canvas id="pdf-canvas" class="w-full h-full"></canvas>
+    </div>
+  </main>
+
+  <script type="module">
+    async function loadPDF() {
+      if (!window.pdfjsLib) {
+        await new Promise((resolve, reject) => {
+          const script = document.createElement("script");
+          script.src = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js";
+          script.onload = resolve;
+          script.onerror = reject;
+          document.head.appendChild(script);
+        });
+      }
+
+      window.pdfjsLib.GlobalWorkerOptions.workerSrc =
+        "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+
+      const url = "/pdfs/case-study-1.pdf";
+      const container = document.getElementById("pdf-container");
+      const canvas = document.getElementById("pdf-canvas");
+      const ctx = canvas.getContext("2d");
+
+      const renderPDF = async () => {
+        const container = document.getElementById("pdf-container");
+        const canvas = document.getElementById("pdf-canvas");
+        const ctx = canvas.getContext("2d");
+
+        // Ensure the container has a defined width
+        if (container.clientWidth === 0) {
+          // Wait for the next animation frame to check again
+          requestAnimationFrame(renderPDF);
+          return;
+        }
+
+        const url = "/pdfs/case-study-1.pdf";
+        const pdf = await window.pdfjsLib.getDocument(url).promise;
+        const page = await pdf.getPage(1);
+
+        // Fit to container width
+        const viewport = page.getViewport({ scale: 0.5, dontFlip: true });
+        const scale = container.clientWidth / viewport.width;
+        //const scale = (window.innerWidth * 0.2) / viewport.width;
+        const scaledViewport = page.getViewport({ scale });
+
+        // Set canvas dimensions
+        canvas.width = scaledViewport.width;
+        canvas.height = scaledViewport.height;
+
+        // Render the page
+        await page.render({ canvasContext: ctx, viewport: scaledViewport }).promise;
+      };
+
+      // Render once container has a size
+      if (container.clientWidth > 0) {
+        renderPDF();
+      } else {
+        // Use ResizeObserver in case container not yet laid out
+        const observer = new ResizeObserver(() => {
+          if (container.clientWidth > 0) {
+            renderPDF();
+            observer.disconnect();
+          }
+        });
+        observer.observe(container);
+      }
+    }
+
+    document.addEventListener("astro:page-load", loadPDF);
+  </script>
+</Layout>
+
