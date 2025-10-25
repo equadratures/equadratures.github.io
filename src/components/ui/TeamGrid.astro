@@ -1,0 +1,140 @@
+---
+import type { Team as Props } from '~/types';
+import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
+import { twMerge } from 'tailwind-merge';
+
+const { team = [], columns, classes = {} } = Astro.props;
+
+const {
+  container: containerClass = '',
+  panel: panelClass = '',
+  name: defaultNameClass = '',
+  job: defaultJobClass = 'text-sm',
+  description: defaultDescriptionClass = '',
+  image: defaultImageClass = '',
+  icon: defaultIconClass = '',
+} = classes;
+---
+
+{
+  team && (
+    <div
+      class={twMerge(
+        `grid gap-8 gap-x-6 sm:gap-y-8 ${
+          columns === 4
+            ? 'lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2'
+            : columns === 3
+              ? 'lg:grid-cols-3 sm:grid-cols-2'
+              : columns === 2
+                ? 'sm:grid-cols-2 '
+                : ''
+        }`,
+        'max-w-4xl mx-auto',
+        // `${classes?.container}`
+        containerClass as string
+      )}
+    >
+      {team.map(({ name, job, image, socials = [], description, classes: itemClasses = {} }) => (
+        <div
+          class={twMerge(
+            // `${classes?.panel}`,
+            // Empty string if team item is empty, otherwise merge the classes
+            name
+              ? 'relative flex flex-col items-center justify-start intersect-once intersect-quarter intercept-no-queue motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade team-grid'
+              : '',
+            name ? 'mt-24 md:mt-20' : '',
+            name ? (panelClass as string) : '',
+            itemClasses?.panel
+          )}
+        >
+          <span class="anchor" id={name?.split(' ').join('-').toLowerCase()} />
+          {/* Image Circle */}
+          {image && (
+            <div class="my-5">
+              <Image
+                src={image?.src}
+                alt={image?.alt ? image.alt : ''}
+                class={twMerge(
+                  'mb-2 w-10 h-10',
+                  'w-36 h-36 rounded-full object-cover absolute top-[-35%] left-1/2 transform -translate-x-1/2',
+                  defaultImageClass as string,
+                  itemClasses?.image
+                )}
+              />
+            </div>
+          )}
+
+          {/* Name */}
+          <div class={twMerge('text-xl font-bold', defaultNameClass as string, itemClasses?.name)}>{name}</div>
+
+          {/* Job Title */}
+          <div class={twMerge('text-lg text-muted', defaultJobClass as string, itemClasses?.job)}>{job}</div>
+
+          {/* Description */}
+          {description && (
+            <p
+              class={twMerge('text-muted mt-2', defaultDescriptionClass as string, itemClasses?.description)}
+              set:html={description}
+            />
+          )}
+
+          {/* Social Media Icons */}
+          <ul class="socialicons mb-5 flex space-x-4">
+            {socials.map(({ href, icon }) => (
+              <li class="duration-500">
+                <a href={href} target="_blank" rel="noopener noreferrer">
+                  <Icon name={icon} class={twMerge('text-4xl', defaultIconClass as string, itemClasses?.icon)} />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+<style>
+  .team-grid:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8));
+    transition: 0s;
+  }
+
+  /* Nothing fancy on touch-screen devices */
+  @media (pointer: coarse) or (pointer: none) {
+    .socialicons {
+      margin-top: 1.25rem;
+    }
+  }
+
+  /* Fancy stuff for social media icons on non-touch devices */
+  @media (hover: hover) and (pointer: fine) {
+    .socialicons li {
+      transform: translateY(0px);
+      opacity: 0;
+    }
+
+    .team-grid:hover .socialicons li {
+      list-style: none;
+      margin: 0 15px;
+      transform: translateY(20px);
+      opacity: 1;
+    }
+
+    .team-grid:hover .socialicons li:hover {
+      transform: translateY(20px) scale(1.5);
+      opacity: 1;
+    }
+  }
+
+  /* Anchor to fix hyperlinking not centering on individual team members cards */
+  .anchor {
+    display: block;
+    height: 50vh; /*same height as header*/
+    margin-top: -50vh; /*same height as header*/
+    visibility: hidden;
+  }
+</style>

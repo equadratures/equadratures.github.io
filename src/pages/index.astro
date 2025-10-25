@@ -2,15 +2,18 @@
 import Layout from '~/layouts/PageLayout.astro';
 
 import Hero2 from '~/components/widgets/Hero2.astro';
+import CircularMenu from '~/components/widgets/CircularMenu.astro';
 import Content from '~/components/widgets/Content.astro';
 import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import Stats from '~/components/widgets/Stats.astro';
-import CircularMenu from '~/components/widgets/CircularMenu.astro';
+import Team from '~/components/widgets/Team.astro';
 
 const metadata = {
   title: 'Learn continuous structure | equadratures',
   ignoreTitleTemplate: true,
 };
+
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/**/*.{jpeg,jpg,png,gif}')
 ---
 
 <Layout metadata={metadata}>
@@ -49,14 +52,6 @@ const metadata = {
   </div>
   <CircularMenu />
 
-  <!-- HighlightedPosts Widget ******* -->
-
-  <BlogLatestPosts
-    title="Find out more content in our Blog"
-    information={`The blog is used to display latest equadratures posts.
-                `}
-  />
-
   <!-- Stats Widget ****************** -->
 
   <Stats
@@ -66,6 +61,110 @@ const metadata = {
       { title: 'Forks', amount: '1.3K' },
       { title: 'Users', amount: '4.4K' },
     ]}
+  />
+
+
+  <!-- Team Widget *************** -->
+
+  <Team
+    id="team-members"
+    title="The equadratures Team"
+    subtitle="Collaborators managing various aspects of the project."
+    tagline="Team"
+    description="The equadratures project is a collaboration between multiple institutions. It is made possible thanks to the open-source contributions of many academic and industrial organisations. The names here are only those who continually manage the project, but many more have been responsible for the innovation and research!"
+    team={
+    [
+      {
+        name: 'Pranay Seshadri',
+        job: 'Principal Investigator',
+        description: 'Associate Professor, Georgia Institute of Technology',
+        image: {src: images['/src/assets/images/team/pranay.jpeg'](),
+                alt: 'Picture of Pranay Seshadri'
+              },
+        socials: [
+          {
+            icon: 'arcticons:earth',
+            href: 'https://psesh.github.io/'
+          },
+          {
+            icon: 'arcticons:researchgate',
+            href: 'https://www.researchgate.net/profile/Pranay-Seshadri-3'
+          },
+          {
+            icon: 'arcticons:linkedin',
+            href: 'https://www.linkedin.com/in/pranay-seshadri-0815971b0/'
+          },
+          {
+            icon: 'arcticons:github',
+            href: 'https://github.com/psesh'
+          },
+        ],
+      },
+      {
+        name: 'Andrew Duncan, PhD',
+        job: 'Senior Lecturer',
+        description: 'Imperial College London',
+        image: {src: images['/src/assets/images/team/andrew.jpeg'](),
+                alt: 'Picture of Andrew Duncan'
+              },
+        socials: [
+          {
+            icon: 'arcticons:earth',
+            href: 'http://wwwf.imperial.ac.uk/~aduncan/'
+          },
+          {
+            icon: 'arcticons:researchgate',
+            href: 'https://www.researchgate.net/profile/Andrew-Duncan-23'
+          },
+          {
+            icon: 'arcticons:linkedin',
+            href: 'https://www.linkedin.com/in/andrew-duncan-404690140'
+          },
+          {
+            icon: 'arcticons:github',
+            href: 'https://github.com/aduncan001'
+          },
+        ],
+      },
+      {
+        name: 'Bryn Noel Ubald',
+        job: 'Research Software Engineer',
+        description: 'British Antarctic Survey',
+        image: {src: images['/src/assets/images/team/bryn.jpeg'](),
+                alt: 'Picture of Bryn Noel Ubald'
+              },
+        socials: [
+          {
+            icon: 'arcticons:earth',
+            href: 'https://www.brynnoelubald.com/'
+          },
+          {
+            icon: 'arcticons:researchgate',
+            href: 'https://www.researchgate.net/profile/Bryn-Ubald'
+          },
+          {
+            icon: 'arcticons:linkedin',
+            href: 'https://www.linkedin.com/in/bryn-noel-ubald/'
+          },
+          {
+            icon: 'arcticons:github',
+            href: 'https://github.com/bnubald'
+          },
+        ],
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Team>
+
+  <!-- HighlightedPosts Widget ******* -->
+
+  <BlogLatestPosts
+    title="Find out more content in our Blog"
+    information={`The blog is used to display latest equadratures posts.
+                `}
   />
 
 </Layout>
