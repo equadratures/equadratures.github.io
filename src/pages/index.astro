@@ -4,7 +4,6 @@ import Layout from '~/layouts/PageLayout.astro';
 import Hero2 from '~/components/widgets/Hero2.astro';
 import CircularMenu from '~/components/widgets/CircularMenu.astro';
 import Content from '~/components/widgets/Content.astro';
-import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import Team from '~/components/widgets/Team.astro';
 
@@ -74,16 +73,6 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/
       { title: 'GitHub Watchers', amount: `${github_stats.n_watchers}` },
     ]}
   />
-
-
-  <!-- HighlightedPosts Widget ******* -->
-
-  <BlogLatestPosts
-    title="Find out more content in our Blog"
-    information={`The blog is used to display latest equadratures posts.
-                `}
-  />
-
 
   <!-- Team Widget *************** -->
 
