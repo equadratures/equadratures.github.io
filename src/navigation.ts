@@ -130,19 +130,19 @@ export const footerData = {
     {
       title: 'Management',
       links: [
-        { text: 'Partnerships', href: '#' },
+        { text: 'Partnerships', href: '/partnerships' },
       ],
     },
     {
       title: 'Code',
       links: [
-        { text: 'Docs', href: '#' },
-        { text: 'Discourse', href: '#' },
+        { text: 'Docs', href: 'https://equadratures.org/documentation/' },
+        { text: 'Discourse', href: 'https://discourse.equadratures.org/' },
       ],
     },
   ],
   secondaryLinks: [
-    { text: 'Code of Conduct', href: getPermalink('/code-of-conduct') },
+    { text: 'Code of Conduct', href: getPermalink('/numfocus') },
   ],
   socialLinks: [
     { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/equadratures/equadratures' },
