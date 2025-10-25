@@ -1,0 +1,25 @@
+---
+import PageLayout from '~/layouts/PageLayout.astro'; 
+import { Image } from 'astro:assets';
+import NumFocusImage from '~/assets/logos/numfocus-affiliated-project.png';
+---
+
+<PageLayout title="About Us">
+  <div class="flex justify-center my-6 pb-6">
+    <div class="card p-4 w-full max-w-3xl shadow-xl">
+      <Image src={NumFocusImage} alt="NumFOCUS Affiliated Project" class="mx-auto mb-4" style="max-width: 200px;" />
+      <div class="card-text">
+        <p>
+          Our code is proudly a NumFOCUS affiliated project. We support openness in computational mathematics and statistics, and our ethos aligns with the
+          <a href="https://numfocus.org/code-of-conduct" class="text-blue-600">NumFOCUS Code of Conduct</a>.
+        </p>
+        <ul class="mt-4 text-left list-disc pl-5">
+          <li>Be kind to others and behave professionally.</li>
+          <li>Keep communication appropriate for a professional audience.</li>
+          <li>We do not tolerate harassment in any form.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</PageLayout>
+
