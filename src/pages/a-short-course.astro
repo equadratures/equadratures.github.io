@@ -1,0 +1,43 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+---
+
+<Layout title="Course">
+  <main class="flex flex-col items-center justify-center py-8 px-4">
+    <div class="text-center max-w-5xl m-auto" id="feature-notebooks">
+      <p class="font-bold leading-tighter tracking-tighter font-heading text-heading text-3xl md:text-4xl intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
+        Course
+      </p>
+      <p class="text-base tracking-wide intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade py-6">
+        A gentle introduction to equadratures.
+      </p>
+    </div>
+
+    <!-- Speaker Deck 1 -->
+    <div class="w-full max-w-3xl aspect-video mb-10 relative">
+      <iframe
+        class="absolute top-0 left-0 w-full h-full rounded-md shadow-md"
+        src="https://speakerdeck.com/player/0732309ef01d4fe0a44e2dd083129b52"
+        title="A Short Course"
+        frameborder="0"
+        allowfullscreen="true"
+        mozallowfullscreen="true"
+        webkitallowfullscreen="true"
+      ></iframe>
+    </div>
+
+    <!-- Speaker Deck 2 -->
+    <div class="w-full max-w-3xl aspect-video mb-20 relative">
+      <iframe
+        class="absolute top-0 left-0 w-full h-full rounded-md shadow-md"
+        src="https://speakerdeck.com/player/39b3cbf85dfc4274b0fdf2fdd23dbdc5"
+        title="Dimension Reduction"
+        frameborder="0"
+        allowfullscreen="true"
+        mozallowfullscreen="true"
+        webkitallowfullscreen="true"
+      ></iframe>
+    </div>
+  </main>
+</Layout>
+
