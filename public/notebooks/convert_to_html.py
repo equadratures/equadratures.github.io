@@ -93,4 +93,5 @@ for script in soup.find_all("script"):
 
 # Write to output html file
 with open(filename + ".html", "w", encoding="utf-8") as f:
+    print(f"Outputting to {filename}.html")
     f.write(str(soup))
