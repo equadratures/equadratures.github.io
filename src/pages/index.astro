@@ -60,7 +60,9 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/
       Feature Notebooks
     </p>
   </div>
-  <CircularMenu />
+  <div class="motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade" id="feature-notebooks">
+    <CircularMenu />
+  </div>
 
   <!-- Stats Widget ****************** -->
 
