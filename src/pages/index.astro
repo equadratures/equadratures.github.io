@@ -76,8 +76,8 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/
     [
       {
         name: 'Pranay Seshadri',
-        job: 'Principal Investigator',
-        description: 'Associate Professor, Georgia Institute of Technology',
+        job: 'Associate Professor',
+        description: 'Georgia Institute of Technology',
         image: {src: images['/src/assets/images/team/pranay.jpeg'](),
                 alt: 'Picture of Pranay Seshadri'
               },
@@ -159,6 +159,119 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/
     </Fragment>
   </Team>
 
+
+  <div class="flex justify-center">
+    <div class="space-y-4">
+      <!-- Button to toggle collapsible content -->
+      <button
+        id="toggle-button"
+        class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition duration-200"
+        onclick="toggleCollapsible()">
+        Former Contributors
+      </button>
+    </div>
+  </div>
+
+  <!-- Collapsible former contributors content -->
+  <div
+    id="collapsible-content"
+    class="transition-all duration-300 ease-in-out overflow-hidden max-h-0 bg-gray-100 p-4 rounded-md mt-2"
+    style="max-height: 0; background-color: transparent;">
+
+    <Team
+      id="former-team-members"
+      description="The equadratures project is a collaboration between multiple institutions. It is made possible thanks to the open-source contributions of many academic and industrial organisations. The names here are only those who continually manage the project, but many more have been responsible for the innovation and research!"
+      style=""
+      team={
+      [
+        {
+          name: 'Peter Yatsyshin',
+          job: 'Research Associate',
+          description: 'The Alan Turing Institute',
+          image: {src: images['/src/assets/images/team/peter.jpeg'](),
+                  alt: 'Picture of Peter Yatsyshin'
+                },
+          socials: [
+            {
+              icon: 'arcticons:earth',
+              href: 'https://www.yatsyshin.com/'
+            },
+            {
+              icon: 'arcticons:researchgate',
+              href: 'https://www.researchgate.net/profile/Peter-Yatsyshin'
+            },
+            {
+              icon: 'arcticons:linkedin',
+              href: 'https://www.linkedin.com/in/peter-yatsyshin-phd/'
+            },
+            {
+              icon: 'arcticons:github',
+              href: 'https://github.com/pyatsysh'
+            },
+          ],
+        },
+        {
+          name: 'Elizabeth Mone',
+          job: 'Undergraduate',
+          description: 'Georgia Institute of Technology',
+          image: {src: images['/src/assets/images/team/elizabeth.jpeg'](),
+                  alt: 'Picture of Elizabeth Mone'
+                },
+          socials: [
+            {
+              icon: 'arcticons:linkedin',
+              href: 'https://www.linkedin.com/in/elizabeth-mone-824b53265/'
+            },
+            {
+              icon: 'arcticons:github',
+              href: 'https://github.com/03emone'
+            },
+          ],
+        },
+        {
+          name: 'Roshan Amir',
+          job: 'Undergraduate',
+          description: 'Georgia Institute of Technology',
+          image: {src: images['/src/assets/images/team/roshan.jpeg'](),
+                  alt: 'Picture of Roshan Amir'
+                },
+          socials: [
+            {
+              icon: 'arcticons:linkedin',
+              href: 'https://www.linkedin.com/in/roshan-amir-b7564a209/'
+            },
+            {
+              icon: 'arcticons:github',
+              href: 'https://github.com/RoshuAmir918'
+            },
+          ],
+        },
+      ]}
+    >
+      <Fragment slot="bg">
+        <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+      </Fragment>
+    </Team>
+
+    <div class="grid gap-x-6 sm:gap-y-8 grid-cols-1 max-w-[283px] w-full mx-auto">
+      <div class="relative flex flex-col justify-start intersect-once intersect-quarter intercept-no-queue motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade team-grid text-center bg-page items-center p-6 rounded-md shadow-xl dark:shadow-none dark:border dark:border-slate-800">
+        <div class="my-5">
+          <p>Chun Yui Wong, PhD</p>
+          <p>Ashley Scillitoe, PhD</p>
+          <p>Barney Hill</p>
+          <p>Tiziano Ghisu, PhD</p>
+          <p>Simardeep Singh Sethi</p>
+          <p>Henry Shaowu Yuchi</p>
+          <p>James Gross, PhD</p>
+          <p Michaek Donnelly</p>
+          <p>Irene Virdis, PhD</p>
+          <p>Taran Kalra, PhD</p>
+        </div>
+    </div>
+  </div>
+
+
+
   <!-- HighlightedPosts Widget ******* -->
 
   <BlogLatestPosts
@@ -168,6 +281,17 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/
   />
 
 </Layout>
+
+<script is:inline>
+  function toggleCollapsible() {
+    const content = document.getElementById('collapsible-content');
+    if (content.style.maxHeight === '0px' || !content.style.maxHeight) {
+      content.style.maxHeight = content.scrollHeight + 'px'; // Expand content
+    } else {
+      content.style.maxHeight = '0px'; // Collapse content
+    }
+  }
+</script>
 
 <style>
 #feature-notebooks {
