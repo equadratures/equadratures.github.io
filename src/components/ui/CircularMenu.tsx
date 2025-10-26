@@ -33,14 +33,14 @@ export default function CircularMenu() {
             // Map each modal to a /notebooks/{slug} route
 	    // This should be <name>.ipynb, but skipping the file extension
             const modalMap: Record<string, string> = {
-              modal_s1: 'polynomials_over_subspaces',
-              modal_s2: 'stochastic_polynomials',
-              modal_s3: 'polynomial_gradients',
-              modal_s4: 'sparse_polynomials',
-              modal_s5: 'kernels_as_polynomials',
-              modal_s6: 'moments_and_sensitivity_analysis',
-              modal_s7: 'numerical_integration',
-              modal_s8: 'polynomials_over_cubes',
+              modal_s1: 'polynomials_over_subspaces/',
+              modal_s2: 'stochastic_polynomials/',
+              modal_s3: 'polynomial_gradients/',
+              modal_s4: 'sparse_polynomials/',
+              modal_s5: 'kernels_as_polynomials/',
+              modal_s6: 'moments_and_sensitivity_analysis/',
+              modal_s7: 'numerical_integration/',
+              modal_s8: 'polynomials_over_cubes/',
             };
 
             Object.entries(modalMap).forEach(([modalId, slug]) => {

@@ -4,22 +4,22 @@ export const headerData = {
   links: [
     {
       text: 'A Short Course',
-      href: getPermalink('/a-short-course'),
+      href: getPermalink('/a-short-course/'),
     },
     {
       text: 'Papers',
-      href: getPermalink('/papers'),
+      href: getPermalink('/papers/'),
     },
     {
       text: 'Case Studies',
       links: [
         {
           text: 'Coastal Dynamics',
-          href: getPermalink('/case-studies/coastal-dynamics'),
+          href: getPermalink('/case-studies/coastal-dynamics/'),
         },
         {
           text: 'Aerospace Design and Manufacturing',
-          href: getPermalink('/case-studies/aerospace-design-and-manufacturing'),
+          href: getPermalink('/case-studies/aerospace-design-and-manufacturing/'),
         },
       ],
     },
@@ -32,14 +32,14 @@ export const footerData = {
     {
       title: 'Affiliations',
       links: [
-        { text: 'NumFOCUS', href: '/numfocus' },
-        { text: 'Google Summer of Code', href: '/gsoc' },
+        { text: 'NumFOCUS', href: '/numfocus/' },
+        { text: 'Google Summer of Code', href: '/gsoc/' },
       ],
     },
     {
       title: 'Management',
       links: [
-        { text: 'Partnerships', href: '/partnerships' },
+        { text: 'Partnerships', href: '/partnerships/' },
       ],
     },
     {
