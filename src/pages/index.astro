@@ -35,9 +35,12 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/
         text: 'Documentation',
         href: '/documentation/index.html',
         target: '_blank',
-        icon: 'tabler:download',
+        icon: 'tabler:file-type-doc',
       },
-      { text: 'GitHub', href: 'https://github.com/equadratures/equadratures' },
+      { text: 'GitHub',
+        href: 'https://github.com/equadratures/equadratures',
+        icon: 'tabler:brand-github',
+      },
     ]}
     image={{ src: '~/assets/images/logo-opt.svg', alt: 'Equadratures logo', style: 'object-fit: contain;' }}
   >
