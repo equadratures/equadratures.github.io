@@ -24,6 +24,10 @@ const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroInteg
 
 export default defineConfig({
   output: 'static',
+  // Re-direct path to Sphinx index.html output
+  redirects: {
+   '/documentation': '/documentation/index.html',
+  },
 
   integrations: [
     react(),
