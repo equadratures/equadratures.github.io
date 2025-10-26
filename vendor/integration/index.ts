@@ -32,6 +32,16 @@ export default ({ config: _themeConfig = 'src/config.yaml' } = {}): AstroIntegra
           site: SITE.site,
           base: SITE.base,
 
+	  // Fix images not working when `trailingSlash` is enabled in config.yaml
+	  // `trailingSlash` needed since GitHub pages adds them forcefully,
+	  // else, CircularMenu opened notebook pages wouldn't have formatting.
+	  // https://github.com/arthelokyo/astrowind/issues/596#issuecomment-2698298670
+          image: {
+            endpoint: {
+              route: SITE.trailingSlash ? '/_image/' : '/_image',
+            }
+          },
+
           trailingSlash: SITE.trailingSlash ? 'always' : 'never',
 
           vite: {
