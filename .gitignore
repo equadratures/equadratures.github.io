@@ -23,3 +23,8 @@ pnpm-lock.yaml
 
 .astro
 *.ipynb_checkpoints/
+
+# Cached Sphinx docs environment (dependencies, metadata)
+*.doctrees/
+
+public/documentation/
