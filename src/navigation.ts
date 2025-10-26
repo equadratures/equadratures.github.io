@@ -45,7 +45,7 @@ export const footerData = {
     {
       title: 'Code',
       links: [
-        { text: 'Documentation', href: '/documentation' },
+        { text: 'Documentation', href: '/documentation/index.html' },
         { text: 'Discourse', href: 'https://discourse.equadratures.org/' },
       ],
     },
