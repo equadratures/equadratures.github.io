@@ -1,11 +1,11 @@
 name: Deploy to GitHub Pages
 
 on:
-  # Trigger the workflow every time you push to the `main` branch
-  # Using a different branch name? Replace `main` with your branch’s name
   push:
     branches: [ bryn_2025 ]
-  # Allows you to run this workflow manually from the Actions tab on GitHub.
+  # Picks up new commits on the library's main and develop branches
+  schedule:
+    - cron: "0 5 * * *"
   workflow_dispatch:
 
 # Allow this job to clone the repo and create a page deployment
@@ -20,25 +20,30 @@ jobs:
     steps:
       - name: Checkout this repository using git
         uses: actions/checkout@v4
-      - uses: mamba-org/setup-micromamba@v2
+      - name: Checkout equadratures main
+        uses: actions/checkout@v4
         with:
-          init-shell: >-
-            bash
-          post-cleanup: 'all'
-      - name: Set-up equadratures and docs environment
+          repository: equadratures/equadratures
+          ref: main
+          path: stable
+      - name: Checkout equadratures develop
+        uses: actions/checkout@v4
+        with:
+          repository: equadratures/equadratures
+          ref: develop
+          path: dev
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build the docs
         run: |
-          micromamba install -y pandoc
-          eval "$(micromamba shell hook --shell bash)"
-          micromamba activate base
-          pip install -r source-docs/requirements.txt
-          pip install equadratures
-          ./build_docs.sh
+          sudo apt-get update && sudo apt-get install -y pandoc
+          pip install "./stable[docs]"
+          DOCS_VERSION=stable sphinx-build -b html stable/docs public/documentation
+          pip install "./dev[docs]"
+          DOCS_VERSION=dev sphinx-build -b html dev/docs public/documentation/dev
       - name: Install, build, and upload your site
         uses: withastro/action@v4
-        # with:
-          # path: . # The root location of your Astro project inside the repository. (optional)
-          # node-version: 20 # The specific version of Node that should be used to build your site. Defaults to 20. (optional)
-          # package-manager: pnpm@latest # The Node package manager that should be used to install dependencies and build your site. Automatically detected based on your lockfile. (optional)
 
   deploy:
     needs: build

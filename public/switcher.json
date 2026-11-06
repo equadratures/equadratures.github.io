@@ -1,0 +1,4 @@
+[
+  {"name": "stable", "version": "stable", "url": "https://equadratures.org/documentation/", "preferred": true},
+  {"name": "dev", "version": "dev", "url": "https://equadratures.org/documentation/dev/"}
+]
